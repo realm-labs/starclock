@@ -1,9 +1,10 @@
 """Author and verify Goal 07 enemy partitions in the core production workbooks.
 
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
-(Complete), S03 owns the Automaton Grizzly (Complete), and S04 owns the Blaze
-Out of Space. Each partition receives an isolated 10,000-ID range so authoring
-and verification never consume rows owned by another partition.
+(Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
+of Space, and S05 owns Cloud Knight Lieutenant: Yanqing (Complete). Each
+partition receives an isolated 10,000-ID range so authoring and verification
+never consume rows owned by another partition.
 """
 
 from __future__ import annotations
@@ -51,6 +52,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.blaze-out-of-space.elite.variant.01",
         "source_record_id": 6,
         "evidence_record_id": 7,
+    },
+    "G07-P5-M15-S05": {
+        "base": 1_020_000,
+        "variant": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+        "source_record_id": 7,
+        "evidence_record_id": 8,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -4764,6 +4771,1841 @@ def owned_rows_s04() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s05() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S05 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "rapturous-wind": BASE + 101,
+        "swallow-return": BASE + 102,
+        "ironthorn": BASE + 103,
+        "ballad-formation-breaker": BASE + 104,
+        "qi-advance": BASE + 105,
+        "cascading-laceration": BASE + 106,
+        "qi-converge": BASE + 107,
+        "aethereal-dreamflux": BASE + 108,
+        "swallow-return-ordeal": BASE + 109,
+        "jadecarve-strike": BASE + 121,
+    }
+    linked = {
+        "sword-1": BASE + 201,
+        "sword-2": BASE + 202,
+        "sword-4": BASE + 204,
+        "sword-5": BASE + 205,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "applier": BASE + 403,
+        "current-subject": BASE + 404,
+        "primary-target": BASE + 405,
+        "opposing-random": BASE + 406,
+        "opposing-all": BASE + 407,
+        "primary-adjacent": BASE + 408,
+        "locked-target": BASE + 409,
+        "actor-summons": BASE + 410,
+        "owner-summons": BASE + 411,
+        "pair-2-4-random": BASE + 412,
+        "pair-1-5-random": BASE + 413,
+        "ordeal-summons": BASE + 414,
+        "ordinary-summons": BASE + 415,
+        "ordinary-random": BASE + 416,
+        "event-target": BASE + 417,
+        "pair-2-4-all": BASE + 418,
+        "ordeal-pair-2-4": BASE + 419,
+        "ordeal-pair-1-5": BASE + 420,
+    }
+    effects = {
+        "chilling-light": BASE + 501,
+        "sword-formation": BASE + 502,
+        "formation-core-wind": BASE + 503,
+        "formation-core-lightning": BASE + 504,
+        "formation-core-imaginary": BASE + 505,
+        "ordeal": BASE + 506,
+        "freeze": BASE + 507,
+        "qi-lock": BASE + 508,
+        "qi-advance": BASE + 509,
+    }
+    modifiers = {
+        "chilling-light": BASE + 521,
+        "sword-formation": BASE + 522,
+    }
+    modifier_groups = {
+        "chilling-light": BASE + 531,
+        "sword-formation": BASE + 532,
+    }
+    rules = {
+        "core-wind-break": BASE + 541,
+        "core-lightning-break": BASE + 542,
+        "core-imaginary-break": BASE + 543,
+        "formation-collapse": BASE + 544,
+        "ordeal-freeze": BASE + 545,
+    }
+    filters = {
+        "core-wind-break": BASE + 551,
+        "core-lightning-break": BASE + 552,
+        "core-imaginary-break": BASE + 553,
+        "formation-collapse": BASE + 554,
+        "ordeal-freeze": BASE + 555,
+    }
+    conditions = {
+        "always": BASE + 561,
+        "core-wind": BASE + 562,
+        "core-lightning": BASE + 563,
+        "core-imaginary": BASE + 564,
+        "no-swords": BASE + 565,
+    }
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s05(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(
+            id_,
+            stable_key,
+            kind,
+            name_en,
+            name_zh_cn,
+            summary,
+            sources,
+        )
+        row["summary_zh_cn"] = "Goal 07 S05 来源绑定的云骑骁卫·彦卿（完整）可执行定义。"
+        row["game_version_introduced"] = "1.5"
+        return row
+
+    identities.extend(
+        [
+            identity_s05(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Cloud Knight Lieutenant: Yanqing (Complete)",
+                "云骑骁卫·彦卿（完整）",
+                "Exact materialization variant used by frozen World 8 bindings.",
+                "1|7",
+            ),
+            identity_s05(
+                template,
+                "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss",
+                "Enemy",
+                "Cloud Knight Lieutenant: Yanqing (Complete) Template",
+                "云骑骁卫·彦卿（完整）模板",
+                "Version 4.4 boss template retained from source monster 2004021.",
+            ),
+        ]
+    )
+    for phase, graph in enumerate(graphs, start=1):
+        identities.append(
+            identity_s05(
+                graph,
+                f"ai.goal07.cloud-knight-lieutenant-yanqing-complete.phase-{phase}",
+                "AiGraph",
+                f"Yanqing Complete Phase {phase} AI",
+                f"彦卿完整形态{phase}阶段AI",
+                "Finite source-ordered boss action graph.",
+            )
+        )
+    ability_metadata = {
+        "rapturous-wind": ("Rapturous Wind", "快雨燕相逐", "200% Ice single-target strike."),
+        "swallow-return": ("Swallow Return", "遥击三尺水", "Summons four Flying Swords and creates Sword Formation."),
+        "ironthorn": ("Ironthorn", "铁马冰河入梦来", "350% Ice strike with one-turn Freeze."),
+        "ballad-formation-breaker": (
+            "Ballad, Formation Breaker",
+            "剑气吟",
+            "300% primary and 200% adjacent Ice damage.",
+        ),
+        "qi-advance": ("Qi Advance", "蓄势", "Charges Cascading Laceration."),
+        "cascading-laceration": (
+            "Cascading Laceration",
+            "破阵",
+            "400% Ice damage to all opponents.",
+        ),
+        "qi-converge": ("Qi Converge", "凝滞", "Locks the future Aethereal target."),
+        "aethereal-dreamflux": (
+            "Aethereal Dreamflux",
+            "空梦",
+            "300% Ice damage plus 300% for each surviving Flying Sword.",
+        ),
+        "swallow-return-ordeal": (
+            "Swallow Return — Ordeal",
+            "遥击三尺水·罹厄",
+            "Phase-three Sword Formation with two Ordeal swords.",
+        ),
+        "jadecarve-strike": (
+            "Jadecarve Strike",
+            "琢玉",
+            "Flying Sword 240% Ice single-target strike.",
+        ),
+    }
+    for key, ability_id in abilities.items():
+        name_en, name_zh_cn, summary = ability_metadata[key]
+        identities.append(
+            identity_s05(
+                ability_id,
+                f"enemy.cloud-knight-lieutenant-yanqing-complete.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    for key, linked_id in linked.items():
+        identities.append(
+            identity_s05(
+                linked_id,
+                f"unit.goal07.cloud-knight-lieutenant-yanqing-complete.{key}",
+                "CharacterForm",
+                f"Yanqing Flying Sword {key[-1]}",
+                f"彦卿飞剑{key[-1]}",
+                "Owner-scaled targetable Flying Sword summon.",
+            )
+        )
+    for key, selector_id_ in selectors.items():
+        identities.append(
+            identity_s05(
+                selector_id_,
+                f"selector.goal07.cloud-knight-lieutenant-yanqing-complete.{key}",
+                "Selector",
+                f"Yanqing {key} Selector",
+                f"彦卿{key}选择器",
+                "S05 battle selector.",
+            )
+        )
+    effect_metadata = {
+        "chilling-light": ("Chilling Light", "寒光", "Permanent 10% damage stack."),
+        "sword-formation": (
+            "Sword Formation",
+            "剑阵",
+            "Protects toughness and grants 60 flat SPD.",
+        ),
+        "formation-core-wind": ("Formation Core — Wind", "阵眼·风", "True Wind weakness."),
+        "formation-core-lightning": (
+            "Formation Core — Lightning",
+            "阵眼·雷",
+            "True Lightning weakness.",
+        ),
+        "formation-core-imaginary": (
+            "Formation Core — Imaginary",
+            "阵眼·虚数",
+            "True Imaginary weakness.",
+        ),
+        "ordeal": ("Ordeal", "罹厄", "Empowered sword toughness and attack Freeze."),
+        "freeze": ("Yanqing Freeze", "彦卿冻结", "One-turn control with delayed Ice damage."),
+        "qi-lock": ("Qi Converge Lock", "凝滞锁定", "Aethereal target marker."),
+        "qi-advance": ("Qi Advance Charge", "蓄势", "Cascading Laceration charge marker."),
+    }
+    for key, effect_id in effects.items():
+        name_en, name_zh_cn, summary = effect_metadata[key]
+        identities.append(
+            identity_s05(
+                effect_id,
+                f"effect.goal07.cloud-knight-lieutenant-yanqing-complete.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    for key, modifier_id in modifiers.items():
+        identities.append(
+            identity_s05(
+                modifier_id,
+                f"modifier.goal07.cloud-knight-lieutenant-yanqing-complete.{key}",
+                "Modifier",
+                f"Yanqing {key} Modifier",
+                f"彦卿{key}调整器",
+                "Effect-owned S05 stat modifier.",
+            )
+        )
+    for key, rule_id in rules.items():
+        identities.append(
+            identity_s05(
+                rule_id,
+                f"rule.goal07.cloud-knight-lieutenant-yanqing-complete.{key}",
+                "Rule",
+                f"Yanqing {key} Rule",
+                f"彦卿{key}规则",
+                "Effect-owned S05 Rule IR lifecycle rule.",
+            )
+        )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["applier"], "Applier", "SameSide"))
+    add(
+        "Selector",
+        selector(selectors["current-subject"], "CurrentSubject", "AnySide"),
+    )
+    add(
+        "Selector",
+        selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"),
+    )
+    random_opponent = selector(
+        selectors["opposing-random"],
+        "Actor",
+        "OpposingSide",
+        choice="RngUniform",
+    )
+    random_opponent["rng_purpose_key"] = "damage-target"
+    add("Selector", random_opponent)
+    add(
+        "Selector",
+        selector(
+            selectors["opposing-all"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["primary-adjacent"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=3,
+            choice="PrimaryPlusAdjacent",
+        ),
+    )
+    add(
+        "Selector",
+        selector(selectors["locked-target"], "Actor", "OpposingSide"),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["locked-target"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["qi-lock"]),
+        },
+    )
+    for selector_name, origin in [
+        ("actor-summons", "Actor"),
+        ("owner-summons", "Owner"),
+    ]:
+        add(
+            "Selector",
+            selector(
+                selectors[selector_name],
+                origin,
+                "SameSide",
+                minimum=0,
+                maximum=4,
+                empty="NoOp",
+                choice="All",
+            ),
+        )
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[selector_name],
+                "sequence": 1,
+                "predicate": json_cell(
+                    "OwnedBy",
+                    owner_selector_id=(
+                        selectors["actor"] if origin == "Actor" else selectors["owner"]
+                    ),
+                ),
+            },
+        )
+    for selector_name, lower, upper in [
+        ("pair-2-4-random", 2, 4),
+        ("pair-1-5-random", 1, 5),
+    ]:
+        selected = selector(
+            selectors[selector_name],
+            "Actor",
+            "SameSide",
+            minimum=1,
+            maximum=1,
+            choice="RngUniform",
+        )
+        selected["rng_purpose_key"] = "behavior-choice"
+        add("Selector", selected)
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[selector_name],
+                "sequence": 1,
+                "predicate": json_cell(
+                    "OwnedBy", owner_selector_id=selectors["actor"]
+                ),
+            },
+        )
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[selector_name],
+                "sequence": 2,
+                "predicate": json_cell(
+                    "FormationRange",
+                    minimum_index=lower,
+                    maximum_index=upper,
+                ),
+            },
+        )
+        if selector_name == "pair-1-5-random":
+            add(
+                "SelectorPredicate",
+                {
+                    "selector_id": selectors[selector_name],
+                    "sequence": 3,
+                    "predicate": json_cell(
+                        "Excludes", excluded_selector_id=selectors["pair-2-4-all"]
+                    ),
+                },
+            )
+    add(
+        "Selector",
+        selector(
+            selectors["pair-2-4-all"],
+            "Actor",
+            "SameSide",
+            minimum=0,
+            maximum=2,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    for sequence, predicate in enumerate(
+        [
+            json_cell("OwnedBy", owner_selector_id=selectors["actor"]),
+            json_cell("FormationRange", minimum_index=2, maximum_index=4),
+        ],
+        start=1,
+    ):
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors["pair-2-4-all"],
+                "sequence": sequence,
+                "predicate": predicate,
+            },
+        )
+    for selector_name, effect_id, excluded in [
+        ("ordeal-summons", effects["ordeal"], None),
+        ("ordinary-summons", None, selectors["ordeal-summons"]),
+    ]:
+        add(
+            "Selector",
+            selector(
+                selectors[selector_name],
+                "Actor",
+                "SameSide",
+                minimum=0,
+                maximum=4,
+                empty="NoOp",
+                choice="All",
+            ),
+        )
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[selector_name],
+                "sequence": 1,
+                "predicate": json_cell(
+                    "OwnedBy", owner_selector_id=selectors["actor"]
+                ),
+            },
+        )
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[selector_name],
+                "sequence": 2,
+                "predicate": (
+                    json_cell("HasEffect", effect_id=effect_id)
+                    if effect_id is not None
+                    else json_cell("Excludes", excluded_selector_id=excluded)
+                ),
+            },
+        )
+    for selector_name, lower, upper in [
+        ("ordeal-pair-2-4", 2, 4),
+        ("ordeal-pair-1-5", 1, 5),
+    ]:
+        add(
+            "Selector",
+            selector(
+                selectors[selector_name],
+                "Actor",
+                "SameSide",
+                minimum=1,
+                maximum=1,
+            ),
+        )
+        predicates = [
+            json_cell("OwnedBy", owner_selector_id=selectors["actor"]),
+            json_cell("FormationRange", minimum_index=lower, maximum_index=upper),
+            json_cell("HasEffect", effect_id=effects["ordeal"]),
+        ]
+        if selector_name == "ordeal-pair-1-5":
+            predicates.insert(
+                2,
+                json_cell(
+                    "Excludes", excluded_selector_id=selectors["pair-2-4-all"]
+                ),
+            )
+        for sequence, predicate in enumerate(predicates, start=1):
+            add(
+                "SelectorPredicate",
+                {
+                    "selector_id": selectors[selector_name],
+                    "sequence": sequence,
+                    "predicate": predicate,
+                },
+            )
+    ordinary_random = selector(
+        selectors["ordinary-random"],
+        "Actor",
+        "SameSide",
+        minimum=0,
+        maximum=1,
+        empty="NoOp",
+        choice="RngUniform",
+    )
+    ordinary_random["rng_purpose_key"] = "behavior-choice"
+    add("Selector", ordinary_random)
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["ordinary-random"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "OwnedBy", owner_selector_id=selectors["actor"]
+            ),
+        },
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["ordinary-random"],
+            "sequence": 2,
+            "predicate": json_cell(
+                "Excludes", excluded_selector_id=selectors["ordeal-summons"]
+            ),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["event-target"],
+            "CurrentSubject",
+            "AnySide",
+            life="Any",
+            presence="Any",
+        ),
+    )
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s05.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    applier_atk = expr(
+        "applier-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["applier"],
+            stat="Atk",
+            formula_purpose="Dot",
+        ),
+    )
+    owner_max_hp = expr(
+        "owner-max-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["owner"],
+            stat="Hp",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratios: dict[str, int] = {}
+    for name, value in [
+        ("zero", "0"),
+        ("one-tenth", "0.1"),
+        ("one-fifth", "0.2"),
+        ("one-half", "0.5"),
+        ("one", "1"),
+        ("one-point-two", "1.2"),
+        ("two", "2"),
+        ("two-point-four", "2.4"),
+        ("three", "3"),
+        ("three-point-five", "3.5"),
+        ("four", "4"),
+        ("thirty", "30"),
+        ("sixty", "60"),
+    ]:
+        ratios[name] = expr(
+            f"scalar-{name}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+    integer_one = expr(
+        "integer-one", "Integer", json_cell("IntegerLiteral", value=1)
+    )
+    duration_one = expr(
+        "duration-one", "Integer", json_cell("IntegerLiteral", value=1)
+    )
+    chilling_stacks = expr(
+        "chilling-light-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["chilling-light"],
+        ),
+    )
+    chilling_scalar = expr(
+        "chilling-light-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=chilling_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    chilling_value = multiply(
+        "chilling-light-damage-boost", chilling_scalar, ratios["one-tenth"]
+    )
+    damage = {
+        "rapturous": multiply("rapturous-wind-damage", actor_atk, ratios["two"]),
+        "ironthorn": multiply("ironthorn-damage", actor_atk, ratios["three-point-five"]),
+        "ballad-primary": multiply(
+            "ballad-primary-damage", actor_atk, ratios["three"]
+        ),
+        "ballad-adjacent": multiply(
+            "ballad-adjacent-damage", actor_atk, ratios["two"]
+        ),
+        "cascading": multiply(
+            "cascading-laceration-damage", actor_atk, ratios["four"]
+        ),
+        "aethereal": multiply(
+            "aethereal-dreamflux-damage", actor_atk, ratios["three"]
+        ),
+        "jadecarve": multiply(
+            "jadecarve-strike-damage", actor_atk, ratios["two-point-four"]
+        ),
+        "freeze": multiply(
+            "freeze-delayed-damage", applier_atk, ratios["one-point-two"]
+        ),
+        "formation-collapse": multiply(
+            "formation-collapse-hp", owner_max_hp, ratios["one-fifth"]
+        ),
+    }
+
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s05.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    for key, effect_key in [
+        ("core-wind", "formation-core-wind"),
+        ("core-lightning", "formation-core-lightning"),
+        ("core-imaginary", "formation-core-imaginary"),
+    ]:
+        add(
+            "ConditionExpression",
+            {
+                "id": conditions[key],
+                "stable_key": f"goal07.enemy.s05.condition.{key}",
+                "node": json_cell(
+                    "EffectExists",
+                    selector_id=selectors["current-subject"],
+                    effect_id=effects[effect_key],
+                ),
+            },
+        )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["no-swords"],
+            "stable_key": "goal07.enemy.s05.condition.no-flying-swords",
+            "node": json_cell(
+                "SelectorCardinality",
+                selector_id=selectors["owner-summons"],
+                minimum_count=0,
+                maximum_count=0,
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s05.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def operation_step(operation_id: int) -> str:
+        return json_cell("Operation", operation_id=operation_id)
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            identity_s05(
+                id_,
+                f"program.goal07.cloud-knight-lieutenant-yanqing-complete.{name}",
+                "Program",
+                f"Yanqing {name} Program",
+                f"彦卿{name}程序",
+                "Ordered Rule IR program for the S05 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": step},
+            )
+        return id_
+
+    def damage_op(name: str, amount: int, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Ice",
+                can_crit=True,
+            ),
+            target,
+        )
+
+    def apply_effect_op(
+        name: str,
+        effect_id: int,
+        target: int,
+        *,
+        chance: int | None = None,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect_id,
+                stacks_expression_id=stacks,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+            empty,
+        )
+
+    def remove_effect_op(
+        name: str, effect_id: int, target: int, empty: str = "NoOp"
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell("RemoveEffect", effect_id=effect_id),
+            target,
+            empty,
+        )
+
+    add_weakness_programs: dict[str, int] = {}
+    for element in ["Wind", "Lightning", "Imaginary"]:
+        operation_id = new_operation(
+            f"formation-core-add-{element.lower()}-weakness",
+            json_cell("AddWeakness", element=element),
+            selectors["current-subject"],
+        )
+        add_weakness_programs[element] = make_program(
+            f"formation-core-add-{element.lower()}-weakness",
+            [operation_step(operation_id)],
+        )
+    random_core = new_operation(
+        "formation-core-random-true-weakness",
+        json_cell(
+            "ApplyRandomEffect",
+            effect_ids=[
+                effects["formation-core-wind"],
+                effects["formation-core-lightning"],
+                effects["formation-core-imaginary"],
+            ],
+            stacks_expression_id=integer_one,
+            choice_rng_purpose_key="weakness-element",
+            chance_policy="Guaranteed",
+            base_chance_expression_id=None,
+            chance_rng_purpose_key=None,
+        ),
+        selectors["current-subject"],
+    )
+    core_body = make_program(
+        "formation-core-random-true-weakness",
+        [
+            operation_step(random_core),
+            json_cell(
+                "If",
+                condition_id=conditions["core-wind"],
+                then_program_id=add_weakness_programs["Wind"],
+                else_program_id=None,
+            ),
+            json_cell(
+                "If",
+                condition_id=conditions["core-lightning"],
+                then_program_id=add_weakness_programs["Lightning"],
+                else_program_id=None,
+            ),
+            json_cell(
+                "If",
+                condition_id=conditions["core-imaginary"],
+                then_program_id=add_weakness_programs["Imaginary"],
+                else_program_id=None,
+            ),
+        ],
+    )
+
+    def chilling_steps(prefix: str) -> list[str]:
+        return [
+            operation_step(
+                apply_effect_op(
+                    f"{prefix}-chilling-light-yanqing",
+                    effects["chilling-light"],
+                    selectors["actor"],
+                )
+            ),
+            operation_step(
+                apply_effect_op(
+                    f"{prefix}-chilling-light-flying-swords",
+                    effects["chilling-light"],
+                    selectors["actor-summons"],
+                    empty="NoOp",
+                )
+            ),
+        ]
+
+    summon_steps: list[str] = []
+    for key, linked_id in linked.items():
+        summon_steps.append(
+            operation_step(
+                new_operation(
+                    f"swallow-return-summon-{key}",
+                    json_cell(
+                        "Summon",
+                        unit_definition_identity_id=linked_id,
+                        owner_selector_id=selectors["actor"],
+                    ),
+                )
+            )
+        )
+    summon_steps.append(
+        operation_step(
+            apply_effect_op(
+                "swallow-return-sword-formation",
+                effects["sword-formation"],
+                selectors["actor"],
+            )
+        )
+    )
+    summon_steps.append(
+        json_cell(
+            "ForEach",
+            selector_id=selectors["actor-summons"],
+            body_program_id=core_body,
+            maximum_iterations=4,
+        )
+    )
+    create_ordinary_toughness = new_operation(
+        "swallow-return-create-flying-sword-toughness",
+        json_cell(
+            "CreateToughnessLayer",
+            layer_key="formation-core",
+            maximum_expression_id=ratios["thirty"],
+        ),
+        selectors["actor-summons"],
+    )
+    normal_summon_program = make_program(
+        "swallow-return",
+        summon_steps + [operation_step(create_ordinary_toughness)],
+    )
+
+    ordeal_steps = list(summon_steps)
+    for name in ["pair-2-4-random", "pair-1-5-random"]:
+        ordeal_steps.append(
+            operation_step(
+                apply_effect_op(
+                    f"swallow-return-ordeal-mark-{name}",
+                    effects["ordeal"],
+                    selectors[name],
+                )
+            )
+        )
+    create_ordeal_toughness = new_operation(
+        "swallow-return-create-ordeal-toughness",
+        json_cell(
+            "CreateToughnessLayer",
+            layer_key="formation-core",
+            maximum_expression_id=ratios["sixty"],
+        ),
+        selectors["ordeal-summons"],
+        "NoOp",
+    )
+    create_non_ordeal_toughness = new_operation(
+        "swallow-return-create-non-ordeal-toughness",
+        json_cell(
+            "CreateToughnessLayer",
+            layer_key="formation-core",
+            maximum_expression_id=ratios["thirty"],
+        ),
+        selectors["ordinary-summons"],
+        "NoOp",
+    )
+    advance_first_ordeal = new_operation(
+        "swallow-return-advance-first-ordeal",
+        json_cell("AdvanceAction", amount_expression_id=ratios["one"]),
+        selectors["ordeal-pair-2-4"],
+    )
+    advance_second_ordeal = new_operation(
+        "swallow-return-advance-second-ordeal",
+        json_cell("AdvanceAction", amount_expression_id=ratios["one-half"]),
+        selectors["ordeal-pair-1-5"],
+    )
+    delay_ordinary = new_operation(
+        "swallow-return-delay-one-ordinary-sword",
+        json_cell("DelayAction", amount_expression_id=ratios["one-half"]),
+        selectors["ordinary-random"],
+        "NoOp",
+    )
+    ordeal_summon_program = make_program(
+        "swallow-return-ordeal",
+        ordeal_steps
+        + [
+            operation_step(create_ordeal_toughness),
+            operation_step(create_non_ordeal_toughness),
+            operation_step(advance_first_ordeal),
+            operation_step(advance_second_ordeal),
+            operation_step(delay_ordinary),
+        ],
+    )
+
+    ability_programs = {
+        abilities["rapturous-wind"]: make_program(
+            "rapturous-wind",
+            [
+                operation_step(
+                    damage_op(
+                        "rapturous-wind-damage",
+                        damage["rapturous"],
+                        selectors["primary-target"],
+                    )
+                ),
+                *chilling_steps("rapturous-wind"),
+            ],
+        ),
+        abilities["swallow-return"]: normal_summon_program,
+        abilities["ironthorn"]: make_program(
+            "ironthorn",
+            [
+                operation_step(
+                    damage_op(
+                        "ironthorn-damage",
+                        damage["ironthorn"],
+                        selectors["primary-target"],
+                    )
+                ),
+                operation_step(
+                    apply_effect_op(
+                        "ironthorn-freeze",
+                        effects["freeze"],
+                        selectors["primary-target"],
+                        chance=ratios["one"],
+                    )
+                ),
+                *chilling_steps("ironthorn"),
+            ],
+        ),
+        abilities["ballad-formation-breaker"]: make_program(
+            "ballad-formation-breaker",
+            [
+                operation_step(
+                    damage_op(
+                        "ballad-primary-damage",
+                        damage["ballad-primary"],
+                        selectors["primary-target"],
+                    )
+                ),
+                operation_step(
+                    damage_op(
+                        "ballad-adjacent-damage",
+                        damage["ballad-adjacent"],
+                        selectors["primary-adjacent"],
+                    )
+                ),
+                *chilling_steps("ballad-formation-breaker"),
+            ],
+        ),
+        abilities["qi-advance"]: make_program(
+            "qi-advance",
+            [
+                operation_step(
+                    apply_effect_op(
+                        "qi-advance-charge",
+                        effects["qi-advance"],
+                        selectors["actor"],
+                    )
+                )
+            ],
+        ),
+        abilities["cascading-laceration"]: make_program(
+            "cascading-laceration",
+            [
+                operation_step(
+                    damage_op(
+                        "cascading-laceration-damage",
+                        damage["cascading"],
+                        selectors["opposing-all"],
+                    )
+                ),
+                operation_step(
+                    remove_effect_op(
+                        "cascading-laceration-clear-charge",
+                        effects["qi-advance"],
+                        selectors["actor"],
+                    )
+                ),
+                *chilling_steps("cascading-laceration"),
+            ],
+        ),
+        abilities["qi-converge"]: make_program(
+            "qi-converge",
+            [
+                operation_step(
+                    apply_effect_op(
+                        "qi-converge-lock",
+                        effects["qi-lock"],
+                        selectors["primary-target"],
+                    )
+                )
+            ],
+        ),
+        abilities["swallow-return-ordeal"]: ordeal_summon_program,
+    }
+    aethereal_sword_damage = new_operation(
+        "aethereal-surviving-sword-damage",
+        json_cell(
+            "Damage",
+            amount_expression_id=damage["aethereal"],
+            damage_class="Ordinary",
+            element="Ice",
+            can_crit=True,
+        ),
+        selectors["primary-target"],
+    )
+    aethereal_despawn = new_operation(
+        "aethereal-despawn-surviving-sword",
+        json_cell("Despawn"),
+        selectors["current-subject"],
+    )
+    aethereal_body = make_program(
+        "aethereal-surviving-sword",
+        [operation_step(aethereal_sword_damage), operation_step(aethereal_despawn)],
+    )
+    ability_programs[abilities["aethereal-dreamflux"]] = make_program(
+        "aethereal-dreamflux",
+        [
+            operation_step(
+                damage_op(
+                    "aethereal-base-damage",
+                    damage["aethereal"],
+                    selectors["primary-target"],
+                )
+            ),
+            json_cell(
+                "ForEach",
+                selector_id=selectors["actor-summons"],
+                body_program_id=aethereal_body,
+                maximum_iterations=4,
+            ),
+            operation_step(
+                remove_effect_op(
+                    "aethereal-clear-sword-formation",
+                    effects["sword-formation"],
+                    selectors["actor"],
+                )
+            ),
+            operation_step(
+                remove_effect_op(
+                    "aethereal-clear-target-lock",
+                    effects["qi-lock"],
+                    selectors["primary-target"],
+                )
+            ),
+            *chilling_steps("aethereal-dreamflux"),
+        ],
+    )
+    ability_programs[abilities["jadecarve-strike"]] = make_program(
+        "jadecarve-strike",
+        [
+            operation_step(
+                damage_op(
+                    "jadecarve-strike-damage",
+                    damage["jadecarve"],
+                    selectors["primary-target"],
+                )
+            )
+        ],
+    )
+
+    target_patterns = {
+        "rapturous-wind": "SingleTarget",
+        "swallow-return": "None",
+        "ironthorn": "SingleTarget",
+        "ballad-formation-breaker": "Blast",
+        "qi-advance": "None",
+        "cascading-laceration": "Aoe",
+        "qi-converge": "SingleTarget",
+        "aethereal-dreamflux": "SingleTarget",
+        "swallow-return-ordeal": "None",
+        "jadecarve-strike": "SingleTarget",
+    }
+    for key, ability_id in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": ability_id,
+                "kind": "Summon" if key == "jadecarve-strike" else "Skill",
+                "target_pattern": target_patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": (
+                    5 if target_patterns[key] not in {"None"} else 4
+                ),
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability_id,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[ability_id],
+            },
+        )
+        if key != "jadecarve-strike":
+            add(
+                "EnemyAbility",
+                {
+                    "id": ability_id,
+                    "telegraph": "Charge" if key == "qi-advance" else "None",
+                    "cooldown_actions": 1,
+                    "initial_cooldown_actions": 0,
+                    "charge_actions": 1 if key == "qi-advance" else 0,
+                    "ai_tag": key,
+                },
+            )
+
+    effect_definitions = {
+        "chilling-light": {
+            "category": "Buff",
+            "dispel": "NonDispellable",
+            "limit": 1000,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "RefreshAndAddStacks",
+            "magnitude": chilling_value,
+            "dot": None,
+        },
+        "sword-formation": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "formation-core-wind": {
+            "category": "Mark",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "formation-core-lightning": {
+            "category": "Mark",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "formation-core-imaginary": {
+            "category": "Mark",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "ordeal": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "freeze": {
+            "category": "Control",
+            "dispel": "CleanseableControl",
+            "limit": 1,
+            "duration": duration_one,
+            "clock": "TargetTurnStart",
+            "tick": "TurnStart",
+            "policy": "Refresh",
+            "magnitude": damage["freeze"],
+            "dot": "Ice",
+        },
+        "qi-lock": {
+            "category": "Mark",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+        "qi-advance": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "tick": "None",
+            "policy": "Replace",
+            "magnitude": None,
+            "dot": None,
+        },
+    }
+    for key, effect_id in effects.items():
+        definition = effect_definitions[key]
+        add(
+            "Effect",
+            {
+                "id": effect_id,
+                "category": definition["category"],
+                "dispel_category": definition["dispel"],
+                "stack_limit": definition["limit"],
+                "duration_expression_id": definition["duration"],
+                "duration_clock": definition["clock"],
+                "tick_phase": definition["tick"],
+                "stack_policy": definition["policy"],
+                "magnitude_comparator_expression_id": definition["magnitude"],
+                "dot_element": definition["dot"],
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for effect_key, tags in {
+        "chilling-light": ["chilling-light"],
+        "sword-formation": ["sword-formation", "prevents-toughness-reduction"],
+        "formation-core-wind": ["formation-core", "true-weakness-wind"],
+        "formation-core-lightning": ["formation-core", "true-weakness-lightning"],
+        "formation-core-imaginary": ["formation-core", "true-weakness-imaginary"],
+        "ordeal": ["ordeal"],
+        "freeze": ["freeze", "blocks-normal-action"],
+        "qi-lock": ["qi-converge-lock"],
+        "qi-advance": ["qi-advance-charge"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {"effect_id": effects[effect_key], "sequence": sequence, "tag": tag},
+            )
+    for key, group_id in modifier_groups.items():
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": group_id,
+                "stable_key": f"goal07.enemy.s05.{key}",
+                "aggregation": "Sum",
+            },
+        )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifiers["chilling-light"],
+            "source_effect_id": effects["chilling-light"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Atk",
+            "formula_stage": "DamageBoost",
+            "formula_purpose": "OrdinaryDamage",
+            "value_expression_id": chilling_value,
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_groups["chilling-light"],
+            "priority": 0,
+            "cap_formula_stage": "DamageBoost",
+            "snapshot_policy": "Dynamic",
+            "duration_scope": "Turn",
+        },
+    )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifiers["sword-formation"],
+            "source_effect_id": effects["sword-formation"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Spd",
+            "formula_stage": "Flat",
+            "formula_purpose": "Stat",
+            "value_expression_id": ratios["sixty"],
+            "value_domain": "Scalar",
+            "stacking_group_id": modifier_groups["sword-formation"],
+            "priority": 0,
+            "cap_formula_stage": "Flat",
+            "snapshot_policy": "OnApplication",
+            "duration_scope": "Turn",
+        },
+    )
+    for sequence, key in enumerate(["chilling-light", "sword-formation"], start=1):
+        add(
+            "EffectModifierBinding",
+            {
+                "effect_id": effects[key],
+                "sequence": 1,
+                "modifier_id": modifiers[key],
+            },
+        )
+
+    core_break_programs: dict[str, int] = {}
+    for element in ["wind", "lightning", "imaginary"]:
+        defeat = new_operation(
+            f"formation-core-{element}-break-defeat-sword",
+            json_cell(
+                "ConsumeHp",
+                amount_expression_id=owner_max_hp,
+                floor_expression_id=ratios["zero"],
+            ),
+            selectors["owner"],
+        )
+        core_break_programs[element] = make_program(
+            f"formation-core-{element}-break", [operation_step(defeat)]
+        )
+    collapse_program = make_program(
+        "sword-formation-collapse",
+        [
+            operation_step(
+                remove_effect_op(
+                    "sword-formation-collapse-remove",
+                    effects["sword-formation"],
+                    selectors["owner"],
+                )
+            ),
+            operation_step(
+                new_operation(
+                    "sword-formation-collapse-consume-hp",
+                    json_cell(
+                        "ConsumeHp",
+                        amount_expression_id=damage["formation-collapse"],
+                        floor_expression_id=ratios["zero"],
+                    ),
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    ordeal_freeze_program = make_program(
+        "ordeal-freeze",
+        [
+            operation_step(
+                apply_effect_op(
+                    "ordeal-freeze-primary-target",
+                    effects["freeze"],
+                    selectors["primary-target"],
+                    chance=ratios["one"],
+                )
+            )
+        ],
+    )
+    rule_specs = [
+        (
+            "core-wind-break",
+            effects["formation-core-wind"],
+            json_cell("WeaknessBroken"),
+            selectors["owner"],
+            None,
+            core_break_programs["wind"],
+            "Battle",
+        ),
+        (
+            "core-lightning-break",
+            effects["formation-core-lightning"],
+            json_cell("WeaknessBroken"),
+            selectors["owner"],
+            None,
+            core_break_programs["lightning"],
+            "Battle",
+        ),
+        (
+            "core-imaginary-break",
+            effects["formation-core-imaginary"],
+            json_cell("WeaknessBroken"),
+            selectors["owner"],
+            None,
+            core_break_programs["imaginary"],
+            "Battle",
+        ),
+        (
+            "formation-collapse",
+            effects["sword-formation"],
+            json_cell("Unit", point="Defeated"),
+            selectors["event-target"],
+            None,
+            collapse_program,
+            "Battle",
+        ),
+        (
+            "ordeal-freeze",
+            effects["ordeal"],
+            json_cell("Action", point="Resolved"),
+            None,
+            "Summon",
+            ordeal_freeze_program,
+            "Action",
+        ),
+    ]
+    for key, source_effect, event, target_selector, action_kind, program_id, once in rule_specs:
+        add(
+            "RuleDefinition",
+            {
+                "id": rules[key],
+                "domain": "Battle",
+                "source_definition_identity_id": source_effect,
+                "source_class": "Effect",
+                "source_digest_sha256": sha256_text(f"goal07-s05-{key}-v1"),
+            },
+        )
+        event_filter = {
+            "id": filters[key],
+            "stable_key": f"goal07.enemy.s05.filter.{key}",
+            "cause_ancestry": "Any",
+        }
+        if target_selector is not None:
+            event_filter["target_selector_id"] = target_selector
+        if action_kind is not None:
+            event_filter["actor_selector_id"] = selectors["owner"]
+            event_filter["action_kind"] = action_kind
+        add("EventFilter", event_filter)
+        add(
+            "RuleTrigger",
+            {
+                "id": BASE + 570 + len(rows.get("RuleTrigger", [])),
+                "stable_key": f"goal07.enemy.s05.trigger.{key}",
+                "rule_id": rules[key],
+                "sequence": 1,
+                "event": event,
+                "phase": "AfterEvent",
+                "filter_id": filters[key],
+                "condition_id": (
+                    conditions["no-swords"]
+                    if key == "formation-collapse"
+                    else conditions["always"]
+                ),
+                "once_scope": once,
+                "priority": 0,
+                "program_id": program_id,
+            },
+        )
+        add(
+            "EffectRuleBinding",
+            {"effect_id": source_effect, "sequence": 1, "rule_id": rules[key]},
+        )
+
+    phase_sequences = [
+        [
+            abilities["rapturous-wind"],
+            abilities["swallow-return"],
+            abilities["ironthorn"],
+            abilities["ballad-formation-breaker"],
+        ],
+        [
+            abilities["swallow-return"],
+            abilities["rapturous-wind"],
+            abilities["ballad-formation-breaker"],
+            abilities["qi-advance"],
+            abilities["cascading-laceration"],
+            abilities["ironthorn"],
+        ],
+        [
+            abilities["swallow-return-ordeal"],
+            abilities["rapturous-wind"],
+            abilities["qi-converge"],
+            abilities["ballad-formation-breaker"],
+            abilities["aethereal-dreamflux"],
+            abilities["ironthorn"],
+        ],
+    ]
+    target_selectors = {
+        abilities["rapturous-wind"]: selectors["opposing-random"],
+        abilities["swallow-return"]: selectors["actor"],
+        abilities["ironthorn"]: selectors["opposing-random"],
+        abilities["ballad-formation-breaker"]: selectors["opposing-random"],
+        abilities["qi-advance"]: selectors["actor"],
+        abilities["cascading-laceration"]: selectors["opposing-all"],
+        abilities["qi-converge"]: selectors["opposing-random"],
+        abilities["aethereal-dreamflux"]: selectors["locked-target"],
+        abilities["swallow-return-ordeal"]: selectors["actor"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence)))
+        next_state += len(sequence)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_id) in enumerate(zip(state_ids, sequence)):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s05.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["rapturous-wind"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s05.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": target_selectors[ability_id],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["rapturous-wind"],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s05.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": conditions["always"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    for key, linked_id in linked.items():
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": linked_id,
+                "source_definition_identity_id": linked_id,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": str(abilities["jadecarve-strike"]),
+                "action_ability_id": abilities["jadecarve-strike"],
+                "formation_index": int(key[-1]),
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": "0.36",
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": "1",
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": "100",
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s05-linked-{key}-v1"
+                ),
+            },
+        )
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Imaginary", "Lightning", "Wind"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element, value in [
+        ("Fire", "0.2"),
+        ("Ice", "0.4"),
+        ("Physical", "0.2"),
+        ("Quantum", "0.2"),
+    ]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": value},
+        )
+    for category in ["STAT_CTRL_Confine", "STAT_CTRL_Frozen", "STAT_CTRL_Entangle"]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.75",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "120",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(
+        [value for key, value in abilities.items() if key != "jadecarve-strike"],
+        start=1,
+    ):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": ability_id,
+            },
+        )
+    for sequence, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s05.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": sequence,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.cloud-knight-lieutenant-yanqing-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public per-level values are committed with retained "
+                "structured AI and ability source hashes."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s05.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S05.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s05.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s05.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -4860,6 +6702,7 @@ def main() -> None:
         "G07-P5-M15-S02": owned_rows_s02,
         "G07-P5-M15-S03": owned_rows_s03,
         "G07-P5-M15-S04": owned_rows_s04,
+        "G07-P5-M15-S05": owned_rows_s05,
     }[PARTITION]()
     golden_path = (
         ROOT

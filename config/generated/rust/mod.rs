@@ -207,7 +207,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "e50a5a622e8d30b9";
+pub const SCHEMA_FINGERPRINT: &str = "ed77624de394f75b";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

@@ -1,10 +1,10 @@
 {
   "schema_revision": "starclock.standard-encounter-schema-golden.v1",
   "sora_cli_version": "0.3.0",
-  "base_rule_ir_digest": "0442d16658e0d37fbddc1e69367279a5dd9a3ac12a51818cd8d9d4a1017016c0",
-  "output_digest": "b2b6ab548b1f836070c5c9e7f44cfc55c6472963b196ecbc00e73ae03b0aa7b4",
+  "base_rule_ir_digest": "25d4fa092992a2ecd0056ba25ee552c62e3ca60f9648b1aac81fa50f5be0d1af",
+  "output_digest": "090ea7599e66de97e2bf4d5116d646c69b55917c97fb526f3df8ce3f93d24252",
   "files": {
-    "config.sora": "40706abf7bcbf9a28b506b7507bf8dd09c61c632f2e31f8ebba0aa078051c32b",
+    "config.sora": "066ae58fdd8e4104ed32ada7ca83174a6c2bb9bbe6ede04db41cc57cf0304095",
     "debug-json/Ability.json": "095e444d1c12a37dcb87ac97e0cef1b4f821439b8b811d9a9c381d97f102bbdc",
     "debug-json/AbilityHitPlanBinding.json": "70066256661e6a4a74022986bb33117d13fc920fffb3b1cf81b5479b28edbc5d",
     "debug-json/AbilityLevelParameter.json": "01a35cb12de96c8307ddc40b8e343543df915ca3a8dc132650032b24411a87a8",
@@ -206,7 +206,7 @@
     "rust/linked_unit_kind.rs": "cb01746b8f89a2fe8cda7fed3f8966664b248539bec845c24258ac9a4027d9ca",
     "rust/loadout_lock_scope.rs": "1efae84637315b00194eeca193f10fd5f34588d22743dc398935a51f119f4c80",
     "rust/mechanism_quality.rs": "bbfab5ab6e6090646d24fa8c3b732b450613226275c8e33081b8fc9168fecc70",
-    "rust/mod.rs": "5eacd610bece88ce449a9056f6e11c12b408121af24b299645f770c5b41d3342",
+    "rust/mod.rs": "e4a37e7b8c6eeb396f31d8107b6775aecef6d1f61a2f2991f67793bcacc6bb49",
     "rust/modifier_aggregation.rs": "15096825d07af7aa96097c1f949cf1e3dcb462f9b6d5d8683df0adf006edced6",
     "rust/modifier_definition.rs": "07a2174f9cbca75d67d3aa754aac45bb1b39156af2e9fce5608932ea91324460",
     "rust/modifier_filter.rs": "dac6f92c18ca6200fb7b244db645451c73713e6ae9cb49932bec240a08268b24",
@@ -218,7 +218,7 @@
     "rust/operation.rs": "c65d17bcaa6512b97229539076626c8947c3c85eff892e24ee24de23e65d0b3f",
     "rust/operation_fault_policy.rs": "9eeaa20a20957fabfff2b954a07dd7878a8c7cc2c3a7957d3d6b8e62e94541fd",
     "rust/operation_native_argument.rs": "85b7cee8d8cf8ad640f058045023366d2cd3e233093cec5ecf3c9e1dadf51aaf",
-    "rust/operation_payload.rs": "003b9e1730d26e5eb3adcf4fedae377e17d92d6bdb00d448a14b34b32c10aa69",
+    "rust/operation_payload.rs": "0c86ff7446fa7bbcfa66db28f050cf0dfee617cc183f4e9eb8fa96848fb90b3b",
     "rust/owner_defeat_policy.rs": "9c42f9da13c202a67a265114bc7b2f402b9535a3dc951b92ebd300e8bce5800c",
     "rust/owner_link_policy.rs": "7a0f0cb94de33068a8fedd06d9d42ef3aed3cc378e631b8010d9cae9af12e69d",
     "rust/participant_policy.rs": "4524eec0a00e787387caefdde46b18fde349628454bbec7d0ea6995b4a7598b6",
@@ -253,8 +253,9 @@
     "rust/selector_ordering.rs": "6ba8cb5889674060bfe67038400427f1c62b7a8394d527c1f6d328aae7245eb3",
     "rust/selector_origin.rs": "d445979f111dbbabf05c399395c08651b2b7fc6889024d22c43d0e899a6db25a",
     "rust/selector_predicate.rs": "9e1d65098616643cc259efecbe43cb20ca7b327c6ef5e816e740b000ef10228a",
-    "rust/selector_predicate_node.rs": "33d2c1e81354f27ec4a6e65fb285c7d56490bb26455d7607497a7781d47ef05e",
+    "rust/selector_predicate_node.rs": "fb0649bfede6570948d02331b89f62134e956b8d03e30bd44082d58a106b12db",
     "rust/selector_reference_point.rs": "f703eee2716aa336c507ebbfa1fec88019538569afe3224955dc1a62ef82f430",
+    "rust/shield_observation.rs": "ea8a08359d1a1faaf49d7c81d45b1593823ec4710ae6c9bf1e143ee9b72a973d",
     "rust/side_relationship.rs": "9b262e04aa824ffb2ca637ee37669dcd3b154b225a48f1cc548e700e5f5d9551",
     "rust/slot_persistence.rs": "c36265a1765be2f75e34b4d398adcd3f61fc7c7e0bded974def83b32afe87c4d",
     "rust/slot_reset_point.rs": "f1d7b066c7e343b1cdff2e60b98a08993e21d77270f6f47ffe7e24ce13652f83",
@@ -284,12 +285,12 @@
     "rust/unit_event_point.rs": "9166586bbe69606ab68e4593db7b301bcaabc43ee89431f1fb30fb3b134a4842",
     "rust/value_binary_operator.rs": "78e2dd2dadf2748f2d89ca2d18b10ae5252cefa45f3a7458ee2b63d5b2fb07bc",
     "rust/value_expression.rs": "d37b1b743c9b5ab70ac1a4cff215353e8325c336c0dfe9617cfb3685e20cbe3c",
-    "rust/value_expression_node.rs": "be11f30d389b927e99a63ddeeadf3045e6dafe76d1ab165e43a1fd7a0b8130f0",
+    "rust/value_expression_node.rs": "024e02d4e5821140e0a9e4db2eb25264a0855e8875920cef1abfd165a738113d",
     "rust/value_kind.rs": "2c859e23dbc4a0ec5d790795cff996f1d340b5f32dbe99a9d04e115d2897fdbf",
     "rust/wave_carry_policy.rs": "a4479abc8e74580f637a2dc8d2e58bdb0385fdebbc075189455b0b9691e993ab",
     "rust/wave_link_policy.rs": "56f0019c85b4226ff02db77f1e495198fd116945c99412f9ec4ae0d06e01a000",
     "rust/wave_slot.rs": "08cdd04c3e1c0fd28c25436a1278b6529e48834997e421fcb6b3093cae7c76c1",
     "rust/wave_transition_policy.rs": "bb8017b95e2577087f5838e7211fd4e785a8c992e5f76be477b66042eb356354",
-    "schema.lock": "57f26c13c10cee20251cbe30794827007cf286c697f30998d84caf9a0da65894"
+    "schema.lock": "25f11a648cd2e9eca8c04d06f235e94a1cc57e8debcb2d060415fbf3d8081490"
   }
 }

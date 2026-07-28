@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "e50a5a622e8d30b9",
+  "fingerprint": "ed77624de394f75b",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -5493,6 +5493,148 @@
               },
               {
                 "name": "rng_purpose_key",
+                "ty": {
+                  "Optional": "String"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "ApplyRandomEffect",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "effect_ids",
+                "ty": {
+                  "List": {
+                    "Ref": {
+                      "table": "Effect",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": [
+                  1,
+                  16
+                ],
+                "parser": {
+                  "kind": "split",
+                  "options": {
+                    "separator": "|"
+                  }
+                },
+                "derived_from": null
+              },
+              {
+                "name": "stacks_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "choice_rng_purpose_key",
+                "ty": "String",
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": [
+                  1,
+                  80
+                ],
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "chance_policy",
+                "ty": {
+                  "Enum": "EffectChancePolicy"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "base_chance_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "chance_rng_purpose_key",
                 "ty": {
                   "Optional": "String"
                 },

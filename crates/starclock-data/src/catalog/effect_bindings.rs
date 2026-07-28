@@ -1,4 +1,6 @@
-use starclock_combat::{AbilityId, EffectCategory, EffectRuntimeTemplate, ForcedNormalAction};
+use starclock_combat::{
+    AbilityId, ControlledAction, EffectCategory, EffectRuntimeTemplate, ForcedNormalAction,
+};
 
 use super::{CatalogLoadError, CatalogLoadErrorKind, contiguous, fail, positive, positive_u16};
 use crate::generated::SoraConfig;
@@ -29,6 +31,17 @@ pub(super) fn apply_runtime_tags(
 ) -> Result<EffectRuntimeTemplate, CatalogLoadError> {
     if tags.contains(&"prevents-toughness-reduction") {
         template = template.with_toughness_protection();
+    }
+    if tags.contains(&"blocks-normal-action") {
+        if category != EffectCategory::Control {
+            return Err(fail(
+                CatalogLoadErrorKind::Domain,
+                format!("effect {effect_id} blocks normal actions outside Control"),
+            ));
+        }
+        template = template
+            .with_control(vec![ControlledAction::NormalAction])
+            .expect("Control category accepts blocked actions");
     }
     if tags.contains(&"forced-basic-attack-random-ally") {
         if category != EffectCategory::Control {

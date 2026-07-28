@@ -63,6 +63,21 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-public-anchor-level-curve-v1",
   },
+  "G07-P5-M15-S05": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
+      "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss",
+      "ai.goal07.cloud-knight-lieutenant-yanqing-complete.phase-1",
+      "ai.goal07.cloud-knight-lieutenant-yanqing-complete.phase-2",
+      "ai.goal07.cloud-knight-lieutenant-yanqing-complete.phase-3",
+      "unit.goal07.cloud-knight-lieutenant-yanqing-complete.sword-1",
+      "unit.goal07.cloud-knight-lieutenant-yanqing-complete.sword-2",
+      "unit.goal07.cloud-knight-lieutenant-yanqing-complete.sword-4",
+      "unit.goal07.cloud-knight-lieutenant-yanqing-complete.sword-5",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -129,6 +144,16 @@ if (partitionId === "G07-P5-M15-S04") {
     { path: "crates/starclock-combat/src/resolver/rule.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization/blaze_s04.rs" },
+  );
+}
+if (partitionId === "G07-P5-M15-S05") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-combat/src/resolver/toughness.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/yanqing_s05.rs" },
   );
 }
 const provenanceEvidence = [

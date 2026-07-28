@@ -775,10 +775,15 @@ fn convert_combat(
                 Ok(SourceDefinitionId::new(raw).expect("positive source definition ID"))
             })
             .transpose()?;
-        if category != EffectCategory::Dot && (dot_element.is_some() || detonation_tag.is_some()) {
+        if !matches!(category, EffectCategory::Control | EffectCategory::Dot)
+            && (dot_element.is_some() || detonation_tag.is_some())
+        {
             return Err(fail(
                 CatalogLoadErrorKind::Domain,
-                format!("non-DoT effect {} declares DoT metadata", row.id),
+                format!(
+                    "effect {} declares damage-over-time metadata outside Control or DoT",
+                    row.id
+                ),
             ));
         }
         let mut runtime_template = EffectRuntimeTemplate::new(
@@ -801,18 +806,20 @@ fn convert_combat(
         .with_teardown(teardown_policy);
         runtime_template =
             effect_bindings::apply_runtime_tags(row.id, category, &tags, runtime_template)?;
-        if category == EffectCategory::Dot {
+        if matches!(category, EffectCategory::Control | EffectCategory::Dot)
+            && (dot_element.is_some() || detonation_tag.is_some())
+        {
             runtime_template = runtime_template
                 .with_dot(
                     dot_element.ok_or_else(|| {
                         fail(
                             CatalogLoadErrorKind::Domain,
-                            format!("DoT effect {} is missing its element", row.id),
+                            format!("damaging effect {} is missing its element", row.id),
                         )
                     })?,
                     detonation_tag,
                 )
-                .expect("DoT category accepts DoT metadata");
+                .expect("Control and DoT categories accept damage-over-time metadata");
         }
         let mut rules = config
             .effect_rule_binding()

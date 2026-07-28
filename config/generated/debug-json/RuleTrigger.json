@@ -174,6 +174,217 @@
             "String": "goal07.enemy.s04.trigger.weakness-break-reset"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1020561
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1020555
+          },
+          "id": {
+            "Integer": 1020574
+          },
+          "once_scope": {
+            "String": "Action"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1020320
+          },
+          "rule_id": {
+            "Integer": 1020545
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.trigger.ordeal-freeze"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1020561
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1020551
+          },
+          "id": {
+            "Integer": 1020570
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1020316
+          },
+          "rule_id": {
+            "Integer": 1020541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.trigger.core-wind-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1020561
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1020552
+          },
+          "id": {
+            "Integer": 1020571
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1020317
+          },
+          "rule_id": {
+            "Integer": 1020542
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.trigger.core-lightning-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1020561
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1020553
+          },
+          "id": {
+            "Integer": 1020572
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1020318
+          },
+          "rule_id": {
+            "Integer": 1020543
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.trigger.core-imaginary-break"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1020565
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1020554
+          },
+          "id": {
+            "Integer": 1020573
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1020319
+          },
+          "rule_id": {
+            "Integer": 1020544
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s05.trigger.formation-collapse"
+          }
+        }
       }
     ]
   }

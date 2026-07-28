@@ -254,6 +254,40 @@ mod tests {
             Some(ForcedNormalAction::BasicAttackRandomAlly)
         );
     }
+
+    #[test]
+    fn damaging_control_blocks_normal_actions_and_preserves_its_tick() {
+        let control = EffectRuntimeTemplate::new(
+            EffectCategory::Control,
+            DispelCategory::CleanseableControl,
+            1,
+            Some(ValueExpr::Literal(crate::rule::model::RuleValue::Integer(
+                1,
+            ))),
+            DurationClock::TargetTurnStart,
+            EffectTickPhase::TurnStart,
+            EffectStackPolicy::Refresh,
+        )
+        .unwrap()
+        .with_control(vec![
+            ControlledAction::NormalAction,
+            ControlledAction::NormalAction,
+        ])
+        .unwrap()
+        .with_dot(CombatElement::Ice, None)
+        .unwrap()
+        .resolve(Some(1), Scalar::from_scaled(1_200_000))
+        .unwrap();
+
+        assert_eq!(
+            control.controlled_actions(),
+            [ControlledAction::NormalAction]
+        );
+        assert_eq!(
+            control.dot().expect("delayed damage definition").element(),
+            CombatElement::Ice
+        );
+    }
 }
 
 /// Immutable generic runtime portion of one catalog effect.
@@ -294,6 +328,7 @@ pub struct EffectRuntimeTemplate {
     snapshot_policy: EffectSnapshotPolicy,
     teardown_policy: EffectTeardownPolicy,
     application_priority: i32,
+    controlled_actions: Box<[ControlledAction]>,
     dot: Option<(CombatElement, Option<SourceDefinitionId>)>,
     damage_guard: EffectDamageGuard,
     application_guard: EffectApplicationGuard,
@@ -328,6 +363,7 @@ impl EffectRuntimeTemplate {
             snapshot_policy: EffectSnapshotPolicy::Dynamic,
             teardown_policy: EffectTeardownPolicy::RemoveWithOwner,
             application_priority: 0,
+            controlled_actions: Box::new([]),
             dot: None,
             damage_guard: EffectDamageGuard::None,
             application_guard: EffectApplicationGuard::None,
@@ -382,6 +418,17 @@ impl EffectRuntimeTemplate {
         self.prevents_toughness_reduction = true;
         self
     }
+    /// Blocks selected actions while this control effect is active.
+    #[must_use]
+    pub fn with_control(mut self, mut actions: Vec<ControlledAction>) -> Option<Self> {
+        if self.category != EffectCategory::Control {
+            return None;
+        }
+        actions.sort_unstable();
+        actions.dedup();
+        self.controlled_actions = actions.into_boxed_slice();
+        Some(self)
+    }
     /// Replaces the affected unit's ordinary timeline action.
     #[must_use]
     pub fn with_forced_normal_action(mut self, action: ForcedNormalAction) -> Option<Self> {
@@ -410,6 +457,10 @@ impl EffectRuntimeTemplate {
         self.prevents_toughness_reduction
     }
     #[must_use]
+    pub fn controlled_actions(&self) -> &[ControlledAction] {
+        &self.controlled_actions
+    }
+    #[must_use]
     pub const fn forced_normal_action(&self) -> Option<ForcedNormalAction> {
         self.forced_normal_action
     }
@@ -424,7 +475,7 @@ impl EffectRuntimeTemplate {
         element: CombatElement,
         detonation_tag: Option<SourceDefinitionId>,
     ) -> Option<Self> {
-        if self.category != EffectCategory::Dot {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
             return None;
         }
         self.dot = Some((element, detonation_tag));
@@ -475,14 +526,16 @@ impl EffectRuntimeTemplate {
         if self.prevents_toughness_reduction {
             runtime = runtime.with_toughness_protection();
         }
+        if !self.controlled_actions.is_empty() {
+            runtime = runtime.with_control(self.controlled_actions.to_vec())?;
+        }
         if let Some(action) = self.forced_normal_action {
             runtime = runtime.with_forced_normal_action(action)?;
         }
         if let Some(stat) = self.specific_resistance_stat {
             runtime = runtime.with_specific_resistance(stat);
         }
-        if self.category == EffectCategory::Dot {
-            let (element, detonation_tag) = self.dot?;
+        if let Some((element, detonation_tag)) = self.dot {
             let formula = OrdinaryDamageDefinition::new(
                 magnitude,
                 OrdinaryDamageMultipliers::new([Ratio::ONE; 9]).ok()?,
@@ -601,7 +654,7 @@ impl EffectRuntimeDefinition {
     }
     #[must_use]
     pub fn with_dot(mut self, dot: DotDefinition) -> Option<Self> {
-        if !matches!(self.category, EffectCategory::Dot) {
+        if !matches!(self.category, EffectCategory::Control | EffectCategory::Dot) {
             return None;
         }
         self.dot = Some(dot);
