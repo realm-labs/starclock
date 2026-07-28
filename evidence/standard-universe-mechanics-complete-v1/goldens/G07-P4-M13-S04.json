@@ -1,0 +1,62 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-partition-golden.v1",
+  "partition_id": "G07-P4-M13-S04",
+  "record_ids": [
+    "universe.occurrence.22.variant.11701.choice.03",
+    "universe.occurrence.22.variant.11701.choice.04",
+    "universe.occurrence.22.variant.11701.choice.05",
+    "universe.occurrence.22.variant.11701.choice.06",
+    "universe.occurrence.22.variant.11701.choice.07",
+    "universe.occurrence.22.variant.11701.choice.08",
+    "universe.occurrence.22.variant.11701.choice.09",
+    "universe.occurrence.23",
+    "universe.occurrence.23.variant.11801",
+    "universe.occurrence.23.variant.11801.choice.01",
+    "universe.occurrence.23.variant.11801.choice.02",
+    "universe.occurrence.24",
+    "universe.occurrence.24.variant.11901",
+    "universe.occurrence.24.variant.11901.choice.01",
+    "universe.occurrence.24.variant.11901.choice.02",
+    "universe.occurrence.24.variant.11901.choice.03",
+    "universe.occurrence.24.variant.11901.choice.04",
+    "universe.occurrence.24.variant.11901.choice.05",
+    "universe.occurrence.24.variant.11901.choice.06",
+    "universe.occurrence.25",
+    "universe.occurrence.25.variant.11901",
+    "universe.occurrence.25.variant.11901.choice.01",
+    "universe.occurrence.25.variant.11901.choice.02",
+    "universe.occurrence.25.variant.11901.choice.03",
+    "universe.occurrence.25.variant.11901.choice.04",
+    "universe.occurrence.25.variant.11901.choice.05",
+    "universe.occurrence.25.variant.11901.choice.06",
+    "universe.occurrence.26",
+    "universe.occurrence.26.variant.11901",
+    "universe.occurrence.26.variant.11901.choice.01",
+    "universe.occurrence.26.variant.11901.choice.02",
+    "universe.occurrence.26.variant.11901.choice.03"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseOccurrence": {
+      "rows": 4,
+      "semantic_sha256": "7be19e088b66a1117afddd7ee4dc2d5569e60dcc17c056d82413270af8988ea9"
+    },
+    "UniverseOccurrenceVariant": {
+      "rows": 4,
+      "semantic_sha256": "c30d82cc50013949f82421e575aade453c339ac4142f09c3eb41ffa73d913252"
+    },
+    "UniverseOccurrenceChoice": {
+      "rows": 24,
+      "semantic_sha256": "f20e71d372d7f2699d222948925d9a50e77a614b0addbf19dbb69860572824c4"
+    },
+    "UniverseOccurrenceCost": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "UniverseOccurrenceOutcome": {
+      "rows": 24,
+      "semantic_sha256": "b155592880ac3312b7e5c522d69f8e0aa13dcadaa0cb1cd589a3307bed00a8bc"
+    }
+  }
+}

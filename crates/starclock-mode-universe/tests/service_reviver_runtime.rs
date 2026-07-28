@@ -215,6 +215,81 @@ fn goal07_p4_m13_s02_statue_loses_exact_current_hp_ratio_without_defeating_parti
     assert_eq!(carry.life(), LifeState::Alive);
 }
 
+#[test]
+fn goal07_p4_m13_s04_saleo_loses_exact_current_hp_ratio_without_defeating_participants() {
+    let compiled = compiled();
+    let choice = catalog()
+        .occurrence_choices()
+        .iter()
+        .find(|choice| choice.stable_key() == "universe.occurrence.24.variant.11901.choice.01")
+        .unwrap()
+        .id();
+    let interaction = compiled
+        .occurrence_interaction_runtime()
+        .compile_choice(choice)
+        .unwrap();
+    assert_eq!(interaction.external_results().len(), 46);
+    let payload = interaction.external_results()[0].payload();
+    let fixture = ReviverFixture::new();
+    let mut state = fixture.state(&compiled);
+    fixture.prepare(&mut state);
+    let before = fixture.hash(&state);
+    let handoff = state
+        .start_pending_battle(
+            &fixture.graph,
+            &fixture.rng,
+            ActivityBattleStartRequest::new(
+                before,
+                fixture.identity,
+                fixture.instance,
+                Arc::clone(&fixture.contract),
+            ),
+        )
+        .unwrap();
+    let awaiting = fixture.hash(&state);
+    state
+        .submit_pending_battle_result(
+            fixture.identity,
+            &fixture.graph,
+            fixture.instance,
+            &fixture.rng,
+            ActivityBattleResultSubmission::new(awaiting, alive_result(handoff.identity())),
+        )
+        .unwrap();
+    let view = fixture.view(&state);
+    let registration = compiled
+        .runtime_definition()
+        .interactions()
+        .unwrap()
+        .registry()
+        .handler(ActivityHandlerId::new(OCCURRENCE_INTERACTION_HANDLER_ID).unwrap())
+        .unwrap();
+    let output = registration
+        .execute(ActivityHandlerInput::new(&view, payload).unwrap())
+        .unwrap();
+    assert!(output.operations().iter().any(|operation| matches!(
+        operation,
+        starclock_activity::ActivityOperation::LoseParticipantCurrentHpRatio {
+            participant: value,
+            hp_ratio,
+            minimum_hp,
+        } if *value == participant() && hp_ratio.scaled() == 200_000 && minimum_hp.get() == 1
+    )));
+    let program = ActivityProgramDefinition::new(
+        ActivityProgramId::new(80_004).unwrap(),
+        output.operations().to_vec(),
+    )
+    .unwrap();
+    let cause = ActivityCause::new(1, program.id(), fixture.service_node).unwrap();
+    assert!(matches!(
+        state.apply_program(&program, cause, &fixture.graph),
+        ActivityTransactionOutcome::Committed(_)
+    ));
+    let carry = fixture.view(&state).participant_carry()[0];
+    assert_eq!(carry.current_hp(), hp(800));
+    assert_eq!(carry.life(), LifeState::Alive);
+}
+
 struct ReviverFixture {
     graph: ActivityGraphDefinition,
     identity: ActivityDefinitionIdentity,

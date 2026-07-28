@@ -1,0 +1,61 @@
+{
+  "schema_revision": "starclock.goal07-occurrence-source-review.v1",
+  "partition_id": "G07-P4-M13-S04",
+  "reviewed_on": "2026-07-28",
+  "frozen_source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "sources": [
+    {
+      "url": "https://game8.co/games/Honkai-Star-Rail/archives/477632",
+      "section": "Societal Dreamscape Possible Outcomes",
+      "evidence_sha256": "4bd0fb506bc2c82a36bcefd6178cab263dcc9f428dda8246add548575f2f5346",
+      "facts": [
+        "negative-curio:1:cosmic-fragments:300",
+        "cosmic-fragments:100"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Saleo_%28I%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "400728699e11a9271aca5b4cd323d1c200fc6e4c17ed83c05032970fe4ead82f",
+      "facts": [
+        "normal-curio:1:current-hp-loss:20-percent:transition:sal-ii",
+        "discard-curio:1:two-star-blessing:1:transition:leo-iii"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Sal_%28II%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "48087d9e930f7180d9e3c16ce5bc874e308683f2b444ca76b263434e6fcf604e",
+      "facts": [
+        "normal-curio:1:current-hp-loss:20-percent",
+        "cosmic-fragments:100:transition:saleo-i"
+      ]
+    },
+    {
+      "url": "https://honkai-star-rail.fandom.com/wiki/Leo_%28III%29",
+      "section": "Possible Outcomes — Simulated Universe",
+      "evidence_sha256": "f596a721de7cd42e7ec37e3e9a3ec52d1553c851ea7a1c1f7ae8a029cd507bb5",
+      "facts": [
+        "discard-curio:1:two-star-blessing:1",
+        "cosmic-fragments:100:transition:saleo-i"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimbreath/turnbasedgamedata/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0011801/Opt0011801.json",
+      "section": "OptionList",
+      "evidence_sha256": "6db3f3150dfed35878c642a95ee4984e5188a850284fd7ea67648d9560cdedaa",
+      "facts": [
+        "option-11801-desc-value:300",
+        "option-11802-desc-value:100"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimbreath/turnbasedgamedata/fd978d6ef09f941fba644c731ab54abd6f7c3568/Config/Level/Rogue/RogueDialogue/Event0011901/Opt0011901.json",
+      "section": "OptionList",
+      "evidence_sha256": "a5868b50e81bfcd23ea3854b02203ea0e6c5a6acefc5554b1b402d4f2d23b217",
+      "facts": [
+        "option-11901-desc-value:20"
+      ]
+    }
+  ]
+}

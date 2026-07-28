@@ -372,8 +372,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            133, 144, 88, 26, 149, 90, 12, 221, 228, 4, 252, 203, 65, 207, 136, 94, 53, 178, 28,
-            240, 205, 123, 247, 189, 2, 136, 195, 200, 189, 176, 215, 118,
+            226, 231, 157, 153, 34, 73, 1, 133, 219, 183, 82, 13, 251, 17, 220, 66, 166, 129, 69,
+            251, 246, 203, 122, 188, 197, 63, 236, 216, 12, 211, 64, 26,
         ]
     );
     assert_eq!(
@@ -528,27 +528,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 7);
+    assert_eq!(executor.reports().len(), 5);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        41
+        27
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            5, 154, 20, 49, 243, 196, 239, 141, 104, 0, 195, 90, 159, 22, 240, 96, 93, 40, 111,
-            183, 36, 137, 233, 221, 86, 114, 120, 106, 188, 205, 181, 46,
+            196, 89, 19, 152, 29, 212, 57, 68, 217, 205, 5, 6, 125, 44, 232, 45, 155, 166, 125,
+            132, 248, 251, 151, 249, 104, 75, 122, 37, 167, 130, 158, 210,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            238, 18, 78, 137, 50, 87, 114, 172, 132, 200, 58, 166, 231, 222, 127, 19, 167, 5, 88,
-            14, 175, 35, 63, 211, 148, 186, 49, 71, 106, 52, 82, 197,
+            144, 72, 6, 10, 95, 24, 153, 168, 197, 32, 3, 224, 34, 182, 189, 184, 240, 186, 35,
+            245, 174, 178, 82, 171, 54, 26, 165, 231, 123, 140, 63, 152,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

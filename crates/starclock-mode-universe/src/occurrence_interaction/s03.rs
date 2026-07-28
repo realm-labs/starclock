@@ -2,6 +2,7 @@ use super::*;
 
 const ALL: &str = "universe.blessing-pool.all";
 const ONE_STAR: &str = "universe.blessing-pool.rarity.1";
+const TWO_STAR: &str = "universe.blessing-pool.rarity.2";
 const THREE_STAR: &str = "universe.blessing-pool.rarity.3";
 const PRESERVATION_TWO_STAR: &str = "universe.blessing-pool.path.preservation.rarity.2";
 
@@ -24,7 +25,7 @@ pub(super) fn referenced_blessings(
         if reference.starts_with("universe.blessing-pool.")
             && !matches!(
                 reference,
-                ALL | ONE_STAR | THREE_STAR | PRESERVATION_TWO_STAR
+                ALL | ONE_STAR | TWO_STAR | THREE_STAR | PRESERVATION_TWO_STAR
             )
         {
             return Err(OccurrenceInteractionError::InvalidChoice);
@@ -45,6 +46,7 @@ pub(super) fn referenced_blessings(
                 .filter(|value| match reference {
                     ALL => true,
                     ONE_STAR => value.rarity() == 1,
+                    TWO_STAR => value.rarity() == 2,
                     THREE_STAR => value.rarity() == 3,
                     PRESERVATION_TWO_STAR => value.rarity() == 2 && value.path() == preservation,
                     _ => false,

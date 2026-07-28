@@ -3,17 +3,17 @@ use std::sync::{Arc, OnceLock};
 use starclock_activity::{
     ActivityCause, ActivityConfigDigest, ActivityDecisionKind, ActivityDefinitionDigest,
     ActivityDefinitionId, ActivityDefinitionIdentity, ActivityEdgeCondition,
-    ActivityEdgeDefinition, ActivityEdgeId, ActivityExternalOutcomeId, ActivityGraphDefinition,
-    ActivityInstanceId, ActivityInteractionBinding, ActivityMasterSeed, ActivityNodeDefinition,
-    ActivityNodeKind, ActivityOperation, ActivityOptionDefinition, ActivityProgramDefinition,
-    ActivityProgramId, ActivityRandomPolicies, ActivityRngLabel, ActivityScope,
-    ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition, ActivityStateSource,
-    ActivityStateVisibility, ActivityTerminalOutcome, ActivityTransactionOutcome,
-    ActivityTransactionRejection, ActivityTransactionState, ActivityValue, BuildDigest,
-    GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram, LoadoutLockScope, NodeId,
-    OpaqueParticipantBuild, ParticipantId, ParticipantLock, ParticipantLockEntry,
-    ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope, SectionId,
-    SlotCarryPolicy, SlotResetPoint,
+    ActivityEdgeDefinition, ActivityEdgeId, ActivityExpression, ActivityExternalOutcomeId,
+    ActivityGraphDefinition, ActivityInstanceId, ActivityInteractionBinding, ActivityMasterSeed,
+    ActivityNodeDefinition, ActivityNodeKind, ActivityOperation, ActivityOptionDefinition,
+    ActivityProgramDefinition, ActivityProgramId, ActivityRandomPolicies, ActivityRngLabel,
+    ActivityScope, ActivitySlotDefinition, ActivitySlotId, ActivityStateDefinition,
+    ActivityStateSource, ActivityStateVisibility, ActivityTerminalOutcome,
+    ActivityTransactionOutcome, ActivityTransactionRejection, ActivityTransactionState,
+    ActivityValue, BuildDigest, GraphActivity, GraphActivityDefinition, GraphActivityNodeProgram,
+    LoadoutLockScope, NodeId, OpaqueParticipantBuild, ParticipantId, ParticipantLock,
+    ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind, ParticipantUniquenessScope,
+    SectionId, SlotCarryPolicy, SlotResetPoint,
 };
 use starclock_combat::{CombatantSpecDigest, UnitDefinitionId};
 use starclock_mode_universe::{
@@ -27,6 +27,9 @@ use starclock_mode_universe::{
 
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
+
+#[path = "run_runtime/s04.rs"]
+mod s04;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -50,7 +53,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        75
+        90
     );
     assert_eq!(
         runtime
@@ -79,8 +82,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            209, 185, 88, 157, 25, 6, 169, 250, 169, 30, 239, 35, 142, 40, 137, 207, 17, 235, 122,
-            80, 35, 72, 47, 116, 106, 79, 78, 72, 60, 132, 55, 119,
+            237, 46, 21, 22, 104, 61, 156, 172, 251, 104, 31, 35, 219, 20, 12, 157, 43, 202, 198,
+            185, 192, 135, 24, 179, 42, 238, 36, 0, 189, 77, 221, 181,
         ]
     );
     assert_eq!(
@@ -312,9 +315,9 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 370);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 73);
-    assert_eq!(interaction_catalog.external_result_count(), 4_135);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 399);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 37);
+    assert_eq!(interaction_catalog.external_result_count(), 4_600);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)

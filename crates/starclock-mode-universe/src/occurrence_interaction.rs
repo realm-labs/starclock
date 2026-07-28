@@ -809,6 +809,9 @@ fn lower_pairs(
     for (index, (operation, target, scalar)) in pairs.into_iter().enumerate() {
         let sign = operation_sign(operation);
         match target {
+            _ if operation == OccurrenceOperation::Special => {
+                output.push(PayloadOperation::Transition);
+            }
             Some(OccurrenceTarget::CosmicFragments) if sign != 0 => {
                 let scalar = scalar.unwrap_or_else(default_scalar);
                 match scalar.unit() {
@@ -886,9 +889,6 @@ fn lower_pairs(
                 });
             }
             None if operation == OccurrenceOperation::Battle && battle_ready => {
-                output.push(PayloadOperation::Transition);
-            }
-            None if operation == OccurrenceOperation::Special => {
                 output.push(PayloadOperation::Transition);
             }
             _ => output.push(PayloadOperation::DeferredEffect {

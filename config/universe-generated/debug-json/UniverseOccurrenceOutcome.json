@@ -8995,24 +8995,170 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "100"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "CosmicFragments"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9035,24 +9181,35 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "100"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.all"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "CosmicFragments"
+                "String": "Blessing"
               },
               {
-                "String": "Blessing"
+                "String": "CosmicFragments"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9064,7 +9221,7 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Special"
               }
             ]
           },
@@ -9086,7 +9243,7 @@
           "kinds": {
             "List": [
               {
-                "String": "Obtain"
+                "String": "Enhance"
               },
               {
                 "String": "Consume"
@@ -9096,22 +9253,36 @@
           "numeric_literals": {
             "List": [
               {
-                "String": "1"
+                "String": "3"
+              },
+              {
+                "String": "10"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.all"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Blessing"
+              },
+              {
                 "String": "CosmicFragments"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9134,21 +9305,35 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "10"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Blessing"
+              },
+              {
                 "String": "CosmicFragments"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9183,17 +9368,71 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
+                "String": "300"
+              },
+              {
                 "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.curio.45"
+              },
+              {
+                "String": "universe.curio.47"
+              },
+              {
+                "String": "universe.curio.49"
+              },
+              {
+                "String": "universe.curio.51"
+              },
+              {
+                "String": "universe.curio.53"
+              },
+              {
+                "String": "universe.curio.55"
+              },
+              {
+                "String": "universe.curio.57"
+              },
+              {
+                "String": "universe.curio.59"
+              },
+              {
+                "String": "universe.curio.60"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9225,7 +9464,13 @@
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
@@ -9242,13 +9487,7 @@
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 76
           },
@@ -9259,6 +9498,9 @@
               },
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
@@ -9266,10 +9508,154 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "20%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9286,7 +9672,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9298,10 +9686,13 @@
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Obtain"
               },
               {
-                "String": "Discard"
+                "String": "Special"
               }
             ]
           },
@@ -9311,36 +9702,41 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Curio"
+              },
+              {
                 "String": "Blessing"
               },
               {
-                "String": "Curio"
+                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 78
           },
@@ -9351,6 +9747,9 @@
               },
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
@@ -9358,10 +9757,154 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "20%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9378,7 +9921,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9390,16 +9935,34 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Character"
+              }
+            ]
+          },
           "unspecified_random_policy": "Null"
         }
       },
@@ -9412,10 +9975,13 @@
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Obtain"
               },
               {
-                "String": "Discard"
+                "String": "Special"
               }
             ]
           },
@@ -9425,25 +9991,36 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Curio"
+              },
+              {
                 "String": "Blessing"
               },
               {
-                "String": "Curio"
+                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9455,28 +10032,40 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Character"
+              }
+            ]
+          },
           "unspecified_random_policy": "Null"
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 82
           },
@@ -9487,6 +10076,9 @@
               },
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
@@ -9494,10 +10086,154 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "20%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9514,7 +10250,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9526,10 +10264,13 @@
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Obtain"
               },
               {
-                "String": "Discard"
+                "String": "Special"
               }
             ]
           },
@@ -9539,36 +10280,41 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Curio"
+              },
+              {
                 "String": "Blessing"
               },
               {
-                "String": "Curio"
+                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
         "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
+          "chance_percentages": "Null",
           "choice_id": {
             "Integer": 84
           },
@@ -9579,6 +10325,9 @@
               },
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
@@ -9586,10 +10335,154 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "20%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9606,7 +10499,9 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9618,16 +10513,34 @@
           "kinds": {
             "List": [
               {
+                "String": "Obtain"
+              },
+              {
                 "String": "Special"
               }
             ]
           },
-          "numeric_literals": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "100"
+              }
+            ]
+          },
           "parameter_refs": "Null",
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Character"
+              }
+            ]
+          },
           "unspecified_random_policy": "Null"
         }
       },
@@ -9640,10 +10553,13 @@
           "kinds": {
             "List": [
               {
+                "String": "Discard"
+              },
+              {
                 "String": "Obtain"
               },
               {
-                "String": "Discard"
+                "String": "Special"
               }
             ]
           },
@@ -9653,25 +10569,36 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Curio"
+              },
+              {
                 "String": "Blessing"
               },
               {
-                "String": "Curio"
+                "String": "Character"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -9683,45 +10610,17 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
-              }
-            ]
-          },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
-          "sequence": {
-            "Integer": 1
-          },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
-        }
-      },
-      {
-        "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
-          "choice_id": {
-            "Integer": 88
-          },
-          "kinds": {
-            "List": [
-              {
                 "String": "Obtain"
               },
               {
-                "String": "Lose"
+                "String": "Special"
               }
             ]
           },
           "numeric_literals": {
             "List": [
               {
-                "String": "1"
+                "String": "100"
               }
             ]
           },
@@ -9732,10 +10631,7 @@
           "targets": {
             "List": [
               {
-                "String": "Curio"
-              },
-              {
-                "String": "HP"
+                "String": "CosmicFragments"
               },
               {
                 "String": "Character"
@@ -9749,56 +10645,7 @@
         "values": {
           "chance_percentages": "Null",
           "choice_id": {
-            "Integer": 89
-          },
-          "kinds": {
-            "List": [
-              {
-                "String": "Obtain"
-              },
-              {
-                "String": "Discard"
-              }
-            ]
-          },
-          "numeric_literals": {
-            "List": [
-              {
-                "String": "1"
-              },
-              {
-                "String": "2"
-              }
-            ]
-          },
-          "parameter_refs": "Null",
-          "sequence": {
-            "Integer": 1
-          },
-          "targets": {
-            "List": [
-              {
-                "String": "Blessing"
-              },
-              {
-                "String": "Curio"
-              }
-            ]
-          },
-          "unspecified_random_policy": "Null"
-        }
-      },
-      {
-        "values": {
-          "chance_percentages": {
-            "List": [
-              {
-                "String": "2"
-              }
-            ]
-          },
-          "choice_id": {
-            "Integer": 90
+            "Integer": 88
           },
           "kinds": {
             "List": [
@@ -9807,6 +10654,9 @@
               },
               {
                 "String": "Lose"
+              },
+              {
+                "String": "Special"
               }
             ]
           },
@@ -9814,10 +10664,154 @@
             "List": [
               {
                 "String": "1"
+              },
+              {
+                "String": "20%"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -9834,7 +10828,258 @@
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
+        }
+      },
+      {
+        "values": {
+          "chance_percentages": "Null",
+          "choice_id": {
+            "Integer": 89
+          },
+          "kinds": {
+            "List": [
+              {
+                "String": "Discard"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Special"
+              }
+            ]
+          },
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Character"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
+        }
+      },
+      {
+        "values": {
+          "chance_percentages": "Null",
+          "choice_id": {
+            "Integer": 90
+          },
+          "kinds": {
+            "List": [
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Lose"
+              },
+              {
+                "String": "Special"
+              }
+            ]
+          },
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "20%"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.curio.1"
+              },
+              {
+                "String": "universe.curio.102"
+              },
+              {
+                "String": "universe.curio.104"
+              },
+              {
+                "String": "universe.curio.106"
+              },
+              {
+                "String": "universe.curio.107"
+              },
+              {
+                "String": "universe.curio.11"
+              },
+              {
+                "String": "universe.curio.110"
+              },
+              {
+                "String": "universe.curio.111"
+              },
+              {
+                "String": "universe.curio.112"
+              },
+              {
+                "String": "universe.curio.113"
+              },
+              {
+                "String": "universe.curio.115"
+              },
+              {
+                "String": "universe.curio.118"
+              },
+              {
+                "String": "universe.curio.12"
+              },
+              {
+                "String": "universe.curio.120"
+              },
+              {
+                "String": "universe.curio.121"
+              },
+              {
+                "String": "universe.curio.122"
+              },
+              {
+                "String": "universe.curio.123"
+              },
+              {
+                "String": "universe.curio.13"
+              },
+              {
+                "String": "universe.curio.14"
+              },
+              {
+                "String": "universe.curio.15"
+              },
+              {
+                "String": "universe.curio.17"
+              },
+              {
+                "String": "universe.curio.19"
+              },
+              {
+                "String": "universe.curio.2"
+              },
+              {
+                "String": "universe.curio.20"
+              },
+              {
+                "String": "universe.curio.21"
+              },
+              {
+                "String": "universe.curio.211"
+              },
+              {
+                "String": "universe.curio.22"
+              },
+              {
+                "String": "universe.curio.23"
+              },
+              {
+                "String": "universe.curio.24"
+              },
+              {
+                "String": "universe.curio.25"
+              },
+              {
+                "String": "universe.curio.26"
+              },
+              {
+                "String": "universe.curio.27"
+              },
+              {
+                "String": "universe.curio.28"
+              },
+              {
+                "String": "universe.curio.3"
+              },
+              {
+                "String": "universe.curio.4"
+              },
+              {
+                "String": "universe.curio.5"
+              },
+              {
+                "String": "universe.curio.58"
+              },
+              {
+                "String": "universe.curio.6"
+              },
+              {
+                "String": "universe.curio.61"
+              },
+              {
+                "String": "universe.curio.62"
+              },
+              {
+                "String": "universe.curio.63"
+              },
+              {
+                "String": "universe.curio.64"
+              },
+              {
+                "String": "universe.curio.68"
+              },
+              {
+                "String": "universe.curio.69"
+              },
+              {
+                "String": "universe.curio.7"
+              },
+              {
+                "String": "universe.curio.8"
+              }
+            ]
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "HP"
+              },
+              {
+                "String": "Character"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
