@@ -34,14 +34,14 @@ mod s12;
 pub(crate) mod support;
 
 use support::{
-    Decoder, arithmetic, checked_lcm, default_scalar, deferred_effect_key, exact_integer,
-    fragment_delta, invalid_payload, invalid_state, inventory, lower_costs, operation_sign,
-    outcome_pairs, referenced_curios, require_at_least, select_candidates, slot, slot_integer,
+    Decoder, arithmetic, checked_lcm, exact_integer, fragment_delta, invalid_payload,
+    invalid_state, inventory, lower_costs, lower_pairs, outcome_pairs, referenced_curios,
+    require_at_least, select_candidates, slot, slot_integer,
 };
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v13";
+    "standard-universe-occurrence-interaction-runtime-v14";
 const PAYLOAD_REVISION: u8 = 6;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -53,6 +53,7 @@ const TAG_CURIO_INVENTORY: u8 = 7;
 const TAG_TRANSITION: u8 = 8;
 const TAG_PARTICIPANT_HP_LOSS: u8 = 9;
 const TAG_ENSURE_INVENTORY_GROUP: u8 = 10;
+const TAG_PARTICIPANT_HP_RESTORE: u8 = 47;
 const MAX_PAYLOAD_OPERATIONS: usize = 128;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -605,6 +606,9 @@ pub(crate) fn execute(
             TAG_PARTICIPANT_HP_LOSS => {
                 s02::decode_participant_hp_loss(input, &mut decoder, &mut operations)?;
             }
+            TAG_PARTICIPANT_HP_RESTORE => {
+                s02::decode_participant_hp_restore(input, &mut decoder, &mut operations)?;
+            }
             TAG_ENSURE_INVENTORY_GROUP => {
                 s02::decode_ensure_inventory_group(input, &mut decoder, &mut operations)?;
             }
@@ -870,6 +874,9 @@ enum PayloadOperation {
     ParticipantHpLoss {
         scaled_ratio: i64,
     },
+    ParticipantHpRestore {
+        scaled_ratio: i64,
+    },
     EnsureInventoryGroup {
         inventory: ActivityInventoryId,
         groups: Vec<Vec<u64>>,
@@ -1005,6 +1012,10 @@ impl PayloadOperation {
                 output.push(TAG_PARTICIPANT_HP_LOSS);
                 output.extend_from_slice(&scaled_ratio.to_le_bytes());
             }
+            Self::ParticipantHpRestore { scaled_ratio } => {
+                output.push(TAG_PARTICIPANT_HP_RESTORE);
+                output.extend_from_slice(&scaled_ratio.to_le_bytes());
+            }
             Self::EnsureInventoryGroup { inventory, groups } => {
                 output.push(TAG_ENSURE_INVENTORY_GROUP);
                 output.extend_from_slice(&inventory.get().to_le_bytes());
@@ -1036,135 +1047,6 @@ impl PayloadOperation {
         }
         Ok(())
     }
-}
-
-#[allow(clippy::too_many_arguments)]
-fn lower_pairs(
-    output: &mut Vec<PayloadOperation>,
-    pairs: impl IntoIterator<
-        Item = (
-            OccurrenceOperation,
-            Option<OccurrenceTarget>,
-            Option<AuthoredScalar>,
-        ),
-    >,
-    choice: OccurrenceChoiceId,
-    cosmic_fragments: ActivitySlotId,
-    blessing_inventory: ActivityInventoryId,
-    curio_bindings: CurioActivityBindings,
-    deferred_effects: ActivitySlotId,
-    blessing_ids: &[u64],
-    blessing_groups: &[Vec<u64>],
-    curio_records: &[CurioActivityRecord],
-    battle_ready: bool,
-) -> Result<(), OccurrenceInteractionError> {
-    for (index, (operation, target, scalar)) in pairs.into_iter().enumerate() {
-        let sign = operation_sign(operation);
-        match target {
-            _ if operation == OccurrenceOperation::Battle && battle_ready => {
-                output.push(PayloadOperation::Transition);
-            }
-            _ if operation == OccurrenceOperation::Special => {
-                output.push(PayloadOperation::Transition);
-            }
-            Some(OccurrenceTarget::CosmicFragments) if sign != 0 => {
-                let scalar = scalar.unwrap_or_else(default_scalar);
-                match scalar.unit() {
-                    AuthoredScalarUnit::Scalar => {
-                        let value = exact_integer(scalar)?;
-                        let delta = value
-                            .checked_mul(i64::from(sign))
-                            .ok_or(OccurrenceInteractionError::Arithmetic)?;
-                        output.push(PayloadOperation::FragmentScalar {
-                            slot: cosmic_fragments,
-                            gain_inventory: curio_bindings.inventory,
-                            delta,
-                        });
-                    }
-                    AuthoredScalarUnit::Percent => {
-                        output.push(PayloadOperation::FragmentPercent {
-                            slot: cosmic_fragments,
-                            gain_inventory: curio_bindings.inventory,
-                            coefficient: scalar.value().coefficient(),
-                            scale: scalar.value().scale(),
-                            sign,
-                        });
-                    }
-                }
-            }
-            Some(OccurrenceTarget::Blessing) if sign != 0 => {
-                if operation == OccurrenceOperation::Enhance && !blessing_groups.is_empty() {
-                    let count = scalar
-                        .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
-                        .map(exact_integer)
-                        .transpose()?
-                        .unwrap_or(1)
-                        .max(1);
-                    output.push(PayloadOperation::S05(
-                        s05::Operation::EnhanceBestInventoryGroup {
-                            inventory: blessing_inventory,
-                            quantity: u16::try_from(count)
-                                .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
-                            groups: blessing_groups.to_vec(),
-                        },
-                    ));
-                } else if sign > 0 && !blessing_groups.is_empty() {
-                    output.push(PayloadOperation::EnsureInventoryGroup {
-                        inventory: blessing_inventory,
-                        groups: blessing_groups.to_vec(),
-                    });
-                } else {
-                    let count = scalar
-                        .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
-                        .map(exact_integer)
-                        .transpose()?
-                        .unwrap_or(1)
-                        .max(1);
-                    output.push(PayloadOperation::Inventory {
-                        inventory: blessing_inventory,
-                        delta: sign,
-                        quantity: u16::try_from(count)
-                            .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
-                        owned_only: sign < 0 || operation == OccurrenceOperation::Enhance,
-                        candidates: blessing_ids.to_vec(),
-                    });
-                }
-            }
-            Some(OccurrenceTarget::Curio)
-                if sign != 0 && operation != OccurrenceOperation::Enhance =>
-            {
-                let count = scalar
-                    .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
-                    .map(exact_integer)
-                    .transpose()?
-                    .unwrap_or(1)
-                    .max(1);
-                output.push(PayloadOperation::CurioInventory {
-                    bindings: curio_bindings,
-                    delta: sign,
-                    quantity: u16::try_from(count)
-                        .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
-                    owned_only: sign < 0,
-                    candidates: curio_records.to_vec(),
-                });
-            }
-            Some(OccurrenceTarget::Hp)
-                if operation == OccurrenceOperation::Lose
-                    && scalar.is_some_and(|value| value.unit() == AuthoredScalarUnit::Percent) =>
-            {
-                output.push(PayloadOperation::ParticipantHpLoss {
-                    scaled_ratio: s02::percent_ratio_scaled(
-                        scalar.expect("guarded percentage scalar is present"),
-                    )?,
-                });
-            }
-            _ => output.push(PayloadOperation::DeferredEffect {
-                slot: deferred_effects,
-                key: deferred_effect_key(choice, index, operation, target)?,
-            }),
-        }
-    }
-    Ok(())
 }
 
 fn referenced_blessings(

@@ -5,6 +5,8 @@ const ONE_STAR: &str = "universe.blessing-pool.rarity.1";
 const TWO_STAR: &str = "universe.blessing-pool.rarity.2";
 const THREE_STAR: &str = "universe.blessing-pool.rarity.3";
 const PRESERVATION_TWO_STAR: &str = "universe.blessing-pool.path.preservation.rarity.2";
+const ELATION_TWO_STAR: &str = "universe.blessing-pool.path.elation.rarity.2";
+const HUNT_TWO_STAR: &str = "universe.blessing-pool.path.hunt.rarity.2";
 
 pub(super) fn referenced_blessings(
     outcome: &OccurrenceOutcome,
@@ -25,7 +27,12 @@ pub(super) fn referenced_blessings(
         if reference.starts_with("universe.blessing-pool.")
             && !matches!(
                 reference,
-                ALL | ONE_STAR | TWO_STAR | THREE_STAR | PRESERVATION_TWO_STAR
+                ALL | ONE_STAR
+                    | TWO_STAR
+                    | THREE_STAR
+                    | PRESERVATION_TWO_STAR
+                    | ELATION_TWO_STAR
+                    | HUNT_TWO_STAR
             )
         {
             return Err(OccurrenceInteractionError::InvalidChoice);
@@ -33,12 +40,21 @@ pub(super) fn referenced_blessings(
         if !reference.starts_with("universe.blessing-pool.") {
             continue;
         }
-        let preservation = catalog
-            .paths()
-            .iter()
-            .find(|path| path.stable_key() == "universe.path.preservation")
-            .expect("validated Preservation path")
-            .id();
+        let path = match reference {
+            PRESERVATION_TWO_STAR => Some("universe.path.preservation"),
+            ELATION_TWO_STAR => Some("universe.path.elation"),
+            HUNT_TWO_STAR => Some("universe.path.hunt"),
+            _ => None,
+        }
+        .map(|key| {
+            catalog
+                .paths()
+                .iter()
+                .find(|path| path.stable_key() == key)
+                .map(|path| path.id())
+                .ok_or(OccurrenceInteractionError::InvalidChoice)
+        })
+        .transpose()?;
         selected.extend(
             catalog
                 .blessings()
@@ -48,7 +64,9 @@ pub(super) fn referenced_blessings(
                     ONE_STAR => value.rarity() == 1,
                     TWO_STAR => value.rarity() == 2,
                     THREE_STAR => value.rarity() == 3,
-                    PRESERVATION_TWO_STAR => value.rarity() == 2 && value.path() == preservation,
+                    PRESERVATION_TWO_STAR | ELATION_TWO_STAR | HUNT_TWO_STAR => {
+                        value.rarity() == 2 && Some(value.path()) == path
+                    }
                     _ => false,
                 })
                 .map(|value| u64::from(value.id().get())),

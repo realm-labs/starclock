@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S14` |
-| Next unblocked batch | `G07-P4-M13-S14` |
+| Active phase | Phase 5 — Enemies, encounters and worlds |
+| Active batch | `G07-P5-M15-S01` |
+| Next unblocked batch | `G07-P5-M15-S01` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -278,10 +278,19 @@ Cremators performs an atomic one-to-two-star for one-to-three-star Blessing
 exchange or grants exactly 80 Cosmic Fragments. All 32 records have terminal
 dispositions, with no deferred counter, native handler or numeric
 approximation.
-`G07-P4-M13-S14` is active.
+Occurrence S14 is complete. The final two Mirror of Transcendence (II)
+dialogue states and all 18 Mirror (III) states are exact no-effect
+transitions. Interactive Arts grants one two-star Elation or Hunt Blessing,
+or restores every living character by exactly 100% of Max HP. Pixel World
+grants exactly 200 Cosmic Fragments, or atomically removes 20% of every
+living character's current HP before granting two random one-star Blessings.
+All 31 records and the assigned restoration fixture have terminal
+dispositions. The complete 321-choice Occurrence runtime now has zero
+deferred operations, with no native handler or numeric approximation.
+`G07-P5-M15-S01` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 67 completed partitions use scoped Excel/Sora semantic
+model. The first 68 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -353,7 +362,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 416 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Complete` | 447 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

@@ -41,6 +41,30 @@ pub(super) fn decode_participant_hp_loss(
     Ok(())
 }
 
+pub(super) fn decode_participant_hp_restore(
+    input: ActivityHandlerInput<'_>,
+    decoder: &mut Decoder<'_>,
+    operations: &mut Vec<ActivityOperation>,
+) -> Result<(), ActivityHandlerFault> {
+    let scaled = decoder.i64()?;
+    if !(1..=1_000_000).contains(&scaled) {
+        return Err(invalid_payload());
+    }
+    let ratio = Ratio::from_scaled(scaled);
+    operations.extend(
+        input
+            .view()
+            .participant_carry()
+            .iter()
+            .filter(|state| state.life() == LifeState::Alive)
+            .map(|state| ActivityOperation::HealParticipantMaximumHpRatio {
+                participant: state.participant(),
+                hp_ratio: ratio,
+            }),
+    );
+    Ok(())
+}
+
 pub(super) fn decode_ensure_inventory_group(
     input: ActivityHandlerInput<'_>,
     decoder: &mut Decoder<'_>,
