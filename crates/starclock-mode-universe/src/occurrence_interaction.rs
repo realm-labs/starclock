@@ -30,17 +30,18 @@ mod s08;
 mod s09;
 mod s10;
 mod s11;
+mod s12;
 pub(crate) mod support;
 
 use support::{
     Decoder, arithmetic, checked_lcm, default_scalar, deferred_effect_key, exact_integer,
     fragment_delta, invalid_payload, invalid_state, inventory, lower_costs, operation_sign,
-    outcome_pairs, require_at_least, select_candidates, slot, slot_integer,
+    outcome_pairs, referenced_curios, require_at_least, select_candidates, slot, slot_integer,
 };
 
 pub const OCCURRENCE_INTERACTION_HANDLER_ID: u32 = 2;
 pub const OCCURRENCE_INTERACTION_RUNTIME_REVISION: &str =
-    "standard-universe-occurrence-interaction-runtime-v11";
+    "standard-universe-occurrence-interaction-runtime-v12";
 const PAYLOAD_REVISION: u8 = 6;
 const TAG_FRAGMENT_SCALAR: u8 = 1;
 const TAG_FRAGMENT_PERCENT: u8 = 2;
@@ -373,6 +374,14 @@ pub(crate) fn compile(
         curio_records,
         interaction_state,
     )?;
+    let specialized_s12 = s12::lower(
+        outcome,
+        catalog,
+        blessing_inventory,
+        curio_bindings,
+        curio_records,
+        interaction_state,
+    )?;
     let specialized_s07 = s07::lower(
         outcome,
         catalog,
@@ -427,6 +436,10 @@ pub(crate) fn compile(
     let skip_generic_s09 = specialized_s09.is_some();
     let skip_generic_s10 = specialized_s10.is_some();
     let skip_generic_s11 = specialized_s11.is_some();
+    let skip_generic_s12 = specialized_s12.is_some();
+    if let Some(operation) = specialized_s12 {
+        operations.push(PayloadOperation::S12(operation));
+    }
     if let Some(lowering) = specialized_s11 {
         operations.extend(lowering.operations);
     }
@@ -445,7 +458,12 @@ pub(crate) fn compile(
     let has_specialized_s07 = specialized_s07.is_some();
     if let Some(operation) = specialized_s07 {
         operations.push(PayloadOperation::S07(operation));
-    } else if !skip_generic_s09 && !skip_generic_s10 && !skip_generic_s11 && external.is_none() {
+    } else if !skip_generic_s09
+        && !skip_generic_s10
+        && !skip_generic_s11
+        && !skip_generic_s12
+        && external.is_none()
+    {
         lower_costs(
             &mut operations,
             choice,
@@ -465,6 +483,7 @@ pub(crate) fn compile(
         && !skip_generic_s09
         && !skip_generic_s10
         && !skip_generic_s11
+        && !skip_generic_s12
         && external.is_none()
     {
         lower_pairs(
@@ -531,6 +550,7 @@ pub(crate) fn compile(
                 PayloadOperation::S09(operation) => operation.random_candidate_count(),
                 PayloadOperation::S10(operation) => operation.random_candidate_count(),
                 PayloadOperation::S11(operation) => operation.random_candidate_count(),
+                PayloadOperation::S12(operation) => operation.random_candidate_count(),
                 _ => None,
             })
             .try_fold(1_u32, checked_lcm)
@@ -595,6 +615,7 @@ pub(crate) fn execute(
             tag if s09::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s11::decode(tag, input, &mut decoder, &mut operations)? => {}
             tag if s10::decode(tag, input, &mut decoder, &mut operations)? => {}
+            tag if s12::decode(tag, input, &mut decoder, &mut operations)? => {}
             _ => return Err(invalid_payload()),
         }
     }
@@ -860,6 +881,7 @@ enum PayloadOperation {
     S09(s09::Operation),
     S10(s10::Operation),
     S11(s11::Operation),
+    S12(s12::Operation),
     Transition,
 }
 
@@ -1009,6 +1031,7 @@ impl PayloadOperation {
             Self::S09(operation) => operation.encode(output)?,
             Self::S10(operation) => operation.encode(output),
             Self::S11(operation) => operation.encode(output)?,
+            Self::S12(operation) => operation.encode(output)?,
             Self::Transition => output.push(TAG_TRANSITION),
         }
         Ok(())
@@ -1149,40 +1172,6 @@ fn referenced_blessings(
     catalog: &UniverseCatalog,
 ) -> Result<Vec<u64>, OccurrenceInteractionError> {
     s03::referenced_blessings(outcome, catalog)
-}
-
-fn referenced_curios(
-    outcome: &OccurrenceOutcome,
-    catalog: &UniverseCatalog,
-    records: &[CurioActivityRecord],
-) -> Result<Vec<CurioActivityRecord>, OccurrenceInteractionError> {
-    let references = outcome
-        .parameter_refs()
-        .iter()
-        .filter(|value| value.starts_with("universe.curio."))
-        .map(AsRef::as_ref)
-        .collect::<Vec<_>>();
-    if references.is_empty() {
-        return Ok(records.to_vec());
-    }
-    let mut selected = Vec::with_capacity(references.len());
-    for reference in references {
-        let id = catalog
-            .curios()
-            .iter()
-            .find(|value| value.stable_key() == reference)
-            .map(|value| value.id())
-            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
-        let record = records
-            .iter()
-            .copied()
-            .find(|value| value.id() == id)
-            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
-        selected.push(record);
-    }
-    selected.sort_unstable_by_key(|value| value.id());
-    selected.dedup_by_key(|value| value.id());
-    Ok(selected)
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -44,6 +44,8 @@ mod s09;
 mod s10;
 #[path = "run_runtime/s11.rs"]
 mod s11;
+#[path = "run_runtime/s12.rs"]
+mod s12;
 
 fn catalog() -> Arc<UniverseCatalog> {
     static CATALOG: OnceLock<Arc<UniverseCatalog>> = OnceLock::new();
@@ -67,7 +69,7 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
             .flat_map(|choice| choice.outcomes())
             .filter(|outcome| outcome.random_policy().is_some())
             .count(),
-        120
+        125
     );
     assert_eq!(
         runtime
@@ -96,8 +98,8 @@ fn all_occurrence_service_and_ability_inputs_compile_to_typed_runtime() {
     assert_eq!(
         runtime.digest(),
         [
-            54, 221, 204, 152, 182, 166, 92, 3, 70, 117, 186, 142, 144, 191, 96, 59, 238, 185, 21,
-            179, 163, 218, 243, 16, 52, 135, 254, 93, 112, 76, 57, 103,
+            146, 218, 248, 16, 4, 21, 37, 2, 76, 126, 141, 161, 6, 1, 201, 218, 41, 53, 83, 98,
+            252, 26, 33, 131, 154, 36, 183, 157, 89, 146, 78, 134,
         ]
     );
     assert_eq!(
@@ -329,9 +331,9 @@ fn occurrence_choices_compile_and_exact_room_sources_bind_executable_handlers() 
     }));
     let interaction_catalog = compiled.occurrence_interaction_runtime();
     assert_eq!(interaction_catalog.choice_count(), 321);
-    assert_eq!(interaction_catalog.immediate_operation_count(), 390);
-    assert_eq!(interaction_catalog.deferred_operation_count(), 23);
-    assert_eq!(interaction_catalog.external_result_count(), 4_109);
+    assert_eq!(interaction_catalog.immediate_operation_count(), 393);
+    assert_eq!(interaction_catalog.deferred_operation_count(), 16);
+    assert_eq!(interaction_catalog.external_result_count(), 3_339);
     assert!(catalog.occurrence_choices().iter().any(|choice| {
         let outcome = &choice.outcomes()[0];
         outcome.operations().contains(&OccurrenceOperation::Obtain)

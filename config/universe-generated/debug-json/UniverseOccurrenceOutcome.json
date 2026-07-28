@@ -3947,7 +3947,34 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.mirror-rescue"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.mirror-curse-of-captivity"
+              },
+              {
+                "String": "universe.occurrence-battle.level.48"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.1"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3968,8 +3995,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-light-candle"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -3991,7 +4030,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4001,7 +4046,34 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "10"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "5"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "15"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 246
           },
@@ -4009,15 +4081,105 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Enhance"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "150"
+              },
+              {
+                "String": "300"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "2"
+              },
+              {
+                "String": "3"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-random-wish"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              }
+            ]
+          },
           "unspecified_random_policy": {
             "String": "StableUniformOrderedCandidates"
           }
@@ -4043,7 +4205,34 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.mirror-rescue"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.mirror-curse-of-captivity"
+              },
+              {
+                "String": "universe.occurrence-battle.level.48"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.1"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4053,7 +4242,34 @@
       },
       {
         "values": {
-          "chance_percentages": "Null",
+          "chance_percentages": {
+            "List": [
+              {
+                "String": "10"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "5"
+              },
+              {
+                "String": "20"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "10"
+              },
+              {
+                "String": "15"
+              }
+            ]
+          },
           "choice_id": {
             "Integer": 248
           },
@@ -4061,15 +4277,105 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
+              },
+              {
+                "String": "Enhance"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "50"
+              },
+              {
+                "String": "150"
+              },
+              {
+                "String": "300"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "1"
+              },
+              {
+                "String": "2"
+              },
+              {
+                "String": "3"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-random-wish"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "CosmicFragments"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Curio"
+              },
+              {
+                "String": "Blessing"
+              },
+              {
+                "String": "Blessing"
+              }
+            ]
+          },
           "unspecified_random_policy": {
             "String": "StableUniformOrderedCandidates"
           }
@@ -4095,7 +4401,34 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.mirror-rescue"
+              },
+              {
+                "String": "universe.occurrence-battle.stage.mirror-curse-of-captivity"
+              },
+              {
+                "String": "universe.occurrence-battle.level.48"
+              },
+              {
+                "String": "universe.occurrence-battle.wave.1"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.everwinter-shadewalker.minionlv2.variant.01"
+              },
+              {
+                "String": "enemy.guardian-shadow.elite.variant.01"
+              },
+              {
+                "String": "universe.occurrence-battle.reward.fixed-blessings.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4116,8 +4449,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-light-candle"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4139,7 +4484,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4161,7 +4512,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.mirror-all-candles-lit"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4182,8 +4539,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-light-candle"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4205,7 +4574,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4226,8 +4601,20 @@
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "1"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-light-candle"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4249,7 +4636,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s11.mirror-leave"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -4271,7 +4664,13 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.mirror-all-candles-lit"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -5139,7 +5538,31 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -5164,17 +5587,55 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-two"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -5187,6 +5648,9 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
@@ -5196,21 +5660,48 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one-rarity-two-blessing"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "Blessing"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "Blessing"
               }
             ]
           },
@@ -5233,11 +5724,41 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-discard-all"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
           "unspecified_random_policy": "Null"
         }
       },
@@ -5251,6 +5772,9 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
@@ -5260,21 +5784,48 @@
                 "String": "1"
               },
               {
-                "String": "3"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one-rarity-three-blessing"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "Blessing"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "Blessing"
               }
             ]
           },
@@ -5292,12 +5843,42 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Discard"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-exchange-all-for-curios"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -5305,10 +5886,15 @@
             "List": [
               {
                 "String": "Curio"
+              },
+              {
+                "String": "Curio"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -5320,23 +5906,64 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Discard"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-exchange-all-for-blessings"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.1"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
+                "String": "Curio"
+              },
+              {
                 "String": "Blessing"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -5359,7 +5986,31 @@
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -5384,17 +6035,55 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Obtain"
               }
             ]
           },
-          "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "numeric_literals": {
+            "List": [
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-two"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
-          "unspecified_random_policy": "Null"
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {
@@ -5407,6 +6096,9 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
@@ -5416,21 +6108,48 @@
                 "String": "1"
               },
               {
-                "String": "2"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one-rarity-two-blessing"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.2"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "Blessing"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "Blessing"
               }
             ]
           },
@@ -5453,11 +6172,41 @@
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-discard-all"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
-          "targets": "Null",
+          "targets": {
+            "List": [
+              {
+                "String": "Curio"
+              }
+            ]
+          },
           "unspecified_random_policy": "Null"
         }
       },
@@ -5471,6 +6220,9 @@
             "List": [
               {
                 "String": "Obtain"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
@@ -5480,21 +6232,48 @@
                 "String": "1"
               },
               {
-                "String": "3"
+                "String": "1"
               }
             ]
           },
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-acquire-one-rarity-three-blessing"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.blessing-pool.rarity.3"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
           "targets": {
             "List": [
               {
-                "String": "Blessing"
+                "String": "Curio"
               },
               {
-                "String": "Curio"
+                "String": "Blessing"
               }
             ]
           },
@@ -5512,12 +6291,42 @@
           "kinds": {
             "List": [
               {
-                "String": "Special"
+                "String": "Discard"
+              },
+              {
+                "String": "Obtain"
               }
             ]
           },
           "numeric_literals": "Null",
-          "parameter_refs": "Null",
+          "parameter_refs": {
+            "List": [
+              {
+                "String": "universe.occurrence-s12.cuckoo-exchange-all-for-curios"
+              },
+              {
+                "String": "universe.curio.65"
+              },
+              {
+                "String": "universe.curio.66"
+              },
+              {
+                "String": "universe.curio.67"
+              },
+              {
+                "String": "universe.curio.70"
+              },
+              {
+                "String": "universe.curio.71"
+              },
+              {
+                "String": "universe.curio.108"
+              },
+              {
+                "String": "universe.curio-pool.polarity.positive"
+              }
+            ]
+          },
           "sequence": {
             "Integer": 1
           },
@@ -5525,10 +6334,15 @@
             "List": [
               {
                 "String": "Curio"
+              },
+              {
+                "String": "Curio"
               }
             ]
           },
-          "unspecified_random_policy": "Null"
+          "unspecified_random_policy": {
+            "String": "StableUniformOrderedCandidates"
+          }
         }
       },
       {

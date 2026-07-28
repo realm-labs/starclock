@@ -2,6 +2,40 @@ use super::*;
 
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 
+pub(super) fn referenced_curios(
+    outcome: &OccurrenceOutcome,
+    catalog: &UniverseCatalog,
+    records: &[CurioActivityRecord],
+) -> Result<Vec<CurioActivityRecord>, OccurrenceInteractionError> {
+    let references = outcome
+        .parameter_refs()
+        .iter()
+        .filter(|value| value.starts_with("universe.curio."))
+        .map(AsRef::as_ref)
+        .collect::<Vec<_>>();
+    if references.is_empty() {
+        return Ok(records.to_vec());
+    }
+    let mut selected = Vec::with_capacity(references.len());
+    for reference in references {
+        let id = catalog
+            .curios()
+            .iter()
+            .find(|value| value.stable_key() == reference)
+            .map(|value| value.id())
+            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
+        let record = records
+            .iter()
+            .copied()
+            .find(|value| value.id() == id)
+            .ok_or(OccurrenceInteractionError::InvalidChoice)?;
+        selected.push(record);
+    }
+    selected.sort_unstable_by_key(|value| value.id());
+    selected.dedup_by_key(|value| value.id());
+    Ok(selected)
+}
+
 pub(super) fn outcome_pairs(
     outcome: &OccurrenceOutcome,
 ) -> Vec<(
