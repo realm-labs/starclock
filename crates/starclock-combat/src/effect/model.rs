@@ -138,6 +138,8 @@ pub enum ControlledAction {
 pub enum ForcedNormalAction {
     /// Use the unit's Basic ATK against one uniformly selected living ally.
     BasicAttackRandomAlly,
+    /// Use the unit's Basic ATK against the living opposing effect applier.
+    BasicAttackApplier,
 }
 
 /// DoT-specific captured damage and selection metadata.

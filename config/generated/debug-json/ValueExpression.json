@@ -38234,6 +38234,402 @@
             "String": "goal07.enemy.s02.expression.targeting-speed-value"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001101
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "OrdinaryDamage"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 1000401
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.actor-atk"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001102
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "4"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.ratio-4"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001103
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.ratio-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001104
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.ratio-0-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001105
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.ratio-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001106
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.ratio-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001107
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.duration-two"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001108
+          },
+          "node": {
+            "Object": {
+              "selector_id": {
+                "Integer": 1000407
+              },
+              "type": {
+                "String": "SelectorCount"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.coordinated-allies-count"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001109
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 0
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.integer-zero"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001110
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1000503
+              },
+              "subject_selector_id": {
+                "Integer": 1000406
+              },
+              "type": {
+                "String": "QueryEffectStacks"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.obliteration-stacks"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001111
+          },
+          "node": {
+            "Object": {
+              "operand_expression_id": {
+                "Integer": 1001110
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "target_kind": {
+                "String": "Scalar"
+              },
+              "type": {
+                "String": "Convert"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.obliteration-stacks-scalar"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001112
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1001101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1001102
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.purge-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001113
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1001101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1001103
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.destruction-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001114
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1001101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1001106
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.spider-self-explode-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1001115
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1001111
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1001104
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.expression.obliteration-damage-boost"
+          }
+        }
       }
     ]
   }

@@ -43,6 +43,17 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S03": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.automaton-grizzly-complete.elite.variant.01",
+      "enemy.automaton-grizzly-complete.elite",
+      "ai.goal07.automaton-grizzly-complete.phase-1",
+      "ai.goal07.automaton-grizzly-complete.phase-2",
+      "unit.goal07.automaton-grizzly-complete.automaton-spider",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -87,6 +98,18 @@ if (partitionId === "G07-P5-M15-S02") {
     { path: "crates/starclock-data/src/selector_lower.rs" },
     { path: "crates/starclock-data/src/operation_lower.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization/direwolf_s02.rs" },
+  );
+}
+if (partitionId === "G07-P5-M15-S03") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-mode-universe/src/runtime/negative_curio_commands.rs" },
+    { path: "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs" },
+    { path: "crates/starclock-mode-universe/tests/encounter_runtime.rs" },
+    { path: "crates/starclock-mode-universe/tests/entry_compilation.rs" },
+    { path: "crates/starclock-mode-universe/tests/topology_runtime.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/grizzly_s03.rs" },
   );
 }
 const provenanceEvidence = [

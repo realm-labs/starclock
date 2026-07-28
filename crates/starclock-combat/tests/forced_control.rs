@@ -41,7 +41,7 @@ fn action(kind: AbilityKind, operations: Vec<HitOperationDefinition>) -> Ability
     .unwrap()
 }
 
-fn catalog() -> Arc<CombatCatalog> {
+fn catalog(forced_action: ForcedNormalAction) -> Arc<CombatCatalog> {
     let mut builder = CombatCatalogBuilder::new("forced-control-v1", [0x91; 32]);
     for raw in 1..=2 {
         builder.add_selector(SelectorDefinition::new(definition(raw)).with_unit_targets(
@@ -65,7 +65,7 @@ fn catalog() -> Arc<CombatCatalog> {
         EffectStackPolicy::Refresh,
     )
     .unwrap()
-    .with_forced_normal_action(ForcedNormalAction::BasicAttackRandomAlly)
+    .with_forced_normal_action(forced_action)
     .unwrap();
     builder.add_effect(EffectDefinition::new(definition(1), vec![], vec![]).with_runtime(outrage));
     let damage = HitOperationDefinition::Damage(
@@ -160,7 +160,12 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
         ConcedePolicy::Allowed,
     )
     .unwrap();
-    let mut battle = Battle::create(catalog(), spec, BattleSeed::new([0x93; 32])).unwrap();
+    let mut battle = Battle::create(
+        catalog(ForcedNormalAction::BasicAttackRandomAlly),
+        spec,
+        BattleSeed::new([0x93; 32]),
+    )
+    .unwrap();
     battle
         .apply(Command::StartBattle {
             decision: battle.decision().unwrap().id(),
@@ -211,4 +216,87 @@ fn outrage_replaces_the_turn_with_a_basic_attack_against_an_ally() {
         900
     );
     assert_eq!(battle.view().rng_draw_count(), 2);
+}
+
+#[test]
+fn taunt_replaces_the_turn_with_a_basic_attack_against_the_applier() {
+    let spec = BattleSpec::new(
+        "forced-control-rules-v1",
+        AssemblyDigest::new([0x94; 32]).unwrap(),
+        definition(1),
+        vec![
+            ParticipantSpec::new(
+                TeamSide::Player,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::Player,
+                combatant(1, 1, 100_000_000, 1),
+            ),
+            ParticipantSpec::new(
+                TeamSide::Enemy,
+                FormationIndex::new(0).unwrap(),
+                ParticipantSource::EncounterEnemy(definition(1)),
+                combatant(2, 2, 110_000_000, 3),
+            ),
+        ],
+        TeamResourceSpec::new(3, 5).unwrap(),
+        TeamResourceSpec::new(0, 0).unwrap(),
+        ConcedePolicy::Allowed,
+    )
+    .unwrap();
+    let mut battle = Battle::create(
+        catalog(ForcedNormalAction::BasicAttackApplier),
+        spec,
+        BattleSeed::new([0x95; 32]),
+    )
+    .unwrap();
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    battle
+        .apply(Command::PassInterruptWindow {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let enemy_action = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| {
+            matches!(
+                command,
+                Command::UseAbility {
+                    ability,
+                    primary_target: Some(target),
+                    ..
+                } if ability.get() == 2 && target.get() == 1
+            )
+        })
+        .unwrap()
+        .clone();
+    let forced = battle.apply(enemy_action).unwrap();
+    assert!(forced.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Action(ActionEventData::Resolved {
+            actor,
+            ability,
+            origin: ActionOrigin::Forced,
+            targets,
+            ..
+        }) if actor.get() == 1 && ability.get() == 1
+            && targets.as_ref() == [starclock_combat::UnitId::new(2).unwrap()]
+    )));
+    assert_eq!(
+        battle
+            .view()
+            .units_by_id()
+            .find(|unit| unit.id().get() == 2)
+            .unwrap()
+            .current_hp()
+            .get(),
+        900
+    );
+    assert_eq!(battle.view().rng_draw_count(), 1);
 }

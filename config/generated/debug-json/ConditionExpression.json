@@ -133,6 +133,52 @@
             "String": "goal07.enemy.s02.condition.current-subject-unshielded"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1000551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1000552
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1001108
+              },
+              "right_expression_id": {
+                "Integer": 1001109
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s03.condition.direwolf-coordinated"
+          }
+        }
       }
     ]
   }

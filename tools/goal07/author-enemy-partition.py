@@ -1,8 +1,9 @@
 """Author and verify Goal 07 enemy partitions in the core production workbooks.
 
-S01 owns the Abundant Ebon Deer (Complete). S02 owns the Automaton Direwolf
-(Complete). Each partition receives an isolated 10,000-ID range so authoring
-and verification never consume rows owned by another partition.
+S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
+(Complete), and S03 owns the Automaton Grizzly (Complete). Each partition
+receives an isolated 10,000-ID range so authoring and verification never
+consume rows owned by another partition.
 """
 
 from __future__ import annotations
@@ -38,6 +39,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.automaton-direwolf-complete.elite.variant.01",
         "source_record_id": 4,
         "evidence_record_id": 5,
+    },
+    "G07-P5-M15-S03": {
+        "base": 1_000_000,
+        "variant": "enemy.automaton-grizzly-complete.elite.variant.01",
+        "source_record_id": 5,
+        "evidence_record_id": 6,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -2684,6 +2691,1001 @@ def owned_rows_s02() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s03() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S03 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graphs = [BASE + 10, BASE + 11]
+    linked_spider = BASE + 201
+    ability_names = {
+        201: ("purge-order", "Purge Order", "清除指令"),
+        202: ("destruction-order", "Destruction Order", "毁灭指令"),
+        203: ("detonation-order", "Detonation Order", "引爆指令"),
+        204: ("enrage-order", "Enrage Order", "激怒指令"),
+        205: ("overcombust-order", "Overcombust Order", "过载指令"),
+        206: ("obliteration-order", "Obliteration Order", "歼灭指令"),
+    }
+    abilities = {source: BASE + 100 + source - 200 for source in ability_names}
+    enrage_phase_two = BASE + 109
+    spider_self_explode = BASE + 110
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "primary-target": BASE + 403,
+        "opposing-single": BASE + 404,
+        "opposing-all": BASE + 405,
+        "current-subject": BASE + 406,
+        "coordinated-allies": BASE + 407,
+    }
+    effects = {
+        "taunt": BASE + 501,
+        "overcombust": BASE + 502,
+        "obliteration": BASE + 503,
+    }
+    modifier = BASE + 521
+    modifier_group = BASE + 531
+    condition_always = BASE + 551
+    condition_coordinated = BASE + 552
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s03(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(
+            id_,
+            stable_key,
+            kind,
+            name_en,
+            name_zh_cn,
+            summary,
+            sources,
+        )
+        row["summary_zh_cn"] = "Goal 07 S03 来源绑定的完整形态自动机兵·灰熊可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            identity_s03(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Automaton Grizzly (Complete)",
+                "自动机兵·灰熊（完整）",
+                "Exact World 2 level-27 two-phase boss variant.",
+                "1|5",
+            ),
+            identity_s03(
+                template,
+                "enemy.automaton-grizzly-complete.elite",
+                "Enemy",
+                "Automaton Grizzly (Complete) Template",
+                "自动机兵·灰熊（完整）模板",
+                "Version 4.4 elite template retained from source monster 1013012.",
+            ),
+            identity_s03(
+                linked_spider,
+                "unit.goal07.automaton-grizzly-complete.automaton-spider",
+                "CharacterForm",
+                "Automaton Grizzly Summoned Spider",
+                "自动机兵·灰熊召唤的蜘蛛",
+                "Executable linked Automaton Spider summoned by Detonation Order.",
+            ),
+        ]
+    )
+    for sequence, graph in enumerate(graphs, start=1):
+        identities.append(
+            identity_s03(
+                graph,
+                f"ai.goal07.automaton-grizzly-complete.phase-{sequence}",
+                "AiGraph",
+                f"Automaton Grizzly Phase {sequence} AI",
+                f"自动机兵·灰熊第{sequence}阶段AI",
+                "Finite source-ordered phase action graph.",
+            )
+        )
+    for source, (key, name_en, name_zh_cn) in ability_names.items():
+        identities.append(
+            identity_s03(
+                abilities[source],
+                f"enemy.automaton-grizzly-complete.elite.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill 101301{source - 200:02d}.",
+            )
+        )
+    identities.append(
+        identity_s03(
+            enrage_phase_two,
+            "enemy.automaton-grizzly-complete.elite.ability.enrage-order-phase-2",
+            "Ability",
+            "Enrage Order (Phase 2)",
+            "激怒指令（第二阶段）",
+            "Phase-two guaranteed application of source skill 101301204.",
+        )
+    )
+    identities.append(
+        identity_s03(
+            spider_self_explode,
+            "unit.goal07.automaton-grizzly-complete.automaton-spider.self-explode",
+            "Ability",
+            "Automaton Spider Self-Explosion",
+            "自动机兵·蜘蛛自爆",
+            "Linked Summon action preserving source skill 101202103.",
+        )
+    )
+    for name, selector_id in selectors.items():
+        identities.append(
+            identity_s03(
+                selector_id,
+                f"selector.goal07.automaton-grizzly-complete.{name}",
+                "Selector",
+                f"Automaton Grizzly {name} Selector",
+                f"自动机兵·灰熊{name}选择器",
+                "S03 battle selector.",
+            )
+        )
+    for name, effect in effects.items():
+        identities.append(
+            identity_s03(
+                effect,
+                f"effect.goal07.automaton-grizzly-complete.{name}",
+                "Effect",
+                f"Automaton Grizzly {name} Effect",
+                f"自动机兵·灰熊{name}效果",
+                "S03 executable enemy effect.",
+            )
+        )
+    identities.append(
+        identity_s03(
+            modifier,
+            "modifier.goal07.automaton-grizzly-complete.obliteration",
+            "Modifier",
+            "Automaton Grizzly Obliteration Modifier",
+            "自动机兵·灰熊歼灭调整器",
+            "Stack-scaled ordinary damage boost applied by Overcombust Order.",
+        )
+    )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add(
+        "Selector",
+        selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        selector(selectors["opposing-single"], "Actor", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["opposing-all"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(selectors["current-subject"], "CurrentSubject", "OpposingSide"),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["coordinated-allies"],
+            "Actor",
+            "SameSide",
+            minimum=0,
+            maximum=8,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["coordinated-allies"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=990_503),
+        },
+    )
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s03.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratio_four = expr(
+        "ratio-4", "Scalar", json_cell("ScalarLiteral", value_decimal="4")
+    )
+    ratio_three = expr(
+        "ratio-3", "Scalar", json_cell("ScalarLiteral", value_decimal="3")
+    )
+    ratio_half = expr(
+        "ratio-0-5", "Scalar", json_cell("ScalarLiteral", value_decimal="0.5")
+    )
+    ratio_one = expr(
+        "ratio-1", "Scalar", json_cell("ScalarLiteral", value_decimal="1")
+    )
+    ratio_five = expr(
+        "ratio-5", "Scalar", json_cell("ScalarLiteral", value_decimal="5")
+    )
+    duration_two = expr(
+        "duration-two", "Integer", json_cell("IntegerLiteral", value=2)
+    )
+    coordinated_count = expr(
+        "coordinated-allies-count",
+        "Integer",
+        json_cell("SelectorCount", selector_id=selectors["coordinated-allies"]),
+    )
+    integer_zero = expr(
+        "integer-zero", "Integer", json_cell("IntegerLiteral", value=0)
+    )
+    obliteration_stacks = expr(
+        "obliteration-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["current-subject"],
+            effect_id=effects["obliteration"],
+        ),
+    )
+    obliteration_stacks_scalar = expr(
+        "obliteration-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=obliteration_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    purge_damage = multiply("purge-damage", actor_atk, ratio_four)
+    destruction_damage = multiply("destruction-damage", actor_atk, ratio_three)
+    spider_damage = multiply("spider-self-explode-damage", actor_atk, ratio_five)
+    obliteration_value = multiply(
+        "obliteration-damage-boost", obliteration_stacks_scalar, ratio_half
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": condition_always,
+            "stable_key": "goal07.enemy.s03.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": condition_coordinated,
+            "stable_key": "goal07.enemy.s03.condition.direwolf-coordinated",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=coordinated_count,
+                comparison="Greater",
+                right_expression_id=integer_zero,
+            ),
+        },
+    )
+
+    def operation_s03(
+        id_: int,
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s03.operation.{name}"
+        return row
+
+    def damage_op(
+        name: str,
+        amount: int,
+        target: int,
+        element: str = "Physical",
+    ) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        return operation_s03(
+            id_,
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element=element,
+                can_crit=True,
+            ),
+            target,
+        )
+
+    def effect_op(
+        name: str,
+        effect: int,
+        target: int,
+        *,
+        chance: int | None = None,
+        remove: bool = False,
+        empty: str = "Fault",
+    ) -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        payload = (
+            json_cell("RemoveEffect", effect_id=effect)
+            if remove
+            else json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=None,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            )
+        )
+        return operation_s03(id_, name, payload, target, empty)
+
+    def summon_op() -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        return operation_s03(
+            id_,
+            "detonation-order-summon-spider",
+            json_cell(
+                "Summon",
+                unit_definition_identity_id=linked_spider,
+                owner_selector_id=selectors["actor"],
+            ),
+        )
+
+    def despawn_op() -> dict[str, Any]:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        return operation_s03(
+            id_,
+            "automaton-spider-despawn-after-self-explode",
+            json_cell("Despawn"),
+            selectors["actor"],
+        )
+
+    programs: dict[str, int] = {}
+
+    def program(name: str, steps: list[dict[str, Any]]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        programs[name] = id_
+        identities.append(
+            identity_s03(
+                id_,
+                f"program.goal07.automaton-grizzly-complete.{name}",
+                "Program",
+                f"Automaton Grizzly {name} Program",
+                f"自动机兵·灰熊{name}程序",
+                "Ordered Rule IR program for the S03 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add("Operation", step)
+            add(
+                "ProgramStep",
+                {
+                    "program_id": id_,
+                    "sequence": sequence,
+                    "step": json_cell("Operation", operation_id=step["id"]),
+                },
+            )
+        return id_
+
+    ability_programs = {
+        abilities[201]: program(
+            "purge-order",
+            [
+                damage_op("purge-order-damage", purge_damage, selectors["opposing-all"]),
+                effect_op(
+                    "purge-order-clear-charge",
+                    effects["overcombust"],
+                    selectors["actor"],
+                    remove=True,
+                    empty="NoOp",
+                ),
+                effect_op(
+                    "purge-order-clear-direwolf-coordination",
+                    990_503,
+                    selectors["coordinated-allies"],
+                    remove=True,
+                    empty="NoOp",
+                ),
+            ],
+        ),
+        abilities[202]: program(
+            "destruction-order",
+            [
+                damage_op(
+                    "destruction-order-damage",
+                    destruction_damage,
+                    selectors["primary-target"],
+                )
+            ],
+        ),
+        abilities[203]: program("detonation-order", [summon_op()]),
+        abilities[204]: program(
+            "enrage-order-phase-1",
+            [
+                effect_op(
+                    "enrage-order-phase-1-taunt",
+                    effects["taunt"],
+                    selectors["opposing-all"],
+                    chance=ratio_half,
+                )
+            ],
+        ),
+        enrage_phase_two: program(
+            "enrage-order-phase-2",
+            [
+                effect_op(
+                    "enrage-order-phase-2-taunt",
+                    effects["taunt"],
+                    selectors["opposing-all"],
+                    chance=ratio_one,
+                )
+            ],
+        ),
+        abilities[205]: program(
+            "overcombust-order",
+            [
+                effect_op(
+                    "overcombust-order-charge",
+                    effects["overcombust"],
+                    selectors["actor"],
+                ),
+                effect_op(
+                    "overcombust-order-obliteration-stack",
+                    effects["obliteration"],
+                    selectors["actor"],
+                ),
+            ],
+        ),
+    }
+    spider_program = program(
+        "automaton-spider-self-explode",
+        [
+            damage_op(
+                "automaton-spider-self-explode-damage",
+                spider_damage,
+                selectors["primary-target"],
+                "Fire",
+            ),
+            despawn_op(),
+        ],
+    )
+    target_patterns = {
+        201: "Aoe",
+        202: "SingleTarget",
+        203: "None",
+        204: "Aoe",
+        205: "None",
+        206: "None",
+    }
+    for source, ability in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": ability,
+                "kind": "Passive" if source == 206 else "Skill",
+                "target_pattern": target_patterns[source],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": 5 if source in {201, 202} else 4,
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs.get(ability),
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": ability,
+                "telegraph": "Charge" if source == 205 else "None",
+                "cooldown_actions": 1,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 1 if source == 205 else 0,
+                "ai_tag": ability_names[source][0],
+            },
+        )
+    add(
+        "Ability",
+        {
+            "id": enrage_phase_two,
+            "kind": "Skill",
+            "target_pattern": "Aoe",
+            "retarget_policy": "CancelRemaining",
+            "level_cap": 1,
+            "cooldown_actions": 1,
+            "semantic_tags_mask": 4,
+        },
+    )
+    add(
+        "AbilityPhase",
+        {
+            "ability_id": enrage_phase_two,
+            "sequence": 1,
+            "kind": "Resolved",
+            "program_identity_id": ability_programs[enrage_phase_two],
+        },
+    )
+    add(
+        "EnemyAbility",
+        {
+            "id": enrage_phase_two,
+            "telegraph": "None",
+            "cooldown_actions": 1,
+            "initial_cooldown_actions": 0,
+            "charge_actions": 0,
+            "ai_tag": "enrage-order-phase-2",
+        },
+    )
+    add(
+        "Ability",
+        {
+            "id": spider_self_explode,
+            "kind": "Summon",
+            "target_pattern": "SingleTarget",
+            "retarget_policy": "CancelRemaining",
+            "level_cap": 1,
+            "cooldown_actions": 1,
+            "semantic_tags_mask": 5,
+        },
+    )
+    add(
+        "AbilityPhase",
+        {
+            "ability_id": spider_self_explode,
+            "sequence": 1,
+            "kind": "Resolved",
+            "program_identity_id": spider_program,
+        },
+    )
+
+    for name, definition in {
+        "taunt": {
+            "category": "Control",
+            "dispel": "CleanseableControl",
+            "stack_limit": 1,
+            "duration": duration_two,
+            "clock": "TargetTurnEnd",
+            "policy": "Refresh",
+            "magnitude": None,
+        },
+        "overcombust": {
+            "category": "NeutralState",
+            "dispel": "NonDispellable",
+            "stack_limit": 1,
+            "duration": None,
+            "clock": "Permanent",
+            "policy": "Replace",
+            "magnitude": None,
+        },
+        "obliteration": {
+            "category": "Buff",
+            "dispel": "NonDispellable",
+            "stack_limit": 100,
+            "duration": None,
+            "clock": "Permanent",
+            "policy": "RefreshAndAddStacks",
+            "magnitude": obliteration_value,
+        },
+    }.items():
+        add(
+            "Effect",
+            {
+                "id": effects[name],
+                "category": definition["category"],
+                "dispel_category": definition["dispel"],
+                "stack_limit": definition["stack_limit"],
+                "duration_expression_id": definition["duration"],
+                "duration_clock": definition["clock"],
+                "tick_phase": "None",
+                "stack_policy": definition["policy"],
+                "magnitude_comparator_expression_id": definition["magnitude"],
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for effect_name, tag in [
+        ("taunt", "forced-basic-attack-applier"),
+        ("overcombust", "charging-next-action-purge-order"),
+    ]:
+        add(
+            "EffectTag",
+            {"effect_id": effects[effect_name], "sequence": 1, "tag": tag},
+        )
+    add(
+        "ModifierStackingGroup",
+        {
+            "id": modifier_group,
+            "stable_key": "goal07.enemy.s03.obliteration",
+            "aggregation": "Sum",
+        },
+    )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifier,
+            "source_effect_id": effects["obliteration"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["current-subject"],
+            "stat": "Atk",
+            "formula_stage": "DamageBoost",
+            "formula_purpose": "OrdinaryDamage",
+            "value_expression_id": obliteration_value,
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_group,
+            "priority": 0,
+            "cap_formula_stage": "DamageBoost",
+            "snapshot_policy": "Dynamic",
+            "duration_scope": "Turn",
+        },
+    )
+    add(
+        "EffectModifierBinding",
+        {
+            "effect_id": effects["obliteration"],
+            "sequence": 1,
+            "modifier_id": modifier,
+        },
+    )
+
+    phase_sequences = [
+        [abilities[202], abilities[203], abilities[204], abilities[205], abilities[201]],
+        [abilities[202], abilities[203], enrage_phase_two, abilities[205], abilities[201]],
+    ]
+    target_selectors = {
+        abilities[201]: selectors["opposing-all"],
+        abilities[202]: selectors["opposing-single"],
+        abilities[203]: selectors["actor"],
+        abilities[204]: selectors["opposing-all"],
+        enrage_phase_two: selectors["opposing-all"],
+        abilities[205]: selectors["actor"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence_abilities in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence_abilities)))
+        next_state += len(sequence_abilities)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability) in enumerate(zip(state_ids, sequence_abilities)):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s03.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities[202],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            if phase_index == 1 and offset == 0:
+                add(
+                    "AiCandidate",
+                    {
+                        "id": next_candidate,
+                        "stable_key": "goal07.enemy.s03.ai.phase-2.coordinated-purge",
+                        "state_id": state_id,
+                        "sequence": 1,
+                        "ability_id": abilities[201],
+                        "condition_id": condition_coordinated,
+                        "target_selector_id": selectors["opposing-all"],
+                        "priority": 0,
+                        "selection": "FirstLegal",
+                        "no_target_fallback": "UseFallbackAbility",
+                        "fallback_ability_id": abilities[202],
+                    },
+                )
+                next_candidate += 1
+                candidate_sequence = 2
+            else:
+                candidate_sequence = 1
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s03.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}.main"
+                    ),
+                    "state_id": state_id,
+                    "sequence": candidate_sequence,
+                    "ability_id": ability,
+                    "condition_id": condition_always,
+                    "target_selector_id": target_selectors[ability],
+                    "priority": 10,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities[202],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s03.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": condition_always,
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    add(
+        "LinkedUnitDefinition",
+        {
+            "id": linked_spider,
+            "source_definition_identity_id": 10_003,
+            "kind": "Summon",
+            "presence": "Linked",
+            "ability_ids": str(spider_self_explode),
+            "action_ability_id": spider_self_explode,
+            "formation_index": 8,
+            "initial_gauge_decimal": "10000",
+            "hp_owner_ratio_decimal": "0.15",
+            "hp_flat_decimal": "0",
+            "atk_owner_ratio_decimal": "1",
+            "atk_flat_decimal": "0",
+            "def_owner_ratio_decimal": "1",
+            "def_flat_decimal": "0",
+            "spd_owner_ratio_decimal": "0",
+            "spd_flat_decimal": "83",
+            "owner_defeat_policy": "Depart",
+            "owner_departure_policy": "Depart",
+            "wave_policy": "Depart",
+            "combatant_digest_sha256": sha256_text("goal07-s03-linked-spider-v1"),
+        },
+    )
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Elite",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Fire", "Ice", "Lightning"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element in ["Imaginary", "Physical", "Quantum", "Wind"]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": "0.2"},
+        )
+    for category in ["STAT_Confine", "STAT_CTRL_Frozen", "STAT_Entangle"]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.5",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "480",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    variant_abilities = list(abilities.values()) + [enrage_phase_two]
+    for sequence, ability in enumerate(variant_abilities, start=1):
+        add(
+            "EnemyVariantAbility",
+            {"variant_id": variant, "sequence": sequence, "ability_id": ability},
+        )
+    for sequence, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s03.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": condition_always,
+                "exit_condition_id": condition_always,
+                "replacement_priority": sequence,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.automaton-grizzly-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": "Honkai: Star Rail Wiki",
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public World 2 level-27 HP, ATK, DEF, SPD, EHR and "
+                "Effect RES transcribed into committed Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s03.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S03.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s03.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s03.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -2775,11 +3777,11 @@ def main() -> None:
     VARIANT_KEY = partition_config["variant"]
     SOURCE_RECORD_ID = partition_config["source_record_id"]
     EVIDENCE_RECORD_ID = partition_config["evidence_record_id"]
-    expected = (
-        owned_rows_s01()
-        if PARTITION == "G07-P5-M15-S01"
-        else owned_rows_s02()
-    )
+    expected = {
+        "G07-P5-M15-S01": owned_rows_s01,
+        "G07-P5-M15-S02": owned_rows_s02,
+        "G07-P5-M15-S03": owned_rows_s03,
+    }[PARTITION]()
     golden_path = (
         ROOT
         / "evidence"

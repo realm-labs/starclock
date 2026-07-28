@@ -196,8 +196,8 @@ pub(super) fn begin_turn(
     if let Some((ability, origin)) = turn.automatic {
         return execute_automatic_turn(catalog, txn, root, parent, turn, ability, origin);
     }
-    if forced_normal_action == Some(crate::ForcedNormalAction::BasicAttackRandomAlly) {
-        return execute_forced_basic_turn(catalog, txn, root, parent, turn);
+    if let Some((action, applier)) = forced_normal_action {
+        return execute_forced_basic_turn(catalog, txn, root, parent, turn, action, applier);
     }
     offer_turn_decision(catalog, txn, root, parent, turn)
 }
@@ -206,21 +206,33 @@ fn forced_normal_action(
     catalog: &CombatCatalog,
     txn: &Transaction<'_>,
     unit: crate::UnitId,
-) -> Option<crate::ForcedNormalAction> {
+) -> Option<(crate::ForcedNormalAction, crate::UnitId)> {
     txn.state
         .effects
         .iter_by_id()
         .filter(|effect| effect.target == unit)
-        .filter_map(|effect| catalog.effect(effect.definition))
-        .find_map(|definition| {
-            definition
+        .find_map(|effect| {
+            let action = catalog
+                .effect(effect.definition)?
                 .runtime_template()
                 .and_then(crate::EffectRuntimeTemplate::forced_normal_action)
                 .or_else(|| {
-                    definition
+                    catalog
+                        .effect(effect.definition)
+                        .expect("effect definition was resolved above")
                         .runtime()
                         .and_then(crate::EffectRuntimeDefinition::forced_normal_action)
-                })
+                })?;
+            let valid_applier = action != crate::ForcedNormalAction::BasicAttackApplier
+                || txn.state.units.get(effect.applier).is_some_and(|applier| {
+                    applier.life == crate::LifeState::Alive
+                        && txn
+                            .state
+                            .units
+                            .get(unit)
+                            .is_some_and(|target| target.side != applier.side)
+                });
+            valid_applier.then_some((action, effect.applier))
         })
 }
 
@@ -282,6 +294,8 @@ fn execute_forced_basic_turn(
     root: CommandId,
     parent: EventId,
     turn: crate::timeline::state::NormalTurnState,
+    forced_action: crate::ForcedNormalAction,
+    applier: crate::UnitId,
 ) -> Result<(), BattleFault> {
     let abilities = txn
         .state
@@ -306,38 +320,46 @@ fn execute_forced_basic_turn(
         .selector(definition.selector())
         .and_then(|selector| selector.unit_targets())
         .ok_or_else(|| action_fault(103))?;
-    let mut selector = crate::catalog::action::UnitTargetSelector::new(
-        crate::catalog::action::TargetRelation::Allied,
-        authored.pattern(),
-    )
-    .ok_or_else(|| action_fault(104))?;
+    let relation = match forced_action {
+        crate::ForcedNormalAction::BasicAttackRandomAlly => {
+            crate::catalog::action::TargetRelation::Allied
+        }
+        crate::ForcedNormalAction::BasicAttackApplier => {
+            crate::catalog::action::TargetRelation::Opposing
+        }
+    };
+    let mut selector =
+        crate::catalog::action::UnitTargetSelector::new(relation, authored.pattern())
+            .ok_or_else(|| action_fault(104))?;
     if authored.repeated_targets() {
         selector = selector.with_repeated_targets();
     }
-    let mut pool = crate::target::select::stable_pool(
-        &txn.state.units,
-        &txn.state.formations,
-        turn.side,
-        crate::catalog::action::TargetRelation::Allied,
-    );
-    let mut candidates = pool
-        .iter()
-        .copied()
-        .filter(|target| *target != turn.unit)
-        .collect::<Vec<_>>();
-    if candidates.is_empty() {
-        candidates.append(&mut pool);
-    }
-    let index = txn
-        .choose_index(
-            crate::rng::types::DrawPurpose::FORCED_ACTION_TARGET,
-            candidates.len(),
-        )?
-        .ok_or_else(|| action_fault(105))?;
-    let primary = match selector.pattern() {
-        crate::catalog::action::TargetPattern::All => None,
-        crate::catalog::action::TargetPattern::Single
-        | crate::catalog::action::TargetPattern::Blast => Some(candidates[index]),
+    let primary = match (forced_action, selector.pattern()) {
+        (_, crate::catalog::action::TargetPattern::All) => None,
+        (crate::ForcedNormalAction::BasicAttackApplier, _) => Some(applier),
+        (crate::ForcedNormalAction::BasicAttackRandomAlly, _) => {
+            let mut pool = crate::target::select::stable_pool(
+                &txn.state.units,
+                &txn.state.formations,
+                turn.side,
+                crate::catalog::action::TargetRelation::Allied,
+            );
+            let mut candidates = pool
+                .iter()
+                .copied()
+                .filter(|target| *target != turn.unit)
+                .collect::<Vec<_>>();
+            if candidates.is_empty() {
+                candidates.append(&mut pool);
+            }
+            let index = txn
+                .choose_index(
+                    crate::rng::types::DrawPurpose::FORCED_ACTION_TARGET,
+                    candidates.len(),
+                )?
+                .ok_or_else(|| action_fault(105))?;
+            Some(candidates[index])
+        }
     };
     let targets = crate::target::select::commit(
         &txn.state.units,

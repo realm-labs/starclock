@@ -41,6 +41,17 @@ pub(super) fn apply_runtime_tags(
             .with_forced_normal_action(ForcedNormalAction::BasicAttackRandomAlly)
             .expect("Control category accepts a forced normal action");
     }
+    if tags.contains(&"forced-basic-attack-applier") {
+        if category != EffectCategory::Control {
+            return Err(fail(
+                CatalogLoadErrorKind::Domain,
+                format!("effect {effect_id} declares a forced normal action outside Control"),
+            ));
+        }
+        template = template
+            .with_forced_normal_action(ForcedNormalAction::BasicAttackApplier)
+            .expect("Control category accepts a forced normal action");
+    }
     Ok(template)
 }
 

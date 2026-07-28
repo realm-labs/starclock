@@ -272,7 +272,7 @@ fn bounded_dynamic_cache_hits_and_evicts_exact_activity_snapshots() {
 
 #[test]
 fn settled_carry_is_reassembled_into_the_next_real_battle() {
-    let (mut activity, assembler) = activity_and_assembler(0);
+    let (mut activity, assembler) = activity_and_assembler(1);
     drive_to_pending(&mut activity);
     let first = assembler.start_pending_battle(&mut activity).unwrap();
     let first_input = first.handoff().identity().combat_input_digest();
