@@ -134,7 +134,17 @@ pub(super) fn execute_action_plan(
     command_parent: EventId,
     plan: &mut ActionPlan,
 ) -> Result<EventId, BattleFault> {
-    debug_assert_eq!(plan.normal_turn.is_some(), plan.origin.owns_timeline_turn());
+    debug_assert_eq!(
+        plan.normal_turn.is_some(),
+        plan.origin.owns_timeline_turn()
+            || plan.origin == crate::ActionOrigin::Forced
+                && catalog
+                    .ability(plan.ability)
+                    .and_then(|ability| ability.action())
+                    .is_some_and(|action| {
+                        action.kind() == crate::catalog::action::AbilityKind::Basic
+                    })
+    );
     let _selector = plan.selector;
     let source = SourceDefinitionId::new(plan.ability.get()).ok_or_else(|| action_fault(7))?;
     let base = Cause::for_action(

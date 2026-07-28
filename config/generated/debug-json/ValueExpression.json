@@ -36796,6 +36796,1022 @@
             "String": "l11.light-cone.value.0025"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981101
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "OrdinaryDamage"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 980401
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.actor-atk"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981102
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "OrdinaryDamage"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 980402
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.owner-atk"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981103
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Healing"
+              },
+              "stat": {
+                "String": "Hp"
+              },
+              "subject_selector_id": {
+                "Integer": 980401
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.actor-hp-heal"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981104
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Healing"
+              },
+              "stat": {
+                "String": "Hp"
+              },
+              "subject_selector_id": {
+                "Integer": 980402
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.owner-hp-heal"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981105
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-3-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981106
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-2-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981107
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2.7"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-2-7"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981108
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-1-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981109
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1.2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-1-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981110
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981111
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.25"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981112
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.3"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981113
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.15"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-15"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981114
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981115
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.04"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-0-04"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981116
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981117
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.ratio-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981118
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.duration-two"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981119
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 1
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.duration-one"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981120
+          },
+          "node": {
+            "Object": {
+              "selector_id": {
+                "Integer": 980406
+              },
+              "type": {
+                "String": "SelectorCount"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.branch-count"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981121
+          },
+          "node": {
+            "Object": {
+              "operand_expression_id": {
+                "Integer": 981120
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "target_kind": {
+                "String": "Scalar"
+              },
+              "type": {
+                "String": "Convert"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.branch-count-scalar"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981122
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 980506
+              },
+              "subject_selector_id": {
+                "Integer": 980408
+              },
+              "type": {
+                "String": "QueryEffectStacks"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.vigor-stacks"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981123
+          },
+          "node": {
+            "Object": {
+              "operand_expression_id": {
+                "Integer": 981122
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "target_kind": {
+                "String": "Scalar"
+              },
+              "type": {
+                "String": "Convert"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.vigor-stacks-scalar"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981124
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981105
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.wavering-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981125
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981106
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.caress-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981126
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981109
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.wintry-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981127
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981108
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.maple-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981128
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981102
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981108
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.maple-counter-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981129
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981123
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981113
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.vigor-damage-boost"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981130
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981121
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981110
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.gore-branch-bonus"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981131
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981107
+              },
+              "operator": {
+                "String": "CheckedAdd"
+              },
+              "right_expression_id": {
+                "Integer": 981130
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.gore-ratio"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981132
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981131
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.gore-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981133
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981103
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981114
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.everlife-heal"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981134
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981104
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981115
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.renewal-heal"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981135
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981103
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981111
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.last-spring-heal"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981136
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981110
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.wind-shear-damage"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 981137
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 981101
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 981110
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.expression.shock-damage"
+          }
+        }
       }
     ]
   }

@@ -45,6 +45,94 @@
             "String": "probe.clara.trigger.hit-ended"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 980545
+          },
+          "id": {
+            "Integer": 980546
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 980314
+          },
+          "rule_id": {
+            "Integer": 980544
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.trigger.maple-retaliation"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Started"
+              },
+              "type": {
+                "String": "Turn"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 980542
+          },
+          "id": {
+            "Integer": 980543
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 980313
+          },
+          "rule_id": {
+            "Integer": 980541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.trigger.synwood-renewal-owner-turn"
+          }
+        }
       }
     ]
   }

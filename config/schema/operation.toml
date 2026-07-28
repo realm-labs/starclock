@@ -191,6 +191,9 @@ name = "ApplyEffect"
 name = "effect_id"
 type = "ref<Effect.id>"
 [[unions.variants.fields]]
+name = "stacks_expression_id"
+type = "optional<ref<ValueExpression.id>>"
+[[unions.variants.fields]]
 name = "chance_policy"
 type = "enum<EffectChancePolicy>"
 [[unions.variants.fields]]

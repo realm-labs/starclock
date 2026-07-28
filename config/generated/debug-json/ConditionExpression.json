@@ -41,6 +41,52 @@
             "String": "probe.clara.condition.true"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 980551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 980552
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 0
+              },
+              "minimum_count": {
+                "Integer": 0
+              },
+              "selector_id": {
+                "Integer": 980406
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.condition.no-branches"
+          }
+        }
       }
     ]
   }

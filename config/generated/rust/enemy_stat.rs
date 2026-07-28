@@ -16,6 +16,8 @@ pub struct EnemyStat {
     pub def_decimal: String,
     #[serde(rename = "spd_decimal")]
     pub spd_decimal: String,
+    #[serde(rename = "effect_hit_rate_decimal")]
+    pub effect_hit_rate_decimal: String,
     #[serde(rename = "effect_resistance_decimal")]
     pub effect_resistance_decimal: String,
     #[serde(rename = "crit_damage_decimal")]
@@ -34,6 +36,7 @@ impl super::runtime::SoraDecode for EnemyStat {
             atk_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             def_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             spd_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
+            effect_hit_rate_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             effect_resistance_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
             crit_damage_decimal: <String as super::runtime::SoraDecode>::decode(reader)?,
         })

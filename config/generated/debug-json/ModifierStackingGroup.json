@@ -353,6 +353,48 @@
             "String": "goal07.probe.modifier.strongest-comparator"
           }
         }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 980522
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.hardy-leaf-defense"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 980525
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.engender-attack"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 980526
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.vigor-damage"
+          }
+        }
       }
     ]
   }

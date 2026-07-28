@@ -1,6 +1,33 @@
 {
   "table": {
     "name": "EffectTag",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 980504
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "prevents-toughness-reduction"
+          }
+        }
+      },
+      {
+        "values": {
+          "effect_id": {
+            "Integer": 980508
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "tag": {
+            "String": "forced-basic-attack-random-ally"
+          }
+        }
+      }
+    ]
   }
 }

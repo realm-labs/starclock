@@ -513,6 +513,8 @@ fn encode_unit<S: Sink>(e: &mut Encoder<'_, S>, unit: &UnitState) {
     e.i64(unit.base_attack.scaled());
     e.i64(unit.base_defense.scaled());
     e.i64(unit.base_speed.scaled());
+    e.i64(unit.base_effect_hit_rate.scaled());
+    e.i64(unit.base_effect_resistance.scaled());
     e.i64(unit.current_energy.scaled());
     e.i64(unit.maximum_energy.scaled());
     e.u8(match unit.rank {

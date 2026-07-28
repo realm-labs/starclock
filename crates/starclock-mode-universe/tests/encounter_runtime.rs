@@ -244,8 +244,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         overlay.digest().bytes(),
         [
-            149, 203, 78, 241, 96, 168, 183, 211, 2, 38, 2, 134, 68, 42, 73, 85, 168, 12, 142, 156,
-            217, 237, 118, 244, 80, 135, 212, 101, 45, 49, 212, 249,
+            181, 137, 220, 203, 217, 141, 103, 82, 236, 78, 47, 2, 6, 122, 62, 77, 203, 14, 97, 71,
+            73, 177, 120, 204, 48, 196, 127, 38, 15, 212, 104, 165,
         ]
     );
     let world = &catalog.worlds()[0];
@@ -396,8 +396,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         settled.state_hash().bytes(),
         [
-            99, 206, 210, 200, 104, 211, 235, 233, 87, 161, 69, 85, 143, 228, 238, 63, 208, 174,
-            174, 105, 175, 131, 21, 148, 115, 152, 216, 70, 6, 112, 55, 196,
+            75, 30, 125, 181, 220, 221, 242, 206, 224, 56, 46, 222, 9, 152, 104, 159, 249, 149,
+            144, 93, 117, 168, 169, 126, 62, 111, 223, 50, 27, 91, 211, 209,
         ]
     );
     let reward = activity.view();
@@ -471,8 +471,8 @@ fn encounter_resolution_preparation_handoff_and_reward_return_are_one_determinis
     assert_eq!(
         contributions.digest(),
         [
-            208, 119, 58, 70, 23, 129, 40, 48, 197, 222, 61, 52, 96, 88, 208, 6, 37, 186, 190, 246,
-            22, 150, 159, 215, 160, 165, 231, 178, 158, 122, 115, 240,
+            231, 195, 89, 195, 169, 119, 75, 21, 66, 15, 159, 158, 255, 227, 237, 13, 41, 132, 108,
+            15, 171, 195, 7, 104, 152, 249, 221, 146, 142, 49, 255, 220,
         ]
     );
     let formation = activity.view();
@@ -664,12 +664,12 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(report.steps().len(), 53);
+    assert_eq!(report.steps().len(), 61);
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            184, 13, 248, 74, 142, 130, 75, 187, 83, 28, 55, 119, 236, 221, 211, 126, 17, 108, 216,
-            203, 96, 154, 179, 209, 5, 116, 132, 205, 138, 103, 144, 1,
+            93, 28, 249, 230, 220, 43, 34, 235, 118, 15, 211, 185, 82, 54, 173, 62, 232, 123, 29,
+            66, 192, 0, 236, 102, 250, 96, 89, 44, 32, 45, 242, 232,
         ]
     );
     assert_eq!(report.final_state_hash(), activity.view().state_hash());
@@ -691,7 +691,7 @@ fn baseline_runner_uses_offered_options_and_executes_nested_battles_to_terminal(
             .iter()
             .filter(|step| matches!(step, StandardUniverseBaselineStep::Battle { .. }))
             .count(),
-        3
+        5
     );
 }
 
@@ -743,12 +743,12 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
     )
     .unwrap();
     let bytes = encode_standard_universe_trace(&header, recorded.trace()).unwrap();
-    assert_eq!(bytes.len(), 11_480);
+    assert_eq!(bytes.len(), 11_730);
     assert_eq!(
         sha2::Sha256::digest(&bytes).as_slice(),
         [
-            154, 24, 227, 108, 218, 171, 49, 60, 191, 64, 37, 223, 132, 5, 220, 249, 110, 43, 103,
-            108, 45, 178, 206, 67, 156, 137, 113, 38, 111, 88, 52, 73,
+            61, 202, 101, 150, 47, 246, 158, 6, 12, 168, 141, 10, 82, 67, 24, 30, 145, 138, 28,
+            109, 84, 221, 60, 8, 24, 70, 210, 221, 103, 7, 2, 67,
         ]
     );
     let fresh = compiled
@@ -756,9 +756,9 @@ fn complete_run_replay_verifies_and_reports_the_first_divergence() {
         .unwrap()
         .into_activity();
     let verified = verify_standard_universe_replay(&bytes, fresh, "standard-universe-v1").unwrap();
-    assert_eq!(verified.action_count(), 61);
+    assert_eq!(verified.action_count(), 63);
     assert_eq!(verified.nested_battle_count(), 5);
-    assert_eq!(verified.diagnostic_count(), 51);
+    assert_eq!(verified.diagnostic_count(), 53);
     assert_eq!(verified.terminal(), recorded.report().terminal());
     assert_eq!(
         verified.final_state_hash().bytes(),

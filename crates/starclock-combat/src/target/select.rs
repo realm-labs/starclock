@@ -276,6 +276,8 @@ mod tests {
             base_attack: crate::StatValue::from_scaled(0).unwrap(),
             base_defense: crate::StatValue::from_scaled(0).unwrap(),
             base_speed: crate::Speed::from_scaled(100_000_000).unwrap(),
+            base_effect_hit_rate: crate::Scalar::ZERO,
+            base_effect_resistance: crate::Scalar::ZERO,
             current_energy: Energy::ZERO,
             maximum_energy: Energy::ZERO,
             rank: crate::formula::toughness::EnemyRank::Normal,

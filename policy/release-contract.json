@@ -7,10 +7,10 @@
   "cli_exit_codes": [0, 2, 3, 4, 5, 6, 7],
   "cli_contract_files": [
     { "path": "crates/starclock-cli/Cargo.toml", "sha256": "6a32b28bea11eca331798054ec1874ec4cbcee4e2911fffa7dfb1d9465b7c83b" },
-    { "path": "crates/starclock-cli/src/main.rs", "sha256": "9e7218eae544a5ec49d88fc4ec38722622ceded62a39740ba13e4342796bc997" },
+    { "path": "crates/starclock-cli/src/main.rs", "sha256": "28a790d0b37f1ce51ae781424d5f7083bde474516e691eedc6cd0694a0d797e7" },
     { "path": "crates/starclock-cli/src/standard_v1.rs", "sha256": "fb6666ef820b33b7592bc7329db95572e7e77e9077539d909a2398643bf4a0e4" },
-    { "path": "crates/starclock-cli/tests/cli_contract.rs", "sha256": "df12feb90b446623436dd37b50cdf3c5b0316d38e1f521ebf1bb12387d514951" },
-    { "path": "crates/starclock-cli/tests/standard_replay_smoke.rs", "sha256": "e4d5e6ba5b5b6e5c2c1cad18dc28d6e960e12c39be4c8955d3a4abc0cfefe298" }
+    { "path": "crates/starclock-cli/tests/cli_contract.rs", "sha256": "6b4131c1e185551176107cf117f410d7e422faecbd893a72cde7e1ee6011fb61" },
+    { "path": "crates/starclock-cli/tests/standard_replay_smoke.rs", "sha256": "095e3edffedf82d6f9aa416cf161874831813ed673f25f484eea058b45aacea8" }
   ],
   "library_contract_files": [
     { "path": "crates/starclock-activity/Cargo.toml", "sha256": "574024f69a2be92fb804651a1387dfbd46727cd4f16b2d0a172f6612d568c4bc" },
@@ -20,22 +20,22 @@
     { "path": "crates/starclock-build/Cargo.toml", "sha256": "c7f7cfb21fefd96371f8b5baab50f21fa04f47f7a45a0b9529f17b2bf127a62d" },
     { "path": "crates/starclock-build/src/lib.rs", "sha256": "61c992abc2518ad6f08df1e8a1245e6280adc048a95405f10c55d49012d4f302" },
     { "path": "crates/starclock-combat/Cargo.toml", "sha256": "b451e31e6f84579b99f2a2762f9e316765171989280bb74bf20c04780afa5c51" },
-    { "path": "crates/starclock-combat/src/lib.rs", "sha256": "2a13285aa9a51f2cdde795ff4ab3552c91087a99f70874a7732b4cf101c15a91" },
+    { "path": "crates/starclock-combat/src/lib.rs", "sha256": "e2f728a88ab77cda1923b81b7e2bc7aa80ac1909257990dcc44eb280d2f5ea96" },
     { "path": "crates/starclock-data/Cargo.toml", "sha256": "30540b9ddb8747b61921d221deaabbe759fc5570ff69f189bbcd162831a56e28" },
-    { "path": "crates/starclock-data/src/lib.rs", "sha256": "2bdeb8bdb14a0dcacb2e4c6dc9c3c7aea82692b8ba7b29a7cbde985504436b1d" },
+    { "path": "crates/starclock-data/src/lib.rs", "sha256": "85a515cf8ee870027ba5594c9c201f19e84abb5649fc6c46f78d15a29cf2c0a7" },
     { "path": "crates/starclock-mode-standard/Cargo.toml", "sha256": "da6ca4893c2d5735f19c02cd01216f0f9c713a31b52f4e08082b62149102c47e" },
     { "path": "crates/starclock-mode-standard/src/lib.rs", "sha256": "3a190ecfa900cc42069825cf5fffa19d5b5d37f4351981097ff8169d5f09482a" },
     { "path": "crates/starclock-replay/Cargo.toml", "sha256": "103df826cb29b3454204e6ce79de79f3476e8ce3c5de870ae15e6606706a704b" },
-    { "path": "crates/starclock-replay/src/lib.rs", "sha256": "50867f5f8ef6889a9f503a1f2e26936b199fbaa8ba76762d969e977fa060b688" },
+    { "path": "crates/starclock-replay/src/lib.rs", "sha256": "3a3f1e12b6b182f967e82a27a328df9ca66a3a7a7a6f73a722d5d8d6c1562788" },
     { "path": "crates/starclock-rules/Cargo.toml", "sha256": "73f3d03b43089b2b5d2fdfe5c003af099daf89eb8021868e1569ce797f048795" },
     { "path": "crates/starclock-rules/src/lib.rs", "sha256": "487e708384718b520dc073d538daa7d652d8a002d60aa6a33a19347e8e9cf619" }
   ],
   "documentation_files": [
-    { "path": "docs/README.md", "sha256": "45f8f245ac7f49b04f6f5a52d236ca1ebd0ccb08ebb00232c4d6cf6270c45e9b" },
-    { "path": "docs/15-content-data-and-coverage.md", "sha256": "a9295ec53742475026998670e9b8c17107748dce9bed8e5db92f266ed1a323aa" },
-    { "path": "docs/16-replay-cli-and-engine-integration.md", "sha256": "5ac93eae245f082c03a0adf3c986edd928c59d5e19cd02e0a4922dd2a06be217" },
-    { "path": "docs/17-documentation-coverage-matrix.md", "sha256": "3cff14ddbb23e7e3ac911e619e75ce142367ae1c633c380cfdf93aac737960e5" },
-    { "path": "docs/ci-platform-matrix.md", "sha256": "f18f93acb104f26d658191758cf9ef1873b86483c566996d4613f2b26f417c1a" },
+    { "path": "docs/README.md", "sha256": "31a63c9bcc2575a8db4086a4cead974f541e1afbe9236f3abbc6491a464ed47f" },
+    { "path": "docs/15-content-data-and-coverage.md", "sha256": "e908c59679dced6895017222a36f1e5f76138abb2e1e2bdfbde5c27f3b6d35fe" },
+    { "path": "docs/16-replay-cli-and-engine-integration.md", "sha256": "6b7d6e55660065ec937b2ec17814363aa4e43c1dd4896272a6ea4b9d3785b8f5" },
+    { "path": "docs/17-documentation-coverage-matrix.md", "sha256": "9b17a131952ae8526f66345be95c9871cba0f7ec7805b03ca1eb0ca96d77446b" },
+    { "path": "docs/ci-platform-matrix.md", "sha256": "78d437fb453f2a164b9df9eeee581eb715af329a73697f4db69a260f8506e945" },
     { "path": "docs/headless-cli-contract.md", "sha256": "1a1d43c30d950ed79eaf1557c6ece71c44e68acfbdbf6d3a61ab9aa780a8652a" },
     { "path": "docs/performance-benchmark-baseline.md", "sha256": "2fd9c680524cc2560e008f94db13a6d12b1ca35ae446138c99619c2390d24684" },
     { "path": "docs/goal-01-release-contract.md", "sha256": "c5eadcb02b3d8915c5cfc40405f9a692ce3958732a50e35a2514ded2a6c70ef4" }
@@ -50,15 +50,15 @@
   },
   "production": {
     "golden_path": "config/production-golden.json",
-    "golden_sha256": "a57966df9cff1c006093f92d9d3d64e8be4847cb75b266d2ddd3bcf561ea9cac",
+    "golden_sha256": "461ca6452ab83ace64609d0658d5761395847c4956a50680b8a680d157ef06cf",
     "bundle_path": "config/generated/config.sora",
-    "bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
-    "identities": 5278,
-    "enabled": 5278,
+    "bundle_sha256": "9ed99b16a46a310b9ac8825b13c2ed3d4ba99db2c94c68d44a6a978bc9cfa0fb",
+    "identities": 5346,
+    "enabled": 5346,
     "tables": 82
   },
   "hardening_evidence": [
-    { "path": "evidence/core-combat-v1/hardening/content-audit.json", "sha256": "008136fb8082d066c4f7afd99ce39dda8d57189d93316e8a97c60894e9bf534a" },
+    { "path": "evidence/core-combat-v1/hardening/content-audit.json", "sha256": "b868bfa3bd615da1e412d4aac8f3c07f2ecb0d79dd32b47653c10dc0c6a74213" },
     { "path": "evidence/core-combat-v1/hardening/ci-golden-matrix.json", "sha256": "3acdf3462202f1a7cc1a1f22a40860944adff39759ecadb18a66d36323ba0347" },
     { "path": "evidence/core-combat-v1/hardening/property-hardening.json", "sha256": "11d8f2efc51436a90bbf2dc40e94e711ee1b9960e4b11b60ccf0f48e5dead6ca" },
     { "path": "evidence/core-combat-v1/hardening/architecture-audit.json", "sha256": "18a181c5aadc81f2fbf11354db73a91b1e56a12c759028eab89806c98eb2f156" },

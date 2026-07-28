@@ -1,6 +1,427 @@
 {
   "table": {
     "name": "AiTransition",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980901
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-1.transition-1"
+          },
+          "state_id": {
+            "Integer": 980701
+          },
+          "target_state_id": {
+            "Integer": 980702
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980902
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-1.transition-2"
+          },
+          "state_id": {
+            "Integer": 980702
+          },
+          "target_state_id": {
+            "Integer": 980703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980903
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-1.transition-3"
+          },
+          "state_id": {
+            "Integer": 980703
+          },
+          "target_state_id": {
+            "Integer": 980704
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980904
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-1.transition-4"
+          },
+          "state_id": {
+            "Integer": 980704
+          },
+          "target_state_id": {
+            "Integer": 980705
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980905
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-1.transition-5"
+          },
+          "state_id": {
+            "Integer": 980705
+          },
+          "target_state_id": {
+            "Integer": 980701
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980906
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-2.transition-1"
+          },
+          "state_id": {
+            "Integer": 980706
+          },
+          "target_state_id": {
+            "Integer": 980707
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980907
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-2.transition-2"
+          },
+          "state_id": {
+            "Integer": 980707
+          },
+          "target_state_id": {
+            "Integer": 980708
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980908
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-2.transition-3"
+          },
+          "state_id": {
+            "Integer": 980708
+          },
+          "target_state_id": {
+            "Integer": 980709
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980909
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-2.transition-4"
+          },
+          "state_id": {
+            "Integer": 980709
+          },
+          "target_state_id": {
+            "Integer": 980710
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980910
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-2.transition-5"
+          },
+          "state_id": {
+            "Integer": 980710
+          },
+          "target_state_id": {
+            "Integer": 980706
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980911
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-3.transition-1"
+          },
+          "state_id": {
+            "Integer": 980711
+          },
+          "target_state_id": {
+            "Integer": 980712
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980912
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-3.transition-2"
+          },
+          "state_id": {
+            "Integer": 980712
+          },
+          "target_state_id": {
+            "Integer": 980713
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980913
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-3.transition-3"
+          },
+          "state_id": {
+            "Integer": 980713
+          },
+          "target_state_id": {
+            "Integer": 980714
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980914
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-3.transition-4"
+          },
+          "state_id": {
+            "Integer": 980714
+          },
+          "target_state_id": {
+            "Integer": 980715
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 980551
+          },
+          "id": {
+            "Integer": 980915
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s01.ai.phase-3.transition-5"
+          },
+          "state_id": {
+            "Integer": 980715
+          },
+          "target_state_id": {
+            "Integer": 980711
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      }
+    ]
   }
 }

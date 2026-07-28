@@ -83,6 +83,8 @@ impl Battle {
                 base_attack: combatant.base_attack(),
                 base_defense: combatant.base_defense(),
                 base_speed: combatant.speed(),
+                base_effect_hit_rate: combatant.base_effect_hit_rate(),
+                base_effect_resistance: combatant.base_effect_resistance(),
                 current_energy: initial
                     .map_or(combatant.current_energy(), |state| state.current_energy()),
                 maximum_energy: combatant.maximum_energy(),

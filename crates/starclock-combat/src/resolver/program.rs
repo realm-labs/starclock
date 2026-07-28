@@ -294,8 +294,8 @@ pub(super) fn stat_bases(
             (unit.id, CritDamage),
             Scalar::from_scaled(if player { 500_000 } else { 0 }),
         );
-        bases.insert((unit.id, EffectHitRate), Scalar::ZERO);
-        bases.insert((unit.id, EffectResistance), Scalar::ZERO);
+        bases.insert((unit.id, EffectHitRate), unit.base_effect_hit_rate);
+        bases.insert((unit.id, EffectResistance), unit.base_effect_resistance);
         bases.insert((unit.id, EnergyRegenerationRate), Scalar::ONE);
         bases.insert((unit.id, FreezeResistance), Scalar::ZERO);
         bases.insert((unit.id, ToughnessDamage), Scalar::ZERO);

@@ -81,6 +81,8 @@ pub enum OperationPayload {
     ApplyEffect {
         #[serde(rename = "effect_id")]
         effect_id: i32,
+        #[serde(rename = "stacks_expression_id")]
+        stacks_expression_id: Option<i32>,
         #[serde(rename = "chance_policy")]
         chance_policy: EffectChancePolicy,
         #[serde(rename = "base_chance_expression_id")]
@@ -289,6 +291,7 @@ impl super::runtime::SoraDecode for OperationPayload {
             }),
             11 => Ok(Self::ApplyEffect {
                 effect_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+                stacks_expression_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,
                 chance_policy: <EffectChancePolicy as super::runtime::SoraDecode>::decode(reader)?,
                 base_chance_expression_id: <Option<i32> as super::runtime::SoraDecode>::decode(
                     reader,

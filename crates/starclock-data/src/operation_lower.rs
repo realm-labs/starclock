@@ -347,13 +347,17 @@ fn lower_operation(
         }
         Payload::ApplyEffect {
             effect_id,
+            stacks_expression_id,
             chance_policy,
             base_chance_expression_id,
             rng_purpose_key,
         } => RuleOperationTemplate::ApplyEffect {
             selector: selector()?,
             effect: effect(*effect_id)?,
-            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
+            stacks: stacks_expression_id
+                .map(expression)
+                .transpose()?
+                .unwrap_or(ValueExpr::Literal(RuleValue::Integer(1))),
             chance: lower_effect_chance(*chance_policy),
             base_chance: base_chance_expression_id.map(expression).transpose()?,
             rng_purpose: lower_rng_purpose(rng_purpose_key.as_deref())?,

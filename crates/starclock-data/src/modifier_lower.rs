@@ -209,6 +209,14 @@ pub(super) fn expression(
             stat: stat(*query_stat),
             purpose: purpose(*formula_purpose),
         },
+        Node::QueryEffectStacks {
+            subject_selector_id,
+            effect_id,
+        } => ValueExpr::QueryEffectStacks {
+            subject: query_subject(config, *subject_selector_id)?,
+            effect: starclock_combat::EffectDefinitionId::new(positive(*effect_id)?)
+                .expect("positive effect ID"),
+        },
         Node::SelectorCount { selector_id } => ValueExpr::SelectorCount(selector(*selector_id)?),
         Node::ReadEventProperty { property } => {
             ValueExpr::ReadEventProperty(crate::rule_lower::lower_event_property(*property))

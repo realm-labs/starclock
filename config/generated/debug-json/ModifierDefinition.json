@@ -74475,6 +74475,153 @@
             "Integer": 313025
           }
         }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Turn"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 980524
+          },
+          "owner_selector_id": {
+            "Integer": 980402
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": {
+            "Integer": 980506
+          },
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 980526
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 980408
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 981129
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Turn"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 980521
+          },
+          "owner_selector_id": {
+            "Integer": 980402
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "source_effect_id": {
+            "Integer": 980504
+          },
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 980522
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 980408
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 981117
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Turn"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 980523
+          },
+          "owner_selector_id": {
+            "Integer": 980402
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "source_effect_id": {
+            "Integer": 980505
+          },
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 980525
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 980408
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 981112
+          }
+        }
       }
     ]
   }

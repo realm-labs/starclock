@@ -165,6 +165,330 @@
             "String": "None"
           }
         }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableBuff"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981118
+          },
+          "id": {
+            "Integer": 980505
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableBuff"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981119
+          },
+          "id": {
+            "Integer": 980503
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableBuff"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981119
+          },
+          "id": {
+            "Integer": 980504
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Buff"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "NonDispellable"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "Permanent"
+          },
+          "duration_expression_id": "Null",
+          "id": {
+            "Integer": 980506
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 100
+          },
+          "stack_policy": {
+            "String": "RefreshAndAddStacks"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Control"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "CleanseableControl"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981118
+          },
+          "id": {
+            "Integer": 980508
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Dot"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableDebuff"
+          },
+          "dot_element": {
+            "String": "Lightning"
+          },
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981118
+          },
+          "id": {
+            "Integer": 980502
+          },
+          "magnitude_comparator_expression_id": {
+            "Integer": 981137
+          },
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "TurnStart"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "Dot"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "DispellableDebuff"
+          },
+          "dot_element": {
+            "String": "Wind"
+          },
+          "duration_clock": {
+            "String": "TargetTurnEnd"
+          },
+          "duration_expression_id": {
+            "Integer": 981118
+          },
+          "id": {
+            "Integer": 980501
+          },
+          "magnitude_comparator_expression_id": {
+            "Integer": 981136
+          },
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 5
+          },
+          "stack_policy": {
+            "String": "RefreshAndAddStacks"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "TurnStart"
+          }
+        }
+      },
+      {
+        "values": {
+          "application_priority": {
+            "Integer": 0
+          },
+          "category": {
+            "String": "NeutralState"
+          },
+          "detonation_tag_identity_id": "Null",
+          "dispel_category": {
+            "String": "NonDispellable"
+          },
+          "dot_element": "Null",
+          "duration_clock": {
+            "String": "Permanent"
+          },
+          "duration_expression_id": "Null",
+          "id": {
+            "Integer": 980507
+          },
+          "magnitude_comparator_expression_id": "Null",
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "stack_limit": {
+            "Integer": 1
+          },
+          "stack_policy": {
+            "String": "Refresh"
+          },
+          "teardown_policy": {
+            "String": "RemoveWithOwner"
+          },
+          "tick_phase": {
+            "String": "None"
+          }
+        }
       }
     ]
   }

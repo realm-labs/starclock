@@ -1,12 +1,12 @@
 use super::transaction::Transaction;
 use crate::{
-    DamageAmount, Hp, LifeState,
+    DamageAmount, Hp,
     battle::fault::BattleFault,
     event::{
         cause::Cause,
         model::{
             BattleEventKind, BreakDamageEventData, BreakDamageKind, DamageEventData, DamageKind,
-            EffectEventData, ShieldEventData, ToughnessEventData, UnitEventData,
+            EffectEventData, ShieldEventData, ToughnessEventData,
         },
     },
     formula,
@@ -151,14 +151,29 @@ pub(super) fn execute_toughness_reduction(
                 )
             })
             .ok_or_else(|| invariant_fault(6))?;
-        let routed = crate::toughness::state::route_reduction_with_override(
-            &mut layers,
-            &weaknesses,
-            was_broken,
-            definition.element,
-            calculation.attempted,
-            definition.ignores_weakness,
-        );
+        let protected = txn.state.effects.iter_by_id().any(|effect| {
+            effect.target == target
+                && catalog.effect(effect.definition).is_some_and(|definition| {
+                    definition
+                        .runtime()
+                        .is_some_and(|runtime| runtime.prevents_toughness_reduction())
+                        || definition
+                            .runtime_template()
+                            .is_some_and(|runtime| runtime.prevents_toughness_reduction())
+                })
+        });
+        let routed = (!protected)
+            .then(|| {
+                crate::toughness::state::route_reduction_with_override(
+                    &mut layers,
+                    &weaknesses,
+                    was_broken,
+                    definition.element,
+                    calculation.attempted,
+                    definition.ignores_weakness,
+                )
+            })
+            .flatten();
         let zero = crate::RawToughness::new(0).expect("zero Toughness is valid");
         let (layer_key, effective, before, after) =
             routed.map_or((None, zero, zero, zero), |value| {
@@ -458,21 +473,10 @@ fn apply_break_damage(
             hp_after,
         }),
     );
-    if hp_after.get() == 0 && life_before == LifeState::Alive {
-        txn.set_life(target, LifeState::Downed)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Unit(UnitEventData::Downed { unit: target }),
-        );
-        txn.set_life(target, LifeState::Defeated)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Unit(UnitEventData::Defeated {
-                unit: target,
-                credited_to: cause.applier().ok_or_else(|| invariant_fault(10))?,
-            }),
-        );
-        parent = super::lifecycle::settle_owner_defeat(txn, cause, parent, target)?;
+    if hp_after.get() == 0 && life_before == crate::LifeState::Alive {
+        parent = super::lifecycle::transition_enemy_phase_or_defeat(
+            catalog, txn, cause, parent, operation, target,
+        )?;
     }
     Ok(parent)
 }
@@ -905,22 +909,10 @@ fn apply_ordinary_damage_with_floor(
             hp_after,
         }),
     );
-    if hp_after.get() == 0 && life_before == LifeState::Alive {
-        txn.set_life(target, LifeState::Downed)?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Unit(UnitEventData::Downed { unit: target }),
-        );
-        txn.set_life(target, LifeState::Defeated)?;
-        let credited_to = cause.applier().ok_or_else(|| invariant_fault(2))?;
-        parent = txn.emit(
-            cause.with_parent(parent).with_primary_target(Some(target)),
-            BattleEventKind::Unit(UnitEventData::Defeated {
-                unit: target,
-                credited_to,
-            }),
-        );
-        parent = super::lifecycle::settle_owner_defeat(txn, cause, parent, target)?;
+    if hp_after.get() == 0 && life_before == crate::LifeState::Alive {
+        parent = super::lifecycle::transition_enemy_phase_or_defeat(
+            catalog, txn, cause, parent, operation, target,
+        )?;
     }
     Ok(parent)
 }

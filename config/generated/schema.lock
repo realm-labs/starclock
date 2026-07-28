@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "87a51f96716c32a8",
+  "fingerprint": "fbdcdcfd0b3926c9",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -3447,6 +3447,58 @@
             ]
           },
           {
+            "name": "QueryEffectStacks",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "effect_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Effect",
+                    "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
             "name": "ReadEventProperty",
             "scope": {
               "values": [
@@ -5268,6 +5320,29 @@
                   "Ref": {
                     "table": "Effect",
                     "field": "id"
+                  }
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              },
+              {
+                "name": "stacks_expression_id",
+                "ty": {
+                  "Optional": {
+                    "Ref": {
+                      "table": "ValueExpression",
+                      "field": "id"
+                    }
                   }
                 },
                 "scope": {
@@ -14798,6 +14873,25 @@
           },
           {
             "name": "spd_decimal",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              32
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "effect_hit_rate_decimal",
             "ty": "String",
             "scope": {
               "values": [

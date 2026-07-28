@@ -136,7 +136,11 @@ fn catalog() -> Arc<CombatCatalog> {
     builder.add_ability(
         AbilityDefinition::new(id(2), id(2), id(2), vec![]).with_action(action(vec![])),
     );
-    builder.add_unit(UnitDefinition::new(id(1), vec![id(1)], vec![]));
+    builder.add_ability(
+        AbilityDefinition::new(id(3), id(1), id(1), vec![])
+            .with_action(action(vec![HitOperationDefinition::Damage(damage(1_000))])),
+    );
+    builder.add_unit(UnitDefinition::new(id(1), vec![id(1), id(3)], vec![]));
     builder.add_unit(UnitDefinition::new(id(2), vec![id(2)], vec![]));
     let candidate = AiCandidateDefinition::new(
         id(1),
@@ -225,6 +229,10 @@ fn combatant(form: u32, ability: u32, speed: i64, digest: u8) -> ResolvedCombata
 }
 
 fn battle() -> Battle {
+    battle_with_player_ability(1)
+}
+
+fn battle_with_player_ability(ability: u32) -> Battle {
     let enemy = combatant(2, 2, 1_000_000, 0x22)
         .with_toughness(
             EnemyRank::EliteOrBoss,
@@ -244,7 +252,7 @@ fn battle() -> Battle {
                 TeamSide::Player,
                 FormationIndex::new(0).unwrap(),
                 ParticipantSource::Player,
-                combatant(1, 1, 2_000_000, 0x11),
+                combatant(1, ability, 2_000_000, 0x11),
             ),
             ParticipantSpec::new(
                 TeamSide::Enemy,
@@ -259,6 +267,54 @@ fn battle() -> Battle {
     )
     .unwrap();
     Battle::create(catalog(), spec, BattleSeed::new([0x41; 32])).unwrap()
+}
+
+#[test]
+fn lethal_damage_advances_a_multi_phase_enemy_without_defeat_events() {
+    let mut battle = battle_with_player_ability(3);
+    battle
+        .apply(Command::StartBattle {
+            decision: battle.decision().unwrap().id(),
+        })
+        .unwrap();
+    let pass = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
+        .unwrap()
+        .clone();
+    battle.apply(pass).unwrap();
+    let command = battle
+        .decision()
+        .unwrap()
+        .legal_commands()
+        .iter()
+        .find(|command| matches!(command, Command::UseAbility { ability, .. } if *ability == id(3)))
+        .unwrap()
+        .clone();
+    let resolution = battle.apply(command).unwrap();
+    assert_eq!(resolution.fault(), None);
+    assert!(resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::EnemyPhase(EnemyPhaseEventData::Transitioned { from, to, .. })
+            if *from == Some(id(1)) && *to == id(2)
+    )));
+    assert!(!resolution.events().iter().any(|event| matches!(
+        event.kind(),
+        BattleEventKind::Unit(
+            starclock_combat::UnitEventData::Downed { .. }
+                | starclock_combat::UnitEventData::Defeated { .. }
+        )
+    )));
+    let enemy = battle
+        .view()
+        .units_by_id()
+        .find(|unit| unit.side() == TeamSide::Enemy)
+        .unwrap();
+    assert_eq!(enemy.enemy_phase(), Some(id(2)));
+    assert_eq!(enemy.current_hp(), enemy.maximum_hp());
 }
 
 #[test]

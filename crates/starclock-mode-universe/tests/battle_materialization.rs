@@ -11,6 +11,7 @@ use starclock_activity::{
 use starclock_combat::{
     CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
     StatValue, TeamSide, UnitDefinitionId, UnitLevel, catalog::action::AbilityKind,
+    formula::model::CombatElement,
 };
 use starclock_mode_universe::{
     ability_runtime::{
@@ -316,7 +317,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::Exact)
             .count(),
-        13
+        14
     );
     assert_eq!(
         materialized
@@ -324,7 +325,7 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
             .iter()
             .filter(|enemy| enemy.definition_match() == EnemyDefinitionMatch::ApproximateProxy)
             .count(),
-        73
+        72
     );
     assert!(
         materialized
@@ -339,8 +340,8 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(coverage.member_enemy_slot_count(), 538);
     assert_eq!(coverage.difficulty_binding_count(), 182);
     assert_eq!(coverage.enemy_variant_count(), 86);
-    assert_eq!(coverage.exact_enemy_variant_count(), 13);
-    assert_eq!(coverage.approximate_enemy_variant_count(), 73);
+    assert_eq!(coverage.exact_enemy_variant_count(), 14);
+    assert_eq!(coverage.approximate_enemy_variant_count(), 72);
     assert_eq!(
         coverage.declared_rule_binding_count(),
         u16::try_from(contributions.rules().len()).unwrap()
@@ -451,15 +452,15 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
     assert_eq!(
         materialized.digest(),
         [
-            179, 72, 74, 56, 176, 67, 244, 255, 145, 165, 155, 135, 30, 176, 209, 97, 89, 120, 176,
-            244, 18, 98, 49, 173, 169, 148, 199, 121, 241, 36, 222, 203,
+            144, 38, 154, 54, 30, 190, 13, 56, 39, 219, 134, 222, 126, 204, 118, 242, 232, 251,
+            175, 114, 23, 19, 254, 216, 236, 108, 166, 160, 140, 204, 232, 123,
         ]
     );
     assert_eq!(
         coverage.digest(),
         [
-            111, 244, 31, 80, 215, 63, 136, 13, 66, 219, 26, 11, 185, 28, 109, 113, 254, 43, 198,
-            49, 69, 22, 125, 148, 107, 32, 102, 87, 150, 189, 40, 16,
+            145, 96, 80, 59, 28, 26, 38, 35, 83, 105, 151, 45, 191, 167, 248, 185, 171, 35, 19, 81,
+            183, 29, 199, 83, 235, 240, 254, 63, 80, 104, 11, 245,
         ]
     );
 
@@ -488,6 +489,150 @@ fn every_structured_member_and_difficulty_binding_is_an_executable_battle_spec()
                 .is_some()
         );
     }
+}
+
+#[test]
+fn abundant_ebon_deer_uses_reviewed_universe_stats_and_authored_phase() {
+    let catalog = catalog();
+    let materialized = UniverseBattleMaterializer
+        .compile(&catalog, &roster(&catalog), &contributions(&catalog))
+        .unwrap();
+    let variant_key = "enemy.abundant-ebon-deer-complete.littleboss.variant.01";
+    let enemy = materialized
+        .enemies()
+        .iter()
+        .find(|enemy| enemy.stable_key() == variant_key)
+        .expect("S01 enemy materialization");
+    assert_eq!(enemy.definition_match(), EnemyDefinitionMatch::Exact);
+
+    let expected = [
+        (
+            56,
+            56_487,
+            447_000_000,
+            760_000_000,
+            144_000_000,
+            48_000,
+            324_000,
+        ),
+        (
+            72,
+            88_816,
+            561_000_000,
+            920_000_000,
+            158_400_000,
+            176_000,
+            388_000,
+        ),
+        (
+            81,
+            267_655,
+            881_000_000,
+            1_010_000_000,
+            172_800_000,
+            248_000,
+            400_000,
+        ),
+        (
+            90,
+            514_058,
+            876_000_000,
+            1_100_000_000,
+            190_080_000,
+            320_000,
+            400_000,
+        ),
+    ];
+    for (level, hp, attack, defense, speed, effect_hit_rate, effect_resistance) in expected {
+        let spec = materialized
+            .difficulty_specs()
+            .iter()
+            .find(|spec| spec.enemy_variant_key() == variant_key && spec.level().get() == level)
+            .expect("reviewed difficulty binding");
+        let participant = spec
+            .battle_spec()
+            .participants()
+            .iter()
+            .find(|participant| participant.side() == TeamSide::Enemy)
+            .expect("enemy participant");
+        let combatant = participant.combatant();
+        assert_eq!(combatant.maximum_hp().get(), hp);
+        assert_eq!(combatant.base_attack().scaled(), attack);
+        assert_eq!(combatant.base_defense().scaled(), defense);
+        assert_eq!(combatant.speed().scaled(), speed);
+        assert_eq!(combatant.base_effect_hit_rate().scaled(), effect_hit_rate);
+        assert_eq!(
+            combatant.base_effect_resistance().scaled(),
+            effect_resistance
+        );
+        assert_eq!(
+            combatant.weaknesses(),
+            &[
+                CombatElement::Fire,
+                CombatElement::Ice,
+                CombatElement::Quantum,
+            ]
+        );
+        assert_eq!(combatant.toughness_layers().len(), 1);
+        assert_eq!(combatant.toughness_layers()[0].maximum().get(), 420);
+
+        let encounter = materialized
+            .combat_catalog()
+            .encounter(spec.battle_spec().encounter())
+            .expect("materialized difficulty encounter");
+        let initial_phase = encounter.waves()[0].slots()[0]
+            .initial_phase()
+            .expect("authored initial phase");
+        assert_eq!(
+            initial_phase,
+            materialized
+                .combat_catalog()
+                .enemy(enemy.combat_enemy())
+                .expect("authored enemy")
+                .phases()[0]
+                .id()
+        );
+    }
+
+    let combat_catalog = materialized.combat_catalog();
+    let deer = combat_catalog
+        .enemy(enemy.combat_enemy())
+        .expect("authored enemy");
+    let phase_three_program = deer.phases()[2]
+        .entry_program()
+        .and_then(|program| combat_catalog.program(program))
+        .expect("phase-three entry program");
+    assert_eq!(
+        phase_three_program
+            .steps()
+            .iter()
+            .filter(|step| matches!(
+                step,
+                starclock_combat::rule::model::ProgramStep::Operation(
+                    starclock_combat::rule::model::RuleOperationTemplate::GrantExtraTurn { .. }
+                )
+            ))
+            .count(),
+        2
+    );
+    let hardy = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_504).unwrap())
+        .and_then(|effect| effect.runtime_template())
+        .expect("Hardy Leaf runtime");
+    assert!(hardy.prevents_toughness_reduction());
+    let outrage = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_508).unwrap())
+        .and_then(|effect| effect.runtime_template())
+        .expect("Outrage runtime");
+    assert_eq!(
+        outrage.forced_normal_action(),
+        Some(starclock_combat::ForcedNormalAction::BasicAttackRandomAlly)
+    );
+    let vigor = combat_catalog
+        .effect(starclock_combat::EffectDefinitionId::new(980_506).unwrap())
+        .expect("Vigor Overflow runtime");
+    assert_eq!(vigor.runtime_template().unwrap().stack_limit(), 100);
+    assert_eq!(vigor.modifiers().len(), 1);
 }
 
 #[test]
@@ -607,27 +752,27 @@ fn production_executor_runs_real_nested_battles_and_settles_activity_carry() {
         report.terminal(),
         starclock_activity::ActivityTerminalOutcome::Completed
     );
-    assert_eq!(executor.reports().len(), 5);
+    assert_eq!(executor.reports().len(), 3);
     assert_eq!(
         executor
             .reports()
             .iter()
             .map(|battle| battle.trace().len())
             .sum::<usize>(),
-        33
+        17
     );
     assert_eq!(
         report.final_state_hash().bytes(),
         [
-            5, 46, 213, 50, 184, 135, 104, 241, 50, 63, 114, 29, 3, 81, 79, 124, 196, 138, 14, 86,
-            196, 73, 66, 205, 63, 83, 30, 246, 33, 121, 147, 3,
+            134, 110, 42, 171, 232, 195, 166, 233, 156, 177, 248, 135, 202, 6, 194, 45, 244, 70,
+            144, 185, 62, 60, 131, 124, 80, 20, 160, 244, 179, 74, 148, 196,
         ]
     );
     assert_eq!(
         executor.reports()[0].event_digest().bytes(),
         [
-            158, 149, 125, 250, 178, 170, 66, 203, 190, 45, 42, 219, 33, 134, 127, 4, 213, 216,
-            124, 53, 86, 5, 246, 86, 76, 186, 153, 140, 92, 164, 181, 165,
+            208, 197, 47, 96, 153, 19, 91, 52, 45, 165, 53, 43, 122, 245, 95, 14, 190, 158, 130,
+            45, 104, 245, 166, 161, 27, 69, 252, 115, 223, 86, 54, 51,
         ]
     );
     assert!(executor.reports().iter().all(|battle| {

@@ -135,6 +135,26 @@ impl SimulationCatalog {
         self.enemy(starclock_combat::EnemyDefinitionId::new(raw)?)
     }
 
+    /// Looks up reviewed runtime statistics for one enemy, level and difficulty.
+    #[must_use]
+    pub fn enemy_runtime_stat(
+        &self,
+        variant: starclock_combat::EnemyDefinitionId,
+        level: starclock_combat::UnitLevel,
+        difficulty_key: &str,
+    ) -> Option<&crate::EnemyRuntimeStatDefinition> {
+        self.encounters.enemy_stat(variant, level, difficulty_key)
+    }
+
+    /// Looks up the reviewed rank, weakness and Toughness profile for an enemy.
+    #[must_use]
+    pub fn enemy_runtime_profile(
+        &self,
+        variant: starclock_combat::EnemyDefinitionId,
+    ) -> Option<&crate::EnemyRuntimeProfileDefinition> {
+        self.encounters.enemy_profile(variant)
+    }
+
     /// Looks up one validated ordered encounter definition.
     #[must_use]
     pub fn encounter(

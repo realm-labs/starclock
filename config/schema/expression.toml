@@ -99,6 +99,15 @@ name = "formula_purpose"
 type = "enum<FormulaPurpose>"
 
 [[unions.variants]]
+name = "QueryEffectStacks"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
+
+[[unions.variants]]
 name = "ReadEventProperty"
 [[unions.variants.fields]]
 name = "property"
