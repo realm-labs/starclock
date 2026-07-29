@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { execFileSync } from "node:child_process";
@@ -19,10 +20,13 @@ const systems =
   path.join(root, "config/divergent-universe/schema/systems.toml");
 const content =
   path.join(root, "config/divergent-universe/schema/content.toml");
+const evidence =
+  path.join(root, "config/divergent-universe/schema/evidence.toml");
 const projectText = fs.readFileSync(project, "utf8");
 const coreText = fs.readFileSync(core, "utf8");
 const systemsText = fs.readFileSync(systems, "utf8");
 const contentText = fs.readFileSync(content, "utf8");
+const evidenceText = fs.readFileSync(evidence, "utf8");
 assert(projectText.includes(
   'package = "starclock_divergent_universe_reference_config"',
 ), "isolated project package drift");
@@ -38,6 +42,8 @@ assert((systemsText.match(/\[\[tables\]\]/gu) ?? []).length === 26,
   "P3-B2 system table denominator drift");
 assert((contentText.match(/\[\[tables\]\]/gu) ?? []).length === 28,
   "P3-B3 content table denominator drift");
+assert((evidenceText.match(/\[\[tables\]\]/gu) ?? []).length === 8,
+  "P3-B4 evidence table denominator drift");
 for (const table of [
   "DivergentUniverseProfiles",
   "DivergentUniverseModules",
@@ -114,6 +120,29 @@ for (const typedReference of [
 ])
   assert(contentText.includes(typedReference),
     `missing typed content reference ${typedReference}`);
+for (const table of [
+  "DivergentUniverseSources",
+  "DivergentUniverseCoverage",
+  "DivergentUniverseResearchGaps",
+  "DivergentUniverseSemanticFixtureFamilies",
+  "DivergentUniverseReviewFixtures",
+  "DivergentUniverseReconciliationReceipts",
+  "DivergentUniverseManifest",
+  "DivergentUniversePackIndex",
+])
+  assert(evidenceText.includes(`name = "${table}"`), `missing table ${table}`);
+const allSchemaText = [coreText, systemsText, contentText, evidenceText]
+  .join("\n");
+assert(allSchemaText.includes(
+  "optional<list<ref<DivergentUniverseSources.id>>>",
+), "common source refs are not typed");
+for (const typedReference of [
+  "optional<list<ref<DivergentUniverseReviewFixtures.id>>>",
+  "optional<list<ref<DivergentUniverseResearchGaps.id>>>",
+  "optional<ref<DivergentUniverseSemanticFixtureFamilies.id>>",
+])
+  assert(allSchemaText.includes(typedReference),
+    `missing typed evidence reference ${typedReference}`);
 
 const sora = locateSora();
 assert(execFileSync(sora, ["--version"], { encoding: "utf8" }).trim()
@@ -124,10 +153,46 @@ execFileSync(sora, [
   "--project",
   project,
 ], { cwd: root, stdio: "inherit" });
+execFileSync(process.execPath, [
+  "tools/divergent-universe-reference/generate-sora-artifacts.mjs",
+  root,
+], { cwd: root, stdio: "inherit" });
+const generated = path.join(root, "config/divergent-universe-generated");
+const lock = path.join(generated, "schema.lock");
+const parsedLock = JSON.parse(fs.readFileSync(lock, "utf8")).schema;
+assert(parsedLock.package
+  === "starclock_divergent_universe_reference_config",
+"generated schema-lock package drift");
+assert(parsedLock.tables.length === 80, "generated schema-lock table drift");
+const templates = fs.readdirSync(path.join(generated, "templates")).sort();
+assert(JSON.stringify(templates) === JSON.stringify([
+  "DivergentUniverse.xlsx",
+  "DivergentUniverseBindings.xlsx",
+  "DivergentUniverseReview.xlsx",
+]), "isolated Excel template set drift");
+const readerFiles = fs.readdirSync(path.join(generated, "reader"))
+  .filter((file) => file.endsWith(".rs")).sort();
+assert(readerFiles.length === 85, "generated Rust reader file count drift");
+
+const temporary = fs.mkdtempSync(
+  path.join(os.tmpdir(), "starclock-divergent-universe-sora-"),
+);
+try {
+  execFileSync(sora, [
+    "--serial", "schema-lock", "--project", projectText
+      ? path.join(root, "config/divergent-universe/project.toml")
+      : "", "--out", path.join(temporary, "schema.lock"),
+  ], { cwd: root, stdio: "inherit" });
+  assert(fs.readFileSync(lock).equals(
+    fs.readFileSync(path.join(temporary, "schema.lock")),
+  ), "committed schema lock is not deterministic");
+} finally {
+  fs.rmSync(temporary, { recursive: true, force: true });
+}
 console.log(
-  "Divergent Universe P3-B3 Sora schema verified (72 isolated core, system, " +
-  "progression, service, event, encounter and mechanic tables; typed " +
-  "references; Sora 0.3.0).",
+  "Divergent Universe P3-B4 Sora schema verified (80 isolated tables; typed " +
+  "source/evidence references; deterministic lock, three templates and 85 " +
+  "Rust reader files; Sora 0.3.0).",
 );
 
 function locateSora() {

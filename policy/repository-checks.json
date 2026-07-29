@@ -30,6 +30,11 @@
         "path": "config/generated/rust",
         "kind": "generated",
         "reason": "Production Sora 0.3.0 Rust models/readers; regenerated and byte-verified by tools/config-production/verify.mjs."
+      },
+      {
+        "path": "config/divergent-universe-generated/reader",
+        "kind": "generated",
+        "reason": "Isolated Divergent Universe reference Sora 0.3.0 reader; regenerated and byte-verified by tools/divergent-universe-reference/verify-sora-schema.mjs."
       }
     ],
     "line_limit_exceptions": [],

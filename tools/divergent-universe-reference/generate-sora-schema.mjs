@@ -37,6 +37,11 @@ const groups = [
     first: "workbenches.json",
     last: "mechanic-rules.json",
   },
+  {
+    file: "evidence.toml",
+    first: "sources.json",
+    last: "pack-index.json",
+  },
 ];
 const fileOrder = normalized.files.map(({ file }) => file);
 const workbookByFile = new Map(authoring.workbooks.flatMap((workbook) =>
@@ -63,7 +68,7 @@ fs.mkdirSync(path.dirname(projectPath), { recursive: true });
 fs.writeFileSync(projectPath, renderProject(groups.map(({ file }) => file)));
 
 console.log(
-  `Generated Divergent Universe P3-B3 Sora schema ` +
+  `Generated Divergent Universe P3-B4 Sora schema ` +
   `(${activeContracts.length} isolated tables).`,
 );
 
@@ -83,7 +88,7 @@ function renderProject(schemaFiles) {
     "",
     "[[build.codegen]]",
     'target = "rust"',
-    'out = "../divergent-universe-generated/rust"',
+    'out = "../divergent-universe-generated/reader"',
     'format = "never"',
     "",
     "[[build.exports]]",
@@ -158,10 +163,14 @@ function fields(contract) {
     string("name_zh_cn", 1000),
     string("summary_en", 4000),
     string("summary_zh_cn", 4000),
-    typed("ownership", "enum<DivergentUniverseOwnership>"),
-    typed("coverage_state", "enum<DivergentUniverseCoverageState>"),
-    typed("evidence_quality", "enum<DivergentUniverseEvidenceQuality>"),
-    list("source_refs", 2048),
+    typed("ownership", "enum<DUOwnership>"),
+    typed("coverage_state", "enum<DUCoverageState>"),
+    typed("evidence_quality", "enum<DUEvidenceQuality>"),
+    typed(
+      "source_refs",
+      "optional<list<ref<DivergentUniverseSources.id>>>",
+      { parser: { kind: "split", separator: "|" } },
+    ),
     list("tags", 128),
     string("source_id", 300, true),
   ];
@@ -290,6 +299,14 @@ function referenceFields(file) {
     ]],
     ["mechanic-rules.json", [
       ["source_file_id", "DivergentUniverseMechanicSourceFiles", false],
+      ["fixture_ids", "DivergentUniverseReviewFixtures", true],
+    ]],
+    ["coverage.json", [
+      ["blocking_gap_ids", "DivergentUniverseResearchGaps", true],
+    ]],
+    ["review-fixtures.json", [
+      ["family_id", "DivergentUniverseSemanticFixtureFamilies", false],
+      ["evidence_refs", "DivergentUniverseSources", true],
     ]],
   ]);
   return new Map((relations.get(file) ?? []).map(([name, table, many]) => [
@@ -305,15 +322,15 @@ function referenceFields(file) {
 function enums() {
   return [
     [
-      "DivergentUniverseOwnership",
+      "DUOwnership",
       ["DivergentUniverse", "Shared", "OtherMode", "Excluded"],
     ],
     [
-      "DivergentUniverseCoverageState",
+      "DUCoverageState",
       ["Cataloged", "Researched", "DataReady", "Blocked", "Excluded"],
     ],
     [
-      "DivergentUniverseEvidenceQuality",
+      "DUEvidenceQuality",
       [
         "ExactStructured",
         "ExactPublicText",

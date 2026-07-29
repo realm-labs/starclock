@@ -2,7 +2,7 @@
 # Do not edit by hand.
 
 package = "starclock_divergent_universe_reference_config"
-includes = ["schema/core.toml", "schema/systems.toml", "schema/content.toml"]
+includes = ["schema/core.toml", "schema/systems.toml", "schema/content.toml", "schema/evidence.toml"]
 
 [build]
 default_source_format = "xlsx"
@@ -12,7 +12,7 @@ excel_templates = "../divergent-universe-generated/templates"
 
 [[build.codegen]]
 target = "rust"
-out = "../divergent-universe-generated/rust"
+out = "../divergent-universe-generated/reader"
 format = "never"
 
 [[build.exports]]

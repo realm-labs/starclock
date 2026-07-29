@@ -2,15 +2,15 @@
 # Do not edit by hand.
 
 [[enums]]
-name = "DivergentUniverseOwnership"
+name = "DUOwnership"
 values = ["DivergentUniverse", "Shared", "OtherMode", "Excluded"]
 
 [[enums]]
-name = "DivergentUniverseCoverageState"
+name = "DUCoverageState"
 values = ["Cataloged", "Researched", "DataReady", "Blocked", "Excluded"]
 
 [[enums]]
-name = "DivergentUniverseEvidenceQuality"
+name = "DUEvidenceQuality"
 values = ["ExactStructured", "ExactPublicText", "Observed", "ApproximateFromReleasedText", "ProjectPolicy"]
 
 [[tables]]
@@ -55,16 +55,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -138,16 +138,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -219,16 +219,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -297,16 +297,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -375,16 +375,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -458,16 +458,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -536,16 +536,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -611,16 +611,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -689,16 +689,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -767,16 +767,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -848,16 +848,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -929,16 +929,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1010,16 +1010,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1088,16 +1088,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1169,16 +1169,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1247,16 +1247,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1325,16 +1325,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
@@ -1412,16 +1412,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<DivergentUniverseOwnership>"
+type = "enum<DUOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<DivergentUniverseCoverageState>"
+type = "enum<DUCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<DivergentUniverseEvidenceQuality>"
+type = "enum<DUEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
-type = "optional<list<string>>"
+type = "optional<list<ref<DivergentUniverseSources.id>>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "tags"
