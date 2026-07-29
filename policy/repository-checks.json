@@ -30,6 +30,11 @@
         "path": "config/generated/rust",
         "kind": "generated",
         "reason": "Production Sora 0.3.0 Rust models/readers; regenerated and byte-verified by tools/config-production/verify.mjs."
+      },
+      {
+        "path": "config/currency-wars-generated/rust",
+        "kind": "generated",
+        "reason": "Isolated Goal 12 Sora 0.3.0 reference reader; regenerated and byte-verified by tools/currency-wars-reference/verify-sora-generated.mjs."
       }
     ],
     "line_limit_exceptions": [],
