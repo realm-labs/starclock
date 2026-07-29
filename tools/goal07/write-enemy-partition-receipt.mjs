@@ -213,6 +213,10 @@ const partitionConfig = {
     completedOn: "2026-07-29",
     definitionKeys: [],
   },
+  "G07-P5-M15-S15": {
+    completedOn: "2026-07-29",
+    definitionKeys: [],
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -362,6 +366,7 @@ if (
   partitionId === "G07-P5-M15-S12"
   || partitionId === "G07-P5-M15-S13"
   || partitionId === "G07-P5-M15-S14"
+  || partitionId === "G07-P5-M15-S15"
 ) {
   executionEvidence.push(
     { path: "crates/starclock-data/src/standard_v1.rs" },
@@ -387,6 +392,7 @@ if (
   || partitionId === "G07-P5-M15-S12"
   || partitionId === "G07-P5-M15-S13"
   || partitionId === "G07-P5-M15-S14"
+  || partitionId === "G07-P5-M15-S15"
 ) {
   provenanceEvidence.push(
     { path: "content-reference/standard-universe-v1/encounter-groups.json" },
@@ -466,7 +472,8 @@ const encounterGroupEvidence = [
 const ordinaryBatch =
   partitionId === "G07-P5-M15-S12"
   || partitionId === "G07-P5-M15-S13"
-  || partitionId === "G07-P5-M15-S14";
+  || partitionId === "G07-P5-M15-S14"
+  || partitionId === "G07-P5-M15-S15";
 const ordinaryBatchSlug = partitionId.slice(-3).toLowerCase();
 const ordinaryVariantReviews = new Map(
   (sourceReviewDocument.variants ?? []).map((entry) => [entry.enemy_variant_id, entry]),

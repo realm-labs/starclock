@@ -461,13 +461,13 @@ mod tests {
             ),
             (
                 SCENARIOS[4].0,
-                270,
-                "1fb3e6bb67727619b4488d0684644ed604273fa14fefd826d8055594e92f8f2c",
+                314,
+                "b22a1455458206a91b9d9a995536fd09c0ffc687fcbc267556f2fffcfac19a06",
             ),
             (
                 SCENARIOS[5].0,
-                314,
-                "64edfe3b9d53abff715004369cf9cb8627b1c65adc419ff66be08514e5a295c3",
+                359,
+                "22bce5f61349e8f245cfff207651de44a08d5cb654dbda030e06f0c5640d19a8",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

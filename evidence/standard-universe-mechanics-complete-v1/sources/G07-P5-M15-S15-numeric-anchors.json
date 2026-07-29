@@ -1,0 +1,510 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v2",
+  "partition_id": "G07-P5-M15-S15",
+  "numeric_policy_id": "goal07-s15-public-and-derived-level-curve-v1",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki and committed version 4.4 extraction",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Mara-Struck_Soldier",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "PerVariantExactOrApprovedDerivedCurve"
+  },
+  "derivation": {
+    "hp_reference_base": "930",
+    "hp_rounding": "NearestTiesAway",
+    "atk_reference_base": "18",
+    "def_reference_base": "210",
+    "speed_breakpoints": [
+      {
+        "level_minimum": 1,
+        "multiplier": "1"
+      },
+      {
+        "level_minimum": 65,
+        "multiplier": "1.1"
+      },
+      {
+        "level_minimum": 78,
+        "multiplier": "1.2"
+      },
+      {
+        "level_minimum": 86,
+        "multiplier": "1.32"
+      }
+    ],
+    "exact_overrides": "ExactPublic variants use reviewed public level curves; all other rows use the named normalized template curve."
+  },
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.grunt-field-personnel.minionlv2.variant.01",
+      "source_monster_id": "8032010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "3750",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "118",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "6480",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "118",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.grunt-security-personnel.minionlv2.variant.01",
+      "source_monster_id": "8032020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "5156",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "8910",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.guardian-shadow.elite.variant.01",
+      "source_monster_id": "8003030",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 36,
+          "base_hp": "7992",
+          "base_atk": "132",
+          "base_def": "560",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 49,
+          "base_hp": "21359",
+          "base_atk": "226",
+          "base_def": "690",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 61,
+          "base_hp": "58260",
+          "base_atk": "348",
+          "base_def": "810",
+          "base_spd": "120",
+          "effect_hit_rate": "0.088",
+          "effect_resistance": "0.244"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "79878",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "132",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "124293",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "132",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "183748",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "144",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.imaginary-weaver.minionlv2.variant.01",
+      "source_monster_id": "8002010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "6074",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "120",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "6614",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "120",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "7695",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "120",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.incineration-shadewalker.minionlv2.variant.01",
+      "source_monster_id": "1022020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Incineration_Shadewalker",
+      "levels": [
+        {
+          "authored_level": 44,
+          "base_hp": "2033",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "3942",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "100",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.108"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "5222",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "100",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.juvenile-sting.minionlv2.variant.01",
+      "source_monster_id": "8022010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 57,
+          "base_hp": "9113",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "144",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.228"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.lesser-sting.minionlv2.variant.01",
+      "source_monster_id": "8022020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 57,
+          "base_hp": "12758",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "144",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.228"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.mara-struck-soldier.minionlv2.variant.01",
+      "source_monster_id": "2022010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Mara-Struck_Soldier",
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "2812",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "3836",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "4177",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "83",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "4860",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.mara-struck-warden.minionlv2.variant.01",
+      "source_monster_id": "2022110",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Mara-Struck_Warden",
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "4687",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "5256",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "100",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.108"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "6394",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.mask-of-no-thought.minion.variant.01",
+      "source_monster_id": "8001030",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 24,
+          "base_hp": "364",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 25,
+          "base_hp": "385",
+          "base_atk": "75",
+          "base_def": "450",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 27,
+          "base_hp": "426",
+          "base_atk": "84",
+          "base_def": "470",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 28,
+          "base_hp": "446",
+          "base_atk": "89",
+          "base_def": "480",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 34,
+          "base_hp": "647",
+          "base_atk": "121",
+          "base_def": "540",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 47,
+          "base_hp": "1707",
+          "base_atk": "210",
+          "base_def": "670",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 51,
+          "base_hp": "2344",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "2628",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "100",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.008"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "3197",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "4050",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.memory-zone-meme-allseer.minion.variant.01",
+      "source_monster_id": "3011010",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "2344",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "3197",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.memory-zone-meme-heartbreaker.minionlv2.variant.01",
+      "source_monster_id": "3012020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "public_url": null,
+      "levels": [
+        {
+          "authored_level": 44,
+          "base_hp": "1897",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "4476",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    }
+  ]
+}

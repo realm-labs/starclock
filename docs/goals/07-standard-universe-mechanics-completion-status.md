@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S15` |
-| Next unblocked batch | `G07-P5-M15-S15` |
+| Active batch | `G07-P5-M15-S16` |
+| Next unblocked batch | `G07-P5-M15-S16` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -287,14 +287,14 @@ living character's current HP before granting two random one-star Blessings.
 All 31 records and the assigned restoration fixture have terminal
 dispositions. The complete 321-choice Occurrence runtime now has zero
 deferred operations, with no native handler or numeric approximation.
-Enemy partitions S01–S14 are complete. S14 replaces nine remaining proxies
+Enemy partitions S01–S15 are complete. S15 replaces nine remaining proxies
 and three frozen exact placeholders with twelve authored ordinary-enemy
-definitions, including Illumination Dragonfish's Candle Flame defeat rule,
-Frigid Prowler's linked summons and Deep Freeze, and Everwinter
-Shadewalker's action delay. `G07-P5-M15-S15` is active.
+definitions, including Incineration Shadewalker's Burn, Juvenile Sting's
+formation-linked division, Mara-Struck Soldier's one-time Rebirth, Guardian
+Shadow's bans and Allseer's action delay. `G07-P5-M15-S16` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 82 completed partitions use scoped Excel/Sora semantic
+model. The first 83 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

@@ -1514,6 +1514,50 @@
             "String": "goal07.enemy.s14.trigger.illumination-dragonfish-candle-flame"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1124801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1125102
+          },
+          "id": {
+            "Integer": 1125103
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterDefeatSettlement"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1121038
+          },
+          "rule_id": {
+            "Integer": 1125101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s15.trigger.mara-struck-soldier-rebirth"
+          }
+        }
       }
     ]
   }
