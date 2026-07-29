@@ -1,0 +1,37 @@
+[
+  {
+    "id": "divergent-universe.module.6002201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseModule",
+    "name_en": "Divergent Universe Module 3.1",
+    "name_zh_cn": "差分宇宙模块 3.1",
+    "summary_en": "Activity module 6002201 is the released main-tournament 3, sub-tournament 1 boundary.",
+    "summary_zh_cn": "活动模块 6002201 是已发布的主赛季 3、子赛季 1 边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournmodule-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournModule.json",
+        "locator": "7",
+        "sha256": "b37c35ad4760d5c42d57c426d8b5ed84431176e5afc5d7bc390418e57b4691bc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "enabled-module",
+      "tourn3"
+    ],
+    "source_id": "6002201",
+    "sub_mode": "TournRogue",
+    "tourn_mode": "Tourn3",
+    "main_tourn_id": 3,
+    "sub_tourn_id": 1
+  }
+]

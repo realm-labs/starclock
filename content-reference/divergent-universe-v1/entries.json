@@ -1,0 +1,70 @@
+[
+  {
+    "id": "divergent-universe.entry.title.tournrogue",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEntry",
+    "name_en": "Divergent Universe",
+    "name_zh_cn": "差分宇宙",
+    "summary_en": "The common mode-title row binds the TournRogue identity.",
+    "summary_zh_cn": "通用模式标题行绑定 TournRogue 玩法身份。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguecommonmodetitle-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCommonModeTitle.json",
+        "locator": "3",
+        "sha256": "a129656264b6424042fc4ea56121152f27e79f5015be566c7829b0fa5f1c7623",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mode-title"
+    ],
+    "entry_kind": "ModeTitle",
+    "source_id": "TournRogue",
+    "module_id": "divergent-universe.module.6002201",
+    "unlock_ids": [],
+    "related_panel_id": ""
+  },
+  {
+    "id": "divergent-universe.entry.activity.105",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEntry",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙•乐园漫记",
+    "summary_en": "Resident activity 105 selects TournRogue module 6002201.",
+    "summary_zh_cn": "常驻活动 105 选择 TournRogue 模块 6002201。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-rogueactivityresidentconfig-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "locator": "4",
+        "sha256": "eb8cd9e3df869cb23a739bc9dabffe50ff41c8fd83918506231f18544f528e2e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity-entry"
+    ],
+    "entry_kind": "ResidentActivity",
+    "source_id": "105",
+    "module_id": "divergent-universe.module.6002201",
+    "unlock_ids": [],
+    "related_panel_id": "60018"
+  }
+]
