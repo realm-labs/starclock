@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +1",
+    "name_zh_cn": "追加难题 +1",
+    "summary_en": "This level gives the Third Plane boss Resonance Extrapolation one additional Formation Extrapolation.",
+    "summary_zh_cn": "该等级为第三位面首领的回响推演额外增加一个构音推演。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "6",
+        "sha256": "107b5c88206fa668a3029f48ad8b8e125a903e7c8cce3ac549bed20a2af7ed99",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "source_id": "201",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 1,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 4,
+    "source_sort": 6,
+    "description_text_hash": "17811917928844237470",
+    "source_description_sha256_en": "91169b32750009a96e2b5116413c9c339ec7fe4160275c66f6630b43bf9a769d",
+    "source_description_sha256_zh_cn": "b14cd4854c93468ef74851a90d0099c16070fe21379329aa3077dd5933da1aa4",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "AddFormationExtrapolation",
+        "scope": "Battle",
+        "target": "third-plane-boss-resonance-extrapolation",
+        "value": "1",
+        "unit": "Count",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.1"
+  },
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +2",
+    "name_zh_cn": "追加难题 +2",
+    "summary_en": "This level enables the released Phase 3 enhancement for the Second Plane boss.",
+    "summary_zh_cn": "该等级启用已发布的第二位面首领第三阶段强化。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "7",
+        "sha256": "9fda7fa6de62d45ad5fc4a9dc720df7527f7ec8a640a04fd176eaddb34c5c158",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactPublicText",
+    "quality_overrides": [],
+    "source_id": "202",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 2,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1",
+      "gold-gears.rule.conundrum.auxiliary.2"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 5,
+    "source_sort": 5,
+    "description_text_hash": "2550674750019958230",
+    "source_description_sha256_en": "426e407d32e914baf4c5bcd7cdf5ff516b4d94b9d4d4a6a3d0ddf4d6d2e4fa7d",
+    "source_description_sha256_zh_cn": "5675f6110465f7b040a3725095c4f50b7a1ca56b248a158f87c581577b939409",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "EnableSecondPlaneBossPhaseThreeEnhancement",
+        "scope": "Battle",
+        "target": "second-plane-boss-phase-three",
+        "encounter_binding_state": "DeferredToG08P2B5",
+        "mechanism_quality": "ExactPublicText"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.2"
+  },
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +3",
+    "name_zh_cn": "追加难题 +3",
+    "summary_en": "This level adds 20 Cosmic Fragments to every Blessing reset cost.",
+    "summary_zh_cn": "该等级使每次重置祝福的费用增加20宇宙碎片。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "8",
+        "sha256": "237bab44cc9c46fd753a10e1be55da56515cf92ce678bc5ac7433cabedc8dfd0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "source_id": "203",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 3,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1",
+      "gold-gears.rule.conundrum.auxiliary.2",
+      "gold-gears.rule.conundrum.auxiliary.3"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 6,
+    "source_sort": 4,
+    "description_text_hash": "10520070656026781231",
+    "source_description_sha256_en": "db4b9e6b745ed3575d138202a73e209b986a9c716c1a9126b90c722c3680ef1c",
+    "source_description_sha256_zh_cn": "d96aae31c8de0dbaa5bab3beae51ba3519e655f93c7df76fcfd3cb780d5ac11c",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "20"
+      }
+    ],
+    "effect_contributions": [
+      {
+        "operation": "AddBlessingResetCost",
+        "scope": "Activity",
+        "target": "blessing-reset.cosmic-fragment-cost",
+        "value": "20",
+        "unit": "CosmicFragment",
+        "stacking": "AdditiveContribution",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.3"
+  },
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +4",
+    "name_zh_cn": "追加难题 +4",
+    "summary_en": "This level removes one initial countdown, one dice reroll and 100 initial Cosmic Fragments.",
+    "summary_zh_cn": "该等级减少1点初始倒计时、1次重投和100初始宇宙碎片。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "9",
+        "sha256": "7e622a4de3d19ef58be5123d993f3fe278b34c4b4b44855793d29d37fcb140fa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "source_id": "204",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 4,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1",
+      "gold-gears.rule.conundrum.auxiliary.2",
+      "gold-gears.rule.conundrum.auxiliary.3",
+      "gold-gears.rule.conundrum.auxiliary.4"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 7,
+    "source_sort": 3,
+    "description_text_hash": "13064892096341022994",
+    "source_description_sha256_en": "3cb7bda263f43eef8b54b5628ef4b404c69ffd84f9629815166fa4fd4a348d21",
+    "source_description_sha256_zh_cn": "6560ce3c09468f36ee2e1350319e1eb53dd908019dab84b062112c168ffe2b4a",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "1"
+      },
+      {
+        "index": 2,
+        "value": "1"
+      },
+      {
+        "index": 3,
+        "value": "100"
+      }
+    ],
+    "effect_contributions": [
+      {
+        "operation": "ReduceInitialRunResources",
+        "scope": "Activity",
+        "target": "run-initial-resources",
+        "countdown_delta": "-1",
+        "dice_reroll_delta": "-1",
+        "cosmic_fragment_delta": "-100",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.4"
+  },
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +5",
+    "name_zh_cn": "追加难题 +5",
+    "summary_en": "This level grants Negative Curios whenever the party enters a plane.",
+    "summary_zh_cn": "该等级在队伍进入每个位面时给予负面奇物。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "10",
+        "sha256": "64bf9bea4edd479df268dd6e364e5e233f95e165159aa1714097ad1d20eb5300",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "source_id": "205",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 5,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1",
+      "gold-gears.rule.conundrum.auxiliary.2",
+      "gold-gears.rule.conundrum.auxiliary.3",
+      "gold-gears.rule.conundrum.auxiliary.4",
+      "gold-gears.rule.conundrum.auxiliary.5"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 8,
+    "source_sort": 2,
+    "description_text_hash": "3778470549506934937",
+    "source_description_sha256_en": "9bd99a78ea786eef1b4c3754c01ac969e87208c07e40821b685cc2fe08dafeae",
+    "source_description_sha256_zh_cn": "aee6c391272bc512b70009ea0a05e7f2c3b2dfaf2aff8a762f3dff423cf71b07",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "GrantNegativeCuriosOnPlaneEntry",
+        "scope": "Activity",
+        "target": "party-curio-inventory",
+        "timing": "EnterEachPlane",
+        "pool_binding_state": "DeferredToG08P2B2",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.5"
+  },
+  {
+    "id": "gold-gears.conundrum-level.auxiliary.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Auxiliary Conundrum +6",
+    "name_zh_cn": "追加难题 +6",
+    "summary_en": "This level reduces the effective Blessing count of every Path by one.",
+    "summary_zh_cn": "该等级将所有命途的有效祝福计数各减少1。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "11",
+        "sha256": "024fc4d1f5a8f9988d01f4afefd4f7ddcf2a81e2aa8e494561fa5aaeb20dfaa7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "auxiliary",
+      "conundrum",
+      "mechanically-relevant"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [],
+    "source_id": "206",
+    "source_type": "AdditionalDifficulty",
+    "track": "Auxiliary",
+    "level": 6,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "AllContributionsAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.auxiliary.1",
+      "gold-gears.rule.conundrum.auxiliary.2",
+      "gold-gears.rule.conundrum.auxiliary.3",
+      "gold-gears.rule.conundrum.auxiliary.4",
+      "gold-gears.rule.conundrum.auxiliary.5",
+      "gold-gears.rule.conundrum.auxiliary.6"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 9,
+    "source_sort": 1,
+    "description_text_hash": "1141789136981149260",
+    "source_description_sha256_en": "14d0a42d2327a8096e66187021593311bd95ea7930e693005d0db260dc13d3e6",
+    "source_description_sha256_zh_cn": "3c0b5ddfdb97baefe9d0b6f0588389293bada8b5761af3f330232297407f80a8",
+    "source_parameters": [
+      {
+        "index": 1,
+        "value": "1"
+      }
+    ],
+    "effect_contributions": [
+      {
+        "operation": "ReduceEffectiveBlessingCountPerPath",
+        "scope": "ActivityAndBattle",
+        "target": "all-path-blessing-counts",
+        "value": "-1",
+        "unit": "CountPerPath",
+        "minimum_effective_count": "0",
+        "mechanism_quality": "ExactStructured"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.auxiliary.6"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +1",
+    "name_zh_cn": "属性难题 +1",
+    "summary_en": "This level selects the released slight enemy-stat tier.",
+    "summary_zh_cn": "该等级启用已发布的敌方属性小幅提升档。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "0",
+        "sha256": "c81bccbdb9e2fb646aaf2d96efdc38fdb1ec704eb0abe137ebc461d1af4fa554",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "101",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 1,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.1"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 1,
+    "source_sort": 1,
+    "description_text_hash": "6597020033789644097",
+    "source_description_sha256_en": "99e729175af56b58068ad69f6db6c576683014a0946fc6da4d33027fb38d5c8f",
+    "source_description_sha256_zh_cn": "cc7f357cd93fd9fc2f51b454cfaa964ded50c688d32465f1eb0dd399388d4e96",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "ApplyEnemyStatTier",
+        "scope": "Battle",
+        "target": "all-enemies",
+        "qualitative_tier": "Slight",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "attack_ratio",
+            "max_hp_ratio",
+            "speed_ratio"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.1"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +2",
+    "name_zh_cn": "属性难题 +2",
+    "summary_en": "This level replaces the slight enemy-stat tier with the moderate tier.",
+    "summary_zh_cn": "该等级以中幅敌方属性档替换小幅档。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "1",
+        "sha256": "768526ad2fbfa6e688ece3f7879dc1b9056234e46290e4f9d2ae66d92443d5c3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "102",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 2,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.2"
+    ],
+    "replaces_level_ids": [
+      "gold-gears.conundrum-level.stats.1"
+    ],
+    "source_tag": 1,
+    "source_sort": 1,
+    "description_text_hash": "13150459199767633229",
+    "source_description_sha256_en": "5f1381ccef4493229e3756472038df063fb16c2887a8b90f905286f19b453648",
+    "source_description_sha256_zh_cn": "0b4c187d76d9b97c08d8f0956948ab697b2b565d68dc40197e462b0f4fa2df69",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "ApplyEnemyStatTier",
+        "scope": "Battle",
+        "target": "all-enemies",
+        "qualitative_tier": "Moderate",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "attack_ratio",
+            "max_hp_ratio",
+            "speed_ratio"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.2"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.3",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +3",
+    "name_zh_cn": "属性难题 +3",
+    "summary_en": "This level makes elite and boss battles enter a stronger Berserk state earlier.",
+    "summary_zh_cn": "该等级使精英与首领战更早进入效果更强的狂暴状态。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "2",
+        "sha256": "d6a1b3b9ebd4710fb239e869ccc3d14c7d8c5d90a4ff3e626b485833ec37d64c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "103",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 3,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.2",
+      "gold-gears.rule.conundrum.stats.3"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 2,
+    "source_sort": 2,
+    "description_text_hash": "17415384660050557802",
+    "source_description_sha256_en": "7f1c46599331a87db4ea3d1d3e0e5212c006fd6a79cd4b10a845c98b3f973c39",
+    "source_description_sha256_zh_cn": "9e86b8c61e249ddba06010d19c96076514d14bed56d9b051e6d6b06501eecb7a",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "EnhanceBerserk",
+        "scope": "Battle",
+        "target": "elite-and-boss-battles",
+        "timing_change": "EarlierThanBase",
+        "effect_change": "EnhancedFromBase",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "base_trigger_cycle",
+            "enhanced_trigger_cycle",
+            "attack_ratio_per_stack",
+            "speed_ratio_per_stack",
+            "stack_interval",
+            "stack_cap"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.3"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.4",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +4",
+    "name_zh_cn": "属性难题 +4",
+    "summary_en": "This level replaces the moderate enemy-stat tier with the great tier.",
+    "summary_zh_cn": "该等级以大幅敌方属性档替换中幅档。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "3",
+        "sha256": "7d118bb57b773ca4ee0bf0b5d76da1caa578425e07352695c6afb6c35d289327",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "104",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 4,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.3",
+      "gold-gears.rule.conundrum.stats.4"
+    ],
+    "replaces_level_ids": [
+      "gold-gears.conundrum-level.stats.2"
+    ],
+    "source_tag": 1,
+    "source_sort": 1,
+    "description_text_hash": "18435195715067036816",
+    "source_description_sha256_en": "7f035641ad14ae758fa177ba5da3ab20a4525c648147ff2ec92ef3f0c23f2b4a",
+    "source_description_sha256_zh_cn": "0ee1d856cb9ad82d5e95bf244bf327cb281e89f92990b0dfbd1d3bddb91c16a1",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "ApplyEnemyStatTier",
+        "scope": "Battle",
+        "target": "all-enemies",
+        "qualitative_tier": "Great",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "attack_ratio",
+            "max_hp_ratio",
+            "speed_ratio"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.4"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.5",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +5",
+    "name_zh_cn": "属性难题 +5",
+    "summary_en": "This level raises elite and boss Toughness and advances Berserk enemies after each received attack.",
+    "summary_zh_cn": "该等级提高精英与首领韧性，并让狂暴敌人每次受击后行动提前。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "4",
+        "sha256": "ac99e1605801d04676d87f6c1439587bff72a8269dd59f42939908da1657de5b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "105",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 5,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.3",
+      "gold-gears.rule.conundrum.stats.4",
+      "gold-gears.rule.conundrum.stats.5"
+    ],
+    "replaces_level_ids": [],
+    "source_tag": 3,
+    "source_sort": 3,
+    "description_text_hash": "18163856649553499528",
+    "source_description_sha256_en": "c282c38579635f70d55ef54b04a01d5bea732eb24be50a4f687a2eb932464d92",
+    "source_description_sha256_zh_cn": "a7bf3a52554ed7016cab91e94c593b0aa6343cbf98cef69fe2e56abe7f02025a",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "EnhanceEliteAndBossToughnessAndBerserkResponse",
+        "scope": "Battle",
+        "target": "elite-and-boss-enemies",
+        "toughness_change": "SlightIncrease",
+        "berserk_trigger": "AfterEachReceivedAttack",
+        "berserk_response": "AdvanceOwnAction",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "toughness_ratio",
+            "action_advance_ratio"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.5"
+  },
+  {
+    "id": "gold-gears.conundrum-level.stats.6",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "ConundrumLevel",
+    "name_en": "Stats Conundrum +6",
+    "name_zh_cn": "属性难题 +6",
+    "summary_en": "This level replaces the great enemy-stat tier with the massive tier.",
+    "summary_zh_cn": "该等级以巨幅敌方属性档替换大幅档。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguenousdifficultylevel-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousDifficultyLevel.json",
+        "locator": "5",
+        "sha256": "b84150f52b0e23711f067b1dbc5946cbc87a69128aee10b8596b4d4404a6ad87",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-conundrum-composition",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe%3A_Gold_and_Gears/Exploration",
+        "locator": "Difficulty > Conundrum",
+        "sha256": "b3fae6b05dfb508185ff04cf082711831f084cd5b069f2ab421057dfad23183f",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "conundrum-unreleased-numeric-bindings",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released structured and public text exposes four qualitative enemy-stat tiers, an earlier and enhanced Berserk rule, a slight Toughness increase, and action advance after each hit while Berserk, but it does not publish their numeric ratios, exact cycle boundary, stack behavior, or advance amount. The reference preserves the exact semantic operations and requires battle compilation to fail closed until a later runtime goal supplies a versioned numeric binding.",
+        "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing."
+      }
+    ],
+    "tags": [
+      "conundrum",
+      "mechanically-relevant",
+      "stats"
+    ],
+    "mechanism_quality": "ExactStructuredWithPolicyFields",
+    "quality_overrides": [
+      {
+        "field": "effect_contributions[0].numeric_binding",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+        "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+      }
+    ],
+    "source_id": "106",
+    "source_type": "AttributeDifficulty",
+    "track": "Stats",
+    "level": 6,
+    "track_cap": 6,
+    "total_conundrum_cap": 12,
+    "total_level_formula": "stats_level + auxiliary_level",
+    "unlock_requirement": {
+      "operation": "ClearFormalDifficulty",
+      "target": "gold-gears.area.405"
+    },
+    "composition_mode": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+    "active_contribution_ids": [
+      "gold-gears.rule.conundrum.stats.3",
+      "gold-gears.rule.conundrum.stats.5",
+      "gold-gears.rule.conundrum.stats.6"
+    ],
+    "replaces_level_ids": [
+      "gold-gears.conundrum-level.stats.4"
+    ],
+    "source_tag": 1,
+    "source_sort": 1,
+    "description_text_hash": "13867672931670171263",
+    "source_description_sha256_en": "844125d3ccae222e3345b1682ae5340eb4d2f550bd62fadfe29c68bfb4df4e2c",
+    "source_description_sha256_zh_cn": "19b54bedea44e4b773ac534a045629eefe2aca4722be04b4bb3c6fae14273d20",
+    "source_parameters": [],
+    "effect_contributions": [
+      {
+        "operation": "ApplyEnemyStatTier",
+        "scope": "Battle",
+        "target": "all-enemies",
+        "qualitative_tier": "Massive",
+        "numeric_binding": {
+          "policy_id": "conundrum-unreleased-numeric-bindings-v1",
+          "evidence_quality": "ProjectPolicy",
+          "resolution_state": "UnresolvedFailClosed",
+          "authoritative_behavior": "RejectBattleCompilation",
+          "unresolved_fields": [
+            "attack_ratio",
+            "max_hp_ratio",
+            "speed_ratio"
+          ],
+          "replacement_condition": "Replace only with pinned released engine data or reproducible Version 4.4 observations."
+        },
+        "mechanism_quality": "ProjectPolicy"
+      }
+    ],
+    "rule_contribution_id": "gold-gears.rule.conundrum.stats.6"
+  }
+]

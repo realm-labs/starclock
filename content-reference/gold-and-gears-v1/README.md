@@ -48,6 +48,13 @@ node tools/gold-and-gears-reference/import-neural-network.mjs
 node tools/gold-and-gears-reference/verify-neural-network.mjs
 ```
 
+Phase 1 Stats/Auxiliary Conundrum composition and effect rows regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-conundrum.mjs
+node tools/gold-and-gears-reference/verify-conundrum.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
@@ -58,4 +65,6 @@ recorded separately as public evidence. Neural Network rows preserve the
 released 40-node prerequisite graph, costs and contributions. The two
 indistinguishable Blue-slot upgrade targets and reroll empty-candidate behavior
 use named replaceable policies rather than claiming an unpublished engine
-mapping.
+mapping. Conundrum track composition, caps and released semantic effects are
+exact; unpublished enemy-stat ratios, Berserk timing/stack values, Toughness
+ratio and action-advance amount remain one named fail-closed numeric policy.
