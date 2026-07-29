@@ -1,0 +1,833 @@
+[
+  {
+    "id": "currency-wars.selected-enhancement.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Assertion",
+    "name_zh_cn": "断言",
+    "summary_en": "Selected enhancement 1 targets trait effect 30021, costs 5 and publishes 1 parameter(s).",
+    "summary_zh_cn": "选择强化 1 面向羁绊效果 30021，消耗 5，并发布 1 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "0",
+        "sha256": "32e02099c6b109eeea7a35db4e0b1f6067f8acd57dccf147ed1cbf9f96b125cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12256906291438327544",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12256906291438327544",
+        "sha256": "a6eded3320c6fb981ff823188d10f9c63bda92050d690677bec70036afca0b34",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12256906291438327544",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12256906291438327544",
+        "sha256": "c85a7b13c2415216ea306baef46fa75533d685daac3cde1f2b8bc79be3fae2ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.2082898599205552085",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "2082898599205552085",
+        "sha256": "4a43fff9dae8cb890f7fabcf1bbc17642a6f76dcf648d0ba58e71183adec8620",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.2082898599205552085",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "2082898599205552085",
+        "sha256": "51f0340fcca6d0bed7d0ec3f16d5ceaa7a15b6621e06cdb48da16dc756213805",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9471695125908847210",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9471695125908847210",
+        "sha256": "9d328ec309a1dd0fc289205558c9f38f324f0a5297338d81790f75621bf3890e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9471695125908847210",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9471695125908847210",
+        "sha256": "0da343bf7d386e5419bf15da2ec57b0c67f2023f57e5e31ca9fbbde2c4bfcc4e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "1",
+    "trait_effect_id": "30021",
+    "cost": "5",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "0.1"
+      ],
+      "effects": [
+        "0.1"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Deep Arcana",
+    "name_zh_cn": "深层奥迹",
+    "summary_en": "Selected enhancement 2 targets trait effect 30021, costs 5 and publishes 1 parameter(s).",
+    "summary_zh_cn": "选择强化 2 面向羁绊效果 30021，消耗 5，并发布 1 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "1",
+        "sha256": "8f85e5d9324120692f05cdb664513491ba79c3af2cb031bfec8abd257a3f765d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1308443926118400648",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1308443926118400648",
+        "sha256": "b92eb201a378666158d3499705420cf138a41c828cb6b4e21202e59da6196c13",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1308443926118400648",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1308443926118400648",
+        "sha256": "887b36e8296b6a2e30e24dabc0837d5900ee8179532cf0ebd0ef03c35b7df70d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.2761544791712950379",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "2761544791712950379",
+        "sha256": "d33511dc67e51af2979ebc68872be306f561766b85aaae8d56922c7bd88038b6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.2761544791712950379",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "2761544791712950379",
+        "sha256": "f2890cd8ee20ca228074761116a26934efe367df3b12ba2a9ad2afaf38491ba3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11232063262553779040",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11232063262553779040",
+        "sha256": "4a2fd435485d7252d17dbbcf5d340049c8343368ca05fdd0c4d099e8844a692c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11232063262553779040",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11232063262553779040",
+        "sha256": "8936826d78dfa33d3c46999ae0288a23dc3cafd7152a736a05807b353c58ea94",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "2",
+    "trait_effect_id": "30021",
+    "cost": "5",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "49",
+        "0.2"
+      ],
+      "effects": [
+        "49"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Primal Arcana",
+    "name_zh_cn": "原始奥迹",
+    "summary_en": "Selected enhancement 3 targets trait effect 30021, costs 5 and publishes 2 parameter(s).",
+    "summary_zh_cn": "选择强化 3 面向羁绊效果 30021，消耗 5，并发布 2 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "2",
+        "sha256": "3125cc4595e8d108ab828f92fb87737611a689db3134f78e45157b6914ff74ba",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13235290350432131782",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13235290350432131782",
+        "sha256": "018415cf751bd6ddbb7ac8f705fd2ff76e37b5bc59ef80b8c9e98328e838820e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13235290350432131782",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13235290350432131782",
+        "sha256": "8dde6ee242fd2f76e5de3f9144ff2de4fe278356bdb66e81a605407608b579de",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4834514752017735127",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4834514752017735127",
+        "sha256": "e97e1b8e15470f621fbf25dae8732d855a47a00957535387581a34e47b1ac11c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4834514752017735127",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4834514752017735127",
+        "sha256": "e83a4261352f1500faa601339a87571d8d9ea312f07d87c71afdc451ff0274a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5588028309510607021",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5588028309510607021",
+        "sha256": "907c8d4f190b5df1a0b67bd20b03c0466210359bc66e1699c3e2fbebbcbd8f29",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5588028309510607021",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5588028309510607021",
+        "sha256": "88fb4122441f2b0ddfdc9253f5800a7a874e026606ba5cf54cec955105dc253c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "3",
+    "trait_effect_id": "30021",
+    "cost": "5",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "7"
+      ],
+      "effects": [
+        "15",
+        "0.05"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Agile",
+    "name_zh_cn": "机敏",
+    "summary_en": "Selected enhancement 4 targets trait effect 30021, costs 5 and publishes 1 parameter(s).",
+    "summary_zh_cn": "选择强化 4 面向羁绊效果 30021，消耗 5，并发布 1 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "3",
+        "sha256": "07e2fd2a45bba0dae1e8d54df41b5c8941c71e6679d6d260e30b7164dfb145d8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4040315976951772749",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4040315976951772749",
+        "sha256": "08a8b45673261861a74488be86d43b67d81596e6c07b5587068690b0751e2134",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4040315976951772749",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4040315976951772749",
+        "sha256": "d51f8cf026246432e5cf13d5628a47f0a7c0451b02b8ae405ce844d6ccc94a35",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5787682153186985688",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5787682153186985688",
+        "sha256": "319fd6598a5e17e2045bbcb492d374ed8a042ddd7ff990020249be644ceb66e0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5787682153186985688",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5787682153186985688",
+        "sha256": "dc8e6e8345ee203238f7acb1f43a9d97034da618693a6f297aa658a1d64ec05c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.554779427197914536",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "554779427197914536",
+        "sha256": "00c6401f1d4c88681826ed1be1c693dc72a5f0e674b48e356edb757fe11ebe0c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.554779427197914536",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "554779427197914536",
+        "sha256": "8abfd694e24af442baa6bc8862d5ca795c44c0551efdc812b27ef0ccd54b929d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "4",
+    "trait_effect_id": "30021",
+    "cost": "5",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "0.16"
+      ],
+      "effects": [
+        "0.16"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Felicity",
+    "name_zh_cn": "妙运",
+    "summary_en": "Selected enhancement 5 targets trait effect 30021, costs 5 and publishes 1 parameter(s).",
+    "summary_zh_cn": "选择强化 5 面向羁绊效果 30021，消耗 5，并发布 1 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "4",
+        "sha256": "236ef6269683c33a6169c3c33bb1aab56ad5e86ef529d0adb7b22ad93214fe4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.10246976132869164651",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "10246976132869164651",
+        "sha256": "612d7d88acd2ae95e0551fb3e10976551cdd5d67ce541d18422129ef6b35409b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.10246976132869164651",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "10246976132869164651",
+        "sha256": "0ae85c309eba6ab46993227aa1b88bd8ea2e8a1f99edac405d2bd3b03b7a1219",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9736327443455864834",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9736327443455864834",
+        "sha256": "03e6345bf7d02162ce6cd294be0435165d978f42ac8e6b64b74108b53a2f087c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9736327443455864834",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9736327443455864834",
+        "sha256": "5bc8d774fe47a3eb8e32fcdc0e0f899433a27c6992b78a4ff555157999b98a06",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4232268738034440877",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4232268738034440877",
+        "sha256": "896eae6e7e4a15b546df2930d62e349d41b5fd4078d84cf3e6369e51d1158648",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4232268738034440877",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4232268738034440877",
+        "sha256": "ad0230cb62db45eb1294ccdcc5942df92f3f7b5c376b639bf732cab7869296ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "5",
+    "trait_effect_id": "30021",
+    "cost": "5",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "0.03"
+      ],
+      "effects": [
+        "0.03"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Blank Card",
+    "name_zh_cn": "留白卡",
+    "summary_en": "Selected enhancement 6 targets trait effect 30021, costs no authored amount and publishes 1 parameter(s).",
+    "summary_zh_cn": "选择强化 6 面向羁绊效果 30021，消耗 未编写数值，并发布 1 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "5",
+        "sha256": "d04fb0d34426a148f5fe2ae4e7b754f8978ba2df15d33c5f931b9bb35a6417b5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17609862402133832244",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17609862402133832244",
+        "sha256": "0fe51d5a667da20d4546b3e46099369d44f154bd567a02913e269c6d85186a62",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17609862402133832244",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17609862402133832244",
+        "sha256": "07c0ad08d8bf5ffef4056ea846472943d5013a46dd4d6ef44c10a41fbdeb1924",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.6960852410794652191",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "6960852410794652191",
+        "sha256": "1a5e7a9e123171b78290a925260e927d1105397f0ff5917e67001227a8ae0109",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.6960852410794652191",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "6960852410794652191",
+        "sha256": "bf2b8d96ff4912254f548dec90dbd382fec03f80770940933dc62ef7f08b1adf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1628493852894434625",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1628493852894434625",
+        "sha256": "109ba27fabba628c21649f0df8bcee4e8e714a7c3d743369b77679f2ff44f100",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1628493852894434625",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1628493852894434625",
+        "sha256": "337e838c23e1ebb981808531d53f60edbffded8e4e0eca5be27f927045a8adc7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "6",
+    "trait_effect_id": "30021",
+    "cost": "",
+    "parameters": {
+      "select_condition": "",
+      "parameters": [
+        "0.25"
+      ],
+      "effects": [
+        "0.25"
+      ]
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  },
+  {
+    "id": "currency-wars.selected-enhancement.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSelectedEnhancement",
+    "name_en": "Moment of Revelation",
+    "name_zh_cn": "启示降临",
+    "summary_en": "Selected enhancement 7 targets trait effect 30021, costs no authored amount and publishes 0 parameter(s).",
+    "summary_zh_cn": "选择强化 7 面向羁绊效果 30021，消耗 未编写数值，并发布 0 个参数。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightselectenhance-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSelectEnhance.json",
+        "locator": "6",
+        "sha256": "2e22384c79f9b965ee437e2dca011ad19852971771f1decdb021835046b8ac26",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12513892197650402433",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12513892197650402433",
+        "sha256": "707420fd08ff0f19aa6e492a472afe77a0c0dc29b809ae87704980cfdbe05f18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12513892197650402433",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12513892197650402433",
+        "sha256": "3b69313ac89e6b45cebb59a7c0ca13dd902ef419930063a84ed81ad753125d3b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12704298176841104574",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12704298176841104574",
+        "sha256": "ec69b5d8175a5f8343d04a3c0ac39b640a7241f862219f6e2c4b1d9753346833",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12704298176841104574",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12704298176841104574",
+        "sha256": "4ef022885a82fbb3054cfac918efd048b37ea3aacd492821915d4531901736e2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16887817993062401546",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16887817993062401546",
+        "sha256": "bffb3ed440c0484d668d633ca3f676d06dfe3d024b24f8da8abf3bcc37b90734",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16887817993062401546",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16887817993062401546",
+        "sha256": "08d623115ac06eeb63d11fcdbebf2701558ff777c200fd00ef7338c38998ed1b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "enhancement",
+      "gridfight",
+      "investment-system",
+      "selected"
+    ],
+    "source_id": "7",
+    "trait_effect_id": "30021",
+    "cost": "",
+    "parameters": {
+      "select_condition": "MaxStar",
+      "parameters": [],
+      "effects": []
+    },
+    "effect_ids": [
+      "trait-effect:30021"
+    ]
+  }
+]

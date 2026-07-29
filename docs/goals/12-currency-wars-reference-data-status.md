@@ -7,8 +7,8 @@
 | Goal ID | `currency-wars-reference-v1` |
 | State | `InProgress` |
 | Current phase | Phase 1 — Unique mode systems (`InProgress`) |
-| Current batch | `G12-P1-B7` — Import build and equipment mappings |
-| Next unblocked batch | None until `G12-P1-B7` is committed, pushed and remotely verified |
+| Current batch | `G12-P1-B8` — Import investment systems |
+| Next unblocked batch | None until `G12-P1-B8` is committed, pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -33,7 +33,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Published B1–B4 evidence remains immutable. B5 froze the direct GridFight selector, 1,137-path source closure, corrected 19,250-obligation denominator and regenerated contracts at remote-backed commit `b56b574d…8e4`. |
-| Phase 1 — Unique mode systems | `InProgress` | B2's public-text Squad HP/action-value facts remain valid and rebound to the corrected contracts. P1-B10 is replacing B1's historical Tourn3/Persona flow with GridFight. |
+| Phase 1 — Unique mode systems | `InProgress` | B2's public-text Squad HP/action-value facts remain valid and rebound to the corrected contracts. P1-B10 replaced B1's historical Tourn3/Persona flow with GridFight; P1-B8 replaces the unused Persona-shaped authoring contract. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, events, services, enemies, waves and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, semantic fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -54,8 +54,8 @@
 | `G12-P1-B4` | `Complete` | `ab605c0a800339435336fc98118f8217e6108264` | Imported 5,072 normalized rows (`f3f57aed…23aef`): 77 role mappings, three position identities, 4,652 display/front/back Empowerments and 340 exact/public battle overrides. Position/economy/flow/Squad/manifest/contract, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `83bdf502..ab605c0a HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `ab605c0a800339435336fc98118f8217e6108264` before `G12-P1-B5` began. |
 | `G12-P1-B5` | `Complete` | `6161ba03bb0d0cf451f6cbb27b72f522d3fa30b1` | Imported 854 normalized rows (`739f6f99…16166f`): 33 Bonds, 16 sub-traits, 152 levels and 653 typed contributions with complete direct membership edges. Bond/position/economy/flow/Squad, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `ab605c0a..6161ba03 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `6161ba03bb0d0cf451f6cbb27b72f522d3fa30b1` before `G12-P1-B6` began. |
 | `G12-P1-B6` | `Complete` | `1eacf5b32426553f4b3f527730d21abd348f86bf` | Imported 487 normalized rows (`0b1dce92…efb9b`): 266 role-star states, 29 servant-star states, all 1,596 rank attachments, 189 legal three-copy transitions and three policy-bound lifecycle rules. Star/Bond/position/economy/flow/Squad, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `6161ba03..1eacf5b3 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `1eacf5b32426553f4b3f527730d21abd348f86bf` before `G12-P1-B7` began. |
-| `G12-P1-B7` | `InProgress` | — | Imported 1,097 normalized rows (`6b11eb68…f667`): 77 owned/trial identities, six fail-closed shared build-source files, 77 policy-bound build mappings, two substitution/teardown rules, 417 off-field conversions and 518 direct equipment rows. Awaiting final gates, atomic commit, push and remote SHA verification. |
-| `G12-P1-B8` | `Pending` | — | Import Investment Environments/Strategies and reachable Persona styles, gifts, talents and room composition. |
+| `G12-P1-B7` | `Complete` | `c29355fd928835516359490567582f95869481b2` | Imported 1,097 normalized rows (`6b11eb68…f667`): 77 owned/trial identities, six fail-closed shared build-source files, 77 policy-bound build mappings, two substitution/teardown rules, 417 off-field conversions and 518 direct equipment rows. Build/equipment/position/manifest/contract, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `1eacf5b3..c29355fd HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `c29355fd928835516359490567582f95869481b2` before `G12-P1-B8` began. |
+| `G12-P1-B8` | `InProgress` | — | Replaced the unused Persona-shaped contract with 19 GridFight source-shaped families and imported all 1,422 frozen Augment/Portal/Orb/Projection/Talent/enhancement obligations (`3f28ef7f…c48b7`). The generated contract now has 102 normalized files across 60/32/10 workbook partitions. Awaiting final gates, atomic commit, push and remote SHA verification. |
 | `G12-P1-B9` | `Pending` | — | Import rank/Gambit boundaries, enemy affixes and simulation-visible permanent progression. |
 | `G12-P2-B1` | `Pending` | — | Freeze reachable shared and mode-owned Blessing/level/buff/formula pools, including proven-empty categories. |
 | `G12-P2-B2` | `Pending` | — | Import Curios/Miracles/Hexes, mode copies, equipment-like states and lifecycle. |
@@ -64,7 +64,7 @@
 | `G12-P2-B5` | `Pending` | — | Import encounter groups, StageConfig waves, enemy variants, elite/boss pools and Plane/difficulty bindings. |
 | `G12-P2-B6` | `Pending` | — | Generate rules, sources, coverage, research gaps, fixtures and pack index. |
 | `G12-P3-B1` | `Pending` | — | Add isolated profile/stage/difficulty/Squad-HP/action-value/economy Sora tables. |
-| `G12-P3-B2` | `Pending` | — | Add roster/position/star/Bond/Empowerment/build/equipment/Persona Sora tables. |
+| `G12-P3-B2` | `Pending` | — | Add roster/position/star/Bond/Empowerment/build/equipment and GridFight investment-system Sora tables. |
 | `G12-P3-B3` | `Pending` | — | Add content, service, event, encounter and rule-binding tables. |
 | `G12-P3-B4` | `Pending` | — | Add evidence/coverage/reconciliation/fixture tables and isolated schema locks/templates/readers. |
 | `G12-P3-B5` | `Pending` | — | Generate all three complete `openpyxl` workbooks and structural/semantic QA. |
@@ -101,7 +101,7 @@ modules, names or ID ranges.
 | Bonds/members/levels | 1,188 | 729 | 729 | P1-B5 accounts for all direct Trait/SubTrait identities, 152 TraitLayer rows, Bonus/Threshold/Effect/MazeBuff bridges, module/equipment relations, battle-area rules and season/game-reference rows. |
 | Star states/copy combinations | 1,891 | 1,891 | 1,891 | P1-B6 accounts exactly once for all 266 RoleStar, 1,596 RankAttachment and 29 ServantStar rows. Combination/lifecycle rows are derived public/policy evidence and do not inflate the denominator. |
 | Build mappings/equipment/conversions | 648 | 518 | 518 | P1-B7 accounts for every GridFight Equipment, EquipCategoryInfo, EquipTag, EquipUpgrade, EquipRecommendRole and RoleRecommendEquip row. The 77 direct role identities and policy/shared-source rows are derived evidence and do not inflate the denominator. |
-| Investment Environment/Strategy/Augments | 1,422 | 0 | 0 | Replaces the superseded Persona hypothesis with GridFight Augment, Portal, Projection, Talent and enhancement rows. |
+| Investment Environment/Strategy/Augments | 1,422 | 1,422 | 1,422 | P1-B8 accounts exactly once for all twenty GridFight Augment, Portal, Orb, Projection, Talent, enhancement, season-membership, MazeBuff, remark and module-ban source tables. |
 | Blessings/levels/formulas | 125 | 0 | 0 | Direct namespace contains effect/MazeBuff bridges but no Blessing identities; P2-B1 must close every shared buff reference. |
 | Curios/Miracles/Hex states | 0 | 0 | 0 | Proven empty only in the complete direct GridFight namespace; P2-B2 must still close shared references. |
 | Events/variants/choices | 171 | 0 | 0 | Includes GridFight Pray, Present, assistant and tutorial-task rows; presentation rows retain `EvidenceOnly` disposition. |
@@ -146,6 +146,8 @@ modules, names or ID ranges.
 | 2026-07-29 | Treat every authored RoleStar/ServantStar state as legal, including star 4, and derive only transitions whose next state exists. | Forty-two roles stop at star 3, while 35 roles and two servant families publish star 4. The public rule says star 3 is “usually” strongest, so a global three-star cap would discard exact rows. |
 | 2026-07-30 | Preserve the direct GridFight account-avatar/special-avatar identity boundary but leave shared build rows fail closed until an explicit role-level join exists. | Released text proves owned/trial substitution and mode-local strengthening, while the snapshot exposes no safe join from each GridFight role to the six shared upgrade-avatar sources. Names, table inclusion and adjacent IDs cannot establish that mapping. |
 | 2026-07-30 | Classify BackRoleRank and BackEquipment as exact off-field position contributions, not inferred account Eidolon, Light Cone or equipment ownership. | Their direct GridFight rows publish eligibility and contribution payloads but do not prove how an account build is selected. Keeping the two dimensions separate preserves exact data without inventing account semantics. |
+| 2026-07-30 | Replace the unused thirteen-file Persona authoring contract with nineteen source-shaped GridFight investment-system files. | The corrected selector closes over twenty GridFight tables and no direct RoguePersona table. Preserving the obsolete vocabulary would obscure ownership and imply unsupported style/gift/room semantics; the owning generator now produces 102 normalized file contracts and rebinds policy provenance deterministically. |
+| 2026-07-30 | Preserve Augment, Portal, Orb, Projection, Talent and enhancement identities independently instead of collapsing them into inferred Investment Environment/Strategy subtypes. | Released text proves the player-facing environment/strategy concepts, while exact structured rows expose distinct lifecycles, season memberships, configuration programs and module bans. Source-shaped rows retain all evidence without inventing a one-field taxonomy. |
 
 ## Research cases
 
@@ -160,7 +162,7 @@ modules, names or ID ranges.
 | `G12-R07` | `ResolvedNarrowed` | Which characters belong to each Bond, and how do thresholds, levels, simultaneous roster changes and contributions recompute? | P1-B5 / P4-B2 | P1-B5 closes 33 Bonds, 16 sub-traits, direct role/sub-trait member edges, 152 levels and 653 contributions. Reopen only for same-boundary simultaneous roster ordering or config-program execution; recompute-after-ordered-roster-mutation remains the fixture contract. |
 | `G12-R08` | `ResolvedNarrowed` | How do three-copy star upgrades, duplicate overflow, stat scaling, sales and replacements interact? | P1-B6 / P4-B2 | P1-B6 closes all 295 role/servant star states, 1,596 rank attachments and 189 legal next-state transitions. Reopen same-boundary purchase/sale/replacement precedence or maximum-star overflow only with an exact operation program or reproducible fixture observation. |
 | `G12-R09` | `ResolvedNarrowed` | How are owned/trial builds mapped and removed, and how are off-field Eidolons, signature Light Cones and equipment converted? | P1-B7 / P4-B2 | P1-B7 closes all 77 direct account/special-avatar identities, 417 off-field contribution rows and 518 equipment lifecycle rows. Replace policy-bound level/Trace/Light Cone/relic selection and teardown fields only with an explicit role-to-shared-build join or reproducible observation, then execute the contracted fixture. |
-| `G12-R10` | `OpenCorrection` | Which GridFight Augments, Projections, Talents and equipment implement Investment Environments/Strategies, and what are their offer/activation rules? | P1-B8 | Replace the superseded Persona hypothesis with explicit GridFight row/reference closure, typed lifecycle rows and fixtures for every distinct effect family. |
+| `G12-R10` | `ResolvedNarrowed` | Which GridFight Augments, Portals, Orbs, Projections, Talents and enhancements implement Investment Environments/Strategies, and what are their offer/activation rules? | P1-B8 / P2-B6 / P4-B2 | P1-B8 closes every one of the 1,422 direct source obligations, including season membership, module bans and config/MazeBuff references. Replace remaining offer order, reroll timing, configuration-program execution and same-boundary activation gaps only with released config closure or reproducible observations, then execute the contracted fixtures. |
 | `G12-R11` | `Open` | Which Blessings, formulas, Curios/Miracles/Hexes, events and services are reachable in released Version 4.4 Currency Wars pools? | P2-B1–B4 | Replace with exact selector/transitive-reference/stable-ID closures and 100% pool accounting, including proven-empty categories. |
 | `G12-R12` | `Open` | Which encounters, enemy variants, waves and bosses bind to each Plane/difficulty/rank, and which ability programs make them distinct? | P2-B5 | Replace with resolved StageConfig/wave/enemy/ability dossiers or a documented nonblocking boundary for unavailable released evidence. |
 | `G12-R13` | `Open` | Which hidden weights, target orders, simultaneous transitions, timing, caps, rounding and fallbacks remain unavailable after bounded research? | P2-B6 / P4-B2 | Replace each field with exact/observed evidence or a reviewed approximation/project-policy row with a concrete evidence-triggered replacement condition. |
@@ -180,7 +182,7 @@ modules, names or ID ranges.
 - [ ] All required mechanics are exact or explicitly
       approximate/policy-bound.
 - [ ] Flow, Squad HP/action value, economy, roster/star, position/Empowerment,
-      Bonds, mapping/equipment, Persona and content pools have complete semantic
+      Bonds, mapping/equipment, investment systems and content pools have complete semantic
       fixtures.
 - [ ] Encounter identities, StageConfig rows, waves and boss bindings resolve.
 - [ ] Isolated Sora schemas, templates and generated readers validate.

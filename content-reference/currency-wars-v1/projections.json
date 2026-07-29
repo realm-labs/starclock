@@ -1,0 +1,231 @@
+[
+  {
+    "id": "currency-wars.projection.1508",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsProjection",
+    "name_en": "Rin Tohsaka's Projection",
+    "name_zh_cn": "远坂凛•投影",
+    "summary_en": "Projection 1508 belongs to role 1508, unlocks through SpecialGoods and contributes MazeBuff 35610002.",
+    "summary_zh_cn": "投影 1508 属于角色 1508，通过 SpecialGoods 解锁，并贡献 MazeBuff 35610002。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightprojection-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightProjection.json",
+        "locator": "1",
+        "sha256": "851e379935a6319fe012577341b9d6bf25e398c82ddbdbab0b381212385b3ddd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13333464755797107641",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13333464755797107641",
+        "sha256": "458bf9edcd92aa6916cf6d377e2514f7517dc39305a2c5f84cf734dbd5dabbcc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13333464755797107641",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13333464755797107641",
+        "sha256": "65d447b89cbce71359e0979e32e8f7b114abdf75f7a7924bcbed669b62b43286",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15303177382022754804",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15303177382022754804",
+        "sha256": "f4236981e1d519fe581b557114f2c298f1e6712352c86ce61b8a487f75aa2ea8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15303177382022754804",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15303177382022754804",
+        "sha256": "14d4b90f43a99ce0d471712e53b4390f72eb337793826a3629696d7d3114152d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "projection"
+    ],
+    "source_id": "1508",
+    "role_id": "1508",
+    "unlock_type": "SpecialGoods",
+    "trait_ids": [],
+    "effect_ids": [
+      "maze-buff:35610002",
+      "all-member-property:ExtraAllDamageTypeAddedRatio5"
+    ],
+    "parameters": {
+      "ID": "1508",
+      "RoleID": "1508",
+      "ProjectionDesc": {
+        "Hash": "15303177382022754804"
+      },
+      "ParamList": [
+        "1",
+        "0.2",
+        "2",
+        "0.2"
+      ],
+      "ProjectionName": {
+        "Hash": "13333464755797107641"
+      },
+      "TraitList": [],
+      "UnlockType": "SpecialGoods",
+      "ActivationTraitLayerList": [],
+      "MazebuffID": "35610002",
+      "Rarity": "1",
+      "AllMemberGeneralPropertyList": [
+        {
+          "PropertyType": "ExtraAllDamageTypeAddedRatio5",
+          "Value": "0.2"
+        }
+      ],
+      "TraitListMemberGeneralPropertyList": []
+    }
+  },
+  {
+    "id": "currency-wars.projection.1509",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsProjection",
+    "name_en": "Gilgamesh's Projection",
+    "name_zh_cn": "吉尔伽美什•投影",
+    "summary_en": "Projection 1509 belongs to role 1509, unlocks through SpecialGoods and contributes MazeBuff 35610001.",
+    "summary_zh_cn": "投影 1509 属于角色 1509，通过 SpecialGoods 解锁，并贡献 MazeBuff 35610001。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightprojection-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightProjection.json",
+        "locator": "0",
+        "sha256": "8c0d28dd3d92bcd9b797fe0b7124bbac3ed00e2b3fb97952d7d94327a043e37d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4623922265512348344",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4623922265512348344",
+        "sha256": "a3fe510b2c57c6d2a00931edbcd28c70dc548d025ea0239503f0b27c2e5fc780",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4623922265512348344",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4623922265512348344",
+        "sha256": "df4d87700bcc908715639c4f804b064959352a7996537dc0bdb64f8f29b27e8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15904450975080006017",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15904450975080006017",
+        "sha256": "7eab99e01793cc7be943992393d800dfd1096af813ffea69925b095308e597c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15904450975080006017",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15904450975080006017",
+        "sha256": "bfdad064f8093ef787b2c29ee9e7cbdeb4bad7491e8824357e82d5664ec3705b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "projection"
+    ],
+    "source_id": "1509",
+    "role_id": "1509",
+    "unlock_type": "SpecialGoods",
+    "trait_ids": [],
+    "effect_ids": [
+      "maze-buff:35610001",
+      "all-member-property:ExtraAllDamageTypeAddedRatio5"
+    ],
+    "parameters": {
+      "ID": "1509",
+      "RoleID": "1509",
+      "ProjectionDesc": {
+        "Hash": "15904450975080006017"
+      },
+      "ParamList": [
+        "0.02",
+        "6",
+        "0.25"
+      ],
+      "ProjectionName": {
+        "Hash": "4623922265512348344"
+      },
+      "TraitList": [],
+      "UnlockType": "SpecialGoods",
+      "ActivationTraitLayerList": [],
+      "MazebuffID": "35610001",
+      "Rarity": "2",
+      "AllMemberGeneralPropertyList": [
+        {
+          "PropertyType": "ExtraAllDamageTypeAddedRatio5",
+          "Value": "0.25"
+        }
+      ],
+      "TraitListMemberGeneralPropertyList": []
+    }
+  }
+]

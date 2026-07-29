@@ -831,8 +831,8 @@
       ]
     },
     {
-      "file": "persona-constants-client.json",
-      "record_kind": "CurrencyWarsPersonaConstantsClient",
+      "file": "augment-definitions.json",
+      "record_kind": "CurrencyWarsAugmentDefinitions",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -841,14 +841,17 @@
         "id"
       ],
       "required_domain_fields": [
-        "value_name",
-        "canonical_value",
-        "consumer_ids"
+        "category_id",
+        "quality",
+        "chapter_limits",
+        "effect_ids",
+        "config_path",
+        "lifecycle"
       ]
     },
     {
-      "file": "persona-constants-common.json",
-      "record_kind": "CurrencyWarsPersonaConstantsCommon",
+      "file": "augment-maze-buffs.json",
+      "record_kind": "CurrencyWarsAugmentMazeBuffs",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -857,14 +860,16 @@
         "id"
       ],
       "required_domain_fields": [
-        "value_name",
-        "canonical_value",
-        "consumer_ids"
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
       ]
     },
     {
-      "file": "persona-layer-rooms.json",
-      "record_kind": "CurrencyWarsPersonaLayerRooms",
+      "file": "augment-monster-rules.json",
+      "record_kind": "CurrencyWarsAugmentMonsterRules",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -873,31 +878,14 @@
         "id"
       ],
       "required_domain_fields": [
-        "layer_id",
-        "room_id",
-        "style_ids",
-        "selection_policy"
-      ]
-    },
-    {
-      "file": "persona-room-attributes.json",
-      "record_kind": "CurrencyWarsPersonaRoomAttributes",
-      "phase": "P1-B8",
-      "manifest_category_inputs": [
-        "investment_environment_strategy_persona"
-      ],
-      "ordering_keys": [
-        "id"
-      ],
-      "required_domain_fields": [
-        "attribute_kind",
+        "quality",
         "parameters",
         "effect_ids"
       ]
     },
     {
-      "file": "persona-room-composition-types.json",
-      "record_kind": "CurrencyWarsPersonaRoomCompositionTypes",
+      "file": "augment-remarks.json",
+      "record_kind": "CurrencyWarsAugmentRemarks",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -906,14 +894,13 @@
         "id"
       ],
       "required_domain_fields": [
-        "composition_kind",
-        "eligibility",
-        "selection_policy"
+        "augment_id",
+        "remark"
       ]
     },
     {
-      "file": "persona-room-compositions.json",
-      "record_kind": "CurrencyWarsPersonaRoomCompositions",
+      "file": "enhancements.json",
+      "record_kind": "CurrencyWarsEnhancements",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -922,63 +909,15 @@
         "id"
       ],
       "required_domain_fields": [
-        "composition_type_id",
-        "ordered_room_ids",
-        "activation"
-      ]
-    },
-    {
-      "file": "persona-room-presets.json",
-      "record_kind": "CurrencyWarsPersonaRoomPresets",
-      "phase": "P1-B8",
-      "manifest_category_inputs": [
-        "investment_environment_strategy_persona"
-      ],
-      "ordering_keys": [
-        "id"
-      ],
-      "required_domain_fields": [
-        "composition_id",
-        "room_ids",
-        "weight_program"
-      ]
-    },
-    {
-      "file": "persona-styles.json",
-      "record_kind": "CurrencyWarsPersonaStyles",
-      "phase": "P1-B8",
-      "manifest_category_inputs": [
-        "investment_environment_strategy_persona"
-      ],
-      "ordering_keys": [
-        "id"
-      ],
-      "required_domain_fields": [
-        "environment_kind",
-        "strategy_ids",
-        "gift_pool_ids"
-      ]
-    },
-    {
-      "file": "persona-style-gifts.json",
-      "record_kind": "CurrencyWarsPersonaStyleGifts",
-      "phase": "P1-B8",
-      "manifest_category_inputs": [
-        "investment_environment_strategy_persona"
-      ],
-      "ordering_keys": [
-        "id"
-      ],
-      "required_domain_fields": [
-        "style_id",
-        "gift_kind",
+        "group_id",
+        "cost",
         "parameters",
         "effect_ids"
       ]
     },
     {
-      "file": "persona-talents.json",
-      "record_kind": "CurrencyWarsPersonaTalents",
+      "file": "module-ban-rules.json",
+      "record_kind": "CurrencyWarsModuleBanRules",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -987,15 +926,179 @@
         "id"
       ],
       "required_domain_fields": [
-        "talent_group_id",
+        "module_id",
+        "subject_kind",
+        "subject_id"
+      ]
+    },
+    {
+      "file": "orbs.json",
+      "record_kind": "CurrencyWarsOrbs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "bonus_id",
+        "orb_type",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "orb-displays.json",
+      "record_kind": "CurrencyWarsOrbDisplays",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "orb_type",
+        "display_locator"
+      ]
+    },
+    {
+      "file": "portal-buffs.json",
+      "record_kind": "CurrencyWarsPortalBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "config_path",
+        "effect_ids",
+        "bonus_ids",
+        "lifecycle"
+      ]
+    },
+    {
+      "file": "portal-maze-buffs.json",
+      "record_kind": "CurrencyWarsPortalMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "portal-remarks.json",
+      "record_kind": "CurrencyWarsPortalRemarks",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "portal_id",
+        "remark"
+      ]
+    },
+    {
+      "file": "projection-maze-buffs.json",
+      "record_kind": "CurrencyWarsProjectionMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "projections.json",
+      "record_kind": "CurrencyWarsProjections",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "role_id",
+        "unlock_type",
+        "trait_ids",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "season-augment-memberships.json",
+      "record_kind": "CurrencyWarsSeasonAugmentMemberships",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
+        "augment_id"
+      ]
+    },
+    {
+      "file": "season-portal-memberships.json",
+      "record_kind": "CurrencyWarsSeasonPortalMemberships",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
+        "portal_id"
+      ]
+    },
+    {
+      "file": "season-talents.json",
+      "record_kind": "CurrencyWarsSeasonTalents",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
         "cost",
         "prerequisite_ids",
-        "effect_ids"
+        "successor_ids",
+        "effect_ids",
+        "config_path"
       ]
     },
     {
-      "file": "persona-talent-groups.json",
-      "record_kind": "CurrencyWarsPersonaTalentGroups",
+      "file": "selected-enhancements.json",
+      "record_kind": "CurrencyWarsSelectedEnhancements",
       "phase": "P1-B8",
       "manifest_category_inputs": [
         "investment_environment_strategy_persona"
@@ -1004,38 +1107,46 @@
         "id"
       ],
       "required_domain_fields": [
-        "talent_ids",
-        "selection_policy",
-        "activation"
+        "trait_effect_id",
+        "cost",
+        "parameters",
+        "effect_ids"
       ]
     },
     {
-      "file": "investment-environments.json",
-      "record_kind": "CurrencyWarsInvestmentEnvironments",
+      "file": "talents.json",
+      "record_kind": "CurrencyWarsTalents",
       "phase": "P1-B8",
-      "manifest_category_inputs": [],
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
       "ordering_keys": [
         "id"
       ],
       "required_domain_fields": [
-        "persona_style_ids",
-        "entry_rules",
-        "state_lifecycle"
+        "cost",
+        "prerequisite_ids",
+        "successor_ids",
+        "effect_ids",
+        "config_path"
       ]
     },
     {
-      "file": "investment-strategies.json",
-      "record_kind": "CurrencyWarsInvestmentStrategies",
+      "file": "talent-maze-buffs.json",
+      "record_kind": "CurrencyWarsTalentMazeBuffs",
       "phase": "P1-B8",
-      "manifest_category_inputs": [],
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
       "ordering_keys": [
         "id"
       ],
       "required_domain_fields": [
-        "environment_id",
-        "gift_ids",
-        "offer_rules",
-        "activation"
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
       ]
     },
     {

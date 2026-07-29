@@ -1,0 +1,143 @@
+[
+  {
+    "id": "currency-wars.talent-maze-buff.35602011.lv.1.0",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalentMazeBuff",
+    "name_en": "talent-maze-buff 35602011",
+    "name_zh_cn": "talent-maze-buff 35602011",
+    "summary_en": "talent-maze-buff 35602011 binds ADV_StageAbility_35602011 through StageAbilityBeforeCharacterBorn at level 1/1.",
+    "summary_zh_cn": "talent-maze-buff 35602011 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35602011，等级为 1/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalentmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalentMazebuff.json",
+        "locator": "0",
+        "sha256": "e8a7a19d1ab4e5b6646c9dcfef33d2838af080c44acb44c4c118bdf1f7cb3b8e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "maze-buff",
+      "talent-maze-buff"
+    ],
+    "source_id": "35602011",
+    "buff_series": "1",
+    "level": {
+      "current": "1",
+      "maximum": "1"
+    },
+    "binding": {
+      "type": "StageAbilityBeforeCharacterBorn",
+      "key": "StageAbility_GridFight_Season_35602011",
+      "maze_buff_type": "Level"
+    },
+    "parameters": [
+      "1"
+    ],
+    "modifier": "ADV_StageAbility_35602011"
+  },
+  {
+    "id": "currency-wars.talent-maze-buff.35602061.lv.1.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalentMazeBuff",
+    "name_en": "talent-maze-buff 35602061",
+    "name_zh_cn": "talent-maze-buff 35602061",
+    "summary_en": "talent-maze-buff 35602061 binds ADV_StageAbility_35602061 through StageAbilityBeforeCharacterBorn at level 1/1.",
+    "summary_zh_cn": "talent-maze-buff 35602061 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35602061，等级为 1/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalentmazebuff-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalentMazebuff.json",
+        "locator": "1",
+        "sha256": "edb2b82c7a21573bd89b3f6516f0e3618b168da1338d5e0cdfd44ef3937808dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "maze-buff",
+      "talent-maze-buff"
+    ],
+    "source_id": "35602061",
+    "buff_series": "1",
+    "level": {
+      "current": "1",
+      "maximum": "1"
+    },
+    "binding": {
+      "type": "StageAbilityBeforeCharacterBorn",
+      "key": "StageAbility_GridFight_Season_35602061",
+      "maze_buff_type": "Level"
+    },
+    "parameters": [
+      "0.99"
+    ],
+    "modifier": "ADV_StageAbility_35602061"
+  },
+  {
+    "id": "currency-wars.talent-maze-buff.35604031.lv.1.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalentMazeBuff",
+    "name_en": "talent-maze-buff 35604031",
+    "name_zh_cn": "talent-maze-buff 35604031",
+    "summary_en": "talent-maze-buff 35604031 binds ADV_StageAbility_35604031 through StageAbilityBeforeCharacterBorn at level 1/1.",
+    "summary_zh_cn": "talent-maze-buff 35604031 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35604031，等级为 1/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalentmazebuff-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalentMazebuff.json",
+        "locator": "2",
+        "sha256": "e898eb32feaae4dcc40b1f10173a9feacc0eb65da735157cf15d4d76c6823f5f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "maze-buff",
+      "talent-maze-buff"
+    ],
+    "source_id": "35604031",
+    "buff_series": "1",
+    "level": {
+      "current": "1",
+      "maximum": "1"
+    },
+    "binding": {
+      "type": "StageAbilityBeforeCharacterBorn",
+      "key": "StageAbility_GridFight_Season_35604031",
+      "maze_buff_type": "Level"
+    },
+    "parameters": [
+      "10"
+    ],
+    "modifier": "ADV_StageAbility_35604031"
+  }
+]

@@ -303,8 +303,8 @@ must account for these families:
 - owned/trial build mapping, equipment slot/item and off-field
   Eidolon/Light-Cone conversion;
 - Gold Coin, team Experience, Store refresh and service operation;
-- Investment Environment/Strategy, Persona style/gift/talent and room
-  attribute/composition;
+- Investment Environment/Strategy and direct GridFight
+  Augment/Portal/Orb/Projection/Talent/enhancement families;
 - Blessing/level/formula, Curio/Miracle/Hex state, occurrence/choice and
   service;
 - encounter pool, group, StageConfig wave, enemy slot and boss;
@@ -366,7 +366,7 @@ belong to a later goal after the relevant reference packs are frozen.
 | `G12-P1-B5` | Import every Bond, member set, activation threshold, level, recomputation boundary and run/battle contribution. |
 | `G12-P1-B6` | Import one-/two-/three-star states, three-copy combination, stat/effect scaling, overflow, roster replacement and teardown. |
 | `G12-P1-B7` | Import owned/trial build mapping, level/Trace/Light Cone/relic substitution, off-field Eidolon/signature conversion and three-slot equipment lifecycle. |
-| `G12-P1-B8` | Import Investment Environments/Strategies and reachable Persona styles, gifts, talents, room attributes/compositions, offers and effects. |
+| `G12-P1-B8` | Import Investment Environments/Strategies and the complete direct GridFight Augment, Portal, Orb, Projection, Talent, enhancement, offer and effect closure. |
 | `G12-P1-B9` | Import Standard/Overclock rank boundaries, enemy affixes and only the permanent progression that changes legal entry, starting state, offered content or battle contributions. |
 
 ### Phase 2 — Content pools, services, events and enemies
@@ -385,7 +385,7 @@ belong to a later goal after the relevant reference packs are frozen.
 | Batch | Deliverable |
 |---|---|
 | `G12-P3-B1` | Add isolated profile/Gambit/stage/difficulty/Squad-HP/action-value/economy Sora tables and typed references. |
-| `G12-P3-B2` | Add roster/position/star/Bond/Empowerment/build/equipment/Persona tables and lifecycle references. |
+| `G12-P3-B2` | Add roster/position/star/Bond/Empowerment/build/equipment and GridFight investment-system tables and lifecycle references. |
 | `G12-P3-B3` | Add Blessing/Curio/event/service/encounter and mechanic-rule binding tables without duplicating generic semantics. |
 | `G12-P3-B4` | Add provenance, coverage, approximation, reconciliation, review-fixture and pack-index tables; generate isolated schema locks/templates/readers. |
 | `G12-P3-B5` | Add deterministic no-overwrite `openpyxl` authoring for all three complete isolated workbooks with validation, filters, panes and semantic QA. |
@@ -396,7 +396,7 @@ belong to a later goal after the relevant reference packs are frozen.
 | Batch | Deliverable |
 |---|---|
 | `G12-P4-B1` | Audit every manifest row, reference, enabled-selector/ownership classification, bilingual field, provenance and quality label; reject cross-mode and excluded-module leaks. |
-| `G12-P4-B2` | Execute semantic fixtures for every distinct flow, Squad-HP/action-value, roster/shop/star, position/Empowerment, Bond, mapping/equipment, Persona, content, service and pool policy; verify every approximation replacement condition. |
+| `G12-P4-B2` | Execute semantic fixtures for every distinct flow, Squad-HP/action-value, roster/shop/star, position/Empowerment, Bond, mapping/equipment, investment-system, content, service and pool policy; verify every approximation replacement condition. |
 | `G12-P4-B3` | Reconcile overlapping source rows with committed Goal 08/09/10/11 facts, then run source-cache, pack/workbook, Sora drift, isolated-reader, dependency and clean-checkout acceptance. |
 | `G12-P4-B4` | Freeze documentation, counters, coverage and release evidence; mark the reference goal complete while keeping the runtime profile unreleased. |
 
@@ -442,7 +442,7 @@ belong to a later goal after the relevant reference packs are frozen.
 - every shared source row agrees with committed Goal 08/09/10/11 ownership
   facts or has a recorded reconciliation decision;
 - flow, Squad HP/action value, economy, roster/shop/star, positioning,
-  Character Empowerment, Bonds, mapping/equipment, Persona and content-pool
+  Character Empowerment, Bonds, mapping/equipment, investment systems and content-pool
   families have semantic fixtures;
 - all encounters resolve concrete released enemy identities and waves, or
   carry an explicit nonblocking reference boundary;

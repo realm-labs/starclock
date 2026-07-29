@@ -1,0 +1,622 @@
+[
+  {
+    "id": "currency-wars.augment-remark.200801",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 200801 remark",
+    "name_zh_cn": "增幅 200801 备注",
+    "summary_en": "Augment 200801 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 200801 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "0",
+        "sha256": "a52c32817068ae083a7041257b8af724fb0fdb4b4f10e4c5630f2af2a9d16258",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.619877460824267569",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "619877460824267569",
+        "sha256": "f0c2744e3997b461bf6b782f1bce397239c31e2247ca7fad2f160a88ab8a23c4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.619877460824267569",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "619877460824267569",
+        "sha256": "51fe168a0a768f20fb485dc426545a777a12baff1d552f65242c580539f4df32",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "200801",
+    "augment_id": "200801",
+    "remark": {
+      "en": "{SPACE}Current Probability:",
+      "zh_cn": "当前概率："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.201201",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 201201 remark",
+    "name_zh_cn": "增幅 201201 备注",
+    "summary_en": "Augment 201201 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 201201 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "4",
+        "sha256": "af422349fdb272c9f961f772f7f0b18c0b384f8e3706db9a1f64c876f6c1cd25",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16382958060723453807",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16382958060723453807",
+        "sha256": "bf328c637f4cae0b1229a753db47cd9367c290a12d30ca2a2d8c7d33e8412b88",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16382958060723453807",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16382958060723453807",
+        "sha256": "bd0fe1b8e94ed47b1df5c32ee701ba66665e25706bdad9e2e323b152cd26b752",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "201201",
+    "augment_id": "201201",
+    "remark": {
+      "en": "Current Refresh Count:",
+      "zh_cn": "当前刷新次数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.204101",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 204101 remark",
+    "name_zh_cn": "增幅 204101 备注",
+    "summary_en": "Augment 204101 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 204101 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "7",
+        "sha256": "ac33808c5c13a089a82c96ae7cca2bcfc9449d926bcf289839b1ce8a4e593140",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8844698277513500019",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8844698277513500019",
+        "sha256": "b069ca375a29644b8613da984a9cb4d9a07105856a56460dd8796c9b11073f76",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8844698277513500019",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8844698277513500019",
+        "sha256": "01c782625ec71748502e8c21c65b223dc987f43bdfbe36ea6fab46baa9fbbbcc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "204101",
+    "augment_id": "204101",
+    "remark": {
+      "en": "Current Boost Count:",
+      "zh_cn": "当前提高次数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.250301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 250301 remark",
+    "name_zh_cn": "增幅 250301 备注",
+    "summary_en": "Augment 250301 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 250301 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "1",
+        "sha256": "5081885190a36d1e8169e12ddc799e635d5e17c5bd22c0cb9fa8f35f39666be0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4441166840135867499",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4441166840135867499",
+        "sha256": "dc9d023a84dff694c2e14732f73b7adf5897a2f08590193aadbcd9eb82c6cc23",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4441166840135867499",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4441166840135867499",
+        "sha256": "83da5dac84bffad9c84bb9518bfdfc6fc16cb4485ec0e87ed459190e0f76f579",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "250301",
+    "augment_id": "250301",
+    "remark": {
+      "en": "Total Gold Coins from Selling Pieces:",
+      "zh_cn": "出售棋子总金币数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.252601",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 252601 remark",
+    "name_zh_cn": "增幅 252601 备注",
+    "summary_en": "Augment 252601 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 252601 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "2",
+        "sha256": "2032847d11c77eb3d6e0447b559229558a3eb89f7ec2e93d917f6c2e729613b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12511540756808230424",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12511540756808230424",
+        "sha256": "180ec4ac2df87df1db8bb8447ca1bff414c63f02d089e4245afb4e8bb74339f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12511540756808230424",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12511540756808230424",
+        "sha256": "054447124b2e1182893df10142b5a3c90686513a3b8006392a53fcd11a152fcb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "252601",
+    "augment_id": "252601",
+    "remark": {
+      "en": "Current Level:",
+      "zh_cn": "当前层数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.303101",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 303101 remark",
+    "name_zh_cn": "增幅 303101 备注",
+    "summary_en": "Augment 303101 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 303101 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "5",
+        "sha256": "97ff89616a6e382862f977c2eb5e96ec6e1329b420aa48813f863ac44f0233bb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12394044984875900069",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12394044984875900069",
+        "sha256": "2fa32823e0fadf8a64e833012003ec2e262a1e920172cc5ae00a675a655f1368",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12394044984875900069",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12394044984875900069",
+        "sha256": "205583da6497e3952158627bf75de3b1fd77b2b16777436c7328536f5449ded4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "303101",
+    "augment_id": "303101",
+    "remark": {
+      "en": "Current Refresh Count:",
+      "zh_cn": "当前刷新次数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.351301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 351301 remark",
+    "name_zh_cn": "增幅 351301 备注",
+    "summary_en": "Augment 351301 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 351301 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "3",
+        "sha256": "f336cb85c54422ac97cef11d0aaefe9e58d3af744dc6ee29164518e8d52cd053",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3577799170194974101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3577799170194974101",
+        "sha256": "f59aed60cdfc30643bc8704bb057363ef843104eb55c4b2d3b3d1915a2459777",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3577799170194974101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3577799170194974101",
+        "sha256": "a4a999aea35391bfdcad4202a1c027c19f2d268588cfb645c6018f0292a650eb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "351301",
+    "augment_id": "351301",
+    "remark": {
+      "en": "Current Number of Nodes Entered:",
+      "zh_cn": "当前进入节点数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.352702",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 352702 remark",
+    "name_zh_cn": "增幅 352702 备注",
+    "summary_en": "Augment 352702 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 352702 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "6",
+        "sha256": "4ee5cf0c15e40f42e7ea8512a56cccec7dae78af275fc6a9d8080a7e8584842e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9852270437122523611",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9852270437122523611",
+        "sha256": "f4bf1bf7a0b260ca71867937fa2c11012c017776f8af9d03a86c4f72d0065663",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9852270437122523611",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9852270437122523611",
+        "sha256": "b8617988aa2c48e22d7c035ad3d3cf7b3290c21c4fc8fd0de82bbc0616d5897a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "352702",
+    "augment_id": "352702",
+    "remark": {
+      "en": "Current Boost Count:",
+      "zh_cn": "当前提高次数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.352801",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 352801 remark",
+    "name_zh_cn": "增幅 352801 备注",
+    "summary_en": "Augment 352801 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 352801 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "8",
+        "sha256": "f8571f98091275a12e4fd1adf26b351d9611a5682e59a3b8e51479b1a15c73cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.14148602493982625359",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "14148602493982625359",
+        "sha256": "1996d511d900e5e2a5175d6521e850da641a541a06da1d924eda147f72517bb3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.14148602493982625359",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "14148602493982625359",
+        "sha256": "f2cb4165d3d92789bf6427f3b214b0145553a79996a0364fe4756e192fd7b9f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "352801",
+    "augment_id": "352801",
+    "remark": {
+      "en": "Current Effective Count:",
+      "zh_cn": "当前生效次数："
+    }
+  },
+  {
+    "id": "currency-wars.augment-remark.360601",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentRemark",
+    "name_en": "Augment 360601 remark",
+    "name_zh_cn": "增幅 360601 备注",
+    "summary_en": "Augment 360601 has one released mechanical remark.",
+    "summary_zh_cn": "增幅 360601 具有一条已发布的机制备注。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentremark-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentRemark.json",
+        "locator": "9",
+        "sha256": "d705678e10af412c8d8c788a0f22ac24ddba8f21027f67f7c9596e9cba4a413b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16721789733283071356",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16721789733283071356",
+        "sha256": "43289485314c66d8667d5934a05a48c967e2cb34b908dab5871648fc8c8f11c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16721789733283071356",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16721789733283071356",
+        "sha256": "3df498f8dbec6e97bd784f051607485f5458cd1835d28a87ff171eb48fd07100",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "augment",
+      "gridfight",
+      "investment-system",
+      "remark"
+    ],
+    "source_id": "360601",
+    "augment_id": "360601",
+    "remark": {
+      "en": "Remaining Effective Count: Obtained Equipment Count:",
+      "zh_cn": "剩余生效次数： 获得装备数："
+    }
+  }
+]

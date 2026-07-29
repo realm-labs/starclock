@@ -1,0 +1,1204 @@
+[
+  {
+    "id": "currency-wars.augment-monster.0",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 0",
+    "name_zh_cn": "增幅敌人规则 0",
+    "summary_en": "Augment monster rule 0 applies Silver quality at division level default.",
+    "summary_zh_cn": "增幅敌人规则 0 在职级 默认 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "0",
+        "sha256": "7018dfd6da7f9b6efe19a68e362ea65afcc1752b8ea889dbb2cc021ed29c2abc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "0",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 1",
+    "name_zh_cn": "增幅敌人规则 1",
+    "summary_en": "Augment monster rule 1 applies Silver quality at division level 1.",
+    "summary_zh_cn": "增幅敌人规则 1 在职级 1 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "1",
+        "sha256": "44866a73facbcf933b1dbefd1282680c45b746d29ce3d58aa7c567af6c1719ee",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "1",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "1",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.10",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 10",
+    "name_zh_cn": "增幅敌人规则 10",
+    "summary_en": "Augment monster rule 10 applies Gold quality at division level default.",
+    "summary_zh_cn": "增幅敌人规则 10 在职级 默认 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "10",
+        "sha256": "137ef6e4274a5a144685ecbe465640ca5e83e77a4c2a299768e74c7757bbf20e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "10",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.11",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 11",
+    "name_zh_cn": "增幅敌人规则 11",
+    "summary_en": "Augment monster rule 11 applies Gold quality at division level 1.",
+    "summary_zh_cn": "增幅敌人规则 11 在职级 1 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "11",
+        "sha256": "2c20fbc559bb72a1b9aee803644eda7c62dac4dd39638e91b0d0de66aa3dff26",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "11",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "1",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.12",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 12",
+    "name_zh_cn": "增幅敌人规则 12",
+    "summary_en": "Augment monster rule 12 applies Gold quality at division level 2.",
+    "summary_zh_cn": "增幅敌人规则 12 在职级 2 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "12",
+        "sha256": "a971a5fb2602d8ae962e0c15d74ef5fd42d67a3077da3ec7b726b8adb0f333e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "12",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "2",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.13",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 13",
+    "name_zh_cn": "增幅敌人规则 13",
+    "summary_en": "Augment monster rule 13 applies Gold quality at division level 3.",
+    "summary_zh_cn": "增幅敌人规则 13 在职级 3 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "13",
+        "sha256": "4e3a7ae43b49b9bfeefb109ff22437f5437f050105c6f5ebc8d94a33d4966a57",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "13",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "3",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.14",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 14",
+    "name_zh_cn": "增幅敌人规则 14",
+    "summary_en": "Augment monster rule 14 applies Gold quality at division level 4.",
+    "summary_zh_cn": "增幅敌人规则 14 在职级 4 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "14",
+        "sha256": "5bfab1613c6c319fb96a3ffda9528c3ff3a955eb7ba66247c3c42a5d6ec0989b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "14",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "4",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.15",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 15",
+    "name_zh_cn": "增幅敌人规则 15",
+    "summary_en": "Augment monster rule 15 applies Gold quality at division level 5.",
+    "summary_zh_cn": "增幅敌人规则 15 在职级 5 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "15",
+        "sha256": "c6693c506673fe0eed572e000e6d7317cd2f8c10e0db3fb3ea38cd7a54b44b09",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "15",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "5",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.16",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 16",
+    "name_zh_cn": "增幅敌人规则 16",
+    "summary_en": "Augment monster rule 16 applies Gold quality at division level 6.",
+    "summary_zh_cn": "增幅敌人规则 16 在职级 6 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "16",
+        "sha256": "c4ffb52f30b4571b1daf7ee61c97b0e951d5ec9d1191dbc313a12b6e375e0ab1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "16",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "6",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.17",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 17",
+    "name_zh_cn": "增幅敌人规则 17",
+    "summary_en": "Augment monster rule 17 applies Gold quality at division level 7.",
+    "summary_zh_cn": "增幅敌人规则 17 在职级 7 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "17",
+        "sha256": "c582d7ef9942338ec8737462b3b0d940d3fd9c1be3da661af54ac32350ded5bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "17",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "7",
+      "enemy_difficulty_level_add": "1"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:1"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.18",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 18",
+    "name_zh_cn": "增幅敌人规则 18",
+    "summary_en": "Augment monster rule 18 applies Gold quality at division level 8.",
+    "summary_zh_cn": "增幅敌人规则 18 在职级 8 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "18",
+        "sha256": "c292501366f2413468cbb12bd6b34377a73418a49dce9bcd3597f964604fc55a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "18",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "8",
+      "enemy_difficulty_level_add": "3"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:3"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.19",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 19",
+    "name_zh_cn": "增幅敌人规则 19",
+    "summary_en": "Augment monster rule 19 applies Gold quality at division level 9.",
+    "summary_zh_cn": "增幅敌人规则 19 在职级 9 应用品质 Gold。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "19",
+        "sha256": "8d9bb3d51caa97b3f7f5df89e984b9db2c08616cf6487701a3ec6a243c751711",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "19",
+    "quality": "Gold",
+    "parameters": {
+      "division_level": "9",
+      "enemy_difficulty_level_add": "3"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:3"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 2",
+    "name_zh_cn": "增幅敌人规则 2",
+    "summary_en": "Augment monster rule 2 applies Silver quality at division level 2.",
+    "summary_zh_cn": "增幅敌人规则 2 在职级 2 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "2",
+        "sha256": "d8efabf3b3d5328530e29acfdb465d7eb1e0fdc52a4ddd6d1420241a4bdfd1ce",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "2",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "2",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.20",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 20",
+    "name_zh_cn": "增幅敌人规则 20",
+    "summary_en": "Augment monster rule 20 applies Prismatic quality at division level default.",
+    "summary_zh_cn": "增幅敌人规则 20 在职级 默认 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "20",
+        "sha256": "b36b230fbdeb9d9db3ad4c764349ec287b5b3ca4dc8337b98c21aff9d457ef75",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "20",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.21",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 21",
+    "name_zh_cn": "增幅敌人规则 21",
+    "summary_en": "Augment monster rule 21 applies Prismatic quality at division level 1.",
+    "summary_zh_cn": "增幅敌人规则 21 在职级 1 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "21",
+        "sha256": "6427874aa392ff4aa5490514f0c2fe254021c2f370973f7d0e5f80c5da1da4d0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "21",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "1",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.22",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 22",
+    "name_zh_cn": "增幅敌人规则 22",
+    "summary_en": "Augment monster rule 22 applies Prismatic quality at division level 2.",
+    "summary_zh_cn": "增幅敌人规则 22 在职级 2 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "22",
+        "sha256": "05bdb00c3c2f49299080c39c0c051e008a76e552fd30b04d7a938f2a58a289f7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "22",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "2",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.23",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 23",
+    "name_zh_cn": "增幅敌人规则 23",
+    "summary_en": "Augment monster rule 23 applies Prismatic quality at division level 3.",
+    "summary_zh_cn": "增幅敌人规则 23 在职级 3 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "23",
+        "sha256": "030291d6d7401430f572ef228a2a03977d9b9775f4a3fa2447f0eb49333facb5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "23",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "3",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.24",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 24",
+    "name_zh_cn": "增幅敌人规则 24",
+    "summary_en": "Augment monster rule 24 applies Prismatic quality at division level 4.",
+    "summary_zh_cn": "增幅敌人规则 24 在职级 4 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "24",
+        "sha256": "d0103203025d048785a3d4967d6aa9f8515ea59b4362ace18f197a14ce30399c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "24",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "4",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.25",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 25",
+    "name_zh_cn": "增幅敌人规则 25",
+    "summary_en": "Augment monster rule 25 applies Prismatic quality at division level 5.",
+    "summary_zh_cn": "增幅敌人规则 25 在职级 5 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "25",
+        "sha256": "0f7010a9aee998fc403a01c7ea541cab1238a3a5a46f7350cc8df8fe409a2a37",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "25",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "5",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.26",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 26",
+    "name_zh_cn": "增幅敌人规则 26",
+    "summary_en": "Augment monster rule 26 applies Prismatic quality at division level 6.",
+    "summary_zh_cn": "增幅敌人规则 26 在职级 6 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "26",
+        "sha256": "ff07763aea33278d1d2e2211933c0b8c09791a305a7a37e604fdace551303ae1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "26",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "6",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.27",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 27",
+    "name_zh_cn": "增幅敌人规则 27",
+    "summary_en": "Augment monster rule 27 applies Prismatic quality at division level 7.",
+    "summary_zh_cn": "增幅敌人规则 27 在职级 7 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "27",
+        "sha256": "e27c88056a23a969a865def0653daef2ebe15aa5984b86cc14e3e767e7bc830c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "27",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "7",
+      "enemy_difficulty_level_add": "4"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:4"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.28",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 28",
+    "name_zh_cn": "增幅敌人规则 28",
+    "summary_en": "Augment monster rule 28 applies Prismatic quality at division level 8.",
+    "summary_zh_cn": "增幅敌人规则 28 在职级 8 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "28",
+        "sha256": "fd347b84e9222bfb3436b8d63e52c08c3ca02e097844cc279314281fd4d99d75",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "28",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "8",
+      "enemy_difficulty_level_add": "6"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:6"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.29",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 29",
+    "name_zh_cn": "增幅敌人规则 29",
+    "summary_en": "Augment monster rule 29 applies Prismatic quality at division level 9.",
+    "summary_zh_cn": "增幅敌人规则 29 在职级 9 应用品质 Prismatic。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "29",
+        "sha256": "fecdde6645208b995b1073982f149baf861a57c3ac1781817ecb514c76a5ae0b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "29",
+    "quality": "Prismatic",
+    "parameters": {
+      "division_level": "9",
+      "enemy_difficulty_level_add": "6"
+    },
+    "effect_ids": [
+      "enemy-difficulty-add:6"
+    ]
+  },
+  {
+    "id": "currency-wars.augment-monster.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 3",
+    "name_zh_cn": "增幅敌人规则 3",
+    "summary_en": "Augment monster rule 3 applies Silver quality at division level 3.",
+    "summary_zh_cn": "增幅敌人规则 3 在职级 3 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "3",
+        "sha256": "bf5a42a0e9f46f2b61127674c74ecff405db77cf15e90810f7a7b8378c033256",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "3",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "3",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 4",
+    "name_zh_cn": "增幅敌人规则 4",
+    "summary_en": "Augment monster rule 4 applies Silver quality at division level 4.",
+    "summary_zh_cn": "增幅敌人规则 4 在职级 4 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "4",
+        "sha256": "156915575f1cb204a4696a212dcd98f7c217044fc175c3e21e3411b45470a42d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "4",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "4",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 5",
+    "name_zh_cn": "增幅敌人规则 5",
+    "summary_en": "Augment monster rule 5 applies Silver quality at division level 5.",
+    "summary_zh_cn": "增幅敌人规则 5 在职级 5 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "5",
+        "sha256": "5995e20aa35f461ea67c7b2f94e0adc18cd8d1f925eb4329572080a2f9e90c2d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "5",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "5",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 6",
+    "name_zh_cn": "增幅敌人规则 6",
+    "summary_en": "Augment monster rule 6 applies Silver quality at division level 6.",
+    "summary_zh_cn": "增幅敌人规则 6 在职级 6 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "6",
+        "sha256": "d32d4956a501f61d8db8db815ad38bfd9398bc9ab951113715d9a749cdf07c7b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "6",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "6",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 7",
+    "name_zh_cn": "增幅敌人规则 7",
+    "summary_en": "Augment monster rule 7 applies Silver quality at division level 7.",
+    "summary_zh_cn": "增幅敌人规则 7 在职级 7 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "7",
+        "sha256": "91bfd904398ab713624037f61a04adfd33fb0c36389d22e6376bd9d06a360ddd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "7",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "7",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.8",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 8",
+    "name_zh_cn": "增幅敌人规则 8",
+    "summary_en": "Augment monster rule 8 applies Silver quality at division level 8.",
+    "summary_zh_cn": "增幅敌人规则 8 在职级 8 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "8",
+        "sha256": "0dd3693cb1fabe16421e1f6aa4626b31d0bd16716a3c65d88b0d17463f93092b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "8",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "8",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  },
+  {
+    "id": "currency-wars.augment-monster.9",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAugmentMonsterRule",
+    "name_en": "Augment monster rule 9",
+    "name_zh_cn": "增幅敌人规则 9",
+    "summary_en": "Augment monster rule 9 applies Silver quality at division level 9.",
+    "summary_zh_cn": "增幅敌人规则 9 在职级 9 应用品质 Silver。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightaugmentmonster-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightAugmentMonster.json",
+        "locator": "9",
+        "sha256": "09a4c9f58d6ea9ebe35df163f0d49cdad1d943fa2d642fb9a3c93cddb729af5a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "augment",
+      "enemy-scaling",
+      "gridfight",
+      "investment-system"
+    ],
+    "source_id": "9",
+    "quality": "Silver",
+    "parameters": {
+      "division_level": "9",
+      "enemy_difficulty_level_add": ""
+    },
+    "effect_ids": []
+  }
+]
