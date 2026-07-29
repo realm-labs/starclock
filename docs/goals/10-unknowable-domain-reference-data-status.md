@@ -8,12 +8,13 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G10-P0-B3` |
+| Next unblocked batch | `G10-P0-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Planning cache audit | 2026-07-29: both caches clean at pinned commits; commit readability and connectivity checked; execution must reproduce in `G10-P0-B1` |
-| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes`; content denominator not yet frozen |
+| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes` |
+| Content manifest | 5,377 obligations in 43 categories; 5,243 Unknowable-owned and 134 shared |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -26,7 +27,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, Goal 08/09 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; row denominator and normalized authoring contracts remain. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, 5,377 exact row obligations, ownership/exclusions, Goal 08/09 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; normalized authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Alignments, Scepters, Components, Decision Components, synthesis/upgrades, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -38,7 +39,7 @@
 |---|---|---|---|
 | `G10-P0-B1` | `Complete` | This row's containing commit | Froze foundation `270d016b…9407`, Goal 03 commit/tree and bundle digests, the Version 4.4 revisions, 32 inherited `RogueMagic` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. The Goal 08 local-only checkpoint is `2f7b3ccf…fc5d` (7,913 obligations: 7,199 Gold-owned and 714 shared); the required remote-backed Goal 09 checkpoint is `1f9019a2…5ae2` (2,882 source records). `pwsh -File tools/content-reference/fetch-sources.ps1 -CacheRoot .cache/content-reference` could not run because `pwsh` is absent; the isolated POSIX fetcher reproduced clean detached caches repeatedly and the focused verifier, `git diff --check` and quick repository gate pass. `node tools/repository-check/run.mjs --full --with-source-cache` reaches the immutable Goal 06 contract before repeating its known `Cargo.lock baseline differs` failure. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B2 starts. |
 | `G10-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`20fad854…baa5`, 1,036,464 bytes): all 2,646 Goal 03 source files, plus 29 focused mode/StageConfig/TextMap entries and nine bilingual StarRailRes indexes. The 2,684-file closure contains 32 `RogueMagic` tables, 16 direct ability files, 14 Scepter battle events, three service graphs, six mechanical maze graphs and 57 Rogue260 NPC graphs; 141 named other-mode files remain fail-closed exclusion evidence. Raw Git blob hashing removes checkout-EOL variance; file families grant no content ownership. Foundation/inventory verifiers, `git diff --check` and the quick repository gate pass; the full source-cache gate repeats the immutable Goal 06 `Cargo.lock baseline differs` boundary. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B3 starts. |
-| `G10-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership, shared reachability and named-mode exclusions. |
+| `G10-P0-B3` | `Complete` | This row's containing commit | Generated and rechecked `content-manifest.json` (`7416da58…a758`, 1,975,471 bytes): 5,377 exact obligations in 43 categories, split into 5,243 `UnknowableDomain` and 134 `Shared` records. Only explicit `MagicRogue`, type-260 selectors, direct references or inherited stable-ID closure grant reachability; 141 named other-mode files and 27 presentation/account sources remain fail-closed evidence. Curios and Occurrences use explicit type 260. The released snapshot exposes no MagicRogue/type-260 Blessing selector or RogueMagic-to-Blessing reference, so the Blessing denominator freezes at zero rather than inheriting a generic pool. Ultra-category Components freeze the 25 Decision Component candidates; StageConfig waves/enemy slots remain P2-B5 child obligations under 1,524 room/boss parents. Manifest/foundation/inventory verifiers, `git diff --check` and the quick repository gate pass; the full source-cache gate repeats the immutable Goal 06 `Cargo.lock baseline differs` boundary. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B4 starts. |
 | `G10-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G10-P1-B1` | `Pending` | — | Import entry, areas, difficulties, layers, rooms, stage flow, finish and carry/reset rules. |
 | `G10-P1-B2` | `Pending` | — | Import four Extrapolation Alignments, selection, eligibility, pools and rule contributions. |
@@ -72,29 +73,29 @@ remains `InProgress`.
 
 ## Frozen counters
 
-Populate required counts only from the generated manifest in `G10-P0-B3`.
-Do not estimate denominators from Wiki totals, raw table sizes, prefixes or ID
-ranges.
+Required counts are generated from `content-manifest.json`. They are source
+obligations: later normalized child rows may expand a category but may not
+remove or silently merge an obligation.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/entries/finish conditions | TBD | 0 | 0 | Includes unlock, initial resources, terminal states and simulation-visible score/finish rules. |
-| Areas/difficulties/layers/rooms | TBD | 0 | 0 | Includes legal stage flow, transitions, carry/reset and concrete room membership. |
-| Extrapolation Alignments | TBD | 0 | 0 | Four is the released public boundary; exact source obligations remain manifest-derived. |
-| Scepters/levels/states | TBD | 0 | 0 | Includes functions/styles, power, activation, charge/speed, range and lifecycle. |
-| Components/levels/effects | TBD | 0 | 0 | Includes category/type, shape, slot/range compatibility and effect parameters. |
-| Decision Components/choices | TBD | 0 | 0 | Includes eligibility, ordering, scope, outcomes and fallback. |
-| Loadouts/slots/insertion/replacement | TBD | 0 | 0 | Complete legality and no-legal-option policies are required. |
-| Synthesis/upgrades/reforges | TBD | 0 | 0 | Includes costs, inputs, output pools, ordering, caps and failure/replacement behavior. |
-| Workbench/gamble/services | TBD | 0 | 0 | Includes currencies, prices, offered sets, eligibility and lifecycle. |
-| Talents/unlocks/layer/difficulty effects | TBD | 0 | 0 | Only simulation-visible progression and mechanics are enabled. |
-| Blessings/enhanced levels | TBD | 0 | 0 | Shared reachability and mode-specific copies require explicit proof. |
-| Curios/states | TBD | 0 | 0 | Includes mode copies and complete lifecycle behavior. |
-| Occurrences/variants/choices | TBD | 0 | 0 | Presentation prose is excluded; mechanical graphs and outcomes are included. |
-| Services/Adventure outcomes | TBD | 0 | 0 | Adventure input is an abstract offered result, not simulated action gameplay. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Must resolve exact released StageConfig rows, enemy identities and boss alternatives. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every distinct unique mechanic, lifecycle and selection policy. |
+| Profiles/entries/finish conditions | 138 | 0 | 0 | One profile, two explicit `MagicRogue` entry rows and all 135 finish conditions. |
+| Areas/difficulties/layers/rooms | 1,846 | 0 | 0 | Thirteen areas, six difficulty compositions, 91 drops, 32 layers, 176 layer positions, 1,518 rooms and ten room types. |
+| Extrapolation Alignments | 4 | 0 | 0 | Exact selectors: Break, DoT, Follow-up and Ultimate. |
+| Scepters/levels/states | 168 | 0 | 0 | Twenty-four definitions, 72 levels and 72 locked-Component bindings; activation/state expansion is a normalized child contract. |
+| Components/levels/effects | 668 | 0 | 0 | 109 definitions, 277 levels, two categories, three types and 277 referenced effect rows. |
+| Decision Components/choices | 25 | 0 | 0 | The exact Ultra-category definition boundary; choice programs expand in P1-B5. |
+| Loadouts/slots/insertion/replacement | 3 | 0 | 0 | Three distinct released Active/Attach/Passive slot-count layouts; transition policies expand as child rows. |
+| Synthesis/upgrades/reforges | 5 | 0 | 0 | Five workbench function definitions are the source parents for compose, upgrade, reforge and shop behavior. |
+| Workbench/gamble/services | 26 | 0 | 0 | Four workbenches, five functions, ten gamble groups and seven gamble units. |
+| Talents/unlocks/layer/difficulty effects | 590 | 0 | 0 | Twenty-five Talent rows, 30 unlocks, one layer effect, 387 maze buffs, 14 common constants and 133 score inputs. |
+| Blessings/enhanced levels | 0 | 0 | 0 | Fail-closed: no released MagicRogue/type-260 selector or RogueMagic-to-Blessing reference exists in the fixed snapshot. |
+| Curios/states | 188 | 0 | 0 | Sixty explicit type-260 shared identities, 81 mode copy/state rows and 47 weighted groups. |
+| Occurrences/variants/choices | 112 | 0 | 0 | Sixty-two explicit type-260 handbooks and 50 directly referenced RogueMagic NPC/progress variants. |
+| Services/Adventure outcomes | 40 | 0 | 0 | Workbench/gamble parents, nine abstract Adventure outcomes and five non-Occurrence mode service/entry NPC graphs. |
+| Encounter groups/waves/enemy slots | 1,524 | 0 | 0 | All 1,518 room and six displayed-boss parent obligations are frozen; P2-B5 attaches StageConfig waves and enemy slots. |
+| Mechanic rules | 41 | 0 | 0 | Exact mode-named ability, battle-event, Adventure, maze, progression and service source files; no runtime executability claim. |
+| Semantic fixtures | 24 | 0 | 0 | Non-shrinking minimum covering unique systems, lifecycle, ordering and no-legal-candidate fallback. |
 
 ## Decisions
 
@@ -114,13 +115,17 @@ ranges.
 | 2026-07-29 | Add an isolated POSIX source fetcher and keep repository-pinned Sora 0.3.0 authoritative. | This host lacks `pwsh`, and its global `sora` is 0.2.0; neither host limitation changes the frozen sources or Phase 3 tool contract. |
 | 2026-07-29 | Define the focused file closure as all Goal 03 source paths plus exact Unknowable configuration/Stage/TextMap additions and nine public bilingual indexes. | The inherited superset preserves every shared source and ability candidate while 29 explicit additions close mode-specific battle-event, service, maze, StageConfig and localization entry points without using prefixes as ownership proof. |
 | 2026-07-29 | Hash source inventory records from raw Git blobs, not checkout files. | This makes generation byte-stable across checkout EOL policies while retaining exact revision/path provenance. |
+| 2026-07-29 | Grant shared Curio/Occurrence reachability only through explicit type-260 membership and shared boss reachability only through direct area references. | These stable selectors/references prove mode reachability without relying on table prefixes, display names or numeric adjacency. |
+| 2026-07-29 | Freeze the reachable Blessing denominator at zero until stronger released evidence supplies a selector or reference. | The fixed snapshot contains no MagicRogue/type-260 Blessing selector or RogueMagic-to-Blessing edge; Components are a distinct mode-owned upgrade pool and cannot justify importing shared Blessings. |
+| 2026-07-29 | Treat the 25 Ultra-category Component definitions as Decision Component candidates. | `MagicUnitCategory=Ultra` is an explicit released discriminator; P1-B5 still owns choice eligibility, ordering, outcomes and fallback semantics. |
+| 2026-07-29 | Freeze rooms and displayed bosses as encounter parent obligations and defer StageConfig wave/enemy expansion to P2-B5. | The source denominator stays stable while later normalized child rows can close exact waves and slots without inventing them during ownership classification. |
 
 ## Research cases
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
 | `G10-R01` | `Resolved` | Which shared Rogue tables, configuration programs, TextMap rows, StageConfig rows, enemy/wave records and transitive ability files complete the `RogueMagic` seed inventory? | P0-B2 | `source-inventory.json` freezes all 2,646 inherited Goal 03 source files, 29 exact focused additions and nine public index files; raw-blob regeneration is byte-identical and the inventory verifier closes every documented family. |
-| `G10-R02` | `Open` | What exact selectors separate Unknowable-owned, shared, evidence-only and Standard/Gold/Swarm/Divergent rows? | P0-B3 | Replace with a frozen exact-once ownership manifest whose rows carry selector/reference evidence and fail-closed exclusions. |
+| `G10-R02` | `Resolved` | What exact selectors separate Unknowable-owned, shared, evidence-only and Standard/Gold/Swarm/Divergent rows? | P0-B3 | `content-manifest.json` freezes exact-once obligations with `MagicRogue`, type-260, direct-reference and stable-ID reachability; 141 named other-mode and 27 presentation/account source files fail closed as evidence only. |
 | `G10-R03` | `Open` | What is the exact area/layer/room ordering, carry/reset behavior and finish boundary for every released stage and difficulty? | P1-B1 | Replace with structured stage-flow facts plus fixtures for entry, transition, reset and terminal boundaries. |
 | `G10-R04` | `Open` | How do Alignment selection, eligibility and candidate pools constrain Scepters, Components and battle contributions? | P1-B2 | Replace with source-backed bindings and one semantic fixture per Alignment and selection boundary. |
 | `G10-R05` | `Open` | What are the exact Scepter activation, charge gain/spend, speed/action ordering, simultaneous-trigger and teardown semantics? | P1-B3 | Replace with released program/observation evidence, or a field-level policy carrying alternatives, affected fixtures and a stronger-evidence trigger. |

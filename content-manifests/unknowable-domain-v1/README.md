@@ -23,6 +23,22 @@ prefix, ID range, adjacent record or matching localized name never grants
 membership; shared records require an explicit selector, transitive reference
 or inherited stable-ID closure.
 
+`content-manifest.json` is generated and verified by:
+
+```text
+node tools/unknowable-domain-reference/manifest.mjs
+node tools/unknowable-domain-reference/manifest.mjs --check
+node tools/unknowable-domain-reference/verify-manifest.mjs
+```
+
+The manifest freezes 5,377 exact obligations in 43 categories. Ownership is
+split into 5,243 `UnknowableDomain` and 134 `Shared` records. Shared Curio and
+Occurrence membership requires the explicit type-260 selector; displayed
+bosses require a direct area reference. No released MagicRogue/type-260
+Blessing selector or RogueMagic-to-Blessing reference exists at this snapshot,
+so the reachable Blessing denominator is frozen fail-closed at zero instead of
+being inferred from shared names or generic availability.
+
 The ignored source cache is reproduced through
 `tools/unknowable-domain-reference/fetch-sources.sh`. Both repositories must be
 clean, detached and at the exact revisions frozen in `foundation.json`.
