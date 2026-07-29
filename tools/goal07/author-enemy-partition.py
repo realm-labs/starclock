@@ -201,6 +201,26 @@ PARTITION_CONFIG = {
         "source_record_id": 17,
         "evidence_record_id": 18,
     },
+    "G07-P5-M15-S16": {
+        "base": 1_130_000,
+        "variant": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+        "variants": [
+            "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+            "enemy.memory-zone-meme-something-in-the-mirror.minionlv2.variant.02",
+            "enemy.searing-prowler.elite.variant.01",
+            "enemy.senior-staff-team-leader-bug.elite.variant.01",
+            "enemy.senior-staff-team-leader.elite.variant.01",
+            "enemy.silvermane-cannoneer.minionlv2.variant.01",
+            "enemy.silvermane-gunner.minionlv2.variant.01",
+            "enemy.silvermane-lieutenant-bug.elite.variant.01",
+            "enemy.silvermane-soldier.minionlv2.variant.01",
+            "enemy.stormbringer-bug.elite.variant.01",
+            "enemy.stormbringer.elite.variant.01",
+            "enemy.the-ascended.elite.variant.01",
+        ],
+        "source_record_id": 18,
+        "evidence_record_id": 19,
+    },
 }
 PARTITION = "G07-P5-M15-S01"
 VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
@@ -15508,6 +15528,302 @@ def enemy_specs_s15() -> list[dict[str, Any]]:
     ]
 
 
+def enemy_specs_s16() -> list[dict[str, Any]]:
+    return [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.memory-zone-meme-shell-of-faded-rage.elite",
+            "name": 'Memory Zone Meme "Shell of Faded Rage"',
+            "zh": "忆域迷因「狂怒褪去之壳」",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Imaginary", "Lightning", "Quantum"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Physical", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("grudging-courtesy", "Grudging Courtesy", "怀恨礼", "301301001", "3", "Quantum", "primary", True, None),
+                ("roar-of-furious-thunder", "Roar of Furious Thunder", "怒叱如雷轰鸣", "301301002", None, None, "actor", True, "faded-rage"),
+                ("tide-of-enduring-grudges", "Tide of Enduring Grudges", "宿怨如浪翻涌", "301301003", "1.8", "Quantum", "all-opposing", True, None),
+                ("bonepiercing-odium", "Bonepiercing Odium", "痛恶如刺剔骨", "301301004", "2", "Quantum", "random", True, None),
+                ("disembodied-shell", "Disembodied Shell", "癔症身壳", "301301005", None, None, "actor", False, "disembodied-shell"),
+            ],
+            "cycle": [
+                "grudging-courtesy",
+                "roar-of-furious-thunder",
+                "tide-of-enduring-grudges",
+                "bonepiercing-odium",
+            ],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.memory-zone-meme-something-in-the-mirror.minionlv2",
+            "name": 'Memory Zone Meme "Something In The Mirror"',
+            "zh": "忆域迷因「何物藏于镜中」",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Imaginary", "Physical", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Lightning", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("mirror-cognition", "Mirror Cognition", "镜像认同", "301201001", None, None, "actor", True, "mirror-cognition"),
+                ("mirror-release", "Mirror Release", "镜像释放", "301201002", None, None, "actor", False, "mirror-cognition"),
+            ],
+            "cycle": ["mirror-cognition"],
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.searing-prowler.elite",
+            "name": "Searing Prowler",
+            "zh": "炽燃徘徊者",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Ice", "Imaginary", "Lightning"],
+            "resistances": [
+                ("Fire", "0.4"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "debuff_resistances": [("STAT_DOT_Burn", "1")],
+            "abilities": [
+                ("crimson-blade", "Crimson Blade", "赤红刀锋", "102301001", "3", "Fire", "primary", True, "burn"),
+                ("combustion-slash", "Combustion Slash", "燃焰斩击", "102301002", "4", "Fire", "blast", True, "burn"),
+                ("melt", "Melt", "熔解", "102301003", None, None, "actor", False, "melt"),
+                ("high-temperature-operation", "High-Temperature Operation", "高温运转", "102301004", None, None, "actor", True, "high-temperature"),
+                ("dancing-cinders", "Dancing Cinders", "飞舞烬火", "102301005", "3", "Fire", "all-opposing", True, "burn"),
+            ],
+            "cycle": [
+                "high-temperature-operation",
+                "combustion-slash",
+                "crimson-blade",
+                "dancing-cinders",
+            ],
+        },
+        {
+            "key": VARIANT_KEYS[3],
+            "template": "enemy.senior-staff-team-leader-bug.elite",
+            "name": "Senior Staff: Team Leader (Bug)",
+            "zh": "资深员工•组长（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("disciplined", "Disciplined", "处分", "803301101", "3.2", "Physical", "primary", True, None),
+                ("cost-reduction", "Cost Reduction", "降本增效", "803301102", "3.8", "Physical", "primary", True, None),
+                ("in-training", "In Training...", "培训中…", "803301103", None, None, "actor", False, "training"),
+                ("work-culture-shock", "Work Culture Shock", "企业文化冲击", "803301104", "4.2", "Physical", "all-opposing", True, None),
+                ("review", "720-Degree Review", "720度考核", "803301105", None, None, "all-allies", True, "performance-boost"),
+                ("worst-performer", "Worst Performer Is Fired", "末位淘汰", "803301106", None, None, "actor", True, "staff-summon"),
+                ("worst-performer-release", "Worst Performer Is Fired", "末位淘汰", "803301107", None, None, "actor", False, "training"),
+                ("performance-boost", "Performance Boost", "提升业绩", "803301108", None, None, "actor", False, "performance-boost"),
+            ],
+            "cycle": ["worst-performer", "disciplined", "review", "work-culture-shock"],
+        },
+        {
+            "key": VARIANT_KEYS[4],
+            "template": "enemy.senior-staff-team-leader.elite",
+            "name": "Senior Staff: Team Leader",
+            "zh": "资深员工•组长",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("disciplined", "Disciplined", "处分", "803301001", "3.2", "Physical", "primary", True, None),
+                ("cost-reduction", "Cost Reduction", "降本增效", "803301002", "3.8", "Physical", "primary", True, None),
+                ("in-training", "In Training...", "培训中…", "803301003", None, None, "actor", False, "training"),
+                ("work-culture-shock", "Work Culture Shock", "企业文化冲击", "803301004", "3.6", "Physical", "all-opposing", True, None),
+                ("review", "720-Degree Review", "720度考核", "803301005", None, None, "all-allies", True, "performance-boost"),
+                ("team-building", "Team Building", "团建", "803301006", None, None, "actor", True, "staff-summon"),
+                ("performance-boost", "Performance Boost", "提升业绩", "803301007", None, None, "actor", False, "performance-boost"),
+            ],
+            "cycle": ["team-building", "disciplined", "review", "work-culture-shock"],
+        },
+        {
+            "key": VARIANT_KEYS[5],
+            "template": "enemy.silvermane-cannoneer.minionlv2",
+            "name": "Silvermane Cannoneer",
+            "zh": "银鬃炮手",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Imaginary", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Lightning", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("barrage", "Barrage", "炮击", "100203001", "1.3", "Physical", "blast", True, None),
+                ("covering-support", "Covering Support", "掩护支援", "100203002", None, None, "all-allies", True, "covering-support"),
+                ("covering-support-follow-up", "Covering Support", "掩护支援", "100203003", "2.2", "Physical", "blast", False, "covering-support"),
+            ],
+            "cycle": ["covering-support", "barrage"],
+        },
+        {
+            "key": VARIANT_KEYS[6],
+            "template": "enemy.silvermane-gunner.minionlv2",
+            "name": "Silvermane Gunner",
+            "zh": "银鬃射手",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Ice", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("piercing-grenade", "Piercing Grenade", "破甲榴弹", "100205001", "3", "Physical", "primary", True, "bleed"),
+            ],
+            "cycle": ["piercing-grenade"],
+        },
+        {
+            "key": VARIANT_KEYS[7],
+            "template": "enemy.silvermane-lieutenant-bug.elite",
+            "name": "Silvermane Lieutenant (Bug)",
+            "zh": "银鬃尉官（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Ice", "Physical", "Quantum"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("assault", "Assault", "突击", "100301101", "3", "Physical", "primary", True, None),
+                ("pierce", "Pierce", "穿刺", "100301102", "6", "Physical", "primary", True, None),
+                ("shield-reflect", "Shield Reflect", "盾反", "100301103", None, None, "actor", True, "shield-reflect"),
+                ("reinforcement", "Reinforcement", "增援", "100301104", None, None, "actor", True, "guard-summon"),
+                ("rallying", "Rallying", "鼓劲", "100301105", None, None, "all-allies", True, "rallying"),
+            ],
+            "cycle": ["reinforcement", "shield-reflect", "assault", "pierce"],
+        },
+        {
+            "key": VARIANT_KEYS[8],
+            "template": "enemy.silvermane-soldier.minionlv2",
+            "name": "Silvermane Soldier",
+            "zh": "银鬃近卫",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Quantum", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+            ],
+            "abilities": [
+                ("tireless-charge", "Tireless Charge", "奔袭", "100204001", "3", "Physical", "primary", True, "bleed"),
+            ],
+            "cycle": ["tireless-charge"],
+        },
+        {
+            "key": VARIANT_KEYS[9],
+            "template": "enemy.stormbringer-bug.elite",
+            "name": "Stormbringer (Bug)",
+            "zh": "兴风者（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.4"),
+            ],
+            "abilities": [
+                ("watchful-meteor", "Watchful Meteor", "巡风光陨", "800305101", "3", "Wind", "primary", True, "wind-shear"),
+                ("wind-walker", "Wind Walker", "踏风而行", "800305102", "2.2", "Wind", "blast", True, "wind-shear"),
+                ("wind-twisting-crossbow", "Wind-Twisting Crossbow", "拈风张弩", "800305103", None, None, "all-opposing", True, "wind-crossbow"),
+                ("windfall-storm", "Windfall Storm", "风落暴矢", "800305104", "4.5", "Wind", "all-opposing", True, "wind-shear"),
+                ("storm-cyclone", "Storm Cyclone", "风浪急旋", "800305105", None, None, "actor", False, "storm-cyclone"),
+                ("windfall-release", "Windfall Storm", "风落暴矢", "800305106", None, None, "actor", False, "wind-crossbow"),
+                ("storm-order", "Storm Order", "风暴号令", "800305107", None, None, "all-opposing", False, "wind-crossbow"),
+                ("storm-strike", "Storm Strike", "风暴突击", "800305108", "3.5", "Wind", "primary", False, "wind-shear"),
+                ("willing-wind", "Willing Wind", "即来之风", "800305109", None, None, "actor", False, "storm-cyclone"),
+            ],
+            "cycle": ["wind-twisting-crossbow", "windfall-storm", "watchful-meteor", "wind-walker"],
+        },
+        {
+            "key": VARIANT_KEYS[10],
+            "template": "enemy.stormbringer.elite",
+            "name": "Stormbringer",
+            "zh": "兴风者",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.4"),
+            ],
+            "abilities": [
+                ("watchful-meteor", "Watchful Meteor", "巡风光陨", "800305001", "3", "Wind", "primary", True, "wind-shear"),
+                ("wind-walker", "Wind Walker", "踏风而行", "800305002", "2.2", "Wind", "blast", True, "wind-shear"),
+                ("wind-twisting-crossbow", "Wind-Twisting Crossbow", "拈风张弩", "800305003", None, None, "all-opposing", True, "wind-crossbow"),
+                ("windfall-storm", "Windfall Storm", "风落暴矢", "800305004", "4.5", "Wind", "all-opposing", True, "wind-shear"),
+                ("storm-cyclone", "Storm Cyclone", "风浪急旋", "800305005", None, None, "actor", False, "storm-cyclone"),
+                ("windfall-release", "Windfall Storm", "风落暴矢", "800305006", None, None, "actor", False, "wind-crossbow"),
+            ],
+            "cycle": ["wind-twisting-crossbow", "windfall-storm", "watchful-meteor", "wind-walker"],
+        },
+        {
+            "key": VARIANT_KEYS[11],
+            "template": "enemy.the-ascended.elite",
+            "name": "The Ascended",
+            "zh": "承露天人",
+            "rank": "Elite",
+            "toughness": "420",
+            "weaknesses": ["Ice", "Lightning", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.4"),
+            ],
+            "abilities": [
+                ("rite-of-great-arbor", "Rite of Great Arbor Metamorphosis", "若木化生仪祷", "202303001", "1", "Wind", "random", True, "wind-shear"),
+                ("guiding-vulturnus", "Guiding Vulturnus", "导引巽风", "202303002", "2", "Wind", "blast", True, "wind-shear"),
+                ("arboreal-thorns", "Arboreal Thorns", "若木棘", "202303003", "3", "Wind", "primary", True, "wind-shear"),
+                ("rite-of-subduing-prana", "Rite of Subduing Prana", "玄气咒厌法", "202303004", None, None, "actor", True, "subduing-prana"),
+                ("black-pranas-snare", "Black Prana's Snare", "玄气噬身", "202303005", "0.3", "Wind", "all-opposing", True, "prana-snare"),
+            ],
+            "cycle": [
+                "rite-of-subduing-prana",
+                "black-pranas-snare",
+                "guiding-vulturnus",
+                "arboreal-thorns",
+            ],
+        },
+    ]
+
+
 def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
@@ -15518,7 +15834,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         raise ValueError("S12 numeric anchor variants changed")
 
     enemy_specs = (
-        enemy_specs_s15()
+        enemy_specs_s16()
+        if PARTITION == "G07-P5-M15-S16"
+        else enemy_specs_s15()
         if PARTITION == "G07-P5-M15-S15"
         else enemy_specs_s14()
         if PARTITION == "G07-P5-M15-S14"
@@ -15866,6 +16184,27 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         selectors.pop("blast")
     effects = (
         {
+            "faded-rage": BASE + 5_001,
+            "disembodied-shell": BASE + 5_002,
+            "mirror-cognition": BASE + 5_003,
+            "burn": BASE + 5_004,
+            "melt": BASE + 5_005,
+            "high-temperature": BASE + 5_006,
+            "performance-boost": BASE + 5_007,
+            "training": BASE + 5_008,
+            "covering-support": BASE + 5_009,
+            "bleed": BASE + 5_010,
+            "shield-reflect": BASE + 5_011,
+            "rallying": BASE + 5_012,
+            "storm-cyclone": BASE + 5_013,
+            "wind-shear": BASE + 5_014,
+            "wind-crossbow": BASE + 5_015,
+            "subduing-prana": BASE + 5_016,
+            "prana-snare": BASE + 5_017,
+        }
+        if PARTITION == "G07-P5-M15-S16"
+        else
+        {
             "performance-boost": BASE + 5_001,
             "guardian-ban": BASE + 5_002,
             "imaginary-armor": BASE + 5_003,
@@ -16121,6 +16460,27 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
 
     effect_metadata = (
         {
+            "faded-rage": ("Faded Rage", "褪去之怒", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "disembodied-shell": ("Disembodied Shell", "癔症身壳", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "mirror-cognition": ("Mirror Cognition", "镜像认同", "NeutralState", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "burn": ("Prowler Burn", "徘徊者灼烧", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Fire"),
+            "melt": ("Melt", "熔解", "Buff", "NonDispellable", 3, None, "Permanent", "RefreshAndAddStacks", None, None),
+            "high-temperature": ("High-Temperature Operation", "高温运转", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "performance-boost": ("Performance Boost", "提升业绩", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "training": ("In Training", "培训中", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "covering-support": ("Covering Support", "掩护支援", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "bleed": ("Silvermane Bleed", "银鬃裂伤", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Physical"),
+            "shield-reflect": ("Shield Reflect", "盾反", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "rallying": ("Rallying", "鼓劲", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "storm-cyclone": ("Storm Cyclone", "风浪急旋", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "wind-shear": ("Storm Wind Shear", "风暴风化", "Dot", "DispellableDebuff", 5, integer_two, "TargetTurnStart", "RefreshAndAddStacks", damage_amounts["0.5"], "Wind"),
+            "wind-crossbow": ("Wind-Twisting Crossbow", "拈风张弩", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "subduing-prana": ("Rite of Subduing Prana", "玄气咒厌法", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "prana-snare": ("Black Prana's Snare", "玄气噬身", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+        }
+        if PARTITION == "G07-P5-M15-S16"
+        else
+        {
             "performance-boost": ("Performance Boost", "提升业绩", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
             "guardian-ban": ("Guardian Ban", "守护禁令", "Debuff", "DispellableDebuff", 3, integer_two, "TargetTurnEnd", "RefreshAndAddStacks", None, None),
             "imaginary-armor": ("Imaginary Armor", "虚数护甲", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
@@ -16220,6 +16580,27 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             },
         )
     effect_tags = (
+        {
+            "faded-rage": ["faded-rage", "enhanced-action"],
+            "disembodied-shell": ["disembodied-shell", "damage-reduction"],
+            "mirror-cognition": ["mirror-cognition", "transform"],
+            "burn": ["burn"],
+            "melt": ["melt", "damage-up"],
+            "high-temperature": ["high-temperature", "toughness-protected"],
+            "performance-boost": ["performance-boost"],
+            "training": ["in-training", "transform"],
+            "covering-support": ["covering-support", "follow-up"],
+            "bleed": ["bleed"],
+            "shield-reflect": ["shield-reflect", "counter"],
+            "rallying": ["rallying", "damage-up"],
+            "storm-cyclone": ["storm-cyclone", "life-steal"],
+            "wind-shear": ["wind-shear"],
+            "wind-crossbow": ["wind-twisting-crossbow", "prepare"],
+            "subduing-prana": ["subduing-prana", "prepare"],
+            "prana-snare": ["prana-snare", "maximum-hp-reduction"],
+        }
+        if PARTITION == "G07-P5-M15-S16"
+        else
         {
             "performance-boost": ["performance-boost"],
             "guardian-ban": ["guardian-ban", "ability-restriction"],
@@ -16329,8 +16710,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     is_s13 = PARTITION == "G07-P5-M15-S13"
     is_s14 = PARTITION == "G07-P5-M15-S14"
     is_s15 = PARTITION == "G07-P5-M15-S15"
+    is_s16 = PARTITION == "G07-P5-M15-S16"
     linked_slug = (
-        "juvenile-sting"
+        "silvermane-guard"
+        if is_s16
+        else "juvenile-sting"
         if is_s15
         else "everwinter-shadewalker"
         if is_s14
@@ -16339,7 +16723,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "illumination-dragonfish"
     )
     linked_name = (
-        "Juvenile Sting"
+        "Silvermane Guard"
+        if is_s16
+        else "Juvenile Sting"
         if is_s15
         else "Everwinter Shadewalker"
         if is_s14
@@ -16348,7 +16734,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "Illumination Dragonfish"
     )
     linked_name_zh = (
-        "幼蛰虫"
+        "银鬃近卫"
+        if is_s16
+        else "幼蛰虫"
         if is_s15
         else "永冬灾影"
         if is_s14
@@ -16357,7 +16745,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "入魔机巧·灯昼龙鱼"
     )
     linked_skill = (
-        "Wingflap"
+        "Tireless Charge"
+        if is_s16
+        else "Wingflap"
         if is_s15
         else "Frost Crush"
         if is_s14
@@ -16366,7 +16756,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "Candle Flame"
     )
     linked_skill_zh = (
-        "振翅"
+        "奔袭"
+        if is_s16
+        else "振翅"
         if is_s15
         else "霜冻重击"
         if is_s14
@@ -16375,7 +16767,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "烛焰"
     )
     linked_element = (
-        "Wind"
+        "Physical"
+        if is_s16
+        else "Wind"
         if is_s15
         else "Ice"
         if is_s14
@@ -16385,21 +16779,23 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     )
     linked_ability_key = (
         f"enemy.goal07.s12.{linked_slug}.ability.basic-attack"
-        if is_s13 or is_s14 or is_s15
+        if is_s13 or is_s14 or is_s15 or is_s16
         else "enemy.goal07.s12.illumination-dragonfish.ability.candle-flame"
     )
     linked_program_slug = (
         f"{linked_slug}-basic-attack"
-        if is_s13 or is_s14 or is_s15
+        if is_s13 or is_s14 or is_s15 or is_s16
         else "illumination-dragonfish-candle-flame"
     )
     linked_operation_slug = (
         f"{linked_slug}-basic-attack-damage"
-        if is_s13 or is_s14 or is_s15
+        if is_s13 or is_s14 or is_s15 or is_s16
         else "illumination-dragonfish-candle-flame-damage"
     )
     linked_summary = (
-        "Formation-linked Juvenile Sting created by Meiotic Division."
+        "Formation-linked Silvermane Guard summoned as reinforcement."
+        if is_s16
+        else "Formation-linked Juvenile Sting created by Meiotic Division."
         if is_s15
         else "Formation-linked Everwinter Shadewalker summoned by Frigid Prowler."
         if is_s14
@@ -16416,7 +16812,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             linked_skill_zh,
                 (
                     f"Executable linked-unit attack used by {linked_name}."
-                    if is_s13 or is_s14 or is_s15
+                    if is_s13 or is_s14 or is_s15 or is_s16
                 else "Executable linked-unit attack used by Aurumaton Gatekeeper."
             ),
         )
@@ -16466,7 +16862,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 unit_id,
                 (
                     f"unit.goal07.s12.{linked_slug}-{index}"
-                    if is_s13 or is_s14 or is_s15
+                    if is_s13 or is_s14 or is_s15 or is_s16
                     else (
                         "unit.goal07.s12.aurumaton-gatekeeper."
                         f"{linked_slug}-{index}"
@@ -16561,6 +16957,27 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                         )
                     )
             effect_key = (
+                {
+                    "faded-rage": "faded-rage",
+                    "disembodied-shell": "disembodied-shell",
+                    "mirror-cognition": "mirror-cognition",
+                    "burn": "burn",
+                    "melt": "melt",
+                    "high-temperature": "high-temperature",
+                    "performance-boost": "performance-boost",
+                    "training": "training",
+                    "covering-support": "covering-support",
+                    "bleed": "bleed",
+                    "shield-reflect": "shield-reflect",
+                    "rallying": "rallying",
+                    "storm-cyclone": "storm-cyclone",
+                    "wind-shear": "wind-shear",
+                    "wind-crossbow": "wind-crossbow",
+                    "subduing-prana": "subduing-prana",
+                    "prana-snare": "prana-snare",
+                }
+                if is_s16
+                else
                 {
                     "performance-boost": "performance-boost",
                     "guardian-ban": "guardian-ban",
@@ -16678,6 +17095,15 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                                     "rebirth",
                                     "maddened",
                                     "aegis",
+                                    "faded-rage",
+                                    "disembodied-shell",
+                                    "mirror-cognition",
+                                    "melt",
+                                    "high-temperature",
+                                    "training",
+                                    "shield-reflect",
+                                    "storm-cyclone",
+                                    "subduing-prana",
                                 }
                                 else target_selector
                             ),
@@ -16757,6 +17183,8 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "mara-summon",
                 "otherling",
                 "sting-summon",
+                "staff-summon",
+                "guard-summon",
             }:
                 for unit_id in linked_units:
                     steps.append(
@@ -16816,7 +17244,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             )
 
     defeat_effect = (
-        effects["rebirth"]
+        effects["shield-reflect"]
+        if is_s16
+        else effects["rebirth"]
         if is_s15
         else effects["candle-flame"]
         if is_s14
@@ -16825,7 +17255,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else effects["rebound"]
     )
     defeat_slug = (
-        "mara-struck-soldier-rebirth"
+        "silvermane-lieutenant-shield-reflect"
+        if is_s16
+        else "mara-struck-soldier-rebirth"
         if is_s15
         else "illumination-dragonfish-candle-flame"
         if is_s14
@@ -16834,7 +17266,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "golden-hound-rebound"
     )
     defeat_name = (
-        "Mara-Struck Soldier Rebirth Rule"
+        "Silvermane Lieutenant Shield Reflect Rule"
+        if is_s16
+        else "Mara-Struck Soldier Rebirth Rule"
         if is_s15
         else "Illumination Dragonfish Candle Flame Rule"
         if is_s14
@@ -16843,7 +17277,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "Golden Hound Rebound Rule"
     )
     defeat_name_zh = (
-        "魔阴身士卒复起规则"
+        "银鬃尉官盾反规则"
+        if is_s16
+        else "魔阴身士卒复起规则"
         if is_s15
         else "灯昼龙鱼烛花规则"
         if is_s14
@@ -16852,7 +17288,10 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "娄金嗥吠规则"
     )
     defeat_summary = (
-        "Returns the Mara-Struck Soldier to the battle with 50% maximum HP "
+        "Counters damage received while Shield Reflect is active with a "
+        "600% Physical attack."
+        if is_s16
+        else "Returns the Mara-Struck Soldier to the battle with 50% maximum HP "
         "once after it receives a killing blow."
         if is_s15
         else "Deals 40% of the Illumination Dragonfish's maximum HP as Fire "
@@ -16883,6 +17322,23 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         ],
     )
     defeat_steps = (
+        [
+            op_step(
+                new_operation(
+                    f"{defeat_slug}-counter",
+                    json_cell(
+                        "Damage",
+                        amount_expression_id=damage_amounts["6"],
+                        damage_class="Additional",
+                        element="Physical",
+                        can_crit=True,
+                    ),
+                    selectors["random"],
+                )
+            )
+        ]
+        if is_s16
+        else
         [
             op_step(
                 new_operation(
@@ -16968,7 +17424,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "id": rebound_filter,
             "stable_key": (
                 f"goal07.enemy.s12.filter.{defeat_slug}-defeated"
-                if is_s13 or is_s14 or is_s15
+                if is_s13 or is_s14 or is_s15 or is_s16
                 else "goal07.enemy.s12.filter.golden-hound-defeated"
             ),
             "target_selector_id": selectors["owner"],
@@ -16982,11 +17438,15 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "stable_key": f"goal07.enemy.s12.trigger.{defeat_slug}",
             "rule_id": rebound_rule,
             "sequence": 1,
-            "event": json_cell("Unit", point="Defeated"),
-            "phase": "AfterDefeatSettlement",
+            "event": (
+                json_cell("Damage", point="Applied")
+                if is_s16
+                else json_cell("Unit", point="Defeated")
+            ),
+            "phase": "AfterEvent" if is_s16 else "AfterDefeatSettlement",
             "filter_id": rebound_filter,
             "condition_id": condition_always,
-            "once_scope": "Battle",
+            "once_scope": "Event" if is_s16 else "Battle",
             "priority": 0,
             "program_id": rebound_program,
         },
@@ -17202,7 +17662,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                     if enemy_index
                     == (
                         7
-                        if is_s15
+                        if is_s15 or is_s16
                         else 6
                         if is_s14
                         else 0
@@ -17281,8 +17741,16 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "mechanism_quality": "ExactStructured",
             },
         )
-    if is_s13 or is_s14 or is_s15:
-        batch = "s15" if is_s15 else "s14" if is_s14 else "s13"
+    if is_s13 or is_s14 or is_s15 or is_s16:
+        batch = (
+            "s16"
+            if is_s16
+            else "s15"
+            if is_s15
+            else "s14"
+            if is_s14
+            else "s13"
+        )
         batch_upper = batch.upper()
         for table_rows in rows.values():
             for row in table_rows:
@@ -17457,6 +17925,7 @@ def main() -> None:
         "G07-P5-M15-S13": owned_rows_ordinary,
         "G07-P5-M15-S14": owned_rows_ordinary,
         "G07-P5-M15-S15": owned_rows_ordinary,
+        "G07-P5-M15-S16": owned_rows_ordinary,
     }[PARTITION]()
     golden_path = (
         ROOT

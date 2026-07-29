@@ -267,8 +267,8 @@ fn start_draws_one_topology_and_offers_nine_paths_without_leaking_private_state(
     assert_eq!(
         view.state_hash().bytes(),
         [
-            254, 182, 255, 104, 237, 23, 145, 11, 148, 14, 27, 141, 63, 182, 78, 204, 35, 254, 92,
-            114, 214, 49, 22, 227, 206, 58, 105, 217, 127, 128, 115, 209,
+            101, 140, 221, 180, 117, 242, 1, 164, 147, 78, 198, 133, 208, 194, 54, 82, 140, 243,
+            71, 71, 72, 110, 150, 204, 210, 204, 225, 22, 102, 48, 6, 70,
         ]
     );
     let decision = view.decision().expect("Path choice");

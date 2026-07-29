@@ -1558,6 +1558,50 @@
             "String": "goal07.enemy.s15.trigger.mara-struck-soldier-rebirth"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1134801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1135102
+          },
+          "id": {
+            "Integer": 1135103
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1131060
+          },
+          "rule_id": {
+            "Integer": 1135101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s16.trigger.silvermane-lieutenant-shield-reflect"
+          }
+        }
       }
     ]
   }

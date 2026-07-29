@@ -287,14 +287,14 @@ living character's current HP before granting two random one-star Blessings.
 All 31 records and the assigned restoration fixture have terminal
 dispositions. The complete 321-choice Occurrence runtime now has zero
 deferred operations, with no native handler or numeric approximation.
-Enemy partitions S01–S15 are complete. S15 replaces nine remaining proxies
-and three frozen exact placeholders with twelve authored ordinary-enemy
-definitions, including Incineration Shadewalker's Burn, Juvenile Sting's
-formation-linked division, Mara-Struck Soldier's one-time Rebirth, Guardian
-Shadow's bans and Allseer's action delay. `G07-P5-M15-S16` is active.
+Enemy partitions S01–S16 are complete. S16 replaces twelve remaining proxies
+with exact ordinary-enemy definitions across three frozen encounter members,
+including Searing Prowler's Burn cycle, Senior Staff and Silvermane
+reinforcements, Cannoneer support, Lieutenant Shield Reflect, Stormbringer's
+Wind Shear and The Ascended's Prana effects. `G07-P5-M15-S17` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 83 completed partitions use scoped Excel/Sora semantic
+model. The first 84 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
