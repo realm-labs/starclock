@@ -1,0 +1,309 @@
+{
+  "schema_revision": "starclock.currency-wars-fixture-contract.v1",
+  "goal_id": "currency-wars-reference-v1",
+  "bound_content_manifest_sha256": "4910cd6e2affcee156f3fed3591139e6ed730ca24346c686e42cb3ad062eba3b",
+  "fixture_role": "reference semantics only; fixtures do not claim runtime lowering or playability",
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality"
+  ],
+  "field_contracts": {
+    "source_record_ids": "nonempty sorted stable IDs resolving through pack-index.json",
+    "preconditions": "typed ordered state facts; no untyped value maps",
+    "input": "typed decision, transition, trigger or abstract Adventure result",
+    "ordered_operations": "reference operations in asserted semantic order; never runtime handlers",
+    "expected_facts": "exact state/event/contribution observations with canonical decimals",
+    "evidence_refs": "ordered source IDs resolving to sources.json and carrying field quality"
+  },
+  "minimum_cases_per_family": 1,
+  "required_families": [
+    {
+      "id": "approximation-replacement-trigger",
+      "minimum_cases": 1,
+      "must_cover": [
+        "reviewed approximation",
+        "released replacement evidence",
+        "deterministic reclassification"
+      ]
+    },
+    {
+      "id": "automatic-technique-energy-and-lethal-rescue",
+      "minimum_cases": 1,
+      "must_cover": [
+        "automatic Technique",
+        "defeat-energy rule",
+        "lethal rescue and countdown"
+      ]
+    },
+    {
+      "id": "battle-visible-rule-contribution",
+      "minimum_cases": 1,
+      "must_cover": [
+        "BattleSpec contribution",
+        "battle observation",
+        "teardown"
+      ]
+    },
+    {
+      "id": "blessing-level-offer-and-enhancement",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offer candidates",
+        "level transition",
+        "enhanced contribution"
+      ]
+    },
+    {
+      "id": "bond-membership-threshold-and-recompute",
+      "minimum_cases": 1,
+      "must_cover": [
+        "membership change",
+        "threshold boundary",
+        "simultaneous recompute"
+      ]
+    },
+    {
+      "id": "candidate-order-and-no-legal-result",
+      "minimum_cases": 1,
+      "must_cover": [
+        "ordered candidates",
+        "eligibility rejection",
+        "explicit fallback"
+      ]
+    },
+    {
+      "id": "cross-battle-state-and-reset",
+      "minimum_cases": 1,
+      "must_cover": [
+        "state creation",
+        "battle boundary carry",
+        "terminal reset"
+      ]
+    },
+    {
+      "id": "curio-state-charge-destruction-and-repair",
+      "minimum_cases": 1,
+      "must_cover": [
+        "charge change",
+        "destroyed state",
+        "repair and replacement"
+      ]
+    },
+    {
+      "id": "encounter-wave-elite-and-boss-binding",
+      "minimum_cases": 1,
+      "must_cover": [
+        "group selection",
+        "ordered waves",
+        "elite or boss alternative"
+      ]
+    },
+    {
+      "id": "field-bench-position-and-empowerment",
+      "minimum_cases": 1,
+      "must_cover": [
+        "deployment validation",
+        "position contribution",
+        "Empowerment teardown"
+      ]
+    },
+    {
+      "id": "formula-recipe-progress-and-contribution",
+      "minimum_cases": 1,
+      "must_cover": [
+        "recipe requirements",
+        "progress transition",
+        "battle contribution"
+      ]
+    },
+    {
+      "id": "gambit-rank-and-enemy-affix",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Gambit selection",
+        "rank boundary",
+        "enemy affix contribution"
+      ]
+    },
+    {
+      "id": "goal11-selector-conflict-reconciliation",
+      "minimum_cases": 1,
+      "must_cover": [
+        "exact source locator",
+        "incompatible ownership",
+        "blocked merge outcome"
+      ]
+    },
+    {
+      "id": "gold-coin-refresh-experience-and-team-size",
+      "minimum_cases": 1,
+      "must_cover": [
+        "currency mutation",
+        "refresh cost",
+        "Experience and team-size transition"
+      ]
+    },
+    {
+      "id": "hex-eligibility-activation-and-teardown",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligibility",
+        "activation",
+        "replacement or teardown"
+      ]
+    },
+    {
+      "id": "investment-environment-strategy-and-persona",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Environment entry",
+        "Strategy offer",
+        "Persona activation lifecycle"
+      ]
+    },
+    {
+      "id": "occurrence-choice-cost-and-outcome",
+      "minimum_cases": 1,
+      "must_cover": [
+        "choice condition",
+        "cost",
+        "ordered mechanical outcome"
+      ]
+    },
+    {
+      "id": "off-field-conversion-and-equipment-slots",
+      "minimum_cases": 1,
+      "must_cover": [
+        "conversion eligibility",
+        "three-slot cap",
+        "replacement"
+      ]
+    },
+    {
+      "id": "other-mode-ownership-rejection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "named other-mode row",
+        "failed selector",
+        "no normalized promotion"
+      ]
+    },
+    {
+      "id": "owned-trial-build-substitution-and-removal",
+      "minimum_cases": 1,
+      "must_cover": [
+        "owned build boundary",
+        "trial fallback",
+        "account state unchanged"
+      ]
+    },
+    {
+      "id": "profile-gambit-entry-and-terminal",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Standard or Overclock entry",
+        "initial state",
+        "terminal disposition"
+      ]
+    },
+    {
+      "id": "roster-offer-cost-purchase-sale-and-cap",
+      "minimum_cases": 1,
+      "must_cover": [
+        "offer candidates",
+        "purchase or sale",
+        "field and bench cap"
+      ]
+    },
+    {
+      "id": "shop-service-price-inventory-and-fallback",
+      "minimum_cases": 1,
+      "must_cover": [
+        "service eligibility",
+        "price and inventory",
+        "no legal offer fallback"
+      ]
+    },
+    {
+      "id": "simultaneous-bond-star-and-roster-order",
+      "minimum_cases": 1,
+      "must_cover": [
+        "same-boundary changes",
+        "stable operation order",
+        "final recomputation"
+      ]
+    },
+    {
+      "id": "squad-hp-action-value-same-boundary-order",
+      "minimum_cases": 1,
+      "must_cover": [
+        "battle result",
+        "Squad HP projection",
+        "action-value projection order"
+      ]
+    },
+    {
+      "id": "squad-hp-victory-timeout-and-run-failure",
+      "minimum_cases": 1,
+      "must_cover": [
+        "victory",
+        "timeout",
+        "zero-HP run failure"
+      ]
+    },
+    {
+      "id": "star-copy-combine-overflow-and-teardown",
+      "minimum_cases": 1,
+      "must_cover": [
+        "copy acquisition",
+        "three-copy combination",
+        "overflow and teardown"
+      ]
+    },
+    {
+      "id": "three-plane-node-room-flow",
+      "minimum_cases": 1,
+      "must_cover": [
+        "Plane transition",
+        "Node choice",
+        "room and Stage binding"
+      ]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least minimum_cases",
+    "source_coverage": "every distinct mechanic rule references at least one fixture",
+    "manifest_coverage": "every source obligation reaches DataReady or an explicit nonblocking approximation with replacement condition",
+    "candidate_coverage": "every EvidenceOnly obligation is promoted by exact proof or explicitly excluded before DataReady",
+    "reconciliation_coverage": "every overlapping Goal 08/09/10/11 locator has a receipt; conflicts remain Blocked until coordinated",
+    "blocking_gap": "no fixture can satisfy a Blocked manifest obligation"
+  },
+  "determinism": {
+    "random_selection": "explicit seed plus ordered candidate stable IDs",
+    "ties": "stable ID ascending unless released authored order is exact",
+    "no_legal_target": "explicit expected fallback; never silent no-op",
+    "operation_order": "asserted as part of expected_facts",
+    "decimal_values": "canonical decimal strings",
+    "external_outcomes": "record the offered abstract Adventure result and eligibility only"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "note",
+      "replacement_condition"
+    ],
+    "exact_claim_forbidden": true
+  }
+}

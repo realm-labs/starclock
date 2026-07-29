@@ -61,6 +61,23 @@ other manifest digest and three source-path/row/digest samples. Goal 12 does
 not rewrite that manifest; `G12-P4-B3` must receive a merge-stage ownership
 decision and regenerate both sides or the terminal goal remains blocked.
 
+The normalized schema, authoring contract and semantic fixture contract are
+generated and checked by:
+
+```text
+node tools/currency-wars-reference/contracts.mjs
+node tools/currency-wars-reference/contracts.mjs --check
+node tools/currency-wars-reference/verify-contracts.mjs
+```
+
+`normalized-schema.json` freezes 96 normalized file families and their
+manifest mappings. `authoring-contract.json` assigns every family exactly once
+to `CurrencyWars.xlsx` (54), `CurrencyWarsBindings.xlsx` (32) or
+`CurrencyWarsReview.xlsx` (10), with independent Sora 0.3.0 project, reader
+and generated-output paths. `fixture-contract.json` binds all 28
+non-shrinking semantic fixture families. All three files bind the exact
+content-manifest SHA-256 and must regenerate byte-identically.
+
 The ignored source cache is reproduced through
 `tools/currency-wars-reference/fetch-sources.sh`. Both repositories must be
 clean, detached and at the exact revisions frozen in `foundation.json`.
