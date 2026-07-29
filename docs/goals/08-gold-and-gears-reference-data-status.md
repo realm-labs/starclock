@@ -7,7 +7,7 @@
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
-| Active batch | `G08-P1-B3` |
+| Active batch | `G08-P1-B4` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -22,7 +22,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 7,906 obligations, 51 normalized files, four workbook families and 18 fixture families are machine-frozen. |
-| Phase 1 — Unique mode systems | `InProgress` | Entry, five Formal difficulties, complete source-level chessboard/topology obligations and all 55 Cognition/Secret/constant obligations are DataReady; Custom Dice and later unique systems remain. |
+| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants and all 124 Custom Dice definition/selected-Path obligations are DataReady; Dice faces and later unique systems remain. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -37,8 +37,8 @@
 | `G08-P0-B4` | `Complete` | This row's containing commit | Froze 51 normalized file families (`c0820f14…f1fd`), the four-workbook Excel/openpyxl/Sora contract (`8d2becf1…5c05`) and 18 non-shrinking semantic fixture families (`d5820bf5…31ed`). Common rows require bilingual mechanical text, explicit ownership/coverage/evidence and ordered source refs. Canonical decimals are strings; bytes are UTF-8/LF/two-space JSON. The missing released chessboard edge list is bounded by replaceable `forward-nearest-column-within-one-row-v1` `ProjectPolicy`; unknown targets fail closed. All Phase 0 focused and quick gates pass; the phase-boundary full gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B1` | `Complete` | This row's containing commit | Generated and rechecked 14 normalized files with 10,044 rows (`518e26d4…7c4b`): four profile/entry rows, eight areas, 16 difficulty segments, eight planes, 115 boards, 1,313 columns, 2,502 nodes, 3,407 explicitly `ProjectPolicy` edges, 332 map events, 1,091 block-create rules, 1,224 rooms, 12 domains, six beacons and six resolved MonsterConfig boss identities. Every row is bilingual, DataReady, ownership-scoped and carries ordered provenance; all cross-references and exact-once manifest obligations close. Focused and quick gates pass; the deferred full gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B2` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 55 rows (`68debc2b…22dd`, 191,063 bytes): 13 inclusive area Cognition ranges, 20 mechanical Secret conditions and all 22 common constants. Exact thresholds, global-default bounds, three-layer forward Secret graph, predecessor frontier, source trigger hashes and constant encodings close exactly once against the manifest; excluded story prose is absent. Released text separately supports evaluation after the current-plane boss, while adjustment, global/area clamp, carry, reset and deterministic tie ordering remain a named, replaceable `cognition-lifecycle-v1` `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
-| `G08-P1-B3` | `InProgress` | — | Importing Custom Dice definitions, categories, passives, Path boosts and unlocks. |
-| `G08-P1-B4` | `Pending` | — | Import slots, faces, tags, loadouts, rerolls, cheats and face effects. |
+| `G08-P1-B3` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 124 rows (`c12fe379…20398`, 214,583 bytes): four bilingual categories, 12 complete Custom Dice definitions and the exact 12×9 matrix of 108 selected-Path boost bindings. Each dice definition retains its initial/passive/Path-trigger templates and canonical source parameters, unlock ID, presentation locators, default six-face loadout, six suggested faces and full recommendation list. All referenced face IDs resolve against the frozen 80-face table; every inherited Goal 03 Path stable ID resolves, typed boost stat and source-ratio/percent formatting are explicit, and the manifest closes exactly once. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
+| `G08-P1-B4` | `InProgress` | — | Importing slots, faces, tags, loadouts, rerolls, cheats and face effects. |
 | `G08-P1-B5` | `Pending` | — | Import Knowledge and deterministic graph/movement/countdown interactions. |
 | `G08-P1-B6` | `Pending` | — | Import the mechanically relevant Neural Network graph, costs and effects. |
 | `G08-P1-B7` | `Pending` | — | Import Stats/Auxiliary Conundrum levels, composition and combat changes. |
@@ -71,7 +71,7 @@ Do not estimate denominators from Wiki page counts.
 | Difficulties/Conundrum unlock | 33 | 21 | 21 | Five Formal difficulties and 16 referenced difficulty segments are DataReady; 12 Conundrum definitions remain P1-B7. |
 | Planes/map nodes/edges/rooms/domains | 6,612 | 6,612 | 6,612 | All exact parent obligations are DataReady; 3,407 derived edges remain explicitly ProjectPolicy and are audited outside the source denominator. |
 | Cognition/Intra-Cognition/Secret conditions | 55 | 55 | 55 | Thirteen area ranges, 20 mechanical Secret conditions and 22 common constants are DataReady; story prose remains excluded and lifecycle ordering is explicitly ProjectPolicy. |
-| Custom Dice/categories/passives | 124 | 0 | 0 | Four categories, 12 dice and all 108 dice/selected-Path value bindings. |
+| Custom Dice/categories/passives | 124 | 124 | 124 | Four categories, 12 dice and all 108 dice/selected-Path value bindings are DataReady. |
 | Dice slots/faces/tags/loadouts | 96 | 0 | 0 | Six slots, 80 faces and ten face tags; six-face loadout validation belongs to B4. |
 | Knowledge rules | 15 | 0 | 0 | Fifteen released dice faces carry the structured `Mark`/Knowledge binding. |
 | Neural Network nodes/effects | 40 | 0 | 0 | All 40 source nodes are obligations; downstream classification excludes reward-only fields. |
