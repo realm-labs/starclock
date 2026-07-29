@@ -1,0 +1,3303 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-peer-reconciliation.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "observed_at": "2026-07-30",
+  "game_version": "4.4",
+  "source_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+  "authority": "Goal 07-12 committed manifest blobs at explicit commits; local uncommitted worktree rows are excluded",
+  "comparison_key": "source_path + row_locator + evidence_sha256; matching source containers without a peer row locator are informational only",
+  "shared_record_count": 316,
+  "peer_goal_count": 6,
+  "exact_match_count": 0,
+  "container_only_count": 5,
+  "absent_count": 311,
+  "conflict_count": 0,
+  "merge_coordination_required": false,
+  "peers": [
+    {
+      "goal": "G07",
+      "mode": "standard-universe",
+      "commit": "3e03a9ac9a1723584a9eb1430fd01761d4f28cbf",
+      "branch": "origin/master",
+      "manifest": "content-manifests/standard-universe-v1/content-manifest.json",
+      "execution_state": "Complete",
+      "publication_state": "RemoteMerged",
+      "observed_worktree_dirty_entries": 0,
+      "manifest_schema": "starclock.standard-universe-content-manifest.v1",
+      "committed_manifest_record_count": 1935,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    },
+    {
+      "goal": "G08",
+      "mode": "gold-and-gears",
+      "commit": "2688624c34a564d87076cadb405c8da506efd373",
+      "branch": "codex/goal08-gold-gears-reference",
+      "manifest": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "execution_state": "Complete",
+      "publication_state": "CommittedLocalBranchNoRemoteRef",
+      "observed_worktree_dirty_entries": 0,
+      "manifest_schema": "starclock.gold-and-gears-content-manifest.v1",
+      "committed_manifest_record_count": 7913,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    },
+    {
+      "goal": "G09",
+      "mode": "swarm-disaster",
+      "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "branch": "origin/codex/goal09-swarm-disaster-reference",
+      "manifest": "content-manifests/swarm-disaster-v1/content-manifest.json",
+      "execution_state": "Complete",
+      "publication_state": "RemoteBacked",
+      "observed_worktree_dirty_entries": 0,
+      "manifest_schema": "starclock.swarm-disaster-content-manifest.v1",
+      "committed_manifest_record_count": 6963,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    },
+    {
+      "goal": "G10",
+      "mode": "unknowable-domain",
+      "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "branch": "origin/codex/goal10-unknowable-domain-reference",
+      "manifest": "content-manifests/unknowable-domain-v1/content-manifest.json",
+      "execution_state": "Complete",
+      "publication_state": "RemoteBacked",
+      "observed_worktree_dirty_entries": 0,
+      "manifest_schema": "starclock.unknowable-domain-content-manifest.v1",
+      "committed_manifest_record_count": 5377,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    },
+    {
+      "goal": "G11",
+      "mode": "divergent-universe",
+      "commit": "d3928d69a5e6b2622b8bea41f370f2bf328ff072",
+      "branch": "origin/codex/goal11-divergent-universe-reference",
+      "manifest": "content-manifests/divergent-universe-v1/content-manifest.json",
+      "execution_state": "InProgressAtP4B2",
+      "publication_state": "RemoteBackedCommittedPrefix",
+      "observed_worktree_dirty_entries": 108,
+      "manifest_schema": "starclock.divergent-universe-content-manifest.v1",
+      "committed_manifest_record_count": 6215,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    },
+    {
+      "goal": "G12",
+      "mode": "currency-wars",
+      "commit": "798ffac6fa46917cee45b8ff187fbd8e87ad4a78",
+      "branch": "origin/codex/goal12-currency-wars-reference",
+      "manifest": "content-manifests/currency-wars-v1/content-manifest.json",
+      "execution_state": "InProgressAtP2B4",
+      "publication_state": "RemoteBackedCommittedPrefix",
+      "observed_worktree_dirty_entries": 2,
+      "manifest_schema": "starclock.currency-wars-content-manifest.v2",
+      "committed_manifest_record_count": 19250,
+      "authority": "committed blob only; uncommitted worktree state was not inspected"
+    }
+  ],
+  "reconciliations": [
+    {
+      "manifest_record_id": "stage_configs:stage:30508011",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "row_locator": "StageID=30508011",
+      "evidence_sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+      "evidence_summary": "ChallengePeakConfig EventIDList -> 30508011",
+      "result": "CommittedPeerContainerOnly",
+      "exact_peer_records": [],
+      "peer_container_records": [
+        {
+          "goal": "G11",
+          "category": "encounter_source_obligations",
+          "id": "StageConfig",
+          "source_path": "ExcelOutput/StageConfig.json",
+          "row_locator": "(container-level obligation)",
+          "evidence_sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ]
+    },
+    {
+      "manifest_record_id": "stage_configs:stage:30508012",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "row_locator": "StageID=30508012",
+      "evidence_sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+      "evidence_summary": "ChallengePeakConfig EventIDList -> 30508012",
+      "result": "CommittedPeerContainerOnly",
+      "exact_peer_records": [],
+      "peer_container_records": [
+        {
+          "goal": "G11",
+          "category": "encounter_source_obligations",
+          "id": "StageConfig",
+          "source_path": "ExcelOutput/StageConfig.json",
+          "row_locator": "(container-level obligation)",
+          "evidence_sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ]
+    },
+    {
+      "manifest_record_id": "stage_configs:stage:30508013",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "row_locator": "StageID=30508013",
+      "evidence_sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+      "evidence_summary": "ChallengePeakConfig EventIDList -> 30508013",
+      "result": "CommittedPeerContainerOnly",
+      "exact_peer_records": [],
+      "peer_container_records": [
+        {
+          "goal": "G11",
+          "category": "encounter_source_obligations",
+          "id": "StageConfig",
+          "source_path": "ExcelOutput/StageConfig.json",
+          "row_locator": "(container-level obligation)",
+          "evidence_sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ]
+    },
+    {
+      "manifest_record_id": "stage_configs:stage:30508021",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "row_locator": "StageID=30508021",
+      "evidence_sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+      "evidence_summary": "ChallengePeakConfig EventIDList -> 30508021",
+      "result": "CommittedPeerContainerOnly",
+      "exact_peer_records": [],
+      "peer_container_records": [
+        {
+          "goal": "G11",
+          "category": "encounter_source_obligations",
+          "id": "StageConfig",
+          "source_path": "ExcelOutput/StageConfig.json",
+          "row_locator": "(container-level obligation)",
+          "evidence_sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ]
+    },
+    {
+      "manifest_record_id": "stage_configs:stage:30508022",
+      "source_path": "ExcelOutput/StageConfig.json",
+      "row_locator": "StageID=30508022",
+      "evidence_sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 HardEventIDList",
+      "result": "CommittedPeerContainerOnly",
+      "exact_peer_records": [],
+      "peer_container_records": [
+        {
+          "goal": "G11",
+          "category": "encounter_source_obligations",
+          "id": "StageConfig",
+          "source_path": "ExcelOutput/StageConfig.json",
+          "row_locator": "(container-level obligation)",
+          "evidence_sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+        }
+      ]
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3000",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3000",
+      "evidence_sha256": "bc9423264097e631f6662f21cf351f6507bec7bce955f02cc3f9266ffe454d68",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3001",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3001",
+      "evidence_sha256": "dd63635f36c686dc37a48608ae811b0869c0d35c46879ee4c989ed1f00cb2bba",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3002",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3002",
+      "evidence_sha256": "c018c830bd7938ea15fbfe67cde2ab8319c07e7486f5a6813280680a282885cb",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3003",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3003",
+      "evidence_sha256": "d57427589e92aaab6348fe833e44e78ccaba6af1db7ee7226309450a12e540cc",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3004",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3004",
+      "evidence_sha256": "d04c90f90703eb2d885048b9e519292e22d7faa08d0434564d5dea105721b200",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3005",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3005",
+      "evidence_sha256": "3b7b3d75037c4ea2733f9cbd4f9374f7d0bd51c16e3f7d979fc2d2df2717fbae",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_targets:target:3007",
+      "source_path": "ExcelOutput/BattleTargetConfig.json",
+      "row_locator": "ID=3007",
+      "evidence_sha256": "29e2cdd704d5ad88f64211b1b93d29083e06fec3107c6c6db6b42ff397223cb2",
+      "evidence_summary": "active NormalTargetList or HardTarget",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033023",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033023",
+      "evidence_sha256": "73b929f0b4c5180aaa505c9363941f4a093e6c82e73f84b87aa87db3b776f98d",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033038",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033038",
+      "evidence_sha256": "92290f155a9007f2d294f9f97bb3b3b243693bc9f6cb62ae5a188b6fee80eb4f",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033051",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033051",
+      "evidence_sha256": "64450cb0242a8a250c2657184755662cc92791d1875bf6f215375a0a247fbb7a",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033052",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033052",
+      "evidence_sha256": "bcfade90ef97cac5912232f9e0b08bed05d4065b2160798694fd5b4e9f88754f",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 HardTagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033058",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033058",
+      "evidence_sha256": "8ae2fd85dab09b48ce55d5c7e6fb2e6f43cefaf7d992aa0e792c6f2739c4049e",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033063",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033063",
+      "evidence_sha256": "42f95c81c765cbf696270e07b5b021ea5dac2f6f2c765dd78b369664e9705a2f",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033069",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033069",
+      "evidence_sha256": "de173a4af3611a9240e09d0c9b48425dabf8d32d27a496ea68cb708f4d943ad9",
+      "evidence_summary": "active ChallengePeakConfig TagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "stage_traits:trait:3033070",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033070",
+      "evidence_sha256": "728d745f99cd5e53a1535d539f9f58640f9c5098e77df83ade325331af8a4350",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 HardTagList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "quadrant_options:quadrant:3033066",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033066",
+      "evidence_sha256": "b358fcf94d1f1fd182a97ef2a270f04b8eaf20eeb75bf268a324d25c4bcb6b0c",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 BuffList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "quadrant_options:quadrant:3033067",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033067",
+      "evidence_sha256": "ac079a5e54a67bffd1060c1c6fd57d5460577eb233a61c20f0d90f8558c3fbc3",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 BuffList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "quadrant_options:quadrant:3033068",
+      "source_path": "ExcelOutput/MazeBuff.json",
+      "row_locator": "ID=3033068",
+      "evidence_sha256": "41fcf459235c8e65784be7890d1fe1ef655cee4db6a3ce86a267491a7a3976ef",
+      "evidence_summary": "ChallengePeakBossConfig#ID=804 BuffList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_events:battle-event:30502",
+      "source_path": "ExcelOutput/BattleEventConfig.json",
+      "row_locator": "BattleEventID=30502",
+      "evidence_sha256": "35ea5841c86b7bcb14128510c87c0f40640d885d1da92c27623edf63e0b29304",
+      "evidence_summary": "active StageConfig StageConfigData[_CreateBattleEvent]",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_events:battle-event:30503",
+      "source_path": "ExcelOutput/BattleEventConfig.json",
+      "row_locator": "BattleEventID=30503",
+      "evidence_sha256": "9949e261bbafb3f34087a11c48718e825b66bd80dd565c55a08daa5116f083d9",
+      "evidence_summary": "active StageConfig StageConfigData[_CreateBattleEvent]",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "battle_events:battle-event:30504",
+      "source_path": "ExcelOutput/BattleEventConfig.json",
+      "row_locator": "BattleEventID=30504",
+      "evidence_sha256": "d821a5986b6761345daf7df12f645639817d451563d31851edd7b57a8107905e",
+      "evidence_summary": "active StageConfig StageConfigData[_CreateBattleEvent]",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:1012040",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=1012040",
+      "evidence_sha256": "bdf0e0e1c9ad4b3baafbfbf3e59e9c564413bff5054260d2678479e7454a5fc3",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:101401016",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=101401016",
+      "evidence_sha256": "8d26badbade79b2eea4489619e7fde2ad93ac1ae06dd816a6cb519531077d247",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:2022040",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=2022040",
+      "evidence_sha256": "5ce7e3457225ea752e8af15a650fff2f0bd5e2f764e72b694980cddd8b82ca26",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:2022050",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=2022050",
+      "evidence_sha256": "ea37a698826106bc15fee61efabba1eaab286c85e52ff627f678f48a85242d8e",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:2022051",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=2022051",
+      "evidence_sha256": "8bfaf880efd2b8d658291dd870ef70c0ca2d5a32d8bcc342b8c08f9ec2af0245",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:2023020",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=2023020",
+      "evidence_sha256": "10ed5a3c679c4790fbb986b5a5cc7f9040d3ca0797c44e89fa070c72ce0d75d9",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:3021020",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=3021020",
+      "evidence_sha256": "10a086d174ce4b7fbe588696680c54703530ca3487081c8c101b1926eca7c55d",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:3021030",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=3021030",
+      "evidence_sha256": "3e7ab86b549f394fda311cbf8d784522f5bcb6666493dfe99a1d60af32a5ff0b",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:3021040",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=3021040",
+      "evidence_sha256": "e20a27942db0df0dd042b2a059531eb4954e53dc6549960620d82ad92c5011ca",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:302401012",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=302401012",
+      "evidence_sha256": "29debc703abae39d5729b0bbcc619bbf1841ca9fb447b24e4571e3e6faa19553",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:402201001",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=402201001",
+      "evidence_sha256": "c823cb98e64f3b7611427e31be02911fa172c1c7416480fcae682ae58ffd11fe",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:402301001",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=402301001",
+      "evidence_sha256": "d6c7dcf77b6d26f69f2681ba7687131bc343dc04c61f7c8c177bdf36867ced17",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:402302001",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=402302001",
+      "evidence_sha256": "4c8e9f6c0be9535187c557836328a5129ef0bf1b0261790c7cf8c05c32b680dc",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:403205002",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=403205002",
+      "evidence_sha256": "78969bd962650e68a7a53861499f26d810407b52c30860a79dc440423181d398",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:4033030",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=4033030",
+      "evidence_sha256": "9cc248d5c756293dd79a8b466a3374fd8f1a0a7de73f88476d7d1dc950dcaee1",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5013040",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5013040",
+      "evidence_sha256": "6387aa8112d1c850d7c7f9436571460e9d6fab585aa6ac4908a560ef7577b847",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5014030",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5014030",
+      "evidence_sha256": "129717dbf5e0e797ff49d421ee5d0d937f94ee5d674dd0a43a521b94daaab76d",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5022010",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5022010",
+      "evidence_sha256": "ade535f7a10cb8aa0490abc0260899c37baf1fee690ba976f39fc74619592612",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5023010",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5023010",
+      "evidence_sha256": "869687af604a4a8bf6f9d5b07fc5cdb14078e90a2794cc71083589e326c5b95d",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5023011",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5023011",
+      "evidence_sha256": "09e8ba82a4dbfbe67dd1ceabc96cef69d74003f6dc7bc37d0fd345986d46dbd9",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5023012",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5023012",
+      "evidence_sha256": "91a263e062e0929afc5e553115e2a18e90b5aef9e07ce934c63a751c758eab43",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5023020",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5023020",
+      "evidence_sha256": "c9884547f1e3c2d3744c6e9f46a508f1dad0eb0fae24bfa8e71e88bbd069363c",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:502302001",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=502302001",
+      "evidence_sha256": "59c63f6a97a446adddc82cef22e1eab0850c2d80d118ff746de1a4784e919ac5",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:5024010",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=5024010",
+      "evidence_sha256": "eab7c5220c99bcabc73791eacdf7cb5dc7bde81aefbc9943cc01287d947803f9",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:8032010",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=8032010",
+      "evidence_sha256": "859ec2dddce9a9c897556d825e34345b3bce164c638c19ac88412ba46054d4ed",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:8032020",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=8032020",
+      "evidence_sha256": "f6478d96a4e49c064dccc1adf3e0d6d086420930cd1ee475cb44b26cdadb1223",
+      "evidence_summary": "reachable MonsterConfig SummonIDList/CustomValues",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_variants:monster:803301014",
+      "source_path": "ExcelOutput/MonsterConfig.json",
+      "row_locator": "MonsterID=803301014",
+      "evidence_sha256": "204368df2380033080045eecfb907d4f1486fe991fc62bb399e604d1fa8c6adf",
+      "evidence_summary": "active StageConfig MonsterList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:1012040",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=1012040",
+      "evidence_sha256": "07e37e6f84677d40ce909830196353e14456e1b2f5683f16c6ca372b11ef749f",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:1014010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=1014010",
+      "evidence_sha256": "c5c1609a1c37ee62b2424e23d7fc142d3316f11e4165d5ec2add6d22a3170d17",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:2022040",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=2022040",
+      "evidence_sha256": "70ac7be46b160ea95bd7f359924b728548e23a22518c56c5f650a5bf3bfb3d1a",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:2022050",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=2022050",
+      "evidence_sha256": "7797484a0ea050b91fdd5d6fd0d58437955d63c581b095c27aa0ee44a3b4af42",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:2022051",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=2022051",
+      "evidence_sha256": "fa5407719136ff940dd0e9aaf455db716c7359bb8afd3b7c4c13073c1a087f1d",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:2023020",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=2023020",
+      "evidence_sha256": "a9a90eefd2a1686db4615504fa98aa28de2727b82d2f2cdaca0fcbaed83971d1",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:3021020",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=3021020",
+      "evidence_sha256": "89a80754fb7478362b595a9c5b2badf2d5ab6e7a96b3ea65a2b5368db22f09c2",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:3021030",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=3021030",
+      "evidence_sha256": "a31f8a13c72bbebe7d7e0e8f4ca832792111a6c76b6d8477af612bd303b46283",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:3021040",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=3021040",
+      "evidence_sha256": "772ed403e54a56b70110ecb12cf287ac69ad36efa5be32f4c0537c956461f4c8",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:3024010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=3024010",
+      "evidence_sha256": "0d09158e935959e2827547e89460e80e70af37fc3465b8c3d6d4776e10592394",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:4022010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=4022010",
+      "evidence_sha256": "eca4877a16b0546daf02f725cd6ec419a8b5d509e07e507b504eab60efe50f5c",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:4023010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=4023010",
+      "evidence_sha256": "036b2e8b24c47c8ff081115b472adc21da03a9bfcb6e770c5cb7f5cc4dd3c6ea",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:4023020",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=4023020",
+      "evidence_sha256": "8eab36a8b1a305ad377b04583b7e056c3523d30ac060376055bde6b77a086a8e",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:4032050",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=4032050",
+      "evidence_sha256": "740a14e396902b99ec6548e5ef66c283dbbfbb61934e7d356e70f93672f8d8da",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:4033030",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=4033030",
+      "evidence_sha256": "9e3847760d2053da03588244cd375c45bf872642a95369e5fe8e6accd26ffc75",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5013040",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5013040",
+      "evidence_sha256": "8e044ce6c3880996ec952c893b32b3902e94b905abeac72fa950d6aed4e041ae",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5014030",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5014030",
+      "evidence_sha256": "4225f2be4438f5fb4765ec5ed24c377c195485d5703bb12cd7be452891cfcb87",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5022010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5022010",
+      "evidence_sha256": "d697f628ae0327d148a4db48424edd18a34e285b9da1986705e69cb2e25dc967",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5023010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5023010",
+      "evidence_sha256": "9526d786d152781f5958424334b02324cef22cbe730e5994a3aaf26a112b7edf",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5023011",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5023011",
+      "evidence_sha256": "db6216f6bcfe04f49c19ecbc84e8373487ceb13305cbbb7b18a91d15f149c73e",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5023012",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5023012",
+      "evidence_sha256": "23aa47ce1910abc50874b2c8befb45503b78696127424f8dc7ff858758c74e04",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5023020",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5023020",
+      "evidence_sha256": "89318972d515bdf4c822713d81e4139d1fa2563145ec29cbdabe8396e9df4003",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:5024010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=5024010",
+      "evidence_sha256": "9f7d012173ecae180247dbad5933f319527a13217d3815a0f536f43b79770eee",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:8032010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=8032010",
+      "evidence_sha256": "df3b4c3bb2f9cfd1d013b464ff0ec1762f49e1f5aefd2d4df74fc9779fd8dc98",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:8032020",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=8032020",
+      "evidence_sha256": "a3666644ffed16aef4a5e3ab3f87a308e9887388221c1992f5ca36a327b1fefd",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_templates:template:8033010",
+      "source_path": "ExcelOutput/MonsterTemplateConfig.json",
+      "row_locator": "MonsterTemplateID=8033010",
+      "evidence_sha256": "2cc0fc935166e66d0285ac1930294448f1465fdf9d7f8609b13039fd977971bc",
+      "evidence_summary": "reachable MonsterConfig MonsterTemplateID",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204001",
+      "evidence_sha256": "247e50acf47a0164c946d6c38508382f519794d94c649b124d94b454c7f90aa7",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204002",
+      "evidence_sha256": "39fdb97c75516fdeb56e7399e0c9c9fe0e3b7e06c66dd79f36cd30827999bd4c",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204003",
+      "evidence_sha256": "3dc8de9822e038a52c5ffd842ef6ea952a6e28c41b1cd7c09e86d9efc7aff19c",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204004",
+      "evidence_sha256": "c7f60074f989c833fd95d87114ec2a59e90cf3ad8c0d1b83733c419b666d7ee3",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204005",
+      "evidence_sha256": "fd8843f8146c6094171d182eedb8f503bc6ed7260fab6283f0ece9f09de1a598",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204006",
+      "evidence_sha256": "39fa4d3cc88998ea7fd5d8653653fa5c6bedd69ec5d195e33aaeda3a56897656",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101204007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101204007",
+      "evidence_sha256": "3eefc5e7632d5121a7624abd0661a80cd3eb0da64f2ffbe95a1a7994d93acd40",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401001",
+      "evidence_sha256": "17d5e63388547fb9dd02b6d68f026d06b0c72739cc6c532d9daaded0e4739083",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401002",
+      "evidence_sha256": "8423f693a51ad84aeca315139308a328acd6f98ee8af5f0c8d0502ec384a25e9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401003",
+      "evidence_sha256": "366a5e0d15c97595c4a96c7fe9702e2cec667c360c8f98c8f096cb9942ecbb63",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401004",
+      "evidence_sha256": "6de817e32215b5d3aaa07b1dcfb6159be93c0dcf1d0801d21d3cbb9a7908117a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401005",
+      "evidence_sha256": "fb134d31321066a84adfd4fa3918277e32e59c38a7dd3a668cc84346525ef111",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401006",
+      "evidence_sha256": "1e067e027be4bbddb6db5dc5ba50a95fb69b64317e38f0f294e0b29f675aa738",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401007",
+      "evidence_sha256": "af857b976b126e0de08afd8c868df7aca1377c58c16e4ebb134c01ee8b503257",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401008",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401008",
+      "evidence_sha256": "5e2ec02fa597d289c4cd37684be241f7fe831c87c8b480376bbf0266f46d0501",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401009",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401009",
+      "evidence_sha256": "ee67fc0bbab4b6de5a1a09d04f529e792da7f48201c0f3b26751ebaeda1fcc25",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401010",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401010",
+      "evidence_sha256": "ce9b78c398b6f7fb4ba2e7f2259b18ad3c2a86adc4d0ab113787bb26a17d3e1a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:101401011",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=101401011",
+      "evidence_sha256": "a83a6989451e7f0849a81c28dd7d47baf52edc43691ef43acd157a2dce178343",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202204001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202204001",
+      "evidence_sha256": "aecd4b8f3c5594ec61e9c83e67751645dc0027c10045095382eab51610b3bc72",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202204002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202204002",
+      "evidence_sha256": "2ab8611767a71612f7f40061ef98663513eff3422d1fac98c51208b17b0d9a69",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202205001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202205001",
+      "evidence_sha256": "f5eef073ee5525cee66cdc63da5e42772d6af5e45b0728f28b8b7dee31161e4e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202205002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202205002",
+      "evidence_sha256": "cf1e9f00d3e441248931e94f15323e487e26b76d86dd85fccaf8bfcc00fade8a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202205003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202205003",
+      "evidence_sha256": "a20cb9989761c399acf38ec54e63051fa167cc0cd2f66decb4a340b92a2b52d4",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202205101",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202205101",
+      "evidence_sha256": "f587ea920b03372de75725716512796340629a8ad61dc1f956842f27a233819a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302001",
+      "evidence_sha256": "bc19634f583d724059a3d114e659306cf85be350f98a9555b194ae4735204348",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302002",
+      "evidence_sha256": "a51e13b597a19c5a4c9af6bd6a2fc0c0f09acca869bf029b3bba2e8f8d5d2db3",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302003",
+      "evidence_sha256": "75c22a3cd4fc6f4abec9b1621c02d5d28b52b8613b043112263a242de3a08a8e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302004",
+      "evidence_sha256": "e105702b68eca00cf40f72a73dd3276cba63bdb797cc452fca9c83e8ac8d5b6e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302005",
+      "evidence_sha256": "65d0e1a51cedf329fb0dd8c972eb48020b068a7af10ccb913e84ea431efd4a93",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:202302006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=202302006",
+      "evidence_sha256": "f268cfc7f74690a9ace1ab3a1c177bb05fef25b601dee77137ff5b63e408f80f",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302102001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302102001",
+      "evidence_sha256": "94bbe1351e481e7162f0777e07fd988caa9dc63de13f6df2aa8965e5d3443ae3",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302102002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302102002",
+      "evidence_sha256": "3181e3530bbec2c536591e3908143e6b5a9c5bb867f5e01b69d6c9b65212471e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302103001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302103001",
+      "evidence_sha256": "b8a277b705948b2733c59010f7efbe37f08bb49d5ce4d7d570ea7415aa652439",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302103002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302103002",
+      "evidence_sha256": "3b799d4caf0b6ed7f288f61f94bd405a28dd242337d9aef4369f1b010d7dc8b0",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302104001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302104001",
+      "evidence_sha256": "2edb54757f3f2a0b588a8146994aa242fb3033da6900287f9bc75a7228e1be52",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302104002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302104002",
+      "evidence_sha256": "48a4fab1ba3def818ac13f25cda2bfc052a31f3913926f27af44106a3c981e8d",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401001",
+      "evidence_sha256": "1a47d137f0f4aa9efddb64bb463660ec9a71c18ca2ef7ec73599694c29479831",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401002",
+      "evidence_sha256": "dd4296e526b72714cbadf8b2467b4efc4960951188fbe2a31bbb8508e0895072",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401003",
+      "evidence_sha256": "97d613445eca90812d1ca33b0a367000f4990be8b60f7aa8f1fb48550bae6f8d",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401004",
+      "evidence_sha256": "b584a163dcdcd780a8f37fe789b292321ad4d37ee1d67db06abae299fafdafae",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401005",
+      "evidence_sha256": "7de6c016d1e04059ad27f890535cff4aa99b406edd88a417c7d98ceb47dccfd8",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:302401007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=302401007",
+      "evidence_sha256": "ac1c9dfacd87be97b2fad69c265d0be3aae20bc46a27443bae853ff3a0dcded5",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402201001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402201001",
+      "evidence_sha256": "a41df5b54641da5eaf2c23e449402e2920853f9023b2430bcc5d150f2fbf143b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402201002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402201002",
+      "evidence_sha256": "796df77608109dbd3b65ab86c789792ef3224166fc4928b08737339910955882",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301001",
+      "evidence_sha256": "c67995325f34a1d4298c64507c2e65cb7bb671b8ee1baaaec65134862c55e665",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301002",
+      "evidence_sha256": "b7d9b8243faf45aa5de67d1d48aaaeb2e09692f6561079958e55914b2d72727a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301003",
+      "evidence_sha256": "ae3b7745cf98451a59979fd9f8f26b89f340172ace657ec958c933b9cae2ba24",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301004",
+      "evidence_sha256": "0e278e0014bf58eb5889ed9193b1f7d904e0a139cc93cf2810b237e6b435e5ba",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301005",
+      "evidence_sha256": "fb272ea34e31186ab79f18914b90e9294fb064837540fcfb9d010998c79d0d95",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402301006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402301006",
+      "evidence_sha256": "60981822e8931c5f00a0916f7b4cfd8ddcaae5898aba0797a798607692410f17",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302001",
+      "evidence_sha256": "98e31a0eb611500521af8245fbb4b6d85da7805c5d0396a0cd32491433509887",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302002",
+      "evidence_sha256": "3b8e5a8992643f13d25105813f4416b7c5eb20767bd6636bcf0f4175f02d6bc5",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302003",
+      "evidence_sha256": "35de243767312dc98e9a254f5029a9e9a3cc34813a77a13a38bc00bad9bb5f6c",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302004",
+      "evidence_sha256": "abc8ba40c6205607172f356387c0b8fbfa86c5d9d0d89ae2987ededa47ceb8b9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302005",
+      "evidence_sha256": "858900d07ee846812a4de2f86062d0eabd870e585c6e7bfe0da0b4c6eaa8dee7",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:402302006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=402302006",
+      "evidence_sha256": "85221bdf4db2dd98d8d395f5cf051401a00eeaac0f742c25906c6b9eb8e464db",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403205001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403205001",
+      "evidence_sha256": "2aad1dd94fdd2bf94b137db839f68fc84288fe6f1f05a1178c57b81028dfc888",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403205002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403205002",
+      "evidence_sha256": "5e092683bb0eaebdd6b2abd059a33d3edf9890b5b7f2e4b6d590f4ae7b206973",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403303001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403303001",
+      "evidence_sha256": "c8ea9be788e829279dae6f38cdcc29348f71571388debbb09cdb8de65e7b713b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403303002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403303002",
+      "evidence_sha256": "1411c1c09d391731351b2c3d7ed80f1c9e2fe720cbeb68fef168842ae6f53cab",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403303003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403303003",
+      "evidence_sha256": "615b6bb643d554a3f4acabe46923cba69ee18dde1760830c77a48d61069befc2",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:403303004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=403303004",
+      "evidence_sha256": "bd53237aa83049836c487ea812f235e3189527d956ad9e99b600e9aedcd15086",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501304001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501304001",
+      "evidence_sha256": "ee93f121fbe717a64281e73acd4d20ae25abef6e604c79ea6c87ed4222425991",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501304002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501304002",
+      "evidence_sha256": "2833db639ef7e5a0d3665908f69c32ba11576af69c70f5f361dd3ee5afb1531c",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501304003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501304003",
+      "evidence_sha256": "b1e3b78fee476af92df2c7fb2c47c9f534f13848a277f51fec355b6aca845933",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501304004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501304004",
+      "evidence_sha256": "0ac637bbc02d59b5fe3686d1d338ff607108cc8b52bd61381bc905642e4f676e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501304005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501304005",
+      "evidence_sha256": "9b9a4fc805bebe12ff4df3dbb348dbb036f5c600a749f4cb8e5466af8f148511",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403001",
+      "evidence_sha256": "f34ad8a6f6d668d67e9949da155b0e1792050958bb147c570c6eedda7ea51278",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403002",
+      "evidence_sha256": "3d52125b0da5ba1728eda0fa392f3da832dce4b3692c263657c29360ab89df28",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403003",
+      "evidence_sha256": "14dc47a2744c4d5c04ba5850baaf794e002462d9cd9850ea5088edf85e7cf3cc",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403005",
+      "evidence_sha256": "f3f9e4ed4592f7a9bff189d89e2ac71155197caf135c46f6f97946f48bdbea18",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403006",
+      "evidence_sha256": "cc4451907a24bd174d006547653cc48949794cd0abdd1736aa21058bcf47477b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:501403007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=501403007",
+      "evidence_sha256": "f65e262a960cf48593527a4cab10da38bfaa3dc0c5d527af261f154ab16720f1",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502201001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502201001",
+      "evidence_sha256": "9da6fd709c19a0a2bcd04df7959056f56fa364326a5498758bd1e81c12724ebc",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502201003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502201003",
+      "evidence_sha256": "d135b6fe99d690a6cf4ca0d87295cfc7487e187edf032c4102a72feafedc8278",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301001",
+      "evidence_sha256": "f9d534b284e6ceafb67548c80e65194e2b59d67b1ed1fb8d35dff3e0bb033df2",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301002",
+      "evidence_sha256": "f806b6d0403fbd0d0d14c6ffe377414f21fbaf735e75e408ac5374ab3f73ceb9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301003",
+      "evidence_sha256": "215899deab9f167bf2d4a756f3e582548fc6219a59d6ef5bb8ce790a6d2e3138",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301004",
+      "evidence_sha256": "100277dcef70f107412ce1636050edd52b903faedab9a4c0ec325ba64c56ce94",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301005",
+      "evidence_sha256": "1e01633781cc6817e2871b38fcd5169d0e8c1b92f4741fda9235068df6ea33da",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301101",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301101",
+      "evidence_sha256": "a60d0ffa8cc95af67cbb97093e5c266364e1dd3092476b4045da5f561caec0bc",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301102",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301102",
+      "evidence_sha256": "78921d9cf25176471066438ae43b452f590d5cc4a3581bbc2d45f8301f034163",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301103",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301103",
+      "evidence_sha256": "68b36c1b84386d5ce189dce3c49068efcf75b1282f34bb469320b1035560e604",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301104",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301104",
+      "evidence_sha256": "8518a5710f9114749e3333422728767d192d7614a2d35476451e66b5f09ecf83",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301105",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301105",
+      "evidence_sha256": "cde0eae74d7fec6058208ed3de8cc80bad2531b4ebe0b783d9adf6fe22412dd5",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301201",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301201",
+      "evidence_sha256": "0b0129c232f16311b5e20d281bc2c75b64d33fa362730cb24209e784a6de5215",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301202",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301202",
+      "evidence_sha256": "df984a600c9a1bd58f3c6929db3432fe345c44ac525e804c63188ad7887ff655",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301203",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301203",
+      "evidence_sha256": "4542445700659c27e80f5d089dba9a605190e54db33214e3fce63678ffe9e5c9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301204",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301204",
+      "evidence_sha256": "49879abbb0fe699444d0f62affa9dace1559988ab7cfd9b182e9c425900965a3",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502301205",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502301205",
+      "evidence_sha256": "5bbce4b6a2dc7b53a2c2b5a76de868e9eb59464a0dcdff66ff2a22ce13f196a9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502302001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502302001",
+      "evidence_sha256": "de5cc0f98759c93037e945563f0d0252f5095d5087c473dc1ad8ee04083b0c0e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502302002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502302002",
+      "evidence_sha256": "132e4324572b675b5fcaa50b8c192cc08b4e461c389c7539d0ba1db6ddd1b37e",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502302003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502302003",
+      "evidence_sha256": "47996b8c7d9f22459fcff80b2c1771f2145a6c0a546d92f24657f8b4656efcb6",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502302004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502302004",
+      "evidence_sha256": "62ffbb78d91c9251e49cd23f735d774776c4d245e4052be478911c8522893e6b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502302005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502302005",
+      "evidence_sha256": "491cae2be85f742828cdff269e341bdb7e56432c713d3331a656bf590d5cb7b4",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401001",
+      "evidence_sha256": "0e81d71877271433b96227640cd932836e1bf5574b1fc1a9e96656602cc18e81",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401003",
+      "evidence_sha256": "b1b96595131e894ecbd2f3645e6faca7a7b53fccb0dbe75c16bb9946de99a998",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401004",
+      "evidence_sha256": "cd162513c7111aefdfd2d86a01d0487047fc8ec90ffaef902c283645eda23057",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401005",
+      "evidence_sha256": "bd3fd512ea5181fedd0b11173781a2fb2db35c0a364912e64e0000e7df63107a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401006",
+      "evidence_sha256": "13ca2a9a97cc2e2ad894c8eecd2ec925f09e209e91a8f105086bcea86f3d346b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401007",
+      "evidence_sha256": "1ca0942660528eb0621be529ff51aa07760b2c72c23cc0af094f5125f936ea16",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:502401008",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=502401008",
+      "evidence_sha256": "9061e36826ffec26a6957f4f68f9d2e4ac6c48dc447815b9c2b854b46c215c40",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803201001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803201001",
+      "evidence_sha256": "67a3fadde6b3b48485f93f98ebebbafd16a63350cf52985f5594d1c948a2c70a",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803201002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803201002",
+      "evidence_sha256": "b42d13983b9d561570e7481738bce4d478bac42abdd9a52562fc265205ed1fbf",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803201003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803201003",
+      "evidence_sha256": "35a46ba0921b4d557461c33e6d898a088b96d21d031ef7e72ada311585bb17af",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803202001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803202001",
+      "evidence_sha256": "7b20f9f9a59bb01dcc0cb62ef576d953b17d25baed7fc308195f1d08477c2539",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803202002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803202002",
+      "evidence_sha256": "f9d97cfd6035f487b89f1f1fb0f5f2f57a6af684ca71fa4b57b7fc2702bfb3d5",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803202003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803202003",
+      "evidence_sha256": "51d20b2b6ce354e7e0b58655b24ef5ca029ef0dc46eadc535b0f4f2bc3ecdbfc",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301001",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301001",
+      "evidence_sha256": "eb9e72158a10bd5a0d26e1a18b817e275853ccebf0af4e63f1b105e0359a67ce",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301002",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301002",
+      "evidence_sha256": "8755cd7c5e774501c38bc9d0120ad8667d102a514201568c8ed7977b6bdc77d9",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301003",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301003",
+      "evidence_sha256": "b87165eb450acc81d66852f7daebb6ce5d0b68e829cae651ddd305947d7a6090",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301004",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301004",
+      "evidence_sha256": "4c06f9daa050aa3c2e9e03f023614a33459cbe0f160f4d07a5b0d443fc82b101",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301005",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301005",
+      "evidence_sha256": "8b5bc218f2c3096968c31c4ec939d39580fb99d1893ded4652443afff93e331b",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301006",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301006",
+      "evidence_sha256": "13c9def07bf8616c30885a9157e5622a02f955dcb4355fc43cb694bb68ca18fe",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_skills:skill:803301007",
+      "source_path": "ExcelOutput/MonsterSkillConfig.json",
+      "row_locator": "SkillID=803301007",
+      "evidence_sha256": "a62dbbe0bc219c360e1edcf0367eb2e6c7059c3e52ce7ea9787c2c4659092918",
+      "evidence_summary": "reachable MonsterConfig SkillList",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:210040204",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=210040204",
+      "evidence_sha256": "c461f4837e6774a0b759d2491b9ffde1ed388649b9092099bc54a326ced38e57",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:210040221",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=210040221",
+      "evidence_sha256": "78d6c591fae2567edd56a9d32251bfed80c7ae0aac36d993e6cc1f9c07b08d28",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:210120401",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=210120401",
+      "evidence_sha256": "598a09d77b57837cc971fab3d5851897df83c96102030ac918e8ea1e4b137316",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:210120402",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=210120402",
+      "evidence_sha256": "60c22fb3a87811905721180cb33311fb62d68bcee49685ef9b050d8e00c1f6a5",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:220230201",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=220230201",
+      "evidence_sha256": "9a789d3158ff8a10760cef8575cb053cc155aa07b7c76fb1a5e10f81dec38915",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:220230202",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=220230202",
+      "evidence_sha256": "5a19f703c4f697d8e748eeaa8540ab4564a31d49991cd1c8b86c489368dffddc",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:220230203",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=220230203",
+      "evidence_sha256": "a83df6ba19f8891c6c73680c7e407946ba754d942c0966ed3ce0d075224ef2f0",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:220230204",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=220230204",
+      "evidence_sha256": "d8f2576fd5843a93fe795f35273987579bb66941c09adca058e31019ecd7e082",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:220230205",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=220230205",
+      "evidence_sha256": "38134bc78ab51c75876ff2529cc4dedf8943e6791143c05f263ee52b8636507a",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:230020304",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=230020304",
+      "evidence_sha256": "c543199cf8227523f1dc9c7e1b5dd71c824fe3e2d8e4cf225830e1312cfdf7a8",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:230240101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=230240101",
+      "evidence_sha256": "500fd64b4fda89fd01412e778eb2777d136a911931e8370891f096512fba6ab9",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:230240102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=230240102",
+      "evidence_sha256": "9c8370f76aba7a53ff060459e6645c69f328e9d9d66fce3d4a3d305978127d4b",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:230240112",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=230240112",
+      "evidence_sha256": "80b1457be1ded722f53259968ad24bab8f32e912b1b5e0c1b5e12c92d0defaaf",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240220101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240220101",
+      "evidence_sha256": "e6287e1d95cfd74d899e963b37a6912f7887a9755b4ef11280a39d61c95e2db6",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240220102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240220102",
+      "evidence_sha256": "a0e89ec6248eb885f02cf1fd5dc21e8c81a35f713145d49cfa22339ac1972f52",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240230101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240230101",
+      "evidence_sha256": "fb555bd6a199c31a14972b852f55d2a7d6bb40174c5dd2e8e2bf967055d010da",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240230102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240230102",
+      "evidence_sha256": "e94d3ad9ea87980b1d717cf6d4a855a3d53489e77dabc06f8a62ec0ba8bc16e4",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240230201",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240230201",
+      "evidence_sha256": "896cfdb6456f46abd59fb002dc3a613608778bbd16608032a0117abba5da114a",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240230202",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240230202",
+      "evidence_sha256": "1298b6204f3551155d438c88abe5f20c1df42a78e2ab845254f3f4a03502663d",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240230203",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240230203",
+      "evidence_sha256": "c6abd2e49bcb56e26bad3c9e57f7863e32abbd925550bf8c73d1f740492e54c6",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240320101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240320101",
+      "evidence_sha256": "c486d4c541e4202db2d2d188746409dfe977dac4017cf009707e0ad8c0c58de5",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240330301",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240330301",
+      "evidence_sha256": "fd732ae64b445d375a20e6b8f0088de99e916dc38f4d4893043c26b4463712c2",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:240330302",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=240330302",
+      "evidence_sha256": "c89f5e60d55b0e44d24bd1614c8b236a650871cdc2903d6d44119fb558b1ee53",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130401",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130401",
+      "evidence_sha256": "fb48f6e07c0c4505781daf44e82fddb322c15f9e795830686b8ac65925050599",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130402",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130402",
+      "evidence_sha256": "e7af57773b93040396e1e3b0467a2723f9f20fa20345d9b67eb158d9d9ac599f",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130403",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130403",
+      "evidence_sha256": "6a7720e1c9a361c5febbf685d5ceb33877467c788ff9d3d7ea12b4dfc328fbd8",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130404",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130404",
+      "evidence_sha256": "8138a9b8131e4eb4ee651e281cd4532186da55ec7e843d57eb5314e98b7b1995",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130405",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130405",
+      "evidence_sha256": "91c155058bde2bebe6f629ca01f7d334373cb76ed323e9026e12cf07bda43973",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130406",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130406",
+      "evidence_sha256": "301bb816c0f899eedffe1befd9f2025f29b68c1210e43292ed25bd0f16c03572",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130407",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130407",
+      "evidence_sha256": "f70fd7834a90b33d2084e734e852e4ab6436b8c5875a73eee938ecbd6fedcf77",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250130408",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250130408",
+      "evidence_sha256": "eec7989b83dba09b93b85d27c4466e5d893e26b4c29c97b8158f6428dc460bff",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250140103",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250140103",
+      "evidence_sha256": "571e1bec10153eaaa829b2784edcc565aab8dc49647167cd6401452c75e0f5a2",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250140301",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250140301",
+      "evidence_sha256": "4465e7467eb07926c673403f91dd2cb476137775c73e3d7d74044cd8ce3b02e9",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250140302",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250140302",
+      "evidence_sha256": "04c8ffa83c4810780480163734e23269f3148290e45af612dec4f8b10ee0be64",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250140303",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250140303",
+      "evidence_sha256": "3f88c801e150b657ee737e46b0d894ac16cef4a12c1c19fdf1641f206bdccc87",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250230101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250230101",
+      "evidence_sha256": "f254effcb3d3ff7c3858caffa950838ebd4476e7c298f8d3a9e084de15b0c37a",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250230102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250230102",
+      "evidence_sha256": "99f2db5cd8b3626e5127285e76eea09173d5c53017e2c0f6143fb313c70d3564",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250230201",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250230201",
+      "evidence_sha256": "d058cf97acdcaff22b8de2e1fccfa088f6bb3ad57a5e04ffaa7a401c8ea7b312",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250230202",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250230202",
+      "evidence_sha256": "fabaae230a45deb7ee5dc1b4939451daf23ce6939cb6f6d645dcbbf02e64e319",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250230203",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250230203",
+      "evidence_sha256": "0f96a39792622b81b84ee27b06394cb63cede06ece99246dea2f08c5b1d46a55",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240101",
+      "evidence_sha256": "6850730057c175772d5a915a60e8c8d20c4cdea043cf5e876b931fe72a129394",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240102",
+      "evidence_sha256": "93554644b79c7df79acba59ff9dbbdbf801a66d61890d0aa2535dc82fffefb2f",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240103",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240103",
+      "evidence_sha256": "85da9aa08220275f2c6215faffd9de736f9748eb0a9b7e02818f2768db2f711b",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240104",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240104",
+      "evidence_sha256": "6dc32b7adc1015e4c5937f51646fedc9aebe62041150f2af36e8462a1548b482",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240105",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240105",
+      "evidence_sha256": "976a91e6b231ee7214895cd8d058a9f59840c375f4a70e3210cd9595cecf4f02",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240106",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240106",
+      "evidence_sha256": "dc41687d5391db6febe7697d032d3a75e4b771513048f1f35226b6628c516c7a",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:250240107",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=250240107",
+      "evidence_sha256": "5d9f362d5967237fbcfe54ce9c53753d9831f0bdefa2680e47d3f3f8714c13a9",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:280030203",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=280030203",
+      "evidence_sha256": "7afd66c62c4adba33948e53cdd657038841e6c766ef64939d61018935ca03d08",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:280330101",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=280330101",
+      "evidence_sha256": "69fa9368bf0d6c4bd298b7a882840185917f1e335a3b05992a775fdf79949077",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:280330102",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=280330102",
+      "evidence_sha256": "82fb76023c8b94e8891523700fbdc3909b841b1d8b2ff56839e95f12eefde22f",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:280330103",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=280330103",
+      "evidence_sha256": "2b76bc1fbbb2924ad80760e6cb6561784945d49c3833c66fe849fad724c9db3a",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "enemy_statuses:status:280330104",
+      "source_path": "ExcelOutput/MonsterStatusConfig.json",
+      "row_locator": "StatusID=280330104",
+      "evidence_sha256": "b0e3308d57af9afcf3ee3e0804518d1f301564b9ee2a5efb9b9bdac2836e93ad",
+      "evidence_summary": "ModifierName appears in an enabled mechanical config program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "source_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W1_Mecha03_02_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W1_Mecha03_02_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "d0487b68ff90ebca2b6a7e2efecc34323b483f74dca963743818e9141cc50ea4",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "8ded82d2e75bec62ec7ba5480574dccd075af5582aafbacf67a3a18a2095f1a1",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W1_Svarog_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W1_Svarog_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "e36613c3338c2464d82b4109bfb0688cfaa35932aa896de8f50cd472b19c8908",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W2_Argenti_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W2_Argenti_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "42c215b05f2e096c0d1972d3b44a0d7d7379686dd24ee0f23c7bcada1e1f1b65",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W2_Beast01_01_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W2_Beast01_01_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "ab602beaf405738fe3177a94065355f84101ab405c1099be9e3ec348ac8f605b",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W2_Beast02_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W2_Beast02_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "4a02f5cfafe47a9908a3b7402464e5aa77c1abcb8786a25cf2e7297f363ad419",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W4_Griffin_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W4_Griffin_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "48c7d9d9a72a14aec27ef282bdc6d04531ac1889eb6b05f3f78d33d6dc231f07",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W4_Griffin_01_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W4_Griffin_01_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "93506adda78fd5fad2cf9ee1926f6a7a00617dca8c1120ac50a38a8b3a897de4",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W4_Harpy_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W4_Harpy_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f3f56b62c71d2f9048867e7797d752201fd16b95168dae587626e9fe5b80db39",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W4_Unicorn_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W4_Unicorn_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "2a3e6419fe5bc933a2da6ca17316223c9f01dd6a73e851d4ce07542b3a599e0f",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "42d1a57d64d473bac84333c7f5e0b7ac89084d408ec65ca63aba6ca2153f9d46",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W5_Painter_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W5_Painter_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f6a79ff5b35b44494f2e66a5e3363a7bc564eca7355de5f1b61b247bc89d7ff0",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W5_Ranger_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W5_Ranger_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "866ae3f1d118356419b2feda84330dc1b29997e97d1f6f7dd172d2dd3f850677",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W5_RipperPart_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W5_RipperPart_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "6c4f021a756c95b1b441e7058ad185e85696c83e11509992a9b922215d30e542",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_W5_Ripper_00_AI.json",
+      "source_path": "Config/ConfigAI/Monster_W5_Ripper_00_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "e58ab27fde0dbb7b5e2dbb3a894e29440dcfc9549d162fed48d14e6f5f719e5e",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "source_path": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "3e252ed9184d079931b34f821430f475532a22815140f0f32ed7a5357a9ea368",
+      "evidence_summary": "active-stage or summon-closure enemy AI program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/BattleEventAbility.json",
+      "source_path": "Config/ConfigAbility/BattleEventAbility.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "522c68104d4fb9663cacabb1c5b3d2006491e2d5ec29e24d392c0309196e7642",
+      "evidence_summary": "shared infinite-summon battle-event ability referenced by active candidates",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_Common_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_Common_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f134613277eb73ae261d0046ec89cac50d9dae88b71f5a69fe43b079a1245522",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "0f0985cb4e3049ed7391a01037c32f0c22feb82375f5a3cbc7460519a5893e7a",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "87e4f654b1c1f49ea9991f57eee0a5bcd55f35cc6a3e110c9d89372119d0b8a0",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "92771d38d4eec3ed47a5e4fff60d4c4ddcf995eaade40684585e19282861b0dd",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "ad8faaee75446c20a6681c652b89f8c017e179931f5b459ab460cf46a88925d3",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "7ec97ec696b7ec7b320ea782963b2599fa0140e21077a09d9a1239aebca4c8c7",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "5b3d3db130574938cdb29804acf160cabcb06849ad812666cfb8b21943a605b1",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "1b9c251a8034942b0ce3ea5b7e9ab2bb4e977c5714db91d9c5b5a17ca62ba3e9",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f8b2d733806a768d16715cd91d0e2ca55e65cc3e0bbb3e0d16c2a1a850dd572e",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "eebffaabc849c6b99443ac017789f861afe15ca86e013fd6a1e2433be7091168",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "ae479da36ee0f31cf8fcfc015ec658b2d17a98c1a7ee7100e6a8f49d2109af16",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f50667decea0974a03866d47cbd7c2e381228e494f0fa3272b4210b8979c9acb",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "7efd4dcc7cbdb9921f8b5a364fc9cb2dfb18dc5ad70cae9a16b5b74593b46e5f",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "920eee5b50b7fa5f0fa5d84155ddf977866017ce00eebb26733cf4eb71eef085",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "974228c48a521ea1fe0ee91bbc33a3d984451b1c450f3e5b7649b40a53ba97e6",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "5d3563b6f290ec797b561f8fbff9625641f428a40555f98680e0f0bfbccedeba",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "2af0b6fd3f26b8a174a1c76071f7397a59087586389bc3691532571339ec5c9d",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "52f39cad15709efbeabb28152494f189e917467c5639d3ffd7dcb3cf7e81574b",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "5afec0bdd32d84580d0cae412be211fbcbe44db65895659b6dfec38f922c8e88",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "d232c37a329de9100766cf9933fea3547c2917f8e7683fa8ff13665229dcedd7",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "0ac4951ef966e713e121bda5a081c75c6d9325729ac242d94b875f163cc7b6a1",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "158779f2986f543adae295a430f95e3662afda030bfbcc2f18d1cae6b9bcdde6",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "b18c31a9ec0359485b0a3f69d03efe386194936f9316af00f6bd54ae723abbb4",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "dc0463c7864ee504e2087f4a8043415e4465db7f7e0d956bee34238f8112b0b9",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json",
+      "source_path": "Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "9c245a9f55f13d5009027722b950f9f145ea008de8ad048606ef2cf967aa5945",
+      "evidence_summary": "active-stage or summon-closure enemy ability/layout program",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "6a7d651173fa7048545e8237da5c069823bedf8d9f6dd24581ac9d6e5ded7ce5",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "aa10805523735267b28eef65d967edd272d9102725cd48189d6ed26c2de9d911",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "a54e6b6fd5ba56c89ac2acf9b3cd8a4e05a92b2acf4747c9f5c3971d63fa1ff9",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "8c53e5b200a959380abcbf312077f123443150f018b70d48dfc50b6729dc6fd4",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "7b9197d3aaff633a743b72d02302e92c427a503a7d02d70804e95ed4a4d5448f",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "82faa7ac50ee540014bcc2568c6949a2ab3daf40c79af87bfc0ae9e3edce25a3",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "f4027c5b61533eac2a8b308304f686779b9772733771b00dcd8f729e9e6655a5",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "e6833d865550bd6b77fed7940b578a9c49aa4197c26b24e2349e104a7dfe2529",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "87af4a2217e4667174cfd18d2dd687c674de23eb8a06e9acea9a4c3478aab0df",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "0e3a76a1ffe3847fcad1329afb08c63e313d7077a59fa66ffaf99e9ad814a9a4",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "b32953e1d412b7c128fa23e24f56dd470a92488b6cc743035a23f9e8d13852c8",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "7e96b85f81ac8144eaa1ce74ec8b2bc398fe55bb469922f82ac6125a47838d9d",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "a71d8465ad71eec05b37ec0cf5d850cc5690730720805a36aa2c5f8a850a514b",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "86deff0cac70ffcf41e0edcf9d4372d6129f86ce0176310d4f2e026415decaf4",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "cd7a5826f4a6239a34ec11747c01ed36bee85473198e2cfc1fcfec076bfcbeb1",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "11fb51e2e127969e927bdedb71ddbc1dda7116e02d3b9bb9758aa71742b416cb",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "9f9e9cd668396111495f5f9f0dd756a12261ff6b45aba0853df9ba7510c6a5ef",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "dc3c837c417139edb5672ca0ff152b36ac362a8042efc4878580c46fdf3828fa",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "40a27cf75c349b2658dfc8a63f8c6b52066f9735b6f329b4fe9ddcd1ba09bb9c",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "2364017d869e483773c8e3c6f46879e8ee8b101aa3aca4275a6538971732897a",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "af423d96f8c4bc6a8a3bccf405e374b76380457be96517da1a8e09f1f9dde2a2",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "d947a459e8881d91ee85452c0646b20b5eb6261ed2abbc510296af5667642aca",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "5747ac90b9bbd923b70f273da82d8936eb1d2247d5a7fe8a560f9a08d8ccb0ea",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "429b684c43402f90c81bc95803a491a5518e2650d4f251d66e95c7a39aee3edd",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "2483f57c0e34584069761c0d69bf49dbd999442c62ecb78274e81a0579faee7a",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json",
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "1cc4209998e6627334069c439ed5cadd55fcdfff45d0aa8a4fc6af29fd850746",
+      "evidence_summary": "active-stage or summon-closure enemy character configuration",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    },
+    {
+      "manifest_record_id": "config_programs:config:Config/Level/StageCommonTemplate.json",
+      "source_path": "Config/Level/StageCommonTemplate.json",
+      "row_locator": "raw Git blob",
+      "evidence_sha256": "e975a68d401253de5b3f8db0e1671a6c8dc5ffc0598ae23e37205e32efd2317e",
+      "evidence_summary": "level graph directly referenced by all five planning StageConfig rows",
+      "result": "AbsentFromCommittedPeerManifest",
+      "exact_peer_records": [],
+      "peer_container_records": []
+    }
+  ]
+}

@@ -149,8 +149,7 @@ function verifyOwnershipCheckpoints() {
     verifyCommit(checkpoint.commit, checkpoint.tree,
       `${checkpoint.goal} checkpoint`);
     if (checkpoint.remote_reachable)
-      runGit(root, ["merge-base", "--is-ancestor", checkpoint.commit,
-        `${checkpoint.remote}/${checkpoint.branch}`]);
+      verifyRemoteReachability(checkpoint);
     for (const file of checkpoint.files) {
       const bytes = gitBlob(checkpoint.commit, file.path);
       assert(hashBytes(bytes) === file.sha256,
@@ -188,6 +187,28 @@ function verifyOwnershipCheckpoints() {
   assert(policy.ownership_checkpoints[5]
     .committed_ownership_manifest_available === false,
   "Goal 12 checkpoint boundary drift");
+}
+
+function verifyRemoteReachability(checkpoint) {
+  const recorded = spawnSync("git", [
+    "-C",
+    root,
+    "merge-base",
+    "--is-ancestor",
+    checkpoint.commit,
+    `${checkpoint.remote}/${checkpoint.branch}`,
+  ]);
+  if (recorded.status === 0) return;
+
+  const remoteRefs = lines(captureGit(root, [
+    "for-each-ref",
+    "--contains",
+    checkpoint.commit,
+    "--format=%(refname)",
+    `refs/remotes/${checkpoint.remote}`,
+  ]));
+  assert(remoteRefs.length > 0,
+    `${checkpoint.goal} checkpoint is not reachable from a remote ref`);
 }
 
 function verifySoraAuthority() {
