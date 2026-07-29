@@ -1,0 +1,89 @@
+[
+  {
+    "id": "currency-wars.profile.v1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsProfile",
+    "name_en": "Currency Wars",
+    "name_zh_cn": "货币战争",
+    "summary_en": "Version 4.4 Candidate reference profile for the permanent TournRogue activity; runtime lowering is absent.",
+    "summary_zh_cn": "4.4 版本常驻 TournRogue 玩法的 Candidate 资料档案；不包含运行时降级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.3667032256414715511",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3667032256414715511",
+        "sha256": "499b1898266d0b64c507a4c08a07d57427f40f7e776e86b3dad7fa8e7a7e57ba",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3667032256414715511",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3667032256414715511",
+        "sha256": "32164a83b7fc6f217b911042a29233532cf3dc4cbb4986581942c470469b50b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the exact released TournRogue activity and module 6002201.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      }
+    ],
+    "tags": [
+      "candidate-reference",
+      "currency-wars",
+      "tourn-rogue"
+    ],
+    "sub_mode": "TournRogue",
+    "tourn_mode": "Tourn3",
+    "game_version": "4.4",
+    "runtime_enabled": false,
+    "entry_refs": [
+      "currency-wars.entry.activity.105",
+      "currency-wars.entry.title.tournrogue"
+    ],
+    "module_id": "currency-wars.module.6002201",
+    "gambit_mode_ids": [
+      "currency-wars.gambit.overclock",
+      "currency-wars.gambit.standard"
+    ],
+    "initial_resources": [],
+    "initial_resources_resolution": "Unspecified",
+    "finish_condition_ids": [
+      "currency-wars.finish.3000311",
+      "currency-wars.finish.3000312",
+      "currency-wars.finish.3000313",
+      "currency-wars.finish.3000314",
+      "currency-wars.finish.3000315",
+      "currency-wars.finish.3000316",
+      "currency-wars.finish.3000317",
+      "currency-wars.finish.3000318",
+      "currency-wars.finish.3000319",
+      "currency-wars.finish.3000320",
+      "currency-wars.finish.3000321",
+      "currency-wars.finish.3001304",
+      "currency-wars.finish.3001305"
+    ]
+  }
+]

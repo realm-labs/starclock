@@ -1,0 +1,42 @@
+[
+  {
+    "id": "currency-wars.area-group.tourn3-guide",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsAreaGroup",
+    "name_en": "Arcadian Roam",
+    "name_zh_cn": "乐园漫游",
+    "summary_en": "The released Tourn3 area-group selector binds the Guide area family.",
+    "summary_zh_cn": "已发布的 Tourn3 区域组选择器绑定 Guide 区域族。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournareagroupbytourn-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAreaGroupByTourn.json",
+        "locator": "2",
+        "sha256": "79e3c0b89c994e0a77c062608a54582cd04120d967a4773836d60a7fda4cf337",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "area-group",
+      "guide",
+      "tourn3"
+    ],
+    "source_id": "Tourn3:Guide",
+    "area_ids": [
+      "currency-wars.area.103",
+      "currency-wars.area.104"
+    ],
+    "selection_policy": "ExactGuideSelector",
+    "transition_rules": [
+      "Guide areas do not grant Gambit rank progression."
+    ]
+  }
+]

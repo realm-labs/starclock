@@ -1,0 +1,674 @@
+[
+  {
+    "id": "currency-wars.finish.3000311",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000311",
+    "name_zh_cn": "Tourn3 完成条件 3000311",
+    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000311 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000311 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "17",
+        "sha256": "00096954350b24867df9fa3e85c29c1673a1623bfb88336be1f698f7d4b0009e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishwithdifficultycompcnt",
+      "tourn3"
+    ],
+    "source_id": "3000311",
+    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "parameters": {
+      "parameter_type": "NoPara",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "1",
+        "2"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "NoPara",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "1",
+      "2"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000312",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000312",
+    "name_zh_cn": "Tourn3 完成条件 3000312",
+    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000312 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000312 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "18",
+        "sha256": "05e33469aef70bd0617142cd9f25e566c56518925ed23e631c66289f1bbfa2e9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishwithdifficultycompcnt",
+      "tourn3"
+    ],
+    "source_id": "3000312",
+    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "parameters": {
+      "parameter_type": "NoPara",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "2"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "NoPara",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "2"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000313",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000313",
+    "name_zh_cn": "Tourn3 完成条件 3000313",
+    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000313 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000313 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "19",
+        "sha256": "2384ffc23e21092fa16bdb4e8f249c8d402114a3b7aedcb62e53a3ea7532c5e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishwithdifficultycompcnt",
+      "tourn3"
+    ],
+    "source_id": "3000313",
+    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "parameters": {
+      "parameter_type": "NoPara",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "3",
+        "2"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "NoPara",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "3",
+      "2"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000314",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000314",
+    "name_zh_cn": "Tourn3 完成条件 3000314",
+    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000314 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000314 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "20",
+        "sha256": "11efb00ec95be2e164d2c4c331347fe33f9b38b64dc5ad1a825a016d396f946f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishwithdifficultycompcnt",
+      "tourn3"
+    ],
+    "source_id": "3000314",
+    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "parameters": {
+      "parameter_type": "NoPara",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "4",
+        "2"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "NoPara",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "4",
+      "2"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000315",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000315",
+    "name_zh_cn": "Tourn3 完成条件 3000315",
+    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000315 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000315 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "21",
+        "sha256": "a05239d05eef1d169a982a61bc3a165df99d5cb4cae674c222e9a1a4d1d664eb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishwithdifficultycompcnt",
+      "tourn3"
+    ],
+    "source_id": "3000315",
+    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "parameters": {
+      "parameter_type": "NoPara",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "5",
+        "2"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "NoPara",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "5",
+      "2"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000316",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000316",
+    "name_zh_cn": "Tourn3 完成条件 3000316",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000316 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000316 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "22",
+        "sha256": "7dc6d95e49a216ef6b88aeabe766fcacb6aa8fc72496155f7be108a862921d99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000316",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000317",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000317",
+    "name_zh_cn": "Tourn3 完成条件 3000317",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000317 explicitly tests Tourn mode 3 and progress 2.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000317 明确检查 Tourn 模式 3，目标进度为 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "23",
+        "sha256": "3c3d82eba12767c1ab7d41a87a317d5e763c9c7203e44a64eed33dfe06c111cd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000317",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "2"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "2",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000318",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000318",
+    "name_zh_cn": "Tourn3 完成条件 3000318",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000318 explicitly tests Tourn mode 3 and progress 3.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000318 明确检查 Tourn 模式 3，目标进度为 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "24",
+        "sha256": "8eb14f36ea850f54279700f073e2635c6ce4edeef3fe0054291917742fa79b00",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000318",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "3"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "3",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000319",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000319",
+    "name_zh_cn": "Tourn3 完成条件 3000319",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000319 explicitly tests Tourn mode 3 and progress 4.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000319 明确检查 Tourn 模式 3，目标进度为 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "25",
+        "sha256": "6795845611a2b2fa7143a52eca938b0332272341c429acbc3a6b458317c753c6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000319",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "4"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "4",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000320",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000320",
+    "name_zh_cn": "Tourn3 完成条件 3000320",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000320 explicitly tests Tourn mode 3 and progress 5.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000320 明确检查 Tourn 模式 3，目标进度为 5。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "26",
+        "sha256": "36e011a9befbe89e046e87a1b0a3da3bf3109df3dba06e0f6d854521d3c4fd3f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000320",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "5"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "5",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3000321",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3000321",
+    "name_zh_cn": "Tourn3 完成条件 3000321",
+    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000321 explicitly tests Tourn mode 3 and progress 10.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000321 明确检查 Tourn 模式 3，目标进度为 10。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "27",
+        "sha256": "27b04cd9e24cb4d1bb722aadcc56a4cfaf00a50313505b0ce02b8213db3a63f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcntbyareagroup",
+      "tourn3"
+    ],
+    "source_id": "3000321",
+    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "2",
+        "3"
+      ],
+      "item_parameters": [],
+      "progress": "10"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "2",
+      "3"
+    ],
+    "item_parameters": [],
+    "progress": "10",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3001304",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3001304",
+    "name_zh_cn": "Tourn3 完成条件 3001304",
+    "summary_en": "Released RogueTournFinishCnt condition 3001304 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCnt 条件 3001304 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "77",
+        "sha256": "4ac812ff6b3be2ed611c6f3c652b38fc660a5bb1df01b9d1490b6c6fee8dbf72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcnt",
+      "tourn3"
+    ],
+    "source_id": "3001304",
+    "condition_kind": "RogueTournFinishCnt",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "103"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "103"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  },
+  {
+    "id": "currency-wars.finish.3001305",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Tourn3 Finish Condition 3001305",
+    "name_zh_cn": "Tourn3 完成条件 3001305",
+    "summary_en": "Released RogueTournFinishCnt condition 3001305 explicitly tests Tourn mode 3 and progress 1.",
+    "summary_zh_cn": "已发布的 RogueTournFinishCnt 条件 3001305 明确检查 Tourn 模式 3，目标进度为 1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "78",
+        "sha256": "71e3c31687fe1a5f89f6aefa87646f3a0665cf6edfac5463c2240473aa01c750",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "roguetournfinishcnt",
+      "tourn3"
+    ],
+    "source_id": "3001305",
+    "condition_kind": "RogueTournFinishCnt",
+    "parameters": {
+      "parameter_type": "ListContain",
+      "string_parameter": "Cond_InRogueTournMode(3)",
+      "integer_parameters": [
+        "104"
+      ],
+      "item_parameters": [],
+      "progress": "1"
+    },
+    "parameter_type": "ListContain",
+    "string_parameter": "Cond_InRogueTournMode(3)",
+    "integer_parameters": [
+      "104"
+    ],
+    "item_parameters": [],
+    "progress": "1",
+    "terminal_disposition": "SourceConditionOnly"
+  }
+]

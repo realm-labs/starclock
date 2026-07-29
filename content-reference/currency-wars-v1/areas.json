@@ -1,0 +1,2650 @@
+[
+  {
+    "id": "currency-wars.area.103",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Roam 1",
+    "name_zh_cn": "差分宇宙：乐园漫游1",
+    "summary_en": "Guide area 103 binds 1 difficulty source row(s) and 1 ordered layer(s).",
+    "summary_zh_cn": "Guide 区域 103 绑定 1 个难度源行与 1 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "2",
+        "sha256": "d16d701b976970ca253cabb719a178eb96b8c045926565d2f9d0b60787fb9478",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "guide",
+      "tourn3"
+    ],
+    "source_id": "103",
+    "area_type": "Guide",
+    "gambit_mode_id": "",
+    "gambit_binding_quality": "Tutorial",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "",
+    "plane_number": 1,
+    "plane_numbers": [
+      1
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.1001"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.103"
+    ],
+    "map_entry_id": "3001302",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001302"
+  },
+  {
+    "id": "currency-wars.area.104",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Roam 2",
+    "name_zh_cn": "差分宇宙：乐园漫游2",
+    "summary_en": "Guide area 104 binds 1 difficulty source row(s) and 1 ordered layer(s).",
+    "summary_zh_cn": "Guide 区域 104 绑定 1 个难度源行与 1 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "3",
+        "sha256": "e8b30f31023f06f2eb9207482671124c3d7ba9b2e777e3c2451a12e46ac392c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "guide",
+      "tourn3"
+    ],
+    "source_id": "104",
+    "area_type": "Guide",
+    "gambit_mode_id": "",
+    "gambit_binding_quality": "Tutorial",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "",
+    "plane_number": 1,
+    "plane_numbers": [
+      1
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.1001"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.104"
+    ],
+    "map_entry_id": "3001304",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001304"
+  },
+  {
+    "id": "currency-wars.area.20401",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20401 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20401 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "70",
+        "sha256": "44c06e79e3951c781fb30904ad1f143500882bd8df0c89043f4b2e973554f45d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20401",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "3",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3011",
+      "currency-wars.difficulty.3012",
+      "currency-wars.difficulty.3013"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3001306",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001306"
+  },
+  {
+    "id": "currency-wars.area.20402",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20402 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20402 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "71",
+        "sha256": "8c74afc5380a78088e94d9277509b7e2a9076fc0320698f14303faf439d54e6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20402",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "4",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3021",
+      "currency-wars.difficulty.3022",
+      "currency-wars.difficulty.3023"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000510",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000510"
+  },
+  {
+    "id": "currency-wars.area.20403",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20403 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20403 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "72",
+        "sha256": "e7c0942386e9ea5cbf6fe799a85a2fd8639d40ad4fa0b9cac185d2a5ae8e91ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20403",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "5",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3031",
+      "currency-wars.difficulty.3032",
+      "currency-wars.difficulty.3033"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000511",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000511"
+  },
+  {
+    "id": "currency-wars.area.20404",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20404 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20404 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.73",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "73",
+        "sha256": "4223f5ddbce4654d8bca1e6c3daf039611e24e84b47013be4cb77d18cf69cd0b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20404",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3041",
+      "currency-wars.difficulty.3042",
+      "currency-wars.difficulty.3043"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000512",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000512"
+  },
+  {
+    "id": "currency-wars.area.20405",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20405 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20405 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "74",
+        "sha256": "adf1be04c2d2eb3c5cd0f514bf86c2c815e1d8688217d45cedf0c27a52321dc2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20405",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3051",
+      "currency-wars.difficulty.3052",
+      "currency-wars.difficulty.3053"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000513",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000513"
+  },
+  {
+    "id": "currency-wars.area.20406",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20406 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20406 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.75",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "75",
+        "sha256": "72e129674c205f251ba62e38cdcdd73762902fab7b9792dff004b288b74c2757",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20406",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "3000315",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000315"
+  },
+  {
+    "id": "currency-wars.area.20407",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20407 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20407 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "76",
+        "sha256": "4ffc2e2bb306df012ac56d09fd2131c3d9923b89e13bf213b10bd87a2a370467",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20407",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20408",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20408 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20408 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "77",
+        "sha256": "effc5a363207ac3ac52ca9524c926a12e0ac1cb2004a6a892a5e309ef486d2ba",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20408",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20409",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20409 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20409 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.78",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "78",
+        "sha256": "2b2eaa8873e7cbd08f5d9fa17a610e27b2ad948c87c7e453dd15daeadf100ea3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20409",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20410",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20410 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20410 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.79",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "79",
+        "sha256": "134c8e30a1f5a4fbc58aa410f43199bb399dbd304898bdd83a6faf0b720edc8b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20410",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20411",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20411 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20411 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.80",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "80",
+        "sha256": "8cfd154698581f94bef18096864b7a9d009231a5fb68591c957245ebe3428a4e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20411",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20412",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20412 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20412 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.81",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "81",
+        "sha256": "f350778243f9e8ec364725a018e7aa57c45a3910017e0ff60cf4628f3d1d9716",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20412",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.20413",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "WeekChallenge area 20413 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "WeekChallenge 区域 20413 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.82",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "82",
+        "sha256": "565bee200f498cdec9ffd8a96410468e9d6390098aca4e8cfd006aba2212e4f9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "tourn3",
+      "weekchallenge"
+    ],
+    "source_id": "20413",
+    "area_type": "WeekChallenge",
+    "gambit_mode_id": "currency-wars.gambit.overclock",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.401",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 401 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 401 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "21",
+        "sha256": "c7ca5aa137f0e5173ba2d720026a26418a967b7bb76115288638ea69e0923bfc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "401",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "3",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3011",
+      "currency-wars.difficulty.3012",
+      "currency-wars.difficulty.3013"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3001306",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3001306"
+  },
+  {
+    "id": "currency-wars.area.402",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 402 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 402 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "22",
+        "sha256": "743e9cb2c2a32f5985077ab0eae59f0d263d156a284841538746fc3c086f9efb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "402",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "4",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3021",
+      "currency-wars.difficulty.3022",
+      "currency-wars.difficulty.3023"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000510",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000510"
+  },
+  {
+    "id": "currency-wars.area.403",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 403 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 403 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "23",
+        "sha256": "f35f088becc85ecfd41f3cc09c718c32280e3e5f51422ddf9ab40173bc5ab4a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "403",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "5",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3031",
+      "currency-wars.difficulty.3032",
+      "currency-wars.difficulty.3033"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000511",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000511"
+  },
+  {
+    "id": "currency-wars.area.404",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 404 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 404 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "24",
+        "sha256": "25d85e93a37fed9b1636dad4e44a3cd89f7f4b14b6de95af79b5b2ee602c4984",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "404",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3041",
+      "currency-wars.difficulty.3042",
+      "currency-wars.difficulty.3043"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000512",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000512"
+  },
+  {
+    "id": "currency-wars.area.405",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 405 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 405 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "25",
+        "sha256": "bdbdfc2feef74bfb1937c4c18efdd13951ba36bb66ebeec630476480b66d725b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "405",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3051",
+      "currency-wars.difficulty.3052",
+      "currency-wars.difficulty.3053"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3001",
+      "currency-wars.layer.3002",
+      "currency-wars.layer.3003"
+    ],
+    "map_entry_id": "3000513",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000513"
+  },
+  {
+    "id": "currency-wars.area.406",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 406 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 406 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "26",
+        "sha256": "a7a7909b7960af0face8a893a56208736077eca44ddbddc7ac80f49658aaefd1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "406",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "3000315",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "3000315"
+  },
+  {
+    "id": "currency-wars.area.407",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 407 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 407 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "27",
+        "sha256": "dc81619cbaf9196659548b55659eceb0e70f06f344bc4095c1adecfa94e14274",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "407",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.408",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 408 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 408 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "28",
+        "sha256": "b5b7532d70926b521d6c0098e0439e600d9fff38fc06c01c6656fe30ca6b6b7b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "408",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3061",
+      "currency-wars.difficulty.3062",
+      "currency-wars.difficulty.3063"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3011",
+      "currency-wars.layer.3012",
+      "currency-wars.layer.3013"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.409",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 409 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 409 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "29",
+        "sha256": "482055155bde477809a0a13c1c3d38851404f5974185055c9c58c7e36da32801",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "409",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.410",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 410 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 410 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "30",
+        "sha256": "8278b8d684feb9b8f7619bbdff2a4d3c8018e742f350786c1359a7a7c03d555a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "410",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.411",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 411 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 411 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "31",
+        "sha256": "390296370c1c02101275af3b437ea864d522c76333a2087ea3d47f400d89a6dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "411",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.412",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 412 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 412 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "32",
+        "sha256": "1619165e73439b45a4debdfe07d379216ec2a1e541a22eb33dd41a9724826c7a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "412",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  },
+  {
+    "id": "currency-wars.area.413",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsArea",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙：乐园漫记",
+    "summary_en": "Formal area 413 binds 3 difficulty source row(s) and 3 ordered layer(s).",
+    "summary_zh_cn": "Formal 区域 413 绑定 3 个难度源行与 3 个有序层级。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguetournarea-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "33",
+        "sha256": "61988f8adf05f00bd82583fcca2176346c948de2ca5b8e56930033a9e80b222e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gambit-area-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gambit-area-binding",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
+        "replacement_condition": "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode."
+      }
+    ],
+    "tags": [
+      "area",
+      "formal",
+      "tourn3"
+    ],
+    "source_id": "413",
+    "area_type": "Formal",
+    "gambit_mode_id": "currency-wars.gambit.standard",
+    "gambit_binding_quality": "ProjectPolicy",
+    "gambit_binding_replacement_condition": "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
+    "area_group": "6",
+    "plane_number": "",
+    "plane_numbers": [
+      1,
+      2,
+      3
+    ],
+    "difficulty_ids": [
+      "currency-wars.difficulty.3071",
+      "currency-wars.difficulty.3072",
+      "currency-wars.difficulty.3073"
+    ],
+    "layer_ids": [
+      "currency-wars.layer.3021",
+      "currency-wars.layer.3022",
+      "currency-wars.layer.3023"
+    ],
+    "map_entry_id": "undefined",
+    "map_entry_semantics": "Unspecified",
+    "initial_room_type": "Battle",
+    "unlock_finish_condition_id": "undefined"
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "currency-wars.entry.title.tournrogue",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsEntry",
+    "name_en": "Divergent Universe",
+    "name_zh_cn": "差分宇宙",
+    "summary_en": "The common mode-title row binds the TournRogue identity.",
+    "summary_zh_cn": "通用模式标题行绑定 TournRogue 玩法身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-roguecommonmodetitle-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCommonModeTitle.json",
+        "locator": "3",
+        "sha256": "7823313890a4ad493cb0ae08a815b5fd1ede087f694f34c80513f95bda79b5ce",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mode-title"
+    ],
+    "entry_kind": "ModeTitle",
+    "source_id": "TournRogue",
+    "module_id": "currency-wars.module.6002201",
+    "unlock_ids": [],
+    "gambit_mode_ids": [
+      "currency-wars.gambit.overclock",
+      "currency-wars.gambit.standard"
+    ],
+    "related_panel_id": ""
+  },
+  {
+    "id": "currency-wars.entry.activity.105",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsEntry",
+    "name_en": "Divergent Universe: Arcadian Chronicles",
+    "name_zh_cn": "差分宇宙•乐园漫记",
+    "summary_en": "Resident activity 105 selects TournRogue module 6002201.",
+    "summary_zh_cn": "常驻活动 105 选择 TournRogue 模块 6002201。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-rogueactivityresidentconfig-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "locator": "4",
+        "sha256": "aa1c9804788a1ee9b74dbf1230768fee695e654d2cd56de595ad235c301e729c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity-entry"
+    ],
+    "entry_kind": "ResidentActivity",
+    "source_id": "105",
+    "module_id": "currency-wars.module.6002201",
+    "unlock_ids": [],
+    "gambit_mode_ids": [
+      "currency-wars.gambit.overclock",
+      "currency-wars.gambit.standard"
+    ],
+    "related_panel_id": "60018"
+  }
+]
