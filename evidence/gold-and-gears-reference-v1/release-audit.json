@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.gold-and-gears-release-audit.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "audited_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "content_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "normalized_schema_sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+    "sora_schema_lock_sha256": "d46f31fad5e97658d096321de91c65a963775ef95ad1c88be7ea57eeb7219248"
+  },
+  "exact_once": {
+    "manifest_categories": 42,
+    "manifest_obligations": 7913,
+    "data_ready_obligations": 7913,
+    "coverage_percent": "100",
+    "duplicate_obligations": 0,
+    "blocking_gaps": 0
+  },
+  "normalized": {
+    "files": 51,
+    "common_rows": 15031,
+    "source_rows": 9082,
+    "mechanic_rules": 1224,
+    "semantic_fixtures": 18,
+    "research_gaps": 16,
+    "ownership": {
+      "GoldAndGears": 13637,
+      "Shared": 1394
+    },
+    "evidence_quality": {
+      "ExactPublicText": 1,
+      "ExactStructured": 11155,
+      "ProjectPolicy": 3875
+    }
+  },
+  "references": {
+    "source_ref_bindings": 31176,
+    "referenced_source_rows": 9082,
+    "typed_sora_fields": 31,
+    "typed_sora_bindings": 27425,
+    "rule_owner_and_fixture_bindings": 2448,
+    "fixture_input_bindings": 46,
+    "fixture_evidence_bindings": 95,
+    "research_gap_affected_bindings": 5025,
+    "unresolved": 0
+  },
+  "bilingual": {
+    "rows_checked": 15031,
+    "missing_english_or_chinese_fields": 0,
+    "chinese_fields_without_han_text": 0
+  },
+  "boundary": {
+    "allowed_ownership": [
+      "GoldAndGears",
+      "Shared"
+    ],
+    "inherited_standard_source_rows": 501,
+    "standard_profile_rows": 0,
+    "swarm_disaster_rows": 0,
+    "unknowable_domain_rows": 0,
+    "divergent_universe_rows": 0,
+    "story_or_account_rows": 0,
+    "runtime_handlers": 0
+  }
+}
