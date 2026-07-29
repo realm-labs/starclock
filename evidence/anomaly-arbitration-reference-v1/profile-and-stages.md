@@ -77,3 +77,19 @@ The exact Plight projection is limited to three-star result equivalence.
 Account rewards stay excluded. Because no Knight battles occurred, synthetic
 team snapshots are not fabricated; that fail-closed choice has its own
 replacement condition.
+
+## Stage clocks
+
+Pinned structured constants set Knight, normal King and Plight limits to 6, 6
+and 2 cycles respectively. The official guide independently states that every
+stage combat has its own limit, exceeding it fails the attempt, the first cycle
+has increased total action value, the countdown continues across phase changes,
+and allies gain an extra combat buff at each cycle start when few cycles
+remain.
+
+The public rule is qualitative for first-cycle action value, the low-cycle
+threshold and the buff identity/parameters. Those fields remain
+`Unavailable`; no assumed 150/200 action value, one/two-cycle threshold or
+generic damage buff is authored. Retry creates a fresh stage-attempt clock as a
+clearly labeled project boundary. Each unavailable field names its alternatives,
+semantic fixture and stronger-evidence replacement condition.

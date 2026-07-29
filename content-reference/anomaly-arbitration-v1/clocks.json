@@ -1,0 +1,534 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "clocks.json",
+  "record_kind": "ClockRule",
+  "records": [
+    {
+      "id": "clock.first-cycle-action-value",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Expanded first cycle",
+      "name_zh_cn": "扩展首轮",
+      "summary_en": "Every stage attempt begins with a first cycle whose total action value exceeds later cycles.",
+      "summary_zh_cn": "每次关卡尝试的首轮总行动值高于后续轮次。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "clock_rules:first-cycle-action-value"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:first-cycle-action-value",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "0830209f326ec452f9349d82a6534ca0fd76cd32a753106212e9e219a6205d18",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The first cycle has greatly increased total action value."
+        },
+        {
+          "source_id": "goal13:clock-rules:first-cycle-action-value",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 8",
+          "sha256": "99c2145084412d2c5626f1cdab74dd749fdfecc6e3b0061cf341e757feb0ccd6",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "The released guide is qualitative and no numeric action-value constant was found."
+        }
+      ],
+      "tags": [
+        "action-value",
+        "cycle",
+        "first-cycle"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 10,
+      "cycle_index": 1,
+      "qualitative_rule": "GreaterTotalActionValueThanLaterCycles",
+      "numeric_action_value": "Unavailable",
+      "approximations": [
+        {
+          "field_path": "numeric_action_value",
+          "unavailable_fact": "Released evidence says the first-cycle total is greatly increased but supplies no numeric action value.",
+          "selected_policy": "Retain the qualitative ordering and leave the numeric value unavailable.",
+          "alternatives": [
+            "assume standard 150 action value",
+            "assume 200 action value"
+          ],
+          "rationale": "No numeric value is safer than choosing an unobserved timing constant.",
+          "affected_fixture_ids": [
+            "fixture.clock-first-cycle.qualitative-only"
+          ],
+          "confidence": "High",
+          "replacement_condition": "Replace with a released configuration value or reproducible cycle/action-value trace."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.knight-cycle-limit",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Knight stage cycle limit",
+      "name_zh_cn": "骑士关轮次上限",
+      "summary_en": "Each Knight attempt has a stage-local limit of six cycles.",
+      "summary_zh_cn": "每次骑士关尝试具有独立的六轮上限。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "clock_rules:knight-cycle-limit",
+        "mode_constants:constant:ChallengePeak_Mob_Turn_Limit"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=1;ConstValueName=ChallengePeak_Mob_Turn_Limit",
+          "sha256": "fbc14a3f6901664554760c45b53417fc0683eee760ee9ed330196bc557c10807",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Pinned released Knight-stage turn limit."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-cycle-limits",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt."
+        }
+      ],
+      "tags": [
+        "cycle-limit",
+        "knight"
+      ],
+      "stage_kind": "Knight",
+      "boundary_order": 20,
+      "limit_cycles": 6,
+      "scope": "OneKnightStageAttempt",
+      "reset_on_wave_transition": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.normal-king-cycle-limit",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Normal King cycle limit",
+      "name_zh_cn": "常规王棋轮次上限",
+      "summary_en": "Each normal King attempt has a stage-local limit of six cycles.",
+      "summary_zh_cn": "每次常规王棋尝试具有独立的六轮上限。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "clock_rules:boss-cycle-limit",
+        "mode_constants:constant:ChallengePeak_Boss_Turn_Limit"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=2;ConstValueName=ChallengePeak_Boss_Turn_Limit",
+          "sha256": "2f5b3e50f9e7e550cc8b36be9ba658272d97fbde95c43d74e8b783efb3ca6ace",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Pinned released normal King turn limit."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-cycle-limits",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt."
+        }
+      ],
+      "tags": [
+        "cycle-limit",
+        "king",
+        "normal"
+      ],
+      "stage_kind": "KingNormal",
+      "boundary_order": 30,
+      "limit_cycles": 6,
+      "scope": "OneNormalKingStageAttempt",
+      "reset_on_wave_transition": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.plight-cycle-limit",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Plight King cycle limit",
+      "name_zh_cn": "困厄王棋轮次上限",
+      "summary_en": "Each direct Plight attempt has a stage-local limit of two cycles.",
+      "summary_zh_cn": "每次直接困厄王棋尝试具有独立的两轮上限。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "clock_rules:plight-cycle-limit",
+        "mode_constants:constant:ChallengePeak_HardBoss_Turn_Limit"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=3;ConstValueName=ChallengePeak_HardBoss_Turn_Limit",
+          "sha256": "0dfce632152aa63d339f13d3a4eba5e4321fa8ed704f3fd2398eccfd1630513a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Pinned released Plight King turn limit."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-cycle-limits",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt."
+        }
+      ],
+      "tags": [
+        "cycle-limit",
+        "king",
+        "plight"
+      ],
+      "stage_kind": "KingPlight",
+      "boundary_order": 40,
+      "limit_cycles": 2,
+      "scope": "OnePlightKingStageAttempt",
+      "reset_on_wave_transition": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.wave-transition-carry",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Cycle carry across waves",
+      "name_zh_cn": "跨波次轮次延续",
+      "summary_en": "The stage-local cycle countdown continues across wave or phase transitions.",
+      "summary_zh_cn": "关卡局部轮次倒计时在波次或阶段切换时继续延续。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "clock_rules:wave-transition-carry"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:wave-transition-carry",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "d392dcb27846f77796022b6c2e9d13b0ba45b892d6ec3ad805b6a3bd9895cb8a",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The cycle countdown does not reset when combat phases or waves change."
+        }
+      ],
+      "tags": [
+        "carry",
+        "cycle",
+        "wave"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 50,
+      "transition": "WaveOrPhaseChange",
+      "countdown_projection": "CarryRemainingCycles",
+      "reset_on_wave_transition": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.warning-threshold",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Low-cycle warning threshold",
+      "name_zh_cn": "低轮次预警阈值",
+      "summary_en": "A low-cycle boundary exists, but its exact remaining-cycle threshold is not exposed.",
+      "summary_zh_cn": "玩法存在低轮次边界，但公开资料未给出精确剩余轮次阈值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "clock_rules:warning-threshold"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "When few cycles remain, allies receive additional combat buffs at the start of each cycle."
+        },
+        {
+          "source_id": "goal13:clock-rules:warning-threshold",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 8",
+          "sha256": "f726f52bafc4487caa7f69239b17a986abbfc0c2ce1c6b820542e209cc8a62c5",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "The warning boundary is preserved without an invented threshold."
+        }
+      ],
+      "tags": [
+        "cycle",
+        "threshold",
+        "warning"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 60,
+      "threshold_cycles_remaining": "Unavailable",
+      "warning_state": "FewCyclesRemain",
+      "approximations": [
+        {
+          "field_path": "threshold_cycles_remaining",
+          "unavailable_fact": "Released text says only that few cycles remain.",
+          "selected_policy": "Keep a symbolic FewCyclesRemain boundary and author no numeric threshold.",
+          "alternatives": [
+            "one cycle remaining",
+            "two cycles remaining"
+          ],
+          "rationale": "A symbolic state remains testable without presenting an arbitrary number as parity.",
+          "affected_fixture_ids": [
+            "fixture.clock-warning-expiry.symbolic-threshold"
+          ],
+          "confidence": "High",
+          "replacement_condition": "Replace with released configuration or a reproducible observation at the transition boundary."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.low-cycle-combat-effect",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Low-cycle allied combat effect",
+      "name_zh_cn": "低轮次我方战斗增益",
+      "summary_en": "While the low-cycle state is active, allies receive an additional buff at each cycle start.",
+      "summary_zh_cn": "低轮次状态生效期间，每轮开始时我方获得额外战斗增益。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "clock_rules:low-cycle-combat-effect"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:low-cycle-allied-buff",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "a57a3a2f195d1f1f4ebf667e5131d7fc252679f9992d075712902e2cb8ece236",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "When few cycles remain, allies receive additional combat buffs at the start of each cycle."
+        },
+        {
+          "source_id": "goal13:clock-rules:low-cycle-combat-effect",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 8",
+          "sha256": "05c947159d23ab05548179e7443a6ce10304cf09a2ada43d8a08dd65ed5bc665",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Buff identity and parameters remain unavailable in released evidence."
+        }
+      ],
+      "tags": [
+        "allies",
+        "buff",
+        "cycle-start"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 70,
+      "trigger": "CycleStartWhileFewCyclesRemain",
+      "target": "Allies",
+      "contribution": "AdditionalCombatBuff",
+      "buff_id": "Unavailable",
+      "numeric_parameters": "Unavailable",
+      "approximations": [
+        {
+          "field_path": "buff_id",
+          "unavailable_fact": "Released text does not identify the buff row or numeric parameters.",
+          "selected_policy": "Retain only trigger, target and qualitative contribution.",
+          "alternatives": [
+            "bind a generic damage buff",
+            "bind a generic speed buff"
+          ],
+          "rationale": "No authored combat effect may be invented by a reference-only goal.",
+          "affected_fixture_ids": [
+            "fixture.clock-warning-expiry.low-cycle-buff-boundary"
+          ],
+          "confidence": "High",
+          "replacement_condition": "Replace with the released buff selector and its ability/config program."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.expiry-and-failure",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Cycle expiry failure",
+      "name_zh_cn": "轮次耗尽失败",
+      "summary_en": "Exceeding the stage-local cycle limit terminates the current attempt as a failure.",
+      "summary_zh_cn": "超过关卡局部轮次上限会以失败终止当前尝试。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "clock_rules:expiry-and-failure-boundary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-cycle-limits",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "e0de924a4dbf47c77a0887d7ddb82aee822ac004799ea261293be8c5f3d00457",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each combat in each Anomaly Arbitration stage has its own cycle limit, and exceeding it fails the attempt."
+        }
+      ],
+      "tags": [
+        "expiry",
+        "failure",
+        "terminal"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 80,
+      "boundary": "CycleLimitExceeded",
+      "terminal_outcome_id": "outcome.stage-attempt-failure",
+      "current_record_projection": "Unchanged",
+      "best_record_projection": "Unchanged",
+      "runtime_executable": false
+    },
+    {
+      "id": "clock.retry-boundary",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "ClockRule",
+      "name_en": "Retry clock boundary",
+      "name_zh_cn": "重试时钟边界",
+      "summary_en": "A retry creates a new stage attempt clock and does not carry elapsed cycles from the failed attempt.",
+      "summary_zh_cn": "重试会创建新的关卡尝试时钟，不继承失败尝试已经消耗的轮次。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "clock_rules:retry-boundary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:retrying-challenges",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Retrying Challenges",
+          "sha256": "9b9ea141c48c2962b4f65498a4a1c9c602accb889dd471c8669aec04e4f03b2e",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "A recorded Knight team may retry its stage after a completed challenge."
+        },
+        {
+          "source_id": "goal13:clock-rules:retry-boundary",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 8",
+          "sha256": "b81bed2fc28c7390801b0bdcff1c263ccadf3286644ed6ca7f26fb34763bdc29",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Released instructions permit retry but do not state clock-object identity."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "clock",
+        "retry"
+      ],
+      "stage_kind": "All",
+      "boundary_order": 90,
+      "trigger": "AcceptedRetryRequest",
+      "prior_clock_state": "TerminalAndImmutable",
+      "new_clock_state": "FreshStageLocalClock",
+      "carry_elapsed_cycles": false,
+      "approximations": [
+        {
+          "field_path": "new_clock_state",
+          "unavailable_fact": "Released instructions permit retry but do not specify authoritative clock allocation order.",
+          "selected_policy": "Create a fresh stage-local clock only after the retry request is accepted.",
+          "alternatives": [
+            "reuse and reset the prior clock object"
+          ],
+          "rationale": "Fresh attempt identity keeps failed state immutable and makes rejection byte-stable.",
+          "affected_fixture_ids": [
+            "fixture.clock-warning-expiry.retry-boundary"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released transition evidence or a reproducible retry trace."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}
