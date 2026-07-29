@@ -2,6 +2,8 @@ package = "starclock_swarm_disaster_reference_config"
 includes = [
   "schema/core.toml",
   "schema/progression.toml",
+  "schema/content.toml",
+  "schema/evidence.toml",
 ]
 
 [build]

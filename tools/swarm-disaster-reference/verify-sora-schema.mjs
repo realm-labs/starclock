@@ -20,8 +20,12 @@ const schemaRoot = path.join(
   "swarm-disaster",
   "schema",
 );
-const schemaFiles = ["core.toml", "progression.toml"].map((name) =>
-  path.join(schemaRoot, name));
+const schemaFiles = [
+  "core.toml",
+  "progression.toml",
+  "content.toml",
+  "evidence.toml",
+].map((name) => path.join(schemaRoot, name));
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-swarm-disaster-schema-"),
 );
@@ -69,6 +73,24 @@ const expected = new Map([
   ["SwarmDisasterPathBoost", "path-boosts.json"],
   ["SwarmDisasterResonanceInterplay", "resonance-interplays.json"],
   ["SwarmDisasterTrailblazeBonus", "bonuses.json"],
+  ["SwarmDisasterBlessing", "blessings.json"],
+  ["SwarmDisasterBlessingLevel", "blessing-levels.json"],
+  ["SwarmDisasterPoolMembership", "pool-membership.json"],
+  ["SwarmDisasterCurio", "curios.json"],
+  ["SwarmDisasterCurioState", "curio-states.json"],
+  ["SwarmDisasterCurioRule", "curio-rules.json"],
+  ["SwarmDisasterOccurrence", "occurrences.json"],
+  ["SwarmDisasterOccurrenceVariant", "occurrence-variants.json"],
+  ["SwarmDisasterOccurrenceChoice", "occurrence-choices.json"],
+  ["SwarmDisasterService", "services.json"],
+  ["SwarmDisasterAdventureOutcome", "adventure-outcomes.json"],
+  ["SwarmDisasterCurrency", "currencies.json"],
+  ["SwarmDisasterServiceRule", "service-rules.json"],
+  ["SwarmDisasterEncounterGroup", "encounter-groups.json"],
+  ["SwarmDisasterEncounterWave", "encounter-waves.json"],
+  ["SwarmDisasterEnemySlot", "enemy-slots.json"],
+  ["SwarmDisasterBossPool", "boss-pools.json"],
+  ["SwarmDisasterMechanicRule", "mechanic-rules.json"],
 ]);
 
 try {
@@ -78,7 +100,12 @@ try {
     fs.existsSync(file)),
     "isolated Swarm Disaster schema is missing");
   const projectText = fs.readFileSync(project, "utf8");
-  for (const include of ["schema/core.toml", "schema/progression.toml"])
+  for (const include of [
+    "schema/core.toml",
+    "schema/progression.toml",
+    "schema/content.toml",
+    "schema/evidence.toml",
+  ])
     assert(projectText.includes(include),
       `project lacks ${include}`);
   for (const forbidden of [
@@ -181,6 +208,18 @@ try {
       "SwarmDisasterPath"],
     ["SwarmDisasterResonanceInterplay", "sub_path_id",
       "SwarmDisasterPath"],
+    ["SwarmDisasterBlessingLevel", "blessing_id",
+      "SwarmDisasterBlessing"],
+    ["SwarmDisasterCurio", "initial_state_id", "SwarmDisasterCurioState"],
+    ["SwarmDisasterCurioState", "curio_id", "SwarmDisasterCurio"],
+    ["SwarmDisasterCurioRule", "curio_id", "SwarmDisasterCurio"],
+    ["SwarmDisasterCurioRule", "state_id", "SwarmDisasterCurioState"],
+    ["SwarmDisasterOccurrenceChoice", "variant_id",
+      "SwarmDisasterOccurrenceVariant"],
+    ["SwarmDisasterEncounterWave", "encounter_group_id",
+      "SwarmDisasterEncounterGroup"],
+    ["SwarmDisasterEnemySlot", "wave_id", "SwarmDisasterEncounterWave"],
+    ["SwarmDisasterBossPool", "area_id", "SwarmDisasterArea"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) =>
       candidate.name === fieldName);
@@ -190,7 +229,8 @@ try {
   }
   console.log(
     `Swarm Disaster Sora schema verified (${tables.size} isolated core/` +
-    "progression tables; typed local references; pinned Sora 0.3.0).",
+    "progression/content/evidence tables; typed local references; pinned " +
+    "Sora 0.3.0).",
   );
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
