@@ -33,6 +33,14 @@ node tools/gold-and-gears-reference/import-dice-faces.mjs
 node tools/gold-and-gears-reference/verify-dice-faces.mjs
 ```
 
+Phase 1 Knowledge binding and deterministic target/order policy files regenerate
+with:
+
+```text
+node tools/gold-and-gears-reference/import-knowledge.mjs
+node tools/gold-and-gears-reference/verify-knowledge.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

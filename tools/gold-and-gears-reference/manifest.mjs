@@ -371,11 +371,11 @@ category(
 );
 category(
   "knowledge_bindings",
-  "Dice surfaces tagged Mark, the released structured locator for Knowledge interactions.",
-  diceFaces.filter(({ row }) => (row.TagList ?? []).includes("Mark"))
+  "Dice surfaces tagged SpecialType, the released structured locator for Knowledge interactions.",
+  diceFaces.filter(({ row }) => (row.TagList ?? []).includes("SpecialType"))
     .map((entry) => sourceRecord(entry, entry.row.SurfaceID, {
       ownership: "GoldAndGears", reachability: "Direct",
-      binding: "Mark",
+      binding: "SpecialType",
     })),
 );
 category(

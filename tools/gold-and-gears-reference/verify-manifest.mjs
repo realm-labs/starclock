@@ -49,7 +49,7 @@ const expectedCounts = {
   dice_slots: 6,
   dice_faces: 80,
   dice_face_tags: 10,
-  knowledge_bindings: 15,
+  knowledge_bindings: 22,
   neural_network_nodes: 40,
   paths: 9,
   resonances: 36,
@@ -81,9 +81,9 @@ for (const [categoryId, expected] of Object.entries(expectedCounts)) {
       && /^[0-9a-f]{64}$/u.test(record.evidence_sha256)),
   `${categoryId} contains an incomplete ownership/evidence record`);
 }
-assert(manifest.counts.categories === 42 && manifest.counts.records === 7906,
+assert(manifest.counts.categories === 42 && manifest.counts.records === 7913,
   "Gold and Gears manifest aggregate denominator drift");
-assert(manifest.counts.ownership.GoldAndGears === 7192
+assert(manifest.counts.ownership.GoldAndGears === 7199
   && manifest.counts.ownership.Shared === 714,
 "Gold and Gears ownership denominator drift");
 
@@ -94,7 +94,7 @@ const expectedGroups = {
   cognition_and_secrets: 55,
   custom_dice: 124,
   dice_slots_faces_tags: 96,
-  knowledge_rules: 15,
+  knowledge_rules: 22,
   neural_network: 40,
   conundrum: 12,
   paths_and_resonance: 108,
@@ -125,6 +125,8 @@ assert(new Set(records("dice_path_values").map(({ id }) => id.split(":")[0])).si
 const faceIds = new Set(ids("dice_faces"));
 assert(records("knowledge_bindings").every(({ id }) => faceIds.has(id)),
   "Knowledge binding references an unknown dice face");
+assert(records("knowledge_bindings").every(({ binding }) =>
+  binding === "SpecialType"), "Knowledge binding tag drift");
 
 for (const [categoryId, inheritedFile] of [
   ["paths", "paths.json"],
@@ -173,8 +175,8 @@ assert(manifest.denominator_policy.topology_edges.includes("no edge list"),
   "unreleased topology edges were not bounded");
 
 console.log(
-  "Gold and Gears content manifest verified (7,906 obligations; 42 categories; " +
-  "7,192 mode-owned and 714 shared records; 18 fixture families).",
+  "Gold and Gears content manifest verified (7,913 obligations; 42 categories; " +
+  "7,199 mode-owned and 714 shared records; 18 fixture families).",
 );
 
 function records(categoryId) {

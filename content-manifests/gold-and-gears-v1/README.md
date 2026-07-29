@@ -24,7 +24,7 @@ prefix. A row enters Gold and Gears only through an explicit
 `ChessRogueNous` selector, a reference from such a row, a `RogueNous` source,
 or an inherited Goal 03 shared-pool stable ID. Everything else fails closed.
 
-Its 7,906 records are exact source/inherited obligations. Normalization may
+Its 7,913 records are exact source/inherited obligations. Normalization may
 expand one obligation into child rows, but may not omit it. The released
 chessboard files expose coordinates, events and creation rules without an
 explicit edge list, so edges remain a named ProjectPolicy contract for B4

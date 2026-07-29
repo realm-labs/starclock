@@ -20,8 +20,8 @@ const fixtures = json(
 );
 
 assert(sha256(manifestPath)
-  === "3c754399c6a3b98c4d6a8df29bd17418e80a18536a060d20eff5ff22434201d0",
-"B4 is not bound to the frozen B3 content manifest");
+  === "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+"contracts are not bound to the P1-B5 amended content manifest");
 assert(schema.schema_revision === "starclock.gold-and-gears-normalized-schema.v1"
   && authoring.schema_revision === "starclock.gold-and-gears-authoring-contract.v1"
   && fixtures.schema_revision === "starclock.gold-and-gears-fixture-contract.v1",

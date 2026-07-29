@@ -560,9 +560,9 @@
   },
   "counts": {
     "categories": 42,
-    "records": 7906,
+    "records": 7913,
     "ownership": {
-      "GoldAndGears": 7192,
+      "GoldAndGears": 7199,
       "Shared": 714
     }
   },
@@ -627,7 +627,7 @@
       "categories": [
         "knowledge_bindings"
       ],
-      "required": 15
+      "required": 22
     },
     "neural_network": {
       "categories": [
@@ -65439,53 +65439,44 @@
     },
     "knowledge_bindings": {
       "id": "knowledge_bindings",
-      "membership_basis": "Dice surfaces tagged Mark, the released structured locator for Knowledge interactions.",
-      "count": 15,
+      "membership_basis": "Dice surfaces tagged SpecialType, the released structured locator for Knowledge interactions.",
+      "count": 22,
       "records": [
         {
-          "id": "2014",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#13",
-          "evidence_sha256": "66fe8a448324c31ca1cea7fde4004b07eb1db767fb8b00b3196040972c675f6d",
+          "id": "2006",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#5",
+          "evidence_sha256": "b2e96e794d869477243fce20b0fa19b484c2977f24bdaf27c47788bad0e35e69",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2016",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#14",
-          "evidence_sha256": "cbdda50b566428060b826d0fcffcf42def642ef3b20de15e7077c2f4f6f2b8db",
+          "id": "2007",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#6",
+          "evidence_sha256": "632c8b14f893c60f8ac182d4569265dfacf7385af8767a943948c3189263800d",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2018",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#16",
-          "evidence_sha256": "051278c1c8668d85a8cdad1ff58d25766960bd30a0faed38c67ac81f3ecfea90",
+          "id": "2010",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#9",
+          "evidence_sha256": "81fefec504c920d6ef11aeee4c6ca022bdd26d059093f6baf9bc3b11cc515652",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2019",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#17",
-          "evidence_sha256": "32837b33d4d4d4fb433296a42c6f0984a818a7ae6ce0429ff9438dce310433d4",
+          "id": "2017",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#15",
+          "evidence_sha256": "0505e0d1473919c0feef4fbbdffe0d07fa7cd76c99de4c54514020912fed21d0",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
-        },
-        {
-          "id": "2022",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#18",
-          "evidence_sha256": "572bacabb64fbe42a7c6952a75e255cbeb57b98cee837dc6fb8f5c7b1128eee8",
-          "evidence_quality": "ExactStructured",
-          "ownership": "GoldAndGears",
-          "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
           "id": "2023",
@@ -65494,88 +65485,160 @@
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2025",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#21",
-          "evidence_sha256": "e91f09ec84753403260e0ebd14a7b493c984e64904e82a14720f28e656727b26",
+          "id": "2024",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#20",
+          "evidence_sha256": "b481a6850bbec9d3731d980f2a047c7dfe2cef0d1849cc2924b83ca90a31c95a",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2042",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#35",
-          "evidence_sha256": "1b41dad2824d3576d9e79db059c86f10aee4a40c7d081c8dbb2c7517007174c3",
+          "id": "2026",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#22",
+          "evidence_sha256": "905ef74d9d80ee9af7bee95ce9b4672abc80cba75d8bcd136788698cbfdc08e6",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2043",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#36",
-          "evidence_sha256": "f4abf67bf9fe34b6b31f2e3420bd489995a4d9410619edc53bc9e21f33b68268",
+          "id": "2027",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#23",
+          "evidence_sha256": "593c3bd95b8fd4c33af3cfb6c8c9d14b1806f4b138efd8b905978c3e5057eb17",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2048",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#39",
-          "evidence_sha256": "baf777eed82cd226114dab84713a12613d4d3b1317f957222e2f94335d0a4717",
+          "id": "2030",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#24",
+          "evidence_sha256": "f5e6acadf3af3d909ec1818c0378f469300c33c13f403dcfcf78f42832a9ecff",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2052",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#41",
-          "evidence_sha256": "352ca10e13c9f31e3712ae05d0872e3e06f6368b9dad229cdd9b904cece4d3dc",
+          "id": "2031",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#25",
+          "evidence_sha256": "a91188df83f2094208fd324177bb1dfe6152007047e5ce9467be929ff85f3a59",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2054",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#43",
-          "evidence_sha256": "578f24a9ee2d8a5154364b9c057cc7f639c24fe2c44f321795893f7d89c6501c",
+          "id": "2032",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#26",
+          "evidence_sha256": "e5f5d1a467af41862c9ce46b7495b36d1339f3cbc6f4b0185c9d76d772fa885b",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2056",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#44",
-          "evidence_sha256": "2450c38371c9ba1bd5a9a676f2ce18531e80c311623d522f0544939f154d7c33",
+          "id": "2033",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#27",
+          "evidence_sha256": "b9e2310d2089ea0ac5fb9a352fe063f61bd54b15ec0359bfb08f4e07a9acfd34",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2101",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#77",
-          "evidence_sha256": "b00ac6115231180829c3b35c3fc539e542a68c56d98c007ab9f74a630c358b94",
+          "id": "2034",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#28",
+          "evidence_sha256": "ec133b488b771012c19e20ae30e1ac3c15efcefe20ddd8797abd8a83bc27f9cc",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
         },
         {
-          "id": "2102",
-          "source": "ExcelOutput/RogueNousDiceSurface.json#78",
-          "evidence_sha256": "b3fced6c26a9bc5588cf3fff43c17770eb50fa862f3b3a8e75d25999dbc2b2bc",
+          "id": "2035",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#29",
+          "evidence_sha256": "de672e560e5312893d5387df60c20dcd3690b4540146357f1ff6db6c1cb705d8",
           "evidence_quality": "ExactStructured",
           "ownership": "GoldAndGears",
           "reachability": "Direct",
-          "binding": "Mark"
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2041",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#34",
+          "evidence_sha256": "e1a4b25f7a6fdbd4816e2ef7a04a3b6c56a110503d3e36d7c106d27867ee08c5",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2047",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#38",
+          "evidence_sha256": "19ab682c94f9dab98d7a91a3277bc2841c6d2e07df5c2086ec11edc316d454ec",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2057",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#45",
+          "evidence_sha256": "039c28cee847f08826b5ef62140567458b1836a282229136a55829ad493fc5ea",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2073",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#58",
+          "evidence_sha256": "ac4a96815a4d909a2d404dd29d92ba1b3c3797b7744fe5639f11f4445559f2f9",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2074",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#59",
+          "evidence_sha256": "ac380e0ced15f182197759778575333a6f794ee8bc3779742d2da19996897108",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2077",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#60",
+          "evidence_sha256": "e44cc3751ad62b858853b49ff6de15ad0f77d4abcdb577329e951d3671270c98",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2078",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#61",
+          "evidence_sha256": "5dc8beedddc1b0ede2612ef8222d9fddb0259ee66bfa46960898883a20ec85c0",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
+        },
+        {
+          "id": "2079",
+          "source": "ExcelOutput/RogueNousDiceSurface.json#62",
+          "evidence_sha256": "a6d688d77577ce9cb9be9d2f34d5269e8e9c5c8b052001daa03cc8b70e7db857",
+          "evidence_quality": "ExactStructured",
+          "ownership": "GoldAndGears",
+          "reachability": "Direct",
+          "binding": "SpecialType"
         }
       ]
     },

@@ -84,10 +84,10 @@ const slots = slotEntries.map((entry) => {
 outputs.set("dice-slots.json", ordered(slots, ["slot_index", "id"]));
 
 const tagCodeBySourceId = new Map(Object.entries({
-  2: "Mark",
+  2: "SpecialType",
   3: "BlockChange",
   4: "Move",
-  6: "SpecialType",
+  6: "Mark",
   7: "Buff",
   8: "BuffProMax",
   9: "Miracle",
