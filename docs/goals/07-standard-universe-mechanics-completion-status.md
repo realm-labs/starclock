@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S25` |
-| Next unblocked batch | `G07-P5-M15-S25` |
+| Active batch | `G07-P5-M15-S26` |
+| Next unblocked batch | `G07-P5-M15-S26` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -313,10 +313,12 @@ and 98 ordered edges. Each map has one source node, one reachable terminal,
 no cross-map edge and a bounded acyclic runtime graph. Topology-map S24 is
 complete: five more complete maps retain 85 contiguous nodes and 105 ordered
 edges under the same single-entry, reachable-terminal and graph-local
-invariants. `G07-P5-M15-S25` is active.
+invariants. Topology-map S25 is complete: its next five complete maps retain
+another 85 contiguous nodes and 105 ordered edges under the same invariants.
+`G07-P5-M15-S26` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 92 completed partitions use scoped Excel/Sora semantic
+model. The first 93 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
