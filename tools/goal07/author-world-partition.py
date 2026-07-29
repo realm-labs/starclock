@@ -86,6 +86,12 @@ def sora_rows(table: str) -> list[dict[str, Any]]:
 
 def normalize(table: str, row: dict[str, Any]) -> dict[str, Any]:
     output = dict(row)
+    if table == "UniverseDifficulty" and isinstance(
+        output.get("recommended_elements"), str
+    ):
+        output["recommended_elements"] = [
+            part for part in output["recommended_elements"].split("|") if part
+        ]
     if table == "UniverseRoom" and isinstance(output.get("section_ids"), str):
         output["section_ids"] = [
             int(part) for part in output["section_ids"].split("|") if part
@@ -464,6 +470,142 @@ def build_room_partition(
     }
 
 
+def build_world_partition(
+    partition: dict[str, Any],
+    universe: Any,
+    bindings: Any,
+    evidence: Any,
+) -> dict[str, list[dict[str, Any]]]:
+    source_worlds = keyed(
+        json.loads((REFERENCE / "worlds.json").read_text(encoding="utf-8")),
+        "id",
+    )
+    source_difficulties = keyed(
+        json.loads(
+            (REFERENCE / "world-difficulties.json").read_text(encoding="utf-8")
+        ),
+        "id",
+    )
+    worlds = keyed(rows(universe["UniverseWorld"]), "stable_key")
+    difficulties = keyed(rows(universe["UniverseDifficulty"]), "stable_key")
+    world_keys = [
+        key for key in partition["record_ids"] if key in source_worlds
+    ]
+    difficulty_keys = [
+        key for key in partition["record_ids"] if key in source_difficulties
+    ]
+    if len(world_keys) + len(difficulty_keys) != len(partition["record_ids"]):
+        raise ValueError(f"{partition['id']}: unknown world/difficulty record")
+
+    selected_worlds = [worlds[key] for key in world_keys]
+    selected_difficulties = [difficulties[key] for key in difficulty_keys]
+    difficulty_ids = {int(row["id"]) for row in selected_difficulties}
+    selected_enemies = [
+        row
+        for row in rows(universe["UniverseDifficultyEnemy"])
+        if int(row["difficulty_id"]) in difficulty_ids
+    ]
+    enemies_by_difficulty: dict[int, list[dict[str, Any]]] = {}
+    for row in selected_enemies:
+        enemies_by_difficulty.setdefault(int(row["difficulty_id"]), []).append(row)
+
+    world_id_by_key = {
+        row["stable_key"]: int(row["id"]) for row in selected_worlds
+    }
+    difficulty_id_by_key = {
+        row["stable_key"]: int(row["id"]) for row in selected_difficulties
+    }
+    for authored in selected_worlds:
+        reference = source_worlds[authored["stable_key"]]
+        expected = {
+            "stable_key": reference["id"],
+            "profile_id": 1,
+            "world_number": int(reference["world_id"]),
+            "entry_rule_stable_key": reference["entry_rule_id"],
+            "terminal_rule_stable_key": reference["terminal_rule_id"],
+            "name_en": reference["name_en"],
+            "name_zh_cn": reference["name_zh_cn"],
+            "summary_en": reference["summary_en"],
+            "summary_zh_cn": reference["summary_zh_cn"],
+        }
+        actual = {field: authored[field] for field in expected}
+        if actual != expected:
+            raise ValueError(
+                f"{reference['id']}: Excel World differs from public source"
+            )
+        expected_difficulties = [
+            difficulty_id_by_key[key] for key in reference["difficulty_ids"]
+        ]
+        actual_difficulties = [
+            int(row["id"])
+            for row in selected_difficulties
+            if int(row["world_id"]) == int(authored["id"])
+        ]
+        if sorted(actual_difficulties) != sorted(expected_difficulties):
+            raise ValueError(
+                f"{reference['id']}: difficulty membership differs from source"
+            )
+
+    for authored in selected_difficulties:
+        reference = source_difficulties[authored["stable_key"]]
+        expected = {
+            "stable_key": reference["id"],
+            "world_id": world_id_by_key[reference["world_id"]],
+            "source_area_id": str(reference["source_ids"][0]),
+            "difficulty": int(reference["difficulty"]),
+            "kind": reference["profile_kind"],
+            "recommended_level": int(reference["recommended_level"]),
+            "recommended_elements": "|".join(reference["recommended_elements"]),
+            "score_curve_json": json.dumps(
+                reference["score_curve"],
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            ),
+            "unlock_source_id": reference["unlock_source_id"] or None,
+        }
+        actual = {field: authored[field] for field in expected}
+        if actual != expected:
+            raise ValueError(
+                f"{reference['id']}: Excel difficulty differs from public source"
+            )
+
+        difficulty_id = int(authored["id"])
+        expected_enemies = []
+        sequence = 1
+        for role, values in (
+            ("Boss", reference["boss_variant_ids"]),
+            ("Elite", reference["elite_variant_ids"]),
+        ):
+            for value in values:
+                expected_enemies.append(
+                    {
+                        "difficulty_id": difficulty_id,
+                        "sequence": sequence,
+                        "role": role,
+                        "source_monster_id": str(value["source_monster_id"]),
+                        "enemy_variant_stable_key": value["enemy_variant_id"],
+                        "level": int(value["level"]),
+                    }
+                )
+                sequence += 1
+        actual_enemies = sorted(
+            enemies_by_difficulty.get(difficulty_id, []),
+            key=lambda row: int(row["sequence"]),
+        )
+        if actual_enemies != expected_enemies:
+            raise ValueError(
+                f"{reference['id']}: difficulty enemies differ from public source"
+            )
+
+    check_audits(partition, evidence)
+    return {
+        "UniverseWorld": selected_worlds,
+        "UniverseDifficulty": selected_difficulties,
+        "UniverseDifficultyEnemy": selected_enemies,
+    }
+
+
 def build(partition_id: str) -> dict[str, Any]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     partition = next(
@@ -480,6 +622,7 @@ def build(partition_id: str) -> dict[str, Any]:
             "encounter-selection",
             "topology-map",
             "room-content",
+            "world-difficulty",
         }
     ):
         raise ValueError(f"{partition_id}: unsupported world-structure partition")
@@ -499,8 +642,10 @@ def build(partition_id: str) -> dict[str, Any]:
         )
     elif partition["lane"] == "topology-map":
         selected = build_map_partition(partition, universe, evidence)
-    else:
+    elif partition["lane"] == "room-content":
         selected = build_room_partition(partition, universe, bindings, evidence)
+    else:
+        selected = build_world_partition(partition, universe, bindings, evidence)
     domain_ids = {
         int(row["id"]) for row in selected.get("UniverseDomain", [])
     }
@@ -512,6 +657,9 @@ def build(partition_id: str) -> dict[str, Any]:
     }
     room_ids = {
         int(row["id"]) for row in selected.get("UniverseRoom", [])
+    }
+    difficulty_ids = {
+        int(row["id"]) for row in selected.get("UniverseDifficulty", [])
     }
     for table, selected_rows in selected.items():
         exported = sora_rows(table)
@@ -549,6 +697,15 @@ def build(partition_id: str) -> dict[str, Any]:
                 row
                 for row in exported
                 if int(row.get("room_id", -1)) in room_ids
+            ]
+        elif table in {"UniverseWorld", "UniverseDifficulty"}:
+            keys = {row["stable_key"] for row in selected_rows}
+            exported = [row for row in exported if row.get("stable_key") in keys]
+        elif table == "UniverseDifficultyEnemy":
+            exported = [
+                row
+                for row in exported
+                if int(row.get("difficulty_id", -1)) in difficulty_ids
             ]
         if digest(table, selected_rows) != digest(table, exported):
             raise ValueError(f"{partition_id}: Sora {table} rows differ from Excel")

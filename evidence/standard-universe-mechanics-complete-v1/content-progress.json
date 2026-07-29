@@ -2,11 +2,11 @@
   "schema_revision": "starclock.goal07-content-progress.v1",
   "goal_id": "standard-universe-mechanics-complete-v1",
   "generated_on": "2026-07-25",
-  "result": "in-progress",
+  "result": "complete",
   "total_partitions": 104,
-  "completed_partitions": 103,
-  "pending_partitions": 1,
-  "next_partition": "G07-P5-M15-S36",
+  "completed_partitions": 104,
+  "pending_partitions": 0,
+  "next_partition": null,
   "rows": [
     {
       "id": "G07-P2-M01-S01",
@@ -836,9 +836,9 @@
       "id": "G07-P5-M15-S36",
       "ordinal": 103,
       "milestone": "G07-P5-M15",
-      "state": "Pending",
-      "receipt": null,
-      "receipt_sha256": null
+      "state": "Complete",
+      "receipt": "evidence/standard-universe-mechanics-complete-v1/partitions/G07-P5-M15-S36.json",
+      "receipt_sha256": "ecec7a1a557b603e6bd42b26193a9da87f2699647376f155cf3e2d152f054478"
     }
   ]
 }
