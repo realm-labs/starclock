@@ -355,6 +355,28 @@ for (const [table, family, make] of [
   })],
 ])
   await addEquipmentFamily(table, family, make);
+equipmentRows.push({
+  ...context.envelope({
+    id: "currency-wars.equipment.slot-cap.three-per-character",
+    kind: "CurrencyWarsEquipment",
+    nameEn: "Three equipment slots per character",
+    nameZh: "每名角色三个装备栏位",
+    summaryEn:
+      "Released Version 4.4 text states that each Currency Wars character may equip up to three pieces of Equipment.",
+    summaryZh:
+      "Version 4.4 已发布文本明确每名货币战争角色最多可装备三件装备。",
+    evidenceQuality: "ExactPublicText",
+    sourceRefs: context.bilingualTextRefs("4007368254740170345"),
+    tags: ["equipment", "exact-public-text", "slot-cap"],
+  }),
+  source_id: "released-rule:three-equipment-slots",
+  slot: "CharacterTotal",
+  eligibility: { maximum_count: "3" },
+  effect_ids: [],
+  replacement_rule:
+    "Reject or replace equipment when a character would exceed three equipped pieces.",
+  parameters: { maximum_count: "3" },
+});
 outputs.set("equipment.json", ordered(equipmentRows));
 
 await writeOrCheck(context, outputs, check);

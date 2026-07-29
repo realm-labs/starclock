@@ -379,6 +379,29 @@ overrideCounts.cyrene = await addTableOverrides(
 const publicRuleRefs = context.bilingualTextRefs("7693488975416237801");
 overrides.push({
   ...context.envelope({
+    id: "currency-wars.battle-override.automatic-technique",
+    kind: "CurrencyWarsBattleOverride",
+    nameEn: "Automatic on-field Techniques",
+    nameZh: "前台角色自动施放秘技",
+    summaryEn:
+      "Released Version 4.4 text states that on-field Currency Wars characters automatically use their Techniques in combat.",
+    summaryZh:
+      "Version 4.4 已发布文本明确货币战争的前台角色会在战斗中自动施放秘技。",
+    evidenceQuality: "ExactPublicText",
+    sourceRefs: context.bilingualTextRefs("9495951205658352472"),
+    tags: ["automatic-technique", "battle-override", "exact-public-text"],
+  }),
+  source_id: "released-rule:automatic-technique",
+  rule_kind: "AutomaticTechnique",
+  trigger: "BeforeBattleStart",
+  parameters: { eligible_position: "Front" },
+  ordered_operations: [
+    "Use each eligible on-field character's Technique before combat.",
+  ],
+  teardown: "No persistent state.",
+});
+overrides.push({
+  ...context.envelope({
     id: "currency-wars.battle-override.defeat-energy-half",
     kind: "CurrencyWarsBattleOverride",
     nameEn: "Defeat energy at 50%",

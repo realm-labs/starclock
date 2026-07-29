@@ -27,7 +27,7 @@ const expected = {
   "build-mappings.json": 77,
   "build-substitution-rules.json": 2,
   "off-field-conversions.json": 417,
-  "equipment.json": 518,
+  "equipment.json": 519,
 };
 const rowsByFile = Object.fromEntries(Object.keys(expected)
   .map((file) => [file, json(path.join(outputRoot, file))]));
@@ -88,6 +88,12 @@ assert(equipment.every((row) =>
   row.slot && Object.hasOwn(row, "eligibility")
     && Array.isArray(row.effect_ids) && row.replacement_rule),
 "equipment lifecycle field drift");
+const slotCap = equipment.find(({ id }) =>
+  id === "currency-wars.equipment.slot-cap.three-per-character");
+assert(slotCap?.eligibility.maximum_count === "3"
+  && slotCap.evidence_quality === "ExactPublicText"
+  && slotCap.source_refs.length === 2,
+"released three-equipment-slot rule drift");
 
 const allRows = Object.values(rowsByFile).flat();
 assert(allRows.every((row) => row.source_refs.every((ref) =>
@@ -98,7 +104,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars build/equipment verified (${allRows.length} rows; ` +
-  `77 mappings; 417 conversions; 518 equipment rows; digest ` +
+  `77 mappings; 417 conversions; 519 equipment rows; digest ` +
   `${digest.digest("hex")}).`,
 );
 

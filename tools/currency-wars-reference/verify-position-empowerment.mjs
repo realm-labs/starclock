@@ -25,7 +25,7 @@ const expected = {
   "role-mappings.json": 77,
   "positions.json": 3,
   "character-empowerments.json": 4652,
-  "battle-overrides.json": 340,
+  "battle-overrides.json": 341,
 };
 const rowsByFile = Object.fromEntries(Object.keys(expected)
   .map((file) => [file, json(path.join(outputRoot, file))]));
@@ -87,7 +87,13 @@ const energy = overrides.find(({ id }) =>
   id === "currency-wars.battle-override.defeat-energy-half");
 const rescue = overrides.find(({ id }) =>
   id === "currency-wars.battle-override.lethal-rescue-countdown");
-assert(energy?.parameters.regular_energy_ratio === "0.5"
+const automaticTechnique = overrides.find(({ id }) =>
+  id === "currency-wars.battle-override.automatic-technique");
+assert(automaticTechnique?.trigger === "BeforeBattleStart"
+  && automaticTechnique.parameters.eligible_position === "Front"
+  && automaticTechnique.evidence_quality === "ExactPublicText"
+  && automaticTechnique.source_refs.length === 2
+  && energy?.parameters.regular_energy_ratio === "0.5"
   && energy.evidence_quality === "ExactPublicText"
   && rescue?.coverage_state === "Researched"
   && rescue.parameters.restored_hp === "ConfiguredByBattleRule"
@@ -103,7 +109,7 @@ for (const file of Object.keys(rowsByFile).sort(compare))
   digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
   `Currency Wars position/Empowerment verified (${allRows.length} rows; ` +
-  `4,652 Empowerments; 340 battle overrides; digest ${digest.digest("hex")}).`,
+  `4,652 Empowerments; 341 battle overrides; digest ${digest.digest("hex")}).`,
 );
 
 function valueAfter(flag) {

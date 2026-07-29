@@ -31723,5 +31723,58 @@
         "35030205"
       ]
     }
+  },
+  {
+    "id": "currency-wars.equipment.slot-cap.three-per-character",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsEquipment",
+    "name_en": "Three equipment slots per character",
+    "name_zh_cn": "每名角色三个装备栏位",
+    "summary_en": "Released Version 4.4 text states that each Currency Wars character may equip up to three pieces of Equipment.",
+    "summary_zh_cn": "Version 4.4 已发布文本明确每名货币战争角色最多可装备三件装备。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.4007368254740170345",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4007368254740170345",
+        "sha256": "ba5fbdc6f5ba8327142393409319dae9b41a171d0711737c6017216de71279d2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4007368254740170345",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4007368254740170345",
+        "sha256": "4b3ed221f7db6d43ef27d6249460da9e37e7cd2f3ffb2f672713c855da098620",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "equipment",
+      "exact-public-text",
+      "slot-cap"
+    ],
+    "source_id": "released-rule:three-equipment-slots",
+    "slot": "CharacterTotal",
+    "eligibility": {
+      "maximum_count": "3"
+    },
+    "effect_ids": [],
+    "replacement_rule": "Reject or replace equipment when a character would exceed three equipped pieces.",
+    "parameters": {
+      "maximum_count": "3"
+    }
   }
 ]

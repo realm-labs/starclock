@@ -57,12 +57,24 @@ The `0.5` energy ratio is exact public text. The rescue HP amount and countdown
 loss are not stated there, so they remain `ConfiguredByBattleRule` and
 `Researched`; no numeric value is invented.
 
+### Phase 4 semantic-review addendum
+
+Batch `G12-P4-B2` promotes the independent CHS/EN Version 4.4 TextMap rule
+that on-field Currency Wars characters automatically use their Techniques in
+combat. It adds one `ExactPublicText` battle-override row with a
+`BeforeBattleStart` reference boundary and does not lower that rule into
+runtime behavior. The current four-file surface therefore contains 5,073 rows,
+including 341 battle overrides, with digest
+`e531af0bb3859c91e2887809733adfb140ac96e985717b948ad00a0ddb66768f`.
+
 ## Result
 
 The four normalized files contain 5,072 rows: 77 role mappings, three
 positions, 4,652 Empowerments and 340 battle overrides. Their combined digest
 in lexicographic file order is
 `f3f57aed05bc7543530e89ba77221bdb3ae9b849279cd88481a0aaaabf023aef`.
+Those figures remain the immutable `G12-P1-B4` batch result; the Phase 4
+addendum above records the current additive reference row.
 
 ```text
 fnm exec --using 24.15.0 node \

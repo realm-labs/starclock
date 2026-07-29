@@ -28491,6 +28491,61 @@
             "String": "[\"equipment\",\"gridfight\",\"roleequipmentrecommendation\"]"
           }
         }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[]"
+          },
+          "eligibility": {
+            "String": "{\"maximum_count\":\"3\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 519
+          },
+          "kind": {
+            "String": "CurrencyWarsEquipment"
+          },
+          "name_en": {
+            "String": "Three equipment slots per character"
+          },
+          "name_zh_cn": {
+            "String": "每名角色三个装备栏位"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_rule": {
+            "String": "Reject or replace equipment when a character would exceed three equipped pieces."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "slot": {
+            "String": "CharacterTotal"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.414a8640ac284fde5d20f5df6b5ce449\",\"currency-wars.source.e59669ba19ff770d98800c40e0392fcc\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.equipment.slot-cap.three-per-character"
+          },
+          "summary_en": {
+            "String": "Released Version 4.4 text states that each Currency Wars character may equip up to three pieces of Equipment."
+          },
+          "summary_zh_cn": {
+            "String": "Version 4.4 已发布文本明确每名货币战争角色最多可装备三件装备。"
+          },
+          "tags_json": {
+            "String": "[\"equipment\",\"exact-public-text\",\"slot-cap\"]"
+          }
+        }
       }
     ]
   }

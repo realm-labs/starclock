@@ -1,5 +1,58 @@
 [
   {
+    "id": "currency-wars.battle-override.automatic-technique",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBattleOverride",
+    "name_en": "Automatic on-field Techniques",
+    "name_zh_cn": "前台角色自动施放秘技",
+    "summary_en": "Released Version 4.4 text states that on-field Currency Wars characters automatically use their Techniques in combat.",
+    "summary_zh_cn": "Version 4.4 已发布文本明确货币战争的前台角色会在战斗中自动施放秘技。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.9495951205658352472",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9495951205658352472",
+        "sha256": "7a8602584a514cf85e6a32ffac29a90b31517bbc8e5ab747c9b399f7dc145c1d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9495951205658352472",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9495951205658352472",
+        "sha256": "3c49682a0acb1579d2bf0d64e1f451f5b2a9b6798a5c57762f492f285c42cc5f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "automatic-technique",
+      "battle-override",
+      "exact-public-text"
+    ],
+    "source_id": "released-rule:automatic-technique",
+    "rule_kind": "AutomaticTechnique",
+    "trigger": "BeforeBattleStart",
+    "parameters": {
+      "eligible_position": "Front"
+    },
+    "ordered_operations": [
+      "Use each eligible on-field character's Technique before combat."
+    ],
+    "teardown": "No persistent state."
+  },
+  {
     "id": "currency-wars.battle-override.defeat-energy-half",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsBattleOverride",

@@ -48,6 +48,16 @@ Recommendations are retained as advisory evidence and never treated as
 authoritative selection or replacement behavior. Upgrade and category rows
 preserve only their directly authored replacement and capacity boundaries.
 
+### Phase 4 semantic-review addendum
+
+Batch `G12-P4-B2` promotes the independent CHS/EN Version 4.4 TextMap rule
+that each Currency Wars character may equip up to three pieces of Equipment.
+It adds one `ExactPublicText` equipment-cap row whose replacement rule rejects
+or replaces a fourth item; it does not implement that rule at runtime. The
+current six-file surface therefore contains 1,098 rows, including 519
+equipment rows, with digest
+`7480543703e6ccd5ef62d5dbf7e5f0b22a5d4c8220b146d65ec823ea0531ca8b`.
+
 ## Result
 
 The six normalized files contain 1,097 rows: 77 build-reference identities,
@@ -55,6 +65,8 @@ six fail-closed shared source files, 77 policy-bound build mappings, two
 substitution/teardown rules, 417 off-field conversions and 518 equipment rows.
 Their combined digest in lexicographic file order is
 `6b11eb6843e4ee97e6e009e7ae6a32a8ba698c2a64df9ac4341311565a92f667`.
+Those figures remain the immutable `G12-P1-B7` batch result; the Phase 4
+addendum above records the current additive reference row.
 
 ```text
 fnm exec --using 24.15.0 node \
