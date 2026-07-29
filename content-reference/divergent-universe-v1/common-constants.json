@@ -1,0 +1,1329 @@
+[
+  {
+    "id": "divergent-universe.constant.roguetourn-archive-maxcount",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Archive_MaxCount",
+    "name_zh_cn": "RogueTourn_Archive_MaxCount",
+    "summary_en": "RogueTourn_Archive_MaxCount is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Archive_MaxCount 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "5",
+        "sha256": "19608688ed1e3a5435f7f755f8974d20e4d63564a15d850ef85564f81e2b0236",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Archive_MaxCount",
+    "value_kind": "Integer",
+    "canonical_value": "4",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-archive-namemaxlength",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Archive_NameMaxLength",
+    "name_zh_cn": "RogueTourn_Archive_NameMaxLength",
+    "summary_en": "RogueTourn_Archive_NameMaxLength is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Archive_NameMaxLength 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "4",
+        "sha256": "6d4cd33d086123d26fb972986a58faf4f3bedaa76dfa402284f498f121fcdbe7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Archive_NameMaxLength",
+    "value_kind": "Integer",
+    "canonical_value": "24",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-expitemid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_ExpItemID",
+    "name_zh_cn": "RogueTourn_ExpItemID",
+    "summary_en": "RogueTourn_ExpItemID is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_ExpItemID 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "3",
+        "sha256": "a9c6e72ac878a4465593b03e09257bd736d0d36c7fc6edd47034bb129e42915f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_ExpItemID",
+    "value_kind": "Integer",
+    "canonical_value": "281022",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-fundamental-formulacategories",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Fundamental_FormulaCategories",
+    "name_zh_cn": "RogueTourn_Fundamental_FormulaCategories",
+    "summary_en": "RogueTourn_Fundamental_FormulaCategories provides a canonical Array value to 1 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Fundamental_FormulaCategories 向 1 个规范化子系统族提供规范 Array 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "16",
+        "sha256": "43583731fb0716adb00403a008a16ac7e6f3d2e75dd5d390c576e28e13c12ff8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Fundamental_FormulaCategories",
+    "value_kind": "Array",
+    "canonical_value": [
+      "1",
+      "5"
+    ],
+    "consumer_ids": [
+      "equations"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-godmode-effectjsonpath",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_GodMode_EffectJsonPath",
+    "name_zh_cn": "RogueTourn_GodMode_EffectJsonPath",
+    "summary_en": "RogueTourn_GodMode_EffectJsonPath is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_GodMode_EffectJsonPath 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "18",
+        "sha256": "081d60fec6046157ba61228054e50d3c305d658e054f954de2087e1d2fb6731d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_GodMode_EffectJsonPath",
+    "value_kind": "String",
+    "canonical_value": "Config/Level/Rogue/RogueModifier/RogueTournGodMode/RogueTournS2GodMode.json",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-godmode-unlockid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_GodMode_UnlockID",
+    "name_zh_cn": "RogueTourn_GodMode_UnlockID",
+    "summary_en": "RogueTourn_GodMode_UnlockID is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_GodMode_UnlockID 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "19",
+        "sha256": "36eaaad135c92732b4ef9bd3c195596027cae5bc3f495bd0afb823a5211060df",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_GodMode_UnlockID",
+    "value_kind": "Integer",
+    "canonical_value": "3001303",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-godmodestatus",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_GodModeStatus",
+    "name_zh_cn": "RogueTourn_GodModeStatus",
+    "summary_en": "RogueTourn_GodModeStatus is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_GodModeStatus 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "29",
+        "sha256": "7eca658ee4ef1b6d2ec78f7a9083eef5fcf3ec7262eeee4858f636ea184032fe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_GodModeStatus",
+    "value_kind": "Integer",
+    "canonical_value": "0",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-handbook-buff-questlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Handbook_Buff_QuestList",
+    "name_zh_cn": "RogueTourn_Handbook_Buff_QuestList",
+    "summary_en": "RogueTourn_Handbook_Buff_QuestList is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Handbook_Buff_QuestList 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "11",
+        "sha256": "d9656aefa5c09e6250cb795df67eafd48fd8efcbdc4e811086afe767fe6198e0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Handbook_Buff_QuestList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "5014050",
+      "5014051",
+      "5014052",
+      "5014053",
+      "5014054"
+    ],
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-handbook-event-questlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Handbook_Event_QuestList",
+    "name_zh_cn": "RogueTourn_Handbook_Event_QuestList",
+    "summary_en": "RogueTourn_Handbook_Event_QuestList is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Handbook_Event_QuestList 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "14",
+        "sha256": "38f12affb3ed2b3dd00307a8ce12dac0c59193b8652dff1b5056621e4b325ba7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Handbook_Event_QuestList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "5014060",
+      "5014061",
+      "5014062",
+      "5014063",
+      "5014064"
+    ],
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-handbook-formula-questlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Handbook_Formula_QuestList",
+    "name_zh_cn": "RogueTourn_Handbook_Formula_QuestList",
+    "summary_en": "RogueTourn_Handbook_Formula_QuestList is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Handbook_Formula_QuestList 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "12",
+        "sha256": "4ade130f0592cbc876499055d0e58dc9fc1d95c0d5f7bcfeacbb29d500f86080",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Handbook_Formula_QuestList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "5014055",
+      "5014056",
+      "5014057",
+      "5014058",
+      "5014059"
+    ],
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-handbook-miracle-questlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Handbook_Miracle_QuestList",
+    "name_zh_cn": "RogueTourn_Handbook_Miracle_QuestList",
+    "summary_en": "RogueTourn_Handbook_Miracle_QuestList is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Handbook_Miracle_QuestList 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "13",
+        "sha256": "7aeb921546340efc72626acd979ad9bc9522e8ba7fc71a0de1e84582bbef8b00",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Handbook_Miracle_QuestList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "5014045",
+      "5014046",
+      "5014047",
+      "5014048",
+      "5014049"
+    ],
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-handbook-stylegift-questlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Handbook_StyleGift_QuestList",
+    "name_zh_cn": "RogueTourn_Handbook_StyleGift_QuestList",
+    "summary_en": "RogueTourn_Handbook_StyleGift_QuestList is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Handbook_StyleGift_QuestList 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "15",
+        "sha256": "b32beff03c58f8eda2489c895822e1942b9a2c04553153e1958270c545f056dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Handbook_StyleGift_QuestList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "5014040",
+      "5014041",
+      "5014042",
+      "5014043",
+      "5014044"
+    ],
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-level-mapentrance",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Level_MapEntrance",
+    "name_zh_cn": "RogueTourn_Level_MapEntrance",
+    "summary_en": "RogueTourn_Level_MapEntrance provides a canonical Integer value to 1 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Level_MapEntrance 向 1 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "6",
+        "sha256": "fdba46179c485bb640bdcecf49b48b644fc8babb8286853ae730aa0f655aa633",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Level_MapEntrance",
+    "value_kind": "Integer",
+    "canonical_value": "1034102",
+    "consumer_ids": [
+      "entries"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-level-mappinginfo",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Level_MappingInfo",
+    "name_zh_cn": "RogueTourn_Level_MappingInfo",
+    "summary_en": "RogueTourn_Level_MappingInfo provides a canonical Integer value to 1 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Level_MappingInfo 向 1 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "7",
+        "sha256": "025358a66b44c0f9e11386aec91107cae4cca366daf4f4088c4bd7adc692615a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Level_MappingInfo",
+    "value_kind": "Integer",
+    "canonical_value": "2421",
+    "consumer_ids": [
+      "arithmetic-mapping"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-talent-talentcoinitemid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Talent_TalentCoinItemID",
+    "name_zh_cn": "RogueTourn_Talent_TalentCoinItemID",
+    "summary_en": "RogueTourn_Talent_TalentCoinItemID provides a canonical Integer value to 2 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Talent_TalentCoinItemID 向 2 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "0",
+        "sha256": "9bec7da8b487d14085f29c87b9eafda9bf1d23cad04573f2fbf604c0eabdaec9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Talent_TalentCoinItemID",
+    "value_kind": "Integer",
+    "canonical_value": "281018",
+    "consumer_ids": [
+      "permanent-talents",
+      "titan-talents"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-talent-talentcoinitemid-s2",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Talent_TalentCoinItemID_S2",
+    "name_zh_cn": "RogueTourn_Talent_TalentCoinItemID_S2",
+    "summary_en": "RogueTourn_Talent_TalentCoinItemID_S2 provides a canonical Integer value to 2 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Talent_TalentCoinItemID_S2 向 2 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "1",
+        "sha256": "07dd7ac336ac393fa7e03d2aa25a298b1dfb5e7a660d93941517437f4d1fe19e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Talent_TalentCoinItemID_S2",
+    "value_kind": "Integer",
+    "canonical_value": "281020",
+    "consumer_ids": [
+      "permanent-talents",
+      "titan-talents"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-talent-talentcoinitemid-s3",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Talent_TalentCoinItemID_S3",
+    "name_zh_cn": "RogueTourn_Talent_TalentCoinItemID_S3",
+    "summary_en": "RogueTourn_Talent_TalentCoinItemID_S3 provides a canonical Integer value to 2 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_Talent_TalentCoinItemID_S3 向 2 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "2",
+        "sha256": "32dc17b6954ce416f3c6da0f0b7056fa1b520e8c98b7fb4c2d2ec93b15b24ed7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_Talent_TalentCoinItemID_S3",
+    "value_kind": "Integer",
+    "canonical_value": "281030",
+    "consumer_ids": [
+      "permanent-talents",
+      "titan-talents"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-trainingmodeunlockdivision",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_TrainingModeUnlockDivision",
+    "name_zh_cn": "RogueTourn_TrainingModeUnlockDivision",
+    "summary_en": "RogueTourn_TrainingModeUnlockDivision provides a canonical Integer value to 1 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_TrainingModeUnlockDivision 向 1 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "31",
+        "sha256": "aae16c8d84a1012a8d269f43befdcb61ac69d9c9e622e59b3c0e5091cef0fdab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_TrainingModeUnlockDivision",
+    "value_kind": "Integer",
+    "canonical_value": "2",
+    "consumer_ids": [
+      "star-pioneer-practice"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-weekly-challenge-exp-limit",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Weekly_Challenge_Exp_Limit",
+    "name_zh_cn": "RogueTourn_Weekly_Challenge_Exp_Limit",
+    "summary_en": "RogueTourn_Weekly_Challenge_Exp_Limit is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Weekly_Challenge_Exp_Limit 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "8",
+        "sha256": "11cf2f036a929e8d94298a91efa71e1d6c3204b136282ae7ecae236a4f067ae3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Weekly_Challenge_Exp_Limit",
+    "value_kind": "Integer",
+    "canonical_value": "1000",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-weekly-challenge-exp-ratio",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Weekly_Challenge_Exp_Ratio",
+    "name_zh_cn": "RogueTourn_Weekly_Challenge_Exp_Ratio",
+    "summary_en": "RogueTourn_Weekly_Challenge_Exp_Ratio is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Weekly_Challenge_Exp_Ratio 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "9",
+        "sha256": "917a19b1c0df8fb25311868a81eb08c44ed921a7ebfdb01d58da4e3526f7a564",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Weekly_Challenge_Exp_Ratio",
+    "value_kind": "Integer",
+    "canonical_value": "1",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-weekly-challenge-score-ratio",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_Weekly_Challenge_Score_Ratio",
+    "name_zh_cn": "RogueTourn_Weekly_Challenge_Score_Ratio",
+    "summary_en": "RogueTourn_Weekly_Challenge_Score_Ratio is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTourn_Weekly_Challenge_Score_Ratio 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "10",
+        "sha256": "70416848155e374f9e80de1b9c2b649938f9b71d6f49098161a5edbdaab64d7f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTourn_Weekly_Challenge_Score_Ratio",
+    "value_kind": "Integer",
+    "canonical_value": "0",
+    "consumer_ids": [],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourn-weeklychallenge-activitymoduleid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTourn_WeeklyChallenge_ActivityModuleID",
+    "name_zh_cn": "RogueTourn_WeeklyChallenge_ActivityModuleID",
+    "summary_en": "RogueTourn_WeeklyChallenge_ActivityModuleID provides a canonical Integer value to 1 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTourn_WeeklyChallenge_ActivityModuleID 向 1 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "17",
+        "sha256": "f9ee817b830eb12f547a111492f0935044fe8c3afa009a34395129a6eb15f73f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTourn_WeeklyChallenge_ActivityModuleID",
+    "value_kind": "Integer",
+    "canonical_value": "6002301",
+    "consumer_ids": [
+      "cyclical-challenges"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-blessbuffgroupid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_BlessBuffGroupId",
+    "name_zh_cn": "RogueTournTitan_BlessBuffGroupId",
+    "summary_en": "RogueTournTitan_BlessBuffGroupId provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_BlessBuffGroupId 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "21",
+        "sha256": "754355c29477ec8e2e1c98a8fc9c0be593e1a2e627daee15c4fec5f9d9c252b9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_BlessBuffGroupId",
+    "value_kind": "Integer",
+    "canonical_value": "100001",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-blessbuffgroupid-tutorial",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_BlessBuffGroupId_Tutorial",
+    "name_zh_cn": "RogueTournTitan_BlessBuffGroupId_Tutorial",
+    "summary_en": "RogueTournTitan_BlessBuffGroupId_Tutorial provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_BlessBuffGroupId_Tutorial 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "22",
+        "sha256": "7953f573f57e34a4c6e88db40024a9d0cf11fbb6f964ef7a770127670f9415b6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_BlessBuffGroupId_Tutorial",
+    "value_kind": "Integer",
+    "canonical_value": "100002",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-blessbuffhintid",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_BlessBuffHintId",
+    "name_zh_cn": "RogueTournTitan_BlessBuffHintId",
+    "summary_en": "RogueTournTitan_BlessBuffHintId provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_BlessBuffHintId 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "28",
+        "sha256": "3fd338ed7070d97261b3c723127c6820777adb152230fdec44eff33a6cfe1837",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_BlessBuffHintId",
+    "value_kind": "Integer",
+    "canonical_value": "0",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-blessbufftriggernum",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_BlessBuffTriggerNum",
+    "name_zh_cn": "RogueTournTitan_BlessBuffTriggerNum",
+    "summary_en": "RogueTournTitan_BlessBuffTriggerNum provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_BlessBuffTriggerNum 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "20",
+        "sha256": "4902171361a2a11723b35bce2ef7c8da7741af36d7d9f73c0e859f14858f6562",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_BlessBuffTriggerNum",
+    "value_kind": "Integer",
+    "canonical_value": "4",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-doubletitanblessarea",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_DoubleTitanBlessArea",
+    "name_zh_cn": "RogueTournTitan_DoubleTitanBlessArea",
+    "summary_en": "RogueTournTitan_DoubleTitanBlessArea provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_DoubleTitanBlessArea 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "25",
+        "sha256": "8fd98f39ad3cb0065ae5560bce479a6ce9512027220b39e9da545dacb90dc6ff",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_DoubleTitanBlessArea",
+    "value_kind": "Integer",
+    "canonical_value": "102",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-forcedblessbuffid-tutorial",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_ForcedBlessBuffID_Tutorial",
+    "name_zh_cn": "RogueTournTitan_ForcedBlessBuffID_Tutorial",
+    "summary_en": "RogueTournTitan_ForcedBlessBuffID_Tutorial provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_ForcedBlessBuffID_Tutorial 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "23",
+        "sha256": "20e1b28bc333eaa2649e1ff930e4c832c6316d2dece6bc6edc21331f0fa38d4f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_ForcedBlessBuffID_Tutorial",
+    "value_kind": "Integer",
+    "canonical_value": "10101",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-sharecode-namemaxlength",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_ShareCode_NameMaxLength",
+    "name_zh_cn": "RogueTournTitan_ShareCode_NameMaxLength",
+    "summary_en": "RogueTournTitan_ShareCode_NameMaxLength is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTournTitan_ShareCode_NameMaxLength 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "33",
+        "sha256": "7d383c05f681d5308e424bafa1d27384ff396afedabd5033f1b8e56788fba922",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTournTitan_ShareCode_NameMaxLength",
+    "value_kind": "Integer",
+    "canonical_value": "60",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-sharecode-savelimit",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_ShareCode_SaveLimit",
+    "name_zh_cn": "RogueTournTitan_ShareCode_SaveLimit",
+    "summary_en": "RogueTournTitan_ShareCode_SaveLimit is retained as reward, account, presentation or test exclusion evidence.",
+    "summary_zh_cn": "RogueTournTitan_ShareCode_SaveLimit 作为奖励、账号、展示或测试排除证据保留。",
+    "ownership": "Excluded",
+    "coverage_state": "Excluded",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "32",
+        "sha256": "1c3baa9ff4668dd7f706c10ddde8058ffa45ba538c9be2e35ef0d1e5b5171f1e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "excluded"
+    ],
+    "source_id": "RogueTournTitan_ShareCode_SaveLimit",
+    "value_kind": "Integer",
+    "canonical_value": "6",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "RewardAccountPresentationOrTest",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-titan-bless-weight-modify-json-path",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_Titan_Bless_Weight_Modify_Json_Path",
+    "name_zh_cn": "RogueTournTitan_Titan_Bless_Weight_Modify_Json_Path",
+    "summary_en": "RogueTournTitan_Titan_Bless_Weight_Modify_Json_Path provides a canonical String value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_Titan_Bless_Weight_Modify_Json_Path 向 3 个规范化子系统族提供规范 String 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "30",
+        "sha256": "026c182229f778ff252c832061c9a7f97ff728d974d9b286235e4bd6661c3bcb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_Titan_Bless_Weight_Modify_Json_Path",
+    "value_kind": "String",
+    "canonical_value": "Config/Level/Rogue/RogueTitanWeight/RogueTitanWeightModify.json",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-titanblesshintid-core",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_TitanBlessHintID_Core",
+    "name_zh_cn": "RogueTournTitan_TitanBlessHintID_Core",
+    "summary_en": "RogueTournTitan_TitanBlessHintID_Core provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_TitanBlessHintID_Core 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "26",
+        "sha256": "af787067632f445f419510769c23b528cf0b24af71b99df22f1c0adcc36440c1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_TitanBlessHintID_Core",
+    "value_kind": "Integer",
+    "canonical_value": "310001",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-titanblesshintid-enhance",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_TitanBlessHintID_Enhance",
+    "name_zh_cn": "RogueTournTitan_TitanBlessHintID_Enhance",
+    "summary_en": "RogueTournTitan_TitanBlessHintID_Enhance provides a canonical Integer value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_TitanBlessHintID_Enhance 向 3 个规范化子系统族提供规范 Integer 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "27",
+        "sha256": "fc54cfd13b777f000975a752aacd7245099ba8380d6e3d9f2efafefeac8d73a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_TitanBlessHintID_Enhance",
+    "value_kind": "Integer",
+    "canonical_value": "310002",
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.constant.roguetourntitan-tutorialforcedtitanblessidlist",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCommonConstant",
+    "name_en": "RogueTournTitan_TutorialForcedTitanBlessIDList",
+    "name_zh_cn": "RogueTournTitan_TutorialForcedTitanBlessIDList",
+    "summary_en": "RogueTournTitan_TutorialForcedTitanBlessIDList provides a canonical Array value to 3 normalized subsystem family/families.",
+    "summary_zh_cn": "RogueTournTitan_TutorialForcedTitanBlessIDList 向 3 个规范化子系统族提供规范 Array 值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournconstcommon-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournConstCommon.json",
+        "locator": "24",
+        "sha256": "5a5757c47696becb752fae205169360d32c0ffe49c04c259f2aefd2942419be9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "common-constant",
+      "simulation-visible"
+    ],
+    "source_id": "RogueTournTitan_TutorialForcedTitanBlessIDList",
+    "value_kind": "Array",
+    "canonical_value": [
+      "10201",
+      "10301"
+    ],
+    "consumer_ids": [
+      "titan-types",
+      "titan-boons",
+      "titan-choices"
+    ],
+    "exclusion_reason": "",
+    "runtime_lowered": false
+  }
+]
