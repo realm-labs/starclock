@@ -1,0 +1,1503 @@
+{
+  "schema_revision": "starclock.divergent-universe-normalized-schema.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "bound_content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.divergent-universe-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "ownership": {
+      "enum": [
+        "DivergentUniverse",
+        "Shared"
+      ],
+      "candidate_rule": "SharedCandidate manifest obligations cannot become normalized rows until promoted by an exact reconciliation receipt"
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve identifiers and TextMap hashes beyond JavaScript safe integer range"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "access_date",
+        "game_version",
+        "evidence_quality",
+        "mechanism_quality"
+      ],
+      "optional_fields": [
+        "note",
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require note and replacement_condition"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed pack index or explicit inherited stable-ID set",
+      "unknown_behavior": "reject"
+    },
+    "ordered_child": {
+      "required_fields": [
+        "parent_id",
+        "ordinal"
+      ],
+      "ordinal_type": "unsigned fixed-width integer",
+      "duplicate_behavior": "reject"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem or object iteration order",
+    "unicode_normalization": "NFC",
+    "null_policy": "omit optional absent values; never use null",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "manifest_mapping": {
+    "source_obligations": "every manifest category maps to one or more normalized files and closes exactly once in coverage.json",
+    "candidate_obligations": "SharedCandidate rows remain Cataloged or Blocked until an exact selector/reference/stable-ID receipt promotes or excludes them",
+    "derived_files": "derived rows reuse a parent category and cannot create or remove a source obligation",
+    "child_rows": "typed child rows carry parent stable ID and deterministic ordinal",
+    "unknown_reference": "reject"
+  },
+  "reconciliation_policy": {
+    "checkpoints": [
+      {
+        "goal": "gold-and-gears-reference-v1",
+        "commit": "c283c7f195dcfe05854f3b212df73444ee89255a",
+        "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+        "records": 7913,
+        "required_now": false,
+        "replacement": "replace with a remote-backed or merged checkpoint before G11-P4-B3"
+      },
+      {
+        "goal": "swarm-disaster-reference-v1",
+        "commit": "d5d261a3c0b151eda85cdca52bf12c46a8ff04f4",
+        "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+        "records": 6963,
+        "required_now": true,
+        "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference"
+      },
+      {
+        "goal": "unknowable-domain-reference-v1",
+        "commit": "a2e64e1ddf40dd5e4570e576650be0472044794d",
+        "manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+        "records": 5377,
+        "required_now": true,
+        "remote_ancestor": "origin/codex/goal10-unknowable-domain-reference"
+      }
+    ],
+    "join_key": [
+      "source_path",
+      "row_locator",
+      "evidence_sha256"
+    ],
+    "outcomes": [
+      "MatchedShared",
+      "DivergentUniverseOnly",
+      "OtherGoalOnly",
+      "DivergentRepresentation",
+      "Conflict"
+    ],
+    "conflict_behavior": "Blocked; record the conflict and wait for merge coordination without mutating another Goal",
+    "required_receipt_fields": [
+      "id",
+      "source_path",
+      "row_locator",
+      "evidence_sha256",
+      "checkpoint_goal",
+      "checkpoint_commit",
+      "checkpoint_ownership",
+      "goal11_ownership",
+      "outcome",
+      "note"
+    ]
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "DivergentUniverseProfiles",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles",
+        "entry_points",
+        "enabled_modules"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_refs",
+        "module_id",
+        "initial_resources",
+        "finish_condition_ids"
+      ]
+    },
+    {
+      "file": "modules.json",
+      "record_kind": "DivergentUniverseModules",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "enabled_modules"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "sub_mode",
+        "tourn_mode",
+        "main_tourn_id",
+        "sub_tourn_id"
+      ]
+    },
+    {
+      "file": "entries.json",
+      "record_kind": "DivergentUniverseEntries",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "entry_points"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_kind",
+        "module_id",
+        "unlock_ids"
+      ]
+    },
+    {
+      "file": "finish-conditions.json",
+      "record_kind": "DivergentUniverseFinishConditions",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "finish_conditions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "condition_kind",
+        "parameters",
+        "terminal_disposition"
+      ]
+    },
+    {
+      "file": "areas.json",
+      "record_kind": "DivergentUniverseAreas",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "area_groups",
+        "areas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "area_type",
+        "difficulty_ids",
+        "layer_ids",
+        "map_entry_id"
+      ]
+    },
+    {
+      "file": "difficulties.json",
+      "record_kind": "DivergentUniverseDifficulties",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "difficulties"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "level_list",
+        "protocol_id",
+        "enemy_scaling_refs"
+      ]
+    },
+    {
+      "file": "layers.json",
+      "record_kind": "DivergentUniverseLayers",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "layers"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "layer_number",
+        "ordered_room_position_ids"
+      ]
+    },
+    {
+      "file": "layer-rooms.json",
+      "record_kind": "DivergentUniverseLayerRooms",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "layer_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "layer_id",
+        "room_index",
+        "door_program"
+      ]
+    },
+    {
+      "file": "rooms.json",
+      "record_kind": "DivergentUniverseRooms",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "room_reuse_candidates",
+        "room_types"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "room_type",
+        "reachability_disposition",
+        "stage_refs"
+      ]
+    },
+    {
+      "file": "stage-flow.json",
+      "record_kind": "DivergentUniverseStageFlow",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_id",
+        "ordered_stage_refs",
+        "carry_rules",
+        "reset_rules"
+      ]
+    },
+    {
+      "file": "cyclical-challenges.json",
+      "record_kind": "DivergentUniverseCyclicalChallenges",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "weekly_modifiers"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "challenge_kind",
+        "modifier_ids",
+        "enemy_display_refs"
+      ]
+    },
+    {
+      "file": "protocols.json",
+      "record_kind": "DivergentUniverseProtocols",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "protocol_level",
+        "entry_rules",
+        "difficulty_changes",
+        "enemy_changes"
+      ]
+    },
+    {
+      "file": "astronomical-divisions.json",
+      "record_kind": "DivergentUniverseAstronomicalDivisions",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "astronomical_divisions",
+        "astronomical_division_effects"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "division_level",
+        "progress_boundary",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "star-pioneer-practice.json",
+      "record_kind": "DivergentUniverseStarPioneerPractice",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "mode_kind",
+        "entry_rules",
+        "available_content",
+        "reset_rules"
+      ]
+    },
+    {
+      "file": "cognoculi.json",
+      "record_kind": "DivergentUniverseCognoculi",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_locator",
+        "effect_scope",
+        "contribution_ids"
+      ]
+    },
+    {
+      "file": "arithmetic-mapping-eligibility.json",
+      "record_kind": "DivergentUniverseArithmeticMappingEligibility",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "arithmetic_mapping_avatars",
+        "arithmetic_mapping_build_refs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "eligibility",
+        "account_comparison_policy"
+      ]
+    },
+    {
+      "file": "arithmetic-mapping-builds.json",
+      "record_kind": "DivergentUniverseArithmeticMappingBuilds",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "arithmetic_mapping_roles"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "level",
+        "trace_state",
+        "light_cone",
+        "relics",
+        "role_buff_id"
+      ]
+    },
+    {
+      "file": "arithmetic-mapping-rules.json",
+      "record_kind": "DivergentUniverseArithmeticMappingRules",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "selection_timing",
+        "refresh_timing",
+        "stronger_build_rule",
+        "teardown"
+      ]
+    },
+    {
+      "file": "equations.json",
+      "record_kind": "DivergentUniverseEquations",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "equations",
+        "equation_displays"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "main_path",
+        "sub_path",
+        "recipe_id",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "equation-recipes.json",
+      "record_kind": "DivergentUniverseEquationRecipes",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "main_path_count",
+        "sub_path_count",
+        "required_blessing_states"
+      ]
+    },
+    {
+      "file": "equation-categories.json",
+      "record_kind": "DivergentUniverseEquationCategories",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "offer_rules",
+        "expansion_boundary"
+      ]
+    },
+    {
+      "file": "equation-offers.json",
+      "record_kind": "DivergentUniverseEquationOffers",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "equation_randomizers"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_ids",
+        "weight_program",
+        "reroll_rule",
+        "fallback"
+      ]
+    },
+    {
+      "file": "equation-progress.json",
+      "record_kind": "DivergentUniverseEquationProgress",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "equation_id",
+        "contribution_rule",
+        "progress_states"
+      ]
+    },
+    {
+      "file": "equation-expansion-states.json",
+      "record_kind": "DivergentUniverseEquationExpansionStates",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "equation_id",
+        "state",
+        "entry_condition",
+        "exit_condition"
+      ]
+    },
+    {
+      "file": "equation-effects.json",
+      "record_kind": "DivergentUniverseEquationEffects",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "equation_keywords",
+        "equation_keyword_params"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "equation_id",
+        "keyword_ids",
+        "parameters",
+        "rule_contribution_ids"
+      ]
+    },
+    {
+      "file": "equation-replacement-rules.json",
+      "record_kind": "DivergentUniverseEquationReplacementRules",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "operation",
+        "candidate_policy",
+        "preserved_state",
+        "fallback"
+      ]
+    },
+    {
+      "file": "blessing-paths.json",
+      "record_kind": "DivergentUniverseBlessingPaths",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "blessing_paths"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "path_id",
+        "equation_roles",
+        "rewrite_rules"
+      ]
+    },
+    {
+      "file": "blessings.json",
+      "record_kind": "DivergentUniverseBlessings",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "blessings"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "path_id",
+        "category",
+        "level_ids",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "blessing-levels.json",
+      "record_kind": "DivergentUniverseBlessingLevels",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "blessing_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "blessing_id",
+        "level",
+        "parameters",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "blessing-groups.json",
+      "record_kind": "DivergentUniverseBlessingGroups",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "blessing_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_ids",
+        "selection_policy",
+        "weight_program"
+      ]
+    },
+    {
+      "file": "blessing-rewrite-rules.json",
+      "record_kind": "DivergentUniverseBlessingRewriteRules",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "input_state",
+        "output_state",
+        "timing",
+        "fallback"
+      ]
+    },
+    {
+      "file": "blessing-equation-contributions.json",
+      "record_kind": "DivergentUniverseBlessingEquationContributions",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "blessing_id",
+        "equation_id",
+        "contribution",
+        "refresh_timing"
+      ]
+    },
+    {
+      "file": "curios.json",
+      "record_kind": "DivergentUniverseCurios",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "curios"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "state_ids",
+        "eligibility_rule_ids"
+      ]
+    },
+    {
+      "file": "curio-states.json",
+      "record_kind": "DivergentUniverseCurioStates",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "curio_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "state",
+        "charges",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "curio-groups.json",
+      "record_kind": "DivergentUniverseCurioGroups",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "curio_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_state_ids",
+        "weights",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "curio-lifecycle-rules.json",
+      "record_kind": "DivergentUniverseCurioLifecycleRules",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "activation",
+        "destruction",
+        "repair",
+        "replacement",
+        "fallback"
+      ]
+    },
+    {
+      "file": "grand-miracles.json",
+      "record_kind": "DivergentUniverseGrandMiracles",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "grand_miracles"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "display_id",
+        "maze_buff_id",
+        "effect_ids",
+        "state_ids"
+      ]
+    },
+    {
+      "file": "grand-miracle-eligibility.json",
+      "record_kind": "DivergentUniverseGrandMiracleEligibility",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "grand_miracle_eligibility"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "grand_miracle_id",
+        "character_path",
+        "element",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "grand-miracle-states.json",
+      "record_kind": "DivergentUniverseGrandMiracleStates",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "grand_miracle_id",
+        "state",
+        "activation",
+        "duration",
+        "teardown"
+      ]
+    },
+    {
+      "file": "titan-types.json",
+      "record_kind": "DivergentUniverseTitanTypes",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "titan_types"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "boon_ids",
+        "talent_ids"
+      ]
+    },
+    {
+      "file": "titan-boons.json",
+      "record_kind": "DivergentUniverseTitanBoons",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "titan_bless_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "titan_type",
+        "level",
+        "maze_buff_id",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "titan-talents.json",
+      "record_kind": "DivergentUniverseTitanTalents",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "titan_talent_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "titan_type",
+        "level",
+        "cost",
+        "effect_program"
+      ]
+    },
+    {
+      "file": "titan-choices.json",
+      "record_kind": "DivergentUniverseTitanChoices",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_ids",
+        "eligibility",
+        "selection_count",
+        "fallback"
+      ]
+    },
+    {
+      "file": "titan-contributions.json",
+      "record_kind": "DivergentUniverseTitanContributions",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "scope",
+        "activation",
+        "ordered_effects"
+      ]
+    },
+    {
+      "file": "workbenches.json",
+      "record_kind": "DivergentUniverseWorkbenches",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "workbenches"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_ids",
+        "currency_ids",
+        "availability"
+      ]
+    },
+    {
+      "file": "workbench-functions.json",
+      "record_kind": "DivergentUniverseWorkbenchFunctions",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "workbench_functions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_type",
+        "input_policy",
+        "output_policy",
+        "price_rule"
+      ]
+    },
+    {
+      "file": "gamble-groups.json",
+      "record_kind": "DivergentUniverseGambleGroups",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "gamble_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "group_type",
+        "unit_ids",
+        "offer_policy"
+      ]
+    },
+    {
+      "file": "gamble-units.json",
+      "record_kind": "DivergentUniverseGambleUnits",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "gamble_units"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "unit_type",
+        "parameters",
+        "outcome_program"
+      ]
+    },
+    {
+      "file": "curse-chests.json",
+      "record_kind": "DivergentUniverseCurseChests",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "curse_chests"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "chest_type",
+        "parameters",
+        "choice_program"
+      ]
+    },
+    {
+      "file": "currencies.json",
+      "record_kind": "DivergentUniverseCurrencies",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scope",
+        "gain_rules",
+        "spend_rules",
+        "reset_rule"
+      ]
+    },
+    {
+      "file": "service-rules.json",
+      "record_kind": "DivergentUniverseServiceRules",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_kind",
+        "currency_id",
+        "price",
+        "ordered_operations",
+        "fallback"
+      ]
+    },
+    {
+      "file": "service-offer-rules.json",
+      "record_kind": "DivergentUniverseServiceOfferRules",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_id",
+        "candidate_ids",
+        "weights",
+        "refresh_rule",
+        "fallback"
+      ]
+    },
+    {
+      "file": "permanent-talents.json",
+      "record_kind": "DivergentUniversePermanentTalents",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "permanent_talents"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "cost",
+        "prerequisite_ids",
+        "effect_ids",
+        "scope"
+      ]
+    },
+    {
+      "file": "unlocks.json",
+      "record_kind": "DivergentUniverseUnlocks",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "unlocks"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "finish_condition_id",
+        "unlocked_content_ids",
+        "scope"
+      ]
+    },
+    {
+      "file": "common-constants.json",
+      "record_kind": "DivergentUniverseCommonConstants",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "common_constants"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "value_kind",
+        "canonical_value",
+        "consumer_ids"
+      ]
+    },
+    {
+      "file": "weekly-modifiers.json",
+      "record_kind": "DivergentUniverseWeeklyModifiers",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "weekly_modifiers"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "content_ids",
+        "detail_ids",
+        "enemy_group_refs",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "room-marks.json",
+      "record_kind": "DivergentUniverseRoomMarks",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "room_marks"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "room_type",
+        "mark_kind",
+        "transition_rules"
+      ]
+    },
+    {
+      "file": "progression-effects.json",
+      "record_kind": "DivergentUniverseProgressionEffects",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "scope",
+        "rule_contribution_ids"
+      ]
+    },
+    {
+      "file": "pool-membership.json",
+      "record_kind": "DivergentUniversePoolMembership",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessing_paths",
+        "blessings",
+        "blessing_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "pool_id",
+        "member_id",
+        "membership_basis",
+        "module_scope"
+      ]
+    },
+    {
+      "file": "curio-pool-membership.json",
+      "record_kind": "DivergentUniverseCurioPoolMembership",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios",
+        "curio_states",
+        "curio_groups"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "pool_id",
+        "curio_state_id",
+        "weight",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "occurrences.json",
+      "record_kind": "DivergentUniverseOccurrences",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "occurrences"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "variant_ids",
+        "unlock_rules",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "occurrence-variants.json",
+      "record_kind": "DivergentUniverseOccurrenceVariants",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "occurrence_variants"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "occurrence_id",
+        "graph_path",
+        "entry_conditions",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "occurrence-choices.json",
+      "record_kind": "DivergentUniverseOccurrenceChoices",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "variant_id",
+        "ordinal",
+        "conditions",
+        "costs",
+        "ordered_outcomes"
+      ]
+    },
+    {
+      "file": "mode-service-npcs.json",
+      "record_kind": "DivergentUniverseModeServiceNpcs",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "mode_service_npcs"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "graph_path",
+        "service_kind",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "adventure-outcomes.json",
+      "record_kind": "DivergentUniverseAdventureOutcomes",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "adventure_outcomes"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "adventure_type",
+        "parameter_group_id",
+        "abstract_outcome"
+      ]
+    },
+    {
+      "file": "encounter-source-obligations.json",
+      "record_kind": "DivergentUniverseEncounterSourceObligations",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_source_obligations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "parent_kind",
+        "parent_id",
+        "resolution_state"
+      ]
+    },
+    {
+      "file": "encounter-groups.json",
+      "record_kind": "DivergentUniverseEncounterGroups",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "module_id",
+        "area_id",
+        "difficulty_id",
+        "candidate_stage_ids"
+      ]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "DivergentUniverseEncounterWaves",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "stage_id",
+        "wave_index",
+        "enemy_slot_ids",
+        "trigger"
+      ]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "DivergentUniverseEnemySlots",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "wave_id",
+        "slot_index",
+        "monster_id",
+        "level",
+        "ability_refs"
+      ]
+    },
+    {
+      "file": "boss-pools.json",
+      "record_kind": "DivergentUniverseBossPools",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "area_id",
+        "difficulty_id",
+        "candidate_monster_ids",
+        "selection_policy"
+      ]
+    },
+    {
+      "file": "mechanic-source-files.json",
+      "record_kind": "DivergentUniverseMechanicSourceFiles",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "mechanic_source_files"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "source_sha256",
+        "mechanic_family",
+        "disposition"
+      ]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "DivergentUniverseMechanicRules",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scope",
+        "trigger",
+        "ordered_operations",
+        "state_lifecycle",
+        "runtime_lowered"
+      ]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "DivergentUniverseSources",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "mechanism_quality"
+      ]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "DivergentUniverseCoverage",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "manifest_category",
+        "manifest_record_id",
+        "normalized_record_ids",
+        "state"
+      ]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "DivergentUniverseResearchGaps",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "field",
+        "known_facts",
+        "selected_policy",
+        "alternatives",
+        "replacement_condition"
+      ]
+    },
+    {
+      "file": "semantic-fixture-families.json",
+      "record_kind": "DivergentUniverseSemanticFixtureFamilies",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixture_families"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "minimum_cases",
+        "must_cover"
+      ]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "DivergentUniverseReviewFixtures",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "family_id",
+        "preconditions",
+        "input",
+        "ordered_operations",
+        "expected_facts"
+      ]
+    },
+    {
+      "file": "reconciliation-receipts.json",
+      "record_kind": "DivergentUniverseReconciliationReceipts",
+      "phase": "P4-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "row_locator",
+        "evidence_sha256",
+        "checkpoint",
+        "outcome"
+      ]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "DivergentUniverseManifest",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "content_manifest_sha256",
+        "normalized_files",
+        "record_counts"
+      ]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "DivergentUniversePackIndex",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "pack_digest",
+        "file_digests",
+        "stable_id_index"
+      ]
+    }
+  ]
+}

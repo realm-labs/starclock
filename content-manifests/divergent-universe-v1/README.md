@@ -44,6 +44,23 @@ A `RogueTourn` prefix, module number, ID range, adjacent record or matching
 localized name never grants membership; shared records require an explicit
 selector, transitive reference or inherited stable-ID closure.
 
+The normalized schema, authoring contract and semantic fixture contract are
+generated and checked by:
+
+```text
+node tools/divergent-universe-reference/contracts.mjs
+node tools/divergent-universe-reference/contracts.mjs --check
+node tools/divergent-universe-reference/verify-contracts.mjs
+```
+
+`normalized-schema.json` freezes 80 normalized file families and their
+manifest mappings. `authoring-contract.json` assigns every family exactly once
+to `DivergentUniverse.xlsx`, `DivergentUniverseBindings.xlsx` or
+`DivergentUniverseReview.xlsx`, with independent Sora 0.3.0 project, reader
+and generated-output paths. `fixture-contract.json` binds all 25 non-shrinking
+semantic fixture families. All three files bind the exact content-manifest
+SHA-256 and must regenerate byte-identically.
+
 The ignored source cache is reproduced through
 `tools/divergent-universe-reference/fetch-sources.sh`. Both repositories must
 be clean, detached and at the exact revisions frozen in `foundation.json`.
