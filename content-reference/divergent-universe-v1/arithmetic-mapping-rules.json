@@ -1,0 +1,377 @@
+[
+  {
+    "id": "divergent-universe.mapping-rule.character-level",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Character Level Threshold",
+    "name_zh_cn": "角色等级阈值",
+    "summary_en": "Raise a character below the current Equilibrium Level cap to that cap; preserve a character already at or above it.",
+    "summary_zh_cn": "角色低于当前均衡等级上限时提升至上限；已达到或超过时保持原值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "exactpublictext",
+      "rule"
+    ],
+    "selection_timing": "RunEntryOrRefresh",
+    "condition": "CharacterLevelBelowEquilibriumCap",
+    "ordered_operations": [
+      "RaiseCharacterToEquilibriumCap"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.light-cone",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Light Cone Mapping Boundary",
+    "name_zh_cn": "光锥映射边界",
+    "summary_en": "Released text includes Light Cone levels in Arithmetic Mapping but does not publish the exact condition or temporary identity.",
+    "summary_zh_cn": "已发布文本将光锥等级纳入数值映射，但未公布精确条件或临时光锥身份。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ApproximateFromReleasedText",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.project-policy.arithmetic-mapping-build-values",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "arithmetic-mapping-build-values",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The released tables expose opaque SpecialAvatar and role-buff IDs but do not publish per-avatar temporary Trace, Light Cone or Relic loadouts.",
+        "replacement_condition": "Replace per-avatar Unspecified fields when released mapping-info rows or reproducible inspection identifies the exact temporary build."
+      }
+    ],
+    "tags": [
+      "approximatefromreleasedtext",
+      "arithmetic-mapping",
+      "rule"
+    ],
+    "selection_timing": "Unspecified",
+    "condition": "Unspecified",
+    "ordered_operations": [
+      "Unspecified"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.refresh",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Mapping Refresh Checkpoint",
+    "name_zh_cn": "映射刷新检查点",
+    "summary_en": "Reference policy reevaluates mapping at run entry and accepted party changes; hidden mid-run equipment timing remains unavailable.",
+    "summary_zh_cn": "资料策略在流程进入与已接受的队伍变更时重新评估映射；隐藏的局内装备时机仍不可用。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.arithmetic-mapping-refresh",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "arithmetic-mapping-refresh",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text defines thresholds and mode-only scope but not evaluation timing when party or equipment changes during a run.",
+        "replacement_condition": "Replace when released flow/config evidence or reproducible observations establish refresh checkpoints and simultaneous changes."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "projectpolicy",
+      "rule"
+    ],
+    "selection_timing": "RunEntryAndAcceptedPartyChange",
+    "condition": "MappingInputChanged",
+    "ordered_operations": [
+      "ReevaluateOnlyBelowThresholdFields"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.relics",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Relic Total Enhancement Threshold",
+    "name_zh_cn": "遗器总强化等级阈值",
+    "summary_en": "Replace equipped Relics with compatible temporary Relics only when total Enhancement Level is below the current requirement.",
+    "summary_zh_cn": "仅当已装备遗器总强化等级低于当前要求时，替换为适配的临时遗器。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "exactpublictext",
+      "rule"
+    ],
+    "selection_timing": "RunEntryOrRefresh",
+    "condition": "RelicTotalEnhancementBelowRequirement",
+    "ordered_operations": [
+      "ReplaceWithCompatibleTemporaryRelics"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.scope",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Mode-Only Mapping Scope",
+    "name_zh_cn": "玩法内映射范围",
+    "summary_en": "Arithmetic Mapping enhancements apply only inside Divergent Universe.",
+    "summary_zh_cn": "数值映射强化仅在差分宇宙内生效。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "exactpublictext",
+      "rule"
+    ],
+    "selection_timing": "ModeBoundary",
+    "condition": "InsideDivergentUniverse",
+    "ordered_operations": [
+      "ApplyTemporaryMappingState"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.teardown",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Temporary Mapping Teardown",
+    "name_zh_cn": "临时映射拆除",
+    "summary_en": "At run finalization, remove temporary mapping state without mutating account characters, Light Cones or Relics.",
+    "summary_zh_cn": "流程结束时移除临时映射状态，不修改账号角色、光锥或遗器。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.project-policy.arithmetic-mapping-refresh",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "arithmetic-mapping-refresh",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text defines thresholds and mode-only scope but not evaluation timing when party or equipment changes during a run.",
+        "replacement_condition": "Replace when released flow/config evidence or reproducible observations establish refresh checkpoints and simultaneous changes."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "projectpolicy",
+      "rule"
+    ],
+    "selection_timing": "RunFinalization",
+    "condition": "LeavingDivergentUniverse",
+    "ordered_operations": [
+      "RemoveTemporaryMappingState"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.mapping-rule.traces",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseArithmeticMappingRule",
+    "name_en": "Trace Activation and Level Threshold",
+    "name_zh_cn": "行迹激活与等级阈值",
+    "summary_en": "Activate unlocked inactive Traces or raise below-required Trace levels; preserve already sufficient Traces.",
+    "summary_zh_cn": "激活已解锁但未激活的行迹，或提升低于要求的行迹等级；已满足要求时保持原值。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping",
+      "exactpublictext",
+      "rule"
+    ],
+    "selection_timing": "RunEntryOrRefresh",
+    "condition": "UnlockedTraceInactiveOrBelowRequirement",
+    "ordered_operations": [
+      "ActivateOrRaiseTrace"
+    ],
+    "stronger_build_rule": "PreserveWhenConditionIsFalse",
+    "account_mutation": false,
+    "runtime_lowered": false
+  }
+]

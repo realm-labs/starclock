@@ -89,6 +89,22 @@ export async function createContext(root, sourceRoot) {
     return cleanText((locale === "zh_cn" ? textZh : textEn)[hash] ?? "");
   }
 
+  function textEntry(hash, locale) {
+    const locator = String(hash);
+    const sourcePath = locale === "zh_cn"
+      ? "TextMap/TextMapCHS.json"
+      : "TextMap/TextMapEN.json";
+    const value = (locale === "zh_cn" ? textZh : textEn)[locator];
+    if (value === undefined)
+      throw new Error(`missing ${locale} TextMap entry ${locator}`);
+    return {
+      sourcePath,
+      locator,
+      row: value,
+      evidenceRow: value,
+    };
+  }
+
   function sourceRef(entry, evidenceQuality = "ExactStructured", extra = {}) {
     return {
       source_id:
@@ -169,6 +185,7 @@ export async function createContext(root, sourceRoot) {
     readSource,
     table,
     text,
+    textEntry,
     sourceRef,
     policyRef,
     envelope,
