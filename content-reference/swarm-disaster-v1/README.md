@@ -34,6 +34,8 @@ node tools/swarm-disaster-reference/import-blessings.mjs
 node tools/swarm-disaster-reference/verify-blessings.mjs
 node tools/swarm-disaster-reference/import-curios.mjs
 node tools/swarm-disaster-reference/verify-curios.mjs
+node tools/swarm-disaster-reference/import-occurrences.mjs
+node tools/swarm-disaster-reference/verify-occurrences.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -112,3 +114,11 @@ repair states, six numeric charge bindings, Void Wick Trimmer repair and
 Shining Trapezohedron replacement. Offer-specific eligibility and weights must
 come from the owning service or occurrence; missing bindings fail closed, and
 replacement candidates use stable ID order as replaceable `ProjectPolicy`.
+
+The Occurrence partition binds 75 handbook identities to 57 released Swarm NPC
+graphs and expands 308 ordered choices. Twelve variants intentionally serve
+multiple handbook identities. Choice conditions, costs, source parameters,
+dynamic displays, printed percentages and outcome text digests remain
+separate. Sixty choices name random behavior without released weights; they
+use labeled Activity RNG over stable source order and fail closed on unresolved
+candidate pools as replaceable `ProjectPolicy`.
