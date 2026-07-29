@@ -1,0 +1,4165 @@
+[
+  {
+    "id": "divergent-universe.review-fixture.adventure-abstract-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "adventure-abstract-outcome Reference Review",
+    "name_zh_cn": "adventure-abstract-outcome 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournadventureroom-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournAdventureRoom.json",
+        "locator": "7",
+        "sha256": "7f57508337e9dccf6645fa168d97d9a8678c0e3bae64bde71d9f5bc9b3baa752",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "3",
+        "sha256": "728de9580b7e6497382410469f1717e17df6b332a97e4849eccd65668f6ef17e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "4",
+        "sha256": "98ec0ecb81d4e9ad426faca93c7b646f8eb0ef606b4b927c5bc9a4d059da6b5c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-rogueturntable-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTurntable.json",
+        "locator": "5",
+        "sha256": "85ef0afeaac4a16df2d06a6395014fa83ab3fcc4da096a7e82ad97f8d614232d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.adventure-external-results",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "adventure-external-results",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Adventure action gameplay is outside Goal 11. Preserve only exact timing/score thresholds and treat the accepted external result as an abstract settlement input; never simulate movement, aiming, object placement or action controls.",
+        "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-adventure-abstract-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offered abstract result, eligibility, no action gameplay simulation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "adventure-abstract-outcome",
+      "review-fixture"
+    ],
+    "source_id": "adventure-abstract-outcome",
+    "family_id": "adventure-abstract-outcome",
+    "source_record_ids": [
+      "divergent-universe.adventure-outcome.11098010.RogueTurntable"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "offered abstract result"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "no action gameplay simulation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "offered abstract result",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "no action gameplay simulation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournadventureroom-json.7",
+      "source.goal11.exceloutput-rogueturntable-json.3",
+      "source.goal11.exceloutput-rogueturntable-json.4",
+      "source.goal11.exceloutput-rogueturntable-json.5",
+      "source.goal11.project-policy.adventure-external-results",
+      "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.area-difficulty-layer-transition",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "area-difficulty-layer-transition Reference Review",
+    "name_zh_cn": "area-difficulty-layer-transition 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "2",
+        "sha256": "edd0054cc66554c778f981775155bf3b71179866a6d4907f39b63b651c92d30c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndifficulty-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDifficulty.json",
+        "locator": "0",
+        "sha256": "3c6059c5287cda1170c5a50d8d9ce2651d153c1de2e2ceea8b7f5a3bcadcfcc7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournlayer-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournLayer.json",
+        "locator": "2",
+        "sha256": "1679dc8363ab5be26da5f3eddebd8fa9b7f06eb15eead7c8d9cb024222ee58cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-difficulty-layer-transition",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers ordered stage flow, legal and rejected transition, difficulty binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish room selection, transition timing, field-level carry or terminal reset order.",
+        "replacement_condition": "Replace when released flow configuration or reproducible observations bind room selection, transitions and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "area-difficulty-layer-transition",
+      "review-fixture"
+    ],
+    "source_id": "area-difficulty-layer-transition",
+    "family_id": "area-difficulty-layer-transition",
+    "source_record_ids": [
+      "divergent-universe.area.103",
+      "divergent-universe.difficulty.1001",
+      "divergent-universe.flow.area.103.entry",
+      "divergent-universe.layer.103"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered stage flow"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "legal and rejected transition"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "difficulty binding"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "ordered stage flow",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "legal and rejected transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "difficulty binding",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournarea-json.2",
+      "source.goal11.exceloutput-roguetourndifficulty-json.0",
+      "source.goal11.exceloutput-roguetournlayer-json.2",
+      "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+      "source.goal11.project-policy.stage-flow"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.arithmetic-mapping-eligibility",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "arithmetic-mapping-eligibility Reference Review",
+    "name_zh_cn": "arithmetic-mapping-eligibility 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-avatarconfig-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/AvatarConfig.json",
+        "locator": "0",
+        "sha256": "d7d8db22a5a4576b5ad9ae0b92780c2d87f404600a23ac73f8b9b65aaffe7005",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournbuildrefavatar-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournBuildRefAvatar.json",
+        "locator": "0",
+        "sha256": "035b567998dbb907dc7e11337e5cd7560f4851beb1a98a3b5c80ef214c1d33a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-eligibility",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers eligible character, ineligible character, stronger account build boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-eligibility",
+      "review-fixture"
+    ],
+    "source_id": "arithmetic-mapping-eligibility",
+    "family_id": "arithmetic-mapping-eligibility",
+    "source_record_ids": [
+      "divergent-universe.mapping-eligibility.1001"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "eligible character"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "ineligible character"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "stronger account build boundary"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "eligible character",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ineligible character",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "stronger account build boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-avatarconfig-json.0",
+      "source.goal11.exceloutput-roguetournbuildrefavatar-json.0",
+      "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.arithmetic-mapping-refresh-and-teardown",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "arithmetic-mapping-refresh-and-teardown Reference Review",
+    "name_zh_cn": "arithmetic-mapping-refresh-and-teardown 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-avatarconfig-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/AvatarConfig.json",
+        "locator": "0",
+        "sha256": "d7d8db22a5a4576b5ad9ae0b92780c2d87f404600a23ac73f8b9b65aaffe7005",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1729",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1729",
+        "sha256": "47cccacbf42905da1bf765dd559755039404c7f565bb6fa6732fe79fbab202ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournrole-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournRole.json",
+        "locator": "0",
+        "sha256": "56434f66778d0ddc3f17ab1626b88cff5e899b7c69f6a96c9801ee05511b73cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.arithmetic-mapping-build-values",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "arithmetic-mapping-build-values",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The released tables expose opaque SpecialAvatar and role-buff IDs but do not publish per-avatar temporary Trace, Light Cone or Relic loadouts.",
+        "replacement_condition": "Replace per-avatar Unspecified fields when released mapping-info rows or reproducible inspection identifies the exact temporary build."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers refresh timing, temporary substitution, account state unchanged using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3050660410227566581",
+        "sha256": "ee718d82b61589fe2986dcb6e8a28db51aefe04d1e16cccbbf8f0be6b12011f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.3050660410227566581",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3050660410227566581",
+        "sha256": "c7c6355fb20b51fb1563428c0ba193cd460426229a36f749a716ac255bbfea19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-refresh-and-teardown",
+      "review-fixture"
+    ],
+    "source_id": "arithmetic-mapping-refresh-and-teardown",
+    "family_id": "arithmetic-mapping-refresh-and-teardown",
+    "source_record_ids": [
+      "divergent-universe.mapping-build.1001",
+      "divergent-universe.mapping-rule.character-level"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "refresh timing"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "temporary substitution"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "account state unchanged"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "refresh timing",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "temporary substitution",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "account state unchanged",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-avatarconfig-json.0",
+      "source.goal11.exceloutput-roguemazebuff-json.1729",
+      "source.goal11.exceloutput-roguetournrole-json.0",
+      "source.goal11.project-policy.arithmetic-mapping-build-values",
+      "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+      "source.goal11.textmap-textmapchs-json.3050660410227566581",
+      "source.goal11.textmap-textmapen-json.3050660410227566581"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.astronomical-division",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "astronomical-division Reference Review",
+    "name_zh_cn": "astronomical-division 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "0",
+        "sha256": "ab9c6e6853b1482f421f193c0753614667691606967d751c94254e9a0b9d69f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "0",
+        "sha256": "962646b69f7500322b2f6cd04df910cd9b7f7e553bad6912201422a484af59a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-astronomical-division",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers progress boundary, effect activation, scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "review-fixture"
+    ],
+    "source_id": "astronomical-division",
+    "family_id": "astronomical-division",
+    "source_record_ids": [
+      "divergent-universe.astronomical-division.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "progress boundary"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "effect activation"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "scope"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "progress boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "effect activation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "scope",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourndivision-json.0",
+      "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+      "source.goal11.project-policy.semantic-fixture-astronomical-division"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.battle-visible-and-cross-battle-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "battle-visible-and-cross-battle-contribution Reference Review",
+    "name_zh_cn": "battle-visible-and-cross-battle-contribution 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1222",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1222",
+        "sha256": "0a775f36b4fc1866d07557e0bb458c9e63f48d80259f946e12a71ddba484c0bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemiracledisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleDisplay.json",
+        "locator": "2",
+        "sha256": "8302d967f957c6db1c8c7c5542639014c132444151e65199cd5d8605d0f66859",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemiracleeffect-json.769",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffect.json",
+        "locator": "769",
+        "sha256": "e6a690662f761dccd3eb84ee25fc894c92a662e9a0c0c380a0f6bc406e4d35ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "0",
+        "sha256": "962646b69f7500322b2f6cd04df910cd9b7f7e553bad6912201422a484af59a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournmiracle-json.439",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournMiracle.json",
+        "locator": "439",
+        "sha256": "fa6263f0d2724b18066ecc262473554af6e30e4648d76580438b02b18d61f954",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "0",
+        "sha256": "56f083d3b1fa19109745fc45ab4b569b9f62c4a886999076ddbf5ba79de44872",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curio-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The released Tourn3 Miracle catalog identifies mode copies and effect parameters but does not publish a uniform charge, activation, destruction, repair, replacement, simultaneous-trigger or no-legal-target program.",
+        "replacement_condition": "Replace per-Curio lifecycle fields when a released service/config/ability program proves the exact transition, ordering, scope and fallback."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers BattleSpec contribution, BattleResult handoff, cross-battle lifecycle using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.449485639331447287",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "449485639331447287",
+        "sha256": "0effcb9f68cd507f894c8768b4adb1f3c6e7157a7ae3ef111e4a8aca833cfaa8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.449485639331447287",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "449485639331447287",
+        "sha256": "049c703ec5730d691c84fe0148a50dfaf8cd0ceb0d230acef9972ab912e68b72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "battle-visible-and-cross-battle-contribution",
+      "review-fixture"
+    ],
+    "source_id": "battle-visible-and-cross-battle-contribution",
+    "family_id": "battle-visible-and-cross-battle-contribution",
+    "source_record_ids": [
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.protocol.1",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "BattleSpec contribution"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "BattleResult handoff"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "cross-battle lifecycle"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "BattleSpec contribution",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "BattleResult handoff",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cross-battle lifecycle",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemazebuff-json.1222",
+      "source.goal11.exceloutput-roguemiracledisplay-json.2",
+      "source.goal11.exceloutput-roguemiracleeffect-json.769",
+      "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+      "source.goal11.exceloutput-roguetournmiracle-json.439",
+      "source.goal11.exceloutput-roguetourntitanbless-json.0",
+      "source.goal11.project-policy.curio-lifecycle",
+      "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+      "source.goal11.textmap-textmapchs-json.449485639331447287",
+      "source.goal11.textmap-textmapen-json.449485639331447287"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.curio-weight-charge-destruction-repair",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "curio-weight-charge-destruction-repair Reference Review",
+    "name_zh_cn": "curio-weight-charge-destruction-repair 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemiracledisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleDisplay.json",
+        "locator": "2",
+        "sha256": "8302d967f957c6db1c8c7c5542639014c132444151e65199cd5d8605d0f66859",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemiracleeffect-json.769",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffect.json",
+        "locator": "769",
+        "sha256": "e6a690662f761dccd3eb84ee25fc894c92a662e9a0c0c380a0f6bc406e4d35ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhandbookmiracle-json.341",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHandbookMiracle.json",
+        "locator": "341",
+        "sha256": "37f49ff8465436c50253fd90349e5d45b2b7e303cb5fe68275deb3d87ea347ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournmiracle-json.439",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournMiracle.json",
+        "locator": "439",
+        "sha256": "fa6263f0d2724b18066ecc262473554af6e30e4648d76580438b02b18d61f954",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curio-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The released Tourn3 Miracle catalog identifies mode copies and effect parameters but does not publish a uniform charge, activation, destruction, repair, replacement, simultaneous-trigger or no-legal-target program.",
+        "replacement_condition": "Replace per-Curio lifecycle fields when a released service/config/ability program proves the exact transition, ordering, scope and fallback."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-weight-charge-destruction-repair",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers weighted eligibility, charge change, destroy and repair using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.449485639331447287",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "449485639331447287",
+        "sha256": "0effcb9f68cd507f894c8768b4adb1f3c6e7157a7ae3ef111e4a8aca833cfaa8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.449485639331447287",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "449485639331447287",
+        "sha256": "049c703ec5730d691c84fe0148a50dfaf8cd0ceb0d230acef9972ab912e68b72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "curio-weight-charge-destruction-repair",
+      "review-fixture"
+    ],
+    "source_id": "curio-weight-charge-destruction-repair",
+    "family_id": "curio-weight-charge-destruction-repair",
+    "source_record_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.curio.9001"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "weighted eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "charge change"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "destroy and repair"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "weighted eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "charge change",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "destroy and repair",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemiracledisplay-json.2",
+      "source.goal11.exceloutput-roguemiracleeffect-json.769",
+      "source.goal11.exceloutput-roguetournhandbookmiracle-json.341",
+      "source.goal11.exceloutput-roguetournmiracle-json.439",
+      "source.goal11.project-policy.curio-lifecycle",
+      "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+      "source.goal11.textmap-textmapchs-json.449485639331447287",
+      "source.goal11.textmap-textmapen-json.449485639331447287"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.divergent-blessing-level-and-transform",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "divergent-blessing-level-and-transform Reference Review",
+    "name_zh_cn": "divergent-blessing-level-and-transform 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.435",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "435",
+        "sha256": "4c85518a5f76849ad4daa7cc59bf0bf936b78d59d3d532d1eb7e8671f5825c40",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournbuff-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournBuff.json",
+        "locator": "34",
+        "sha256": "f61093c1b152c39d423524c1a1eb6ea0d03efb607c05f1f5bb15efaca57846a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournbuff-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournBuff.json",
+        "locator": "35",
+        "sha256": "e79fcc52b8d822c59e25be8186cc07c460e225a450be6ebef7e51e175d2c2e9c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-divergent-blessing-level-and-transform",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers level state, enhancement or rewrite, Equation contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "divergent-blessing-level-and-transform",
+      "review-fixture"
+    ],
+    "source_id": "divergent-blessing-level-and-transform",
+    "family_id": "divergent-blessing-level-and-transform",
+    "source_record_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.blessing-level.615130.1",
+      "divergent-universe.blessing-rewrite.615130.enhance",
+      "divergent-universe.blessing.615130"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "level state"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "enhancement or rewrite"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "Equation contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "level state",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "enhancement or rewrite",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "Equation contribution",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemazebuff-json.435",
+      "source.goal11.exceloutput-roguetournbuff-json.34",
+      "source.goal11.exceloutput-roguetournbuff-json.35",
+      "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.encounter-wave-and-boss-binding",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "encounter-wave-and-boss-binding Reference Review",
+    "name_zh_cn": "encounter-wave-and-boss-binding 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemonstergroup-json.610",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonsterGroup.json",
+        "locator": "610",
+        "sha256": "7af7dc10e6b1791f965723ea8ae2bf39f068177bf3f3a33ae01b64863251e28c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguemonstergroup-json.627",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonsterGroup.json",
+        "locator": "627",
+        "sha256": "129cd1bdca2e7dbdfff95e9d949368fcdf9c58935c46de100231d303e1fdf3f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "0",
+        "sha256": "8a202adb440fe6b007058736439e735ea9b18b02364a1fcf4fb1f9029402f697",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "10",
+        "sha256": "8b9f01cd346312277e37170968c6a961035d9fad26f348ba470a497193ee3af7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "16",
+        "sha256": "53ecbf7b130971158c5eb186e5091042ee6fd42ea16f569c561529706d01d160",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "19",
+        "sha256": "f097dc8156cb7381ffd8664c8c0e375a9b7963b93a9140a1d557db5568132a95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "24",
+        "sha256": "d63a33f90dbbea838ba36dfcec0c1f8cb747781b8e95e63f6b3ed55a2e8e4aa1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "29",
+        "sha256": "74b355a47f12700e8bbacf34ae56bf80cdf4218ef46325c62ec42ef80ad368fc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "33",
+        "sha256": "e9d01b45e0f97ef9f1662bf7e98deb7e28d246ed3d045ee4d71c73833b34c93c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "6",
+        "sha256": "5abe289617410ada4e2d27f8351ba3a71178694e9b8a6a30af17e8bc69214b51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "0",
+        "sha256": "c5575077d8e29f888dae25310c7b9a91a9a049ad0d274aa321e7183d0c617271",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "1",
+        "sha256": "0c230d275b823673c4288a905ab19bfc977a56d6c9255768a262cefa2222247d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "15",
+        "sha256": "fd0c21d484d2a5f970f380b4760d41b40c390e1b4fb7f6a4407711e6a76c4516",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "16",
+        "sha256": "991aa5b6ed18e6ef084eda7cae6de2ffdda5209203f9751386ad44b408febccd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "2",
+        "sha256": "26b8f7d60836e8d2da990369169f2a6982a118bda91c94317d453cbd4ba33e14",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "22",
+        "sha256": "083f5cff7b909c24aadbb145a105a06bed95d2a4df38968d68c9cd20282cfd79",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "23",
+        "sha256": "28f7c0423c11fb7388c272288e8d628269b5c0f0e2b3448c1177aca2b49ee14e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "32",
+        "sha256": "a5e94067f61e55ef2e02b567d05db5320170181d6c3787084185b0e80f8fb00f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "33",
+        "sha256": "a5d2fed81a5142df10cfc7a02216a1347280629ac0e5c55bab19463c155bbf57",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.37",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "37",
+        "sha256": "18275261b2d80ad490aa114460f450ff8a7e091a429d36d648f37865bb3ed0d1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "38",
+        "sha256": "0652bb3f86ad00f726544f229675c5ef4d1c26613584d728097da05c96995ecb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "47",
+        "sha256": "adcc715c8f64fcad4531ed17df5fbc37557f51c657ff86566f32a34452e0c774",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "5",
+        "sha256": "ff01213869e97033c8c4a70df38de44d6429d79567322df7c44f4ba86175b447",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "54",
+        "sha256": "97bc62ef7a7adda049b9b5d1663843f9496689bf1646539ba4f9e09939ea334b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.59",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "59",
+        "sha256": "6c3e9e93ac1d52d160d5e87356af10631eefc0df91325179f850ece6ac9985a1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "6",
+        "sha256": "ff973528020ec86b2790f8f5f36a3bfe16fd60aefabf3f8bca95eb1bdbd52a0c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-stageconfig-json.8340",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/StageConfig.json",
+        "locator": "8340",
+        "sha256": "37b2051f6755e10191a6f45db82dc27059e10891cb380471cb14e646757c2577",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.inherited.content-reference-v4-4-enemy-variants-json.2484",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2484",
+        "sha256": "4d8a97341591279b29d25194a884d480fb54983da5214232dddd8e9f7035a1e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-wave-and-boss-binding",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers group selection, ordered waves, boss alternative using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.weekly-current-selector",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "weekly-current-selector",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Weekly Challenge rows publish modifier displays and enemy display groups but expose no Tourn3/module selector in the fixed table.",
+        "replacement_condition": "Promote a weekly row only when an enabled Tourn3 area/module or released schedule explicitly selects its ChallengeID."
+      },
+      {
+        "source_id": "source.goal11.project-policy.weekly-encounter-display",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "weekly-encounter-display",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournWeeklyChallenge publishes exact enemy display groups. The fixed tables expose no selector from activity module 6002201, a Tourn3 area, or a released schedule to a current ChallengeID. Display groups and their exact group-to-stage closure are cataloged candidates only.",
+        "replacement_condition": "Promote a display group only when released structured data explicitly selects its ChallengeID for Tourn3/module 6002201."
+      }
+    ],
+    "tags": [
+      "encounter-wave-and-boss-binding",
+      "review-fixture"
+    ],
+    "source_id": "encounter-wave-and-boss-binding",
+    "family_id": "encounter-wave-and-boss-binding",
+    "source_record_ids": [
+      "divergent-universe.boss-pool.weekly.1.final.0",
+      "divergent-universe.encounter-group.300202",
+      "divergent-universe.encounter-wave.83002011.1",
+      "divergent-universe.encounter-wave.83002011.1.slot.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "group selection"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered waves"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "boss alternative"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "group selection",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordered waves",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "boss alternative",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemonstergroup-json.610",
+      "source.goal11.exceloutput-roguemonstergroup-json.627",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.10",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.16",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.19",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.24",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.29",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.33",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.6",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.15",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.16",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.22",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.23",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.32",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.33",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.37",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.38",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.47",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.54",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.59",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+      "source.goal11.exceloutput-stageconfig-json.8340",
+      "source.goal11.inherited.content-reference-v4-4-enemy-variants-json.2484",
+      "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+      "source.goal11.project-policy.weekly-current-selector",
+      "source.goal11.project-policy.weekly-encounter-display"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.equation-offer-recipe-progress-expansion",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "equation-offer-recipe-progress-expansion Reference Review",
+    "name_zh_cn": "equation-offer-recipe-progress-expansion 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1697",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1697",
+        "sha256": "53800df1374390259f16e5e09dbf6f041213eff9eb9e1a3f189b06d9e9bab5d7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournformula-json.272",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFormula.json",
+        "locator": "272",
+        "sha256": "e3ea6dd36a148bd5a87ee46a387a96825fdda6e8dda98241bb5a1e4ad7dc2d6d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournformuladisplay-json.268",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFormulaDisplay.json",
+        "locator": "268",
+        "sha256": "f49883bb212dadb1ccaeb5195c03aab7fcae43d6f104f9854d30d87bec4f5edf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournformularandom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFormulaRandom.json",
+        "locator": "0",
+        "sha256": "ca3310fd24cf6c7f862927484e464045d164d1bc6ab373fa39470ad502766628",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.equation-random-offers",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-random-offers",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "RogueTournFormulaRandom publishes stable RandomIDs but no candidate list, weight, consumer, draw count or reroll state.",
+        "replacement_condition": "Replace each Unspecified offer field when released configuration or reproducible observation binds that RandomID."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-offer-recipe-progress-expansion",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offer candidate set, recipe counts, progress and expansion transition using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-offer-recipe-progress-expansion",
+      "review-fixture"
+    ],
+    "source_id": "equation-offer-recipe-progress-expansion",
+    "family_id": "equation-offer-recipe-progress-expansion",
+    "source_record_ids": [
+      "divergent-universe.equation-offer.1001",
+      "divergent-universe.equation-progress.3102001",
+      "divergent-universe.equation-recipe.3102001",
+      "divergent-universe.equation-state.3102001.expanded",
+      "divergent-universe.equation.3102001"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 5
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "offer candidate set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "recipe counts"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "progress and expansion transition"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "offer candidate set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "recipe counts",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "progress and expansion transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemazebuff-json.1697",
+      "source.goal11.exceloutput-roguetournformula-json.272",
+      "source.goal11.exceloutput-roguetournformuladisplay-json.268",
+      "source.goal11.exceloutput-roguetournformularandom-json.0",
+      "source.goal11.project-policy.equation-random-offers",
+      "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.equation-replacement-and-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "equation-replacement-and-contribution Reference Review",
+    "name_zh_cn": "equation-replacement-and-contribution 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournbuff-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournBuff.json",
+        "locator": "34",
+        "sha256": "f61093c1b152c39d423524c1a1eb6ea0d03efb607c05f1f5bb15efaca57846a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournbuff-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournBuff.json",
+        "locator": "35",
+        "sha256": "e79fcc52b8d822c59e25be8186cc07c460e225a450be6ebef7e51e175d2c2e9c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-replacement-and-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers replacement, Blessing ownership change, contribution refresh using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-replacement-and-contribution",
+      "review-fixture"
+    ],
+    "source_id": "equation-replacement-and-contribution",
+    "family_id": "equation-replacement-and-contribution",
+    "source_record_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.equation-transition.acquire"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "replacement"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "Blessing ownership change"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "contribution refresh"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "replacement",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "Blessing ownership change",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "contribution refresh",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournbuff-json.34",
+      "source.goal11.exceloutput-roguetournbuff-json.35",
+      "source.goal11.project-policy.equation-transitions",
+      "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.finish-and-cross-battle-reset",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "finish-and-cross-battle-reset Reference Review",
+    "name_zh_cn": "finish-and-cross-battle-reset 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "2",
+        "sha256": "edd0054cc66554c778f981775155bf3b71179866a6d4907f39b63b651c92d30c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournfinishway-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournFinishway.json",
+        "locator": "17",
+        "sha256": "6d8b06fdf99f3253cbda703b2fa7dc1d6d03d5b644a207b177ee7bb62ddc6cdf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-finish-and-cross-battle-reset",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers terminal condition, carry state, reset state using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish room selection, transition timing, field-level carry or terminal reset order.",
+        "replacement_condition": "Replace when released flow configuration or reproducible observations bind room selection, transitions and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "finish-and-cross-battle-reset",
+      "review-fixture"
+    ],
+    "source_id": "finish-and-cross-battle-reset",
+    "family_id": "finish-and-cross-battle-reset",
+    "source_record_ids": [
+      "divergent-universe.finish.3000311",
+      "divergent-universe.flow.area.103.entry"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "terminal condition"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "carry state"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "reset state"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "terminal condition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "carry state",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "reset state",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournarea-json.2",
+      "source.goal11.exceloutput-roguetournfinishway-json.17",
+      "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+      "source.goal11.project-policy.stage-flow"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "gamble-offer-outcome-and-fallback Reference Review",
+    "name_zh_cn": "gamble-offer-outcome-and-fallback 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "12",
+        "sha256": "0b3400d09ce91218539b4d9c7e900738ea384d2a9423d5e8992c45bb68c04ae9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "0",
+        "sha256": "01d4369c4f1311bfe933ac4a2571dde8ecbd84cf26d017687bf1746778b0c218",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourngamblegroup-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournGambleGroup.json",
+        "locator": "0",
+        "sha256": "b1c18fba52d916483772a00442ca3c1420d058afbd60f8912b1a49794c5e9ea1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourngambleunit-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournGambleUnit.json",
+        "locator": "0",
+        "sha256": "1e7339c1b6dcfc0133b92655778cc7f2f4ff209d37b62634b63e78bd44ae8d78",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      },
+      {
+        "source_id": "source.goal11.project-policy.gamble-group-membership",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "gamble-group-membership",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Gamble group rows publish type and optional level, while unit rows publish a typed parameter; no row binds groups to units, candidate order, weights, draw count or consumers.",
+        "replacement_condition": "Replace fail-closed groups and typed source parameters when a released group-unit selector proves exact membership and weights."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-outcome-and-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers candidate set, selected outcome, no legal candidate using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "gamble-offer-outcome-and-fallback",
+      "review-fixture"
+    ],
+    "source_id": "gamble-offer-outcome-and-fallback",
+    "family_id": "gamble-offer-outcome-and-fallback",
+    "source_record_ids": [
+      "divergent-universe.gamble-group.100",
+      "divergent-universe.gamble-unit.101",
+      "divergent-universe.service-offer.curse-chest.1001"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "candidate set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "selected outcome"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "no legal candidate"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "candidate set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "selected outcome",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "no legal candidate",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+      "source.goal11.exceloutput-roguetourncursechest-json.0",
+      "source.goal11.exceloutput-roguetourngamblegroup-json.0",
+      "source.goal11.exceloutput-roguetourngambleunit-json.0",
+      "source.goal11.project-policy.curse-chest-random-pools",
+      "source.goal11.project-policy.gamble-group-membership",
+      "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.golden-blood-titan-choice-and-level",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "golden-blood-titan-choice-and-level Reference Review",
+    "name_zh_cn": "golden-blood-titan-choice-and-level 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1222",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1222",
+        "sha256": "0a775f36b4fc1866d07557e0bb458c9e63f48d80259f946e12a71ddba484c0bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "0",
+        "sha256": "56f083d3b1fa19109745fc45ab4b569b9f62c4a886999076ddbf5ba79de44872",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.42",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "42",
+        "sha256": "b15e0d5bb7b025e5a101d13c792ce30a94e411a6520a163bdfda779ba84f91b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantype-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanType.json",
+        "locator": "6",
+        "sha256": "d42551c201a24218fc51ee4abb88d7941d1466f56dc6db7ac47bd83516facd5b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-golden-blood-titan-choice-and-level",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice candidates, level transition, run and battle contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.titan-boon-choices",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "titan-boon-choices",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Type and level groupings yield one level-1 row and three level-2/3 rows, but the released tables do not publish offer timing, rerolls, simultaneous choice ordering or a no-legal-candidate program.",
+        "replacement_condition": "Replace eligibility, timing and fallback when a released selector or service program binds the exact Golden Blood's Boon offer lifecycle."
+      }
+    ],
+    "tags": [
+      "golden-blood-titan-choice-and-level",
+      "review-fixture"
+    ],
+    "source_id": "golden-blood-titan-choice-and-level",
+    "family_id": "golden-blood-titan-choice-and-level",
+    "source_record_ids": [
+      "divergent-universe.titan-boon.10101",
+      "divergent-universe.titan-choice.aigle.1",
+      "divergent-universe.titan-contribution.boon.10101",
+      "divergent-universe.titan-type.aigle"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "choice candidates"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "level transition"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "run and battle contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "choice candidates",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "level transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "run and battle contribution",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemazebuff-json.1222",
+      "source.goal11.exceloutput-roguetourntitanbless-json.0",
+      "source.goal11.exceloutput-roguetourntitanbless-json.42",
+      "source.goal11.exceloutput-roguetourntitantype-json.6",
+      "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+      "source.goal11.project-policy.titan-boon-choices"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.grand-miracle-eligibility-and-lifecycle",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "grand-miracle-eligibility-and-lifecycle Reference Review",
+    "name_zh_cn": "grand-miracle-eligibility-and-lifecycle 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhex-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHex.json",
+        "locator": "0",
+        "sha256": "23fa430601bf7bd69ae83f9636ab5809fddadde7792f54cf399298257ef31925",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhexdisplay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHexDisplay.json",
+        "locator": "13",
+        "sha256": "7147e4d3f987b703380164f65aa1067f01876c7c276016f6bd7309ad89ab711d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.grand-miracle-effects",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "grand-miracle-effects",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Each Tourn3 Hex row exposes a MazeBuffID, but none of the 17 referenced 6334xx IDs has a released RogueMazeBuff definition in the fixed snapshot; activation, duration, interaction and teardown are likewise unpublished.",
+        "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers character Path and element eligibility, activation, teardown using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "grand-miracle-eligibility-and-lifecycle",
+      "review-fixture"
+    ],
+    "source_id": "grand-miracle-eligibility-and-lifecycle",
+    "family_id": "grand-miracle-eligibility-and-lifecycle",
+    "source_record_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1001",
+      "divergent-universe.grand-miracle-state.1001.active",
+      "divergent-universe.grand-miracle.1001"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "character Path and element eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "activation"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "character Path and element eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "activation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "teardown",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournhex-json.0",
+      "source.goal11.exceloutput-roguetournhexdisplay-json.13",
+      "source.goal11.project-policy.grand-miracle-effects",
+      "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.no-legal-candidate-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "no-legal-candidate-fallback Reference Review",
+    "name_zh_cn": "no-legal-candidate-fallback 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "12",
+        "sha256": "0b3400d09ce91218539b4d9c7e900738ea384d2a9423d5e8992c45bb68c04ae9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "0",
+        "sha256": "01d4369c4f1311bfe933ac4a2571dde8ecbd84cf26d017687bf1746778b0c218",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "7e59f8ea49bbae72c3ebe57699ac0bf30082cfb2478c888800c3e7e74b11148e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      },
+      {
+        "source_id": "source.goal11.project-policy.equation-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "equation-transitions",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released rows define recipes and effects but not offer timing, reroll cost, replacement target order, discard carry or no-legal-candidate behavior.",
+        "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers empty candidate set, explicit fallback, authoritative state preservation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "review-fixture"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "family_id": "no-legal-candidate-fallback",
+    "source_record_ids": [
+      "divergent-universe.equation-transition.acquire",
+      "divergent-universe.service-offer.curse-chest.1001",
+      "divergent-universe.service-rule.workbench.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "empty candidate set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "explicit fallback"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "authoritative state preservation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "empty candidate set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "explicit fallback",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "authoritative state preservation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+      "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+      "source.goal11.exceloutput-roguetourncursechest-json.0",
+      "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+      "source.goal11.project-policy.curse-chest-random-pools",
+      "source.goal11.project-policy.equation-transitions",
+      "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+      "source.goal11.project-policy.workbench-service-selection"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.occurrence-choice-cost-and-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "occurrence-choice-cost-and-outcome Reference Review",
+    "name_zh_cn": "occurrence-choice-cost-and-outcome 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhandbookevent-json.116",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHandBookEvent.json",
+        "locator": "116",
+        "sha256": "d07e6199da58f39bfa64d70edc4484ac84430b9e75485365dd18c87592bf8d54",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhandbookevent-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHandBookEvent.json",
+        "locator": "41",
+        "sha256": "e113560fc3b4b08e2ac4b65eba2e43eb0c057d4f09cfab4f4440405b5ef9f86d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournnpc-json.191",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournNPC.json",
+        "locator": "191",
+        "sha256": "27216358f5d5552142e323032e262cfd199403e054b472cd0a327966f5ff2be1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.occurrence-graphs-missing",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "occurrence-graphs-missing",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "All 97 selected Tourn3 NPC rows publish a RogueNPC_410 JSON path, but none of those paths exists in the pinned turnbasedgamedata Git tree. Choice conditions, costs, outcomes, ordering and hidden weights therefore remain empty and fail closed.",
+        "replacement_condition": "Replace each missing-graph boundary only when a released source revision contains the exact published path or another released table explicitly binds the variant to its mechanical option graph."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice-cost-and-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice condition, cost, ordered outcome using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "occurrence-choice-cost-and-outcome",
+      "review-fixture"
+    ],
+    "source_id": "occurrence-choice-cost-and-outcome",
+    "family_id": "occurrence-choice-cost-and-outcome",
+    "source_record_ids": [
+      "divergent-universe.occurrence-variant.700103",
+      "divergent-universe.occurrence.100"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "choice condition"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered outcome"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "choice condition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cost",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordered outcome",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournhandbookevent-json.116",
+      "source.goal11.exceloutput-roguetournhandbookevent-json.41",
+      "source.goal11.exceloutput-roguetournnpc-json.191",
+      "source.goal11.project-policy.occurrence-graphs-missing",
+      "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.ordinary-and-cyclical-entry",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "ordinary-and-cyclical-entry Reference Review",
+    "name_zh_cn": "ordinary-and-cyclical-entry 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournarea-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournArea.json",
+        "locator": "70",
+        "sha256": "64f01335a4f99f5e3b6c102696a115cceb2826877ea7699113c179a0df6e5e83",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "0",
+        "sha256": "8a202adb440fe6b007058736439e735ea9b18b02364a1fcf4fb1f9029402f697",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "0",
+        "sha256": "c5575077d8e29f888dae25310c7b9a91a9a049ad0d274aa321e7183d0c617271",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "1",
+        "sha256": "0c230d275b823673c4288a905ab19bfc977a56d6c9255768a262cefa2222247d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "2",
+        "sha256": "26b8f7d60836e8d2da990369169f2a6982a118bda91c94317d453cbd4ba33e14",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "5",
+        "sha256": "ff01213869e97033c8c4a70df38de44d6429d79567322df7c44f4ba86175b447",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "6",
+        "sha256": "ff973528020ec86b2790f8f5f36a3bfe16fd60aefabf3f8bca95eb1bdbd52a0c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the exact released TournRogue activity and module 6002201.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-ordinary-and-cyclical-entry",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry eligibility, initial resources, weekly modifier binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.weekly-current-selector",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "weekly-current-selector",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Weekly Challenge rows publish modifier displays and enemy display groups but expose no Tourn3/module selector in the fixed table.",
+        "replacement_condition": "Promote a weekly row only when an enabled Tourn3 area/module or released schedule explicitly selects its ChallengeID."
+      }
+    ],
+    "tags": [
+      "ordinary-and-cyclical-entry",
+      "review-fixture"
+    ],
+    "source_id": "ordinary-and-cyclical-entry",
+    "family_id": "ordinary-and-cyclical-entry",
+    "source_record_ids": [
+      "divergent-universe.cyclical-area.20401",
+      "divergent-universe.profile.v1",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "entry eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "initial resources"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "weekly modifier binding"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "entry eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "initial resources",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "weekly modifier binding",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournarea-json.70",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+      "source.goal11.project-policy.profile",
+      "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+      "source.goal11.project-policy.weekly-current-selector"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.permanent-talent-and-unlock",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "permanent-talent-and-unlock Reference Review",
+    "name_zh_cn": "permanent-talent-and-unlock 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournpermanenttalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournPermanentTalent.json",
+        "locator": "0",
+        "sha256": "71c9f983811c83a68cb53d242bd8b6a9f50eacffc7ac16f70852907ff25e588a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournunlock-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournUnlock.json",
+        "locator": "0",
+        "sha256": "2b0c8399d806850de0d1bfa7268917d91944d2ed2cf98e1af7342ade1b8475f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "permanent-talent-prerequisites",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "NextTalentIDList is a bidirectional adjacency graph in the released table and does not distinguish prerequisite direction or unlock order.",
+        "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-permanent-talent-and-unlock",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers prerequisite, unlock transition, mechanical effect using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.unlock-consumers",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "unlock-consumers",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Only explicit current Tourn3 area finish-way joins are promoted; other unlock-token consumers are not published by RogueTournUnlock.",
+        "replacement_condition": "Replace empty unlocked-content lists when a released consumer references the exact token."
+      }
+    ],
+    "tags": [
+      "permanent-talent-and-unlock",
+      "review-fixture"
+    ],
+    "source_id": "permanent-talent-and-unlock",
+    "family_id": "permanent-talent-and-unlock",
+    "source_record_ids": [
+      "divergent-universe.permanent-talent.100",
+      "divergent-universe.progression-effect.talent.100",
+      "divergent-universe.unlock.3000201"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "prerequisite"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "unlock transition"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "mechanical effect"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "prerequisite",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "unlock transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "mechanical effect",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournpermanenttalent-json.0",
+      "source.goal11.exceloutput-roguetournunlock-json.0",
+      "source.goal11.project-policy.permanent-talent-prerequisites",
+      "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+      "source.goal11.project-policy.unlock-consumers"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.profile-and-module-selection",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "profile-and-module-selection Reference Review",
+    "name_zh_cn": "profile-and-module-selection 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguecommonmodetitle-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCommonModeTitle.json",
+        "locator": "3",
+        "sha256": "a129656264b6424042fc4ea56121152f27e79f5015be566c7829b0fa5f1c7623",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournmodule-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournModule.json",
+        "locator": "7",
+        "sha256": "b37c35ad4760d5c42d57c426d8b5ed84431176e5afc5d7bc390418e57b4691bc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the exact released TournRogue activity and module 6002201.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-and-module-selection",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers TournRogue entry, module 6002201, rejected historical module using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "profile-and-module-selection",
+      "review-fixture"
+    ],
+    "source_id": "profile-and-module-selection",
+    "family_id": "profile-and-module-selection",
+    "source_record_ids": [
+      "divergent-universe.entry.title.tournrogue",
+      "divergent-universe.module.6002201",
+      "divergent-universe.profile.v1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "TournRogue entry"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "module 6002201"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "rejected historical module"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "TournRogue entry",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "module 6002201",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "rejected historical module",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguecommonmodetitle-json.3",
+      "source.goal11.exceloutput-roguetournmodule-json.7",
+      "source.goal11.project-policy.profile",
+      "source.goal11.project-policy.semantic-fixture-profile-and-module-selection"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.simultaneous-trigger-order",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "simultaneous-trigger-order Reference Review",
+    "name_zh_cn": "simultaneous-trigger-order 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguemazebuff-json.1222",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "1222",
+        "sha256": "0a775f36b4fc1866d07557e0bb458c9e63f48d80259f946e12a71ddba484c0bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournhandbookmiracle-json.341",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournHandbookMiracle.json",
+        "locator": "341",
+        "sha256": "37f49ff8465436c50253fd90349e5d45b2b7e303cb5fe68275deb3d87ea347ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitanbless-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanBless.json",
+        "locator": "0",
+        "sha256": "56f083d3b1fa19109745fc45ab4b569b9f62c4a886999076ddbf5ba79de44872",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curio-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The released Tourn3 Miracle catalog identifies mode copies and effect parameters but does not publish a uniform charge, activation, destruction, repair, replacement, simultaneous-trigger or no-legal-target program.",
+        "replacement_condition": "Replace per-Curio lifecycle fields when a released service/config/ability program proves the exact transition, ordering, scope and fallback."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers same-phase triggers, stable priority, ordered contributions using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "family_id": "simultaneous-trigger-order",
+    "source_record_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "same-phase triggers"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "stable priority"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered contributions"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "same-phase triggers",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "stable priority",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordered contributions",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguemazebuff-json.1222",
+      "source.goal11.exceloutput-roguetournhandbookmiracle-json.341",
+      "source.goal11.exceloutput-roguetourntitanbless-json.0",
+      "source.goal11.project-policy.curio-lifecycle",
+      "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.star-pioneer-practice-and-cognoculi",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "star-pioneer-practice-and-cognoculi Reference Review",
+    "name_zh_cn": "star-pioneer-practice-and-cognoculi 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivision-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivision.json",
+        "locator": "0",
+        "sha256": "ab9c6e6853b1482f421f193c0753614667691606967d751c94254e9a0b9d69f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers mode eligibility, available content, mechanical Cognoculus boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8721319055470494228",
+        "sha256": "dbcad8ef48e20f016d1270c342010c19fe1bdeb0cb5d142dd4e9a67aeb521558",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8721319055470494228",
+        "sha256": "124b9c8cd8e68fbaba8a0ff7a558289f7ad13da59d5d35b67f4de3c857b38546",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "star-pioneer-practice-and-cognoculi"
+    ],
+    "source_id": "star-pioneer-practice-and-cognoculi",
+    "family_id": "star-pioneer-practice-and-cognoculi",
+    "source_record_ids": [
+      "divergent-universe.astronomical-mode.practice",
+      "divergent-universe.cognoculi.division.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "mode eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "available content"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "mechanical Cognoculus boundary"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "mode eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "available content",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "mechanical Cognoculus boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourndivision-json.0",
+      "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+      "source.goal11.textmap-textmapchs-json.8721319055470494228",
+      "source.goal11.textmap-textmapen-json.8721319055470494228"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.threshold-protocol",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "threshold-protocol Reference Review",
+    "name_zh_cn": "threshold-protocol 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournDivisionEffect.json",
+        "locator": "0",
+        "sha256": "962646b69f7500322b2f6cd04df910cd9b7f7e553bad6912201422a484af59a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-threshold-protocol",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry boundary, difficulty change, enemy or numeric contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "threshold-protocol"
+    ],
+    "source_id": "threshold-protocol",
+    "family_id": "threshold-protocol",
+    "source_record_ids": [
+      "divergent-universe.protocol.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "entry boundary"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "difficulty change"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "enemy or numeric contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "entry boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "difficulty change",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "enemy or numeric contribution",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourndivisioneffect-json.0",
+      "source.goal11.project-policy.semantic-fixture-threshold-protocol"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.weekly-modifier-and-room-service",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "weekly-modifier-and-room-service Reference Review",
+    "name_zh_cn": "weekly-modifier-and-room-service 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournnpc-json.189",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournNPC.json",
+        "locator": "189",
+        "sha256": "8d4e3e9463067435c071d23c655169893f445f3fda7197f336e904b44dffa10d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournroommark-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournRoomMark.json",
+        "locator": "0",
+        "sha256": "87c4e3cf93dabce9b2d3e08307d9533af4ca3eb5063dd26c862e0b4019209997",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyChallenge.json",
+        "locator": "0",
+        "sha256": "8a202adb440fe6b007058736439e735ea9b18b02364a1fcf4fb1f9029402f697",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "0",
+        "sha256": "c5575077d8e29f888dae25310c7b9a91a9a049ad0d274aa321e7183d0c617271",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "1",
+        "sha256": "0c230d275b823673c4288a905ab19bfc977a56d6c9255768a262cefa2222247d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "2",
+        "sha256": "26b8f7d60836e8d2da990369169f2a6982a118bda91c94317d453cbd4ba33e14",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "5",
+        "sha256": "ff01213869e97033c8c4a70df38de44d6429d79567322df7c44f4ba86175b447",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWeeklyDisplay.json",
+        "locator": "6",
+        "sha256": "ff973528020ec86b2790f8f5f36a3bfe16fd60aefabf3f8bca95eb1bdbd52a0c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.room-mark-transitions",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "room-mark-transitions",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Room-mark rows prove a room type and mark variant but publish no transition trigger, choice, probability, stacking or teardown rule.",
+        "replacement_condition": "Replace empty transition rules when a released room/waypoint program binds the exact mark lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-weekly-modifier-and-room-service",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers modifier activation, service eligibility, cross-battle scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.service-npc-graphs-missing",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "service-npc-graphs-missing",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The 23 non-handbook Tourn3 NPC rows publish RogueNPC_410 graph paths, but none exists in the pinned Git tree. Service kind, choices, prices and effects cannot be assigned from numeric ID or adjacency.",
+        "replacement_condition": "Replace each missing service boundary only when a released exact graph or explicit service binding identifies the NPC's operations and choices."
+      },
+      {
+        "source_id": "source.goal11.project-policy.weekly-current-selector",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "weekly-current-selector",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Weekly Challenge rows publish modifier displays and enemy display groups but expose no Tourn3/module selector in the fixed table.",
+        "replacement_condition": "Promote a weekly row only when an enabled Tourn3 area/module or released schedule explicitly selects its ChallengeID."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "weekly-modifier-and-room-service"
+    ],
+    "source_id": "weekly-modifier-and-room-service",
+    "family_id": "weekly-modifier-and-room-service",
+    "source_record_ids": [
+      "divergent-universe.mode-service-npc.700101",
+      "divergent-universe.room-mark.0",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "modifier activation"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "service eligibility"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "cross-battle scope"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "modifier activation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "service eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cross-battle scope",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetournnpc-json.189",
+      "source.goal11.exceloutput-roguetournroommark-json.0",
+      "source.goal11.exceloutput-roguetournweeklychallenge-json.0",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.0",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.1",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.2",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.5",
+      "source.goal11.exceloutput-roguetournweeklydisplay-json.6",
+      "source.goal11.project-policy.room-mark-transitions",
+      "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+      "source.goal11.project-policy.service-npc-graphs-missing",
+      "source.goal11.project-policy.weekly-current-selector"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.review-fixture.workbench-operation-and-price",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseReviewFixture",
+    "name_en": "workbench-operation-and-price Reference Review",
+    "name_zh_cn": "workbench-operation-and-price 资料审查",
+    "summary_en": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "1",
+        "sha256": "f691a914300153669d40e31ad28cd6182acf54f2cf3f505279852e55f240881f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbench-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbench.json",
+        "locator": "0",
+        "sha256": "1b89d933d43bd01fbbc436f86a8c727d28bf11ed6c961b426c8dd6ec78b92b9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "7e59f8ea49bbae72c3ebe57699ac0bf30082cfb2478c888800c3e7e74b11148e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-operation-and-price",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers legal operation, currency and price, rejected operation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      },
+      {
+        "source_id": "source.goal11.project-policy.service-currency-reset",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "service-currency-reset",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench Heat reset is explicit, while the selected service rows do not publish a complete Cosmic Fragment gain/spend/reset ledger.",
+        "replacement_condition": "Replace Cosmic Fragment lifecycle fields after P2-B4 closes all reachable services and currency operations."
+      },
+      {
+        "source_id": "source.goal11.project-policy.workbench-service-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "workbench-service-selection",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench descriptions prove operation kinds, but the released tables do not publish numeric prices, candidate IDs, weights, target order, rerolls or no-legal-result behavior.",
+        "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "workbench-operation-and-price"
+    ],
+    "source_id": "workbench-operation-and-price",
+    "family_id": "workbench-operation-and-price",
+    "source_record_ids": [
+      "divergent-universe.currency.cosmic-fragment",
+      "divergent-universe.service-rule.workbench.1",
+      "divergent-universe.workbench-function.1",
+      "divergent-universe.workbench.101"
+    ],
+    "preconditions": {
+      "content_lane": "CandidateReference",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReferenceReview",
+      "ordering": "StableIdAscendingUnlessExactAuthoredOrder",
+      "unavailable_behavior": "FailClosedWithoutMutation"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "legal operation"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "currency and price"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "rejected operation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "legal operation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "currency and price",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "rejected operation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal11.exceloutput-roguetourncursechest-json.1",
+      "source.goal11.exceloutput-roguetournworkbench-json.0",
+      "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+      "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+      "source.goal11.project-policy.service-currency-reset",
+      "source.goal11.project-policy.workbench-service-selection"
+    ],
+    "runtime_executable": false
+  }
+]

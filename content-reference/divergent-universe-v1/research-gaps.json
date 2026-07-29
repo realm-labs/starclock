@@ -1,0 +1,1370 @@
+[
+  {
+    "id": "divergent-universe.research-gap.adventure-abstract-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "adventure-abstract-outcome Replacement Boundary",
+    "name_zh_cn": "adventure-abstract-outcome 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-adventure-abstract-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offered abstract result, eligibility, no action gameplay simulation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "adventure-abstract-outcome",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "adventure-abstract-outcome",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "adventure-abstract-outcome",
+    "known_facts": [
+      "1 normalized row(s) preserve the released portion.",
+      "Required review fact: offered abstract result",
+      "Required review fact: eligibility",
+      "Required review fact: no action gameplay simulation"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.adventure-outcome.11098010.RogueTurntable"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.area-difficulty-layer-transition",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "area-difficulty-layer-transition Replacement Boundary",
+    "name_zh_cn": "area-difficulty-layer-transition 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-difficulty-layer-transition",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers ordered stage flow, legal and rejected transition, difficulty binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "area-difficulty-layer-transition",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "area-difficulty-layer-transition",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "area-difficulty-layer-transition",
+    "known_facts": [
+      "4 normalized row(s) preserve the released portion.",
+      "Required review fact: ordered stage flow",
+      "Required review fact: legal and rejected transition",
+      "Required review fact: difficulty binding"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.area.103",
+      "divergent-universe.difficulty.1001",
+      "divergent-universe.flow.area.103.entry",
+      "divergent-universe.layer.103"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.arithmetic-mapping-eligibility",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "arithmetic-mapping-eligibility Replacement Boundary",
+    "name_zh_cn": "arithmetic-mapping-eligibility 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-eligibility",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers eligible character, ineligible character, stronger account build boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-eligibility",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "arithmetic-mapping-eligibility",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "arithmetic-mapping-eligibility",
+    "known_facts": [
+      "1 normalized row(s) preserve the released portion.",
+      "Required review fact: eligible character",
+      "Required review fact: ineligible character",
+      "Required review fact: stronger account build boundary"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.mapping-eligibility.1001"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.arithmetic-mapping-refresh-and-teardown",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "arithmetic-mapping-refresh-and-teardown Replacement Boundary",
+    "name_zh_cn": "arithmetic-mapping-refresh-and-teardown 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers refresh timing, temporary substitution, account state unchanged using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-refresh-and-teardown",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "arithmetic-mapping-refresh-and-teardown",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "arithmetic-mapping-refresh-and-teardown",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: refresh timing",
+      "Required review fact: temporary substitution",
+      "Required review fact: account state unchanged"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.mapping-build.1001",
+      "divergent-universe.mapping-rule.character-level"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.astronomical-division",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "astronomical-division Replacement Boundary",
+    "name_zh_cn": "astronomical-division 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-astronomical-division",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers progress boundary, effect activation, scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "astronomical-division",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "astronomical-division",
+    "known_facts": [
+      "1 normalized row(s) preserve the released portion.",
+      "Required review fact: progress boundary",
+      "Required review fact: effect activation",
+      "Required review fact: scope"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.astronomical-division.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.battle-visible-and-cross-battle-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "battle-visible-and-cross-battle-contribution Replacement Boundary",
+    "name_zh_cn": "battle-visible-and-cross-battle-contribution 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers BattleSpec contribution, BattleResult handoff, cross-battle lifecycle using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "battle-visible-and-cross-battle-contribution",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "battle-visible-and-cross-battle-contribution",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "battle-visible-and-cross-battle-contribution",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: BattleSpec contribution",
+      "Required review fact: BattleResult handoff",
+      "Required review fact: cross-battle lifecycle"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.protocol.1",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.curio-weight-charge-destruction-repair",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "curio-weight-charge-destruction-repair Replacement Boundary",
+    "name_zh_cn": "curio-weight-charge-destruction-repair 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-weight-charge-destruction-repair",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers weighted eligibility, charge change, destroy and repair using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "curio-weight-charge-destruction-repair",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "curio-weight-charge-destruction-repair",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "curio-weight-charge-destruction-repair",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: weighted eligibility",
+      "Required review fact: charge change",
+      "Required review fact: destroy and repair"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.curio.9001"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.divergent-blessing-level-and-transform",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "divergent-blessing-level-and-transform Replacement Boundary",
+    "name_zh_cn": "divergent-blessing-level-and-transform 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-divergent-blessing-level-and-transform",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers level state, enhancement or rewrite, Equation contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "divergent-blessing-level-and-transform",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "divergent-blessing-level-and-transform",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "divergent-blessing-level-and-transform",
+    "known_facts": [
+      "4 normalized row(s) preserve the released portion.",
+      "Required review fact: level state",
+      "Required review fact: enhancement or rewrite",
+      "Required review fact: Equation contribution"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.blessing-level.615130.1",
+      "divergent-universe.blessing-rewrite.615130.enhance",
+      "divergent-universe.blessing.615130"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.encounter-wave-and-boss-binding",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "encounter-wave-and-boss-binding Replacement Boundary",
+    "name_zh_cn": "encounter-wave-and-boss-binding 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-wave-and-boss-binding",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers group selection, ordered waves, boss alternative using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "encounter-wave-and-boss-binding",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "encounter-wave-and-boss-binding",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "encounter-wave-and-boss-binding",
+    "known_facts": [
+      "4 normalized row(s) preserve the released portion.",
+      "Required review fact: group selection",
+      "Required review fact: ordered waves",
+      "Required review fact: boss alternative"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.boss-pool.weekly.1.final.0",
+      "divergent-universe.encounter-group.300202",
+      "divergent-universe.encounter-wave.83002011.1",
+      "divergent-universe.encounter-wave.83002011.1.slot.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.equation-offer-recipe-progress-expansion",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "equation-offer-recipe-progress-expansion Replacement Boundary",
+    "name_zh_cn": "equation-offer-recipe-progress-expansion 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-offer-recipe-progress-expansion",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offer candidate set, recipe counts, progress and expansion transition using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-offer-recipe-progress-expansion",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "equation-offer-recipe-progress-expansion",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "equation-offer-recipe-progress-expansion",
+    "known_facts": [
+      "5 normalized row(s) preserve the released portion.",
+      "Required review fact: offer candidate set",
+      "Required review fact: recipe counts",
+      "Required review fact: progress and expansion transition"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.equation-offer.1001",
+      "divergent-universe.equation-progress.3102001",
+      "divergent-universe.equation-recipe.3102001",
+      "divergent-universe.equation-state.3102001.expanded",
+      "divergent-universe.equation.3102001"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.equation-replacement-and-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "equation-replacement-and-contribution Replacement Boundary",
+    "name_zh_cn": "equation-replacement-and-contribution 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-replacement-and-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers replacement, Blessing ownership change, contribution refresh using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-replacement-and-contribution",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "equation-replacement-and-contribution",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "equation-replacement-and-contribution",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: replacement",
+      "Required review fact: Blessing ownership change",
+      "Required review fact: contribution refresh"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.equation-transition.acquire"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.finish-and-cross-battle-reset",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "finish-and-cross-battle-reset Replacement Boundary",
+    "name_zh_cn": "finish-and-cross-battle-reset 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-finish-and-cross-battle-reset",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers terminal condition, carry state, reset state using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "finish-and-cross-battle-reset",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "finish-and-cross-battle-reset",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "finish-and-cross-battle-reset",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: terminal condition",
+      "Required review fact: carry state",
+      "Required review fact: reset state"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.finish.3000311",
+      "divergent-universe.flow.area.103.entry"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.gamble-offer-outcome-and-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "gamble-offer-outcome-and-fallback Replacement Boundary",
+    "name_zh_cn": "gamble-offer-outcome-and-fallback 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-outcome-and-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers candidate set, selected outcome, no legal candidate using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "gamble-offer-outcome-and-fallback",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "gamble-offer-outcome-and-fallback",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "gamble-offer-outcome-and-fallback",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: candidate set",
+      "Required review fact: selected outcome",
+      "Required review fact: no legal candidate"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.gamble-group.100",
+      "divergent-universe.gamble-unit.101",
+      "divergent-universe.service-offer.curse-chest.1001"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.golden-blood-titan-choice-and-level",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "golden-blood-titan-choice-and-level Replacement Boundary",
+    "name_zh_cn": "golden-blood-titan-choice-and-level 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-golden-blood-titan-choice-and-level",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice candidates, level transition, run and battle contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "golden-blood-titan-choice-and-level",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "golden-blood-titan-choice-and-level",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "golden-blood-titan-choice-and-level",
+    "known_facts": [
+      "4 normalized row(s) preserve the released portion.",
+      "Required review fact: choice candidates",
+      "Required review fact: level transition",
+      "Required review fact: run and battle contribution"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.titan-boon.10101",
+      "divergent-universe.titan-choice.aigle.1",
+      "divergent-universe.titan-contribution.boon.10101",
+      "divergent-universe.titan-type.aigle"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.grand-miracle-eligibility-and-lifecycle",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "grand-miracle-eligibility-and-lifecycle Replacement Boundary",
+    "name_zh_cn": "grand-miracle-eligibility-and-lifecycle 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers character Path and element eligibility, activation, teardown using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "grand-miracle-eligibility-and-lifecycle",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "grand-miracle-eligibility-and-lifecycle",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "grand-miracle-eligibility-and-lifecycle",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: character Path and element eligibility",
+      "Required review fact: activation",
+      "Required review fact: teardown"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1001",
+      "divergent-universe.grand-miracle-state.1001.active",
+      "divergent-universe.grand-miracle.1001"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.no-legal-candidate-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "no-legal-candidate-fallback Replacement Boundary",
+    "name_zh_cn": "no-legal-candidate-fallback 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers empty candidate set, explicit fallback, authoritative state preservation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "no-legal-candidate-fallback",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: empty candidate set",
+      "Required review fact: explicit fallback",
+      "Required review fact: authoritative state preservation"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.equation-transition.acquire",
+      "divergent-universe.service-offer.curse-chest.1001",
+      "divergent-universe.service-rule.workbench.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.occurrence-choice-cost-and-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "occurrence-choice-cost-and-outcome Replacement Boundary",
+    "name_zh_cn": "occurrence-choice-cost-and-outcome 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice-cost-and-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice condition, cost, ordered outcome using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "occurrence-choice-cost-and-outcome",
+      "research-gap"
+    ],
+    "source_id": "occurrence-choice-cost-and-outcome",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "occurrence-choice-cost-and-outcome",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: choice condition",
+      "Required review fact: cost",
+      "Required review fact: ordered outcome"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.occurrence-variant.700103",
+      "divergent-universe.occurrence.100"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.ordinary-and-cyclical-entry",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "ordinary-and-cyclical-entry Replacement Boundary",
+    "name_zh_cn": "ordinary-and-cyclical-entry 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-ordinary-and-cyclical-entry",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry eligibility, initial resources, weekly modifier binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "ordinary-and-cyclical-entry",
+      "research-gap"
+    ],
+    "source_id": "ordinary-and-cyclical-entry",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "ordinary-and-cyclical-entry",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: entry eligibility",
+      "Required review fact: initial resources",
+      "Required review fact: weekly modifier binding"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.cyclical-area.20401",
+      "divergent-universe.profile.v1",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.permanent-talent-and-unlock",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "permanent-talent-and-unlock Replacement Boundary",
+    "name_zh_cn": "permanent-talent-and-unlock 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-permanent-talent-and-unlock",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers prerequisite, unlock transition, mechanical effect using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "permanent-talent-and-unlock",
+      "research-gap"
+    ],
+    "source_id": "permanent-talent-and-unlock",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "permanent-talent-and-unlock",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: prerequisite",
+      "Required review fact: unlock transition",
+      "Required review fact: mechanical effect"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.permanent-talent.100",
+      "divergent-universe.progression-effect.talent.100",
+      "divergent-universe.unlock.3000201"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.profile-and-module-selection",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "profile-and-module-selection Replacement Boundary",
+    "name_zh_cn": "profile-and-module-selection 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-and-module-selection",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers TournRogue entry, module 6002201, rejected historical module using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "profile-and-module-selection",
+      "research-gap"
+    ],
+    "source_id": "profile-and-module-selection",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "profile-and-module-selection",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: TournRogue entry",
+      "Required review fact: module 6002201",
+      "Required review fact: rejected historical module"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.entry.title.tournrogue",
+      "divergent-universe.module.6002201",
+      "divergent-universe.profile.v1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.simultaneous-trigger-order",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "simultaneous-trigger-order Replacement Boundary",
+    "name_zh_cn": "simultaneous-trigger-order 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers same-phase triggers, stable priority, ordered contributions using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "simultaneous-trigger-order",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: same-phase triggers",
+      "Required review fact: stable priority",
+      "Required review fact: ordered contributions"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.star-pioneer-practice-and-cognoculi",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "star-pioneer-practice-and-cognoculi Replacement Boundary",
+    "name_zh_cn": "star-pioneer-practice-and-cognoculi 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers mode eligibility, available content, mechanical Cognoculus boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "star-pioneer-practice-and-cognoculi"
+    ],
+    "source_id": "star-pioneer-practice-and-cognoculi",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "star-pioneer-practice-and-cognoculi",
+    "known_facts": [
+      "2 normalized row(s) preserve the released portion.",
+      "Required review fact: mode eligibility",
+      "Required review fact: available content",
+      "Required review fact: mechanical Cognoculus boundary"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.astronomical-mode.practice",
+      "divergent-universe.cognoculi.division.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.threshold-protocol",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "threshold-protocol Replacement Boundary",
+    "name_zh_cn": "threshold-protocol 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-threshold-protocol",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry boundary, difficulty change, enemy or numeric contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "threshold-protocol"
+    ],
+    "source_id": "threshold-protocol",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "threshold-protocol",
+    "known_facts": [
+      "1 normalized row(s) preserve the released portion.",
+      "Required review fact: entry boundary",
+      "Required review fact: difficulty change",
+      "Required review fact: enemy or numeric contribution"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.protocol.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.weekly-modifier-and-room-service",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "weekly-modifier-and-room-service Replacement Boundary",
+    "name_zh_cn": "weekly-modifier-and-room-service 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-weekly-modifier-and-room-service",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers modifier activation, service eligibility, cross-battle scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "weekly-modifier-and-room-service"
+    ],
+    "source_id": "weekly-modifier-and-room-service",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "weekly-modifier-and-room-service",
+    "known_facts": [
+      "3 normalized row(s) preserve the released portion.",
+      "Required review fact: modifier activation",
+      "Required review fact: service eligibility",
+      "Required review fact: cross-battle scope"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.mode-service-npc.700101",
+      "divergent-universe.room-mark.0",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  },
+  {
+    "id": "divergent-universe.research-gap.workbench-operation-and-price",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseResearchGap",
+    "name_en": "workbench-operation-and-price Replacement Boundary",
+    "name_zh_cn": "workbench-operation-and-price 替换边界",
+    "summary_en": "Nonblocking boundary preserves exact released facts and explicit fail-closed fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞边界保留精确已发布事实与显式失败关闭字段，直至出现更强的已发布证据。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-operation-and-price",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers legal operation, currency and price, rejected operation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "workbench-operation-and-price"
+    ],
+    "source_id": "workbench-operation-and-price",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G11-P4-B2",
+    "field": "workbench-operation-and-price",
+    "known_facts": [
+      "4 normalized row(s) preserve the released portion.",
+      "Required review fact: legal operation",
+      "Required review fact: currency and price",
+      "Required review fact: rejected operation"
+    ],
+    "selected_policy": "Preserve exact facts and explicit unavailable fields; reject or leave authoritative state unchanged when a legal candidate cannot be proven.",
+    "alternatives": [
+      "Infer from table prefix, ID range, adjacency, matching name, or display-only linkage.",
+      "Borrow an older module or another mode's selector."
+    ],
+    "affected_data_ids": [
+      "divergent-universe.currency.cosmic-fragment",
+      "divergent-universe.service-rule.workbench.1",
+      "divergent-universe.workbench-function.1",
+      "divergent-universe.workbench.101"
+    ],
+    "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+  }
+]

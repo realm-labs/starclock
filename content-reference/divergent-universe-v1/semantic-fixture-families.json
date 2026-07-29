@@ -1,0 +1,1420 @@
+[
+  {
+    "id": "divergent-universe.semantic-family.adventure-abstract-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "adventure-abstract-outcome Semantic Fixture Family",
+    "name_zh_cn": "adventure-abstract-outcome 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-adventure-abstract-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offered abstract result, eligibility, no action gameplay simulation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "adventure-abstract-outcome",
+      "semantic-family"
+    ],
+    "source_id": "adventure-abstract-outcome",
+    "minimum_cases": 1,
+    "must_cover": [
+      "offered abstract result",
+      "eligibility",
+      "no action gameplay simulation"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.adventure-outcome.11098010.RogueTurntable"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.area-difficulty-layer-transition",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "area-difficulty-layer-transition Semantic Fixture Family",
+    "name_zh_cn": "area-difficulty-layer-transition 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-difficulty-layer-transition",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers ordered stage flow, legal and rejected transition, difficulty binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "area-difficulty-layer-transition",
+      "semantic-family"
+    ],
+    "source_id": "area-difficulty-layer-transition",
+    "minimum_cases": 1,
+    "must_cover": [
+      "ordered stage flow",
+      "legal and rejected transition",
+      "difficulty binding"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.area.103",
+      "divergent-universe.difficulty.1001",
+      "divergent-universe.flow.area.103.entry",
+      "divergent-universe.layer.103"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.arithmetic-mapping-eligibility",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "arithmetic-mapping-eligibility Semantic Fixture Family",
+    "name_zh_cn": "arithmetic-mapping-eligibility 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-eligibility",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers eligible character, ineligible character, stronger account build boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-eligibility",
+      "semantic-family"
+    ],
+    "source_id": "arithmetic-mapping-eligibility",
+    "minimum_cases": 1,
+    "must_cover": [
+      "eligible character",
+      "ineligible character",
+      "stronger account build boundary"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.mapping-eligibility.1001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.arithmetic-mapping-refresh-and-teardown",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "arithmetic-mapping-refresh-and-teardown Semantic Fixture Family",
+    "name_zh_cn": "arithmetic-mapping-refresh-and-teardown 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers refresh timing, temporary substitution, account state unchanged using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "arithmetic-mapping-refresh-and-teardown",
+      "semantic-family"
+    ],
+    "source_id": "arithmetic-mapping-refresh-and-teardown",
+    "minimum_cases": 1,
+    "must_cover": [
+      "refresh timing",
+      "temporary substitution",
+      "account state unchanged"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.mapping-build.1001",
+      "divergent-universe.mapping-rule.character-level"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.astronomical-division",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "astronomical-division Semantic Fixture Family",
+    "name_zh_cn": "astronomical-division 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-astronomical-division",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers progress boundary, effect activation, scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "semantic-family"
+    ],
+    "source_id": "astronomical-division",
+    "minimum_cases": 1,
+    "must_cover": [
+      "progress boundary",
+      "effect activation",
+      "scope"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.astronomical-division.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.battle-visible-and-cross-battle-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "battle-visible-and-cross-battle-contribution Semantic Fixture Family",
+    "name_zh_cn": "battle-visible-and-cross-battle-contribution 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-battle-visible-and-cross-battle-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers BattleSpec contribution, BattleResult handoff, cross-battle lifecycle using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "battle-visible-and-cross-battle-contribution",
+      "semantic-family"
+    ],
+    "source_id": "battle-visible-and-cross-battle-contribution",
+    "minimum_cases": 1,
+    "must_cover": [
+      "BattleSpec contribution",
+      "BattleResult handoff",
+      "cross-battle lifecycle"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.protocol.1",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.curio-weight-charge-destruction-repair",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "curio-weight-charge-destruction-repair Semantic Fixture Family",
+    "name_zh_cn": "curio-weight-charge-destruction-repair 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-weight-charge-destruction-repair",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers weighted eligibility, charge change, destroy and repair using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "curio-weight-charge-destruction-repair",
+      "semantic-family"
+    ],
+    "source_id": "curio-weight-charge-destruction-repair",
+    "minimum_cases": 1,
+    "must_cover": [
+      "weighted eligibility",
+      "charge change",
+      "destroy and repair"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.curio-state.9001",
+      "divergent-universe.curio.9001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.divergent-blessing-level-and-transform",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "divergent-blessing-level-and-transform Semantic Fixture Family",
+    "name_zh_cn": "divergent-blessing-level-and-transform 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-divergent-blessing-level-and-transform",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers level state, enhancement or rewrite, Equation contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "divergent-blessing-level-and-transform",
+      "semantic-family"
+    ],
+    "source_id": "divergent-blessing-level-and-transform",
+    "minimum_cases": 1,
+    "must_cover": [
+      "level state",
+      "enhancement or rewrite",
+      "Equation contribution"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.blessing-level.615130.1",
+      "divergent-universe.blessing-rewrite.615130.enhance",
+      "divergent-universe.blessing.615130"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.encounter-wave-and-boss-binding",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "encounter-wave-and-boss-binding Semantic Fixture Family",
+    "name_zh_cn": "encounter-wave-and-boss-binding 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-wave-and-boss-binding",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers group selection, ordered waves, boss alternative using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "encounter-wave-and-boss-binding",
+      "semantic-family"
+    ],
+    "source_id": "encounter-wave-and-boss-binding",
+    "minimum_cases": 1,
+    "must_cover": [
+      "group selection",
+      "ordered waves",
+      "boss alternative"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.boss-pool.weekly.1.final.0",
+      "divergent-universe.encounter-group.300202",
+      "divergent-universe.encounter-wave.83002011.1",
+      "divergent-universe.encounter-wave.83002011.1.slot.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.equation-offer-recipe-progress-expansion",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "equation-offer-recipe-progress-expansion Semantic Fixture Family",
+    "name_zh_cn": "equation-offer-recipe-progress-expansion 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-offer-recipe-progress-expansion",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers offer candidate set, recipe counts, progress and expansion transition using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-offer-recipe-progress-expansion",
+      "semantic-family"
+    ],
+    "source_id": "equation-offer-recipe-progress-expansion",
+    "minimum_cases": 1,
+    "must_cover": [
+      "offer candidate set",
+      "recipe counts",
+      "progress and expansion transition"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.equation-offer.1001",
+      "divergent-universe.equation-progress.3102001",
+      "divergent-universe.equation-recipe.3102001",
+      "divergent-universe.equation-state.3102001.expanded",
+      "divergent-universe.equation.3102001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.equation-replacement-and-contribution",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "equation-replacement-and-contribution Semantic Fixture Family",
+    "name_zh_cn": "equation-replacement-and-contribution 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-equation-replacement-and-contribution",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers replacement, Blessing ownership change, contribution refresh using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "equation-replacement-and-contribution",
+      "semantic-family"
+    ],
+    "source_id": "equation-replacement-and-contribution",
+    "minimum_cases": 1,
+    "must_cover": [
+      "replacement",
+      "Blessing ownership change",
+      "contribution refresh"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.blessing-contribution.615130",
+      "divergent-universe.equation-transition.acquire"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.finish-and-cross-battle-reset",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "finish-and-cross-battle-reset Semantic Fixture Family",
+    "name_zh_cn": "finish-and-cross-battle-reset 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-finish-and-cross-battle-reset",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers terminal condition, carry state, reset state using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "finish-and-cross-battle-reset",
+      "semantic-family"
+    ],
+    "source_id": "finish-and-cross-battle-reset",
+    "minimum_cases": 1,
+    "must_cover": [
+      "terminal condition",
+      "carry state",
+      "reset state"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.finish.3000311",
+      "divergent-universe.flow.area.103.entry"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.gamble-offer-outcome-and-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "gamble-offer-outcome-and-fallback Semantic Fixture Family",
+    "name_zh_cn": "gamble-offer-outcome-and-fallback 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-outcome-and-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers candidate set, selected outcome, no legal candidate using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "gamble-offer-outcome-and-fallback",
+      "semantic-family"
+    ],
+    "source_id": "gamble-offer-outcome-and-fallback",
+    "minimum_cases": 1,
+    "must_cover": [
+      "candidate set",
+      "selected outcome",
+      "no legal candidate"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.gamble-group.100",
+      "divergent-universe.gamble-unit.101",
+      "divergent-universe.service-offer.curse-chest.1001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.golden-blood-titan-choice-and-level",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "golden-blood-titan-choice-and-level Semantic Fixture Family",
+    "name_zh_cn": "golden-blood-titan-choice-and-level 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-golden-blood-titan-choice-and-level",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice candidates, level transition, run and battle contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "golden-blood-titan-choice-and-level",
+      "semantic-family"
+    ],
+    "source_id": "golden-blood-titan-choice-and-level",
+    "minimum_cases": 1,
+    "must_cover": [
+      "choice candidates",
+      "level transition",
+      "run and battle contribution"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.titan-boon.10101",
+      "divergent-universe.titan-choice.aigle.1",
+      "divergent-universe.titan-contribution.boon.10101",
+      "divergent-universe.titan-type.aigle"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.grand-miracle-eligibility-and-lifecycle",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "grand-miracle-eligibility-and-lifecycle Semantic Fixture Family",
+    "name_zh_cn": "grand-miracle-eligibility-and-lifecycle 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers character Path and element eligibility, activation, teardown using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "grand-miracle-eligibility-and-lifecycle",
+      "semantic-family"
+    ],
+    "source_id": "grand-miracle-eligibility-and-lifecycle",
+    "minimum_cases": 1,
+    "must_cover": [
+      "character Path and element eligibility",
+      "activation",
+      "teardown"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.grand-miracle-eligibility.current.1001",
+      "divergent-universe.grand-miracle-state.1001.active",
+      "divergent-universe.grand-miracle.1001"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.no-legal-candidate-fallback",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "no-legal-candidate-fallback Semantic Fixture Family",
+    "name_zh_cn": "no-legal-candidate-fallback 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers empty candidate set, explicit fallback, authoritative state preservation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "semantic-family"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "minimum_cases": 1,
+    "must_cover": [
+      "empty candidate set",
+      "explicit fallback",
+      "authoritative state preservation"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.equation-transition.acquire",
+      "divergent-universe.service-offer.curse-chest.1001",
+      "divergent-universe.service-rule.workbench.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.occurrence-choice-cost-and-outcome",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "occurrence-choice-cost-and-outcome Semantic Fixture Family",
+    "name_zh_cn": "occurrence-choice-cost-and-outcome 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice-cost-and-outcome",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers choice condition, cost, ordered outcome using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "occurrence-choice-cost-and-outcome",
+      "semantic-family"
+    ],
+    "source_id": "occurrence-choice-cost-and-outcome",
+    "minimum_cases": 1,
+    "must_cover": [
+      "choice condition",
+      "cost",
+      "ordered outcome"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.occurrence-variant.700103",
+      "divergent-universe.occurrence.100"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.ordinary-and-cyclical-entry",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "ordinary-and-cyclical-entry Semantic Fixture Family",
+    "name_zh_cn": "ordinary-and-cyclical-entry 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-ordinary-and-cyclical-entry",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry eligibility, initial resources, weekly modifier binding using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "ordinary-and-cyclical-entry",
+      "semantic-family"
+    ],
+    "source_id": "ordinary-and-cyclical-entry",
+    "minimum_cases": 1,
+    "must_cover": [
+      "entry eligibility",
+      "initial resources",
+      "weekly modifier binding"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.cyclical-area.20401",
+      "divergent-universe.profile.v1",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.permanent-talent-and-unlock",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "permanent-talent-and-unlock Semantic Fixture Family",
+    "name_zh_cn": "permanent-talent-and-unlock 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-permanent-talent-and-unlock",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers prerequisite, unlock transition, mechanical effect using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "permanent-talent-and-unlock",
+      "semantic-family"
+    ],
+    "source_id": "permanent-talent-and-unlock",
+    "minimum_cases": 1,
+    "must_cover": [
+      "prerequisite",
+      "unlock transition",
+      "mechanical effect"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.permanent-talent.100",
+      "divergent-universe.progression-effect.talent.100",
+      "divergent-universe.unlock.3000201"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.profile-and-module-selection",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "profile-and-module-selection Semantic Fixture Family",
+    "name_zh_cn": "profile-and-module-selection 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-and-module-selection",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers TournRogue entry, module 6002201, rejected historical module using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "profile-and-module-selection",
+      "semantic-family"
+    ],
+    "source_id": "profile-and-module-selection",
+    "minimum_cases": 1,
+    "must_cover": [
+      "TournRogue entry",
+      "module 6002201",
+      "rejected historical module"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.entry.title.tournrogue",
+      "divergent-universe.module.6002201",
+      "divergent-universe.profile.v1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.simultaneous-trigger-order",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "simultaneous-trigger-order Semantic Fixture Family",
+    "name_zh_cn": "simultaneous-trigger-order 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers same-phase triggers, stable priority, ordered contributions using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "minimum_cases": 1,
+    "must_cover": [
+      "same-phase triggers",
+      "stable priority",
+      "ordered contributions"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.curio-lifecycle.9001",
+      "divergent-universe.titan-contribution.boon.10101"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.star-pioneer-practice-and-cognoculi",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "star-pioneer-practice-and-cognoculi Semantic Fixture Family",
+    "name_zh_cn": "star-pioneer-practice-and-cognoculi 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-star-pioneer-practice-and-cognoculi",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers mode eligibility, available content, mechanical Cognoculus boundary using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "star-pioneer-practice-and-cognoculi"
+    ],
+    "source_id": "star-pioneer-practice-and-cognoculi",
+    "minimum_cases": 1,
+    "must_cover": [
+      "mode eligibility",
+      "available content",
+      "mechanical Cognoculus boundary"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.astronomical-mode.practice",
+      "divergent-universe.cognoculi.division.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.threshold-protocol",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "threshold-protocol Semantic Fixture Family",
+    "name_zh_cn": "threshold-protocol 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-threshold-protocol",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers entry boundary, difficulty change, enemy or numeric contribution using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "threshold-protocol"
+    ],
+    "source_id": "threshold-protocol",
+    "minimum_cases": 1,
+    "must_cover": [
+      "entry boundary",
+      "difficulty change",
+      "enemy or numeric contribution"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.protocol.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.weekly-modifier-and-room-service",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "weekly-modifier-and-room-service Semantic Fixture Family",
+    "name_zh_cn": "weekly-modifier-and-room-service 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-weekly-modifier-and-room-service",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers modifier activation, service eligibility, cross-battle scope using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "weekly-modifier-and-room-service"
+    ],
+    "source_id": "weekly-modifier-and-room-service",
+    "minimum_cases": 1,
+    "must_cover": [
+      "modifier activation",
+      "service eligibility",
+      "cross-battle scope"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.mode-service-npc.700101",
+      "divergent-universe.room-mark.0",
+      "divergent-universe.weekly-modifier.1"
+    ],
+    "runtime_executable": false
+  },
+  {
+    "id": "divergent-universe.semantic-family.workbench-operation-and-price",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseSemanticFixtureFamily",
+    "name_en": "workbench-operation-and-price Semantic Fixture Family",
+    "name_zh_cn": "workbench-operation-and-price 语义夹具族",
+    "summary_en": "Non-shrinking reference family covers 3 required semantic fact(s).",
+    "summary_zh_cn": "不可缩减的资料族覆盖 3 个必需语义事实。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.local.fixture-contract",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-fixture-contract.v1",
+        "path": "content-manifests/divergent-universe-v1/fixture-contract.json",
+        "locator": "root",
+        "sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "FixtureContract"
+      },
+      {
+        "source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-operation-and-price",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference review covers legal operation, currency and price, rejected operation using final normalized facts and explicit unavailable/policy boundaries. It does not claim runtime execution.",
+        "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle."
+      }
+    ],
+    "tags": [
+      "semantic-family",
+      "workbench-operation-and-price"
+    ],
+    "source_id": "workbench-operation-and-price",
+    "minimum_cases": 1,
+    "must_cover": [
+      "legal operation",
+      "currency and price",
+      "rejected operation"
+    ],
+    "selected_source_record_ids": [
+      "divergent-universe.currency.cosmic-fragment",
+      "divergent-universe.service-rule.workbench.1",
+      "divergent-universe.workbench-function.1",
+      "divergent-universe.workbench.101"
+    ],
+    "runtime_executable": false
+  }
+]
