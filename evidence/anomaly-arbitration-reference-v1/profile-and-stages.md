@@ -35,3 +35,24 @@ condition. The direct Plight alternative and its three-star Knight projection
 remain separately backed by the official guide.
 
 No file in this batch lowers these facts into runtime behavior.
+
+## Knight records and team uniqueness
+
+The same released official guide states that the three Knight stages use
+different character teams. A successful clear records the team for later
+retries. Moving a recorded Light Cone or Relic into another Knight retry
+resets the source record; same-team or previously unrecorded equipment instead
+allows a retry whose successful result offers an explicit keep-or-replace
+choice. Resetting a Knight clears its recorded composition and current result
+without deleting Best Battle Records.
+
+Best Battle Records use the highest simultaneous total stars across all three
+Knight stages. The detailed star evaluation remains owned by `G13-P1-B6`; this
+batch only freezes the separation between mutable current progress and retained
+best progress.
+
+Released instructions do not explicitly settle whether alternate Paths/forms
+of one character are separate uniqueness identities. The normalized policy
+therefore rejects duplicate base character IDs, retains character-plus-Path as
+an authored form key, labels that form key `ProjectPolicy`, and supplies a
+replacement condition. This is not presented as observed parity.
