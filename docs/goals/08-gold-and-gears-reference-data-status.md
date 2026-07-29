@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `gold-and-gears-reference-v1` |
-| State | `Ready` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G08-P0-B1` |
+| Next unblocked batch | `G08-P0-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Existing focused inventory | 21 hashed `RogueNous*` tables; denominator not yet frozen |
@@ -21,7 +21,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Awaiting snapshot verification, focused inventory, frozen denominator and normalized/authoring contracts. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; Goal 08 scope, exclusions, authoring boundary and isolated artifact roots are machine-frozen. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, Cognition, Custom Dice, Knowledge, Neural Network, Conundrum and Resonance Extrapolation data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -31,7 +31,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G08-P0-B1` | `Pending` | — | Verify Goal 03 snapshot, freeze Goal 08 scope/exclusions and prove parallel artifact isolation. |
+| `G08-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 21 `RogueNous` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/Sora authority and six isolated artifact roots. The full source-cache gate reaches the historical Goal 06 contract before failing `Cargo.lock baseline differs`; Goal 03's current-tree verifier likewise reports evolved Universe row counts, so neither immutable historical evidence was rewritten. |
 | `G08-P0-B2` | `Pending` | — | Generate the focused released-source inventory and mechanic-evidence closure. |
 | `G08-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership and shared reachability. |
 | `G08-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook and fixture contracts. |
@@ -96,6 +96,7 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Reuse shared stable IDs only after Gold and Gears reachability is proven. | Similar names or source-table reuse do not prove identical ownership, effect state or eligibility. |
 | 2026-07-29 | Exclude story prose and account/collection rewards while retaining mechanical unlock locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal after Standard completion. |
+| 2026-07-29 | Treat an LF checkout as equivalent to Goal 03 source hashes only when LF-to-CRLF conversion reproduces the recorded byte count and SHA-256. | Goal 03 captured CRLF checkout bytes; the pinned macOS cache contains the same Git blobs with LF endings. |
 
 ## Research cases
 
