@@ -1338,6 +1338,50 @@
             "String": "goal07.enemy.s09.trigger.nightfall-actions-4"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1070551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1070641
+          },
+          "id": {
+            "Integer": 1070671
+          },
+          "once_scope": {
+            "String": "Turn"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1070309
+          },
+          "rule_id": {
+            "Integer": 1070541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s10.trigger.cruelty"
+          }
+        }
       }
     ]
   }

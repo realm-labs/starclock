@@ -928,6 +928,52 @@
             "String": "goal07.enemy.s09.condition.current-formation-3"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1070551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s10.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1070552
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1070408
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s10.condition.primary-shocked"
+          }
+        }
       }
     ]
   }

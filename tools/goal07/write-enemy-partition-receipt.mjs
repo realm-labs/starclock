@@ -133,6 +133,17 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S10": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+      "enemy.stellaron-hunter-kafka-complete.littleboss",
+      "ai.goal07.stellaron-hunter-kafka-complete.phase-1",
+      "ai.goal07.stellaron-hunter-kafka-complete.phase-2",
+      "ai.goal07.stellaron-hunter-kafka-complete.phase-3",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -250,6 +261,17 @@ if (partitionId === "G07-P5-M15-S09") {
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization/something_unto_death_s09.rs" },
+  );
+}
+if (partitionId === "G07-P5-M15-S10") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/effect_operation.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/rule.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/stellaron_hunter_kafka_s10.rs" },
   );
 }
 const provenanceEvidence = [

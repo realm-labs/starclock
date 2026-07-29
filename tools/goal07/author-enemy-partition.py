@@ -4,9 +4,10 @@ S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
 of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
 Cocolia (Complete), S07 owns Gepard (Complete), S08 owns Ice Out of Space,
-and S09 owns Memory Zone Meme "Something Unto Death" (Complete). Each
-partition receives an isolated 10,000-ID range so authoring and verification
-never consume rows owned by another partition.
+S09 owns Memory Zone Meme "Something Unto Death" (Complete), and S10 owns
+Stellaron Hunter: Kafka (Complete). Each partition receives an isolated
+10,000-ID range so authoring and verification never consume rows owned by
+another partition.
 """
 
 from __future__ import annotations
@@ -87,6 +88,12 @@ PARTITION_CONFIG = {
         ),
         "source_record_id": 11,
         "evidence_record_id": 12,
+    },
+    "G07-P5-M15-S10": {
+        "base": 1_070_000,
+        "variant": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+        "source_record_id": 12,
+        "evidence_record_id": 13,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -12034,6 +12041,1067 @@ def owned_rows_s09() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s10() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S10 frozen enemy assignment changed")
+
+    variant, template = BASE + 1, BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "midnight": BASE + 101,
+        "caressing": BASE + 102,
+        "mockery": BASE + 103,
+        "spirit": BASE + 104,
+        "psychological": BASE + 105,
+        "seething": BASE + 106,
+        "tremble": BASE + 107,
+        "cruelty": BASE + 108,
+        "griever": BASE + 109,
+        "revelation": BASE + 110,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "primary": BASE + 403,
+        "adjacent": BASE + 404,
+        "all-opposing": BASE + 405,
+        "random-two": BASE + 406,
+        "suggested": BASE + 407,
+        "shocked-primary": BASE + 408,
+        "shocked-other": BASE + 409,
+        "current-shocked": BASE + 410,
+        "actor-other": BASE + 411,
+    }
+    effects = {
+        "shock": BASE + 501,
+        "dominated": BASE + 502,
+        "suggestion": BASE + 503,
+        "cruelty-listener": BASE + 504,
+        "griever": BASE + 505,
+    }
+    modifier, modifier_group = BASE + 521, BASE + 531
+    cruelty_rule, cruelty_filter, cruelty_trigger = BASE + 541, BASE + 641, BASE + 671
+    conditions = {"always": BASE + 551, "primary-shocked": BASE + 552}
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program, next_operation, next_expression = BASE + 301, BASE + 1_001, BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def ident(
+        id_: int,
+        key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S10 来源绑定的「星核猎手」卡芙卡可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            ident(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Stellaron Hunter: Kafka (Complete)",
+                "「星核猎手」卡芙卡（完整）",
+                "Exact three-phase World 5 boss materialization.",
+                "1|12",
+            ),
+            ident(
+                template,
+                "enemy.stellaron-hunter-kafka-complete.littleboss",
+                "Enemy",
+                "Stellaron Hunter: Kafka (Complete) Template",
+                "「星核猎手」卡芙卡（完整）模板",
+                "Version 4.4 boss template retained from source monster 2004011.",
+            ),
+        ]
+    )
+    for phase, graph in enumerate(graphs, start=1):
+        identities.append(
+            ident(
+                graph,
+                f"ai.goal07.stellaron-hunter-kafka-complete.phase-{phase}",
+                "AiGraph",
+                f"Kafka Complete Phase {phase} AI",
+                f"卡芙卡完整形态第{phase}阶段AI",
+                "Finite source-phase rotation with explicit control and Shock behavior.",
+            )
+        )
+    ability_metadata = {
+        "midnight": ("Midnight Tumult", "夜间喧嚣不止", "200401101"),
+        "caressing": ("Caressing Moonlight", "月光摩挲连绵", "200401102"),
+        "mockery": ("Silent and Sharp Mockery", "缄默厉声嘲笑", "200401103"),
+        "spirit": ("Spirit Whisper", "言灵", "200401104"),
+        "psychological": ("Psychological Suggestion", "心理暗示", "200401106"),
+        "seething": ("Seething Whisper of the Fallen", "亡者切齿呢喃", "200401105"),
+        "tremble": ("Tremble", "颤慄", "200401107"),
+        "cruelty": ("Cruelty", "残酷", "200401108"),
+        "griever": ("Griever", "吊唁", "200401109"),
+        "revelation": ("Revelation", "启示", "derived-psychological-suggestion"),
+    }
+    for key, id_ in abilities.items():
+        name_en, name_zh_cn, source = ability_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"enemy.stellaron-hunter-kafka-complete.littleboss.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill {source}.",
+            )
+        )
+    for key, id_ in selectors.items():
+        identities.append(
+            ident(
+                id_,
+                f"selector.goal07.stellaron-hunter-kafka-complete.{key}",
+                "Selector",
+                f"Kafka Complete {key} Selector",
+                f"卡芙卡完整形态{key}选择器",
+                "S10 battle selector.",
+            )
+        )
+    effect_metadata = {
+        "shock": ("Kafka Shock", "卡芙卡触电", "Two-turn 300% Lightning damage-over-time state."),
+        "dominated": ("Dominated", "支配", "Forces the target to Basic ATK a random ally."),
+        "suggestion": ("Psychological Suggestion", "心理暗示", "Marks targets for Revelation."),
+        "cruelty-listener": ("Cruelty Listener", "残酷监听", "Once-per-turn shocked-target follow-up listener."),
+        "griever": ("Griever Growth", "吊唁成长", "Stacking two-percent Kafka damage growth."),
+    }
+    for key, id_ in effects.items():
+        name_en, name_zh_cn, summary = effect_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"effect.goal07.stellaron-hunter-kafka-complete.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    identities.extend(
+        [
+            ident(
+                modifier,
+                "modifier.goal07.stellaron-hunter-kafka-complete.griever",
+                "Modifier",
+                "Kafka Griever Damage Growth",
+                "卡芙卡吊唁增伤",
+                "Two-percent dynamic damage boost per Griever stack.",
+            ),
+            ident(
+                modifier_group,
+                "modifier-group.goal07.stellaron-hunter-kafka-complete.griever",
+                "Modifier",
+                "Kafka Griever Stacking",
+                "卡芙卡吊唁叠加组",
+                "Additive stacking group for Griever.",
+            ),
+            ident(
+                cruelty_rule,
+                "rule.goal07.stellaron-hunter-kafka-complete.cruelty",
+                "Rule",
+                "Kafka Cruelty Follow-up",
+                "卡芙卡残酷追击",
+                "Once per turn an eligible non-Kafka attacker causes a Lightning follow-up.",
+            ),
+        ]
+    )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["primary"], "PrimaryTarget", "OpposingSide"))
+    add(
+        "Selector",
+        selector(
+            selectors["adjacent"],
+            "Actor",
+            "OpposingSide",
+            minimum=0,
+            maximum=2,
+            empty="NoOp",
+            choice="PrimaryPlusAdjacent",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["adjacent"],
+            "sequence": 1,
+            "predicate": json_cell("Excludes", excluded_selector_id=selectors["primary"]),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["all-opposing"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    random_two = selector(
+        selectors["random-two"],
+        "Actor",
+        "OpposingSide",
+        minimum=1,
+        maximum=2,
+        choice="RngUniform",
+    )
+    random_two["rng_purpose_key"] = "behavior-choice"
+    add("Selector", random_two)
+    for name, origin, side, minimum, maximum, empty, choice in [
+        ("suggested", "Actor", "OpposingSide", 0, 8, "NoOp", "All"),
+        ("shocked-primary", "PrimaryTarget", "OpposingSide", 0, 1, "NoOp", "First"),
+        ("shocked-other", "Actor", "OpposingSide", 0, 8, "NoOp", "All"),
+        ("current-shocked", "CurrentSubject", "OpposingSide", 0, 1, "NoOp", "First"),
+        ("actor-other", "Actor", "AnySide", 0, 1, "NoOp", "First"),
+    ]:
+        add(
+            "Selector",
+            selector(
+                selectors[name],
+                origin,
+                side,
+                minimum=minimum,
+                maximum=maximum,
+                empty=empty,
+                choice=choice,
+            ),
+        )
+    for name, effect in [
+        ("suggested", effects["suggestion"]),
+        ("shocked-primary", effects["shock"]),
+        ("shocked-other", effects["shock"]),
+        ("current-shocked", effects["shock"]),
+    ]:
+        add(
+            "SelectorPredicate",
+            {
+                "selector_id": selectors[name],
+                "sequence": 1,
+                "predicate": json_cell("HasEffect", effect_id=effect),
+            },
+        )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["shocked-other"],
+            "sequence": 2,
+            "predicate": json_cell("Excludes", excluded_selector_id=selectors["primary"]),
+        },
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["actor-other"],
+            "sequence": 1,
+            "predicate": json_cell("Excludes", excluded_selector_id=selectors["owner"]),
+        },
+    )
+
+    def expression(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s10.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def product(name: str, left: int, right: int) -> int:
+        return expression(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expression(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratios = {
+        "three": expression("ratio-3", "Scalar", json_cell("ScalarLiteral", value_decimal="3")),
+        "two-point-five": expression("ratio-2-5", "Scalar", json_cell("ScalarLiteral", value_decimal="2.5")),
+        "two": expression("ratio-2", "Scalar", json_cell("ScalarLiteral", value_decimal="2")),
+        "one": expression("ratio-1", "Scalar", json_cell("ScalarLiteral", value_decimal="1")),
+        "one-point-two": expression("ratio-1-2", "Scalar", json_cell("ScalarLiteral", value_decimal="1.2")),
+        "zero-point-zero-two": expression("ratio-0-02", "Scalar", json_cell("ScalarLiteral", value_decimal="0.02")),
+    }
+    integers = {
+        "one": expression("integer-one", "Integer", json_cell("IntegerLiteral", value=1)),
+        "two": expression("integer-two", "Integer", json_cell("IntegerLiteral", value=2)),
+    }
+    damage = {
+        "midnight": product("midnight-damage", actor_atk, ratios["two-point-five"]),
+        "caressing-primary": product("caressing-primary-damage", actor_atk, ratios["three"]),
+        "caressing-adjacent": product("caressing-adjacent-damage", actor_atk, ratios["two"]),
+        "mockery": product("mockery-damage", actor_atk, ratios["two-point-five"]),
+        "seething-primary": product("seething-primary-damage", actor_atk, ratios["three"]),
+        "seething-other": product("seething-other-damage", actor_atk, ratios["two-point-five"]),
+        "cruelty": product("cruelty-damage", actor_atk, ratios["one"]),
+        "shock": product("shock-damage", actor_atk, ratios["three"]),
+    }
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s10.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["primary-shocked"],
+            "stable_key": "goal07.enemy.s10.condition.primary-shocked",
+            "node": json_cell(
+                "SelectorCardinality",
+                selector_id=selectors["shocked-primary"],
+                minimum_count=1,
+                maximum_count=1,
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s10.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def op_step(id_: int) -> str:
+        return json_cell("Operation", operation_id=id_)
+
+    def damage_op(name: str, amount: int, target: int, empty: str = "Fault") -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Lightning",
+                can_crit=True,
+            ),
+            target,
+            empty,
+        )
+
+    def apply_op(
+        name: str,
+        effect: int,
+        target: int,
+        chance: int | None = None,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=stacks,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+            empty,
+        )
+
+    def remove_op(name: str, effect: int, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell("RemoveEffect", effect_id=effect),
+            target,
+            "NoOp",
+        )
+
+    def detonate_op(name: str, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "DetonateDot",
+                fraction_expression_id=ratios["one"],
+                required_effect_tag=None,
+            ),
+            target,
+            "NoOp",
+        )
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            ident(
+                id_,
+                f"program.goal07.stellaron-hunter-kafka-complete.{name}",
+                "Program",
+                f"Kafka Complete {name} Program",
+                f"卡芙卡完整形态{name}程序",
+                "Ordered shared Rule IR program for the S10 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add("ProgramStep", {"program_id": id_, "sequence": sequence, "step": step})
+        return id_
+
+    griever_stack = lambda name: apply_op(
+        name,
+        effects["griever"],
+        selectors["actor"],
+        stacks=integers["one"],
+    )
+    spread_shock = make_program(
+        "caressing-spread-shock",
+        [
+            op_step(
+                apply_op(
+                    "caressing-apply-adjacent-shock",
+                    effects["shock"],
+                    selectors["adjacent"],
+                    ratios["one-point-two"],
+                    empty="NoOp",
+                )
+            ),
+            op_step(griever_stack("caressing-griever-growth")),
+        ],
+    )
+    ability_programs = {
+        abilities["midnight"]: make_program(
+            "midnight-tumult",
+            [
+                op_step(damage_op("midnight-damage", damage["midnight"], selectors["primary"])),
+                op_step(detonate_op("midnight-tremble", selectors["shocked-primary"])),
+                op_step(
+                    apply_op(
+                        "midnight-shock",
+                        effects["shock"],
+                        selectors["primary"],
+                        ratios["one-point-two"],
+                    )
+                ),
+                op_step(griever_stack("midnight-griever-growth")),
+            ],
+        ),
+        abilities["caressing"]: make_program(
+            "caressing-moonlight",
+            [
+                op_step(
+                    damage_op(
+                        "caressing-primary-damage",
+                        damage["caressing-primary"],
+                        selectors["primary"],
+                    )
+                ),
+                op_step(
+                    damage_op(
+                        "caressing-adjacent-damage",
+                        damage["caressing-adjacent"],
+                        selectors["adjacent"],
+                        "NoOp",
+                    )
+                ),
+                op_step(detonate_op("caressing-tremble", selectors["shocked-primary"])),
+                json_cell(
+                    "If",
+                    condition_id=conditions["primary-shocked"],
+                    then_program_id=spread_shock,
+                    else_program_id=None,
+                ),
+            ],
+        ),
+        abilities["mockery"]: make_program(
+            "silent-and-sharp-mockery",
+            [
+                op_step(
+                    damage_op(
+                        "mockery-damage",
+                        damage["mockery"],
+                        selectors["all-opposing"],
+                    )
+                ),
+                op_step(detonate_op("mockery-tremble", selectors["shocked-other"])),
+                op_step(detonate_op("mockery-primary-tremble", selectors["shocked-primary"])),
+            ],
+        ),
+        abilities["spirit"]: make_program(
+            "spirit-whisper",
+            [
+                op_step(
+                    apply_op(
+                        "spirit-dominate",
+                        effects["dominated"],
+                        selectors["primary"],
+                        ratios["one-point-two"],
+                    )
+                ),
+                op_step(
+                    new_operation(
+                        "spirit-advance",
+                        json_cell("AdvanceAction", amount_expression_id=ratios["one"]),
+                        selectors["primary"],
+                    )
+                ),
+            ],
+        ),
+        abilities["seething"]: make_program(
+            "seething-whisper-of-the-fallen",
+            [
+                op_step(
+                    damage_op(
+                        "seething-primary-damage",
+                        damage["seething-primary"],
+                        selectors["primary"],
+                    )
+                ),
+                op_step(detonate_op("seething-tremble", selectors["shocked-primary"])),
+                op_step(
+                    apply_op(
+                        "seething-shock",
+                        effects["shock"],
+                        selectors["primary"],
+                        ratios["one-point-two"],
+                    )
+                ),
+                op_step(griever_stack("seething-griever-growth")),
+                op_step(
+                    damage_op(
+                        "seething-other-shocked-damage",
+                        damage["seething-other"],
+                        selectors["shocked-other"],
+                        "NoOp",
+                    )
+                ),
+            ],
+        ),
+    }
+    revelation_program = make_program(
+        "revelation",
+        [
+            op_step(
+                apply_op(
+                    "revelation-dominate",
+                    effects["dominated"],
+                    selectors["suggested"],
+                    ratios["one-point-two"],
+                    empty="NoOp",
+                )
+            ),
+            op_step(
+                new_operation(
+                    "revelation-advance",
+                    json_cell("AdvanceAction", amount_expression_id=ratios["one"]),
+                    selectors["suggested"],
+                    "NoOp",
+                )
+            ),
+            op_step(remove_op("revelation-clear-suggestion", effects["suggestion"], selectors["suggested"])),
+        ],
+    )
+    ability_programs[abilities["revelation"]] = revelation_program
+    queue_revelation = new_operation(
+        "psychological-queue-revelation",
+        json_cell(
+            "QueueAction",
+            ability_id=abilities["revelation"],
+            actor_selector_id=selectors["actor"],
+            priority=100,
+            forced_use=True,
+            reaction_boundary="AfterAction",
+            owner_policy="Actor",
+            payment_policy="Suppressed",
+            payment_resource_key=None,
+        ),
+        selectors["suggested"],
+        "NoOp",
+    )
+    ability_programs[abilities["psychological"]] = make_program(
+        "psychological-suggestion",
+        [
+            op_step(
+                apply_op(
+                    "psychological-mark",
+                    effects["suggestion"],
+                    selectors["random-two"],
+                )
+            ),
+            op_step(queue_revelation),
+        ],
+    )
+
+    patterns = {
+        "midnight": "SingleTarget",
+        "caressing": "Blast",
+        "mockery": "Aoe",
+        "spirit": "SingleTarget",
+        "psychological": "Aoe",
+        "seething": "Aoe",
+        "tremble": "None",
+        "cruelty": "None",
+        "griever": "None",
+        "revelation": "Aoe",
+    }
+    passive = {"tremble", "cruelty", "griever"}
+    for key, id_ in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": id_,
+                "kind": "Passive" if key in passive else "Skill",
+                "target_pattern": patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1 if key not in passive else 0,
+                "semantic_tags_mask": (
+                    2053 if key == "revelation" else 5 if patterns[key] != "None" else 4
+                ),
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": id_,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs.get(id_),
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": id_,
+                "telegraph": "Charge" if key == "psychological" else "None",
+                "cooldown_actions": 1 if key not in passive else 0,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 0,
+                "ai_tag": key,
+            },
+        )
+
+    effect_rows = {
+        "shock": ("Dot", "DispellableDebuff", 1, integers["two"], "TargetTurnEnd", "TurnStart", "Refresh", damage["shock"], "Lightning"),
+        "dominated": ("Control", "CleanseableControl", 1, integers["one"], "TargetTurnEnd", "None", "Refresh", None, None),
+        "suggestion": ("Debuff", "NonDispellable", 1, None, "Permanent", "None", "Replace", None, None),
+        "cruelty-listener": ("NeutralState", "NonDispellable", 1, None, "Permanent", "None", "Replace", None, None),
+        "griever": ("Buff", "NonDispellable", 100, None, "Permanent", "None", "RefreshAndAddStacks", None, None),
+    }
+    for key, id_ in effects.items():
+        category, dispel, limit, duration, clock, tick, policy, magnitude, dot = effect_rows[key]
+        add(
+            "Effect",
+            {
+                "id": id_,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": tick,
+                "stack_policy": policy,
+                "magnitude_comparator_expression_id": magnitude,
+                "dot_element": dot,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for key, tags in {
+        "shock": ["shock", "kafka-shock"],
+        "dominated": ["dominated", "forced-basic-attack-random-ally"],
+        "suggestion": ["psychological-suggestion"],
+        "cruelty-listener": ["cruelty-listener"],
+        "griever": ["griever-damage-growth"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add("EffectTag", {"effect_id": effects[key], "sequence": sequence, "tag": tag})
+
+    add(
+        "ModifierStackingGroup",
+        {
+            "id": modifier_group,
+            "stable_key": "goal07.enemy.s10.modifier-group.griever",
+            "aggregation": "Sum",
+            "comparator_expression_id": None,
+        },
+    )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifier,
+            "source_effect_id": effects["griever"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Atk",
+            "formula_stage": "DamageBoost",
+            "formula_purpose": "OrdinaryDamage",
+            "value_expression_id": ratios["zero-point-zero-two"],
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_group,
+            "priority": 0,
+            "cap_formula_stage": "DamageBoost",
+            "snapshot_policy": "Dynamic",
+            "duration_scope": "Turn",
+        },
+    )
+    add(
+        "EffectModifierBinding",
+        {"effect_id": effects["griever"], "sequence": 1, "modifier_id": modifier},
+    )
+
+    cruelty_program = make_program(
+        "cruelty-follow-up",
+        [
+            op_step(
+                damage_op(
+                    "cruelty-follow-up-damage",
+                    damage["cruelty"],
+                    selectors["current-shocked"],
+                    "NoOp",
+                )
+            )
+        ],
+    )
+    add(
+        "RuleDefinition",
+        {
+            "id": cruelty_rule,
+            "domain": "Battle",
+            "source_definition_identity_id": effects["cruelty-listener"],
+            "source_class": "Effect",
+            "source_digest_sha256": sha256_text("goal07-s10-kafka-cruelty-v1"),
+        },
+    )
+    add(
+        "EventFilter",
+        {
+            "id": cruelty_filter,
+            "stable_key": "goal07.enemy.s10.filter.cruelty",
+            "actor_selector_id": selectors["actor-other"],
+            "target_selector_id": selectors["current-shocked"],
+            "cause_ancestry": "RootCommand",
+        },
+    )
+    add(
+        "RuleTrigger",
+        {
+            "id": cruelty_trigger,
+            "stable_key": "goal07.enemy.s10.trigger.cruelty",
+            "rule_id": cruelty_rule,
+            "sequence": 1,
+            "event": json_cell("Damage", point="Applied"),
+            "phase": "AfterEvent",
+            "filter_id": cruelty_filter,
+            "condition_id": conditions["always"],
+            "once_scope": "Turn",
+            "priority": 0,
+            "program_id": cruelty_program,
+        },
+    )
+    add(
+        "EffectRuleBinding",
+        {
+            "effect_id": effects["cruelty-listener"],
+            "sequence": 1,
+            "rule_id": cruelty_rule,
+        },
+    )
+
+    phase_entry_programs = [
+        make_program(
+            f"phase-{phase}-entry",
+            [
+                op_step(
+                    apply_op(
+                        f"phase-{phase}-install-cruelty",
+                        effects["cruelty-listener"],
+                        selectors["actor"],
+                    )
+                )
+            ],
+        )
+        for phase in range(1, 4)
+    ]
+    phase_sequences = [
+        ["midnight", "caressing", "mockery", "spirit"],
+        ["midnight", "caressing", "mockery", "psychological"],
+        ["caressing", "mockery", "seething", "psychological"],
+    ]
+    targets = {
+        "midnight": selectors["primary"],
+        "caressing": selectors["primary"],
+        "mockery": selectors["all-opposing"],
+        "spirit": selectors["primary"],
+        "psychological": selectors["random-two"],
+        "seething": selectors["primary"],
+    }
+    next_state, next_candidate, next_transition = BASE + 701, BASE + 801, BASE + 901
+    for phase_index, sequence_keys in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence_keys)))
+        next_state += len(sequence_keys)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_key) in enumerate(zip(state_ids, sequence_keys)):
+            ability_id = abilities[ability_key]
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s10.ai.phase-{phase_index + 1}."
+                        f"step-{offset + 1}-{ability_key}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["mockery"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s10.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}-{ability_key}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": targets[ability_key],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["mockery"],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s10.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": conditions["always"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Physical", "Wind", "Imaginary"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element, value in [
+        ("Fire", "0.2"),
+        ("Ice", "0.2"),
+        ("Lightning", "0.4"),
+        ("Quantum", "0.2"),
+    ]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": value},
+        )
+    add(
+        "EnemyDebuffResistance",
+        {
+            "variant_id": variant,
+            "category_key": "STAT_CTRL_Frozen",
+            "value_decimal": "0.75",
+        },
+    )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "450",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(abilities.values(), start=1):
+        add(
+            "EnemyVariantAbility",
+            {"variant_id": variant, "sequence": sequence, "ability_id": ability_id},
+        )
+    for phase, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + phase,
+                "stable_key": f"goal07.enemy.s10.phase-{phase}",
+                "variant_id": variant,
+                "sequence": phase,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": phase,
+                "ai_graph_id": graph,
+                "entry_program_id": phase_entry_programs[phase - 1],
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.stellaron-hunter-kafka-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": "Exact World 5 levels and public Kafka mechanics are committed as Goal 07 evidence.",
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s10.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S10.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s10.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s10.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -12135,6 +13203,7 @@ def main() -> None:
         "G07-P5-M15-S07": owned_rows_s07,
         "G07-P5-M15-S08": owned_rows_s08,
         "G07-P5-M15-S09": owned_rows_s09,
+        "G07-P5-M15-S10": owned_rows_s10,
     }[PARTITION]()
     golden_path = (
         ROOT
