@@ -135,7 +135,8 @@ results and opaque reward payloads; movement, aiming, physics, timing input and
 unreleased threshold/reward tables are intentionally excluded.
 
 The encounter partition expands the complete released 81-series namespace into
-179 weighted groups, 347 exact StageConfig waves and 1,070 ordered enemy slots.
+179 weighted groups, 347 exact StageConfig waves, 1,070 ordered enemy slots and
+15 formal-difficulty/plane-tier boss pools.
 Every slot resolves one of 71 inherited Version 4.4 enemy variants, and both
 displayed boss choices resolve to concrete slots. Source group weights, stages,
 formations and formal difficulty schedules remain exact. The unpublished

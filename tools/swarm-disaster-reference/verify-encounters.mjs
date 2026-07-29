@@ -15,6 +15,7 @@ execFileSync(
 const groups = json("content-reference/swarm-disaster-v1/encounter-groups.json");
 const waves = json("content-reference/swarm-disaster-v1/encounter-waves.json");
 const slots = json("content-reference/swarm-disaster-v1/enemy-slots.json");
+const bossPools = json("content-reference/swarm-disaster-v1/boss-pools.json");
 const rooms = json("content-reference/swarm-disaster-v1/rooms.json");
 const areas = json("content-reference/swarm-disaster-v1/areas.json");
 const segments = json(
@@ -26,11 +27,13 @@ const variants = json("content-reference/v4.4/enemy-variants.json");
 assert(groups.length === 179, "encounter-group count drift");
 assert(waves.length === 347, "encounter-wave count drift");
 assert(slots.length === 1070, "enemy-slot count drift");
+assert(bossPools.length === 15, "boss-pool count drift");
 assert(unique(groups.map(({ id }) => id)), "duplicate encounter-group ID");
 assert(unique(waves.map(({ id }) => id)), "duplicate encounter-wave ID");
 assert(unique(slots.map(({ id }) => id)), "duplicate enemy-slot ID");
+assert(unique(bossPools.map(({ id }) => id)), "duplicate boss-pool ID");
 
-for (const row of [...groups, ...waves, ...slots]) {
+for (const row of [...groups, ...waves, ...slots, ...bossPools]) {
   assert(row.schema_revision === "starclock.swarm-disaster-row.v1"
     && row.coverage_state === "DataReady"
     && ["SwarmDisaster", "Shared"].includes(row.ownership),
@@ -58,6 +61,7 @@ assert(formalAreaIds.length === 5, "formal area count drift");
 assert(formalSegmentIds.length === 15
   && formalSegmentIds.every((id) => segmentIds.has(id)),
 "formal difficulty-segment closure drift");
+const choiceIds = new Set(choices.map(({ id }) => id));
 
 const roleCounts = Object.fromEntries(Object.entries(
   Object.groupBy(groups, ({ encounter_role: role }) => role),
@@ -166,6 +170,33 @@ const boundChoiceIds = new Set(slots.flatMap(({ boss_choice_ids: ids }) => ids))
 assert(JSON.stringify([...boundChoiceIds].sort())
   === JSON.stringify(choices.map(({ id }) => id).sort()),
 "boss-choice slot closure drift");
+for (const area of formalAreas) {
+  const areaPools = bossPools.filter(({ area_id: id }) => id === area.id);
+  assert(areaPools.length === 3
+    && areaPools.every(({ difficulty_id: id }) => id === area.difficulty),
+  `${area.id} boss-pool difficulty closure drift`);
+  for (const [role, count] of [
+    ["FirstPlaneBossAlternative", 30],
+    ["SecondPlaneBossAlternative", 5],
+    ["FinalBoss", 1],
+  ]) {
+    const pool = areaPools.find(({ pool_tier: tier }) => tier === role);
+    assert(pool?.candidate_ids.length === count
+      && pool.candidate_order === "source-group-id-ascending"
+      && pool.selection_policy.unresolved_behavior === "FailClosed"
+      && pool.candidate_ids.every((id) =>
+        groupById.get(id)?.encounter_role === role),
+    `${area.id}/${role} boss-pool candidate drift`);
+    for (const consequence of pool.choice_consequences)
+      assert(choiceIds.has(consequence.boss_choice_id)
+        && consequence.encounter_group_ids.every((id) =>
+          pool.candidate_ids.includes(id)),
+      `${pool.id} boss-choice consequence drift`);
+  }
+}
+assert(new Set(bossPools.flatMap(({ choice_consequences: consequences }) =>
+  consequences.map(({ boss_choice_id: id }) => id))).size === 2,
+"boss-pool displayed-choice closure drift");
 assert(new Set(slots.map(({ enemy_variant_id: id }) => id)).size === 71,
 "reachable enemy-variant count drift");
 assert(new Set(waves.map(({ source_stage_id: id }) => id)).size === 310,
@@ -173,7 +204,8 @@ assert(new Set(waves.map(({ source_stage_id: id }) => id)).size === 310,
 
 console.log(
   "Swarm Disaster encounters verified (179 groups; 347 exact waves; " +
-  "1,070 enemy slots; 71 released variants; both displayed boss choices).",
+  "1,070 enemy slots; 15 difficulty-bound boss pools; 71 released variants; " +
+  "both displayed boss choices).",
 );
 
 function json(relative) {

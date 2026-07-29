@@ -370,7 +370,75 @@ enemySlotRows.sort((left, right) =>
   || left.formation_index - right.formation_index
   || left.id.localeCompare(right.id));
 
+const bossPoolRoles = [
+  "FirstPlaneBossAlternative",
+  "SecondPlaneBossAlternative",
+  "FinalBoss",
+];
+const bossPoolRows = formalAreas.flatMap((area) =>
+  bossPoolRoles.map((role) => {
+    const candidates = groupRows.filter(({ encounter_role: value }) =>
+      value === role);
+    const choiceConsequences = bossChoices.map((choice) => {
+      const encounterGroupIds = candidates
+        .filter(({ displayed_boss_choice_ids: ids }) =>
+          ids.includes(choice.id))
+        .map(({ id }) => id);
+      return encounterGroupIds.length === 0
+        ? undefined
+        : {
+          boss_choice_id: choice.id,
+          encounter_group_ids: encounterGroupIds,
+          weakness_consequence: choice.weakness_consequence,
+          later_boss_consequence: choice.later_boss_consequence,
+        };
+    }).filter(Boolean);
+    const roleSlug = role
+      .replaceAll(/([a-z])([A-Z])/gu, "$1-$2")
+      .toLowerCase();
+    return {
+      ...context.envelope({
+        id: `swarm-disaster.boss-pool.${area.difficulty}.${roleSlug}`,
+        kind: "SwarmBossPool",
+        nameEn: `${area.difficulty} ${role} Pool`,
+        nameZh: `${area.difficulty} ${role} 候选池`,
+        summaryEn:
+          `${area.difficulty} binds ${candidates.length} ${role} encounter candidate(s) in stable source-group order.`,
+        summaryZh:
+          `${area.difficulty} 以稳定源遭遇组顺序绑定 ${candidates.length} 个 ${role} 候选。`,
+        evidenceQuality: "ProjectPolicy",
+        sourceRefs: [
+          ...area.source_refs,
+          selectionPolicyRef,
+          ...choiceConsequences.map(({ boss_choice_id: choiceId }) => {
+            const choice = bossChoices.find(({ id }) => id === choiceId);
+            return localRef(
+              "content-reference/swarm-disaster-v1/boss-choices.json",
+              choice,
+              bossChoices.indexOf(choice),
+            );
+          }),
+        ],
+        tags: ["boss-pool", role],
+      }),
+      difficulty_id: area.difficulty,
+      area_id: area.id,
+      pool_tier: role,
+      candidate_ids: candidates.map(({ id }) => id),
+      choice_consequences: choiceConsequences,
+      candidate_order: "source-group-id-ascending",
+      selection_policy: {
+        randomness: "seeded-activity-stream",
+        unresolved_behavior: "FailClosed",
+      },
+    };
+  })
+).sort((left, right) =>
+  left.difficulty_id.localeCompare(right.difficulty_id)
+  || left.id.localeCompare(right.id));
+
 await writeOrCheck(context, new Map([
+  ["boss-pools.json", bossPoolRows],
   ["encounter-groups.json", groupRows],
   ["encounter-waves.json", waveRows],
   ["enemy-slots.json", enemySlotRows],
@@ -378,5 +446,5 @@ await writeOrCheck(context, new Map([
 console.log(
   `Swarm Disaster encounters ${check ? "verified" : "generated"}: ` +
   `${groupRows.length} groups, ${waveRows.length} waves, ` +
-  `${enemySlotRows.length} enemy slots.`,
+  `${enemySlotRows.length} enemy slots, ${bossPoolRows.length} boss pools.`,
 );
