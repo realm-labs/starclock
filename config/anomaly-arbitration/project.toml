@@ -1,0 +1,26 @@
+package = "starclock_anomaly_arbitration_reference_config"
+includes = [
+  "schema/system.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../anomaly-arbitration-generated/schema.lock"
+excel_templates = "../anomaly-arbitration-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../anomaly-arbitration-generated/readers/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../anomaly-arbitration-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../anomaly-arbitration-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"
