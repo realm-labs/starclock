@@ -1,0 +1,821 @@
+{
+  "schema_revision": "starclock.gold-and-gears-semantic-fixture-results.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "executed_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "fixture_contract_sha256": "d5820bf51108db58f5297b621ca9e16d4b8a3db191c9b966949b3806829431ed",
+    "normalized_schema_sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+    "fixture_data_sha256": "515c00dd7f617ef9edb3b7f9465fda8a83ae1bd8e7e9025a5c64a84cf4e73dc6",
+    "research_gap_data_sha256": "3fa2db9cc076f7d662e6e8b53b880460155d0bd3068532fc8aa33b586c08c8cb",
+    "mechanic_rule_data_sha256": "06077b7706593bebf74c970193e765ed37accdb43fb852e5c170b7fbf75e461b"
+  },
+  "summary": {
+    "required_families": 18,
+    "executed_fixtures": 18,
+    "ordered_operations": 63,
+    "assertions": 36,
+    "source_record_bindings": 46,
+    "evidence_bindings": 95,
+    "mechanic_rules": 1224,
+    "approximation_boundaries": 16,
+    "replacement_conditions_verified": 16,
+    "affected_record_bindings": 5025,
+    "blocking_gaps": 0,
+    "failed_assertions": 0
+  },
+  "mechanic_rule_families": {
+    "conundrum-auxiliary": 6,
+    "conundrum-stats": 6,
+    "curio-lifecycle": 160,
+    "neural-network-effect": 40,
+    "occurrence-choice": 384,
+    "path-boost": 495,
+    "profile-entry": 5,
+    "resonance-extrapolation": 90,
+    "service-and-adventure": 38
+  },
+  "fixtures": [
+    {
+      "fixture_id": "gold-gears.fixture.cognition-lifecycle",
+      "family_id": "cognition-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "operation_count": 6,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "bounds.inclusive",
+          "operator": "equals",
+          "expected": true,
+          "actual": true,
+          "result": "pass"
+        },
+        {
+          "path": "evaluation_boundary",
+          "operator": "equals",
+          "expected": "CurrentPlaneBossDefeated",
+          "actual": "CurrentPlaneBossDefeated",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.cognition-lifecycle"
+      ],
+      "trace_sha256": "37113ec5d4ac42550570741442e36c261aebd2485bb6e01cbc64ac5b07390fc2",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.conundrum-auxiliary",
+      "family_id": "conundrum-auxiliary",
+      "evidence_quality": "ExactPublicText",
+      "source_record_count": 1,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "composition_mode",
+          "operator": "equals",
+          "expected": "AllContributionsAtOrBelowSelectedLevel",
+          "actual": "AllContributionsAtOrBelowSelectedLevel",
+          "result": "pass"
+        },
+        {
+          "path": "total_conundrum_cap",
+          "operator": "equals",
+          "expected": "12",
+          "actual": "12",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [],
+      "trace_sha256": "c1ec226f3d543b4304990c88a5713debbf0815b09ce43efef76c6762a0364dea",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.conundrum-stats",
+      "family_id": "conundrum-stats",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "composition_mode",
+          "operator": "equals",
+          "expected": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+          "actual": "LatestContributionPerSourceTagAtOrBelowSelectedLevel",
+          "result": "pass"
+        },
+        {
+          "path": "track_cap",
+          "operator": "equals",
+          "expected": "6",
+          "actual": "6",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.conundrum-unreleased-numeric-bindings"
+      ],
+      "trace_sha256": "be4a432ff97d05cc81566f377b1b7066eb1a29ae4a079694384a2f074eeb5ed2",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.curio-lifecycle",
+      "family_id": "curio-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "initial_state_id",
+          "operator": "equals",
+          "expected": "gold-gears.curio-state.3105",
+          "actual": "gold-gears.curio-state.3105",
+          "result": "pass"
+        },
+        {
+          "path": "repair_target",
+          "operator": "equals",
+          "expected": {},
+          "actual": {},
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.curio-random-selection"
+      ],
+      "trace_sha256": "6f1f5d56ecacd73567e0252f454ed04b9e1d7371d5e98ab161c75ac40b4af8d3",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.custom-dice-passive",
+      "family_id": "custom-dice-passive",
+      "evidence_quality": "ExactStructured",
+      "source_record_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "dice.source_id",
+          "operator": "equals",
+          "expected": "403",
+          "actual": "403",
+          "result": "pass"
+        },
+        {
+          "path": "path_boost.value",
+          "operator": "equals",
+          "expected": "0.08",
+          "actual": "0.08",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [],
+      "trace_sha256": "c993381abc741ca16087e2fdf1d27ab13005b11f717a7e93fe64bb496cb117d7",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.dice-face-targeting",
+      "family_id": "dice-face-targeting",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "no_legal_target_behavior",
+          "operator": "equals",
+          "expected": "NoEffect",
+          "actual": "NoEffect",
+          "result": "pass"
+        },
+        {
+          "path": "slot_legal",
+          "operator": "equals",
+          "expected": true,
+          "actual": true,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.dice-face-filter-tag-code-map",
+        "source.goal08.project-policy.dice-face-target-resolution"
+      ],
+      "trace_sha256": "8d6bc65ea1848c2fea4a062379bdf8474bda13d8b7d33f77cd69d3e8636e3643",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.dice-reroll-and-cheat",
+      "family_id": "dice-reroll-and-cheat",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "empty_candidate_behavior",
+          "operator": "equals",
+          "expected": "KeepPreviousAndConsumeAttempt",
+          "actual": "KeepPreviousAndConsumeAttempt",
+          "result": "pass"
+        },
+        {
+          "path": "cheat_attempts_per_plane",
+          "operator": "equals",
+          "expected": "1",
+          "actual": "1",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.neural-network-reroll-empty-candidate"
+      ],
+      "trace_sha256": "fcde098c10d6769eabc2c9bdb28250d7432a9084b84eef931f2b89eb9c4fe6ca",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.encounter-selection",
+      "family_id": "encounter-selection",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "enemy_slot_count",
+          "operator": "equals",
+          "expected": "2",
+          "actual": "2",
+          "result": "pass"
+        },
+        {
+          "path": "boss_choice_count",
+          "operator": "equals",
+          "expected": "2",
+          "actual": "2",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.encounter-selection",
+        "source.goal08.project-policy.encounter-difficulty-binding"
+      ],
+      "trace_sha256": "7982d874951dcb8a2d72f8c848d44424c5f67da29f3652abaea48778ffa83d4f",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.knowledge-lifecycle",
+      "family_id": "knowledge-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "supported_access_modes",
+          "operator": "equals",
+          "expected": [
+            "Apply",
+            "Preserve",
+            "Query",
+            "Remove"
+          ],
+          "actual": [
+            "Apply",
+            "Preserve",
+            "Query",
+            "Remove"
+          ],
+          "result": "pass"
+        },
+        {
+          "path": "simultaneous_resolution",
+          "operator": "equals",
+          "expected": "knowledge-simultaneous-resolution-v1",
+          "actual": "knowledge-simultaneous-resolution-v1",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.knowledge-target-selection",
+        "source.goal08.project-policy.knowledge-simultaneous-resolution"
+      ],
+      "trace_sha256": "6d5904b26488a42812760c75cad6f44bfdc6ed832ed03421a3e7fb5ca5bdc81d",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.neural-network-effect",
+      "family_id": "neural-network-effect",
+      "evidence_quality": "ExactStructured",
+      "source_record_count": 1,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "node.disposition",
+          "operator": "equals",
+          "expected": "MechanicallyRelevant",
+          "actual": "MechanicallyRelevant",
+          "result": "pass"
+        },
+        {
+          "path": "node.effect_domain",
+          "operator": "equals",
+          "expected": "ActivityAndBattle",
+          "actual": "ActivityAndBattle",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [],
+      "trace_sha256": "e2f442fbbdc88f05eb8fda041417be7537dc45ddb7872f53f5671d7299e93a1c",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.occurrence-choice",
+      "family_id": "occurrence-choice",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "unresolved_pool_behavior",
+          "operator": "equals",
+          "expected": "FailClosed",
+          "actual": "FailClosed",
+          "result": "pass"
+        },
+        {
+          "path": "choice_order_preserved",
+          "operator": "equals",
+          "expected": true,
+          "actual": true,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.occurrence-random-outcome"
+      ],
+      "trace_sha256": "25b0707d56130ebfebdd578ff9ef1eee6a41ee240a951a32e545c809e225e88f",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.path-boost",
+      "family_id": "path-boost",
+      "evidence_quality": "ExactStructured",
+      "source_record_count": 1,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "target_team",
+          "operator": "equals",
+          "expected": "TeamLight",
+          "actual": "TeamLight",
+          "result": "pass"
+        },
+        {
+          "path": "stacking",
+          "operator": "equals",
+          "expected": "AdditiveContribution",
+          "actual": "AdditiveContribution",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [],
+      "trace_sha256": "994fa60163d8573bf9751a455a8075738b5cfd5b2a291e6c2e8ff0a1cbfd3165",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.profile-entry",
+      "family_id": "profile-entry",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 11,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "formal_difficulty_count",
+          "operator": "equals",
+          "expected": "5",
+          "actual": "5",
+          "result": "pass"
+        },
+        {
+          "path": "bonus_source_ids",
+          "operator": "equals",
+          "expected": [
+            "201",
+            "202",
+            "203",
+            "204",
+            "205"
+          ],
+          "actual": [
+            "201",
+            "202",
+            "203",
+            "204",
+            "205"
+          ],
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.profile"
+      ],
+      "trace_sha256": "a7cc1ae7a8be453c6442ce8e3de32f8d0acfe01d046b68ca83cc67adb7ee00a5",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.resonance-extrapolation",
+      "family_id": "resonance-extrapolation",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "normal.enhanced",
+          "operator": "equals",
+          "expected": false,
+          "actual": false,
+          "result": "pass"
+        },
+        {
+          "path": "formation.enhanced",
+          "operator": "equals",
+          "expected": true,
+          "actual": true,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.resonance-extrapolation-controller"
+      ],
+      "trace_sha256": "af238f7de709bbedbbbd6d91e9c8955e25b261d37f7f4b3da9302220d6fc3c22",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.secret-threshold",
+      "family_id": "secret-threshold",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "minimum_cognition",
+          "operator": "equals",
+          "expected": "-20",
+          "actual": "-20",
+          "result": "pass"
+        },
+        {
+          "path": "bounds_inclusive",
+          "operator": "equals",
+          "expected": true,
+          "actual": true,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.cognition-lifecycle"
+      ],
+      "trace_sha256": "4c5ca4ffabdc705b8056ed0aef6c1e34fbeff6c8be8ac4883f01be5b5c959992",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.service-and-adventure",
+      "family_id": "service-and-adventure",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "service.inventory",
+          "operator": "equals",
+          "expected": [
+            {
+              "rarity": "1",
+              "unit_cost": "100",
+              "base_stock": "3"
+            },
+            {
+              "rarity": "2",
+              "unit_cost": "200",
+              "base_stock": "2"
+            },
+            {
+              "rarity": "3",
+              "unit_cost": "300",
+              "base_stock": "1"
+            }
+          ],
+          "actual": [
+            {
+              "rarity": "1",
+              "unit_cost": "100",
+              "base_stock": "3"
+            },
+            {
+              "rarity": "2",
+              "unit_cost": "200",
+              "base_stock": "2"
+            },
+            {
+              "rarity": "3",
+              "unit_cost": "300",
+              "base_stock": "1"
+            }
+          ],
+          "result": "pass"
+        },
+        {
+          "path": "adventure.reward_tier_count",
+          "operator": "equals",
+          "expected": "3",
+          "actual": "3",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.adventure-reward-selection"
+      ],
+      "trace_sha256": "56c2876e1b21b7f030d287947f9670a9335fbfa4ff74f4bf27200a26042a8e3c",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.topology-event-order",
+      "family_id": "topology-event-order",
+      "evidence_quality": "ExactStructured",
+      "source_record_count": 2,
+      "operation_count": 3,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "event.weight",
+          "operator": "equals",
+          "expected": "100",
+          "actual": "100",
+          "result": "pass"
+        },
+        {
+          "path": "block_rule.order",
+          "operator": "equals",
+          "expected": "0",
+          "actual": "0",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [],
+      "trace_sha256": "c53efc9f207c9edb167b6b8254c0cc063406509fd16ffce3455c5cea65c4334c",
+      "result": "pass"
+    },
+    {
+      "fixture_id": "gold-gears.fixture.topology-generation",
+      "family_id": "topology-generation",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 5,
+      "operation_count": 4,
+      "assertion_count": 2,
+      "assertions": [
+        {
+          "path": "edge.policy.policy_id",
+          "operator": "equals",
+          "expected": "NonEmpty",
+          "actual": "forward-nearest-column-within-one-row-v1",
+          "result": "pass"
+        },
+        {
+          "path": "unspecified_domain",
+          "operator": "equals",
+          "expected": "Unspecified",
+          "actual": "Unspecified",
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal08.project-policy.topology-policy"
+      ],
+      "trace_sha256": "61bfce83210593ef14ce58efaad1bfd8253825ebadadd34b7e94bccaf9f51544",
+      "result": "pass"
+    }
+  ],
+  "approximations": [
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-adventure-reward-selection",
+      "policy_source_id": "source.goal08.project-policy.adventure-reward-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 17,
+      "fixture_ids": [
+        "gold-gears.fixture.service-and-adventure"
+      ],
+      "note_sha256": "e489a6899949ca361eb19fe58175ac98ac6983daa9a319c451e3a5e4e7ce173e",
+      "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering.",
+      "replacement_condition_sha256": "f104d0646e4ec227fa6a3e3da51c9d80d4d5f6741e1cf076f9ccbbaa14441030",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-cognition-lifecycle",
+      "policy_source_id": "source.goal08.project-policy.cognition-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 35,
+      "fixture_ids": [
+        "gold-gears.fixture.cognition-lifecycle",
+        "gold-gears.fixture.secret-threshold"
+      ],
+      "note_sha256": "4b7e8e9c37c5d56a04dffd7c55ed83b80d2867b0838fee12e9b9163981ff3536",
+      "replacement_condition": "Replace individual lifecycle steps when a pinned engine relation or a stronger released structured source proves their exact operation order.",
+      "replacement_condition_sha256": "5b72561b28f1f5ba0a2e05de4cee4f16d3b904e0ba3e2ca017d1ff8cd5685ccf",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-conundrum-unreleased-numeric-bindings",
+      "policy_source_id": "source.goal08.project-policy.conundrum-unreleased-numeric-bindings",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 13,
+      "fixture_ids": [
+        "gold-gears.fixture.conundrum-stats"
+      ],
+      "note_sha256": "f51024700c16d1ef1554541c5fed5b487e474bfd41a86dc270a697531c58aff1",
+      "replacement_condition": "Replace each unresolved binding only when pinned released engine data or a reproducible Version 4.4 observation proves its exact value and timing.",
+      "replacement_condition_sha256": "7705576d0382a55c417546d0df729c1caa7b1e225ccbbfdf7b4fc9bcde87651e",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-curio-random-selection",
+      "policy_source_id": "source.goal08.project-policy.curio-random-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 321,
+      "fixture_ids": [
+        "gold-gears.fixture.curio-lifecycle"
+      ],
+      "note_sha256": "d0af4eb1d97a865225d45ddbf829aef2a180488a2098a0a4810962e9610d8b59",
+      "replacement_condition": "Replace when pinned released pool tables or engine code expose complete offer eligibility and candidate ordering.",
+      "replacement_condition_sha256": "00b9e4d376f5a157f20877ec4e6b295a857eda444f9d320b10406d64167b2b92",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-dice-face-filter-tag-code-map",
+      "policy_source_id": "source.goal08.project-policy.dice-face-filter-tag-code-map",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 91,
+      "fixture_ids": [
+        "gold-gears.fixture.dice-face-targeting"
+      ],
+      "note_sha256": "ff1de30e64cc7973e0160f64f8fb370f6e5b087cfa7318ea6e2622bd1ffa9a19",
+      "replacement_condition": "Replace when a pinned released table or engine enum exposes the numeric filter-tag to mechanical-code relation.",
+      "replacement_condition_sha256": "a39fa89a7d3bbc79559a768ab31d36b494aff8512dde5f609c0301e039ee9815",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-dice-face-target-resolution",
+      "policy_source_id": "source.goal08.project-policy.dice-face-target-resolution",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 81,
+      "fixture_ids": [
+        "gold-gears.fixture.dice-face-targeting"
+      ],
+      "note_sha256": "c2973ad42ba3d3c95c47a4ad19ec161b6962546b36cdae9b1ebcc4b9001dfc5a",
+      "replacement_condition": "Replace individual targeting and ordering fields when pinned released engine evidence exposes candidate enumeration, tie order, duration order, or empty-set behavior.",
+      "replacement_condition_sha256": "0d9327700f0031257066c4d8aa55f51741a81b2ccf02de4a3c1390ab23d439ba",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-encounter-difficulty-binding",
+      "policy_source_id": "source.goal08.project-policy.encounter-difficulty-binding",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 660,
+      "fixture_ids": [
+        "gold-gears.fixture.encounter-selection"
+      ],
+      "note_sha256": "177d9faf9d57cfa4f62a48651e5686a4599a69963e6b956287e348feb37cface",
+      "replacement_condition": "Replace when released engine code exposes the exact battle-level selection and override sequence.",
+      "replacement_condition_sha256": "0db819ade9b4b49b1502b97932021ed22e4d0dc2bad4cd8954497b1d5829731a",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-encounter-selection",
+      "policy_source_id": "source.goal08.project-policy.encounter-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 182,
+      "fixture_ids": [
+        "gold-gears.fixture.encounter-selection"
+      ],
+      "note_sha256": "ceadb9962b61d87dbbe3c2c1c3552007bb8daeaf4074521354a961544c0873a4",
+      "replacement_condition": "Replace when released engine code or a pinned table exposes the exact RogueNousRoom/domain/difficulty-to-RogueMonsterGroup join.",
+      "replacement_condition_sha256": "ee6018940cbfed570e67b0c6a5cd7ff04e2b216f7be96b7f421ef9c0c1059c80",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-knowledge-simultaneous-resolution",
+      "policy_source_id": "source.goal08.project-policy.knowledge-simultaneous-resolution",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 23,
+      "fixture_ids": [
+        "gold-gears.fixture.knowledge-lifecycle"
+      ],
+      "note_sha256": "2848581a12a0c2858a8b4bdf6f0abf3d862001686c90620d68af7577d8807b30",
+      "replacement_condition": "Replace individual tiers when pinned engine evidence proves exact simultaneous-effect ordering.",
+      "replacement_condition_sha256": "be2d1fcf01ec315f3294fb337405aa489e9b42f6c15677918b92fcae79db3894",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-knowledge-target-selection",
+      "policy_source_id": "source.goal08.project-policy.knowledge-target-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 23,
+      "fixture_ids": [
+        "gold-gears.fixture.knowledge-lifecycle"
+      ],
+      "note_sha256": "e150ce3a3dd337e6fd784a2cc3738d99c55e765a87ff49c043406b6f7a43080b",
+      "replacement_condition": "Replace when pinned engine code or structured data proves target enumeration, RNG draw order, replacement, or empty-set behavior.",
+      "replacement_condition_sha256": "514b277cf2781e9ae7accc9307d71f741950e63dbeb77fecc8812cd2d41c39d8",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-neural-network-reroll-empty-candidate",
+      "policy_source_id": "source.goal08.project-policy.neural-network-reroll-empty-candidate",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 3,
+      "fixture_ids": [
+        "gold-gears.fixture.dice-reroll-and-cheat",
+        "gold-gears.fixture.neural-network-effect"
+      ],
+      "note_sha256": "0b58053c4ff81cb33fbb9b172fb2197f7b9ed5b259c2961585dbb33564797e27",
+      "replacement_condition": "Replace when pinned engine evidence proves candidate ordering, draw consumption, or empty-candidate behavior.",
+      "replacement_condition_sha256": "33faf1e2422b2cb5f3454504c705a2fc71808128d8e11bf1470d84fcd7924713",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-neural-network-slot-upgrade-target",
+      "policy_source_id": "source.goal08.project-policy.neural-network-slot-upgrade-target",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 6,
+      "fixture_ids": [
+        "gold-gears.fixture.neural-network-effect"
+      ],
+      "note_sha256": "d397d266cf7a33c5ef18bbaf02eb107ad54d1ff2782c776dfc2996f118cdaa54",
+      "replacement_condition": "Replace the talent-to-slot IDs when pinned engine code or a released table exposes the exact link.",
+      "replacement_condition_sha256": "56c7b3a4ee1d928fe7d9be70cb89df77925777aa4f50c580d64ff29090da8af9",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-occurrence-random-outcome",
+      "policy_source_id": "source.goal08.project-policy.occurrence-random-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 87,
+      "fixture_ids": [
+        "gold-gears.fixture.occurrence-choice"
+      ],
+      "note_sha256": "de58d9b5b82c60196a51397c54073e08bcb4854cb6494e42b9bef1476a9080a2",
+      "replacement_condition": "Replace when pinned released occurrence programs or engine code expose hidden weights and complete eligible-pool construction.",
+      "replacement_condition_sha256": "8f3a0232c9fc785464100bd56b1507a84f82b47f64df17a99f11363c64ee40b5",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-profile",
+      "policy_source_id": "source.goal08.project-policy.profile",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 2,
+      "fixture_ids": [
+        "gold-gears.fixture.profile-entry"
+      ],
+      "note_sha256": "a3fcef08f3a7d76ee867a192eed6da35210369c11a649753377c742c1a470915",
+      "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity.",
+      "replacement_condition_sha256": "953da6627125dec728bc5848cf231b430bf02ec95a16ad12d7a386ddc494943d",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-resonance-extrapolation-controller",
+      "policy_source_id": "source.goal08.project-policy.resonance-extrapolation-controller",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 73,
+      "fixture_ids": [
+        "gold-gears.fixture.resonance-extrapolation"
+      ],
+      "note_sha256": "4d6685fb46bff43007fbe631ef124cdfd40cbf8ed71c3a121b956a32d73c3bc5",
+      "replacement_condition": "Replace when pinned released engine code proves candidate enumeration, formation selection, action scheduling and target-polarity lowering.",
+      "replacement_condition_sha256": "7d4e90031cf4c93a9f78de7b40185a5c56cfdec8f087dca2dce53f4444dc1211",
+      "result": "pass"
+    },
+    {
+      "research_gap_id": "gold-gears.research-gap.source-goal08-project-policy-topology-policy",
+      "policy_source_id": "source.goal08.project-policy.topology-policy",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 3408,
+      "fixture_ids": [
+        "gold-gears.fixture.topology-generation"
+      ],
+      "note_sha256": "76043f72aae5e4b797219f5d6a7142ecdf10ca00531eb1c915748c67178e63a8",
+      "replacement_condition": "Replace when released explicit edges or a verified engine graph builder becomes available.",
+      "replacement_condition_sha256": "2c4b18bd472ca900aa8c39b70afd0a3f98afb50f66b8ea304e2d69ca250abf64",
+      "result": "pass"
+    }
+  ]
+}

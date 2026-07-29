@@ -432,7 +432,11 @@ function buildFixtures() {
       family: "resonance-extrapolation",
       records: [baseExtrapolation, enhancedExtrapolation],
       preconditions: [{ fact: "battle_scope", value: "ThirdPlaneBossBattle" }],
-      input: { offered_path_id: baseExtrapolation.path_id, formation_count: "1" },
+      input: {
+        offered_path_id: baseExtrapolation.path_id,
+        formation_count: "1",
+        seed: "0",
+      },
       operations: [
         { operation: "SelectNormalResonanceGroup" },
         { operation: "SelectFormationWithSeededStableOrder" },
