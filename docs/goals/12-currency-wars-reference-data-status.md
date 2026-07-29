@@ -5,16 +5,18 @@
 | Field | Value |
 |---|---|
 | Goal ID | `currency-wars-reference-v1` |
-| State | `Ready` |
-| Current phase | Phase 0 — Scope, sources and contracts (`Pending`) |
-| Current batch | None; Goal execution has not started |
-| Next unblocked batch | `G12-P0-B1` |
+| State | `InProgress` |
+| Current phase | Phase 0 — Scope, sources and contracts (`InProgress`) |
+| Current batch | None; `G12-P0-B1` awaits publication of this ledger row |
+| Next unblocked batch | `G12-P0-B2`, only after the `G12-P0-B1` commit is pushed and remotely resolved |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Planning cache audit | 2026-07-29: both caches clean at pinned commits; origins, commit readability and `git fsck --connectivity-only --no-dangling` verified; execution must reproduce in `G12-P0-B1` |
+| Execution cache reproduction | `G12-P0-B1`: fresh partial clones in a `mktemp` directory; exact detached commits, clean status, origins, commit readability, connectivity, 11 Persona/64 Tourn canonical digest and required entry hashes verified; the fetcher passed a second idempotent run |
+| Goal package publication | `origin/codex/goal12-currency-wars-reference@e3c7b7a18bcad2e3c8305b4512f007f4e39fa19b`; setup push `git push -u origin codex/goal12-currency-wars-reference`; local and remote refs resolved identically |
 | Starting source oracle | `Tourn3` / MainTourn `3` / ActivityModule `6002201`; 11 `RoguePersona*` tables; all 64 shared `RogueTourn*` tables; 4 direct `_S3` ability programs; CHS/EN TextMaps, StageConfig and transitive config/shared-source closure |
-| Focused inventory | Pending `G12-P0-B2` |
+| Focused inventory | Entry boundary frozen by `G12-P0-B1`; transitive inventory pending `G12-P0-B2` |
 | Content manifest | Denominators pending `G12-P0-B3` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -22,14 +24,15 @@
 | Branch | `codex/goal12-currency-wars-reference` |
 | Branch base | `b0cd3cb912c9f2ec887c3ae29f79353c4a861643` (`G11-SETUP`; excludes later Goal 11 batches and every concurrent uncommitted change) |
 | Parallel condition | Separate branch/worktree and isolated Goal 12 artifacts while Goals 07 through 11 are active |
+| Ownership checkpoints | Goal 08 `d7031b83…9bcc` (committed local only), Goal 09 `77e83ed2…61e3` and Goal 10 `3064e550…b115` (remote-backed), Goal 11 `b0cd3cb9…643` (remote-backed setup only; no committed ownership manifest) |
 | Publication policy | Push each completed batch commit and verify the remote branch commit before starting the next batch |
-| Blocking condition | None |
+| Blocking condition | None after `G12-P0-B1` publication |
 
 ## Phase ledger
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Planning audit only; `G12-P0-B1` must reproduce caches, concurrent Goal boundaries and artifact isolation before Goal data mutation. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | `G12-P0-B1` reproduced both pinned caches in a fresh temporary directory and froze Goal 03, source, parallel and artifact boundaries. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting flow, Squad HP/action value, economy, roster/shop/star, positioning/Empowerment, Bonds, build/equipment, Persona and rank data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, events, services, enemies, waves and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -39,7 +42,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G12-P0-B1` | `Pending` | — | Reproduce caches, verify Goal 03 and concurrent Goal boundaries, freeze scope and prove branch/worktree/path isolation. |
+| `G12-P0-B1` | `Complete` | This row's containing commit | Froze the remotely verified setup commit, immutable Goal 03 snapshot, exact Version 4.4 source revisions/trees, 11 Persona and 64 Tourn seed files, required routing/TextMap/Stage/S3 ability hashes, `Tourn3` selectors, Goal 08/09/10 committed ownership checkpoints, Goal 11 setup-only boundary, Candidate-only scope, Excel/openpyxl/Sora authority, 29 batches and six isolated roots. The fresh-cache fetcher passed a second idempotent run; `verify-foundation.mjs`, batch-set equality, 634 local Markdown links, `git diff --check` and the quick repository gate pass. Publication contract: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; commit is this row's containing commit; push command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; verification command `git rev-parse HEAD && git ls-remote --exit-code origin refs/heads/codex/goal12-currency-wars-reference`, with identical full commit IDs required before `G12-P0-B2` starts. |
 | `G12-P0-B2` | `Pending` | — | Inventory 11 Persona tables, all 64 Tourn tables through `Tourn3`, config/ability programs, TextMaps, StageConfig, shared build/Rogue/enemy closure and exclusions. |
 | `G12-P0-B3` | `Pending` | — | Freeze enabled selectors, exact row obligations/counts, ownership, reachability and named exclusions. |
 | `G12-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
@@ -121,6 +124,8 @@ modules, names or ID ranges.
 | 2026-07-29 | Exclude story/presentation and account/collection/rank/weekly rewards while retaining mechanical locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal. |
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
+| 2026-07-29 | Freeze Goal 08/09/10 ownership manifests at exact committed checkpoints and Goal 11 at its remotely published setup because it has no committed ownership manifest yet. | Concurrent worktrees were active and dirty; only committed blobs are immutable reconciliation inputs, and Goal 11's uncommitted foundation work must remain untouched until publication. |
+| 2026-07-29 | Reproduce source caches in a fresh temporary directory and compare required Git blob hashes against the main cache read-only. | Proves the pinned remote objects and focused entry bytes can be reconstructed without reconfiguring or sharing another Goal's mutable checkout. |
 
 ## Research cases
 

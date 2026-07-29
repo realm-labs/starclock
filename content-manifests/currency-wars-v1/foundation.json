@@ -1,0 +1,356 @@
+{
+  "schema_revision": "starclock.currency-wars-foundation.v1",
+  "goal_id": "currency-wars-reference-v1",
+  "batch": "G12-P0-B1",
+  "planned_phases": 5,
+  "fixed_batches": 29,
+  "launch_commit": "e3c7b7a18bcad2e3c8305b4512f007f4e39fa19b",
+  "launch_tree": "587e3189d28842299aa432e3ae4af004d164ca27",
+  "launch_remote": {
+    "remote": "origin",
+    "branch": "codex/goal12-currency-wars-reference",
+    "push_command": "git push -u origin codex/goal12-currency-wars-reference",
+    "verification_command": "git rev-parse HEAD && git rev-parse origin/codex/goal12-currency-wars-reference",
+    "verified_commit": "e3c7b7a18bcad2e3c8305b4512f007f4e39fa19b"
+  },
+  "required_snapshot": {
+    "goal_id": "standard-universe-reference-v1",
+    "completion_commit": "60ca52ed98c5c83d867d33bff7f88c69e0b389de",
+    "completion_tree": "3fc33d2b45ad9344522faf6e470c861ab75ff4c5",
+    "release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75"
+  },
+  "source_snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "reproduced_on": "2026-07-29",
+    "repositories": [
+      {
+        "cache_name": "turnbasedgamedata",
+        "remote": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "tree": "2df8981c1bea512e21c8c900920c63002b381056"
+      },
+      {
+        "cache_name": "StarRailRes",
+        "remote": "https://github.com/Mar-7th/StarRailRes.git",
+        "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+        "tree": "1e6892227905e0dad002bb117d63464d7a5640a6"
+      }
+    ],
+    "fetch_contract": "tools/currency-wars-reference/fetch-sources.sh",
+    "reproduction_command": "cache_root=$(mktemp -d /tmp/starclock-g12-source-repro.XXXXXX) && tools/currency-wars-reference/fetch-sources.sh \"$cache_root\"",
+    "reproduction_result": "fresh partial clones resolved both pinned commits; detached clean checkouts, commit readability and git fsck connectivity passed",
+    "shared_cache_comparison": "required Git blob hashes matched the main worktree cache without changing it"
+  },
+  "required_source_entries": {
+    "turnbased_family": {
+      "persona_files": 11,
+      "tourn_files": 64,
+      "canonical_rows_sha256": "9d597bb119388800f394c81d89a9f9220c927180f3bc5be02aab0c9c6a6cb273",
+      "canonical_encoding": "JSON.stringify(sorted [{path,bytes,sha256}]) plus LF"
+    },
+    "turnbased_files": [
+      {
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "bytes": 5066,
+        "sha256": "061408148f14cd29d4fe4fef172e24a814ea6559570f67f4a54869dd21a6a9e9"
+      },
+      {
+        "path": "ExcelOutput/RogueTournModule.json",
+        "bytes": 674,
+        "sha256": "052f9ba5e3a49f49190a9e4ec634a57e0fe557a1ffd3da1cdd98b1948f77a9ff"
+      },
+      {
+        "path": "ExcelOutput/RogueTournAreaGroupByTourn.json",
+        "bytes": 542,
+        "sha256": "de3d814fc149b72419cf5ac59c3b7f3625af53ee5963d84527ccff55457e0942"
+      },
+      {
+        "path": "ExcelOutput/StageConfig.json",
+        "bytes": 25168437,
+        "sha256": "89e7dcd4824b81b080f985930142ddd903db4f31fc41667e898c0022a85ced7f"
+      },
+      {
+        "path": "TextMap/TextMapCHS.json",
+        "bytes": 48996604,
+        "sha256": "ec49e07932b4ed8aba9679e247d8e554ca69e831fea7931d94682551de567147"
+      },
+      {
+        "path": "TextMap/TextMapEN.json",
+        "bytes": 55206201,
+        "sha256": "afc6d0ff9eeb20d09042e61c311e60d4ed56e69757f1ac42466ca4840e6ed789"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json",
+        "bytes": 6166,
+        "sha256": "50703a67b03574313ecc93c6a4bed782a0c032bd0fd395b9ad1cd8bd7e6a98c7"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.layout.json",
+        "bytes": 152,
+        "sha256": "83f1b1e9cb798eb8b4237e374d164783380e0dddba6b69550fe3b098c8bbb3f6"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json",
+        "bytes": 36349,
+        "sha256": "b9d1ba1d0f84adfe04060500eff08a1c2e744e6a7b44968e437237764085e2cb"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json",
+        "bytes": 503,
+        "sha256": "24fa61a8fdd805c0691cdf852f6c32c9aacddc05edbfee63642cbeede00720de"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json",
+        "bytes": 13043,
+        "sha256": "cc6bd653da9907f13b1ef67305a4f047414240d9e0459745c886ab1d390f2aab"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.layout.json",
+        "bytes": 402,
+        "sha256": "5fa0312550acc7a6bb27c5c82867d5319096adbaafec4526d4d8a843cf8dc8e8"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json",
+        "bytes": 412126,
+        "sha256": "bec4cf5febcb52bf08560d629c4817a464968a93456e276b8d9089a609de66b1"
+      },
+      {
+        "path": "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.layout.json",
+        "bytes": 3958,
+        "sha256": "a3009e035b2f8605faecc14e04bbc934a38aaf0937c3270eae7d093fc682547b"
+      }
+    ],
+    "starrailres_files": [
+      {
+        "path": "README.md",
+        "bytes": 1987,
+        "sha256": "395cb9b420c4ba24ca3788098a1b9e9169577439b443672e0b8d546234216f5c"
+      },
+      {
+        "path": "LICENSE",
+        "bytes": 34522,
+        "sha256": "20b067f86de375aae6db0f283ab2e65de24d537733b89bd58432c101259d84cf"
+      },
+      {
+        "path": "info.json",
+        "bytes": 68,
+        "sha256": "7367a8d2bc67094638caa6dc4f950b1464ceeecab3f8e34dba299da34d3bc465"
+      }
+    ]
+  },
+  "inherited_reference": {
+    "source_inventory_path": "content-manifests/standard-universe-v1/source-inventory.json",
+    "source_inventory_sha256": "1d5c7b03fb11f7cae7c7dad3086b6d4feb5cfd8a056ced60db558a4ac3599e7d",
+    "source_manifest_sha256": "1dac0f8102a8c2a77717a37d206e2288f38fda8d428e490cdd91177190bce216",
+    "normalized_pack_index_sha256": "31b1ec5978fb910df65471f486feb446a754b8d1d041a6ddf93e1b1d9674e542",
+    "rogue_tourn_seed_rows": 64,
+    "rogue_tourn_seed_family": "other_mode",
+    "source_inventory_encoding": "accept-exact-or-lf-to-crlf-equivalent",
+    "universe_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "preserved_core_runtime_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440"
+  },
+  "ownership_checkpoints": [
+    {
+      "goal": "Goal 08",
+      "mode": "GoldAndGears",
+      "remote_reachable": false,
+      "commit": "d7031b834a72dc118b661f5dfdd2080431729bcc",
+      "tree": "63e8518ef35e80a32d7d8f350f688562aa103ec3",
+      "source_inventory_path": "content-manifests/gold-and-gears-v1/source-inventory.json",
+      "source_inventory_sha256": "39ab554ce600fa9932efa1517978db16d51683e93f4de1be68a88b68f26bcece",
+      "content_manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "content_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+      "manifest_schema_revision": "starclock.gold-and-gears-content-manifest.v1",
+      "records": 7913,
+      "mode_owned": 7199,
+      "shared": 714,
+      "boundary": "committed-local-checkpoint; no configured remote branch existed"
+    },
+    {
+      "goal": "Goal 09",
+      "mode": "SwarmDisaster",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal09-swarm-disaster-reference",
+      "commit": "77e83ed2adee63316ad390a597e0362c5af641e3",
+      "tree": "5cfbcca0d926f1d75acba7eed92381bb3bba1347",
+      "source_inventory_path": "content-manifests/swarm-disaster-v1/source-inventory.json",
+      "source_inventory_sha256": "fe52861f70081d74ff3ac8154b23035a8861e388a80237d04764797404b207dc",
+      "content_manifest_path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+      "content_manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+      "manifest_schema_revision": "starclock.swarm-disaster-content-manifest.v1",
+      "records": 6963,
+      "mode_owned": 6305,
+      "shared": 658,
+      "boundary": "remote-committed-checkpoint"
+    },
+    {
+      "goal": "Goal 10",
+      "mode": "UnknowableDomain",
+      "remote_reachable": true,
+      "remote": "origin",
+      "branch": "codex/goal10-unknowable-domain-reference",
+      "commit": "3064e550068429fe92df5bcadeda5dbf8b7eb115",
+      "tree": "61e8aa6736cf91b0e229e0a6c85375a3648d046e",
+      "source_inventory_path": "content-manifests/unknowable-domain-v1/source-inventory.json",
+      "source_inventory_sha256": "20fad8542066895912cf24dfbc56d4a9cb37733c37fad5ce0898e7e3341dbaa5",
+      "content_manifest_path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+      "content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+      "manifest_schema_revision": "starclock.unknowable-domain-content-manifest.v1",
+      "records": 5377,
+      "mode_owned": 5243,
+      "shared": 134,
+      "boundary": "remote-committed-checkpoint"
+    }
+  ],
+  "goal11_checkpoint": {
+    "goal": "Goal 11",
+    "remote": "origin",
+    "branch": "codex/goal11-divergent-universe-reference",
+    "commit": "b0cd3cb912c9f2ec887c3ae29f79353c4a861643",
+    "tree": "6dab4260090a877adb1e83b9b489b5e4c94197d7",
+    "remote_reachable": true,
+    "committed_ownership_manifest_available": false,
+    "boundary": "setup-only checkpoint; uncommitted Goal 11 foundation/manifest work is protected and not authoritative"
+  },
+  "source_entry_contract": {
+    "selectors": {
+      "activity_id": 105,
+      "sub_mode": "TournRogue",
+      "main_tourn_id": 3,
+      "sub_tourn_id": 1,
+      "activity_module_id": 6002201,
+      "tourn_mode": "Tourn3"
+    },
+    "known_persona_tables": 11,
+    "known_tourn_tables": 64,
+    "text_maps": [
+      "TextMap/TextMapCHS.json",
+      "TextMap/TextMapEN.json"
+    ],
+    "stage_table": "ExcelOutput/StageConfig.json",
+    "direct_ability_entries": [
+      "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json",
+      "Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json",
+      "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json",
+      "Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json"
+    ],
+    "membership_rule": "explicit-enabled-selector-transitive-reference-or-inherited-stable-id-closure",
+    "seed_is_denominator": false
+  },
+  "sora_contract": {
+    "policy_path": "policy/sora-toolchain.json",
+    "policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a",
+    "required_version": "0.3.0",
+    "system_path_observation": "0.2.0",
+    "system_path_is_authority": false,
+    "pinned_local_install_is_authority": true
+  },
+  "parallel_boundary": {
+    "branch": "codex/goal12-currency-wars-reference",
+    "upstream": "origin/codex/goal12-currency-wars-reference",
+    "separate_branch_required": true,
+    "other_goal_worktrees_may_run_concurrently": true,
+    "shared_generated_output_mutation": false,
+    "owned_roots": [
+      "content-manifests/currency-wars-v1/",
+      "content-reference/currency-wars-v1/",
+      "config/currency-wars/",
+      "config/currency-wars-generated/",
+      "tools/currency-wars-reference/",
+      "evidence/currency-wars-reference-v1/"
+    ],
+    "owned_goal_documents": [
+      "docs/goals/12-currency-wars-reference-data.md",
+      "docs/goals/12-currency-wars-reference-data-status.md",
+      "docs/goals/12-currency-wars-reference-data-prompt.md"
+    ],
+    "protected_roots": [
+      "content-manifests/standard-universe-v1/",
+      "content-reference/standard-universe-v1/",
+      "content-manifests/gold-and-gears-v1/",
+      "content-reference/gold-and-gears-v1/",
+      "config/gold-and-gears/",
+      "config/gold-and-gears-generated/",
+      "content-manifests/swarm-disaster-v1/",
+      "content-reference/swarm-disaster-v1/",
+      "config/swarm-disaster/",
+      "config/swarm-disaster-generated/",
+      "content-manifests/unknowable-domain-v1/",
+      "content-reference/unknowable-domain-v1/",
+      "config/unknowable-domain/",
+      "config/unknowable-domain-generated/",
+      "content-manifests/divergent-universe-v1/",
+      "content-reference/divergent-universe-v1/",
+      "config/divergent-universe/",
+      "config/divergent-universe-generated/",
+      "config/universe-generated/",
+      "config/generated/",
+      "evidence/standard-universe-reference-v1/",
+      "evidence/gold-and-gears-reference-v1/",
+      "evidence/swarm-disaster-reference-v1/",
+      "evidence/unknowable-domain-reference-v1/",
+      "evidence/divergent-universe-reference-v1/",
+      "tools/gold-and-gears-reference/",
+      "tools/swarm-disaster-reference/",
+      "tools/unknowable-domain-reference/",
+      "tools/divergent-universe-reference/",
+      "tools/goal07/"
+    ]
+  },
+  "scope": {
+    "result": "candidate-reference-bundle",
+    "includes": [
+      "complete auditable Version 4.4 Currency Wars inventory and provenance",
+      "unique systems, flow, state, choices and lifecycle",
+      "reachable shared and mode-owned pools, services, events and encounters",
+      "battle-visible and cross-battle rule contributions",
+      "bilingual independent summaries and semantic review fixtures",
+      "isolated Sora schemas, readers, exports and openpyxl workbooks"
+    ],
+    "excludes": [
+      "runtime lowering, handlers, CLI, Agent, MCP or playable flow",
+      "starclock-combat, starclock-activity, starclock-build or shared runtime semantics",
+      "story prose, presentation, assets, audio and UI",
+      "account rewards",
+      "unreleased, preview, test-server or leaked content",
+      "other-mode data except ownership or exclusion evidence"
+    ]
+  },
+  "authoring_contract": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "exporter": "sora-cli-0.3.0",
+    "production_artifact": "sora",
+    "json_role": "staging-and-debug-only",
+    "workbooks": [
+      "CurrencyWars.xlsx",
+      "CurrencyWarsBindings.xlsx",
+      "CurrencyWarsReview.xlsx"
+    ]
+  },
+  "documents": [
+    "docs/goals/12-currency-wars-reference-data.md",
+    "docs/goals/12-currency-wars-reference-data-status.md",
+    "docs/goals/12-currency-wars-reference-data-prompt.md",
+    "evidence/currency-wars-reference-v1/foundation.md"
+  ],
+  "contracts": {
+    "goal03_snapshot_is_immutable": true,
+    "goal03_source_hashes_allow_only_checkout_eol_equivalence": true,
+    "persona_and_tourn_seeds_are_not_denominators": true,
+    "shared_rows_require_explicit_reachability": true,
+    "goal08_local_checkpoint_is_informational_only": true,
+    "goal09_and_goal10_checkpoints_are_remote_commit_backed": true,
+    "goal11_uncommitted_artifacts_are_not_authoritative": true,
+    "shared_rows_reconcile_by_path_locator_and_digest": true,
+    "ownership_is_explicit_and_fail_closed": true,
+    "source_rows_and_mechanics_require_provenance": true,
+    "exact_and_approximate_evidence_are_distinct": true,
+    "excel_is_the_only_authoritative_content_surface": true,
+    "goal12_artifacts_are_path_isolated": true,
+    "runtime_work_is_deferred": true
+  }
+}
