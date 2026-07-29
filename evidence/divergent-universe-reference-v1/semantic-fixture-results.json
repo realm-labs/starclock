@@ -1,0 +1,1821 @@
+{
+  "schema_revision": "starclock.divergent-universe-semantic-fixture-results.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "executed_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "fixture_contract_sha256": "e61ea6cd07dd9ba96e6d33dc89db118498d147c0fd495fe92f1dc2560140c865",
+    "normalized_schema_sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+    "fixture_data_sha256": "4506afcc66cad47d8f76381ac92100731bed6eb1c0a860e629f39e9908306b0b",
+    "research_gap_data_sha256": "28ee200ce0ae43d03aeb7bc65a582e679654e50879b3484dc4167623c379b776",
+    "mechanic_rule_data_sha256": "ff59424df846984c14fb73fb8437fdb561789958f468463eb67061291afe54aa"
+  },
+  "summary": {
+    "required_families": 25,
+    "executed_fixtures": 25,
+    "ordered_operations": 75,
+    "assertions": 75,
+    "source_record_bindings": 68,
+    "evidence_bindings": 174,
+    "mechanic_rules": 669,
+    "project_policy_sources": 54,
+    "replacement_conditions_verified": 54,
+    "affected_policy_record_bindings": 6135,
+    "policy_quality_rows": 5142,
+    "released_text_approximations": 1,
+    "research_gaps": 25,
+    "blocking_gaps": 0,
+    "runtime_executions": 0,
+    "failed_assertions": 0
+  },
+  "mechanic_rule_families": {
+    "adventure-abstract-outcome": 1,
+    "battle-visible-and-cross-battle-contribution": 3,
+    "occurrence-choice-cost-and-outcome": 638,
+    "simultaneous-trigger-order": 3,
+    "weekly-modifier-and-room-service": 24
+  },
+  "fixtures": [
+    {
+      "fixture_id": "divergent-universe.review-fixture.adventure-abstract-outcome",
+      "family_id": "adventure-abstract-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 6,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "offered abstract result",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "no action gameplay simulation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.adventure-external-results",
+        "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome"
+      ],
+      "trace_sha256": "ac9e35f83551d05419e2e26fbcc10e62ff8b0f673dfa19571498ea30d8e1b5f5",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.area-difficulty-layer-transition",
+      "family_id": "area-difficulty-layer-transition",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 5,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "ordered stage flow",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "legal and rejected transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "difficulty binding",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+        "source.goal11.project-policy.stage-flow"
+      ],
+      "trace_sha256": "4ee8f4c6eb8f41eb4d2be8bbc82ec83ea05508a933eddcfed23e520db07f489e",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.arithmetic-mapping-eligibility",
+      "family_id": "arithmetic-mapping-eligibility",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 3,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "eligible character",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "ineligible character",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "stronger account build boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility"
+      ],
+      "trace_sha256": "f60b8bf6de2891a97e2e7dba33776ff8f0e00b69af7405ab9138897372395b75",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.arithmetic-mapping-refresh-and-teardown",
+      "family_id": "arithmetic-mapping-refresh-and-teardown",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 7,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "refresh timing",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "temporary substitution",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "account state unchanged",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.arithmetic-mapping-build-values",
+        "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown"
+      ],
+      "trace_sha256": "0f6609bca2b08dea213548a47ab31231746119725bd19e38e20233cdddb5d741",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.astronomical-division",
+      "family_id": "astronomical-division",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 3,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "progress boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "effect activation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "scope",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-astronomical-division"
+      ],
+      "trace_sha256": "5b780904e89f5fb4e621393432be6a6e1ec790ffceaf658e6b175064a8b690af",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.battle-visible-and-cross-battle-contribution",
+      "family_id": "battle-visible-and-cross-battle-contribution",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 10,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "BattleSpec contribution",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "BattleResult handoff",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "cross-battle lifecycle",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.curio-lifecycle",
+        "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution"
+      ],
+      "trace_sha256": "19cc526aae42fb5dde9193218b03ca5daf92ca7e53e8170a12843534296943ee",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.curio-weight-charge-destruction-repair",
+      "family_id": "curio-weight-charge-destruction-repair",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 8,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "weighted eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "charge change",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "destroy and repair",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.curio-lifecycle",
+        "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair"
+      ],
+      "trace_sha256": "003254e3e3e1a264219c5753425b0f8ed6790c4a7b46497658efbf567aeb82f4",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.divergent-blessing-level-and-transform",
+      "family_id": "divergent-blessing-level-and-transform",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "level state",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "enhancement or rewrite",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "Equation contribution",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform"
+      ],
+      "trace_sha256": "c92d1adca819d3c5f44060aa2a882546d5d247d4434b13cb351c75fbc5d42d90",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.encounter-wave-and-boss-binding",
+      "family_id": "encounter-wave-and-boss-binding",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 31,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "group selection",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "ordered waves",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "boss alternative",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+        "source.goal11.project-policy.weekly-current-selector",
+        "source.goal11.project-policy.weekly-encounter-display"
+      ],
+      "trace_sha256": "7255cb27c63c8051ab8300379e4965ac32689c375a3c199c7b4d9fb3a99331d9",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.equation-offer-recipe-progress-expansion",
+      "family_id": "equation-offer-recipe-progress-expansion",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 5,
+      "evidence_binding_count": 6,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "offer candidate set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "recipe counts",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "progress and expansion transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.equation-random-offers",
+        "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion"
+      ],
+      "trace_sha256": "940e0c1ceb36b49806cc77bb489a2fb2153973e794a8844046be9f401d9234ba",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.equation-replacement-and-contribution",
+      "family_id": "equation-replacement-and-contribution",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "replacement",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "Blessing ownership change",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "contribution refresh",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.equation-transitions",
+        "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution"
+      ],
+      "trace_sha256": "af76047ea6c4bbe349a80810a3f72b53f8e60012442bbfdbcb39b1d21e000997",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.finish-and-cross-battle-reset",
+      "family_id": "finish-and-cross-battle-reset",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "terminal condition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "carry state",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "reset state",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+        "source.goal11.project-policy.stage-flow"
+      ],
+      "trace_sha256": "707913207da3982f962699d38e575a5c96536c1bb7fabe960ffa5750b54e5ae8",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback",
+      "family_id": "gamble-offer-outcome-and-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 10,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "candidate set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "selected outcome",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "no legal candidate",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.curse-chest-random-pools",
+        "source.goal11.project-policy.gamble-group-membership",
+        "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback"
+      ],
+      "trace_sha256": "70ae5b6a73ef08d0e1d3429e0511a79864b63afddc5961ef49d269cf43d70700",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.golden-blood-titan-choice-and-level",
+      "family_id": "golden-blood-titan-choice-and-level",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 6,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "choice candidates",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "level transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "run and battle contribution",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+        "source.goal11.project-policy.titan-boon-choices"
+      ],
+      "trace_sha256": "59c8799b4e748ca352404a5433ee24975233ff7880362ad3a26f4af58257c71b",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.grand-miracle-eligibility-and-lifecycle",
+      "family_id": "grand-miracle-eligibility-and-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "character Path and element eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "activation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "teardown",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.grand-miracle-effects",
+        "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle"
+      ],
+      "trace_sha256": "775865a2ffa417505b68f54d86f00e07b7a37cddd60e2c4bef0f26dba47b8a7c",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.no-legal-candidate-fallback",
+      "family_id": "no-legal-candidate-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 10,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "empty candidate set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "explicit fallback",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "authoritative state preservation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.curse-chest-random-pools",
+        "source.goal11.project-policy.equation-transitions",
+        "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "source.goal11.project-policy.workbench-service-selection"
+      ],
+      "trace_sha256": "e85c57b30c18032ee43c8fd3af4c3f9ee3530838dc871630709bdeb0970cb614",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.occurrence-choice-cost-and-outcome",
+      "family_id": "occurrence-choice-cost-and-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 5,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "choice condition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "cost",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "ordered outcome",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.occurrence-graphs-missing",
+        "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome"
+      ],
+      "trace_sha256": "098aeff8c6f3c4e86e6784bed06b97122495f143ff5a509702dc26cfa6dd26a7",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.ordinary-and-cyclical-entry",
+      "family_id": "ordinary-and-cyclical-entry",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 10,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "entry eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "initial resources",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "weekly modifier binding",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.profile",
+        "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+        "source.goal11.project-policy.weekly-current-selector"
+      ],
+      "trace_sha256": "3f5696e353004f7f1ec39faccd1fe0be67ae630c68ade74214c55e123a6d6a93",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.permanent-talent-and-unlock",
+      "family_id": "permanent-talent-and-unlock",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 5,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "prerequisite",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "unlock transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "mechanical effect",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.permanent-talent-prerequisites",
+        "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+        "source.goal11.project-policy.unlock-consumers"
+      ],
+      "trace_sha256": "0471d940657e0e3982293be78a2cac351f2d6d1b5f74f380103fb5b3e486d581",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.profile-and-module-selection",
+      "family_id": "profile-and-module-selection",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "TournRogue entry",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "module 6002201",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "rejected historical module",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.profile",
+        "source.goal11.project-policy.semantic-fixture-profile-and-module-selection"
+      ],
+      "trace_sha256": "dd739be7ab0a44980b7f1e668309564c6d272760d79ee229bda0bf23755735d0",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.simultaneous-trigger-order",
+      "family_id": "simultaneous-trigger-order",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 5,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "same-phase triggers",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "stable priority",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "ordered contributions",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.curio-lifecycle",
+        "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order"
+      ],
+      "trace_sha256": "dfd39d4641f8bda2e710b77572b885d047a8fd00cdfcb97eb54f15f154029f4c",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.star-pioneer-practice-and-cognoculi",
+      "family_id": "star-pioneer-practice-and-cognoculi",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "mode eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "available content",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "mechanical Cognoculus boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi"
+      ],
+      "trace_sha256": "18aafbe9e73fb3ad5776a044f45edac2f6b3a8de639c906d925e551225a34b2d",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.threshold-protocol",
+      "family_id": "threshold-protocol",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 2,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "entry boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "difficulty change",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "enemy or numeric contribution",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-threshold-protocol"
+      ],
+      "trace_sha256": "6b3bd4341bb6a7af13e8f93dfe70106ea9e4c8e15de15cb82fb0758acd505047",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.weekly-modifier-and-room-service",
+      "family_id": "weekly-modifier-and-room-service",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 12,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "modifier activation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "service eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "cross-battle scope",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.room-mark-transitions",
+        "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+        "source.goal11.project-policy.service-npc-graphs-missing",
+        "source.goal11.project-policy.weekly-current-selector"
+      ],
+      "trace_sha256": "6ce2354dfb2f2a5665f46ff7b6b0186bacfa8bceb75df955f06c67051433dcc7",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "divergent-universe.review-fixture.workbench-operation-and-price",
+      "family_id": "workbench-operation-and-price",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 6,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "legal operation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "currency and price",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "rejected operation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+        "source.goal11.project-policy.service-currency-reset",
+        "source.goal11.project-policy.workbench-service-selection"
+      ],
+      "trace_sha256": "e760ed104b7596b28ddae0c6a2ccffc18662dc1af60b513f59fb732555e9385e",
+      "runtime_executable": false,
+      "result": "pass"
+    }
+  ],
+  "approximations": [
+    {
+      "policy_source_id": "source.goal11.project-policy.adventure-external-results",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 34,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.adventure-abstract-outcome"
+      ],
+      "note_sha256": "5a121d7f665b304e0aceba42930bc8f80ef4c0a6fa3d5efb01e319a193facc5c",
+      "replacement_condition": "A later runtime goal may bind these abstract results to generic Activity operations without adding an Adventure action simulator.",
+      "replacement_condition_sha256": "908f45870e254222463a9f40b05fa36fbb58e71dae3c99182e4e68d8f90153a0",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.area-entry-stage-boundary",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 29,
+      "fixture_ids": [],
+      "note_sha256": "352897627cf5d5d8c1e0bae0c20910f9ee73d9538511e6ae8994eb1fea44890b",
+      "replacement_condition": "Replace when a released config program binds the exact area and map entry to a RogueMonsterGroup, RogueMonster, or StageConfig row.",
+      "replacement_condition_sha256": "9981f1ed2a4663c1995971f7f94a85786bae377325f7e0147e26ea7108e9ec02",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.arithmetic-mapping-build-values",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 98,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "note_sha256": "d2d876b911aa8cc1c1d662e2a4bb91f2f050a9ae6d05629a835c017b1625d457",
+      "replacement_condition": "Replace per-avatar Unspecified fields when released mapping-info rows or reproducible inspection identifies the exact temporary build.",
+      "replacement_condition_sha256": "73251cdcb3926ac9f8cdff616c549820c2fd24e6b229fc813b120c5a08a98a85",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.arithmetic-mapping-refresh",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 3,
+      "fixture_ids": [],
+      "note_sha256": "1dd2e82b4d956673011f315d790cfda338e5bf2069c2791731c0437880dc09b6",
+      "replacement_condition": "Replace when released flow/config evidence or reproducible observations establish refresh checkpoints and simultaneous changes.",
+      "replacement_condition_sha256": "8cd4a3d950963089726ea8c0ca1d26b7686654e20adc609fb17a37c1c10cd2a1",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.blessing-rewrite",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 3,
+      "fixture_ids": [],
+      "note_sha256": "6bb3a4ee92312377ef9a9847b1d95d7e102a076767fa6c2046e3bd2995d58bea",
+      "replacement_condition": "Replace generic rewrite fields when a released workbench/service program binds exact candidates, costs and fallback.",
+      "replacement_condition_sha256": "c95618e4f7fcdb6f0be07db5b67525a1446f709230898b0efb21293fcea489ed",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-groups",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 287,
+      "fixture_ids": [],
+      "note_sha256": "9240a3d9d657bcbc857467458117e132e9144c2693960065590eedf8d15aa7c5",
+      "replacement_condition": "Replace the empty fail-closed group fields only when a released selector or transitive program binds exact candidates, weights and consumers.",
+      "replacement_condition_sha256": "0b74fcdc86209e11c503c03ed0eaae55818e0b47bdea6ce6230dbb26318f1ec9",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 418,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.battle-visible-and-cross-battle-contribution",
+        "divergent-universe.review-fixture.curio-weight-charge-destruction-repair",
+        "divergent-universe.review-fixture.simultaneous-trigger-order"
+      ],
+      "note_sha256": "2223c8e8ffa35fa67d6e9cf329328d75f19a950e3170c1303773844a1727d19c",
+      "replacement_condition": "Replace per-Curio lifecycle fields when a released service/config/ability program proves the exact transition, ordering, scope and fallback.",
+      "replacement_condition_sha256": "3208d0797d992070fa2f5b150668083e0ff6d2259bb92fe9f1cd377bcb4a0585",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curio-offer-pools",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 236,
+      "fixture_ids": [],
+      "note_sha256": "fb9c16cf27658903be63751a3bce7795e7824af17c3fbe22a20d187a426ab1f9",
+      "replacement_condition": "Replace each unspecified offer weight and eligibility only when a released selector exposes exact group members, weights, exclusions and fallback.",
+      "replacement_condition_sha256": "65024a9b17d8bca9adb13ac41800ae6ebae0ce12759163e49ffac1298355ad0f",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.curse-chest-random-pools",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 61,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback",
+        "divergent-universe.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "0540f9dd01e639b4ce249339ce93d8f3d1f07d7fc4eb7318e74e7ef50b69082d",
+      "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights.",
+      "replacement_condition_sha256": "2d028a4255b0d223dbc7d560a513f6a6b79e477a90591782cee5b7cbdc39685c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.encounter-room-selector",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 849,
+      "fixture_ids": [],
+      "note_sha256": "44b72cd0705106cc36efdca430c07546c8b54c4a8100b45f7d08f2d9e74ada22",
+      "replacement_condition": "Replace per room only when released structured data supplies an explicit Tourn3 selection or forward stable-ID closure.",
+      "replacement_condition_sha256": "20bf7694d92553f40d339d81a1fbdae0b56ac975d26c2b5259d3e4c5ae0d62b2",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.equation-random-offers",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 138,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.equation-offer-recipe-progress-expansion"
+      ],
+      "note_sha256": "741607d811543058bfec72789dbb03934dce76a6db05829b704c374ae4c98e81",
+      "replacement_condition": "Replace each Unspecified offer field when released configuration or reproducible observation binds that RandomID.",
+      "replacement_condition_sha256": "7bb6c73c75063f87901668b5b00e66db8f7be9f62c5060c2d06715bed98152b7",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.equation-transitions",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 7,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.equation-replacement-and-contribution",
+        "divergent-universe.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "1eaf8e8c7cfdc8c19ef50eeb778890ee74ba1092cb85ab9b53798ecdd42cfa28",
+      "replacement_condition": "Replace each policy field when released service programs or reproducible observations establish the exact transition.",
+      "replacement_condition_sha256": "026a0cdd5a213331416ffd48bc2bec4222322920423372edd69bc2c8d40998ea",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.gamble-group-membership",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 341,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback"
+      ],
+      "note_sha256": "b7cd6cab52e14e9baa476ed456c60774b0cc13d7af8e198e2fccb470b23e081f",
+      "replacement_condition": "Replace fail-closed groups and typed source parameters when a released group-unit selector proves exact membership and weights.",
+      "replacement_condition_sha256": "7a75a012ce94df7d3d25bb805294d54cc1818e8ad5f9d8260e9f86e1dfe76e8d",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.grand-miracle-effects",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 53,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "note_sha256": "6e3d4eff2d9563f269708eb2b21432b0631f031f0c5b424acf6891596f77fc03",
+      "replacement_condition": "Replace the unresolved effect/state fields when released structured data or an ability program defines each 6334xx binding and lifecycle.",
+      "replacement_condition_sha256": "6bfd9f12d0cb312b6cb5a7378989ed3630ad28d342d2923d7d3ff84c3a9e6b47",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.occurrence-graphs-missing",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 217,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.occurrence-choice-cost-and-outcome"
+      ],
+      "note_sha256": "0598b40010beb878ba6165526bcfa58c03d12901ba8fd6855475a8c436e08974",
+      "replacement_condition": "Replace each missing-graph boundary only when a released source revision contains the exact published path or another released table explicitly binds the variant to its mechanical option graph.",
+      "replacement_condition_sha256": "0b2e553680d1dbd2f234bd11e71d4e7cdf03fca9870e433624e70034001be824",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.permanent-talent-prerequisites",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 78,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.permanent-talent-and-unlock"
+      ],
+      "note_sha256": "094b4ada91df25f7a3b69b8937f351a2432be43f17a008df7226a51ab9a31edb",
+      "replacement_condition": "Replace empty prerequisite IDs when a released progression graph defines directed requirements.",
+      "replacement_condition_sha256": "cc36a158d6ffed4e0022abcfd7cdb6adda8d00a8aeeead7f5a63b484511f3544",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.profile",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.ordinary-and-cyclical-entry",
+        "divergent-universe.review-fixture.profile-and-module-selection"
+      ],
+      "note_sha256": "bbbde6523696323fc5887804c852b8089148b1b4113bb25ef7d015bfdb20b9f5",
+      "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity.",
+      "replacement_condition_sha256": "5fad9b967848624bf445246667f38488778b076d41f32e179bb488b59165608b",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.room-mark-transitions",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 26,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.weekly-modifier-and-room-service"
+      ],
+      "note_sha256": "14c5ff94d50cf3437980d203a755d34dca4b247b4013d0bdb42df5c106b2df8c",
+      "replacement_condition": "Replace empty transition rules when a released room/waypoint program binds the exact mark lifecycle.",
+      "replacement_condition_sha256": "85bd0ed61d3fb8ac706a0b081fec8767b93947e39a97247fe1786b0a761e8811",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.room-reuse-candidates",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 849,
+      "fixture_ids": [],
+      "note_sha256": "fde2dcecb7ef1d4f2bfa255228cb7cef5c53ab1fab7ae994c1db9ef8d94301c1",
+      "replacement_condition": "Replace each candidate with an exact promotion or exclusion receipt from released stage/config selection evidence.",
+      "replacement_condition_sha256": "65710bc6e7629adacd108641ceae82b3d0f63ddf848d84e11e1539ff81a62597",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.adventure-abstract-outcome"
+      ],
+      "note_sha256": "44b448550621c392f05cec47892c774736b6fcd0336379ec231aea04de5d2620",
+      "replacement_condition": "Replace policy-bound assertions for adventure-abstract-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "63216284157c1cfb2bbce61ff49dda2902b946d69e03d9a7968712f2c8b7c11c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.area-difficulty-layer-transition"
+      ],
+      "note_sha256": "4ee7f98a030fd46cbeb537c83ab2468c0347696f12528be1437555bac9a242a3",
+      "replacement_condition": "Replace policy-bound assertions for area-difficulty-layer-transition only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "9880a26caca06f2be18d0a8b628dcc86cbf82a836b6b65e5f98b7a0fe361e893",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.arithmetic-mapping-eligibility"
+      ],
+      "note_sha256": "4320db97c0ceb451b3e48d3554718abfbad558d9727b26dfcccd57f47bd6bc46",
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-eligibility only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "0d5c42279d059a05f6ec5ca3c767fd952b73431980ebb7a744b8ccb89e516195",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.arithmetic-mapping-refresh-and-teardown"
+      ],
+      "note_sha256": "d3ba08d0ddf6daae7926f425f7a043f07942e43f38471eeb1657995574aaaf95",
+      "replacement_condition": "Replace policy-bound assertions for arithmetic-mapping-refresh-and-teardown only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "26ace01000c39abfda0ddbad0d4742b278700eec2561b77801a4d77da36f513c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-astronomical-division",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.astronomical-division"
+      ],
+      "note_sha256": "3192b87cb105b695072efafc9b40ea2be0ed77fbe41f300be573647aec32a336",
+      "replacement_condition": "Replace policy-bound assertions for astronomical-division only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "ce762a6851d0661d1d9b5d75eab82e3b7c6a454a2ce8ad9c99cb5567be902658",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.battle-visible-and-cross-battle-contribution"
+      ],
+      "note_sha256": "85ca085f8c98c414c3d6ce9670f187ce16c1ad49aa1fad4bbe6c54be3a0a7e16",
+      "replacement_condition": "Replace policy-bound assertions for battle-visible-and-cross-battle-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "c92a03f303093de5e4764c4c634dd073cd8e2a4b467fbc41ccf263f8b82be876",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.curio-weight-charge-destruction-repair"
+      ],
+      "note_sha256": "3349565a20f95683e8d7e9c88ea5cf40efc2419ab67e63ee4280328d8196f540",
+      "replacement_condition": "Replace policy-bound assertions for curio-weight-charge-destruction-repair only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "b1e2557fc17f1151714966ea05100b0214ac9d2d988ceb02e99c486a62f87665",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.divergent-blessing-level-and-transform"
+      ],
+      "note_sha256": "671ca6591db5258be7a827bd0ae9b7cee37f1e51f7ecb4d06a68089cc3165e9c",
+      "replacement_condition": "Replace policy-bound assertions for divergent-blessing-level-and-transform only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "ce6191480e105110dff88b33168a231ed6224a6674b625ef02ef227c71a75d9b",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.encounter-wave-and-boss-binding"
+      ],
+      "note_sha256": "8aaa56b140ec7431a4ac29cf51921a395e22193a233adc0e789db86e20533dd9",
+      "replacement_condition": "Replace policy-bound assertions for encounter-wave-and-boss-binding only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "92653103265a17fc03a66de28cbfd856f3bb4a71b4cf9a62643e303c8c60822d",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.equation-offer-recipe-progress-expansion"
+      ],
+      "note_sha256": "8c904921fcb5ab872ad2c3ae54f6d8f9411cc190119026f8036a9090a7a84b39",
+      "replacement_condition": "Replace policy-bound assertions for equation-offer-recipe-progress-expansion only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "8c19c0e875df6d6df934208ec7c4ccb3c7c254e044b016db3b8fa39c093dd43f",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.equation-replacement-and-contribution"
+      ],
+      "note_sha256": "9567d0f7f01a5f5cabf21b73b1ed9ba3316c029489326a58d538fac80d6311ba",
+      "replacement_condition": "Replace policy-bound assertions for equation-replacement-and-contribution only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "8b680082edd8a446e6cf119e26ac996d87eac6cf49beac0b9d6f6aa654624205",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.finish-and-cross-battle-reset"
+      ],
+      "note_sha256": "050eb5561ca50649fcbfd67957bc106a0f267f785c25e9bf733ff02489e994b2",
+      "replacement_condition": "Replace policy-bound assertions for finish-and-cross-battle-reset only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "a038008774181ad7167c0e95e1d33244c96a2a78e58869da93f017f4d5e6013c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback"
+      ],
+      "note_sha256": "2a64284389fcb5155601d9bbd5ac9091a37b85f2731c42803c689ca57b297814",
+      "replacement_condition": "Replace policy-bound assertions for gamble-offer-outcome-and-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "030a89ba850acb93dbe7930e5b0d36f45846d3713c5d44f9a01396c7cf60f4c3",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.golden-blood-titan-choice-and-level"
+      ],
+      "note_sha256": "f0bb6afc34fa976e2ebf538b12986c923b94f4d940ee72dd98a0598b2bc8d9ac",
+      "replacement_condition": "Replace policy-bound assertions for golden-blood-titan-choice-and-level only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "1290569f1b997704ea1d84a56a7f9ad6ff28b9aa6300de6365d8f6122fbeacbd",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.grand-miracle-eligibility-and-lifecycle"
+      ],
+      "note_sha256": "f952bcf516ceb32be536199c56579332b5ad117c72259dbde9df1886d61f8e63",
+      "replacement_condition": "Replace policy-bound assertions for grand-miracle-eligibility-and-lifecycle only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "6592cc0646b46cda0126082e18d2e584ca8eb47f6428f7bfd2002b1e0d2e519d",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "0cc2e316f2f7d35b527dc2c7a12e1c0903eeefd6e1d36d713cd9b1e3e07381f3",
+      "replacement_condition": "Replace policy-bound assertions for no-legal-candidate-fallback only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "a4710a8a5b06a4c9537b1c3c72008f636720f69e7f9b41f8b54721a7c979d415",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.occurrence-choice-cost-and-outcome"
+      ],
+      "note_sha256": "0b1ba14202f16aa66e013dcf6f26314669de8ff07ae46871ad064762b9eee3f2",
+      "replacement_condition": "Replace policy-bound assertions for occurrence-choice-cost-and-outcome only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "a6d09a98ab6116a507720caa6e8cef2352cc8d53cbbb684f111c3fbb6f432c86",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.ordinary-and-cyclical-entry"
+      ],
+      "note_sha256": "d32470e103e7e9d17a41569bf531b3ff7d0537b99002838b8d43ebbcfbbec168",
+      "replacement_condition": "Replace policy-bound assertions for ordinary-and-cyclical-entry only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "d316ab5ac5a49078c8c0355e05d741d08b5a0bf54cee572888384300525ac329",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.permanent-talent-and-unlock"
+      ],
+      "note_sha256": "3dd36bfec224f3fa46a1a388e1f6801ce65c6739a60ecf5d85f09f442dafb9f3",
+      "replacement_condition": "Replace policy-bound assertions for permanent-talent-and-unlock only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "7995974a2dbc49638326e5221a8e867a506aa8197fec918ead0f432f441133ae",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-profile-and-module-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.profile-and-module-selection"
+      ],
+      "note_sha256": "636a7064e3cfb86c76e21490300f618573c67b225a401fac142609b4d5bd34f4",
+      "replacement_condition": "Replace policy-bound assertions for profile-and-module-selection only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "30b968a30ade9b30733a0b21b543035c2b062795ce3e2c30f8d3e786311c77b7",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.simultaneous-trigger-order"
+      ],
+      "note_sha256": "4e377b87df9ece255af2d6ee653fba026728968a614d9b331a6c4d3abb1a9a76",
+      "replacement_condition": "Replace policy-bound assertions for simultaneous-trigger-order only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "fd8bc5f3080db53f790e8dc99644a6900baa0554330e11358e0e3dce44fd7687",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.star-pioneer-practice-and-cognoculi"
+      ],
+      "note_sha256": "a5cccf5c5eafbdfff650b7180bdcf2717165ec5156d9548be41042bf13806903",
+      "replacement_condition": "Replace policy-bound assertions for star-pioneer-practice-and-cognoculi only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "ec880575b902c6c52c785f5faef111112e4653c9666f901844b1f8d43c388a72",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-threshold-protocol",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.threshold-protocol"
+      ],
+      "note_sha256": "a3b784439d877163140c8c4a632d241485d01406f8cae340330f37f84fb5e83f",
+      "replacement_condition": "Replace policy-bound assertions for threshold-protocol only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "c900a12203d3665d9030e2bfdd11bba38d2aef7d8f416e7db8393418be97df75",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.weekly-modifier-and-room-service"
+      ],
+      "note_sha256": "21cdfb7207b7f4e259d235e3251147d549a55ef6d90abe1dc13cc7686173e982",
+      "replacement_condition": "Replace policy-bound assertions for weekly-modifier-and-room-service only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "37614fed4930063d0671b2df036fa696c864e3e34174db73969f85f4d6caf45e",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.semantic-fixture-workbench-operation-and-price",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.workbench-operation-and-price"
+      ],
+      "note_sha256": "84601b67b42d0b7944e2832bc00c03df46c3f09591d457160131dfba6f43e1f5",
+      "replacement_condition": "Replace policy-bound assertions for workbench-operation-and-price only when released structured evidence or a reproducible public observation supplies the missing selector, magnitude, order, timing, or lifecycle.",
+      "replacement_condition_sha256": "8a3cf690a1572c14f90b65d1b8cd6b56f1a995509b86d941e1a7bb62ab16cdf7",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.service-currency-reset",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 3,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.workbench-operation-and-price"
+      ],
+      "note_sha256": "4d316581fe267af0993370af7df89278a472f653082761070ae62083e8be9c63",
+      "replacement_condition": "Replace Cosmic Fragment lifecycle fields after P2-B4 closes all reachable services and currency operations.",
+      "replacement_condition_sha256": "7bf08d0d50a6aafc40d8dd10949a096dd3a659a246e4912149e6cc2194deb02d",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.service-npc-graphs-missing",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 25,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.weekly-modifier-and-room-service"
+      ],
+      "note_sha256": "9819f69efa25962ca0bfb8c46be5caa547a3293948ea37f51843ef8675d0785f",
+      "replacement_condition": "Replace each missing service boundary only when a released exact graph or explicit service binding identifies the NPC's operations and choices.",
+      "replacement_condition_sha256": "439d71afc549d3f9b41473de17b9c5b292337e4fae78b90e3fa8c55d1d9aba3c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.stage-flow",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 114,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.area-difficulty-layer-transition",
+        "divergent-universe.review-fixture.finish-and-cross-battle-reset"
+      ],
+      "note_sha256": "c720e894ba437223233bb83b922583d04b6e6af20b84535310dd71bd039d217b",
+      "replacement_condition": "Replace when released flow configuration or reproducible observations bind room selection, transitions and carry/reset fields.",
+      "replacement_condition_sha256": "7c7a897303e081d246778a2c4773d4af60c02c75df3e7a95d1a932fe0e9ae754",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.stageconfig-candidate-boundary",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 2,
+      "fixture_ids": [],
+      "note_sha256": "9ab4f031811c2d858f6b8f5759416e29a54fbcb7cde03528d38b4cb65fa80278",
+      "replacement_condition": "Replace candidate disposition only when a released current-module selector promotes its parent weekly group.",
+      "replacement_condition_sha256": "30259edef6d09842c190d331106b558bec42ef71607647b0f11824fa36d4880e",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.titan-boon-choices",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 38,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.golden-blood-titan-choice-and-level"
+      ],
+      "note_sha256": "428394e2a95b68f6161d6ba9c7c5dd4935681432e13f90d8069d2f3c9530096c",
+      "replacement_condition": "Replace eligibility, timing and fallback when a released selector or service program binds the exact Golden Blood's Boon offer lifecycle.",
+      "replacement_condition_sha256": "85438266f265229a50fa1161e885d220d3d42b35da4a0d3ce47023bfa1c78525",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.unlock-consumers",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 91,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.permanent-talent-and-unlock"
+      ],
+      "note_sha256": "fab4daae4b65bf08812f6c92436a9be9d32cc6f242faa34f90cfc52b257cf8d0",
+      "replacement_condition": "Replace empty unlocked-content lists when a released consumer references the exact token.",
+      "replacement_condition_sha256": "53c28de44a315f694593aa5c9da6410ef088c492684459087fb4bb20c87d7d99",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.weekly-current-selector",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 768,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.encounter-wave-and-boss-binding",
+        "divergent-universe.review-fixture.ordinary-and-cyclical-entry",
+        "divergent-universe.review-fixture.weekly-modifier-and-room-service"
+      ],
+      "note_sha256": "9d5f63938b7c71c974512458f28ab70ab27ad145d31a76bfaa98e6b448be4ac0",
+      "replacement_condition": "Promote a weekly row only when an enabled Tourn3 area/module or released schedule explicitly selects its ChallengeID.",
+      "replacement_condition_sha256": "5c478659e9a45666548c2c799fb035f7f45353f78b1f2d3fbd2b791a43880a89",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.weekly-encounter-display",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 1224,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.encounter-wave-and-boss-binding"
+      ],
+      "note_sha256": "d1181ec78fd6f330ef314e4578b0c512eba939229c324b8704eeed489cc17897",
+      "replacement_condition": "Promote a display group only when released structured data explicitly selects its ChallengeID for Tourn3/module 6002201.",
+      "replacement_condition_sha256": "3afffd2078d0ee2b8c925e86a415bac427676fdb8cd0aec764d5fb61b277b6e1",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.wolf-gun-parameter-groups",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 7,
+      "fixture_ids": [],
+      "note_sha256": "016f92eb089206f6e5220a7000664df2b7232b15543b3f1ec14f01629f5585bd",
+      "replacement_condition": "Replace the empty parameter program when a released table or config explicitly binds Wolf Gun group 101/102 to its thresholds and results.",
+      "replacement_condition_sha256": "4b06597e2f9f96319eea284cde3e9d0273c695a10d6a2ba0ac24c06f00ec6554",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal11.project-policy.workbench-service-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 32,
+      "fixture_ids": [
+        "divergent-universe.review-fixture.no-legal-candidate-fallback",
+        "divergent-universe.review-fixture.workbench-operation-and-price"
+      ],
+      "note_sha256": "13e533094cf6c8029f974a6c15bff54217358e7118ae71e1c4f32f11211b87b6",
+      "replacement_condition": "Replace empty candidate/weight/price fields only when a released service selector or operation program defines them.",
+      "replacement_condition_sha256": "52fa5adf2afffe70b7d94e015eeb80eaf5de67639d99af2898c46bdcd4567672",
+      "result": "pass"
+    }
+  ],
+  "released_text_approximations": [
+    {
+      "file": "arithmetic-mapping-rules.json",
+      "record_id": "divergent-universe.mapping-rule.light-cone",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "policy_source_ids": [
+        "source.goal11.project-policy.arithmetic-mapping-build-values"
+      ],
+      "result": "pass"
+    }
+  ]
+}
