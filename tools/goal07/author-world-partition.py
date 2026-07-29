@@ -305,6 +305,67 @@ def build_encounter_partition(
     }
 
 
+def build_map_partition(
+    partition: dict[str, Any],
+    universe: Any,
+    evidence: Any,
+) -> dict[str, list[dict[str, Any]]]:
+    source = keyed(
+        json.loads((REFERENCE / "maps.json").read_text(encoding="utf-8")),
+        "id",
+    )
+    nodes = keyed(rows(universe["UniverseMapNode"]), "stable_key")
+    selected_nodes = [nodes[key] for key in partition["record_ids"]]
+    node_ids = {int(row["id"]) for row in selected_nodes}
+    selected_edges = [
+        row
+        for row in rows(universe["UniverseMapEdge"])
+        if int(row["source_node_id"]) in node_ids
+    ]
+    edges_by_source: dict[int, list[dict[str, Any]]] = {}
+    for row in selected_edges:
+        edges_by_source.setdefault(int(row["source_node_id"]), []).append(row)
+
+    for authored in selected_nodes:
+        reference = source[authored["stable_key"]]
+        expected = {
+            "stable_key": reference["id"],
+            "source_map_id": int(reference["map_id"].rsplit(".", 1)[1]),
+            "source_node_id": int(reference["node_id"]),
+            "is_start": reference["start"],
+            "position_x": int(reference["position_hint"]["x"]),
+            "position_y": int(reference["position_hint"]["y"]),
+        }
+        actual = {field: authored[field] for field in expected}
+        if actual != expected:
+            raise ValueError(
+                f"{reference['id']}: Excel map node differs from public source"
+            )
+        node_id = int(authored["id"])
+        authored_edges = sorted(
+            edges_by_source.get(node_id, []), key=lambda row: int(row["sequence"])
+        )
+        expected_edges = [
+            {
+                "source_node_id": node_id,
+                "sequence": sequence,
+                "target_node_id": int(nodes[target]["id"]),
+            }
+            for sequence, target in enumerate(reference["next_node_ids"], start=1)
+        ]
+        if authored_edges != expected_edges:
+            raise ValueError(
+                f"{reference['id']}: map edges differ from public source"
+            )
+    if any(int(row["target_node_id"]) not in node_ids for row in selected_edges):
+        raise ValueError(f"{partition['id']}: map group has an external target")
+    check_audits(partition, evidence)
+    return {
+        "UniverseMapNode": selected_nodes,
+        "UniverseMapEdge": selected_edges,
+    }
+
+
 def build(partition_id: str) -> dict[str, Any]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     partition = next(
@@ -315,7 +376,8 @@ def build(partition_id: str) -> dict[str, Any]:
         partition is None
         or partition["mechanic_family"]
         != "enemies-encounters-worlds-difficulty-carry"
-        or partition["lane"] not in {"domain-graph", "encounter-selection"}
+        or partition["lane"]
+        not in {"domain-graph", "encounter-selection", "topology-map"}
     ):
         raise ValueError(f"{partition_id}: unsupported world-structure partition")
 
@@ -326,16 +388,22 @@ def build(partition_id: str) -> dict[str, Any]:
     evidence = load_workbook(
         DATA / "UniverseEvidence.xlsx", read_only=True, data_only=False
     )
-    selected = (
-        build_domain_partition(partition, universe, bindings, evidence)
-        if partition["lane"] == "domain-graph"
-        else build_encounter_partition(partition, universe, bindings, evidence)
-    )
+    if partition["lane"] == "domain-graph":
+        selected = build_domain_partition(partition, universe, bindings, evidence)
+    elif partition["lane"] == "encounter-selection":
+        selected = build_encounter_partition(
+            partition, universe, bindings, evidence
+        )
+    else:
+        selected = build_map_partition(partition, universe, evidence)
     domain_ids = {
         int(row["id"]) for row in selected.get("UniverseDomain", [])
     }
     pool_ids = {
         int(row["id"]) for row in selected.get("UniverseEncounterPool", [])
+    }
+    node_ids = {
+        int(row["id"]) for row in selected.get("UniverseMapNode", [])
     }
     for table, selected_rows in selected.items():
         exported = sora_rows(table)
@@ -356,6 +424,15 @@ def build(partition_id: str) -> dict[str, Any]:
         elif table == "UniverseReviewFixture":
             keys = {row["stable_key"] for row in selected_rows}
             exported = [row for row in exported if row.get("stable_key") in keys]
+        elif table == "UniverseMapNode":
+            keys = {row["stable_key"] for row in selected_rows}
+            exported = [row for row in exported if row.get("stable_key") in keys]
+        elif table == "UniverseMapEdge":
+            exported = [
+                row
+                for row in exported
+                if int(row.get("source_node_id", -1)) in node_ids
+            ]
         if digest(table, selected_rows) != digest(table, exported):
             raise ValueError(f"{partition_id}: Sora {table} rows differ from Excel")
 

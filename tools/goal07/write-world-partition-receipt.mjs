@@ -20,6 +20,7 @@ assert([
   "G07-P5-M15-S20",
   "G07-P5-M15-S21",
   "G07-P5-M15-S22",
+  "G07-P5-M15-S23",
 ].includes(partitionId),
   `${partitionId}: world receipt profile is not implemented`);
 
@@ -30,9 +31,10 @@ const audit = json(
   "content-manifests/standard-universe-mechanics-complete-v1/retained-audit.json",
 );
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
-assert(["domain-graph", "encounter-selection"].includes(partition?.lane),
+assert(["domain-graph", "encounter-selection", "topology-map"].includes(partition?.lane),
   `${partitionId}: not a supported world-structure partition`);
 const domainPartition = partition.lane === "domain-graph";
+const topologyPartition = partition.lane === "topology-map";
 const records = new Map(audit.records.map((entry) => [entry.id, entry]));
 const fixtures = new Map(audit.fixtures.map((entry) => [entry.id, entry]));
 const golden =
@@ -44,6 +46,11 @@ const provenanceEvidence = domainPartition
       { path: "content-reference/standard-universe-v1/domains.json" },
       { path: "content-reference/standard-universe-v1/sources.json" },
     ]
+  : topologyPartition
+  ? [
+      { path: "content-reference/standard-universe-v1/maps.json" },
+      { path: "content-reference/standard-universe-v1/sources.json" },
+    ]
   : [
       { path: "content-reference/standard-universe-v1/encounter-pools.json" },
       { path: "content-reference/standard-universe-v1/review-fixtures.json" },
@@ -51,12 +58,21 @@ const provenanceEvidence = domainPartition
     ];
 const encounterTestPath =
   `crates/starclock-mode-universe/tests/encounter_selection_${partitionId.slice(-3).toLowerCase()}.rs`;
+const topologyTestPath =
+  `crates/starclock-mode-universe/tests/topology_map_${partitionId.slice(-3).toLowerCase()}.rs`;
 const executionEvidence = domainPartition
   ? [
       { path: "crates/starclock-mode-universe/src/definition.rs" },
       { path: "crates/starclock-mode-universe/src/lowering.rs" },
       { path: "crates/starclock-mode-universe/src/topology.rs" },
       { path: "crates/starclock-mode-universe/tests/domain_runtime.rs" },
+    ]
+  : topologyPartition
+  ? [
+      { path: "crates/starclock-mode-universe/src/definition.rs" },
+      { path: "crates/starclock-mode-universe/src/lowering.rs" },
+      { path: "crates/starclock-mode-universe/src/topology.rs" },
+      { path: topologyTestPath },
     ]
   : [
       { path: "crates/starclock-mode-universe/src/encounter.rs" },
@@ -73,6 +89,17 @@ const authoringWorkbooks = domainPartition
       {
         path: "config/data/UniverseBindings.xlsx",
         tables: ["UniverseActivityDomainBinding"],
+      },
+      {
+        path: "config/data/UniverseEvidence.xlsx",
+        tables: ["UniverseContentAudit", "UniverseSourceRecord"],
+      },
+    ]
+  : topologyPartition
+  ? [
+      {
+        path: "config/data/Universe.xlsx",
+        tables: ["UniverseMapNode", "UniverseMapEdge"],
       },
       {
         path: "config/data/UniverseEvidence.xlsx",
@@ -99,6 +126,8 @@ const authoringWorkbooks = domainPartition
     ];
 const focusedTest = domainPartition
   ? "cargo test -p starclock-mode-universe --test domain_runtime --all-features"
+  : topologyPartition
+  ? `cargo test -p starclock-mode-universe --test topology_map_${partitionId.slice(-3).toLowerCase()} --all-features`
   : `cargo test -p starclock-mode-universe --test encounter_selection_${partitionId.slice(-3).toLowerCase()} --all-features`;
 
 const receipt = {
@@ -119,6 +148,8 @@ const receipt = {
     records.get(id),
     domainPartition
       ? ["Universe.xlsx", "UniverseBindings.xlsx"]
+      : topologyPartition
+      ? ["Universe.xlsx"]
       : ["UniverseBindings.xlsx"],
   )),
   rules: [],

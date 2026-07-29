@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S23` |
-| Next unblocked batch | `G07-P5-M15-S23` |
+| Active batch | `G07-P5-M15-S24` |
+| Next unblocked batch | `G07-P5-M15-S24` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -308,10 +308,13 @@ Encounter-selection S22 is complete: its final 28 pools retain 53 weighted
 bindings and 14 fixed bindings. Together S20–S22 exactly close all 92
 encounter pools, with contiguous identities, 174 weighted bindings, 36 fixed
 bindings and a closed 59/4/29 split across the three selection policies.
-`G07-P5-M15-S23` is active.
+Topology-map S23 is complete: its first eight complete maps retain 86 nodes
+and 98 ordered edges. Each map has one source node, one reachable terminal,
+no cross-map edge and a bounded acyclic runtime graph. `G07-P5-M15-S24` is
+active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 90 completed partitions use scoped Excel/Sora semantic
+model. The first 91 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
