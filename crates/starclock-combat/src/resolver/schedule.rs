@@ -160,9 +160,9 @@ pub(super) fn execute_queue_rule_action(
             operation.boundary,
             operation.priority,
             operation.source,
-            Some(operation.rule),
-            Some(operation.instance),
-            Some(operation.trigger),
+            operation.rule,
+            operation.instance,
+            operation.trigger,
             targets,
             operation.payment,
         )?;

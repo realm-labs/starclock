@@ -6,7 +6,7 @@ use starclock_activity::{
     ActivityBattleHandoff, BattleOutcome, BattleResult, EventDigest, GraphActivityBattleError,
     MetricValue, MetricValueKind, ParticipantBattleState, ProjectedValue, ProjectionField,
 };
-use starclock_ai::EnemyController;
+use starclock_ai::{EnemyController, EnemyDecisionError};
 use starclock_combat::{
     Battle, BattlePhase, BattleStateHash, Command, DecisionKind, DecisionOwner, LifeState,
     ParticipantInitialState, ParticipantSpec, TeamSide,
@@ -414,6 +414,14 @@ fn select_command<'a>(
         };
         return Ok((command.clone(), controller, None));
     }
+    if decision.kind() == DecisionKind::BattleChoice && decision.legal_commands().len() == 1 {
+        let controller = match decision.owner() {
+            DecisionOwner::System => NestedBattleController::System,
+            DecisionOwner::Team(TeamSide::Player) => NestedBattleController::BaselinePlayer,
+            DecisionOwner::Team(TeamSide::Enemy) => NestedBattleController::AuthoredEnemy,
+        };
+        return Ok((decision.legal_commands()[0].clone(), controller, None));
+    }
     match decision.owner() {
         DecisionOwner::System => Ok((
             system_command(decision)?,
@@ -421,7 +429,7 @@ fn select_command<'a>(
             None,
         )),
         DecisionOwner::Team(TeamSide::Player) => Ok((
-            player_command(decision)?,
+            player_command(catalog, battle.view(), decision)?,
             NestedBattleController::BaselinePlayer,
             None,
         )),
@@ -447,13 +455,23 @@ fn select_command<'a>(
             let graph = catalog
                 .ai_graph(graph_id)
                 .ok_or(NestedBattleExecutionError::MissingEnemyController)?;
-            let selected = enemy
-                .decide(graph, initial_state, actor, decision, static_condition)
-                .map_err(NestedBattleExecutionError::EnemyDecision)?;
+            let (command, settle_ai_state) =
+                match enemy.decide(graph, initial_state, actor, decision, static_condition) {
+                    Ok(selected) => (selected.command().clone(), true),
+                    Err(EnemyDecisionError::NoLegalFallback) => (
+                        decision
+                            .legal_commands()
+                            .first()
+                            .cloned()
+                            .ok_or(NestedBattleExecutionError::UnsupportedDecision)?,
+                        false,
+                    ),
+                    Err(source) => return Err(NestedBattleExecutionError::EnemyDecision(source)),
+                };
             Ok((
-                selected.command().clone(),
+                command,
                 NestedBattleController::AuthoredEnemy,
-                Some((actor, graph)),
+                settle_ai_state.then_some((actor, graph)),
             ))
         }
     }
@@ -479,6 +497,8 @@ fn system_command(
 }
 
 fn player_command(
+    catalog: &CombatCatalog,
+    view: starclock_combat::BattleView<'_>,
     decision: &starclock_combat::DecisionPoint,
 ) -> Result<Command, NestedBattleExecutionError> {
     let selected = match decision.kind() {
@@ -487,20 +507,78 @@ fn player_command(
             .iter()
             .find(|command| matches!(command, Command::PassInterruptWindow { .. }))
             .or_else(|| {
-                decision
-                    .legal_commands()
-                    .iter()
-                    .find(|command| matches!(command, Command::UseInterrupt { .. }))
+                decision.legal_commands().iter().find(|command| {
+                    matches!(command, Command::UseInterrupt { .. })
+                        && command_is_affordable(catalog, view, command)
+                })
             }),
         DecisionKind::NormalAction | DecisionKind::BattleChoice => decision
             .legal_commands()
             .iter()
-            .find(|command| matches!(command, Command::UseAbility { .. })),
+            .find(|command| {
+                let Command::UseAbility { ability, .. } = command else {
+                    return false;
+                };
+                catalog
+                    .ability(*ability)
+                    .and_then(|definition| definition.action())
+                    .is_some_and(|action| {
+                        action.kind() == starclock_combat::catalog::action::AbilityKind::Basic
+                            && command_is_affordable(catalog, view, command)
+                    })
+            })
+            .or_else(|| {
+                decision
+                    .legal_commands()
+                    .iter()
+                    .find(|command| command_is_affordable(catalog, view, command))
+            }),
         DecisionKind::BattleStart => None,
     };
     selected
         .cloned()
         .ok_or(NestedBattleExecutionError::UnsupportedDecision)
+}
+
+fn command_is_affordable(
+    catalog: &CombatCatalog,
+    view: starclock_combat::BattleView<'_>,
+    command: &Command,
+) -> bool {
+    let (actor, ability) = match command {
+        Command::UseAbility { actor, ability, .. }
+        | Command::UseInterrupt { actor, ability, .. } => (*actor, *ability),
+        _ => return true,
+    };
+    let Some(action) = catalog
+        .ability(ability)
+        .and_then(|definition| definition.action())
+    else {
+        return false;
+    };
+    let policy = action.resources();
+    let Some(unit) = view.units_by_id().find(|unit| unit.id() == actor) else {
+        return false;
+    };
+    if unit.current_energy() < policy.energy_cost()
+        || policy.character_resource_costs().iter().any(|cost| {
+            unit.character_resource(cost.stable_key())
+                .is_none_or(|(current, _)| current < cost.amount())
+        })
+        || !policy.team_resource_costs().is_empty()
+    {
+        return false;
+    }
+    let team = view.team(unit.side());
+    match policy.skill_point_payment() {
+        starclock_combat::catalog::action::SkillPointPaymentPolicy::TeamSkillPoints => {
+            team.skill_points() >= policy.skill_point_cost()
+        }
+        starclock_combat::catalog::action::SkillPointPaymentPolicy::Suppressed => true,
+        starclock_combat::catalog::action::SkillPointPaymentPolicy::TeamResource(resource) => team
+            .keyed_resource(resource)
+            .is_some_and(|(current, _)| current >= policy.skill_point_cost()),
+    }
 }
 
 fn command_actor(command: &Command) -> Option<starclock_combat::UnitId> {

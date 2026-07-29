@@ -915,7 +915,7 @@ mod tests {
     }
 
     fn activity() -> StandardUniverseActivity {
-        activity_from_seed(u64::from(TEST_PROGRAM))
+        activity_from_seed(200_000)
     }
 
     fn activity_from_seed(seed: u64) -> StandardUniverseActivity {

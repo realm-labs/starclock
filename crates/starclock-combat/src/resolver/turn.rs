@@ -271,7 +271,22 @@ fn execute_automatic_turn(
     ability: crate::AbilityId,
     origin: crate::ActionOrigin,
 ) -> Result<(), BattleFault> {
-    let targets = commit_targets(catalog, txn, turn.unit, ability, None)?;
+    let selector = catalog
+        .ability(ability)
+        .and_then(|definition| catalog.selector(definition.selector()))
+        .and_then(|definition| definition.unit_targets())
+        .ok_or_else(|| action_fault(97))?;
+    let primary = crate::target::select::legal_primary_targets(
+        &txn.state.units,
+        &txn.state.formations,
+        turn.unit,
+        selector,
+    )
+    .map_err(|_| action_fault(97))?
+    .into_iter()
+    .next()
+    .flatten();
+    let targets = commit_targets(catalog, txn, turn.unit, ability, primary)?;
     let mut plan = crate::action::lower::lower_timeline_action(
         catalog,
         txn,

@@ -188,7 +188,12 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
         loop {
             let observation = session
                 .observe(&EventCursor::parse("event_0").unwrap())
-                .unwrap();
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "settlement scenario {} step {steps} failed: {error:?}",
+                        scenario.as_str().unwrap()
+                    )
+                });
             if observation.status != AgentBattleStatus::AwaitingPlayer {
                 assert!(session.phase().is_terminal());
                 break;
@@ -203,7 +208,12 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
                         .iter()
                         .find(|action| action.kind == AgentActionKind::PassInterrupt)
                 })
-                .unwrap();
+                .unwrap_or_else(|| {
+                    panic!(
+                        "settlement scenario {} step {steps} offered no supported player action",
+                        scenario.as_str().unwrap()
+                    )
+                });
             let response = session
                 .apply_action(PlayActionRequest {
                     schema_revision: AgentSchemaRevision::V1,
@@ -216,7 +226,12 @@ fn every_settlement_corpus_path_stays_within_all_three_budgets() {
                     ))
                     .unwrap(),
                 })
-                .unwrap();
+                .unwrap_or_else(|error| {
+                    panic!(
+                        "settlement scenario {} step {steps} apply failed: {error:?}",
+                        scenario.as_str().unwrap()
+                    )
+                });
             assert!(
                 response.settlement.accepted_commands.to_u64()
                     <= settlement["maximum_accepted_commands"].as_u64().unwrap()

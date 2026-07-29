@@ -141,9 +141,9 @@ pub(crate) struct QueueRuleActionOp {
     pub(crate) boundary: crate::catalog::action::ReactionBoundary,
     pub(crate) payment: Option<crate::catalog::action::SkillPointPaymentPolicy>,
     pub(crate) source: crate::SourceDefinitionId,
-    pub(crate) rule: crate::RuleId,
-    pub(crate) instance: crate::RuleInstanceId,
-    pub(crate) trigger: crate::TriggerId,
+    pub(crate) rule: Option<crate::RuleId>,
+    pub(crate) instance: Option<crate::RuleInstanceId>,
+    pub(crate) trigger: Option<crate::TriggerId>,
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
