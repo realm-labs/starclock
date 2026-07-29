@@ -22,3 +22,19 @@ receipts. `ProjectPolicy` fields include a note and replacement condition.
 The 848 older Tourn2 room candidates remain only in the frozen manifest until
 exact Stage/config evidence promotes or excludes them; `rooms.json` stays
 empty and grants no shared reachability.
+
+`G12-P1-B2` generates the Squad HP, finite/unlimited action-value,
+battle-result and zero-HP failure boundary with:
+
+```text
+node tools/currency-wars-reference/import-squad-boundary.mjs \
+  --source-cache <turnbasedgamedata-repository>
+node tools/currency-wars-reference/import-squad-boundary.mjs --check \
+  --source-cache <turnbasedgamedata-repository>
+node tools/currency-wars-reference/verify-squad-boundary.mjs \
+  --source-cache <turnbasedgamedata-repository>
+```
+
+The released sources do not expose a single global finite action-value or
+timeout-loss constant. Those values remain node/difficulty-configured, and
+same-boundary victory precedence is an explicit replaceable policy.

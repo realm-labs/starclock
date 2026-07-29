@@ -1,0 +1,175 @@
+[
+  {
+    "id": "currency-wars.squad-hp.global",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSquadHpRules",
+    "name_en": "Squad HP",
+    "name_zh_cn": "小队生命值",
+    "summary_en": "A match starts with 100 Squad HP; victory preserves it, non-victory applies configured loss, and zero ends the match.",
+    "summary_zh_cn": "对局以 100 点小队生命值开始；胜利时保持不变，未胜利时扣除配置值，归零则结束对局。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.1912261755023964838",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1912261755023964838",
+        "sha256": "e5768e03d3616c49382135511d513e784f5fa1ba12395465f04dd6176447e3ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1912261755023964838",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1912261755023964838",
+        "sha256": "d02482b0018b00a102a233fd788e8a7c759eb53d2ebdd9f316d73b73454019ec",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.6971100623138337968",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "6971100623138337968",
+        "sha256": "c5c7a9584bcc8c88fa5b17fe95fcd478d775e48fcbb9a02a9db56e2fafdadeb4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.6971100623138337968",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "6971100623138337968",
+        "sha256": "d356742770636a995fdaf275d42bd7eec0d20b657270333034cb7b87651a577e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4983101780975847570",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4983101780975847570",
+        "sha256": "18243a7484ba4877071ec28688b8668f9bd82247efa7276a8e5c718cfc29ae9f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4983101780975847570",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4983101780975847570",
+        "sha256": "47a583bb0a2263916a2fe1fe246a78a0f8bde61756b67b917cae481f137a7d51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.squad-hp-initial-maximum",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "squad-hp-initial-maximum",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Treat the released initial 100 Squad HP as both current and maximum HP until a released initialization field distinguishes them.",
+        "replacement_condition": "Replace when a released initialization record or reproducible observation independently publishes initial maximum Squad HP."
+      },
+      {
+        "source_id": "source.goal12.project-policy.action-value-node-configuration",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "action-value-node-configuration",
+        "sha256": "371f975060f04ebeb4cb1fee02bd593226d9c4bf51008f64ffbdec0521374965",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Finite initial action value and non-victory Squad HP loss are node/difficulty-authored values; no global number is invented.",
+        "replacement_condition": "Replace each placeholder with an exact reachable node, difficulty, StageConfig or ability-program field."
+      }
+    ],
+    "tags": [
+      "activity-state",
+      "project-policy",
+      "squad-hp"
+    ],
+    "initial_hp": "100",
+    "minimum_hp": "0",
+    "maximum_hp": {
+      "initial_value": "100",
+      "mutation": "ContentDefinedIncreaseOrRecovery",
+      "resolution": "ProjectPolicy"
+    },
+    "loss_rules": [
+      {
+        "trigger": "NodeNonVictory",
+        "amount": "ConfiguredByNodeOrDifficulty",
+        "operation": "SubtractThenClampToMinimum",
+        "resolution": "ExactTriggerPolicyBoundAmount"
+      }
+    ],
+    "recovery_rules": [
+      {
+        "trigger": "NodeVictory",
+        "amount": "0",
+        "operation": "PreserveSquadHp",
+        "resolution": "ExactPublicText"
+      },
+      {
+        "trigger": "ContentContribution",
+        "amount": "ConfiguredByContent",
+        "operation": "RestoreOrIncreaseMaximumAsAuthored",
+        "resolution": "DeferredToOwningContentBatch"
+      }
+    ],
+    "runtime_lowered": false
+  }
+]
