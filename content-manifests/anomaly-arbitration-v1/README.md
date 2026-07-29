@@ -29,5 +29,26 @@ node tools/anomaly-arbitration-reference/verify-inventory.mjs \
 
 Both cache roots must be clean and resolve to the exact pinned commits. The
 fallback is read-only; the generator disables lazy fetches and never changes
-sparse-checkout state. `G13-P0-B3` owns row selection, reachability,
-exact-zero proofs and frozen denominators.
+sparse-checkout state.
+
+`content-manifest.json` is the `G13-P0-B3` row-level closure. Released public
+observations identify Version 4.4 rotation `8` and its bilingual title; the
+pinned group row then selects aliases `801`–`804`, five StageConfig rows and
+every shared reference transitively admitted by those rows. Generate and
+verify it with:
+
+```text
+node tools/anomaly-arbitration-reference/manifest.mjs \
+  --source-cache .cache/content-reference \
+  --fallback-source-cache <clean-fixed-cache>
+
+node tools/anomaly-arbitration-reference/verify-manifest.mjs \
+  --source-cache .cache/content-reference \
+  --fallback-source-cache <clean-fixed-cache>
+```
+
+The manifest freezes 392 active obligations across 28 categories, split into
+76 `AnomalyArbitration` and 316 `Shared` records. It separately receipts 106
+historical/account/presentation exclusions and proves six gameplay content
+pools empty. Every active shared row records a source path, stable row locator,
+evidence digest and explicit selector/reference summary.
