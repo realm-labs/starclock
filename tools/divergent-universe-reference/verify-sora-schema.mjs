@@ -17,9 +17,12 @@ const project =
 const core = path.join(root, "config/divergent-universe/schema/core.toml");
 const systems =
   path.join(root, "config/divergent-universe/schema/systems.toml");
+const content =
+  path.join(root, "config/divergent-universe/schema/content.toml");
 const projectText = fs.readFileSync(project, "utf8");
 const coreText = fs.readFileSync(core, "utf8");
 const systemsText = fs.readFileSync(systems, "utf8");
+const contentText = fs.readFileSync(content, "utf8");
 assert(projectText.includes(
   'package = "starclock_divergent_universe_reference_config"',
 ), "isolated project package drift");
@@ -33,6 +36,8 @@ assert((coreText.match(/\[\[tables\]\]/gu) ?? []).length === 18,
   "P3-B1 core table denominator drift");
 assert((systemsText.match(/\[\[tables\]\]/gu) ?? []).length === 26,
   "P3-B2 system table denominator drift");
+assert((contentText.match(/\[\[tables\]\]/gu) ?? []).length === 28,
+  "P3-B3 content table denominator drift");
 for (const table of [
   "DivergentUniverseProfiles",
   "DivergentUniverseModules",
@@ -80,6 +85,35 @@ for (const typedReference of [
 ])
   assert(systemsText.includes(typedReference),
     `missing typed system reference ${typedReference}`);
+for (const table of [
+  "DivergentUniverseWorkbenches",
+  "DivergentUniverseServiceRules",
+  "DivergentUniversePermanentTalents",
+  "DivergentUniverseWeeklyModifiers",
+  "DivergentUniverseOccurrences",
+  "DivergentUniverseOccurrenceVariants",
+  "DivergentUniverseAdventureOutcomes",
+  "DivergentUniverseEncounterGroups",
+  "DivergentUniverseEncounterWaves",
+  "DivergentUniverseEnemySlots",
+  "DivergentUniverseBossPools",
+  "DivergentUniverseMechanicRules",
+])
+  assert(contentText.includes(`name = "${table}"`), `missing table ${table}`);
+for (const typedReference of [
+  "optional<list<ref<DivergentUniverseWorkbenchFunctions.id>>>",
+  "optional<ref<DivergentUniverseCurrencies.id>>",
+  "optional<list<ref<DivergentUniversePermanentTalents.id>>>",
+  "optional<ref<DivergentUniverseFinishConditions.id>>",
+  "optional<ref<DivergentUniverseCurioStates.id>>",
+  "optional<list<ref<DivergentUniverseOccurrenceVariants.id>>>",
+  "optional<list<ref<DivergentUniverseEnemySlots.id>>>",
+  "optional<ref<DivergentUniverseEncounterWaves.id>>",
+  "optional<ref<DivergentUniverseEncounterGroups.id>>",
+  "optional<ref<DivergentUniverseMechanicSourceFiles.id>>",
+])
+  assert(contentText.includes(typedReference),
+    `missing typed content reference ${typedReference}`);
 
 const sora = locateSora();
 assert(execFileSync(sora, ["--version"], { encoding: "utf8" }).trim()
@@ -91,9 +125,9 @@ execFileSync(sora, [
   project,
 ], { cwd: root, stdio: "inherit" });
 console.log(
-  "Divergent Universe P3-B2 Sora schema verified (18 core plus 26 Equation, " +
-  "Blessing, Curio, Grand Miracle and Titan tables; typed references; " +
-  "Sora 0.3.0).",
+  "Divergent Universe P3-B3 Sora schema verified (72 isolated core, system, " +
+  "progression, service, event, encounter and mechanic tables; typed " +
+  "references; Sora 0.3.0).",
 );
 
 function locateSora() {

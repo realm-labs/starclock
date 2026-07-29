@@ -32,6 +32,11 @@ const groups = [
     first: "equations.json",
     last: "titan-contributions.json",
   },
+  {
+    file: "content.toml",
+    first: "workbenches.json",
+    last: "mechanic-rules.json",
+  },
 ];
 const fileOrder = normalized.files.map(({ file }) => file);
 const workbookByFile = new Map(authoring.workbooks.flatMap((workbook) =>
@@ -58,7 +63,7 @@ fs.mkdirSync(path.dirname(projectPath), { recursive: true });
 fs.writeFileSync(projectPath, renderProject(groups.map(({ file }) => file)));
 
 console.log(
-  `Generated Divergent Universe P3-B2 Sora schema ` +
+  `Generated Divergent Universe P3-B3 Sora schema ` +
   `(${activeContracts.length} isolated tables).`,
 );
 
@@ -240,6 +245,51 @@ function referenceFields(file) {
     ["titan-choices.json", [
       ["titan_type", "DivergentUniverseTitanTypes", false],
       ["candidate_ids", "DivergentUniverseTitanBoons", true],
+    ]],
+    ["workbenches.json", [
+      ["function_ids", "DivergentUniverseWorkbenchFunctions", true],
+      ["currency_ids", "DivergentUniverseCurrencies", true],
+    ]],
+    ["service-rules.json", [
+      ["currency_id", "DivergentUniverseCurrencies", false],
+    ]],
+    ["permanent-talents.json", [
+      ["prerequisite_ids", "DivergentUniversePermanentTalents", true],
+      ["adjacent_talent_ids", "DivergentUniversePermanentTalents", true],
+    ]],
+    ["unlocks.json", [
+      ["finish_condition_id", "DivergentUniverseFinishConditions", false],
+    ]],
+    ["curio-pool-membership.json", [
+      ["curio_state_id", "DivergentUniverseCurioStates", false],
+    ]],
+    ["occurrences.json", [
+      ["variant_ids", "DivergentUniverseOccurrenceVariants", true],
+      ["choice_ids", "DivergentUniverseOccurrenceChoices", true],
+    ]],
+    ["occurrence-variants.json", [
+      ["occurrence_id", "DivergentUniverseOccurrences", false],
+      ["occurrence_ids", "DivergentUniverseOccurrences", true],
+      ["choice_ids", "DivergentUniverseOccurrenceChoices", true],
+    ]],
+    ["encounter-source-obligations.json", [
+      ["encounter_group_ids", "DivergentUniverseEncounterGroups", true],
+    ]],
+    ["encounter-waves.json", [
+      ["enemy_slot_ids", "DivergentUniverseEnemySlots", true],
+    ]],
+    ["enemy-slots.json", [
+      ["wave_id", "DivergentUniverseEncounterWaves", false],
+    ]],
+    ["boss-pools.json", [
+      ["weekly_modifier_id", "DivergentUniverseWeeklyModifiers", false],
+      ["encounter_group_id", "DivergentUniverseEncounterGroups", false],
+    ]],
+    ["mechanic-source-files.json", [
+      ["consumer_rule_ids", "DivergentUniverseMechanicRules", true],
+    ]],
+    ["mechanic-rules.json", [
+      ["source_file_id", "DivergentUniverseMechanicSourceFiles", false],
     ]],
   ]);
   return new Map((relations.get(file) ?? []).map(([name, table, many]) => [
