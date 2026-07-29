@@ -1,0 +1,1635 @@
+[
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615010",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615010",
+    "name_zh_cn": "方程关键词 1615010",
+    "summary_en": "Keyword 1615010 binds Path type 120, MazeBuff 615010 and 8 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615010 绑定命途类型 120、MazeBuff 615010 与 8 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Cataloged",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "0",
+        "sha256": "bbf6e3337177f8f88dac371c2eb3daebf7690b98cffb238762bb015d4740e20d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "0",
+        "sha256": "c6e5888471381b129959564405e18681bad35b40d5ff13cbfa69197a779ad100",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "equation",
+      "keyword",
+      "unselected-path-catalog"
+    ],
+    "keyword_id": "1615010",
+    "path_type_id": "120",
+    "current_path": false,
+    "maze_buff_id": "615010",
+    "maze_buff_ids": [
+      "615030",
+      "615031",
+      "615040",
+      "615041",
+      "615046"
+    ],
+    "formula_source_ids": [
+      "140102",
+      "130103",
+      "130104",
+      "120107",
+      "1230601",
+      "1230109",
+      "1340107",
+      "1320103"
+    ],
+    "keyword_extra_effect_id": "60000001",
+    "extra_effect_id": "61000200",
+    "parameters": [
+      "1.8",
+      "0.35",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615110",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615110",
+    "name_zh_cn": "方程关键词 1615110",
+    "summary_en": "Keyword 1615110 binds Path type 121, MazeBuff 615110 and 4 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615110 绑定命途类型 121、MazeBuff 615110 与 4 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "1",
+        "sha256": "650b859a6f9123a9f338fde9cd6870c63fb3bf9dbaaf44b754acbb56e3e8051b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "1",
+        "sha256": "416e56d5b94f62e56fc016a204e8fa6d5c724cf9686ee3ca10a1c2ad3483cd70",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615110",
+    "path_type_id": "121",
+    "current_path": true,
+    "maze_buff_id": "615110",
+    "maze_buff_ids": [
+      "615130",
+      "615131",
+      "615140",
+      "615141",
+      "615146"
+    ],
+    "formula_source_ids": [
+      "140205",
+      "130209",
+      "1240206",
+      "1220205"
+    ],
+    "keyword_extra_effect_id": "60000002",
+    "extra_effect_id": "61000201",
+    "parameters": [
+      "0.3",
+      "0.06",
+      "8",
+      "1"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615210",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615210",
+    "name_zh_cn": "方程关键词 1615210",
+    "summary_en": "Keyword 1615210 binds Path type 122, MazeBuff 615210 and 6 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615210 绑定命途类型 122、MazeBuff 615210 与 6 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "2",
+        "sha256": "578e6253bb4a9221407dd0896f967692d43a527a94c7a2f0fbdafe8d34fc5948",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "2",
+        "sha256": "7342f2618bb4eeb1379fb72f24a85b7bcc5144ce35321677c632b93f48092192",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615210",
+    "path_type_id": "122",
+    "current_path": true,
+    "maze_buff_id": "615210",
+    "maze_buff_ids": [
+      "615230",
+      "615231",
+      "615240",
+      "615241",
+      "615246"
+    ],
+    "formula_source_ids": [
+      "140309",
+      "130302",
+      "120309",
+      "1340302",
+      "1330305",
+      "1330203"
+    ],
+    "keyword_extra_effect_id": "60000012",
+    "extra_effect_id": "61000202",
+    "parameters": [
+      "3",
+      "0.08",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615310",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615310",
+    "name_zh_cn": "方程关键词 1615310",
+    "summary_en": "Keyword 1615310 binds Path type 123, MazeBuff 615310 and 9 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615310 绑定命途类型 123、MazeBuff 615310 与 9 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Cataloged",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "3",
+        "sha256": "f40db1fd87f90a8d425cf1e6cb8da1d47867b174e4c004f8a65529fc6de10d12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "3",
+        "sha256": "a77bb0dde74d90cc1cf0cfe18c3067412b0bf85d2e2e158d85a8dcdb19259e5d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "equation",
+      "keyword",
+      "unselected-path-catalog"
+    ],
+    "keyword_id": "1615310",
+    "path_type_id": "123",
+    "current_path": false,
+    "maze_buff_id": "615310",
+    "maze_buff_ids": [
+      "615330",
+      "615331",
+      "615340",
+      "615341",
+      "615346"
+    ],
+    "formula_source_ids": [
+      "140406",
+      "140704",
+      "130204",
+      "130405",
+      "130408",
+      "120405",
+      "1340403",
+      "1330406",
+      "1320407"
+    ],
+    "keyword_extra_effect_id": "60000013",
+    "extra_effect_id": "61000203",
+    "parameters": [
+      "0.6",
+      "0.12",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615410",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615410",
+    "name_zh_cn": "方程关键词 1615410",
+    "summary_en": "Keyword 1615410 binds Path type 124, MazeBuff 615410 and 8 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615410 绑定命途类型 124、MazeBuff 615410 与 8 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "4",
+        "sha256": "a62cdee00ba76621b38c394094941703f4fadb43dead36f46d7f1a66739976ab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "4",
+        "sha256": "b9f627f6af8238ca1b63a299dfeff18d6fb5ca827cf32bb593e2df43e201bc51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615410",
+    "path_type_id": "124",
+    "current_path": true,
+    "maze_buff_id": "615410",
+    "maze_buff_ids": [
+      "615430",
+      "615431",
+      "615440",
+      "615441",
+      "615446"
+    ],
+    "formula_source_ids": [
+      "140508",
+      "130501",
+      "120501",
+      "120502",
+      "120504",
+      "1230506",
+      "1220509",
+      "1320508"
+    ],
+    "keyword_extra_effect_id": "60000004",
+    "extra_effect_id": "61000204",
+    "parameters": [
+      "0.2",
+      "0.1",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615510",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615510",
+    "name_zh_cn": "方程关键词 1615510",
+    "summary_en": "Keyword 1615510 binds Path type 125, MazeBuff 615510 and 9 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615510 绑定命途类型 125、MazeBuff 615510 与 9 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "5",
+        "sha256": "bf698b30171df5611e96c72e11a5e64a6202ee0f7e4d723c6acefd3ee7e35f7b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "5",
+        "sha256": "c1d47c8467d534044d1c7d113888bb078a07ff9ba4dc8d134b6d195938c6bde2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615510",
+    "path_type_id": "125",
+    "current_path": true,
+    "maze_buff_id": "615510",
+    "maze_buff_ids": [
+      "615530",
+      "615531",
+      "615540",
+      "615541",
+      "615546"
+    ],
+    "formula_source_ids": [
+      "140406",
+      "140601",
+      "130602",
+      "130603",
+      "120406",
+      "120603",
+      "120604",
+      "1220906",
+      "1330608"
+    ],
+    "keyword_extra_effect_id": "60000005",
+    "extra_effect_id": "61000205",
+    "parameters": [
+      "0.3",
+      "0.025",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615610",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615610",
+    "name_zh_cn": "方程关键词 1615610",
+    "summary_en": "Keyword 1615610 binds Path type 126, MazeBuff 615610 and 10 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615610 绑定命途类型 126、MazeBuff 615610 与 10 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "6",
+        "sha256": "9c8cf94f5db0351b6727d6bf9e2ed3eb53ab7e3da50f8ca7ca3d7b1001623fa1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "6",
+        "sha256": "bcd39468a44a5fac946b6fcf7b4a7e0b9c588eabafc6ba6e49f609e37c3e7424",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615610",
+    "path_type_id": "126",
+    "current_path": true,
+    "maze_buff_id": "615610",
+    "maze_buff_ids": [
+      "615630",
+      "615631",
+      "615640",
+      "615641",
+      "615646"
+    ],
+    "formula_source_ids": [
+      "140907",
+      "130706",
+      "120207",
+      "120703",
+      "120704",
+      "1240705",
+      "1230702",
+      "1230407",
+      "1220701",
+      "1320709"
+    ],
+    "keyword_extra_effect_id": "60000003",
+    "extra_effect_id": "61000206",
+    "parameters": [
+      "0.5",
+      "0.1",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615710",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615710",
+    "name_zh_cn": "方程关键词 1615710",
+    "summary_en": "Keyword 1615710 binds Path type 127, MazeBuff 615710 and 11 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615710 绑定命途类型 127、MazeBuff 615710 与 11 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "7",
+        "sha256": "3e3904e0d77330411607f4dc9ec77dd00693f9b5954747baab74ab71e9d35034",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "7",
+        "sha256": "c44c2b3c5ce1aac8a8e7bf5a0534f0b2803bd43f7d86d0c249806be0879cb136",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615710",
+    "path_type_id": "127",
+    "current_path": true,
+    "maze_buff_id": "615710",
+    "maze_buff_ids": [
+      "615730",
+      "615731",
+      "615740",
+      "615741",
+      "615746"
+    ],
+    "formula_source_ids": [
+      "140508",
+      "140803",
+      "130708",
+      "130801",
+      "130809",
+      "120802",
+      "120803",
+      "1240908",
+      "1230805",
+      "1220408",
+      "1320801"
+    ],
+    "keyword_extra_effect_id": "60000017",
+    "extra_effect_id": "61000207",
+    "parameters": [
+      "1",
+      "0.1",
+      "8",
+      "2"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.1615810",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 1615810",
+    "name_zh_cn": "方程关键词 1615810",
+    "summary_en": "Keyword 1615810 binds Path type 128, MazeBuff 615810 and 6 Formula locator(s).",
+    "summary_zh_cn": "关键词 1615810 绑定命途类型 128、MazeBuff 615810 与 6 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "8",
+        "sha256": "70e323f4348ffc38a1e8829cb2466e99e9600ad91a29ce77e1da3a1f81dfa900",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeywordparam-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeywordParam.json",
+        "locator": "8",
+        "sha256": "093f95e633aa191339a5a56dbea4b6e0625e37f09084a32f6f9f6fbf4e981328",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "1615810",
+    "path_type_id": "128",
+    "current_path": true,
+    "maze_buff_id": "615810",
+    "maze_buff_ids": [
+      "615830",
+      "615831",
+      "615840",
+      "615841",
+      "615846"
+    ],
+    "formula_source_ids": [
+      "140309",
+      "140907",
+      "130905",
+      "120609",
+      "1330709",
+      "1330901"
+    ],
+    "keyword_extra_effect_id": "61000044",
+    "extra_effect_id": "61000208",
+    "parameters": [
+      "0.2",
+      "0.1",
+      "8"
+    ],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616110",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616110",
+    "name_zh_cn": "方程关键词 2616110",
+    "summary_en": "Keyword 2616110 binds Path type 121, MazeBuff 616110 and 17 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616110 绑定命途类型 121、MazeBuff 616110 与 17 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "9",
+        "sha256": "359b618454acf7ae4b7bc96f78d9e653322c5ed6fb5305882e7c172c228e118b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616110",
+    "path_type_id": "121",
+    "current_path": true,
+    "maze_buff_id": "616110",
+    "maze_buff_ids": [
+      "616130",
+      "616131",
+      "616140",
+      "616141",
+      "616142",
+      "616143",
+      "616144"
+    ],
+    "formula_source_ids": [
+      "2104003",
+      "2104004",
+      "2104005",
+      "2104015",
+      "2103005",
+      "2103006",
+      "2102004",
+      "2102005",
+      "2102008",
+      "2102010",
+      "2102026",
+      "2203001",
+      "2203002",
+      "2202005",
+      "2304001",
+      "2303003",
+      "2302001"
+    ],
+    "keyword_extra_effect_id": "61000049",
+    "extra_effect_id": "61000209",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616210",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616210",
+    "name_zh_cn": "方程关键词 2616210",
+    "summary_en": "Keyword 2616210 binds Path type 122, MazeBuff 616210 and 12 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616210 绑定命途类型 122、MazeBuff 616210 与 12 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "10",
+        "sha256": "8812543503832db70e313a9b7eeab139f6da82298df8c5c4e7944f924c274ae7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616210",
+    "path_type_id": "122",
+    "current_path": true,
+    "maze_buff_id": "616210",
+    "maze_buff_ids": [
+      "616230",
+      "616231",
+      "616240",
+      "616241",
+      "616242",
+      "616243",
+      "616244"
+    ],
+    "formula_source_ids": [
+      "2104006",
+      "2104012",
+      "2103008",
+      "2103009",
+      "2102012",
+      "2102024",
+      "2204004",
+      "2203003",
+      "2202004",
+      "2303002",
+      "2303005",
+      "2302002"
+    ],
+    "keyword_extra_effect_id": "61000050",
+    "extra_effect_id": "61000210",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616410",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616410",
+    "name_zh_cn": "方程关键词 2616410",
+    "summary_en": "Keyword 2616410 binds Path type 124, MazeBuff 616410 and 10 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616410 绑定命途类型 124、MazeBuff 616410 与 10 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "11",
+        "sha256": "9b934d982df177449022b4b9babb9ecc072e55cf906bb190c7f0d6e7cb3e69a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616410",
+    "path_type_id": "124",
+    "current_path": true,
+    "maze_buff_id": "616410",
+    "maze_buff_ids": [
+      "616430",
+      "616431",
+      "616440",
+      "616441",
+      "616442",
+      "616443",
+      "616444"
+    ],
+    "formula_source_ids": [
+      "2104012",
+      "2103004",
+      "2103018",
+      "2102021",
+      "2102022",
+      "2102023",
+      "2204002",
+      "2203006",
+      "2303001",
+      "2302003"
+    ],
+    "keyword_extra_effect_id": "61000055",
+    "extra_effect_id": "61000204",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616510",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616510",
+    "name_zh_cn": "方程关键词 2616510",
+    "summary_en": "Keyword 2616510 binds Path type 125, MazeBuff 616510 and 17 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616510 绑定命途类型 125、MazeBuff 616510 与 17 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "12",
+        "sha256": "1a782698a0c0b4dbb9f062f8ea52f8e03673c764b7d1e88e431aa234820b8b1d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616510",
+    "path_type_id": "125",
+    "current_path": true,
+    "maze_buff_id": "616510",
+    "maze_buff_ids": [
+      "616530",
+      "616531",
+      "616540",
+      "616541",
+      "616542",
+      "616543",
+      "616544"
+    ],
+    "formula_source_ids": [
+      "2104001",
+      "2104003",
+      "2104007",
+      "2103002",
+      "2103010",
+      "2103011",
+      "2103012",
+      "2102013",
+      "2102014",
+      "2102015",
+      "2102017",
+      "2204003",
+      "2204004",
+      "2202003",
+      "2303002",
+      "2303006",
+      "2302006"
+    ],
+    "keyword_extra_effect_id": "61000051",
+    "extra_effect_id": "61000211",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616610",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616610",
+    "name_zh_cn": "方程关键词 2616610",
+    "summary_en": "Keyword 2616610 binds Path type 126, MazeBuff 616610 and 13 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616610 绑定命途类型 126、MazeBuff 616610 与 13 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "13",
+        "sha256": "a21e4ea17663596808d7f6f717631ae1b50572ea82ac646731467dd76359f04e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616610",
+    "path_type_id": "126",
+    "current_path": true,
+    "maze_buff_id": "616610",
+    "maze_buff_ids": [
+      "616630",
+      "616631",
+      "616640",
+      "616641",
+      "616642",
+      "616643",
+      "616644"
+    ],
+    "formula_source_ids": [
+      "2104008",
+      "2104009",
+      "2104010",
+      "2104014",
+      "2103015",
+      "2102019",
+      "2102020",
+      "2102027",
+      "2102032",
+      "2204001",
+      "2203004",
+      "2304001",
+      "2302005"
+    ],
+    "keyword_extra_effect_id": "61000054",
+    "extra_effect_id": "61000214",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616710",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616710",
+    "name_zh_cn": "方程关键词 2616710",
+    "summary_en": "Keyword 2616710 binds Path type 127, MazeBuff 616710 and 13 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616710 绑定命途类型 127、MazeBuff 616710 与 13 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "14",
+        "sha256": "cee5c04b2486867d06e3788707c85e70c2fe62803727b585f11297916e3dcd15",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616710",
+    "path_type_id": "127",
+    "current_path": true,
+    "maze_buff_id": "616710",
+    "maze_buff_ids": [
+      "616730",
+      "616731",
+      "616740",
+      "616741",
+      "616742",
+      "616743",
+      "616744"
+    ],
+    "formula_source_ids": [
+      "2104011",
+      "2104015",
+      "2104016",
+      "2103001",
+      "2103010",
+      "2103017",
+      "2103022",
+      "2103023",
+      "2102030",
+      "2102031",
+      "2204001",
+      "2203005",
+      "2304002"
+    ],
+    "keyword_extra_effect_id": "61000052",
+    "extra_effect_id": "61000212",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616810",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616810",
+    "name_zh_cn": "方程关键词 2616810",
+    "summary_en": "Keyword 2616810 binds Path type 128, MazeBuff 616810 and 7 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616810 绑定命途类型 128、MazeBuff 616810 与 7 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "15",
+        "sha256": "e6175d1cb31be15dc07e6ee053024e7e270d3c23c0d0d9483ac0a634756262c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616810",
+    "path_type_id": "128",
+    "current_path": true,
+    "maze_buff_id": "616810",
+    "maze_buff_ids": [
+      "616830",
+      "616831",
+      "616840",
+      "616841",
+      "616842",
+      "616843",
+      "616844"
+    ],
+    "formula_source_ids": [
+      "2104014",
+      "2103014",
+      "2103019",
+      "2103021",
+      "2102028",
+      "2304004",
+      "2303004"
+    ],
+    "keyword_extra_effect_id": "61000044",
+    "extra_effect_id": "61000208",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2616910",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2616910",
+    "name_zh_cn": "方程关键词 2616910",
+    "summary_en": "Keyword 2616910 binds Path type 129, MazeBuff 616910 and 8 Formula locator(s).",
+    "summary_zh_cn": "关键词 2616910 绑定命途类型 129、MazeBuff 616910 与 8 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "16",
+        "sha256": "7a148f9cfe35cddc44f2b661cad2aeb80e04106773951c91dd8904491aeca4be",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2616910",
+    "path_type_id": "129",
+    "current_path": true,
+    "maze_buff_id": "616910",
+    "maze_buff_ids": [
+      "616930",
+      "616931",
+      "616940",
+      "616941",
+      "616942",
+      "616943",
+      "616944"
+    ],
+    "formula_source_ids": [
+      "2104001",
+      "2104002",
+      "2103003",
+      "2103024",
+      "2102002",
+      "2102003",
+      "2304003",
+      "2303004"
+    ],
+    "keyword_extra_effect_id": "61000053",
+    "extra_effect_id": "61000213",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617110",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617110",
+    "name_zh_cn": "方程关键词 2617110",
+    "summary_en": "Keyword 2617110 binds Path type 121, MazeBuff 617110 and 9 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617110 绑定命途类型 121、MazeBuff 617110 与 9 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "17",
+        "sha256": "b43fe224c5ca5b4b73da963d21854fd2b6402ce1f5ca592acd39451acd043abf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617110",
+    "path_type_id": "121",
+    "current_path": true,
+    "maze_buff_id": "617110",
+    "maze_buff_ids": [
+      "617130",
+      "617131",
+      "617140",
+      "617141",
+      "617142",
+      "617143",
+      "617144"
+    ],
+    "formula_source_ids": [
+      "3104002",
+      "3104005",
+      "3103002",
+      "3103003",
+      "3103010",
+      "3102001",
+      "3102003",
+      "3102004",
+      "3102029"
+    ],
+    "keyword_extra_effect_id": "61000049",
+    "extra_effect_id": "61000209",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617210",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617210",
+    "name_zh_cn": "方程关键词 2617210",
+    "summary_en": "Keyword 2617210 binds Path type 122, MazeBuff 617210 and 6 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617210 绑定命途类型 122、MazeBuff 617210 与 6 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "18",
+        "sha256": "d5a26a941474dc049fedecb7ed979d30bafecc2dc1ece1b36a0b15715d37bb3b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617210",
+    "path_type_id": "122",
+    "current_path": true,
+    "maze_buff_id": "617210",
+    "maze_buff_ids": [
+      "617230",
+      "617231",
+      "617240",
+      "617241",
+      "617242",
+      "617243",
+      "617244"
+    ],
+    "formula_source_ids": [
+      "3104003",
+      "3104004",
+      "3103005",
+      "3103020",
+      "3102005",
+      "3102010"
+    ],
+    "keyword_extra_effect_id": "61000050",
+    "extra_effect_id": "61000210",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617410",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617410",
+    "name_zh_cn": "方程关键词 2617410",
+    "summary_en": "Keyword 2617410 binds Path type 124, MazeBuff 617410 and 6 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617410 绑定命途类型 124、MazeBuff 617410 与 6 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "19",
+        "sha256": "7ed259384bbf8d88c1aafd3e26a311d67d5d6ffe17a07bfaa6b0d9cf1fb2b6c5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617410",
+    "path_type_id": "124",
+    "current_path": true,
+    "maze_buff_id": "617410",
+    "maze_buff_ids": [
+      "617430",
+      "617431",
+      "617440",
+      "617441",
+      "617442",
+      "617443",
+      "617444"
+    ],
+    "formula_source_ids": [
+      "3104009",
+      "3103007",
+      "3103023",
+      "3102009",
+      "3102011",
+      "3102025"
+    ],
+    "keyword_extra_effect_id": "61000056",
+    "extra_effect_id": "61000216",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617510",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617510",
+    "name_zh_cn": "方程关键词 2617510",
+    "summary_en": "Keyword 2617510 binds Path type 125, MazeBuff 617510 and 8 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617510 绑定命途类型 125、MazeBuff 617510 与 8 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "20",
+        "sha256": "6d833604c597ac01d1542cb083954ed60b2a7e973f098581820bd1edf7d03cc7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617510",
+    "path_type_id": "125",
+    "current_path": true,
+    "maze_buff_id": "617510",
+    "maze_buff_ids": [
+      "617530",
+      "617531",
+      "617540",
+      "617541",
+      "617542",
+      "617543",
+      "617544"
+    ],
+    "formula_source_ids": [
+      "3104007",
+      "3103005",
+      "3103011",
+      "3103012",
+      "3102013",
+      "3102014",
+      "3102018",
+      "3102026"
+    ],
+    "keyword_extra_effect_id": "61000059",
+    "extra_effect_id": "61000219",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617610",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617610",
+    "name_zh_cn": "方程关键词 2617610",
+    "summary_en": "Keyword 2617610 binds Path type 126, MazeBuff 617610 and 11 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617610 绑定命途类型 126、MazeBuff 617610 与 11 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "21",
+        "sha256": "f258f20d4b6ab273cae6cd33c01e1affe93190a226069d8af4c81f162540ea46",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617610",
+    "path_type_id": "126",
+    "current_path": true,
+    "maze_buff_id": "617610",
+    "maze_buff_ids": [
+      "617630",
+      "617631",
+      "617640",
+      "617641",
+      "617642",
+      "617643",
+      "617644"
+    ],
+    "formula_source_ids": [
+      "3104009",
+      "3104012",
+      "3104013",
+      "3103001",
+      "3103006",
+      "3103008",
+      "3103013",
+      "3103015",
+      "3102007",
+      "3102018",
+      "3102027"
+    ],
+    "keyword_extra_effect_id": "61000058",
+    "extra_effect_id": "61000218",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617710",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617710",
+    "name_zh_cn": "方程关键词 2617710",
+    "summary_en": "Keyword 2617710 binds Path type 127, MazeBuff 617710 and 11 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617710 绑定命途类型 127、MazeBuff 617710 与 11 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "22",
+        "sha256": "e939d606278e0e63d450023fa718b04dbd4bb85268a167f170ff832efa9c1421",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617710",
+    "path_type_id": "127",
+    "current_path": true,
+    "maze_buff_id": "617710",
+    "maze_buff_ids": [
+      "617730",
+      "617731",
+      "617740",
+      "617741",
+      "617742",
+      "617743",
+      "617744"
+    ],
+    "formula_source_ids": [
+      "3104001",
+      "3104006",
+      "3104011",
+      "3104012",
+      "3103009",
+      "3103011",
+      "3103016",
+      "3103017",
+      "3103018",
+      "3102021",
+      "3102022"
+    ],
+    "keyword_extra_effect_id": "61000052",
+    "extra_effect_id": "61000212",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617810",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617810",
+    "name_zh_cn": "方程关键词 2617810",
+    "summary_en": "Keyword 2617810 binds Path type 128, MazeBuff 617810 and 5 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617810 绑定命途类型 128、MazeBuff 617810 与 5 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "23",
+        "sha256": "db5d0714389d7cc94e0ef42cb3c31f1f460ced150883dae9abff4147657ddd6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617810",
+    "path_type_id": "128",
+    "current_path": true,
+    "maze_buff_id": "617810",
+    "maze_buff_ids": [
+      "617830",
+      "617831",
+      "617840",
+      "617841",
+      "617842",
+      "617843",
+      "617844"
+    ],
+    "formula_source_ids": [
+      "3104013",
+      "3104014",
+      "3103019",
+      "3103021",
+      "3102027"
+    ],
+    "keyword_extra_effect_id": "61000044",
+    "extra_effect_id": "61000208",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.equation-effect.keyword.2617910",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseEquationEffect",
+    "name_en": "Equation Keyword 2617910",
+    "name_zh_cn": "方程关键词 2617910",
+    "summary_en": "Keyword 2617910 binds Path type 129, MazeBuff 617910 and 6 Formula locator(s).",
+    "summary_zh_cn": "关键词 2617910 绑定命途类型 129、MazeBuff 617910 与 6 个方程定位符。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournkeyword-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournKeyword.json",
+        "locator": "24",
+        "sha256": "e2e9049647a6d0d179b3e9295b362b3550c7b095ad536afc35778f46295f3392",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "current-path",
+      "equation",
+      "keyword"
+    ],
+    "keyword_id": "2617910",
+    "path_type_id": "129",
+    "current_path": true,
+    "maze_buff_id": "617910",
+    "maze_buff_ids": [
+      "617930",
+      "617931",
+      "617940",
+      "617941",
+      "617942",
+      "617943",
+      "617944"
+    ],
+    "formula_source_ids": [
+      "3104008",
+      "3104015",
+      "3103022",
+      "3103024",
+      "3102030",
+      "3102031"
+    ],
+    "keyword_extra_effect_id": "61000057",
+    "extra_effect_id": "61000217",
+    "parameters": [],
+    "rule_contribution_ids": [],
+    "runtime_lowered": false
+  }
+]
