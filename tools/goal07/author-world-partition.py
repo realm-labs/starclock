@@ -84,7 +84,22 @@ def sora_rows(table: str) -> list[dict[str, Any]]:
     ]
 
 
-def digest(values: list[dict[str, Any]]) -> str:
+def normalize(table: str, row: dict[str, Any]) -> dict[str, Any]:
+    output = dict(row)
+    if table == "UniverseReviewFixture":
+        for field in ("input_stable_keys", "provenance_ids"):
+            if isinstance(output.get(field), str):
+                parts = [part for part in output[field].split("|") if part]
+                output[field] = (
+                    [int(part) for part in parts]
+                    if field == "provenance_ids"
+                    else parts
+                )
+    return output
+
+
+def digest(table: str, values: list[dict[str, Any]]) -> str:
+    values = [normalize(table, row) for row in values]
     ordered = sorted(
         values,
         key=lambda row: json.dumps(
@@ -116,6 +131,27 @@ def check_source_domain(reference: dict[str, Any], authored: dict[str, Any]) -> 
     actual = {field: authored[field] for field in expected}
     if actual != expected:
         raise ValueError(f"{reference['id']}: Excel domain differs from public source")
+
+
+def check_audits(
+    partition: dict[str, Any], evidence: Any
+) -> None:
+    audits = keyed(rows(evidence["UniverseContentAudit"]), "content_stable_key")
+    sources = keyed(rows(evidence["UniverseSourceRecord"]), "id")
+    for key in partition["record_ids"]:
+        audit = audits.get(key)
+        provenance = [] if audit is None else str(audit["provenance_ids"]).split("|")
+        if (
+            audit is None
+            or not audit["enabled"]
+            or audit["mode_owner"] != "Standard"
+            or audit["quality"] != "ExactStructured"
+            or audit["mechanism_quality"] != "ExactStructured"
+            or audit["coverage_state"] != "DataReady"
+            or not provenance
+            or any(int(item) not in sources for item in provenance)
+        ):
+            raise ValueError(f"{key}: exact enabled provenance audit is incomplete")
 
 
 def build_domain_partition(
@@ -159,26 +195,113 @@ def build_domain_partition(
         if binding["decision_kind"] != expected_decision:
             raise ValueError(f"{row['stable_key']}: Activity decision differs")
 
-    audits = keyed(rows(evidence["UniverseContentAudit"]), "content_stable_key")
-    sources = keyed(rows(evidence["UniverseSourceRecord"]), "id")
-    for key in partition["record_ids"]:
-        audit = audits.get(key)
-        provenance = [] if audit is None else str(audit["provenance_ids"]).split("|")
-        if (
-            audit is None
-            or not audit["enabled"]
-            or audit["mode_owner"] != "Standard"
-            or audit["quality"] != "ExactStructured"
-            or audit["mechanism_quality"] != "ExactStructured"
-            or audit["coverage_state"] != "DataReady"
-            or not provenance
-            or any(int(item) not in sources for item in provenance)
-        ):
-            raise ValueError(f"{key}: exact enabled provenance audit is incomplete")
+    check_audits(partition, evidence)
 
     return {
         "UniverseDomain": selected_domains,
         "UniverseActivityDomainBinding": selected_bindings,
+    }
+
+
+def build_encounter_partition(
+    partition: dict[str, Any],
+    universe: Any,
+    bindings: Any,
+    evidence: Any,
+) -> dict[str, list[dict[str, Any]]]:
+    source = keyed(
+        json.loads((REFERENCE / "encounter-pools.json").read_text(encoding="utf-8")),
+        "id",
+    )
+    pools = keyed(rows(bindings["UniverseEncounterPool"]), "stable_key")
+    rooms = keyed(rows(universe["UniverseRoom"]), "stable_key")
+    groups = keyed(rows(bindings["UniverseEncounterGroup"]), "stable_key")
+    selected_pools = [pools[key] for key in partition["record_ids"]]
+    pool_ids = {int(row["id"]) for row in selected_pools}
+    selected_groups = [
+        row
+        for row in rows(bindings["UniverseEncounterPoolGroup"])
+        if int(row["pool_id"]) in pool_ids
+    ]
+    selected_fixed = [
+        row
+        for row in rows(bindings["UniverseEncounterPoolFixed"])
+        if int(row["pool_id"]) in pool_ids
+    ]
+    groups_by_pool: dict[int, list[dict[str, Any]]] = {}
+    fixed_by_pool: dict[int, list[dict[str, Any]]] = {}
+    for row in selected_groups:
+        groups_by_pool.setdefault(int(row["pool_id"]), []).append(row)
+    for row in selected_fixed:
+        fixed_by_pool.setdefault(int(row["pool_id"]), []).append(row)
+
+    for authored in selected_pools:
+        reference = source[authored["stable_key"]]
+        expected = {
+            "stable_key": reference["id"],
+            "room_id": int(rooms[reference["room_id"]]["id"]),
+            "domain_kind": DOMAIN_KINDS[reference["domain_kind"]],
+            "map_entrance": reference["map_entrance"],
+            "selection_policy": reference["selection_policy"],
+            "source_primary_condition_key": reference[
+                "source_primary_condition_key"
+            ],
+            "name_en": reference["name_en"],
+            "name_zh_cn": reference["name_zh_cn"],
+            "summary_en": reference["summary_en"],
+            "summary_zh_cn": reference["summary_zh_cn"],
+        }
+        actual = {field: authored[field] for field in expected}
+        if actual != expected:
+            raise ValueError(
+                f"{reference['id']}: Excel encounter pool differs from public source"
+            )
+
+        pool_id = int(authored["id"])
+        authored_groups = sorted(
+            groups_by_pool.get(pool_id, []), key=lambda row: int(row["sequence"])
+        )
+        expected_groups = [
+            {
+                "pool_id": pool_id,
+                "sequence": sequence,
+                "condition_key": item["condition_key"],
+                "group_id": int(groups[item["group_id"]]["id"]),
+                "weight_decimal": item["weight"],
+            }
+            for sequence, item in enumerate(reference["weighted_group_ids"], start=1)
+        ]
+        if authored_groups != expected_groups:
+            raise ValueError(
+                f"{reference['id']}: weighted encounter bindings differ from source"
+            )
+        authored_fixed = sorted(
+            fixed_by_pool.get(pool_id, []), key=lambda row: int(row["sequence"])
+        )
+        expected_fixed = [
+            {
+                "pool_id": pool_id,
+                "sequence": sequence,
+                "condition_key": item["condition_key"],
+                "source_content_id": item["source_content_id"],
+            }
+            for sequence, item in enumerate(
+                reference["fixed_content_entries"], start=1
+            )
+        ]
+        if authored_fixed != expected_fixed:
+            raise ValueError(
+                f"{reference['id']}: fixed encounter bindings differ from source"
+            )
+
+    fixtures = keyed(rows(evidence["UniverseReviewFixture"]), "stable_key")
+    selected_fixtures = [fixtures[key] for key in partition["fixture_ids"]]
+    check_audits(partition, evidence)
+    return {
+        "UniverseEncounterPool": selected_pools,
+        "UniverseEncounterPoolGroup": selected_groups,
+        "UniverseEncounterPoolFixed": selected_fixed,
+        "UniverseReviewFixture": selected_fixtures,
     }
 
 
@@ -192,9 +315,9 @@ def build(partition_id: str) -> dict[str, Any]:
         partition is None
         or partition["mechanic_family"]
         != "enemies-encounters-worlds-difficulty-carry"
-        or partition["lane"] != "domain-graph"
+        or partition["lane"] not in {"domain-graph", "encounter-selection"}
     ):
-        raise ValueError(f"{partition_id}: world author currently supports domain-graph")
+        raise ValueError(f"{partition_id}: unsupported world-structure partition")
 
     universe = load_workbook(DATA / "Universe.xlsx", read_only=True, data_only=False)
     bindings = load_workbook(
@@ -203,20 +326,37 @@ def build(partition_id: str) -> dict[str, Any]:
     evidence = load_workbook(
         DATA / "UniverseEvidence.xlsx", read_only=True, data_only=False
     )
-    selected = build_domain_partition(partition, universe, bindings, evidence)
-    selected_ids = {
-        int(row["id"]) for row in selected["UniverseDomain"]
+    selected = (
+        build_domain_partition(partition, universe, bindings, evidence)
+        if partition["lane"] == "domain-graph"
+        else build_encounter_partition(partition, universe, bindings, evidence)
+    )
+    domain_ids = {
+        int(row["id"]) for row in selected.get("UniverseDomain", [])
+    }
+    pool_ids = {
+        int(row["id"]) for row in selected.get("UniverseEncounterPool", [])
     }
     for table, selected_rows in selected.items():
         exported = sora_rows(table)
         if table == "UniverseDomain":
             keys = {row["stable_key"] for row in selected_rows}
             exported = [row for row in exported if row.get("stable_key") in keys]
-        else:
+        elif table == "UniverseActivityDomainBinding":
             exported = [
-                row for row in exported if int(row.get("domain_id", -1)) in selected_ids
+                row for row in exported if int(row.get("domain_id", -1)) in domain_ids
             ]
-        if digest(selected_rows) != digest(exported):
+        elif table == "UniverseEncounterPool":
+            keys = {row["stable_key"] for row in selected_rows}
+            exported = [row for row in exported if row.get("stable_key") in keys]
+        elif table in {"UniverseEncounterPoolGroup", "UniverseEncounterPoolFixed"}:
+            exported = [
+                row for row in exported if int(row.get("pool_id", -1)) in pool_ids
+            ]
+        elif table == "UniverseReviewFixture":
+            keys = {row["stable_key"] for row in selected_rows}
+            exported = [row for row in exported if row.get("stable_key") in keys]
+        if digest(table, selected_rows) != digest(table, exported):
             raise ValueError(f"{partition_id}: Sora {table} rows differ from Excel")
 
     return {
@@ -227,7 +367,7 @@ def build(partition_id: str) -> dict[str, Any]:
         "rule_ids": partition["rule_ids"],
         "fixture_ids": partition["fixture_ids"],
         "tables": {
-            table: {"rows": len(values), "semantic_sha256": digest(values)}
+            table: {"rows": len(values), "semantic_sha256": digest(table, values)}
             for table, values in selected.items()
         },
     }
