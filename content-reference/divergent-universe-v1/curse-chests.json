@@ -1,0 +1,3393 @@
+[
+  {
+    "id": "divergent-universe.curse-chest.1001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 1001 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1001 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "0",
+        "sha256": "01d4369c4f1311bfe933ac4a2571dde8ecbd84cf26d017687bf1746778b0c218",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "12",
+        "sha256": "0b3400d09ce91218539b4d9c7e900738ea384d2a9423d5e8992c45bb68c04ae9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1001",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 1002 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1002 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "1",
+        "sha256": "f691a914300153669d40e31ad28cd6182acf54f2cf3f505279852e55f240881f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "13",
+        "sha256": "75938b874f8dffb77fa64f78468a0bb1017a08bb1421a5bf3cac1e1483ca8a5e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1002",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "50",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "50",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 1003 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1003 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "2",
+        "sha256": "3abaa10e6c8eb1299a2da41ca4d732a829eea4dddea958b15d04bf1b0cc2bb86",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "14",
+        "sha256": "449e66431b069b96cebb213737c5ef71bde761ed6201c4e0403bde62add2dc43",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1003",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1006",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 1006 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1006 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "3",
+        "sha256": "360e37e6a5eaa9f9f3bf5a0ea4627c057b40aec3119696c2d3b51207c52d60ab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "15",
+        "sha256": "7854a288117c4938ea1d16676aaa1da9f5c3c73bef1020ac2e1f6a4346b95ea6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1006",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1007",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 1007 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1007 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "4",
+        "sha256": "b94a908a8dd66aaad8a03acdff882f7a2d6ad08092818912972b64393ee2cf3c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "16",
+        "sha256": "cac09edcee105358b9df7befec072245df283c7f5d2bb966e2de0e37bd9dbfeb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1007",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1008",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 1008 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1008 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "5",
+        "sha256": "1c8c2980ffcbe0429d0b6c47257c3aa137c5a1676df04fc094da22c2417eeb09",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "17",
+        "sha256": "c4a1450b4518fcda328a0eff8f7f6d4196a421423e2df80338d4d661a73c71f4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1008",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "100",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.1009",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Overwrite up to #1 random Blessing(s)",
+    "name_zh_cn": "覆写最多#1个随机祝福",
+    "summary_en": "Treasure chest 1009 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 1009 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "6",
+        "sha256": "dd8404059fb985f149962d052643974af505acf7b7beaf41e1d0a2fa3ceb452f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "11",
+        "sha256": "48008bdba8a5b86d37c4719454c9a05af561a178e09783ffeccac2c39594d883",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "18",
+        "sha256": "552619184d607b359ea814d2a9ee2de9d33d1867a9af2fafb71d1b30910bf50d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "1009",
+    "chest_type": "Treasure",
+    "parameters": [
+      "5",
+      "",
+      "1",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "OverwriteRandomBlessings",
+        "maximum_count": "5",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomEquations",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 21001 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21001 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "7",
+        "sha256": "6962e6f01c30899c21bcdf56a565b3a41db001aca8920b07acd79c67f978218c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "12",
+        "sha256": "0b3400d09ce91218539b4d9c7e900738ea384d2a9423d5e8992c45bb68c04ae9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21001",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 21002 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21002 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "8",
+        "sha256": "5634b60b0f91d6eba0ccec89329a06f0928505683867f46cf2e20fcb6e2cd98f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "13",
+        "sha256": "75938b874f8dffb77fa64f78468a0bb1017a08bb1421a5bf3cac1e1483ca8a5e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21002",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "50",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "50",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 21003 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21003 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "9",
+        "sha256": "5d3afe8c5537ab31452ce96a9d88682d16c31eb9395ad57f0dffd5da62531041",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "14",
+        "sha256": "449e66431b069b96cebb213737c5ef71bde761ed6201c4e0403bde62add2dc43",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21003",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21006",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 21006 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21006 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "10",
+        "sha256": "befb11c3eb6f73610d2fc23932cfe0f07c49ab9ad2ffa1623213fd21309fdd2c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "15",
+        "sha256": "7854a288117c4938ea1d16676aaa1da9f5c3c73bef1020ac2e1f6a4346b95ea6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21006",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21007",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 21007 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21007 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "11",
+        "sha256": "b30e4532d26487e02355f8c80c170f011a5deb486d177defe185dddcde8a8d45",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "16",
+        "sha256": "cac09edcee105358b9df7befec072245df283c7f5d2bb966e2de0e37bd9dbfeb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21007",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21008",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 21008 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21008 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "12",
+        "sha256": "cb68ab7ae6e9bdef9950b455aea1da1d650d65fe394541d1fda43ff8394d2e6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "17",
+        "sha256": "c4a1450b4518fcda328a0eff8f7f6d4196a421423e2df80338d4d661a73c71f4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21008",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "100",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21009",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Overwrite up to #1 random Blessing(s)",
+    "name_zh_cn": "覆写最多#1个随机祝福",
+    "summary_en": "Treasure chest 21009 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 21009 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "13",
+        "sha256": "b7b00a037825cf445a6f8966ecacfb208deed5b71d9630164c58e358050eb2da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "11",
+        "sha256": "48008bdba8a5b86d37c4719454c9a05af561a178e09783ffeccac2c39594d883",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "18",
+        "sha256": "552619184d607b359ea814d2a9ee2de9d33d1867a9af2fafb71d1b30910bf50d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "21009",
+    "chest_type": "Treasure",
+    "parameters": [
+      "5",
+      "",
+      "1",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "OverwriteRandomBlessings",
+        "maximum_count": "5",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomEquations",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21010",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21010 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21010 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "14",
+        "sha256": "fb5ffc373cd30871df163125b48e34f56c740d244dad65ae8eed58acc5a998d4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "22",
+        "sha256": "ccfda3dca0a9e8100a133cf344496e3db9a56be109ff264967efbbd8d8d0bc11",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21010",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Destruction",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Sky"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21011",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21011 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21011 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "15",
+        "sha256": "a392b272009717d6b2117549aa36c7c164df82a01d67be291628696004568d31",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "23",
+        "sha256": "20c49a977066622cb8a3b1f4fb841b874f06f1d19d9bcc9d89e8d05110afbc03",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21011",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Nihility",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Death"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21012",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21012 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21012 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "16",
+        "sha256": "650cd4fbf3892db256c92fa4efb9e635ff9c3b6af810ed41b17570e705255d05",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "24",
+        "sha256": "4125866092b1280ac66efbfe6e5ecfa2d3543d1c310233bd56030f515d6c0c34",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21012",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Elation",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Trickery"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21013",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21013 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21013 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "17",
+        "sha256": "343814ac4e3a26a456e255f3b6f19e6fec1b7491667eba530144eaa8ce55c2e4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "25",
+        "sha256": "35b0a06e6911ecb999fe9603db365ac633ff1871844fa09cf77f889c5c5b7623",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21013",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "TheHunt",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Strife"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21014",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21014 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21014 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "18",
+        "sha256": "adf5f5487035db4afbe9853ca445b7d1dfc6aec1fb7fa73e14ceca7c8b567ed3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "26",
+        "sha256": "ad782baf300b7869375af9805280d9768cf7bfd74ee633d0aaa5aaa501a7a314",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21014",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Remembrance",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Time"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21015",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21015 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21015 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "19",
+        "sha256": "be154bfec2643a5d472560350a54d6d62e5d39922f981df34da53578cf19e9f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "27",
+        "sha256": "ca50c43d8b0c9df0dd4c62f5c686ce158c1b91f8682c8818378e4d14a0a2f206",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21015",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Propagation",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Romance"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21016",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21016 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21016 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "20",
+        "sha256": "bf120be17515240596391f99e69fbbbf9b6e6960547167671599e205d09f3fa0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "28",
+        "sha256": "f0c1b3cf7a060df6bd8a011e508cf81363329751d4cdc1c40831b807a95be596",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21016",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Harmony",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Passage"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.21017",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Receive the Titans' Benediction",
+    "name_zh_cn": "接受泰坦的赐福",
+    "summary_en": "Fountain chest 21017 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Fountain 宝箱 21017 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "21",
+        "sha256": "911a9f0a0dcfdcc4d2866b1701d454ae276d3e69c1278fac18109d283f144ddd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "19",
+        "sha256": "f70683e1bcde712df1b7c5847736ec2ef3a969f4de29cbb20f6a1648eabafcb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "29",
+        "sha256": "37fdd28cf2f0997517c73fdde248ec974fb25719222474f0a29da951c0746761",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "20",
+        "sha256": "4197a61ebe55440078b3464732729720602baa474cfdb9b222c2e124c5911240",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "21",
+        "sha256": "8f411eedde3b1c25af2bf7f09000fe3153a15447cb1e67b7ee2359f47a0e4030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "fountain"
+    ],
+    "source_id": "21017",
+    "chest_type": "Fountain",
+    "parameters": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "ReplaceAllEquationsAndBlessings",
+        "preferred_path": "Erudition",
+        "weights": "Unspecified"
+      },
+      {
+        "operation": "GainBenedictionShard",
+        "shard": "Reason"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 31001 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31001 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "22",
+        "sha256": "395e9056173577f16fa47dc73a188c0c3fbed1b685095993d1bcc32f86709290",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "12",
+        "sha256": "0b3400d09ce91218539b4d9c7e900738ea384d2a9423d5e8992c45bb68c04ae9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31001",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 31002 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31002 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "23",
+        "sha256": "d128e6dfe01612988e44885277044e528488e7d73b094c160829dadceecc0179",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "13",
+        "sha256": "75938b874f8dffb77fa64f78468a0bb1017a08bb1421a5bf3cac1e1483ca8a5e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31002",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "50",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "50",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Obtain #1 random Negative Curio \"Absolute Failure Prescription\"",
+    "name_zh_cn": "获得#1个随机负面效果的奇物：绝对失败处方",
+    "summary_en": "Treasure chest 31003 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31003 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "24",
+        "sha256": "ba3a6aca6ccd0baa97250d75231ed1cef6e6fea8481bf7883b7104ab90c95705",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "9",
+        "sha256": "244df3390742d97bf47073cddd031eeb277662acb9fa465165829a8bb560ab41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "14",
+        "sha256": "449e66431b069b96cebb213737c5ef71bde761ed6201c4e0403bde62add2dc43",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31003",
+    "chest_type": "Treasure",
+    "parameters": [
+      "1",
+      "",
+      "1",
+      "3"
+    ],
+    "choice_program": [
+      {
+        "operation": "GainRandomNegativeCurio",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "minimum": "1",
+        "maximum": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31006",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 31006 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31006 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "25",
+        "sha256": "8a10b3a3cb8e138d9b20700f9a3743e8cdc7afeee8cac751c2797a512a4fdef3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "15",
+        "sha256": "7854a288117c4938ea1d16676aaa1da9f5c3c73bef1020ac2e1f6a4346b95ea6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31006",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomCurios",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31007",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 31007 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31007 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "26",
+        "sha256": "6663847fb0d8152c1192f2ff0f177b92a9df50da6796ef7239a58fa42c8f69a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "16",
+        "sha256": "cac09edcee105358b9df7befec072245df283c7f5d2bb966e2de0e37bd9dbfeb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31007",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "3",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainRandomBlessings",
+        "count": "3",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31008",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Lose #1–#2 Cosmic Fragments",
+    "name_zh_cn": "失去#1~#2宇宙碎片",
+    "summary_en": "Treasure chest 31008 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31008 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "27",
+        "sha256": "109b1f32d63f16dfb6e8046b1a21d66314f440d13eaf4addf3b25b717f6c9228",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "10",
+        "sha256": "c9b1da2ba214a02626268fc4d941a76b479cc151443b50832f640a19736c5ecc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "17",
+        "sha256": "c4a1450b4518fcda328a0eff8f7f6d4196a421423e2df80338d4d661a73c71f4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31008",
+    "chest_type": "Treasure",
+    "parameters": [
+      "100",
+      "500",
+      "100",
+      "500"
+    ],
+    "choice_program": [
+      {
+        "operation": "LoseCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "GainCosmicFragments",
+        "minimum": "100",
+        "maximum": "500"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.curse-chest.31009",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurseChest",
+    "name_en": "Overwrite up to #1 random Blessing(s)",
+    "name_zh_cn": "覆写最多#1个随机祝福",
+    "summary_en": "Treasure chest 31009 publishes 3 ordered choice operation(s); random pools remain unresolved.",
+    "summary_zh_cn": "Treasure 宝箱 31009 发布 3 个有序选择操作；随机池仍未解析。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "28",
+        "sha256": "97e8611ccc3761ce849d12dd32e7e37602c6082b01951f84165cd60f17ed341d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "11",
+        "sha256": "48008bdba8a5b86d37c4719454c9a05af561a178e09783ffeccac2c39594d883",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "18",
+        "sha256": "552619184d607b359ea814d2a9ee2de9d33d1867a9af2fafb71d1b30910bf50d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "7",
+        "sha256": "92e8bb18c724d545a73c7da9179ca61352f219b8e5da61eec1708cc6dbf1eda0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncontentdisplay-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournContentDisplay.json",
+        "locator": "8",
+        "sha256": "0b8746db8953c059f3106306dcf7600c7f4b8e4ccdefe63e3588469390523d19",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.curse-chest-random-pools",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "curse-chest-random-pools",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Curse Chest display rows and parameters prove choice operation shapes, but do not publish random candidate IDs, weights or empty-pool behavior.",
+        "replacement_condition": "Replace random candidate fields when P2 pool closure or a released chest program binds exact identities and weights."
+      }
+    ],
+    "tags": [
+      "curse-chest",
+      "treasure"
+    ],
+    "source_id": "31009",
+    "chest_type": "Treasure",
+    "parameters": [
+      "5",
+      "",
+      "1",
+      ""
+    ],
+    "choice_program": [
+      {
+        "operation": "OverwriteRandomBlessings",
+        "maximum_count": "5",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "GainRandomEquations",
+        "count": "1",
+        "pool": "Unspecified"
+      },
+      {
+        "operation": "LeaveWithoutMutation"
+      }
+    ],
+    "fallback": "LeaveWithoutMutation",
+    "runtime_lowered": false
+  }
+]

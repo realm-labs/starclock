@@ -1,0 +1,98 @@
+[
+  {
+    "id": "divergent-universe.currency.cosmic-fragment",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurrency",
+    "name_en": "Cosmic Fragment",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Run-scoped currency appears in exact Curse Chest gain/loss operations; the complete lifecycle is deferred.",
+    "summary_zh_cn": "局内货币出现在精确的诅咒宝箱获得/失去操作中；完整生命周期延后闭包。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourncursechest-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournCurseChest.json",
+        "locator": "1",
+        "sha256": "f691a914300153669d40e31ad28cd6182acf54f2cf3f505279852e55f240881f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal11.project-policy.service-currency-reset",
+        "repository": "starclock",
+        "revision": "starclock.divergent-universe-normalized-schema.v1",
+        "path": "content-manifests/divergent-universe-v1/normalized-schema.json",
+        "locator": "service-currency-reset",
+        "sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Workbench Heat reset is explicit, while the selected service rows do not publish a complete Cosmic Fragment gain/spend/reset ledger.",
+        "replacement_condition": "Replace Cosmic Fragment lifecycle fields after P2-B4 closes all reachable services and currency operations."
+      }
+    ],
+    "tags": [
+      "currency",
+      "lifecycle-incomplete",
+      "run"
+    ],
+    "scope": "Run",
+    "gain_rules": [
+      "CurseChest",
+      "GambleCoinUnit"
+    ],
+    "spend_rules": [
+      "CurseChest",
+      "OtherServicesDeferredToP2B4"
+    ],
+    "reset_rule": "RunEnd",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.currency.workbench-heat",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseCurrency",
+    "name_en": "Workbench Heat",
+    "name_zh_cn": "工作台热量",
+    "summary_en": "Workbench-local Heat is consumed to enhance Blessings and resets for every Workbench.",
+    "summary_zh_cn": "工作台局部热量用于强化祝福，并在每个工作台重置。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetournworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "7e59f8ea49bbae72c3ebe57699ac0bf30082cfb2478c888800c3e7e74b11148e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "currency",
+      "heat",
+      "workbench"
+    ],
+    "scope": "Workbench",
+    "gain_rules": [
+      "Unspecified"
+    ],
+    "spend_rules": [
+      "EnhanceBlessing"
+    ],
+    "reset_rule": "ResetAtEachWorkbench",
+    "runtime_lowered": false
+  }
+]
