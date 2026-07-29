@@ -28,6 +28,8 @@ node tools/swarm-disaster-reference/import-communing-trail.mjs
 node tools/swarm-disaster-reference/verify-communing-trail.mjs
 node tools/swarm-disaster-reference/import-pathstrider.mjs
 node tools/swarm-disaster-reference/verify-pathstrider.mjs
+node tools/swarm-disaster-reference/import-paths.mjs
+node tools/swarm-disaster-reference/verify-paths.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -82,3 +84,11 @@ explicitly names Swarm Disaster: Gold and Gears rows are disabled and
 unresolved rows fail closed until an exact Swarm consumer binds them. Chapter
 rows retain only plane, Communing threshold and declared bonus status; no story
 or missing bonus payload is inferred.
+
+The Path-system partition binds the eight released Swarm Paths to shared
+Standard identities, including Propagation but excluding Erudition. It retains
+32 shared Resonances/Formations, eight exact Path boost ability locators,
+six run-start Trailblaze Bonuses and all 16 released 3+3 Resonance Interplays.
+Distinct-blessing threshold counting and Activity commit boundaries are
+replaceable `ProjectPolicy`; exact modifier bindings, parameters, bonus values,
+ordered operations, unlock IDs and Path extra-effect locators remain separate.

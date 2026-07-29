@@ -1,0 +1,1617 @@
+[
+  {
+    "id": "swarm-disaster.resonance-interplay.1232501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Nullifying Ardor",
+    "name_zh_cn": "回响交错：旃檀薪尽",
+    "summary_en": "Resonance Interplay: Nullifying Ardor unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612325.",
+    "summary_zh_cn": "回响交错：旃檀薪尽在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612325。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "6",
+        "sha256": "aa81e627b5bd8030b0d79ba3cbaff2b08416c3a4e4c402d11e1689409c03e5b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "61",
+        "sha256": "959241a5553e9f003153345af781ce48ee082403c4258911135162e25b5a25fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "39",
+        "sha256": "3efe4c21d11b51dca54e6acae60dd4611d5f946a46d10500ae967a8b72afb615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.331",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "331",
+        "sha256": "1a0708820925ed5c2f2f4792f23bc374393a572102de79ac51122daaeca8a784",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1232501",
+    "main_path_id": "universe.path.abundance",
+    "sub_path_id": "universe.path.nihility",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12322",
+      "maze_buff_id": "612325",
+      "modifier_name": "ADV_StageAbility_612325",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612325",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.15"
+        },
+        {
+          "index": 2,
+          "value": "0.5"
+        },
+        {
+          "index": 3,
+          "value": "2"
+        },
+        {
+          "index": 4,
+          "value": "2"
+        }
+      ],
+      "source_description_sha256_en": "095775263a77fd5182350fe709fe19d5a6710e83db7fc27e1523d46fc319a299",
+      "source_description_sha256_zh_cn": "12e94833819ffc638f016cd9bea4e72a68283cb8a50a19cbb8fe7c50bca84a4f"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1232501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1232401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Mountain High",
+    "name_zh_cn": "回响交错：先照高山",
+    "summary_en": "Resonance Interplay: Mountain High unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612324.",
+    "summary_zh_cn": "回响交错：先照高山在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612324。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "7",
+        "sha256": "e332df200e7e07fe37f152f8b9fc2e047bf3206431ddcae2985afe37a8e6d13f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.60",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "60",
+        "sha256": "be574058fad324821d14984c41086acb4f8bc2f6cf1dd106a32db89c0d8a962c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.38",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "38",
+        "sha256": "98513f95e94bb0a501a3c40c5ba859e472c148308dbd2578286abf0fb2f5dc41",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.330",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "330",
+        "sha256": "79a0fb23c20a3e068eb88dfcdd3c84116f516e5623021c03769cf6967b41cdb7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1232401",
+    "main_path_id": "universe.path.abundance",
+    "sub_path_id": "universe.path.propagation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12321",
+      "maze_buff_id": "612324",
+      "modifier_name": "ADV_StageAbility_612324",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612324",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.3"
+        },
+        {
+          "index": 2,
+          "value": "2"
+        },
+        {
+          "index": 3,
+          "value": "2"
+        }
+      ],
+      "source_description_sha256_en": "c3b05aabfcecdcb013b47648da92336f47a4761f886fd91ea88b1a239f6c0468",
+      "source_description_sha256_zh_cn": "a0bebe6ac6f9097641d72d4c384fa2411b964a31b297211ce5dbf0ab2d34d062"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1232401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1252501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Zero Age Main Sequence",
+    "name_zh_cn": "回响交错：零龄主序",
+    "summary_en": "Resonance Interplay: Zero Age Main Sequence unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612525.",
+    "summary_zh_cn": "回响交错：零龄主序在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612525。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "11",
+        "sha256": "25e4a9efa2fa9b5ed775333dd2cfb8f7fd3beba42f5d7cbfb225e8f7bf1e9786",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.93",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "93",
+        "sha256": "30a736c8221f6db38fdd73bed819f58ecb9dbd91319ee05ba0f0354a82b2b5e6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.55",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "55",
+        "sha256": "f82236595ffb37886c4971bfcd8d23e5a2415dd21f52b369eaa61f502d27aa22",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.335",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "335",
+        "sha256": "dda876e8c3c358dad6c8acd7b8b0f9beebb60f0bff37d982e27018f8057a24b9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1252501",
+    "main_path_id": "universe.path.destruction",
+    "sub_path_id": "universe.path.elation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12522",
+      "maze_buff_id": "612525",
+      "modifier_name": "ADV_StageAbility_612525",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612525",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.05"
+        },
+        {
+          "index": 2,
+          "value": "0.5"
+        },
+        {
+          "index": 3,
+          "value": "0.05"
+        }
+      ],
+      "source_description_sha256_en": "8abbdb5ae519b67d48b134035bb964a8fda933ba3e9ebe092228db8e93657bb5",
+      "source_description_sha256_zh_cn": "af90ad698cfa00b425b8c8b7a4ce762d1010f4aab15a90eeee8679890dcfa389"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1252501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1252401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Substellar Belt",
+    "name_zh_cn": "回响交错：次行星带",
+    "summary_en": "Resonance Interplay: Substellar Belt unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612524.",
+    "summary_zh_cn": "回响交错：次行星带在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612524。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "10",
+        "sha256": "a6e997fa3572e114ef443e36e118cb7cbb2d9430676cf24d5732086a8a200af1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.92",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "92",
+        "sha256": "7a0835233a9b8b6433fa7d52056b4805a8726d36b548ab1198841368cc00a3f9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.54",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "54",
+        "sha256": "7050a6e7bbbb1036733f78cb3c3226720889718693c3086dc5a7c7ab333da3ac",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.334",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "334",
+        "sha256": "ce7adfa3d2d4b9654abf3c4c72a309dd7590e955847fd1474873b51db972d11d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1252401",
+    "main_path_id": "universe.path.destruction",
+    "sub_path_id": "universe.path.preservation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12521",
+      "maze_buff_id": "612524",
+      "modifier_name": "ADV_StageAbility_612524",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612524",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.5"
+        },
+        {
+          "index": 2,
+          "value": "0.4"
+        },
+        {
+          "index": 3,
+          "value": "2"
+        }
+      ],
+      "source_description_sha256_en": "04de1913ccb6a0b36685338e3a507d899c2888e5e77e4f9bee1153c3ec35037a",
+      "source_description_sha256_zh_cn": "9e1592f86ea66917dae0c374a7c3267c993ddb8aa57d4b855c2378666d1a956d"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1252401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1262401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: The Taste of Anglerfish",
+    "name_zh_cn": "回响交错：安康鱼之味",
+    "summary_en": "Resonance Interplay: The Taste of Anglerfish unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612624.",
+    "summary_zh_cn": "回响交错：安康鱼之味在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612624。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "13",
+        "sha256": "f7c8471568a21308023559d0ccfc3d7e71f2de50feeb730d6909d81c98be9d84",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.108",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "108",
+        "sha256": "50b54a37c830f5cc059e9ad7c3cc0e85146b30e0ed1e0fd3ede32812d0a397e5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.62",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "62",
+        "sha256": "c3c6e8b67b08cd5278bcdeb8f0aa6514dc7f8ecfa38e4256297a9b6409396c34",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.336",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "336",
+        "sha256": "a838dab795ebbc8988866b1c13b8d0177627217246647e72f9e60e3c79cb375a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1262401",
+    "main_path_id": "universe.path.elation",
+    "sub_path_id": "universe.path.abundance",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12621",
+      "maze_buff_id": "612624",
+      "modifier_name": "ADV_StageAbility_612624",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612624",
+      "parameters": [],
+      "source_description_sha256_en": "ad8dbf171ae98b4944c721c795a92fc8d011cdf0dfd16d7929cd0a58e9b39ce4",
+      "source_description_sha256_zh_cn": "b634002516012bd971bae748ab8405a6e7623840cf25b2594026902efb0e7a87"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1262401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1262501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Guinea Pig in Ice Coffin",
+    "name_zh_cn": "回响交错：冰棺与豚鼠",
+    "summary_en": "Resonance Interplay: Guinea Pig in Ice Coffin unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612625.",
+    "summary_zh_cn": "回响交错：冰棺与豚鼠在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612625。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "12",
+        "sha256": "f361f5cd58b73f1bd3cda42ce653f53b467bf0374295f25ea589d1159c276f96",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.109",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "109",
+        "sha256": "79c21e9c035172cf4f1f25279acfb9af773aa6b62af86cdd146a73d049832461",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.63",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "63",
+        "sha256": "971280e302adf947c50d2be90baa8caf7cdfc09fbcf392129144eb9bf79b9091",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.337",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "337",
+        "sha256": "534ea5f13934b63eb1c5157c6c4c087ffe56d383d23016791d7f5fef8ed56fed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1262501",
+    "main_path_id": "universe.path.elation",
+    "sub_path_id": "universe.path.remembrance",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12622",
+      "maze_buff_id": "612625",
+      "modifier_name": "ADV_StageAbility_612625",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612625",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "1"
+        }
+      ],
+      "source_description_sha256_en": "f2ce9e1a02e5bff922cf53a8a8322ce0ae133a8333dc5ae86dcc7df88049c5c1",
+      "source_description_sha256_zh_cn": "c8dbd13ccb4452a0a6b167ac53458b154c5cb21db489648940eeaebbedaa87f3"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1262501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1242501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Shooting Starfire",
+    "name_zh_cn": "回响交错：火驰星流",
+    "summary_en": "Resonance Interplay: Shooting Starfire unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612425.",
+    "summary_zh_cn": "回响交错：火驰星流在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612425。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "8",
+        "sha256": "67b9e98dc8fac44cb65755cda80c10f4f8b67d17610752fa49ac79e15858f07c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.77",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "77",
+        "sha256": "a192aaa60037f7a21e04ec6eb0b850cd36fb4370075e2e73d768cda2d1051633",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.47",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "47",
+        "sha256": "51c1050caaaf8beb3f66c2d8789cfe95c3b5d0728204b5f7d3da18b44a92fbaa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.333",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "333",
+        "sha256": "61bbc9e6b87047d1bd5ff14f0039786847598f9f337d52253b23d2708c031927",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1242501",
+    "main_path_id": "universe.path.hunt",
+    "sub_path_id": "universe.path.abundance",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12422",
+      "maze_buff_id": "612425",
+      "modifier_name": "ADV_StageAbility_612425",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612425",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.5"
+        }
+      ],
+      "source_description_sha256_en": "811c599b930177b2b19e84308b60c2299e84fe928994c4cb6ce7e2675c948658",
+      "source_description_sha256_zh_cn": "29bb78ae1e076b234252d188ac387055399f895a337673ea59d87cdd2a098a79"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1242501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1242401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Startling Breeze",
+    "name_zh_cn": "回响交错：足逸惊飙",
+    "summary_en": "Resonance Interplay: Startling Breeze unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612424.",
+    "summary_zh_cn": "回响交错：足逸惊飙在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612424。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "9",
+        "sha256": "edc669c3fdba929da0525e60d69ef9a2c6936b8e3eceb02e75e19b8ea1d05e47",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.76",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "76",
+        "sha256": "bde197c8ce171851622ac55d5f2dfb36c83da4154b5db5008aac84e91e2ada79",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.46",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "46",
+        "sha256": "12bbed4b0a4d2377e3a862405a20d9bffeb31016cabb477ddd3762bb56c11827",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.332",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "332",
+        "sha256": "b0114de9fca55017f35971f5ca9f8b1e3c7a1c112744736cc9e11b7f898be8e5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1242401",
+    "main_path_id": "universe.path.hunt",
+    "sub_path_id": "universe.path.elation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12421",
+      "maze_buff_id": "612424",
+      "modifier_name": "ADV_StageAbility_612424",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612424",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "25"
+        },
+        {
+          "index": 2,
+          "value": "2"
+        }
+      ],
+      "source_description_sha256_en": "0eb923348c627e4c5a3f23abbb0e1e0a94b8a615014f53e4dfcd3be9134e09c8",
+      "source_description_sha256_zh_cn": "bace8940bde845a8016556e84b05d087a00afa424889fc7ab3e232edf1fab7d4"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1242401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1222401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Off the Beaten Track",
+    "name_zh_cn": "回响交错：林中路",
+    "summary_en": "Resonance Interplay: Off the Beaten Track unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612224.",
+    "summary_zh_cn": "回响交错：林中路在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612224。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "4",
+        "sha256": "7e21e3ab92bceea4bc45e914d0cc13b6100a9d003b8a10ee4629d1f7215e8ded",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.44",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "44",
+        "sha256": "54e4b58ecd0af0a90672a08d5a3bc5d5b6f1d10f16bfae5b9386f0ac91130484",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "30",
+        "sha256": "18c77c8692a271ff72ec858473013e76a61f0e3c265ac6f1f83a6d1341a0c1f7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.328",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "328",
+        "sha256": "d9f35821a680898387c06f459dd4f6b7f28d8d2d5518b212cf60387906c8cce7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1222401",
+    "main_path_id": "universe.path.nihility",
+    "sub_path_id": "universe.path.hunt",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12221",
+      "maze_buff_id": "612224",
+      "modifier_name": "ADV_StageAbility_612224",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612224",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.04"
+        }
+      ],
+      "source_description_sha256_en": "690871ae793e00968ab47b5b5a18fec5906130e85fcd17c56872fed5690a284e",
+      "source_description_sha256_zh_cn": "e68956c6c4b25ced6514482618cadced2be61fb04c02c29497beca90db982813"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1222401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1222501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: White Nights",
+    "name_zh_cn": "回响交错：白夜",
+    "summary_en": "Resonance Interplay: White Nights unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612225.",
+    "summary_zh_cn": "回响交错：白夜在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612225。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "5",
+        "sha256": "1ab4f2a05a41133e3a11dd4ee436be93a1c72582111318b38a0358f8a18292e1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "45",
+        "sha256": "6fa934f3a9be9beb9aa06b308ed944a0450c270bf62bdbbc9ace0ae292b7de06",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "31",
+        "sha256": "be976dcc5fc597b0000a8766009bbe70f213da3f72a9c354f4cd1f9e9a7d02ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.329",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "329",
+        "sha256": "a9023f9405ea5b363e2230560dfeaddaae122059db76dfceb4ce2657ff02fdce",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1222501",
+    "main_path_id": "universe.path.nihility",
+    "sub_path_id": "universe.path.propagation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12222",
+      "maze_buff_id": "612225",
+      "modifier_name": "ADV_StageAbility_612225",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612225",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.4"
+        }
+      ],
+      "source_description_sha256_en": "ff1bbf34d3b422d6f145a062a6f412135680e01623a857dbc55e8afc825a97a8",
+      "source_description_sha256_zh_cn": "f1ada9065c028186de1f0c29b2a33586013ded2c4ed5257400608e7d71976374"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1222501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1202401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Spiked Armor",
+    "name_zh_cn": "回响交错：披锋效应",
+    "summary_en": "Resonance Interplay: Spiked Armor unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612024.",
+    "summary_zh_cn": "回响交错：披锋效应在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612024。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "0",
+        "sha256": "608ebf3d05d396eb30fb2667f22d272163057c440738a7a24c19d5562d8beaa5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "12",
+        "sha256": "259a6d1f1fc86f66f79fde931de26bf67082c78121256aeb8e2d156e30c19d20",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "14",
+        "sha256": "b1270566b9b334ea1a45adc55db21fa2dea7e0fd882af11047914c52c1f269c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.324",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "324",
+        "sha256": "091a2dbfed0744118daa144c434546a5fba9410cfc5182fac0a5978d4f857bed",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1202401",
+    "main_path_id": "universe.path.preservation",
+    "sub_path_id": "universe.path.nihility",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12021",
+      "maze_buff_id": "612024",
+      "modifier_name": "ADV_StageAbility_612024",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612024",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "2"
+        },
+        {
+          "index": 2,
+          "value": "0.12"
+        },
+        {
+          "index": 3,
+          "value": "2.5"
+        }
+      ],
+      "source_description_sha256_en": "8d25e3ab14ef0bcba097f68a21df37a9f5c4939a5311ca285c77bd831e37fe05",
+      "source_description_sha256_zh_cn": "f174bc9b4709dad415e89314db5eebba0ebb9eaff9c5b787c587ecf839261e8d"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1202401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1202501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Cold Snap",
+    "name_zh_cn": "回响交错：冷脆现象",
+    "summary_en": "Resonance Interplay: Cold Snap unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612025.",
+    "summary_zh_cn": "回响交错：冷脆现象在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612025。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "1",
+        "sha256": "5b4c0d212f0dd743d238b8aacdb7167fc9ec61ad3d928521dac4446d0f6e63bc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "13",
+        "sha256": "97cbe722fc5a884618bd7c16d9ac317d414eea572dcc98ee181211b2d6cbea89",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "15",
+        "sha256": "caa323719607502939f8e8cf6886c52acfcc0c7d359a7ffe01c283dd0965a117",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.325",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "325",
+        "sha256": "a9e317bb62ddfc2657cac43f7b2d643d7156eae8d9ad5b11fbbb87bee1f5cebe",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1202501",
+    "main_path_id": "universe.path.preservation",
+    "sub_path_id": "universe.path.remembrance",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12022",
+      "maze_buff_id": "612025",
+      "modifier_name": "ADV_StageAbility_612025",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612025",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.8"
+        }
+      ],
+      "source_description_sha256_en": "87b30cf2904acfdd137c1fb453bb40e49312c84f78fd2667f5bc63fb479674e9",
+      "source_description_sha256_zh_cn": "82765d058e827dff869e80d7015499ad8a00423e24b3c52c7e86b365080a0d41"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1202501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1272401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Superposition Eye",
+    "name_zh_cn": "回响交错： 重叠象眼",
+    "summary_en": "Resonance Interplay: Superposition Eye unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612724.",
+    "summary_zh_cn": "回响交错： 重叠象眼在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612724。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "15",
+        "sha256": "d305f92fe8200ae35028267dc7ac92094f6d2cae86c5511549c14d827dee66ff",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.124",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "124",
+        "sha256": "f8917544361fa6e1acec806d201c9de5a89f371d2433ad77548b27d1831224d6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.70",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "70",
+        "sha256": "01ef0bcd9008626c10011a4c4f78fdb79f34c8e739eb30730c901e9f8563f3be",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.338",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "338",
+        "sha256": "7cfe29daa6d4a1da8484f29ae86e1e74a21efdc72dfe1d0ebb3e2e97c7924bba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1272401",
+    "main_path_id": "universe.path.propagation",
+    "sub_path_id": "universe.path.destruction",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12721",
+      "maze_buff_id": "612724",
+      "modifier_name": "ADV_StageAbility_612724",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612724",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.5"
+        },
+        {
+          "index": 2,
+          "value": "1"
+        }
+      ],
+      "source_description_sha256_en": "a9014a877f22c9e6cfcea60190b63ac39195dce72eae94e70bf61536c352a0f9",
+      "source_description_sha256_zh_cn": "b1c906dcbcd4749d9bdd91b72274c6632b574422792171f8e1d92dd4e0b997a3"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1272401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1272501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Adherent Microbial Mat",
+    "name_zh_cn": "回响交错： 附着菌毯",
+    "summary_en": "Resonance Interplay: Adherent Microbial Mat unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612725.",
+    "summary_zh_cn": "回响交错： 附着菌毯在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612725。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "14",
+        "sha256": "e3da4bb590ce6e73e611d67ffa3ea0283b512908f3e3aa487e8136895e339c04",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.125",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "125",
+        "sha256": "1cee8b5399eda5eb629d30e7a9e8f5428442387f3155d731a1d3de068f95e686",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.71",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "71",
+        "sha256": "3638fa30b20c1df799d43bf5eeb335f57ac73b153f59ba906651dbf23e31bba2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.339",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "339",
+        "sha256": "8b92d0f2af566569505604be7627b5a91ebc92327d322a35f806775267d99256",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1272501",
+    "main_path_id": "universe.path.propagation",
+    "sub_path_id": "universe.path.preservation",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12722",
+      "maze_buff_id": "612725",
+      "modifier_name": "ADV_StageAbility_612725",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612725",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.6"
+        },
+        {
+          "index": 2,
+          "value": "3"
+        }
+      ],
+      "source_description_sha256_en": "33d2bd7d28ca6f7ccffb747880e3d59de9f5ced820b230da6b05511bbe2f51d9",
+      "source_description_sha256_zh_cn": "14e56af9a4d3d9aaaa04abba37d879f4a85282b2d18263a4d8151b289895872e"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1272501"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1212401",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Faces Places",
+    "name_zh_cn": "回响交错：脸庞，村庄",
+    "summary_en": "Resonance Interplay: Faces Places unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612124.",
+    "summary_zh_cn": "回响交错：脸庞，村庄在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612124。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "3",
+        "sha256": "1f49bf9933dddbb82ae64dceb3b56e7d63fc958cc2af09cb2f77aa0ee36a7a31",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "28",
+        "sha256": "1eb6c5eaf924bc0e8f99aaeb17f3a7fe5bce41972efb5010077291adc445a22f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "22",
+        "sha256": "53dc622a202fba45f78a4a8bbb1fac4690e3f397ab4d14ccd2181e47bf09a41b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.326",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "326",
+        "sha256": "97e613adcdf21b99f4063fda6251cd85c64084926709629989b884cfb3106ec5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1212401",
+    "main_path_id": "universe.path.remembrance",
+    "sub_path_id": "universe.path.destruction",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12121",
+      "maze_buff_id": "612124",
+      "modifier_name": "ADV_StageAbility_612124",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612124",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.15"
+        },
+        {
+          "index": 2,
+          "value": "2"
+        },
+        {
+          "index": 3,
+          "value": "0.0006000004"
+        }
+      ],
+      "source_description_sha256_en": "a3f9d72b626217483ed485c440a151e51be580ce9d5372db254f61dfe8843718",
+      "source_description_sha256_zh_cn": "0d3747dc5cc13034377c35b5e31d2c9b202ec644f018bc2baf514ab8b5302039"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1212401"
+  },
+  {
+    "id": "swarm-disaster.resonance-interplay.1212501",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "ResonanceInterplay",
+    "name_en": "Resonance Interplay: Landscape in the Mist",
+    "name_zh_cn": "回响交错：雾中风景",
+    "summary_en": "Resonance Interplay: Landscape in the Mist unlocks at the released 3+3 Path thresholds and applies modifier ADV_StageAbility_612125.",
+    "summary_zh_cn": "回响交错：雾中风景在已发布的 3+3 命途阈值下解锁，并应用修改器 ADV_StageAbility_612125。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "2",
+        "sha256": "c415ed8f61a56a490f03e97f9df2a96d7a65d3ef17612629edcca868b3315183",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "29",
+        "sha256": "f7abb5365a28ccaa128980814a0c17c31d0369caa02d448898666c60c8d4a74f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "23",
+        "sha256": "83a681dc990a0e1679ce2db773c8b4d64c85f5c3d18305c1ff845a46749579da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.327",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "327",
+        "sha256": "c8567fe9c5571810abeadcd27033c39d3841e74fe7fce17cd7253b019b57fe03",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      }
+    ],
+    "tags": [
+      "battle-projection",
+      "project-policy",
+      "resonance-interplay"
+    ],
+    "source_id": "1212501",
+    "main_path_id": "universe.path.remembrance",
+    "sub_path_id": "universe.path.hunt",
+    "thresholds": {
+      "main_path_blessings": "3",
+      "sub_path_blessings": "3",
+      "comparison": "GreaterEqual",
+      "counting_policy": "DistinctOwnedBlessingIdentity"
+    },
+    "effect_program": {
+      "buff_group_id": "12122",
+      "maze_buff_id": "612125",
+      "modifier_name": "ADV_StageAbility_612125",
+      "binding_type": "StageAbilityBeforeCharacterBorn",
+      "binding_key": "StageAbility_612125",
+      "parameters": [
+        {
+          "index": 1,
+          "value": "0.15"
+        },
+        {
+          "index": 2,
+          "value": "2"
+        }
+      ],
+      "source_description_sha256_en": "11c9c9f335f380b1c9276fed5cf9025e2428073af76fb7ae4fe1a6705e58f7b0",
+      "source_description_sha256_zh_cn": "3925cbd6050b6b8d6b2b7ad4867a84f6e59efdfeaa3fa272da8ab19b7ab1a931"
+    },
+    "application_boundary": "AfterAcceptedBlessingInventoryMutation",
+    "once_scope": "ResonanceInterplay:1212501"
+  }
+]
