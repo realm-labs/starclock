@@ -1,0 +1,318 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "battle-events.json",
+  "record_kind": "BattleEvent",
+  "records": [
+    {
+      "id": "battle-event.30502",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "BattleEvent",
+      "name_en": "Knight countdown event",
+      "name_zh_cn": "骑士倒计时事件",
+      "summary_en": "Knight countdown event owns the stage-local countdown actor and its mechanical ability list.",
+      "summary_zh_cn": "骑士倒计时事件承载关卡局部倒计时参与者及其机械能力列表。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "battle_events:battle-event:30502"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/BattleEventConfig.json",
+          "locator": "BattleEventID=30502",
+          "sha256": "35ea5841c86b7bcb14128510c87c0f40640d885d1da92c27623edf63e0b29304",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig _CreateBattleEvent resolves this exact row."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "StageConfig 30508011 selects battle event 30502."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "StageConfig 30508012 selects battle event 30502."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "StageConfig 30508013 selects battle event 30502."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16601839680787935738",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=16601839680787935738",
+          "sha256": "41fc5987e03f2e1e90648f6c7e85bd619d795c977fe8f162994140e40bd02f48",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact en released action-bar text."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16601839680787935738",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=16601839680787935738",
+          "sha256": "4abc2b32698ea11de6aea6876d190a1898380de49c6dc1627edbe78dc68c2fcd",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact zh_cn released action-bar text."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "countdown",
+        "knight"
+      ],
+      "source_numeric_id": 30502,
+      "team": "TeamNeutral",
+      "event_subtype": "BattleVersusBarWarningEvent",
+      "stage_ids": [
+        "stage.knight-1",
+        "stage.knight-2",
+        "stage.knight-3"
+      ],
+      "source_stage_ids": [
+        "30508011",
+        "30508012",
+        "30508013"
+      ],
+      "mechanical_ability_names": [
+        "BattleEventAbility_SummonMonsterInfinite",
+        "BattleEventAbility_ChallengePeakBattle_CountDown"
+      ],
+      "presentation_only_ability_names": [],
+      "override_properties": {
+        "base_hp": "90",
+        "base_attack": "100",
+        "speed": "100"
+      },
+      "source_parameters": [
+        "0.5",
+        "7",
+        "4",
+        "0.5"
+      ],
+      "action_bar_text_en": "Starting from Cycle 3, at the beginning of each Cycle, all allies enter the \"Middlegame Mayhem\" state, which greatly increases their final DMG dealt. This effect can be stacked.",
+      "action_bar_text_zh_cn": "从第3轮起，每个轮次开始时，我方全体进入【中盘激战】状态，造成的最终伤害大幅提高，该效果可以叠加。",
+      "countdown_program_owner_batch": "G13-P2-B3",
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "battle-event.30503",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "BattleEvent",
+      "name_en": "Normal King countdown event",
+      "name_zh_cn": "常规王棋倒计时事件",
+      "summary_en": "Normal King countdown event owns the stage-local countdown actor and its mechanical ability list.",
+      "summary_zh_cn": "常规王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "battle_events:battle-event:30503"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/BattleEventConfig.json",
+          "locator": "BattleEventID=30503",
+          "sha256": "9949e261bbafb3f34087a11c48718e825b66bd80dd565c55a08daa5116f083d9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig _CreateBattleEvent resolves this exact row."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "StageConfig 30508021 selects battle event 30503."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12468610405161025562",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=12468610405161025562",
+          "sha256": "24949fc93a330681d10f70cac3df27794e8c2ed43f60486d368bf5fe2b551ee1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact en released action-bar text."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12468610405161025562",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=12468610405161025562",
+          "sha256": "b8bec837dfcc6f6a1c19f571ba5b4be0e50a48ed9dbaa6501ea7ae9699005d43",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact zh_cn released action-bar text."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "countdown",
+        "king-normal"
+      ],
+      "source_numeric_id": 30503,
+      "team": "TeamNeutral",
+      "event_subtype": "BattleVersusBarWarningEvent",
+      "stage_ids": [
+        "stage.king-normal"
+      ],
+      "source_stage_ids": [
+        "30508021"
+      ],
+      "mechanical_ability_names": [
+        "BattleEventAbility_SummonMonsterInfinite",
+        "BattleEventAbility_ChallengePeakBattle_CountDown"
+      ],
+      "presentation_only_ability_names": [],
+      "override_properties": {
+        "base_hp": "90",
+        "base_attack": "100",
+        "speed": "100"
+      },
+      "source_parameters": [
+        "0.5",
+        "7",
+        "4",
+        "0.5"
+      ],
+      "action_bar_text_en": "Starting from Cycle 3, at the beginning of each Cycle, all allies enter the \"Middlegame Mayhem\" state, which greatly increases their final DMG dealt. This effect can be stacked.",
+      "action_bar_text_zh_cn": "从第3轮起，每个轮次开始时，我方全体进入【中盘激战】状态，造成的最终伤害大幅提高，该效果可以叠加。",
+      "countdown_program_owner_batch": "G13-P2-B3",
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "battle-event.30504",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "BattleEvent",
+      "name_en": "Plight King countdown event",
+      "name_zh_cn": "困厄王棋倒计时事件",
+      "summary_en": "Plight King countdown event owns the stage-local countdown actor and its mechanical ability list.",
+      "summary_zh_cn": "困厄王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "battle_events:battle-event:30504"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/BattleEventConfig.json",
+          "locator": "BattleEventID=30504",
+          "sha256": "d821a5986b6761345daf7df12f645639817d451563d31851edd7b57a8107905e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active StageConfig _CreateBattleEvent resolves this exact row."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "StageConfig 30508022 selects battle event 30504."
+        }
+      ],
+      "tags": [
+        "battle-event",
+        "countdown",
+        "king-plight"
+      ],
+      "source_numeric_id": 30504,
+      "team": "TeamNeutral",
+      "event_subtype": "BattleVersusBarWarningEvent",
+      "stage_ids": [
+        "stage.king-plight"
+      ],
+      "source_stage_ids": [
+        "30508022"
+      ],
+      "mechanical_ability_names": [
+        "BattleEventAbility_SummonMonsterInfinite",
+        "BattleEventAbility_ChallengePeakBattle_CountDown"
+      ],
+      "presentation_only_ability_names": [
+        "BattleEventAbility_ChallengePeakBattle_HardBossScreenEffect"
+      ],
+      "override_properties": {
+        "base_hp": "90",
+        "base_attack": "100",
+        "speed": "100"
+      },
+      "source_parameters": [
+        "0.5",
+        "3",
+        "0",
+        "0"
+      ],
+      "action_bar_text_en": null,
+      "action_bar_text_zh_cn": null,
+      "countdown_program_owner_batch": "G13-P2-B3",
+      "presentation_assets_included": false,
+      "runtime_executable": false
+    }
+  ]
+}
