@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 2 — Content and encounters |
 | Active batch | None |
-| Next unblocked batch | `G09-P2-B5` |
+| Next unblocked batch | `G09-P2-B6` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -25,7 +25,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot, commit-backed Goal 08 checkpoint, Candidate-only scope, six isolated roots, 2,882-file source closure, 6,963-obligation denominator, 64 normalized file families, four workbooks, reconciliation receipts and 23 fixture families are machine-frozen. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, countdown/Disarray, Audience Dice, Communing Device/Trail, Pathstrider, eight Paths, 32 Resonances/Formations, eight boosts, 16 Interplays and bonuses `101`–`106` are DataReady. |
-| Phase 2 — Content and encounters | `InProgress` | Shared pools, Blessings, Curios, Occurrences, 15 services, four beacon contributions and six abstract Adventure outcomes are DataReady; encounter expansion remains. |
+| Phase 2 — Content and encounters | `InProgress` | Shared pools, Blessings, Curios, Occurrences, services, abstract Adventure outcomes and the complete 81-series encounter expansion are DataReady; mechanic/evidence closure remains. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
@@ -50,7 +50,7 @@
 | `G09-P2-B2` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 198 rows (`2ba79f3b…ca46`, 1,018,662 bytes): 66 handbook identities, their exact 1000-series Swarm copies and one typed lifecycle rule per copy. Ownership closes at 60 shared plus six Swarm-owned identities; pool categories close at 53 Normal, seven Negative and six Error Code. Exact effect/display parameters and source-description digests are retained. Six numeric charge bindings, six three-battle Error Code repair states, Void Wick Trimmer repair and Shining Trapezohedron replacement are typed. Offer-specific filters/weights fail closed; trigger ordering, stable replacement selection and no-candidate no-op remain replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B3 starts. |
 | `G09-P2-B3` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 440 rows (`6504b8fc…a52b`, 1,468,571 bytes): all 75 handbook identities, 57 released Swarm NPC graph variants and 308 ordered choices. Ownership closes at 56 shared plus 19 Swarm-owned identities; 12 variants deliberately bind multiple handbook identities. Graph paths/digests, conditions, 76 cost-bearing choices, 25 gated choices, dynamic displays, parameter vectors, printed percentages and bilingual text digests remain exact. Sixty choices name random behavior without weights; labeled Activity RNG over stable source order, fail-closed candidate pools and owning-offer membership are replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B4 starts. |
 | `G09-P2-B4` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 41 rows (`770eb76b…0a61`, 133,911 bytes): all 15 shared services, one run-scoped Cosmic Fragments record, six released Adventure room bindings and 19 service/beacon rules. Shared service parameters preserve initial `50` fragments and inherited reset/revive/enhance/shop bindings; five Blessing shops, four Curio shops and four prior beacons close exact-once. Purchases are atomic accepted Activity transactions with reject-without-mutation insufficiency and fail-closed offer pools. Adventure action input is excluded: the six rooms accept only validated external `Tier1`/`Tier2`/`Tier3` results and opaque reward payloads until released thresholds/tables exist. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B5 starts. |
-| `G09-P2-B5` | `Pending` | — | Import encounter groups, waves, enemy variants, elite/boss pools and difficulty bindings. |
+| `G09-P2-B5` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 1,596 rows (`3b84b996…d872`, 4,380,808 bytes): the complete 179-group 81-series Swarm namespace, 347 exact StageConfig waves and 1,070 ordered enemy slots. All slots resolve 71 inherited Version 4.4 enemy variants; both displayed boss choices resolve to concrete source slots. Role closure is 103 Combat, 40 Elite, 30 first-plane alternatives, five second-plane alternatives and one final boss. Exact group weights, stage formations and all five formal-area/15-segment schedules are retained. The unpublished room/domain-to-group join and effective area/plane level selection remain fail-closed `ProjectPolicy`; no numeric-ID join is claimed. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B6 starts. |
 | `G09-P2-B6` | `Pending` | — | Generate rules, sources, coverage, research gaps, fixtures and pack index. |
 | `G09-P3-B1` | `Pending` | — | Add isolated topology/domain/countdown/Disarray Sora tables. |
 | `G09-P3-B2` | `Pending` | — | Add dice, Communing Device/Trail and Pathstrider Sora tables. |
@@ -84,7 +84,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Curios/states | 132 | 132 | 132 | All 66 type-130 identities and one exact 1000-series Swarm copy each are DataReady; 60 identities are shared, six are mode-owned and 66 typed lifecycle-rule children sit outside the source denominator. |
 | Occurrences/variants/choices | 132 | 132 | 132 | All 75 type-130 handbook identities and 57 distinct Swarm variants are DataReady; 308 expanded choice rows are typed children outside the source denominator. |
 | Services/beacons/Adventure outcomes | 31 | 31 | 31 | Four reachable beacons, 15 inherited services, six abstract Adventure definitions and six entry bonuses are DataReady; derived currency and service-rule rows are outside the source denominator. |
-| Encounter groups/waves/enemy slots | 863 | 0 | 0 | All 861 room and two displayed-boss parent obligations are frozen; P2-B5 attaches derived groups, waves and enemy slots. |
+| Encounter groups/waves/enemy slots | 863 | 863 | 863 | All 861 room and two displayed-boss parent obligations resolve to the complete derived 81-series expansion: 179 groups, 347 waves, 1,070 slots and 71 inherited enemy variants. |
 | Mechanic rules | 23 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
 | Semantic fixtures | 23 | 0 | 0 | Non-shrinking minimum fixture families; B4 freezes fixture shape and later batches may add cases. |
 
@@ -136,6 +136,8 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Use labeled Activity RNG over stable source order only for choices that say random without released weights. | Exact printed percentages remain factual; hidden candidate weights and incomplete offer pools fail closed with a concrete replacement condition. |
 | 2026-07-29 | Resolve every service purchase as one atomic accepted Activity transaction. | Inherited parameters prove shared prices and effects; debiting before ordered grants with rejection on insufficiency preserves command atomicity while offer construction remains fail closed. |
 | 2026-07-29 | Model Adventure rooms only as validated external three-tier outcomes with opaque reward payloads. | The released DLC table proves room type and parameter group but not action input, thresholds or reward table; excluding movement/aiming/physics prevents unsupported minigame simulation. |
+| 2026-07-29 | Select the complete 81-series RogueMonsterGroup namespace by exact StageConfig event prefix and resolve every stage slot through the frozen Goal 01 enemy catalog. | This yields a reproducible Swarm encounter closure without borrowing Goal 08's 82-series groups or admitting other-mode namespaces. |
+| 2026-07-29 | Preserve exact encounter weights and formal difficulty schedules while failing closed on the unpublished room/domain-to-group and effective-level joins. | Released tables prove group membership, waves, formations, areas and segment values separately; numeric ID structure is not sufficient evidence of the missing engine selection operation. |
 
 ## Research cases
 
@@ -150,8 +152,8 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | `G09-R07` | `PolicyBound` | All 63 Communing Trail thresholds/effects and all 102 finish conditions, 110 unlock rows and 13 chapter locators are bound. Trail predecessors, external quest completion, unlock timing and locator-only chapter consequences remain explicit `ProjectPolicy`; shared DLC applicability fails closed without released Swarm text or an exact consumer. | P1-B7–B8 |
 | `G09-R08` | `PolicyBound` | All eight shared Paths, 32 Resonances/Formations, eight boost abilities, 16 Interplays and exact extra-effect locators are bound. Every Interplay uses released `3+3` thresholds, buff group, modifier and parameters; distinct-blessing counting, mutation-boundary evaluation and once scope remain explicit `ProjectPolicy`. Propagation binds unlock `1000008`; shared charge/action behavior stays referenced by Standard identities. | P1-B9 |
 | `G09-R09` | `PolicyBound` | Blessing, Curio, Occurrence and service reachability closures are bound exact-once. Hidden pool weights, offer filters, random choice candidates and service transaction ordering remain explicit fail-closed `ProjectPolicy`; no other-mode identity is admitted by prefix or name. | P2-B1–B4 |
-| `G09-R10` | `Open` | Which room, occurrence, reward, dice and boss-choice weights are released, observed or require explicit project policy? | P1-B1–B6 / P2-B3–B5 |
-| `G09-R11` | `PartiallyBound` | Two displayed boss identities and their intrinsic weakness sets are exact. `RogueDLCArea` does not publish a boss-choice-to-decay join, so the later typed decay reference remains fail-closed for P1-B3/P2-B5. | P1-B2–B3 / P2-B5 |
+| `G09-R10` | `PolicyBound` | Released encounter-group member weights, exact StageConfig formations and printed Occurrence percentages are retained. Unpublished room/group, offer-pool, random-choice and die-target weights use stable ordering only in explicitly named policy rows and otherwise fail closed. | P1-B1–B6 / P2-B3–B5 |
+| `G09-R11` | `PolicyBound` | Both displayed boss identities resolve to exact 81-series StageConfig slots and inherited enemy variants. `RogueDLCArea` still does not publish a boss-choice-to-decay join, so the separate typed decay reference remains an explicit fail-closed replacement boundary. | P1-B2–B3 / P2-B5 |
 
 ## Terminal checklist
 
@@ -164,7 +166,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 - [ ] All required mechanics are exact or explicitly approximate/policy-bound.
 - [ ] Topology, countdown/Disarray, dice, Communing Device/Trail, Pathstrider
       and Resonance Interplay have complete semantic fixtures.
-- [ ] Encounter identities, waves and boss bindings resolve.
+- [x] Encounter identities, waves and boss bindings resolve.
 - [ ] Isolated Sora schemas, templates and generated readers validate.
 - [ ] Complete `openpyxl` workbooks pass structural and visual QA.
 - [ ] Sora production/debug exports regenerate without drift and load through

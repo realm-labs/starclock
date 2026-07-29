@@ -38,6 +38,8 @@ node tools/swarm-disaster-reference/import-occurrences.mjs
 node tools/swarm-disaster-reference/verify-occurrences.mjs
 node tools/swarm-disaster-reference/import-services.mjs
 node tools/swarm-disaster-reference/verify-services.mjs
+node tools/swarm-disaster-reference/import-encounters.mjs
+node tools/swarm-disaster-reference/verify-encounters.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -131,3 +133,12 @@ an atomic Activity transaction with inherited parameters and fail-closed offer
 pools. Adventure minigames accept only validated external Tier1/Tier2/Tier3
 results and opaque reward payloads; movement, aiming, physics, timing input and
 unreleased threshold/reward tables are intentionally excluded.
+
+The encounter partition expands the complete released 81-series namespace into
+179 weighted groups, 347 exact StageConfig waves and 1,070 ordered enemy slots.
+Every slot resolves one of 71 inherited Version 4.4 enemy variants, and both
+displayed boss choices resolve to concrete slots. Source group weights, stages,
+formations and formal difficulty schedules remain exact. The unpublished
+room/domain-to-group join and effective area/plane level selection remain
+replaceable, fail-closed `ProjectPolicy`; numeric room or group IDs are not
+decoded into claimed engine behavior.
