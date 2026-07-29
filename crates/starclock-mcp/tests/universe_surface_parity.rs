@@ -62,7 +62,9 @@ fn selected(observation: &Value) -> &Value {
                 .cmp(&priority(right))
                 .then_with(|| option(right).cmp(&option(left)))
         })
-        .unwrap()
+        .unwrap_or_else(|| {
+            panic!("nonterminal MCP observation has no legal actions: {observation}")
+        })
 }
 
 #[tokio::test]
@@ -103,7 +105,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
                     "schema_revision":"agent-api-v1",
                     "world":"1",
                     "difficulty_index":"0",
-                    "seed":"10"
+                    "seed":"1"
                 }),
             )),
         )
@@ -137,7 +139,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(observation["status"], "completed");
     assert_eq!(
         observation["state_hash"],
-        "8ac790cd8b109cea763a57dbda7e17acaa6db5db6163939f6489fc10d31fe74f"
+        "07906494220cb1dded6301cc042cdb33610e25dbad5be4019301f1f6583e5e1d"
     );
 
     let exported = client
@@ -155,7 +157,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(export["complete"], true);
     assert_eq!(
         export["sha256"],
-        "1ebf680321222c6a1b7f33f786905eb7cfe0eac42c750dd3b29bae8e08a4621a"
+        "11808e08e40f56c33e2d346abc78d4dc8453e4d2a49dd7056e1c3bd9139bebf5"
     );
 
     let verified = client
@@ -165,7 +167,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
                     "schema_revision":"agent-api-v1",
                     "world":"1",
                     "difficulty_index":"0",
-                    "seed":"10",
+                    "seed":"1",
                     "replay_hex":export["replay_hex"]
                 })),
             ),
@@ -175,7 +177,7 @@ async fn mcp_activity_surface_matches_agent_replay_and_fresh_verification() {
     assert_eq!(verified.is_error, Some(false));
     let verification = verified.structured_content.unwrap();
     assert_eq!(verification["final_state_hash"], observation["state_hash"]);
-    assert_eq!(verification["nested_battles"], "5");
+    assert_eq!(verification["nested_battles"], "3");
 
     client.cancel().await.unwrap();
     task.await.unwrap();

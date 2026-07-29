@@ -17,7 +17,10 @@ use starclock_combat::{
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
-        definition::{AbilityDefinition, ProgramDefinition, SelectorDefinition, UnitDefinition},
+        definition::{
+            AbilityDefinition, EnemyDefinition, ProgramDefinition, SelectorDefinition,
+            UnitDefinition,
+        },
     },
     rng::derive::StreamPath,
 };
@@ -230,6 +233,24 @@ fn combat_catalog(data: &SimulationCatalog) -> Result<Arc<CombatCatalog>, &'stat
             .ok_or("frozen Standard-v1 enemy is missing")?;
         abilities.extend(enemy.abilities().iter().copied());
     }
+    let fixture_graphs = (13_001..=13_017)
+        .map(|raw| {
+            data.ai_graph(starclock_combat::AiGraphId::new(raw).expect("frozen graph ID"))
+                .ok_or("frozen Standard-v1 AI graph is missing")
+                .cloned()
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    for graph in &fixture_graphs {
+        for state in graph.states() {
+            abilities.insert(state.mandatory_fallback());
+            abilities.extend(
+                state
+                    .candidates()
+                    .iter()
+                    .map(|candidate| candidate.ability()),
+            );
+        }
+    }
     for ability in abilities {
         builder.add_ability(
             AbilityDefinition::new(
@@ -241,23 +262,60 @@ fn combat_catalog(data: &SimulationCatalog) -> Result<Arc<CombatCatalog>, &'stat
             .with_action(action(1)),
         );
     }
-    for raw in 13_001..=13_017 {
-        builder.add_ai_graph(
-            data.ai_graph(starclock_combat::AiGraphId::new(raw).expect("frozen graph ID"))
-                .ok_or("frozen Standard-v1 AI graph is missing")?
-                .clone(),
-        );
+    for graph in fixture_graphs {
+        builder.add_ai_graph(graph);
     }
     for raw in 95..=111 {
         let enemy = data
             .enemy(EnemyDefinitionId::new(raw).expect("frozen enemy ID"))
             .ok_or("frozen Standard-v1 enemy is missing")?;
+        let fixture_graph =
+            starclock_combat::AiGraphId::new(13_001 + raw - 95).expect("frozen graph ID");
+        let graph = data
+            .ai_graph(fixture_graph)
+            .ok_or("frozen Standard-v1 AI graph is missing")?;
+        let mut fixture_abilities = enemy.abilities().to_vec();
+        for state in graph.states() {
+            fixture_abilities.push(state.mandatory_fallback());
+            fixture_abilities.extend(
+                state
+                    .candidates()
+                    .iter()
+                    .map(|candidate| candidate.ability()),
+            );
+        }
+        fixture_abilities.sort_unstable();
+        fixture_abilities.dedup();
         builder.add_unit(UnitDefinition::new(
             UnitDefinitionId::new(raw).expect("frozen unit ID"),
-            enemy.abilities().to_vec(),
+            fixture_abilities.clone(),
             vec![],
         ));
-        builder.add_enemy(enemy.clone());
+        builder.add_enemy(
+            EnemyDefinition::new(enemy.id(), enemy.unit(), fixture_abilities)
+                .with_orchestration(
+                    fixture_graph,
+                    enemy
+                        .phases()
+                        .iter()
+                        .map(|phase| {
+                            starclock_combat::catalog::encounter::EnemyPhaseDefinition::new(
+                                phase.id(),
+                                phase.sequence(),
+                                phase.entry_condition().clone(),
+                                phase.exit_condition().clone(),
+                                phase.replacement_priority(),
+                                fixture_graph,
+                                phase.targetable(),
+                                phase.transition(),
+                                None,
+                                phase.carry(),
+                            )
+                        })
+                        .collect(),
+                )
+                .expect("frozen fixture orchestration"),
+        );
     }
     for raw in 89..=94 {
         builder.add_encounter(
@@ -383,33 +441,33 @@ mod tests {
         const EXPECTED: [(&str, usize, &str); 6] = [
             (
                 SCENARIOS[0].0,
-                66,
-                "2d2bcb50b70ad488cf17744c9fc8082dca3c2b66aa51eca00ee1327c2359fefe",
+                154,
+                "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
             ),
             (
                 SCENARIOS[1].0,
-                18,
-                "bea916585577191dad2b8818c5ef84a98c73fa745c83092676ebb6c751cad493",
+                33,
+                "9c14dace6f72cfc267277b35bf0096df6851e71df2ac6fc3755da5fdb0dd859a",
             ),
             (
                 SCENARIOS[2].0,
-                50,
-                "7bf6795a63223c7ef58d76971d79e9d81d5d39db8a27e7f1a4776cd0e1a5ab05",
+                109,
+                "157610fab9cd6fe5f5f04a8ba7b66bf46d28449c83465dfd41f8ee2bc9df02a4",
             ),
             (
                 SCENARIOS[3].0,
-                18,
-                "a3f2217378030f1c1dc995f477df9b9f8aa6ea2b6520f60c22e6bb8ae18e8900",
+                48,
+                "194d97c4cc3a2b96985f9fee52ff31ae297eb061b586c0d78069caf2f7eea6d4",
             ),
             (
                 SCENARIOS[4].0,
-                182,
-                "70d8f90b5646befa1124dcc7c824d8fefc4acefba0ab6029ea2bdb5b13f72dae",
+                314,
+                "b22a1455458206a91b9d9a995536fd09c0ffc687fcbc267556f2fffcfac19a06",
             ),
             (
                 SCENARIOS[5].0,
-                182,
-                "3e10a00231405cec20c20b6c5ec5c81e553075f2c2f392db0ffaa2c3698a7293",
+                417,
+                "20133e32dd1f7c1a6f4e46d498847ec567ef22b9a1eda546a72424e223535c1e",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

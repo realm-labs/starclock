@@ -1,0 +1,28 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S19",
+  "lane": "domain-graph",
+  "record_ids": [
+    "universe.domain.adventure",
+    "universe.domain.boss",
+    "universe.domain.combat-primary",
+    "universe.domain.combat-secondary",
+    "universe.domain.elite",
+    "universe.domain.encounter",
+    "universe.domain.occurrence",
+    "universe.domain.respite",
+    "universe.domain.transaction"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseDomain": {
+      "rows": 9,
+      "semantic_sha256": "c41617fbc0ee5c9beff6a98cc85de1ef0aa668178827de9a746e29d45df37768"
+    },
+    "UniverseActivityDomainBinding": {
+      "rows": 9,
+      "semantic_sha256": "b1e59c6b4669589e45685f705c3e9b6a3f1b97732b23248667b90e89ade58b4c"
+    }
+  }
+}

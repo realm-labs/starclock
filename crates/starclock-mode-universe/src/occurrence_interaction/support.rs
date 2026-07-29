@@ -2,6 +2,145 @@ use super::*;
 
 const DEFERRED_EFFECT_KEY_BASE: u64 = 1 << 63;
 
+#[allow(clippy::too_many_arguments)]
+pub(super) fn lower_pairs(
+    output: &mut Vec<PayloadOperation>,
+    pairs: impl IntoIterator<
+        Item = (
+            OccurrenceOperation,
+            Option<OccurrenceTarget>,
+            Option<AuthoredScalar>,
+        ),
+    >,
+    choice: OccurrenceChoiceId,
+    cosmic_fragments: ActivitySlotId,
+    blessing_inventory: ActivityInventoryId,
+    curio_bindings: CurioActivityBindings,
+    deferred_effects: ActivitySlotId,
+    blessing_ids: &[u64],
+    blessing_groups: &[Vec<u64>],
+    curio_records: &[CurioActivityRecord],
+    battle_ready: bool,
+) -> Result<(), OccurrenceInteractionError> {
+    for (index, (operation, target, scalar)) in pairs.into_iter().enumerate() {
+        let sign = operation_sign(operation);
+        match target {
+            _ if operation == OccurrenceOperation::Battle && battle_ready => {
+                output.push(PayloadOperation::Transition);
+            }
+            _ if operation == OccurrenceOperation::Special => {
+                output.push(PayloadOperation::Transition);
+            }
+            Some(OccurrenceTarget::CosmicFragments) if sign != 0 => {
+                let scalar = scalar.unwrap_or_else(default_scalar);
+                match scalar.unit() {
+                    AuthoredScalarUnit::Scalar => {
+                        let value = exact_integer(scalar)?;
+                        let delta = value
+                            .checked_mul(i64::from(sign))
+                            .ok_or(OccurrenceInteractionError::Arithmetic)?;
+                        output.push(PayloadOperation::FragmentScalar {
+                            slot: cosmic_fragments,
+                            gain_inventory: curio_bindings.inventory,
+                            delta,
+                        });
+                    }
+                    AuthoredScalarUnit::Percent => {
+                        output.push(PayloadOperation::FragmentPercent {
+                            slot: cosmic_fragments,
+                            gain_inventory: curio_bindings.inventory,
+                            coefficient: scalar.value().coefficient(),
+                            scale: scalar.value().scale(),
+                            sign,
+                        });
+                    }
+                }
+            }
+            Some(OccurrenceTarget::Blessing) if sign != 0 => {
+                if operation == OccurrenceOperation::Enhance && !blessing_groups.is_empty() {
+                    let count = scalar
+                        .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
+                        .map(exact_integer)
+                        .transpose()?
+                        .unwrap_or(1)
+                        .max(1);
+                    output.push(PayloadOperation::S05(
+                        s05::Operation::EnhanceBestInventoryGroup {
+                            inventory: blessing_inventory,
+                            quantity: u16::try_from(count)
+                                .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
+                            groups: blessing_groups.to_vec(),
+                        },
+                    ));
+                } else if sign > 0 && !blessing_groups.is_empty() {
+                    output.push(PayloadOperation::EnsureInventoryGroup {
+                        inventory: blessing_inventory,
+                        groups: blessing_groups.to_vec(),
+                    });
+                } else {
+                    let count = scalar
+                        .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
+                        .map(exact_integer)
+                        .transpose()?
+                        .unwrap_or(1)
+                        .max(1);
+                    output.push(PayloadOperation::Inventory {
+                        inventory: blessing_inventory,
+                        delta: sign,
+                        quantity: u16::try_from(count)
+                            .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
+                        owned_only: sign < 0 || operation == OccurrenceOperation::Enhance,
+                        candidates: blessing_ids.to_vec(),
+                    });
+                }
+            }
+            Some(OccurrenceTarget::Curio)
+                if sign != 0 && operation != OccurrenceOperation::Enhance =>
+            {
+                let count = scalar
+                    .filter(|value| value.unit() == AuthoredScalarUnit::Scalar)
+                    .map(exact_integer)
+                    .transpose()?
+                    .unwrap_or(1)
+                    .max(1);
+                output.push(PayloadOperation::CurioInventory {
+                    bindings: curio_bindings,
+                    delta: sign,
+                    quantity: u16::try_from(count)
+                        .map_err(|_| OccurrenceInteractionError::Arithmetic)?,
+                    owned_only: sign < 0,
+                    candidates: curio_records.to_vec(),
+                });
+            }
+            Some(OccurrenceTarget::Hp)
+                if operation == OccurrenceOperation::Lose
+                    && scalar.is_some_and(|value| value.unit() == AuthoredScalarUnit::Percent) =>
+            {
+                output.push(PayloadOperation::ParticipantHpLoss {
+                    scaled_ratio: s02::percent_ratio_scaled(
+                        scalar.expect("guarded percentage scalar is present"),
+                    )?,
+                });
+            }
+            Some(OccurrenceTarget::Hp)
+                if operation == OccurrenceOperation::Restore
+                    && scalar.is_some_and(|value| value.unit() == AuthoredScalarUnit::Percent) =>
+            {
+                output.push(PayloadOperation::ParticipantHpRestore {
+                    scaled_ratio: s02::percent_ratio_scaled(
+                        scalar.expect("guarded percentage scalar is present"),
+                    )?,
+                });
+            }
+            _ => output.push(PayloadOperation::DeferredEffect {
+                slot: deferred_effects,
+                key: deferred_effect_key(choice, index, operation, target)?,
+            }),
+        }
+    }
+    Ok(())
+}
+
 pub(super) fn referenced_curios(
     outcome: &OccurrenceOutcome,
     catalog: &UniverseCatalog,

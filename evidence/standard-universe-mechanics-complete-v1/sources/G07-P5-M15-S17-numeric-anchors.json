@@ -1,0 +1,636 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v2",
+  "partition_id": "G07-P5-M15-S17",
+  "numeric_policy_id": "goal07-s17-public-level-curve-v1",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki and committed version 4.4 extraction",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Reaver",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "PerVariantExactPublicCurve"
+  },
+  "derivation": {
+    "hp_reference_base": "930",
+    "hp_rounding": "NearestTiesAway",
+    "atk_reference_base": "18",
+    "def_reference_base": "210",
+    "speed_breakpoints": [
+      {
+        "level_minimum": 1,
+        "multiplier": "1"
+      },
+      {
+        "level_minimum": 65,
+        "multiplier": "1.1"
+      },
+      {
+        "level_minimum": 78,
+        "multiplier": "1.2"
+      },
+      {
+        "level_minimum": 86,
+        "multiplier": "1.32"
+      }
+    ],
+    "exact_overrides": "Each variant uses the reviewed public curve scaled by its committed version 4.4 HP, DEF, SPD and effect-resistance bases."
+  },
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.thunderspawn.minion.variant.01",
+      "source_monster_id": "8001040",
+      "combat_rank": "Minion",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Thunderspawn",
+      "levels": [
+        {
+          "authored_level": 51,
+          "base_hp": "1406",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "83",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.004"
+        },
+        {
+          "authored_level": 52,
+          "base_hp": "1577",
+          "base_atk": "255",
+          "base_def": "720",
+          "base_spd": "83",
+          "effect_hit_rate": "0.016",
+          "effect_resistance": "0.008"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "1918",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "2089",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "83",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.02"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-abundance.minionlv2.02.variant.01",
+      "source_monster_id": "8002071",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Abundance",
+      "levels": [
+        {
+          "authored_level": 34,
+          "base_hp": "3881",
+          "base_atk": "121",
+          "base_def": "810",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 37,
+          "base_hp": "4598",
+          "base_atk": "138",
+          "base_def": "855",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 47,
+          "base_hp": "10243",
+          "base_atk": "210",
+          "base_def": "1005",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "19181",
+          "base_atk": "276",
+          "base_def": "1110",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "24301",
+          "base_atk": "307",
+          "base_def": "1155",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-abundance.minionlv2.variant.01",
+      "source_monster_id": "8002070",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Abundance",
+      "levels": [
+        {
+          "authored_level": 24,
+          "base_hp": "2183",
+          "base_atk": "71",
+          "base_def": "660",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-destruction.minionlv2.02.variant.01",
+      "source_monster_id": "8002061",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Destruction",
+      "levels": [
+        {
+          "authored_level": 34,
+          "base_hp": "2329",
+          "base_atk": "121",
+          "base_def": "810",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 37,
+          "base_hp": "2759",
+          "base_atk": "138",
+          "base_def": "855",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 47,
+          "base_hp": "6146",
+          "base_atk": "210",
+          "base_def": "1005",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "11508",
+          "base_atk": "276",
+          "base_def": "1110",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "14580",
+          "base_atk": "307",
+          "base_def": "1155",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-destruction.minionlv2.variant.01",
+      "source_monster_id": "8002060",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Destruction",
+      "levels": [
+        {
+          "authored_level": 24,
+          "base_hp": "1310",
+          "base_atk": "71",
+          "base_def": "660",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-preservation.minionlv2.03.variant.01",
+      "source_monster_id": "8002082",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Preservation",
+      "levels": [
+        {
+          "authored_level": 34,
+          "base_hp": "1164",
+          "base_atk": "121",
+          "base_def": "810",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 37,
+          "base_hp": "1379",
+          "base_atk": "138",
+          "base_def": "855",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 47,
+          "base_hp": "3073",
+          "base_atk": "210",
+          "base_def": "1005",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "5754",
+          "base_atk": "276",
+          "base_def": "1110",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.016"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "7290",
+          "base_atk": "307",
+          "base_def": "1155",
+          "base_spd": "83",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.028"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.trotter-of-preservation.minionlv2.variant.01",
+      "source_monster_id": "8002080",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Trotter_of_Preservation",
+      "levels": [
+        {
+          "authored_level": 24,
+          "base_hp": "655",
+          "base_atk": "71",
+          "base_def": "660",
+          "base_spd": "83",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.vagrant.minionlv2.variant.01",
+      "source_monster_id": "1002020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Vagrant",
+      "levels": [
+        {
+          "authored_level": 31,
+          "base_hp": "791",
+          "base_atk": "104",
+          "base_def": "510",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 34,
+          "base_hp": "970",
+          "base_atk": "121",
+          "base_def": "540",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 37,
+          "base_hp": "1149",
+          "base_atk": "138",
+          "base_def": "570",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "4795",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "6075",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.voidranger-distorter.minionlv2.variant.01",
+      "source_monster_id": "8012020",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Distorter",
+      "levels": [
+        {
+          "authored_level": 7,
+          "base_hp": "262",
+          "base_atk": "23",
+          "base_def": "270",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 21,
+          "base_hp": "544",
+          "base_atk": "57",
+          "base_def": "410",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 22,
+          "base_hp": "581",
+          "base_atk": "62",
+          "base_def": "420",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 24,
+          "base_hp": "655",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 25,
+          "base_hp": "692",
+          "base_atk": "75",
+          "base_def": "450",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 27,
+          "base_hp": "766",
+          "base_atk": "84",
+          "base_def": "470",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 51,
+          "base_hp": "4218",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "120",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.voidranger-eliminator.minionlv2.variant.01",
+      "source_monster_id": "8012030",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Eliminator",
+      "levels": [
+        {
+          "authored_level": 7,
+          "base_hp": "306",
+          "base_atk": "23",
+          "base_def": "270",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 22,
+          "base_hp": "677",
+          "base_atk": "62",
+          "base_def": "420",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 24,
+          "base_hp": "764",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 27,
+          "base_hp": "894",
+          "base_atk": "84",
+          "base_def": "470",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 28,
+          "base_hp": "937",
+          "base_atk": "89",
+          "base_def": "480",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.voidranger-reaver.minionlv2.variant.01",
+      "source_monster_id": "8012010",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Reaver",
+      "levels": [
+        {
+          "authored_level": 7,
+          "base_hp": "218",
+          "base_atk": "23",
+          "base_def": "270",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 21,
+          "base_hp": "453",
+          "base_atk": "57",
+          "base_def": "410",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 22,
+          "base_hp": "484",
+          "base_atk": "62",
+          "base_def": "420",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 24,
+          "base_hp": "546",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 25,
+          "base_hp": "577",
+          "base_atk": "75",
+          "base_def": "450",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 27,
+          "base_hp": "639",
+          "base_atk": "84",
+          "base_def": "470",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 28,
+          "base_hp": "669",
+          "base_atk": "89",
+          "base_def": "480",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 44,
+          "base_hp": "2033",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 51,
+          "base_hp": "3515",
+          "base_atk": "244",
+          "base_def": "710",
+          "base_spd": "100",
+          "effect_hit_rate": "0.008",
+          "effect_resistance": "0.104"
+        },
+        {
+          "authored_level": 54,
+          "base_hp": "4795",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "100",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.voidranger-trampler-bug.elite.variant.01",
+      "source_monster_id": "8013011",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Voidranger%3A_Trampler",
+      "levels": [
+        {
+          "authored_level": 53,
+          "base_hp": "43685",
+          "base_atk": "265",
+          "base_def": "730",
+          "base_spd": "120",
+          "effect_hit_rate": "0.024",
+          "effect_resistance": "0.212"
+        },
+        {
+          "authored_level": 69,
+          "base_hp": "126612",
+          "base_atk": "426",
+          "base_def": "890",
+          "base_spd": "132",
+          "effect_hit_rate": "0.152",
+          "effect_resistance": "0.276"
+        },
+        {
+          "authored_level": 78,
+          "base_hp": "191682",
+          "base_atk": "529",
+          "base_def": "980",
+          "base_spd": "144",
+          "effect_hit_rate": "0.224",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 87,
+          "base_hp": "288105",
+          "base_atk": "630",
+          "base_def": "1070",
+          "base_spd": "158.4",
+          "effect_hit_rate": "0.296",
+          "effect_resistance": "0.3"
+        }
+      ]
+    }
+  ]
+}

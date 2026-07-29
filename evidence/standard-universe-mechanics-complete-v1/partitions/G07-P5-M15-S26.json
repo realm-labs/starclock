@@ -1,0 +1,2783 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P5-M15-S26",
+  "state": "Complete",
+  "completed_on": "2026-07-29",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseMapNode",
+          "UniverseMapEdge"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-world-partition.py --partition G07-P5-M15-S26 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+      "git_blob_sha1": "d57866c8ee0f67072399a583f3e57eef1907e5d0"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S26.json",
+      "sha256": "534cc7d315ea2cc0977078471ae70f7bfd7adf426ed4c30adcab5d6a545009a7",
+      "git_blob_sha1": "e860cafdcbb59f46363404543c9278fbd5ad3945"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.map.502.node.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.10",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.22",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.32",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.72",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.502.node.9",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.10",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.22",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.32",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.72",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.503.node.9",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.10",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.22",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.32",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.72",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.504.node.9",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.10",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.22",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.32",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.72",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.601.node.9",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.1",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.10",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.12",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.13",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.21",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.22",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.31",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.32",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.4",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.5",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.6",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.71",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.72",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.8",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.map.602.node.9",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/maps.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/topology_map_s26.rs"
+        }
+      ]
+    }
+  ],
+  "rules": [],
+  "fixtures": [],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-world-partition.py --partition G07-P5-M15-S26 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test topology_map_s26 --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S26.json",
+        "sha256": "534cc7d315ea2cc0977078471ae70f7bfd7adf426ed4c30adcab5d6a545009a7",
+        "git_blob_sha1": "e860cafdcbb59f46363404543c9278fbd5ad3945"
+      }
+    ]
+  }
+}

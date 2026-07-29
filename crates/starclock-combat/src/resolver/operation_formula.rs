@@ -24,6 +24,7 @@ use super::{
 pub(super) struct FormulaInputs {
     bases: BTreeMap<(crate::UnitId, crate::modifier::model::StatKind), crate::Scalar>,
     shields: BTreeMap<crate::UnitId, crate::Scalar>,
+    effect_stacks: BTreeMap<(crate::UnitId, crate::EffectDefinitionId), i64>,
     effect_category_stacks: BTreeMap<(crate::UnitId, crate::EffectCategory), i64>,
     modifiers: Vec<ActiveModifier>,
 }
@@ -33,6 +34,7 @@ impl FormulaInputs {
         Ok(Self {
             bases: super::program::stat_bases(txn)?,
             shields: super::stat_input::shield_values(txn),
+            effect_stacks: effect_stacks(txn)?,
             effect_category_stacks: effect_category_stacks(txn)?,
             modifiers: txn.state.modifiers.iter_by_id().cloned().collect(),
         })
@@ -560,8 +562,24 @@ impl FormulaInputs {
     fn resolver<'a>(&'a self, catalog: &'a crate::catalog::CombatCatalog) -> StatResolver<'a> {
         StatResolver::new(catalog.modifier_registry(), &self.bases, &self.modifiers)
             .with_shields(&self.shields)
+            .with_effect_stacks(&self.effect_stacks)
             .with_effect_category_stacks(&self.effect_category_stacks)
     }
+}
+
+fn effect_stacks(
+    txn: &Transaction<'_>,
+) -> Result<BTreeMap<(crate::UnitId, crate::EffectDefinitionId), i64>, BattleFault> {
+    let mut output = BTreeMap::new();
+    for effect in txn.state.effects.iter_by_id() {
+        let stacks = output
+            .entry((effect.target, effect.definition))
+            .or_insert(0_i64);
+        *stacks = stacks
+            .checked_add(i64::from(effect.stacks))
+            .ok_or_else(|| numeric_fault(67, *stacks))?;
+    }
+    Ok(output)
 }
 
 fn effect_category_stacks(

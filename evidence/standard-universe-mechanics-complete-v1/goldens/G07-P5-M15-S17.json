@@ -1,0 +1,148 @@
+{
+  "schema_revision": "starclock.goal07-enemy-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S17",
+  "enemy_variant_ids": [
+    "enemy.thunderspawn.minion.variant.01",
+    "enemy.trotter-of-abundance.minionlv2.02.variant.01",
+    "enemy.trotter-of-abundance.minionlv2.variant.01",
+    "enemy.trotter-of-destruction.minionlv2.02.variant.01",
+    "enemy.trotter-of-destruction.minionlv2.variant.01",
+    "enemy.trotter-of-preservation.minionlv2.03.variant.01",
+    "enemy.trotter-of-preservation.minionlv2.variant.01",
+    "enemy.vagrant.minionlv2.variant.01",
+    "enemy.voidranger-distorter.minionlv2.variant.01",
+    "enemy.voidranger-eliminator.minionlv2.variant.01",
+    "enemy.voidranger-reaver.minionlv2.variant.01",
+    "enemy.voidranger-trampler-bug.elite.variant.01"
+  ],
+  "tables": {
+    "Ability": {
+      "rows": 39,
+      "semantic_sha256": "75caea0fef6990a9ccf90932ccd7205b69f1717511496b71732d584a3a03d150"
+    },
+    "AbilityPhase": {
+      "rows": 39,
+      "semantic_sha256": "aede97b3e02f6057004b36a04ac61cd0f0a1cef213c070a02755f3915fb37464"
+    },
+    "AiCandidate": {
+      "rows": 32,
+      "semantic_sha256": "429c70691706aea2af87e736ea347ccaf7b39ec7ea1c8837ad3aec8696fddd28"
+    },
+    "AiGraph": {
+      "rows": 12,
+      "semantic_sha256": "1d909705971e197322341a80d315b60ddd90b573aa413b2994b70b4ebd4bcf6b"
+    },
+    "AiState": {
+      "rows": 32,
+      "semantic_sha256": "f4c2121f4bce01a9023e12b80b91b6f1bfe8497728ac46dcba68aa6c7f51c3a8"
+    },
+    "AiTransition": {
+      "rows": 32,
+      "semantic_sha256": "e27fc778ea15061c5095422c4460c8763b349893778d60a8235664739e4ab1a7"
+    },
+    "ConditionExpression": {
+      "rows": 1,
+      "semantic_sha256": "f50ef3b71371c255aba0d054c0292f464aaf523b65d2e97cfaf295ae7ee7c028"
+    },
+    "ContentEvidenceBinding": {
+      "rows": 151,
+      "semantic_sha256": "39d13a11bacbf19015049338054a29d87d4375fc4506a4f650a2ad68896c152e"
+    },
+    "ContentIdentity": {
+      "rows": 139,
+      "semantic_sha256": "fc6abcca0799b61f301b7072b28e782280e80e7ed163a831c903dfd5de6b6380"
+    },
+    "Effect": {
+      "rows": 12,
+      "semantic_sha256": "7af587c78aa676d34e08e69fc07440ebf4342918307cb440b84cee99058fead2"
+    },
+    "EffectRuleBinding": {
+      "rows": 1,
+      "semantic_sha256": "4af64548d0be9fddd65f994c7e24d8ba6cf9a333cd36898ee989ae3bb9891d09"
+    },
+    "EffectTag": {
+      "rows": 24,
+      "semantic_sha256": "793771eae956686dd53e492d95a8eaa59f82163f4a17fce28030088a6d7aa14a"
+    },
+    "EnemyAbility": {
+      "rows": 38,
+      "semantic_sha256": "cb49a9b523f2b7266abaa6eebe5899ae89e9b73a7d580a6c19f3e396b0bd2088"
+    },
+    "EnemyDebuffResistance": {
+      "rows": 1,
+      "semantic_sha256": "0d343ff895bd7858a1c94ff8a226424d591095a4739aa9337a3e6670b4ace490"
+    },
+    "EnemyPhase": {
+      "rows": 12,
+      "semantic_sha256": "dc903b9cee2e05d1ae72d3fca426ea2128d58609141909cbd7a676775c6980a0"
+    },
+    "EnemyResistance": {
+      "rows": 51,
+      "semantic_sha256": "0cabed7c26422c1fde39766afb62156d028b94f74af6138c00b22a63e2e2864e"
+    },
+    "EnemyStat": {
+      "rows": 53,
+      "semantic_sha256": "343935169bc402166759e041515d437d49ce83ff5f81892df49e09fef516abba"
+    },
+    "EnemyTemplate": {
+      "rows": 12,
+      "semantic_sha256": "16bcc9d1a45a1e6a45a0bb9e87fd91fe1c344e7961c2e1346d1b4fbdb90d9a33"
+    },
+    "EnemyToughnessLayer": {
+      "rows": 12,
+      "semantic_sha256": "501a004c08a5d6ab6a4f77894745ed783cc457392d5363f47e56d1462cdc9f97"
+    },
+    "EnemyVariant": {
+      "rows": 12,
+      "semantic_sha256": "6d1af640b2ecadfe5d634ba7db261edc4f96140726fcb4b13f4c06901cdb9594"
+    },
+    "EnemyVariantAbility": {
+      "rows": 38,
+      "semantic_sha256": "4327bf569dbce6fed7c027817c9170b1f09a048f0af298fba6128feed725ada3"
+    },
+    "EnemyWeakness": {
+      "rows": 33,
+      "semantic_sha256": "a023a2b84554d3a43c73f6d1bbb610330a533a0bc77307b7bbad10aed77d8613"
+    },
+    "EventFilter": {
+      "rows": 1,
+      "semantic_sha256": "05eb056a6b6ec5d4f47642a8bc795738cf2061b3b739f2c890658876aa937fe7"
+    },
+    "EvidenceRecord": {
+      "rows": 1,
+      "semantic_sha256": "cda8faeaf99f91cd49c93b90dbec9f57a59b6f0c07a362165ab895ed27d5e1ab"
+    },
+    "Operation": {
+      "rows": 47,
+      "semantic_sha256": "d462b5cdfe6976d07d6113ba1d6b457786f123014005b0353811e95c3435580f"
+    },
+    "Program": {
+      "rows": 41,
+      "semantic_sha256": "0184c9a879657bcdf161004a77360d337a19852318adf1a656b39a91c2d5ab59"
+    },
+    "ProgramStep": {
+      "rows": 47,
+      "semantic_sha256": "d82b0b8a950450a74574c81b0c30e765b4c368c9dcbb1cd73cf7be4bdd481e59"
+    },
+    "RuleDefinition": {
+      "rows": 1,
+      "semantic_sha256": "042f5cee500be973e50d3abcb6291834f8a3bd7b77e2512e7be543500c05c544"
+    },
+    "RuleTrigger": {
+      "rows": 1,
+      "semantic_sha256": "8cfc5f325c0fa99d0605a349b200c2818d0dccb4771cee6d8ac65009f8d60096"
+    },
+    "Selector": {
+      "rows": 10,
+      "semantic_sha256": "4aa5c08ab44f499230f3c5d8e43a147c5497b1ea2185e73b23c0ea7aeb33cfb7"
+    },
+    "SourceRecord": {
+      "rows": 1,
+      "semantic_sha256": "a0eb4822ef2de20beca2e09deeb24d81b71bf746e1171655ee2acbd6d7d8b29d"
+    },
+    "ValueExpression": {
+      "rows": 40,
+      "semantic_sha256": "ed27b2ea7fb7ed18aa94ed4a7055908b699e99cb1b4a33526fead5e7d3c1623a"
+    }
+  }
+}

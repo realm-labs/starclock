@@ -84,10 +84,29 @@ pub(super) fn convert(
                         .ok_or_else(|| domain_fail(format!("missing operation {operation_id}")))
                         .and_then(|operation| lower_operation(config, operation, native_handlers))
                         .map(ProgramStep::Operation),
-                    _ => Err(domain_fail(format!(
-                        "probe program {} uses an unsupported control-flow row",
-                        program.id
-                    ))),
+                    program_step_node::ProgramStepNode::If {
+                        condition_id,
+                        then_program_id,
+                        else_program_id,
+                    } => Ok(ProgramStep::If {
+                        condition: crate::rule_lower::lower_condition(
+                            config,
+                            *condition_id,
+                            &mut BTreeSet::new(),
+                        )?,
+                        then_program: program_id(*then_program_id)?,
+                        else_program: else_program_id.map(program_id).transpose()?,
+                    }),
+                    program_step_node::ProgramStepNode::ForEach {
+                        selector_id: raw_selector,
+                        body_program_id,
+                        maximum_iterations,
+                    } => Ok(ProgramStep::ForEach {
+                        selector: selector_id(*raw_selector)?,
+                        body: program_id(*body_program_id)?,
+                        maximum: u16::try_from(*maximum_iterations)
+                            .map_err(|_| domain_fail("ForEach maximum does not fit u16"))?,
+                    }),
                 })
                 .collect::<Result<Vec<_>, _>>()?;
             let (selectors, effects) = program_references(&steps);
@@ -108,6 +127,10 @@ fn program_references(steps: &[ProgramStep]) -> (Box<[SelectorId]>, Box<[EffectD
     let mut selectors = BTreeSet::new();
     let mut effects = BTreeSet::new();
     for step in steps {
+        if let ProgramStep::ForEach { selector, .. } = step {
+            selectors.insert(*selector);
+            continue;
+        }
         let ProgramStep::Operation(operation) = step else {
             continue;
         };
@@ -347,20 +370,57 @@ fn lower_operation(
         }
         Payload::ApplyEffect {
             effect_id,
+            stacks_expression_id,
             chance_policy,
             base_chance_expression_id,
             rng_purpose_key,
         } => RuleOperationTemplate::ApplyEffect {
             selector: selector()?,
             effect: effect(*effect_id)?,
-            stacks: ValueExpr::Literal(RuleValue::Integer(1)),
+            stacks: stacks_expression_id
+                .map(expression)
+                .transpose()?
+                .unwrap_or(ValueExpr::Literal(RuleValue::Integer(1))),
             chance: lower_effect_chance(*chance_policy),
             base_chance: base_chance_expression_id.map(expression).transpose()?,
             rng_purpose: lower_rng_purpose(rng_purpose_key.as_deref())?,
         },
+        Payload::ApplyRandomEffect {
+            effect_ids,
+            stacks_expression_id,
+            choice_rng_purpose_key,
+            chance_policy,
+            base_chance_expression_id,
+            chance_rng_purpose_key,
+        } => RuleOperationTemplate::ApplyRandomEffect {
+            selector: selector()?,
+            effects: effect_ids
+                .iter()
+                .copied()
+                .map(effect)
+                .collect::<Result<Vec<_>, _>>()?
+                .into_boxed_slice(),
+            stacks: stacks_expression_id
+                .map(expression)
+                .transpose()?
+                .unwrap_or(ValueExpr::Literal(RuleValue::Integer(1))),
+            choice_rng_purpose: lower_rng_purpose(Some(choice_rng_purpose_key))?
+                .expect("authored choice RNG purpose is required"),
+            chance: lower_effect_chance(*chance_policy),
+            base_chance: base_chance_expression_id.map(expression).transpose()?,
+            chance_rng_purpose: lower_rng_purpose(chance_rng_purpose_key.as_deref())?,
+        },
         Payload::RemoveEffect { effect_id } => RuleOperationTemplate::RemoveEffect {
             selector: selector()?,
             effect: effect(*effect_id)?,
+        },
+        Payload::ModifyEffect {
+            effect_id,
+            stack_delta_expression_id,
+        } => RuleOperationTemplate::AdjustEffectStacks {
+            selector: selector()?,
+            effect: effect(*effect_id)?,
+            delta: expression(*stack_delta_expression_id)?,
         },
         Payload::DetonateDot {
             fraction_expression_id,
@@ -512,7 +572,13 @@ fn lower_rng_purpose(
         Some("effect-application") => Ok(Some(
             starclock_combat::rng::types::DrawPurpose::EFFECT_CHANCE,
         )),
-        Some(_) => Err(domain_fail("unknown effect-chance RNG purpose key")),
+        Some("behavior-choice") => Ok(Some(
+            starclock_combat::rng::types::DrawPurpose::BEHAVIOR_CHOICE,
+        )),
+        Some("weakness-element") => Ok(Some(
+            starclock_combat::rng::types::DrawPurpose::WEAKNESS_ELEMENT,
+        )),
+        Some(_) => Err(domain_fail("unknown RNG purpose key")),
     }
 }
 
@@ -637,6 +703,10 @@ fn positive(value: i32) -> Result<u32, CatalogLoadError> {
 
 fn selector_id(value: i32) -> Result<SelectorId, CatalogLoadError> {
     Ok(SelectorId::new(positive(value)?).expect("positive selector ID"))
+}
+
+fn program_id(value: i32) -> Result<ProgramId, CatalogLoadError> {
+    Ok(ProgramId::new(positive(value)?).expect("positive program ID"))
 }
 
 fn effect(value: i32) -> Result<EffectDefinitionId, CatalogLoadError> {

@@ -114,6 +114,8 @@ fn encode_combatant(encoder: &mut Encoder, combatant: &ResolvedCombatantSpec) {
     encoder.i64(combatant.base_attack().scaled());
     encoder.i64(combatant.base_defense().scaled());
     encoder.i64(combatant.speed().scaled());
+    encoder.i64(combatant.base_effect_hit_rate().scaled());
+    encoder.i64(combatant.base_effect_resistance().scaled());
     encoder.i64(combatant.current_energy().scaled());
     encoder.i64(combatant.maximum_energy().scaled());
     encoder.u8(match combatant.rank() {

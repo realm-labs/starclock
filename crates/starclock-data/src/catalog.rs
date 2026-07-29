@@ -44,7 +44,7 @@ const METADATA_TABLES: [&str; 5] = [
     "EvidenceRecord",
     "SourceRecord",
 ];
-const LOWERED_TABLES: [&str; 74] = [
+const LOWERED_TABLES: [&str; 75] = [
     "Ability",
     "AbilityHitPlanBinding",
     "AbilityLevelParameter",
@@ -75,6 +75,7 @@ const LOWERED_TABLES: [&str; 74] = [
     "EffectGrantedAbility",
     "EffectModifierBinding",
     "EffectRuleBinding",
+    "EffectTag",
     "Eidolon",
     "EidolonPatch",
     "Encounter",
@@ -741,19 +742,7 @@ fn convert_combat(
     for row in config.effect().ordered_rows() {
         let raw = positive(row.id, "Effect.id")?;
         require_identity(identities, raw, IdentityKind::Other, mode)?;
-        let mut tags = config
-            .effect_tag()
-            .iter()
-            .filter(|tag| tag.effect_id == row.id)
-            .collect::<Vec<_>>();
-        tags.sort_unstable_by_key(|tag| tag.sequence);
-        contiguous(
-            tags.iter()
-                .map(|tag| positive_u16(tag.sequence, "EffectTag.sequence"))
-                .collect::<Result<Vec<_>, _>>()?
-                .into_iter(),
-            "effect tags",
-        )?;
+        let tags = effect_bindings::tags(config, row.id)?;
         let mut visiting = std::collections::BTreeSet::new();
         let duration = row
             .duration_expression_id
@@ -786,10 +775,15 @@ fn convert_combat(
                 Ok(SourceDefinitionId::new(raw).expect("positive source definition ID"))
             })
             .transpose()?;
-        if category != EffectCategory::Dot && (dot_element.is_some() || detonation_tag.is_some()) {
+        if !matches!(category, EffectCategory::Control | EffectCategory::Dot)
+            && (dot_element.is_some() || detonation_tag.is_some())
+        {
             return Err(fail(
                 CatalogLoadErrorKind::Domain,
-                format!("non-DoT effect {} declares DoT metadata", row.id),
+                format!(
+                    "effect {} declares damage-over-time metadata outside Control or DoT",
+                    row.id
+                ),
             ));
         }
         let mut runtime_template = EffectRuntimeTemplate::new(
@@ -810,18 +804,22 @@ fn convert_combat(
         .with_comparison(magnitude.clone(), row.application_priority)
         .with_snapshot(snapshot_policy)
         .with_teardown(teardown_policy);
-        if category == EffectCategory::Dot {
+        runtime_template =
+            effect_bindings::apply_runtime_tags(row.id, category, &tags, runtime_template)?;
+        if matches!(category, EffectCategory::Control | EffectCategory::Dot)
+            && (dot_element.is_some() || detonation_tag.is_some())
+        {
             runtime_template = runtime_template
                 .with_dot(
                     dot_element.ok_or_else(|| {
                         fail(
                             CatalogLoadErrorKind::Domain,
-                            format!("DoT effect {} is missing its element", row.id),
+                            format!("damaging effect {} is missing its element", row.id),
                         )
                     })?,
                     detonation_tag,
                 )
-                .expect("DoT category accepts DoT metadata");
+                .expect("Control and DoT categories accept damage-over-time metadata");
         }
         let mut rules = config
             .effect_rule_binding()
@@ -881,7 +879,7 @@ fn convert_combat(
             application_priority: row.application_priority,
             tags: tags
                 .into_iter()
-                .map(|tag| tag.tag.clone().into_boxed_str())
+                .map(Box::<str>::from)
                 .collect::<Vec<_>>()
                 .into_boxed_slice(),
             rules: rules.into_boxed_slice(),

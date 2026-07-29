@@ -1,0 +1,206 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S07",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.gepard-complete.littleboss.variant.01",
+  "source_monster_id": "1004022",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:100402201-through-100402211",
+        "fist-of-conviction:3-atk-ice-single",
+        "smite-of-frost:3.5-atk-ice-single",
+        "frigid-waterfall:3.8-atk-ice-aoe-and-0.12-stacking-damage-boost",
+        "garrison-aura-field:0.4-gepard-max-hp-per-friendly-unit-collective-shield",
+        "besiege:single-target-lock-and-immediate-friendly-coordinated-attacks",
+        "tit-for-tat:one-turn-single-trigger-smite-counter"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:1004022",
+        "combat-rank:LittleBoss-mapped-to-Boss",
+        "weaknesses:Imaginary-Lightning-Physical",
+        "resistance:Ice-at-0.4",
+        "resistances:Fire-Quantum-Wind-at-0.2",
+        "control-resistances:Confine-Frozen-Entangle-at-0.75",
+        "summon-source-ids:1003012-100203001-100204101"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:1004022",
+        "base-speed:144",
+        "base-hp:604.5",
+        "base-atk:15",
+        "base-def:210",
+        "ai-file:Config/ConfigAI/Monster_W1_Gepard_00_AI_RL.json",
+        "phase-summons:soldier-and-cannoneer-then-two-cannoneers-then-two-lieutenants"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-file-sha256:d4de0185e9e2f9a3e415c95f5fadeb4bd058ceafb52f971663b2086777f28d27",
+        "authoritative-ability-file-sha256:112e9052a62081450679a1250f83377ea9f1ea751def8b83ed7f771a4cf8eddc"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:3",
+        "authored-levels:35-67-72-81-90",
+        "role:boss",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/encounter-groups.json",
+      "sha256": "f5aab75d59678aab90f146b8d11881450e9b682a329c20477d52d2f2d4d23001",
+      "facts": [
+        "encounter-group:universe.encounter-group.13901",
+        "encounter-member:universe.encounter-member.107",
+        "source-stage-id:80139011",
+        "source-rogue-monster-id:139011",
+        "single-wave-slot:enemy.gepard-complete.littleboss.variant.01"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "sha256": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c",
+      "facts": [
+        "exact-public-levels:35-50-67-72-81-90",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 35,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "4463",
+        "atk": "106",
+        "def": "550",
+        "spd": "144",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    },
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 50,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "13384",
+        "atk": "195",
+        "def": "700",
+        "spd": "144",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    },
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 67,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "49755",
+        "atk": "339",
+        "def": "870",
+        "spd": "158.4",
+        "effect_hit_rate": "0.136",
+        "effect_resistance": "0.268"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    },
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 72,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "63830",
+        "atk": "383",
+        "def": "920",
+        "spd": "158.4",
+        "effect_hit_rate": "0.176",
+        "effect_resistance": "0.288"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    },
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 81,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "93992",
+        "atk": "469",
+        "def": "1010",
+        "spd": "172.8",
+        "effect_hit_rate": "0.248",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    },
+    {
+      "source_monster_id": "1004022",
+      "authored_level": 90,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "142985",
+        "atk": "552",
+        "def": "1100",
+        "spd": "190.08",
+        "effect_hit_rate": "0.32",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S07-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "5d9b55cfcf3785dfa5ebdd490c94159a73152c1a7b606eb73fbe3d59701cdd8c"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 3 difficulties use direct public level 35, 67, 72, 81 and 90 values, while encounter member 107 uses direct public level 50 values; no interpolation is used.",
+    "Phase entry programs immediately summon one Soldier plus one Cannoneer, then two Cannoneers, then two Silvermane Lieutenants (Complete), clearing the prior phase summons.",
+    "Phase one follows Besiege, Frigid Waterfall, Tit for Tat and Fist of Conviction; phases two and three preserve the opening, shielded and unshielded public action rotations with paired extra actions.",
+    "Frigid Waterfall deals 380% Ice damage to all opponents and permanently stacks 12% ordinary-damage amplification.",
+    "Garrison Aura Field preserves the exact aggregate 40%-per-friendly-unit shield amount by allocating equal 40% Gepard-Max-HP slices to present allies; the shield effect records the public Toughness-protection semantic.",
+    "Besiege applies Lock On and queues one forced coordinated strike for every surviving Gepard-owned summon against the selected target.",
+    "Tit for Tat lasts one turn, queues Smite of Frost against the first attacker, and removes itself after that one counter.",
+    "The three phase graphs, phase-entry summons, shields, forced coordinated actions, counter trigger and damage modifiers use shared Rule IR without a native handler."
+  ]
+}

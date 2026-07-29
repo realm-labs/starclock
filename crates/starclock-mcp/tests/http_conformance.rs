@@ -246,7 +246,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
         .tool(
             "starclock_create_universe",
             json!({
-                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"10"
+                "schema_revision":"agent-api-v1", "world":"1", "difficulty_index":"0", "seed":"1"
             }),
         )
         .await;
@@ -307,7 +307,7 @@ async fn run_activity_boundary(client: &mut HttpMcpClient) {
                 "schema_revision":"agent-api-v1",
                 "world":"1",
                 "difficulty_index":"0",
-                "seed":"10",
+                "seed":"1",
                 "replay_hex":exported["replay_hex"]
             }),
         )
@@ -435,15 +435,15 @@ fn frozen_trace() -> Value {
 
 fn assert_trace(actual: &TransportTrace, expected: &Value) {
     const CURRENT_COMBAT_STATE_HASHES: [&str; 9] = [
-        "a675538632f282bf398571e0f63f4a1909c3720055e72156f02fd4d8cc2611eb",
-        "fbe10b7ebb0730d3ff794ab1973ee258635ad5bffd39d09fcee95954477c2437",
-        "e5c2d6518b905555a43882f682f8e5bdf55263d4ae933c898db0fe5456fb8640",
-        "746bfbc387153e3347d3cf806022476e6db7debe87a3848147012c42c15183a0",
-        "588f0e3f9daa329f3c3c24c7fda02059b24423031b296ab9fef6348a20c2d136",
-        "014aa1b66800691e26dbfe93a9b1ca8e4958a653984742f40e0c6825155b6fb4",
-        "f7ee431d0362cf8c276b5ac1379fed6a15ef4a6839278251470925fbe0d2bbad",
-        "d750f5090cc2bd5026616affc5cf8513dd96c28aa8f81aef46092dc526a9aaa0",
-        "2d2bcb50b70ad488cf17744c9fc8082dca3c2b66aa51eca00ee1327c2359fefe",
+        "246887710af1b158ec773979e2b7a2555431ff53d161b8ee3a239220eda88088",
+        "ed687b4abfe40edba5c263ff6b48b58eea2dea4c0e8ff0ec402ad30d2e2aca3d",
+        "24ae38ee9b7b1bd105759286d290d9be9f70817ee886121244254d24d2ecf63f",
+        "aef93f76b4f600569f555580087b8b2117525b5471dbd07b77ced5a883809370",
+        "7a451843ba91427a6b299f25fa90fee2a3560ba19effbc524c94001ca43aea69",
+        "29476dca75c22d5383446a861ba9e888f8e5bc5fc39f5f7784b2786f39d453e5",
+        "66d5ab5460a5d8e50d606bb0c93352b100492e88281f05e0e328151eb63920ca",
+        "dd2af1144493bbfcb7986c436cb95ecf5e9376cf0b8c0aa51f7bbdda9c0254bc",
+        "ef7b5d60ca5f5d76c4addfaeac087898ea6354e17c4054f5b4a0d2dce703d033",
     ];
     assert_eq!(
         Value::Array(actual.state_hashes.clone()),

@@ -169,6 +169,7 @@ pub mod selector_origin;
 pub mod selector_predicate;
 pub mod selector_predicate_node;
 pub mod selector_reference_point;
+pub mod shield_observation;
 pub mod side_relationship;
 pub mod slot_persistence;
 pub mod slot_reset_point;
@@ -206,7 +207,7 @@ pub mod wave_slot;
 pub mod wave_transition_policy;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "87a51f96716c32a8";
+pub const SCHEMA_FINGERPRINT: &str = "f3119e6abcc42ec6";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

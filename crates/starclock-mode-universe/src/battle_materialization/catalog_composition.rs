@@ -75,13 +75,26 @@ impl UniverseBattleCatalogComposition {
             digest,
         );
         for member in members(universe) {
-            builder.add_encounter(member_encounter(member, &enemy_map)?);
+            builder.add_encounter(member_encounter(
+                member,
+                &enemy_map,
+                universe.simulation_catalog().combat_catalog(),
+            )?);
         }
         for battle in &occurrence_battles {
-            builder.add_encounter(member_encounter(battle.member(), &enemy_map)?);
+            builder.add_encounter(member_encounter(
+                battle.member(),
+                &enemy_map,
+                universe.simulation_catalog().combat_catalog(),
+            )?);
         }
         for (index, binding) in universe.difficulty_enemy_bindings().iter().enumerate() {
-            builder.add_encounter(difficulty_encounter(index, binding, &enemy_map)?);
+            builder.add_encounter(difficulty_encounter(
+                index,
+                binding,
+                &enemy_map,
+                universe.simulation_catalog().combat_catalog(),
+            )?);
         }
         let combat_catalog = builder
             .build()

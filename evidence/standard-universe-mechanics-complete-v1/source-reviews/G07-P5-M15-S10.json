@@ -1,0 +1,165 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S10",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
+  "source_monster_id": "2004011",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:200401101-through-200401109",
+        "midnight-tumult:2.5-atk-lightning-and-shock",
+        "caressing-moonlight:3.0-primary-and-2.0-adjacent",
+        "silent-and-sharp-mockery:2.5-atk-all-targets",
+        "spirit-whisper:dominate-and-immediate-action",
+        "psychological-suggestion:multi-target-revelation",
+        "seething-whisper:3.0-primary-and-2.5-other-shocked",
+        "tremble:detonate-shock-on-hit",
+        "cruelty:once-per-turn-follow-up",
+        "griever:0.02-damage-growth"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:2004011",
+        "weaknesses:Physical-Wind-Imaginary",
+        "resistances:Fire-Ice-Quantum-at-0.2",
+        "resistance:Lightning-at-0.4",
+        "frozen-resistance:0.75"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:2004011",
+        "base-hp:837",
+        "base-atk:18",
+        "base-def:210",
+        "base-speed:119",
+        "base-toughness:450",
+        "base-effect-resistance:0.2",
+        "ai-file:Config/ConfigAI/Monster_W2_Kafka_00_AI_RL.json",
+        "phase-count:3"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-and-ability-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:5",
+        "authored-levels:50-72-81-90",
+        "role:boss",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S10-numeric-anchors.json",
+      "sha256": "0c1f380b815886649d1ed34a2008be533b7bcbf815f76697f200fe4d4ea0a978",
+      "facts": [
+        "exact-public-levels:50-72-81-90",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "2004011",
+      "authored_level": 50,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "18531",
+        "atk": "234",
+        "def": "700",
+        "spd": "119",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.2"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S10-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0c1f380b815886649d1ed34a2008be533b7bcbf815f76697f200fe4d4ea0a978"
+    },
+    {
+      "source_monster_id": "2004011",
+      "authored_level": 72,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "88380",
+        "atk": "459",
+        "def": "920",
+        "spd": "130.9",
+        "effect_hit_rate": "0.176",
+        "effect_resistance": "0.288"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S10-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0c1f380b815886649d1ed34a2008be533b7bcbf815f76697f200fe4d4ea0a978"
+    },
+    {
+      "source_monster_id": "2004011",
+      "authored_level": 81,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "130143",
+        "atk": "563",
+        "def": "1010",
+        "spd": "142.8",
+        "effect_hit_rate": "0.248",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S10-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0c1f380b815886649d1ed34a2008be533b7bcbf815f76697f200fe4d4ea0a978"
+    },
+    {
+      "source_monster_id": "2004011",
+      "authored_level": 90,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "197980",
+        "atk": "663",
+        "def": "1100",
+        "spd": "157.08",
+        "effect_hit_rate": "0.32",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S10-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0c1f380b815886649d1ed34a2008be533b7bcbf815f76697f200fe4d4ea0a978"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 5 frozen difficulties use direct level 50, 72, 81 and 90 values derived from the committed version-4.4 template and hard-level inputs.",
+    "Midnight Tumult deals 250% ATK Lightning damage, detonates an existing Kafka Shock, and applies the two-turn 300% ATK Shock with a 120% base chance.",
+    "Caressing Moonlight deals 300% ATK to the primary target and 200% to adjacent targets, detonating the primary Shock and spreading Shock only when the primary target was Shocked.",
+    "Silent and Sharp Mockery deals 250% ATK Lightning damage to all opponents and Tremble detonates Kafka Shock on attacked Shocked targets.",
+    "Spirit Whisper applies Dominated with a 120% base chance and advances the target to a forced Basic ATK against a random ally.",
+    "Psychological Suggestion marks up to two opponents and queues Revelation; Revelation applies Dominated, advances marked targets and clears the suggestion.",
+    "Seething Whisper of the Fallen deals 300% ATK to the primary target, applies Shock, and deals 250% ATK to every other Shocked opponent.",
+    "Cruelty listens for a non-Kafka actor damaging a Shocked target and emits one 100% ATK Lightning follow-up per turn.",
+    "Griever adds a permanent two-percent dynamic damage boost when Kafka applies or propagates Shock.",
+    "All three phase rotations, Shock detonations, forced control, queued Revelation and passive reactions use shared Rule IR without a native handler."
+  ]
+}

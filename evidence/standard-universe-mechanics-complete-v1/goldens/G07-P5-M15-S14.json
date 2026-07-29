@@ -1,0 +1,148 @@
+{
+  "schema_revision": "starclock.goal07-enemy-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S14",
+  "enemy_variant_ids": [
+    "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01",
+    "enemy.dreamjolt-troupes-spring-loader.minion.variant.01",
+    "enemy.dreamjolt-troupes-sweet-gorilla-bug.elite.variant.01",
+    "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+    "enemy.dreamjolt-troupes-winder-goon.minionlv2.variant.01",
+    "enemy.entranced-ingenium-golden-cloud-toad.minion.variant.01",
+    "enemy.entranced-ingenium-illumination-dragonfish.minionlv2.variant.01",
+    "enemy.entranced-ingenium-obedient-dracolion.minion.variant.01",
+    "enemy.everwinter-shadewalker.minionlv2.variant.01",
+    "enemy.flamespawn.minion.variant.01",
+    "enemy.frigid-prowler.elite.variant.01",
+    "enemy.frostspawn.minion.variant.01"
+  ],
+  "tables": {
+    "Ability": {
+      "rows": 29,
+      "semantic_sha256": "b17c0956f1a31a16a1cb4377300e006e450e16f4c237db111a1ae2395f4201f0"
+    },
+    "AbilityPhase": {
+      "rows": 29,
+      "semantic_sha256": "2f086f407c5678eb087f5102b014f1d4eaf7686f879b1abe6ebb01aa63f28762"
+    },
+    "AiCandidate": {
+      "rows": 26,
+      "semantic_sha256": "debb6c6c35cb443b2ad90817b019e5bcf286ebd2e774c46820e299344d645d30"
+    },
+    "AiGraph": {
+      "rows": 12,
+      "semantic_sha256": "7022813bebda3ccacf0fc67b0702facb29d0d835945c62f4f5484420f21a159e"
+    },
+    "AiState": {
+      "rows": 26,
+      "semantic_sha256": "a86ad14d4a58bfa2f3e942b8396115b40b451d8638c3fbdf37d19a902022943b"
+    },
+    "AiTransition": {
+      "rows": 26,
+      "semantic_sha256": "8ff711cc57d5f9a33c4be0c1250bfe4520984ab50db053105fcca7340b4a4ad9"
+    },
+    "ConditionExpression": {
+      "rows": 1,
+      "semantic_sha256": "7bce3606fda64d23bc7c8d1de0bf987d17c187db58a57d4ac965139a0446b515"
+    },
+    "ContentEvidenceBinding": {
+      "rows": 131,
+      "semantic_sha256": "e75094666ae4eac3d06f65c6f2397117d4f9d4a8bc6432e96f64c268509db151"
+    },
+    "ContentIdentity": {
+      "rows": 119,
+      "semantic_sha256": "d3f545a645d89d44c864c12338a8df5fc8cd0762a9448509583c6ecce65f67a6"
+    },
+    "Effect": {
+      "rows": 11,
+      "semantic_sha256": "e110b165f794a9b25c4dc15cfa720e3837f77998241225c1e448f1c7c5285d91"
+    },
+    "EffectRuleBinding": {
+      "rows": 1,
+      "semantic_sha256": "32ddb06ed8e26eb86889bf0966e8865e578d4dd5f3fc68f01d6342e33c4c8815"
+    },
+    "EffectTag": {
+      "rows": 13,
+      "semantic_sha256": "110fcd7d89acbc497f288bc037ad803beeee4172c8c4bda8a014521231569966"
+    },
+    "EnemyAbility": {
+      "rows": 28,
+      "semantic_sha256": "bb8495d5515f11436a8dcd2405c042338547f750e79ac41f8f9621aa6bbc7914"
+    },
+    "EnemyPhase": {
+      "rows": 12,
+      "semantic_sha256": "1ccdb5d67c6677a317170843caaf78ce066ce19c8485d7126f3ce6d48fe657e7"
+    },
+    "EnemyResistance": {
+      "rows": 54,
+      "semantic_sha256": "9b710ed8e02c8c8eaa9e1fe5c5b3285931bbc08be1e19442d3fb471aefa5bf6d"
+    },
+    "EnemyStat": {
+      "rows": 45,
+      "semantic_sha256": "69f215fb3716a7775e0abf183c100b7ac91c7686c7c87df33711c0266e26a5e2"
+    },
+    "EnemyTemplate": {
+      "rows": 12,
+      "semantic_sha256": "3819c2337175b5544ba7b180f63cfef0fc636a6897f056939a38377249e87091"
+    },
+    "EnemyToughnessLayer": {
+      "rows": 12,
+      "semantic_sha256": "ae6f97da4bff0dcf188c855c3821d2f90faa07dafaa1fbbf177ba82b2ff83413"
+    },
+    "EnemyVariant": {
+      "rows": 12,
+      "semantic_sha256": "67aea667943533eb58669b161ccc837a959e5badb5ef4211f8a820e5d2233a17"
+    },
+    "EnemyVariantAbility": {
+      "rows": 28,
+      "semantic_sha256": "7befb3b4dda5496277a508558633d5da684ad6c268c9df57752d7588545f6115"
+    },
+    "EnemyWeakness": {
+      "rows": 30,
+      "semantic_sha256": "a4c7c9c20fb07afabb60467845a5f90936c14d7436872accdc11b16c73a2041f"
+    },
+    "EventFilter": {
+      "rows": 1,
+      "semantic_sha256": "b375661a6a98aaa6ad8b5f77a736b3a18833427cc6b01ecefc5c66b06da81c5d"
+    },
+    "EvidenceRecord": {
+      "rows": 1,
+      "semantic_sha256": "86ba0e65a2062290a3e1165580121ead4396445fc993f66b588f616e1289ae66"
+    },
+    "LinkedUnitDefinition": {
+      "rows": 2,
+      "semantic_sha256": "146b0dd1facbf06a66654e41d6c1cbf003eee5415859f626b75f4e585860e9ad"
+    },
+    "Operation": {
+      "rows": 43,
+      "semantic_sha256": "e1756749e64422896f2e46af67bb17b13dbc3b0d25c03d9355c0375504ef8726"
+    },
+    "Program": {
+      "rows": 31,
+      "semantic_sha256": "89adb728fc25052327e71a195c8531946408e24b58032a1a5149a391a93dad85"
+    },
+    "ProgramStep": {
+      "rows": 43,
+      "semantic_sha256": "cc6d9153939fac352084b2c056e292a4654c5c77cfb45f87fd7e79196a6c231f"
+    },
+    "RuleDefinition": {
+      "rows": 1,
+      "semantic_sha256": "bf2b85d4411f8c8c4fd35d4133df56e922b52f502c30786d7f5942c08a116bca"
+    },
+    "RuleTrigger": {
+      "rows": 1,
+      "semantic_sha256": "9565294a58435f6b746cc66efb81db205d225dd1a0df5552edf0470a58c0197f"
+    },
+    "Selector": {
+      "rows": 9,
+      "semantic_sha256": "28e8bc03f58b36b1005ae91347603cc1a9c4143a91cd63ba986f688820a8414c"
+    },
+    "SourceRecord": {
+      "rows": 1,
+      "semantic_sha256": "0bff832eda85c95c6982721a4f2ec2cda1cf084147d004ca4a259b047f769a29"
+    },
+    "ValueExpression": {
+      "rows": 34,
+      "semantic_sha256": "f6cddb55179895873371369c3ddf69bb3f138f0122f2eb7999ee83a21d5c50b1"
+    }
+  }
+}

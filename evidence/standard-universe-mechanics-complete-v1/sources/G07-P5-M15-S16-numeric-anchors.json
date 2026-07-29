@@ -1,0 +1,600 @@
+{
+  "schema_revision": "starclock.goal07-enemy-numeric-anchor.v2",
+  "partition_id": "G07-P5-M15-S16",
+  "numeric_policy_id": "goal07-s16-public-level-curve-v1",
+  "source": {
+    "publisher": "Honkai: Star Rail Wiki and committed version 4.4 extraction",
+    "url": "https://honkai-star-rail.fandom.com/wiki/Silvermane_Lieutenant",
+    "accessed_on": "2026-07-29",
+    "game_version": "4.4",
+    "confidence": "PerVariantExactPublicCurve"
+  },
+  "derivation": {
+    "hp_reference_base": "930",
+    "hp_rounding": "NearestTiesAway",
+    "atk_reference_base": "18",
+    "def_reference_base": "210",
+    "speed_breakpoints": [
+      {
+        "level_minimum": 1,
+        "multiplier": "1"
+      },
+      {
+        "level_minimum": 65,
+        "multiplier": "1.1"
+      },
+      {
+        "level_minimum": 78,
+        "multiplier": "1.2"
+      },
+      {
+        "level_minimum": 86,
+        "multiplier": "1.32"
+      }
+    ],
+    "exact_overrides": "All variants use the reviewed public monster curve scaled by their committed version 4.4 template base."
+  },
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.memory-zone-meme-shell-of-faded-rage.elite.variant.01",
+      "source_monster_id": "3013010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Memory_Zone_Meme_%22Shell_of_Faded_Rage%22",
+      "levels": [
+        {
+          "authored_level": 44,
+          "base_hp": "18971",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "110",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 50,
+          "base_hp": "28826",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "110",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "101662",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "121",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "158192",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "121",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "233862",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "132",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.memory-zone-meme-something-in-the-mirror.minionlv2.variant.02",
+      "source_monster_id": "301201001",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Memory_Zone_Meme_%22Something_In_The_Mirror%22",
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "5115",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "120",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.searing-prowler.elite.variant.01",
+      "source_monster_id": "1023010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Searing_Prowler",
+      "levels": [
+        {
+          "authored_level": 21,
+          "base_hp": "3322",
+          "base_atk": "57",
+          "base_def": "410",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 29,
+          "base_hp": "5136",
+          "base_atk": "93",
+          "base_def": "490",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 44,
+          "base_hp": "14906",
+          "base_atk": "187",
+          "base_def": "640",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 61,
+          "base_hp": "58260",
+          "base_atk": "348",
+          "base_def": "810",
+          "base_spd": "100",
+          "effect_hit_rate": "0.088",
+          "effect_resistance": "0.244"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "79878",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "110",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "124293",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "110",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "183748",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "120",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.senior-staff-team-leader-bug.elite.variant.01",
+      "source_monster_id": "8033011",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Senior_Staff:_Team_Leader_(Bug)",
+      "levels": [
+        {
+          "authored_level": 47,
+          "base_hp": "32435",
+          "base_atk": "210",
+          "base_def": "670",
+          "base_spd": "144",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 53,
+          "base_hp": "55334",
+          "base_atk": "265",
+          "base_def": "730",
+          "base_spd": "144",
+          "effect_hit_rate": "0.024",
+          "effect_resistance": "0.212"
+        },
+        {
+          "authored_level": 69,
+          "base_hp": "160375",
+          "base_atk": "426",
+          "base_def": "890",
+          "base_spd": "158.4",
+          "effect_hit_rate": "0.152",
+          "effect_resistance": "0.276"
+        },
+        {
+          "authored_level": 78,
+          "base_hp": "242797",
+          "base_atk": "529",
+          "base_def": "980",
+          "base_spd": "172.8",
+          "effect_hit_rate": "0.224",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 87,
+          "base_hp": "364933",
+          "base_atk": "630",
+          "base_def": "1070",
+          "base_spd": "190.08",
+          "effect_hit_rate": "0.296",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.senior-staff-team-leader.elite.variant.01",
+      "source_monster_id": "8033010",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Senior_Staff:_Team_Leader",
+      "levels": [
+        {
+          "authored_level": 50,
+          "base_hp": "32944",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "116186",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "132",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "180790",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "132",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "267270",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "144",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.silvermane-cannoneer.minionlv2.variant.01",
+      "source_monster_id": "1002030",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Silvermane_Cannoneer",
+      "levels": [
+        {
+          "authored_level": 47,
+          "base_hp": "3585",
+          "base_atk": "210",
+          "base_def": "670",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "7311",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "100",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "8505",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.silvermane-gunner.minionlv2.variant.01",
+      "source_monster_id": "1002050",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Silvermane_Gunner",
+      "levels": [
+        {
+          "authored_level": 47,
+          "base_hp": "1878",
+          "base_atk": "210",
+          "base_def": "670",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.1"
+        },
+        {
+          "authored_level": 55,
+          "base_hp": "3829",
+          "base_atk": "286",
+          "base_def": "750",
+          "base_spd": "100",
+          "effect_hit_rate": "0.04",
+          "effect_resistance": "0.12"
+        },
+        {
+          "authored_level": 57,
+          "base_hp": "4455",
+          "base_atk": "307",
+          "base_def": "770",
+          "base_spd": "100",
+          "effect_hit_rate": "0.056",
+          "effect_resistance": "0.128"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.silvermane-lieutenant-bug.elite.variant.01",
+      "source_monster_id": "1003011",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Silvermane_Lieutenant_(Bug)",
+      "levels": [
+        {
+          "authored_level": 32,
+          "base_hp": "9075",
+          "base_atk": "109",
+          "base_def": "520",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 53,
+          "base_hp": "46597",
+          "base_atk": "265",
+          "base_def": "730",
+          "base_spd": "120",
+          "effect_hit_rate": "0.024",
+          "effect_resistance": "0.212"
+        },
+        {
+          "authored_level": 64,
+          "base_hp": "103608",
+          "base_atk": "377",
+          "base_def": "840",
+          "base_spd": "120",
+          "effect_hit_rate": "0.112",
+          "effect_resistance": "0.256"
+        },
+        {
+          "authored_level": 69,
+          "base_hp": "135053",
+          "base_atk": "426",
+          "base_def": "890",
+          "base_spd": "132",
+          "effect_hit_rate": "0.152",
+          "effect_resistance": "0.276"
+        },
+        {
+          "authored_level": 78,
+          "base_hp": "204461",
+          "base_atk": "529",
+          "base_def": "980",
+          "base_spd": "144",
+          "effect_hit_rate": "0.224",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 87,
+          "base_hp": "307312",
+          "base_atk": "630",
+          "base_def": "1070",
+          "base_spd": "158.4",
+          "effect_hit_rate": "0.296",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.silvermane-soldier.minionlv2.variant.01",
+      "source_monster_id": "1002040",
+      "combat_rank": "MinionLv2",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Silvermane_Soldier",
+      "levels": [
+        {
+          "authored_level": 54,
+          "base_hp": "4156",
+          "base_atk": "276",
+          "base_def": "740",
+          "base_spd": "83",
+          "effect_hit_rate": "0.032",
+          "effect_resistance": "0.116"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.stormbringer-bug.elite.variant.01",
+      "source_monster_id": "8003051",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Stormbringer_(Bug)",
+      "levels": [
+        {
+          "authored_level": 24,
+          "base_hp": "5457",
+          "base_atk": "71",
+          "base_def": "440",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 39,
+          "base_hp": "12690",
+          "base_atk": "150",
+          "base_def": "590",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 64,
+          "base_hp": "97133",
+          "base_atk": "377",
+          "base_def": "840",
+          "base_spd": "120",
+          "effect_hit_rate": "0.112",
+          "effect_resistance": "0.256"
+        },
+        {
+          "authored_level": 69,
+          "base_hp": "126612",
+          "base_atk": "426",
+          "base_def": "890",
+          "base_spd": "132",
+          "effect_hit_rate": "0.152",
+          "effect_resistance": "0.276"
+        },
+        {
+          "authored_level": 78,
+          "base_hp": "191682",
+          "base_atk": "529",
+          "base_def": "980",
+          "base_spd": "144",
+          "effect_hit_rate": "0.224",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 87,
+          "base_hp": "288105",
+          "base_atk": "630",
+          "base_def": "1070",
+          "base_spd": "158.4",
+          "effect_hit_rate": "0.296",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.stormbringer.elite.variant.01",
+      "source_monster_id": "8003050",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Stormbringer",
+      "levels": [
+        {
+          "authored_level": 50,
+          "base_hp": "22649",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "100",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "79878",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "110",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "124293",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "110",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "183748",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "120",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    },
+    {
+      "enemy_variant_id": "enemy.the-ascended.elite.variant.01",
+      "source_monster_id": "2023030",
+      "combat_rank": "Elite",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/The_Ascended",
+      "levels": [
+        {
+          "authored_level": 50,
+          "base_hp": "22649",
+          "base_atk": "234",
+          "base_def": "700",
+          "base_spd": "120",
+          "effect_hit_rate": "0",
+          "effect_resistance": "0.2"
+        },
+        {
+          "authored_level": 66,
+          "base_hp": "79878",
+          "base_atk": "397",
+          "base_def": "860",
+          "base_spd": "132",
+          "effect_hit_rate": "0.128",
+          "effect_resistance": "0.264"
+        },
+        {
+          "authored_level": 75,
+          "base_hp": "124293",
+          "base_atk": "494",
+          "base_def": "950",
+          "base_spd": "132",
+          "effect_hit_rate": "0.2",
+          "effect_resistance": "0.3"
+        },
+        {
+          "authored_level": 84,
+          "base_hp": "183748",
+          "base_atk": "597",
+          "base_def": "1040",
+          "base_spd": "144",
+          "effect_hit_rate": "0.272",
+          "effect_resistance": "0.3"
+        }
+      ]
+    }
+  ]
+}

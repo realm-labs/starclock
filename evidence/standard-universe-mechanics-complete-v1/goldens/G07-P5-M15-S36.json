@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S36",
+  "lane": "world-difficulty",
+  "record_ids": [
+    "universe.world.01",
+    "universe.world.01.difficulty.01",
+    "universe.world.01.difficulty.tutorial",
+    "universe.world.02",
+    "universe.world.02.difficulty.01",
+    "universe.world.03",
+    "universe.world.03.difficulty.01",
+    "universe.world.03.difficulty.02",
+    "universe.world.03.difficulty.03",
+    "universe.world.03.difficulty.04",
+    "universe.world.03.difficulty.05",
+    "universe.world.04",
+    "universe.world.04.difficulty.01",
+    "universe.world.04.difficulty.02",
+    "universe.world.04.difficulty.03",
+    "universe.world.04.difficulty.04",
+    "universe.world.04.difficulty.05",
+    "universe.world.05",
+    "universe.world.05.difficulty.01",
+    "universe.world.05.difficulty.02",
+    "universe.world.05.difficulty.03",
+    "universe.world.05.difficulty.04",
+    "universe.world.06",
+    "universe.world.06.difficulty.01",
+    "universe.world.06.difficulty.02",
+    "universe.world.06.difficulty.03",
+    "universe.world.06.difficulty.04",
+    "universe.world.07",
+    "universe.world.07.difficulty.01",
+    "universe.world.07.difficulty.02",
+    "universe.world.07.difficulty.03",
+    "universe.world.07.difficulty.04",
+    "universe.world.08",
+    "universe.world.08.difficulty.01",
+    "universe.world.08.difficulty.02",
+    "universe.world.08.difficulty.03",
+    "universe.world.08.difficulty.04",
+    "universe.world.09",
+    "universe.world.09.difficulty.01",
+    "universe.world.09.difficulty.02",
+    "universe.world.09.difficulty.03",
+    "universe.world.09.difficulty.04"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseWorld": {
+      "rows": 9,
+      "semantic_sha256": "7701298fc6e47c3b79729a5fa028a5233cdddcdf00c3e93667a239d70258e12f"
+    },
+    "UniverseDifficulty": {
+      "rows": 33,
+      "semantic_sha256": "9188401501b666f10899f9d89aeb69814e787137b3f66dd3ee43822c6b60ee4a"
+    },
+    "UniverseDifficultyEnemy": {
+      "rows": 182,
+      "semantic_sha256": "9cc97b9f329f7ce2b6933c58517ff5493bba7b9db90b809d83a8ae41c1491ac8"
+    }
+  }
+}

@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
-| Active phase | Phase 4 — Services and occurrences |
-| Active batch | `G07-P4-M13-S13` |
-| Next unblocked batch | `G07-P4-M13-S13` |
+| Active phase | Phase 6 — Integrated verification and hardening |
+| Active batch | `G07-P6-B1` |
+| Next unblocked batch | `G07-P6-B1` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -270,10 +270,88 @@ Curios, paired two- and three-star Blessing rewards, atomic discard-all and
 equal-count Curio or Blessing exchanges. All 32 records and the assigned
 battle fixture have terminal dispositions, with no deferred counter, native
 handler or numeric approximation.
-`G07-P4-M13-S13` is active.
+Occurrence S13 is complete. The final Cuckoo Clock Fanatic (II) exchange and
+the complete third graph reuse the exact six-clock acquisition, discard and
+equal-count exchange primitives. Mirror of Transcendence (II) now closes all
+16 assigned dialogue states as exact no-effect transitions, while The
+Cremators performs an atomic one-to-two-star for one-to-three-star Blessing
+exchange or grants exactly 80 Cosmic Fragments. All 32 records have terminal
+dispositions, with no deferred counter, native handler or numeric
+approximation.
+Occurrence S14 is complete. The final two Mirror of Transcendence (II)
+dialogue states and all 18 Mirror (III) states are exact no-effect
+transitions. Interactive Arts grants one two-star Elation or Hunt Blessing,
+or restores every living character by exactly 100% of Max HP. Pixel World
+grants exactly 200 Cosmic Fragments, or atomically removes 20% of every
+living character's current HP before granting two random one-star Blessings.
+All 31 records and the assigned restoration fixture have terminal
+dispositions. The complete 321-choice Occurrence runtime now has zero
+deferred operations, with no native handler or numeric approximation.
+Enemy partitions S01–S18 are complete. S17 and S18 close the final ordinary
+enemy proxies, including the three Trotter paths, Voidranger action cycles,
+Trampler lock and Entanglement, Windspawn Wind Shear and Wraith Warden's
+Physical strike. All 86 frozen enemy variants now materialize through exact
+production definitions. Domain-graph S19 is complete: all nine Standard
+Universe domains retain their exact public source types, kinds, terminal
+flags, localized text and Activity decision bindings. Battle domains hand off
+through battle commands, ordinary external domains use run commands and
+Adventure uses the explicit external-outcome boundary. Encounter-selection
+S20 is complete: its 32 room-scoped pools retain 61 ordered weighted group
+bindings, 20 fixed-content bindings and all three selection policies. The
+assigned production fixture proves that an exact condition key selects the
+weighted-group or fixed-content branch before resolution, and unoffered keys
+fail closed. Encounter-selection S21 is complete: another 32 pools retain 60
+ordered weighted bindings and two fixed bindings. Its two production fixtures
+prove exact-condition weighted stable order and World-difficulty Boss
+resolution against the selected difficulty's authored enemy binding.
+Encounter-selection S22 is complete: its final 28 pools retain 53 weighted
+bindings and 14 fixed bindings. Together S20–S22 exactly close all 92
+encounter pools, with contiguous identities, 174 weighted bindings, 36 fixed
+bindings and a closed 59/4/29 split across the three selection policies.
+Topology-map S23 is complete: its first eight complete maps retain 86 nodes
+and 98 ordered edges. Each map has one source node, one reachable terminal,
+no cross-map edge and a bounded acyclic runtime graph. Topology-map S24 is
+complete: five more complete maps retain 85 contiguous nodes and 105 ordered
+edges under the same single-entry, reachable-terminal and graph-local
+invariants. Topology-map S25 is complete: its next five complete maps retain
+another 85 contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S26 is complete: five further complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S27 is complete: its five complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S28 is complete: five more complete maps retain another 85
+contiguous nodes and 105 ordered edges under the same invariants.
+Topology-map S29 is complete: its final four maps retain 68 contiguous nodes
+and 84 ordered edges. Together S23–S29 close all 37 topology maps, 579 nodes
+and 707 edges under the single-entry, reachable-terminal, graph-local and
+bounded-acyclic invariants. Room-content S30 is complete: its first 32 rooms
+retain 114 ordered content bindings, split exactly into 31 encounter-group,
+39 fixed-content and 44 external-decision bindings. Every room retains one
+unique primary binding and every encounter binding resolves its exact authored
+group. Room-content S31 is complete: its next 32 rooms retain 65 ordered
+content bindings, split exactly into 46 encounter-group, six fixed-content
+and 13 external-decision bindings under the same primary and foreign-key
+invariants. Room-content S32 is complete: its next 32 rooms retain 55 ordered
+content bindings, split exactly into 39 encounter-group, two fixed-content
+and 14 external-decision bindings under the same invariants.
+Room-content S33 is complete: its next 32 rooms retain 38 ordered content
+bindings, split exactly into 18 encounter-group and 20 external-decision
+bindings under the same invariants. Room-content S34 is complete: its next 32
+rooms retain 101 ordered content bindings, split exactly into 37
+encounter-group, 27 fixed-content and 37 external-decision bindings under the
+same invariants. Room-content S35 is complete: its final three rooms retain
+seven ordered content bindings, split into three encounter-group and four
+fixed-content bindings. Together S30-S35 close all 163 rooms and 380 content
+bindings, split exactly into 174 encounter-group, 78 fixed-content and 128
+external-decision bindings under the unique-primary and exact foreign-key
+invariants. World-difficulty S36 is complete: all nine worlds and 33
+difficulties retain their exact metadata, ownership and score curves, while all
+182 difficulty-enemy bindings resolve into the battle catalog with the exact
+35 boss and 147 elite split. The frozen content ledger is now 104/104 complete.
+`G07-P6-B1` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 66 completed partitions use scoped Excel/Sora semantic
+model. All 104 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
@@ -345,7 +423,7 @@ The milestone summary remains here for orientation.
 | `G07-P2-M10` | `Complete` | 58 / 59 | Erudition complete. |
 | `G07-P3-M11` | `Complete` | 86 / 86 | Positive/neutral/special Curios complete. |
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
-| `G07-P4-M13` | `Expanded` | 384 / 447 | Occurrence choices and effects complete. |
+| `G07-P4-M13` | `Complete` | 447 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
 | `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 

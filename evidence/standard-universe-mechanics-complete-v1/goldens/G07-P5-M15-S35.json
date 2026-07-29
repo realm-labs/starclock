@@ -1,0 +1,22 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S35",
+  "lane": "room-content",
+  "record_ids": [
+    "universe.room.400611",
+    "universe.room.400612",
+    "universe.room.501"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseRoom": {
+      "rows": 3,
+      "semantic_sha256": "c3fa3bedd5e288c1935b574f1d884c8e0056c1c1384621ef3828c7dfb1fbe469"
+    },
+    "UniverseRoomContent": {
+      "rows": 7,
+      "semantic_sha256": "d4ab89e54839a1ee6d5d13ad0d2975d79e73a636f4c1a7fc3c499638f6f95143"
+    }
+  }
+}

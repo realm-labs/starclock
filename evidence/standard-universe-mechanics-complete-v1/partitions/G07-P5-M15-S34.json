@@ -1,0 +1,1477 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P5-M15-S34",
+  "state": "Complete",
+  "completed_on": "2026-07-29",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/Universe.xlsx",
+        "tables": [
+          "UniverseRoom",
+          "UniverseRoomContent"
+        ]
+      },
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseEncounterGroup"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-world-partition.py --partition G07-P5-M15-S34 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+      "git_blob_sha1": "d57866c8ee0f67072399a583f3e57eef1907e5d0"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S34.json",
+      "sha256": "cb8cb7466e92bca0179af502020ef6aee35cbbad4fdd122858373f58337139d7",
+      "git_blob_sha1": "7220e518ef4788a7cd35a60287a6df98099c0a03"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.room.300833",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.301",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.302",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.303",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.304",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.305",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.306",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.307",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400121",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400122",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400131",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400132",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400142",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400211",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400212",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400221",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400222",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400231",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400232",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400311",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400312",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400321",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400322",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400331",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400332",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400412",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400422",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400432",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400511",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.room.400512",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/Universe.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/rooms.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/domains.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/encounter-groups.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/definition.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/topology_support.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/room_content_s34.rs"
+        }
+      ]
+    }
+  ],
+  "rules": [],
+  "fixtures": [],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-world-partition.py --partition G07-P5-M15-S34 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test room_content_s34 --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S34.json",
+        "sha256": "cb8cb7466e92bca0179af502020ef6aee35cbbad4fdd122858373f58337139d7",
+        "git_blob_sha1": "7220e518ef4788a7cd35a60287a6df98099c0a03"
+      }
+    ]
+  }
+}

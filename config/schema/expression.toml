@@ -15,6 +15,10 @@ name = "RoundingPolicy"
 values = ["Floor", "Ceil", "TowardZero", "AwayFromZero", "NearestTiesAway", "NearestTiesEven"]
 
 [[enums]]
+name = "ShieldObservation"
+values = ["Current", "BeforeEvent"]
+
+[[enums]]
 name = "EventValueProperty"
 values = ["OwnerId", "ActorId", "ApplierId", "SourceDefinitionId", "PrimaryTargetId", "DamageAmount", "HpChangeAmount", "ResourceDelta", "StackCount", "HitIndex"]
 
@@ -97,6 +101,30 @@ type = "enum<StatKind>"
 [[unions.variants.fields]]
 name = "formula_purpose"
 type = "enum<FormulaPurpose>"
+
+[[unions.variants]]
+name = "QueryShield"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "observation"
+type = "enum<ShieldObservation>"
+
+[[unions.variants]]
+name = "QueryHp"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+
+[[unions.variants]]
+name = "QueryEffectStacks"
+[[unions.variants.fields]]
+name = "subject_selector_id"
+type = "ref<Selector.id>"
+[[unions.variants.fields]]
+name = "effect_id"
+type = "ref<Effect.id>"
 
 [[unions.variants]]
 name = "ReadEventProperty"

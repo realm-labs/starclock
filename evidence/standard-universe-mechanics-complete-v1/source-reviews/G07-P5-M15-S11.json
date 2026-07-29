@@ -1,0 +1,176 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S11",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.svarog-complete.littleboss.variant.01",
+  "source_monster_id": "1014011",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "svarog-source-skill-ids:101401101-101401102-101401104-101401107-101401112-101401113-101401114",
+        "banishing-punch:3.0-atk-physical",
+        "burning-beam:3.0-atk-physical-and-0.5-action-delay",
+        "oversaturated-bombardment:0.15-atk-per-hit-and-0.2-defense-reduction-for-3-turns",
+        "power-amplification:0.15-allied-damage-boost",
+        "linked-actions:101203001-101201101-101302003",
+        "auxiliary-arm-actions:101204104-through-101204107"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:1014011",
+        "weaknesses:Fire-Lightning-Wind",
+        "resistances:Ice-Imaginary-Physical-Quantum-at-0.2",
+        "frozen-entangle-confine-resistance:0.75"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:1014011",
+        "base-hp:697.5",
+        "base-atk:18",
+        "base-def:210",
+        "base-speed:144",
+        "base-toughness:360",
+        "base-effect-resistance:0.3",
+        "phase-count:3"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-and-ability-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:4",
+        "authored-levels:42-67-72-81-90",
+        "role:boss",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "sha256": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a",
+      "facts": [
+        "exact-public-levels:42-67-72-81-90",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "1014011",
+      "authored_level": 42,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "8403",
+        "atk": "171",
+        "def": "620",
+        "spd": "144",
+        "effect_hit_rate": "0",
+        "effect_resistance": "0.3"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a"
+    },
+    {
+      "source_monster_id": "1014011",
+      "authored_level": 67,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "57410",
+        "atk": "407",
+        "def": "870",
+        "spd": "158.4",
+        "effect_hit_rate": "0.136",
+        "effect_resistance": "0.368"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a"
+    },
+    {
+      "source_monster_id": "1014011",
+      "authored_level": 72,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "73650",
+        "atk": "459",
+        "def": "920",
+        "spd": "158.4",
+        "effect_hit_rate": "0.176",
+        "effect_resistance": "0.388"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a"
+    },
+    {
+      "source_monster_id": "1014011",
+      "authored_level": 81,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "108452",
+        "atk": "563",
+        "def": "1010",
+        "spd": "172.8",
+        "effect_hit_rate": "0.248",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a"
+    },
+    {
+      "source_monster_id": "1014011",
+      "authored_level": 90,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "164983",
+        "atk": "663",
+        "def": "1100",
+        "spd": "190.08",
+        "effect_hit_rate": "0.32",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S11-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "9dd5d4bd0d456367cb33a419d075adb6bc1803885288628edb5c0a1a700cd50a"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 4 frozen difficulties use direct level 42, 67, 72, 81 and 90 public values derived from the committed version-4.4 template and hard-level inputs.",
+    "Banishing Punch deals 300% ATK Physical damage; Burning Beam deals 300% ATK Physical damage and delays the target action by 50%.",
+    "Power Amplification permanently adds a stackable 15% ordinary-damage boost to all allied units.",
+    "Emergency Support creates four independent support slots; each slot chooses the Automaton Beetle or Automaton Hound role once through authoritative behavior-choice RNG and retains the exact 300% or 250% ATK action.",
+    "Tactical Support creates two Automaton Direwolves, each with the exact 250% ATK Disintegration Order action.",
+    "Oversaturated Bombardment emits twelve explicit 15% ATK Physical hits and then applies a stackable three-turn 20% DEF reduction with a 100% base chance.",
+    "Boost Deployment creates one Auxiliary Robot Arm; Oppressive Embrace deals 50% of target maximum HP and applies Restrained, and Disabling Field deals 50% of the restrained target maximum HP.",
+    "The arm enters Overload Warning after three linked-unit turns or immediately below 50% current HP, releases Restrained targets, advances Svarog by 100%, then uses 1500% ATK Controlled Blasting and despawns on its next action.",
+    "All three phase rotations, random support roles, linked-unit lifecycles, current-HP overload branch, action control and effect stacking use shared Rule IR without a native handler."
+  ]
+}

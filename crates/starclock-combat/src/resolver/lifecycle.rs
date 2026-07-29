@@ -116,6 +116,60 @@ pub(super) fn execute_enemy_phase(
     Ok(parent)
 }
 
+pub(super) fn transition_enemy_phase_or_defeat(
+    catalog: &crate::catalog::CombatCatalog,
+    txn: &mut Transaction<'_>,
+    cause: Cause,
+    mut parent: EventId,
+    operation: crate::OperationId,
+    unit: UnitId,
+) -> Result<EventId, BattleFault> {
+    let runtime = txn.state.units.get(unit).and_then(|state| state.enemy);
+    let next_phase = runtime.and_then(|runtime| {
+        let enemy = catalog.enemy(runtime.definition)?;
+        let next_sequence = runtime.phase.map_or(Some(1), |current| {
+            enemy
+                .phases()
+                .iter()
+                .find(|phase| phase.id() == current)
+                .and_then(|phase| phase.sequence().checked_add(1))
+        })?;
+        enemy
+            .phases()
+            .iter()
+            .find(|phase| phase.sequence() == next_sequence)
+            .map(|phase| phase.id())
+    });
+    if let Some(phase) = next_phase {
+        return execute_enemy_phase(
+            catalog,
+            txn,
+            cause,
+            parent,
+            EnemyPhaseOp {
+                id: operation,
+                targets: vec![unit].into_boxed_slice(),
+                phase,
+            },
+        );
+    }
+
+    txn.set_life(unit, LifeState::Downed)?;
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(unit)),
+        BattleEventKind::Unit(UnitEventData::Downed { unit }),
+    );
+    txn.set_life(unit, LifeState::Defeated)?;
+    parent = txn.emit(
+        cause.with_parent(parent).with_primary_target(Some(unit)),
+        BattleEventKind::Unit(UnitEventData::Defeated {
+            unit,
+            credited_to: cause.applier().ok_or_else(|| action_fault(116))?,
+        }),
+    );
+    settle_owner_defeat(txn, cause, parent, unit)
+}
+
 fn apply_phase_carry(
     catalog: &crate::catalog::CombatCatalog,
     txn: &mut Transaction<'_>,
@@ -329,6 +383,8 @@ pub(super) fn execute_summon(
             base_attack: combatant.base_attack(),
             base_defense: combatant.base_defense(),
             base_speed: combatant.speed(),
+            base_effect_hit_rate: combatant.base_effect_hit_rate(),
+            base_effect_resistance: combatant.base_effect_resistance(),
             current_energy: combatant.current_energy(),
             maximum_energy: combatant.maximum_energy(),
             rank: combatant.rank(),
@@ -968,6 +1024,7 @@ fn resolve_linked_combatant(
     )
     .map_err(|_| action_fault(126))?
     .with_base_attack_defense(attack, defense)
+    .with_base_effect_stats(owner.base_effect_hit_rate, owner.base_effect_resistance)
     .with_energy(prototype.current_energy(), prototype.maximum_energy())
     .map_err(|_| action_fault(127))?
     .with_toughness(

@@ -54,7 +54,8 @@ use player::player_participants;
 
 pub const UNIVERSE_BATTLE_MATERIALIZATION_REVISION: &str =
     "standard-universe-battle-materialization-v2";
-pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str = "goal01-executable-enemy-proxy-stats-v1";
+pub const UNIVERSE_ENEMY_RUNTIME_STAT_POLICY: &str =
+    "goal07-reviewed-enemy-stats-with-proxy-fallback-v2";
 
 const MEMBER_ENCOUNTER_ID_BASE: u32 = 0x7500_0000;
 const DIFFICULTY_ENCOUNTER_ID_BASE: u32 = 0x7510_0000;
@@ -66,7 +67,7 @@ const MEMBER_COUNT: usize = 173;
 const MEMBER_ENEMY_SLOT_COUNT: usize = 538;
 const DIFFICULTY_BINDING_COUNT: usize = 182;
 const ENEMY_VARIANT_COUNT: usize = 86;
-const EXACT_ENEMY_VARIANT_COUNT: usize = 13;
+const EXACT_ENEMY_VARIANT_COUNT: usize = 86;
 
 const MINION_PROXY: &str = "enemy.flamespawn.minion.variant.01";
 const MINION_LV2_PROXY: &str = "enemy.voidranger-reaver.minionlv2.variant.01";
@@ -679,6 +680,7 @@ impl UniverseBattleMaterializer {
                 member,
                 &players,
                 &enemy_map,
+                universe.simulation_catalog(),
                 &combat_catalog,
                 revision,
                 digest,
@@ -704,6 +706,7 @@ impl UniverseBattleMaterializer {
                     member,
                     technique_players,
                     &enemy_map,
+                    universe.simulation_catalog(),
                     &combat_catalog,
                     revision,
                     digest,
@@ -752,6 +755,7 @@ impl UniverseBattleMaterializer {
             &players,
             technique_players.as_deref(),
             &enemy_map,
+            universe.simulation_catalog(),
             &combat_catalog,
             revision,
             digest,
@@ -772,6 +776,7 @@ impl UniverseBattleMaterializer {
                 binding,
                 &players,
                 &enemy_map,
+                universe.simulation_catalog(),
                 &combat_catalog,
                 revision,
                 digest,
@@ -924,6 +929,7 @@ fn proxy_key(stable_key: &str) -> &'static str {
 fn member_encounter(
     member: &EncounterMemberDefinition,
     enemies: &BTreeMap<&str, EnemyDefinitionId>,
+    catalog: &CombatCatalog,
 ) -> Result<EncounterDefinition, UniverseBattleMaterializationError> {
     let encounter = member_encounter_id(member.id())?;
     let waves = member
@@ -939,12 +945,16 @@ fn member_encounter(
                     let enemy = *enemies
                         .get(slot.enemy_variant_key())
                         .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
+                    let initial_phase = catalog
+                        .enemy(enemy)
+                        .and_then(|definition| definition.phases().first())
+                        .map(starclock_combat::catalog::encounter::EnemyPhaseDefinition::id);
                     WaveSlotDefinition::new(
                         checked_sequence(slot_index)?,
                         checked_formation(slot_index)?,
                         enemy,
                         Some(checked_level(member.stage_level())?.get()),
-                        None,
+                        initial_phase,
                         true,
                     )
                     .ok_or(UniverseBattleMaterializationError::InvalidEncounter)
@@ -970,11 +980,16 @@ fn difficulty_encounter(
     index: usize,
     binding: &DifficultyEnemyBinding,
     enemies: &BTreeMap<&str, EnemyDefinitionId>,
+    catalog: &CombatCatalog,
 ) -> Result<EncounterDefinition, UniverseBattleMaterializationError> {
     let enemy = *enemies
         .get(binding.enemy_variant_key())
         .ok_or(UniverseBattleMaterializationError::MissingEnemyMapping)?;
     let encounter = difficulty_encounter_id(index)?;
+    let initial_phase = catalog
+        .enemy(enemy)
+        .and_then(|definition| definition.phases().first())
+        .map(starclock_combat::catalog::encounter::EnemyPhaseDefinition::id);
     let wave = CombatEncounterWave::new(
         difficulty_wave_id(index)?,
         1,
@@ -987,7 +1002,7 @@ fn difficulty_encounter(
                 FormationIndex::new(0).expect("zero formation is valid"),
                 enemy,
                 Some(checked_level(binding.level())?.get()),
-                None,
+                initial_phase,
                 true,
             )
             .expect("checked difficulty slot is valid"),

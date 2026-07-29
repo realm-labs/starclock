@@ -33,7 +33,7 @@ const debugDigest = digestFileMap(debugFiles);
 const golden = {
   schema_revision: "starclock.catalog-representative.v1",
   sora_cli_version: toolPolicy.version,
-  schema_fingerprint: "efe787b52282426b",
+  schema_fingerprint: "f3119e6abcc42ec6",
   table_count: 82,
   populated_table_count: 13,
   identity_count: 3,

@@ -1,0 +1,183 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S03",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+  "source_monster_id": "1013012",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:101301201-through-101301208",
+        "purge-order:4.0-atk-physical-aoe",
+        "destruction-order:3.0-atk-physical-single-target",
+        "detonation-order:summons-automaton-spider",
+        "enrage-order:taunts-all-targets",
+        "overcombust-order:charges-next-purge-order",
+        "obliteration-order:0.5-damage-boost-per-overcombust-stack",
+        "automaton-spider-self-exploding-module:5.0-atk-fire"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:1013012",
+        "combat-rank:Elite",
+        "weaknesses:Fire-Ice-Lightning",
+        "resistances:Imaginary-Physical-Quantum-Wind-at-0.2",
+        "control-resistances:Confine-Frozen-Entangle-at-0.5",
+        "toughness:480",
+        "summon-source-ids:1012030-and-101202103"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:1013012",
+        "base-speed:144",
+        "base-hp:697.5",
+        "base-atk:18",
+        "base-def:210",
+        "ai-file:Config/ConfigAI/Monster_W1_Mecha03_00_AI_RL.json",
+        "ai-file-sha256:85435e1390fa28d34fdf9e232fbc160b9f2d34b0ed9f5983508bcd910c96d8ed",
+        "ability-file-sha256:7530b74d99b6be9799ad26a229c3b58fed385a11da3b0ca605ecc5bfea5cff4e"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-and-ability-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:2",
+        "difficulty:1",
+        "authored-level:27",
+        "role:boss"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "sha256": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829",
+      "facts": [
+        "exact-public-level:27",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "hp",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "4683",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "4683",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    },
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "atk",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "84",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "84",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    },
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "def",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "470",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "470",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    },
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "spd",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "144",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "144",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    },
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "effect_hit_rate",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "0",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "0",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    },
+    {
+      "source_monster_id": "1013012",
+      "authored_level": 27,
+      "combat_rank": "Elite",
+      "field": "effect_resistance",
+      "anchor_variant_id": "enemy.automaton-grizzly-complete.elite.variant.01",
+      "anchor_value": "0.2",
+      "level_curve_revision": "exact-public-per-level-v1",
+      "computed_value": "0.2",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S03-numeric-anchors.json",
+      "access_date": "2026-07-29",
+      "game_version": "4.4",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "0d1d5ed79c00fde7fbd0f40ae9906c1e809198a79a8e1c94fc51fa4ceb771829"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 2 difficulty 1 uses the direct public level-27 values; no interpolation is used.",
+    "Purge Order deals 400% ATK Physical damage to all opponents, and Destruction Order deals 300% ATK Physical damage to one opponent.",
+    "Detonation Order creates an owner-linked Automaton Spider with an executable self-explosion action.",
+    "Enrage Order applies a two-turn resistible taunt that forces each affected unit's Basic ATK to target the living Grizzly applier; phase one uses 50% base chance and phase two uses 100%.",
+    "Overcombust Order charges the next Purge Order and adds one permanent Obliteration stack; each stack contributes +50% ordinary damage.",
+    "Phase two consumes the Direwolf Teamwork Order coordination marker through an immediate Purge candidate before returning to the source-ordered action cycle.",
+    "The two phase graphs, damage, summon, taunt, charge chain, stacking damage boost and teammate coordination use shared enemy lifecycle and Rule IR without a native handler."
+  ]
+}

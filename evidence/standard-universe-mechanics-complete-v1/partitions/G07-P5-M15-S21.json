@@ -1,0 +1,1262 @@
+{
+  "schema_revision": "starclock.goal07-content-partition-receipt.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "partition_id": "G07-P5-M15-S21",
+  "state": "Complete",
+  "completed_on": "2026-07-29",
+  "authoring": {
+    "workbooks": [
+      {
+        "path": "config/data/UniverseBindings.xlsx",
+        "tables": [
+          "UniverseEncounterPool",
+          "UniverseEncounterPoolGroup",
+          "UniverseEncounterPoolFixed"
+        ]
+      },
+      {
+        "path": "config/data/UniverseEvidence.xlsx",
+        "tables": [
+          "UniverseContentAudit",
+          "UniverseReviewFixture",
+          "UniverseSourceRecord"
+        ]
+      }
+    ],
+    "openpyxl_commands": [
+      "python -c \"import openpyxl\" && python tools/goal07/author-world-partition.py --partition G07-P5-M15-S21 --check"
+    ],
+    "sora_bundle": {
+      "path": "config/universe-generated/config.sora",
+      "sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+      "git_blob_sha1": "d57866c8ee0f67072399a583f3e57eef1907e5d0"
+    },
+    "sora_golden": {
+      "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S21.json",
+      "sha256": "42e3ae43ed5755a6f0ad6a99930b5d3c6862bb6c8e80b50950e45ed22fa5b9c6",
+      "git_blob_sha1": "2fea6e0442be539fb680963e21f82414c33583c7"
+    }
+  },
+  "records": [
+    {
+      "id": "universe.encounter-pool.room.200213",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200221",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200222",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200223",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200231",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200232",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200233",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200241",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200242",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200243",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200611",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200612",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.200713",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.201",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.202",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.203",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300111",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300112",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300121",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300122",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300131",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300132",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300141",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300142",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300152",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300211",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300212",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300213",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300221",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300222",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300223",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    },
+    {
+      "id": "universe.encounter-pool.room.300231",
+      "runtime_disposition": "ExecutableShared",
+      "accuracy_disposition": "ExactPublic",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseBindings.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ]
+    }
+  ],
+  "rules": [],
+  "fixtures": [
+    {
+      "id": "universe.fixture.encounter-selection.resolveworlddifficultybosselitebinding",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs",
+      "test_marker": "goal07_p5_m15_s21_resolves_world_difficulty_boss_binding"
+    },
+    {
+      "id": "universe.fixture.encounter-selection.selectexactconditionkeythenweightedstableorder",
+      "runtime_disposition": "ProductionExecuted",
+      "accuracy_disposition": "NotApplicable",
+      "workbook_evidence": [
+        {
+          "path": "config/data/UniverseEvidence.xlsx"
+        }
+      ],
+      "provenance_evidence": [
+        {
+          "path": "content-reference/standard-universe-v1/encounter-pools.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/review-fixtures.json"
+        },
+        {
+          "path": "content-reference/standard-universe-v1/sources.json"
+        }
+      ],
+      "execution_evidence": [
+        {
+          "path": "crates/starclock-mode-universe/src/encounter.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_lowering.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/src/encounter_content_runtime.rs"
+        },
+        {
+          "path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs"
+        }
+      ],
+      "execution_kind": "RustTest",
+      "test_path": "crates/starclock-mode-universe/tests/encounter_selection_s21.rs",
+      "test_marker": "goal07_p5_m15_s21_selects_exact_condition_key_in_stable_weighted_order"
+    }
+  ],
+  "enemy_variants": [],
+  "encounter_members": [],
+  "native_handler_reviews": [],
+  "numeric_approximations": [],
+  "execution": {
+    "result": "pass",
+    "commands": [
+      "python tools/goal07/author-world-partition.py --partition G07-P5-M15-S21 --check",
+      "node tools/universe-reference/verify_production_workbooks.mjs .",
+      "cargo test -p starclock-mode-universe --test encounter_selection_s21 --all-features",
+      "cargo test -p starclock-mode-universe --all-features",
+      "node tools/repository-check/run.mjs"
+    ],
+    "goldens": [
+      {
+        "path": "evidence/standard-universe-mechanics-complete-v1/goldens/G07-P5-M15-S21.json",
+        "sha256": "42e3ae43ed5755a6f0ad6a99930b5d3c6862bb6c8e80b50950e45ed22fa5b9c6",
+        "git_blob_sha1": "2fea6e0442be539fb680963e21f82414c33583c7"
+      }
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S06",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.cocolia-complete.littleboss.variant.01",
+  "source_monster_id": "1004011",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:100401101-through-100401107",
+        "chill-of-bone-piercing-coagulation:2.25-atk-ice-single",
+        "hoarfrost-of-eternal-isolation:1.5-atk-and-freeze-with-1.125-atk-delayed-damage",
+        "punishment-of-endless-winter:3.75-atk-ice-aoe",
+        "reverberating-ice:3.75-primary-and-1.5-adjacent",
+        "wrath-of-winterland-saints:0.3-damage-boost",
+        "intensifying-cold:0.1-damage-per-frozen-target"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:1004011",
+        "combat-rank:LittleBoss-mapped-to-Boss",
+        "weaknesses:Fire-Lightning-Quantum",
+        "resistance:Ice-at-0.6",
+        "resistances:Physical-Wind-at-0.4-and-Imaginary-at-0.2",
+        "control-resistances:Confine-and-Frozen-at-1",
+        "summon-source-ids:1002015-1002016-1004031"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:1004011",
+        "base-speed:144",
+        "base-hp:744",
+        "base-atk:18",
+        "base-def:210",
+        "ai-file:Config/ConfigAI/Monster_W1_CocoliaP1_00_AI_RL.json",
+        "summons:two-ice-edges-and-bronya-complete"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-ability-and-monster-config-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:6",
+        "authored-levels:55-72-81-90",
+        "role:boss",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S06-numeric-anchors.json",
+      "sha256": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525",
+      "facts": [
+        "exact-public-levels:55-72-81-90",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "1004011",
+      "authored_level": 55,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "27850",
+        "atk": "286",
+        "def": "750",
+        "spd": "144",
+        "effect_hit_rate": "0.04",
+        "effect_resistance": "0.32"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S06-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
+    },
+    {
+      "source_monster_id": "1004011",
+      "authored_level": 72,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "78560",
+        "atk": "459",
+        "def": "920",
+        "spd": "158.4",
+        "effect_hit_rate": "0.176",
+        "effect_resistance": "0.388"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S06-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
+    },
+    {
+      "source_monster_id": "1004011",
+      "authored_level": 81,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "115683",
+        "atk": "563",
+        "def": "1010",
+        "spd": "172.8",
+        "effect_hit_rate": "0.248",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S06-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
+    },
+    {
+      "source_monster_id": "1004011",
+      "authored_level": 90,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "175982",
+        "atk": "663",
+        "def": "1100",
+        "spd": "190.08",
+        "effect_hit_rate": "0.32",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S06-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "c7e7d2b355406f348aca7e306725669a35231c556d4656553a567d58df4b0525"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 6 difficulties use direct public level 55, 72, 81 and 90 values; no interpolation is used.",
+    "Omen of Everlasting Freeze creates two owner-scaled, targetable Ice Edges; phase two also creates Bronya (Complete).",
+    "Hoarfrost and Doomsday Ice Cascade apply a resistible one-turn Freeze that blocks the normal action and deals 112.5% applier ATK delayed Ice damage.",
+    "Intensifying Cold follows Freeze application and removal, adding 10% ordinary damage per currently Frozen opponent to Cocolia and her surviving summons.",
+    "Reverberating Ice requires a Frozen primary target, removes its Freeze, hits adjacent units, and repeats the primary strike when an adjacent unit is Frozen.",
+    "Wrath of Winterland Saints applies a one-turn 30% damage boost and its AI state always transitions to Punishment of Endless Winter.",
+    "The phase-three graph begins with Doomsday Ice Cascade, which damages all opponents and selects one non-Frozen target for Freeze.",
+    "The three phase graphs, summons, delayed control, conditional repeat, timeline manipulation and damage modifiers use shared Rule IR without a native handler."
+  ]
+}

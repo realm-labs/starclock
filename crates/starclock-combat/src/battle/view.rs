@@ -575,6 +575,16 @@ impl<'a> UnitView<'a> {
     pub const fn base_speed(self) -> crate::Speed {
         self.state.base_speed
     }
+    /// Returns the immutable authored base Effect Hit Rate.
+    #[must_use]
+    pub const fn base_effect_hit_rate(self) -> crate::Scalar {
+        self.state.base_effect_hit_rate
+    }
+    /// Returns the immutable authored base Effect Resistance.
+    #[must_use]
+    pub const fn base_effect_resistance(self) -> crate::Scalar {
+        self.state.base_effect_resistance
+    }
     /// Returns current personal Energy.
     #[must_use]
     pub const fn current_energy(self) -> crate::Energy {

@@ -5,6 +5,32 @@ const FREEZE: u32 = 0x76f0_0002;
 const DIZZINESS: u32 = 0x76f0_0011;
 
 #[test]
+fn reticence_materializes_without_another_remembrance_blessing() {
+    let catalog = catalog();
+    let contributions = contributions_many(
+        &catalog,
+        "universe.path.remembrance",
+        &[("universe.blessing.612132", 2)],
+        None,
+        false,
+    );
+    let materialization = materialize(&catalog, &contributions);
+    let (mut battle, start) = start(
+        &materialization,
+        durable_spec_with_enemy_hp(
+            &materialization,
+            0xcf,
+            false,
+            starclock_combat::Hp::new(9_000_000_000_000).unwrap(),
+        ),
+        0xce,
+    );
+    assert!(start.fault().is_none(), "{:?}", start.fault());
+
+    advance_until_effect(&mut battle, FREEZE, 40);
+}
+
+#[test]
 fn goal07_p2_m03_s01_executes_freeze_dissociation_and_removal_damage() {
     let catalog = catalog();
     let required = [

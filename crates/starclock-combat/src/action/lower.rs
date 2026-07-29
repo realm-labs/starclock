@@ -135,6 +135,28 @@ pub(crate) fn lower_timeline_action(
     )
 }
 
+pub(crate) fn lower_forced_basic_action(
+    catalog: &CombatCatalog,
+    allocator: &mut impl ActionIdentityAllocator,
+    context: TimelineActionContext,
+    ability: AbilityId,
+    targets: TargetCommitment,
+) -> Option<ActionPlan> {
+    lower_action(
+        catalog,
+        allocator,
+        ActionContext {
+            actor: context.actor,
+            owner: context.owner,
+            origin: ActionOrigin::Forced,
+            timeline_actor: Some(context.timeline_actor),
+        },
+        ability,
+        targets,
+        None,
+    )
+}
+
 fn lower_action(
     catalog: &CombatCatalog,
     allocator: &mut impl ActionIdentityAllocator,
@@ -154,7 +176,8 @@ fn lower_action(
         ActionOrigin::ExtraTurn => action.kind() == AbilityKind::ExtraTurn,
         ActionOrigin::ExtraAction => action.kind() == AbilityKind::ExtraAction,
         ActionOrigin::Forced => {
-            action.kind() == AbilityKind::ExtraAction
+            action.kind() == AbilityKind::Basic
+                || action.kind() == AbilityKind::ExtraAction
                 || (action.kind() == AbilityKind::Skill && action.tags().supports_forced_skill())
         }
         ActionOrigin::DelayedAction => action.kind() == AbilityKind::DelayedAction,
@@ -164,7 +187,18 @@ fn lower_action(
     };
     compatible.then_some(())?;
     let selector = catalog.selector(definition.selector())?.unit_targets()?;
-    (selector == targets.selector && action.invalidation() == targets.invalidation).then_some(())?;
+    let forced_basic_target_override = context.origin == ActionOrigin::Forced
+        && action.kind() == AbilityKind::Basic
+        && selector.pattern() == targets.selector.pattern()
+        && targets.selector.relation() == crate::catalog::action::TargetRelation::Allied;
+    ((selector == targets.selector || forced_basic_target_override)
+        && action.invalidation() == targets.invalidation)
+        .then_some(())?;
+    let committed_selector = if forced_basic_target_override {
+        targets.selector
+    } else {
+        selector
+    };
 
     let action_id = allocator.action();
     let phase_id = allocator.phase();
@@ -199,7 +233,7 @@ fn lower_action(
         origin: context.origin,
         tags: action.tags(),
         normal_turn: context.timeline_actor,
-        selector,
+        selector: committed_selector,
         targets,
         resources: payment.map_or_else(
             || action.resources().clone(),
