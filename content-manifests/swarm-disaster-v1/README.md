@@ -22,6 +22,27 @@ The inventory treats `RogueDLC*` as a shared framework. It distinguishes the
 tables for row-level `ChessRogue` review. A prefix, display name or adjacent ID
 never grants membership.
 
+`content-manifest.json` freezes the exact row-level denominator, ownership and
+reachability boundary:
+
+```text
+node tools/swarm-disaster-reference/manifest.mjs
+node tools/swarm-disaster-reference/verify-manifest.mjs
+```
+
+Its 6,963 records are exact source/inherited obligations across 42 categories:
+6,305 Swarm-owned and 658 shared. Normalization may expand an obligation into
+child rows but may not omit it. `ChessRogueNous`, `MapRepo160`, Erudition and
+Gold 3000-/300000-series copies fail closed. The manifest retains their
+commit-backed or file-level locators only as exclusion evidence.
+
+Released chessboard files expose coordinates, events and creation rules but no
+explicit edge list. Edges therefore remain a named `ProjectPolicy` contract for
+`G09-P0-B4`, not fabricated `ExactStructured` records. Encounter expansion
+follows the same rule: all 861 Swarm room bindings and two displayed boss
+identities are frozen now; `G09-P2-B5` must attach derived StageConfig waves and
+enemy slots to those parents.
+
 The local ignored source cache may be reproduced through
 `tools/content-reference/fetch-sources.ps1`. A worktree may also point its
 ignored cache paths at an existing detached, clean checkout of the exact

@@ -8,10 +8,11 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G09-P0-B3` |
+| Next unblocked batch | `G09-P0-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
-| Focused inventory | 2,882 pinned files; content-row denominator not yet frozen |
+| Focused inventory | 2,882 pinned files |
+| Content manifest | 6,963 obligations in 42 categories; 6,305 Swarm-owned and 658 shared |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Parallel condition | Separate branch/worktree and isolated Goal 09 artifacts while Goals 07 or 08 are active |
@@ -22,7 +23,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot, a commit-backed Goal 08 ownership checkpoint, Candidate-only scope, six isolated artifact roots and the 2,882-file focused source closure are frozen; row-level denominator and authoring contracts remain. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot, a commit-backed Goal 08 ownership checkpoint, Candidate-only scope, six isolated artifact roots, the 2,882-file source closure and the 6,963-obligation row denominator are frozen; normalized/authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, domains/beacons, countdown/Planar Disarray, Audience Dice, Communing Device/Trail, Pathstrider and Resonance Interplay data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -34,7 +35,7 @@
 |---|---|---|---|
 | `G09-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 32 shared-framework `RogueDLC` seed rows, 29 batches, Candidate-only scope and six isolated artifact roots. The Goal 08 checkpoint is commit `457d05f0…f5ecd` with 7,913 manifest obligations (7,199 Gold-owned; 714 shared); its concurrent uncommitted P1-B8 work is excluded. The full source-cache gate reaches the immutable Goal 06 contract before repeating its known `Cargo.lock baseline differs` failure. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B2 starts. |
 | `G09-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`fe52861f…207dc`, 1,128,842 bytes): all 2,646 Goal 03 source paths plus 224 DLC topology configs, StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes indexes. The 2,882-file closure contains 32 `RogueDLC` tables, six direct Swarm ability files, 109 non-`MapRepo160` topology candidates, 115 Gold topology exclusions and 2,404 shared mechanic/level candidates; raw Git blob hashing removes checkout-EOL variance. Focused and quick gates pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B3 starts. |
-| `G09-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership, shared reachability and Gold-mode exclusions. |
+| `G09-P0-B3` | `Complete` | This row's containing commit | Generated and rechecked `content-manifest.json` (`e466cae0…b8850`, 2,954,695 bytes): 6,963 exact obligations in 42 categories, split into 6,305 Swarm-owned and 658 shared records. Only explicit `ChessRogue`, referenced non-`MapRepo160` topology or inherited Path/pool proofs grant reachability. The manifest excludes all 115 Gold topology files, Erudition, Gold copies, 8 unreferenced Swarm topology configs and 93 story/account rows while retaining evidence locators. Released boards expose no edge list, so B4 must name a replaceable `ProjectPolicy` edge contract instead of labeling inferred edges exact. Focused and quick gates pass; the full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B4 starts. |
 | `G09-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G09-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology and terminal rules. |
 | `G09-P1-B2` | `Pending` | — | Import rooms, domains, beacons, replacements and boss-choice consequences. |
@@ -69,23 +70,23 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/entries/bonuses | TBD | 0 | 0 | Must include Swarm Disaster Trailblaze Bonus IDs `101`–`106`. |
-| Difficulties/unlocks | TBD | 0 | 0 | Five base difficulties are the public boundary; exact source obligations remain to be frozen. |
-| Planes/map nodes/edges/rooms/domains | TBD | 0 | 0 | Includes three-plane topology, legal movement, beacons, replacements and boss choices. |
-| Countdown/Planar Disarray/decay | TBD | 0 | 0 | Includes entry boundary, levels, caps, timing, modifiers and battle contributions. |
-| Paths/Audience Dice | TBD | 0 | 0 | Includes definitions, initial/passive effects, unlocks and Path-specific graph rules. |
-| Dice faces/rarities/roll controls | TBD | 0 | 0 | Includes targets, durations, reroll/cheat and no-legal-target behavior. |
-| Communing Device/cabinets/dimensions | TBD | 0 | 0 | Includes choices, point changes, eligibility, ordering and carry/reset. |
-| Communing Trail nodes/effects | TBD | 0 | 0 | Only mechanically relevant progression input enters the simulation boundary. |
-| Pathstrider objectives/unlocks | TBD | 0 | 0 | Story prose and account rewards remain excluded. |
-| Paths/Resonances/Interplays | TBD | 0 | 0 | Includes Propagation additions and final-boss contributions. |
-| Blessings/enhanced levels | TBD | 0 | 0 | Shared reachability and mode-specific copies require explicit proof. |
-| Curios/states | TBD | 0 | 0 | Include Swarm copies and complete lifecycle behavior. |
-| Occurrences/variants/choices | TBD | 0 | 0 | Presentation prose is excluded; mechanical graphs and outcomes are included. |
-| Services/beacons/Adventure outcomes | TBD | 0 | 0 | Adventure input is an abstract offered result, not simulated action gameplay. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Must resolve exact released enemy identities and boss alternatives. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every distinct unique mechanic, lifecycle and selection policy. |
+| Profiles/entries/bonuses | 10 | 0 | 0 | One profile, three entry rows and Swarm Disaster Trailblaze Bonus IDs `101`–`106`. |
+| Difficulties/unlocks | 25 | 0 | 0 | Five Formal difficulty rows and 20 directly referenced difficulty segments. |
+| Planes/map nodes/edges/rooms/domains | 5,655 | 0 | 0 | Exact source obligations include three guide areas, 11 layer rows, 101 boards, 1,109 columns, 1,991 nodes, 349 events, 1,212 creation rules, 861 rooms, 12 domains, four beacons and two boss identities; inferred edges remain outside the source denominator. |
+| Countdown/Planar Disarray/decay | 61 | 0 | 0 | Nineteen common constants and all 42 Boss Decay/Disarray definitions. |
+| Paths/Audience Dice | 16 | 0 | 0 | Eight Path definitions and eight Path-specific Audience Dice. |
+| Dice faces/rarities/roll controls | 45 | 0 | 0 | All 42 faces and three rarity rows; roll/reroll/cheat policies expand as normalized child rows. |
+| Communing Device/cabinets/dimensions | 59 | 0 | 0 | Twenty-one Aeon-aligned choices, 31 normal/hidden cabinets and seven dimensions. |
+| Communing Trail nodes/effects | 63 | 0 | 0 | All 63 released nodes have one gameplay-effect locator. |
+| Pathstrider objectives/unlocks | 225 | 0 | 0 | Includes 102 finish conditions, 110 unlock rows and 13 mechanical chapter locators; story prose and account rewards remain excluded. |
+| Paths/Resonances/Interplays | 64 | 0 | 0 | Eight shared Paths, 32 Resonances/Formations, eight Path boosts and 16 Interplays; Erudition is excluded. |
+| Blessings/enhanced levels | 432 | 0 | 0 | All 144 Blessings and both authored levels for the eight reachable Paths. |
+| Curios/states | 132 | 0 | 0 | Sixty-six type-130 identities and exactly one 1000-series Swarm copy each; 60 shared identities and six mode-owned. |
+| Occurrences/variants/choices | 132 | 0 | 0 | Seventy-five type-130 handbook identities and 57 distinct 100000-series Swarm variants; choice expansion remains child rows. |
+| Services/beacons/Adventure outcomes | 31 | 0 | 0 | Fifteen inherited services, four reachable beacons, six abstract Adventure definitions and six entry bonuses. |
+| Encounter groups/waves/enemy slots | 863 | 0 | 0 | All 861 room and two displayed-boss parent obligations are frozen; P2-B5 attaches derived groups, waves and enemy slots. |
+| Mechanic rules | 23 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
+| Semantic fixtures | 23 | 0 | 0 | Non-shrinking minimum fixture families; B4 freezes fixture shape and later batches may add cases. |
 
 ## Decisions
 
@@ -103,13 +104,16 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Pin Goal 08 ownership only at committed revision `457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd`. | The parallel worktree had P1-B8 changes in progress; using the committed manifest keeps Goal 09 reproducible and avoids treating another goal's unpublished rows as evidence. |
 | 2026-07-29 | Treat active Goal 08, Goal 09 and Goal 10 worktrees as safely parallel only through disjoint artifact roots. | Branch separation prevents history collisions, while the protected-root verifier prevents shared manifests, workbooks and generated outputs from being mutated accidentally. |
 | 2026-07-29 | Hash focused inventory files from raw Git blobs and retain all 224 DLC topology configs. | Git blob bytes avoid checkout-EOL drift; keeping 109 Swarm candidates and 115 `MapRepo160` Gold exclusions makes the shared-framework boundary auditable without treating either prefix as membership proof. |
+| 2026-07-29 | Grant Swarm reachability only through explicit `ChessRogue`, referenced non-`MapRepo160` configuration or inherited eight-Path stable IDs. | `RogueDLC` is shared infrastructure; this rule excludes Goal 08 rows, Erudition and Gold content copies without relying on names or ID adjacency. |
+| 2026-07-29 | Freeze all DLC finish/unlock rows and only the mechanically relevant fields of 13 chapter locators. | Pathstrider and mode availability depend on the complete progress graph, while dialogue prose, collection presentation and account rewards remain outside simulation scope. |
+| 2026-07-29 | Keep topology edges outside the exact source denominator until B4 defines a replaceable deterministic policy. | Released chessboard configs contain coordinates, nodes, events and creation rules but no explicit edge list; inferring edges cannot be labeled released fact. |
 
 ## Research cases
 
 | ID | State | Question | Owner |
 |---|---|---|---|
 | `G09-R01` | `Closed` | The focused closure is 2,873 pinned Dimbreath files plus nine bilingual StarRailRes indexes: it includes all Goal 03 paths, 224 DLC configs, StageConfig, TextMaps, 32 `RogueDLC` tables and six direct Swarm ability files. Row-level reachability remains deliberately assigned to `G09-R02`/P0-B3. | P0-B2 |
-| `G09-R02` | `Open` | What exact selectors and ownership rules separate Swarm-owned, shared, Gold-owned, evidence-only and other-mode rows? | P0-B3 |
+| `G09-R02` | `Closed` | The 6,963-record manifest grants reachability only through `ChessRogue`, referenced non-`MapRepo160` configuration or the eight inherited shared Paths; Goal 08 commit `457d05f0…f5ecd`, all 115 Gold topology files, Erudition and Gold copies are fail-closed exclusions. | P0-B3 |
 | `G09-R03` | `Open` | Which map edges, generation weights, replacement rules and legal movement relationships are released versus inferred? | P1-B1–B2 |
 | `G09-R04` | `Open` | At which operation boundaries is countdown adjusted, clamped/carried and converted into each Planar Disarray/decay level? | P1-B3 |
 | `G09-R05` | `Open` | What are the exact Audience Die face target ordering, duration, roll/reroll/cheat and no-legal-target semantics? | P1-B4–B5 |
