@@ -50,12 +50,26 @@ const expected = new Map([
   ["GoldGearsResonanceExtrapolation", "resonance-extrapolations.json"],
   ["GoldGearsResonanceInterplay", "resonance-interplays.json"],
   ["GoldGearsTrailblazeBonus", "bonuses.json"],
+  ["GoldGearsBlessing", "blessings.json"],
+  ["GoldGearsBlessingLevel", "blessing-levels.json"],
+  ["GoldGearsCurio", "curios.json"],
+  ["GoldGearsCurioState", "curio-states.json"],
+  ["GoldGearsOccurrence", "occurrences.json"],
+  ["GoldGearsOccurrenceVariant", "occurrence-variants.json"],
+  ["GoldGearsOccurrenceChoice", "occurrence-choices.json"],
+  ["GoldGearsService", "services.json"],
+  ["GoldGearsAdventureOutcome", "adventure-outcomes.json"],
+  ["GoldGearsEncounterGroup", "encounter-groups.json"],
+  ["GoldGearsEncounterWave", "encounter-waves.json"],
+  ["GoldGearsEnemySlot", "enemy-slots.json"],
+  ["GoldGearsMechanicRule", "mechanic-rules.json"],
 ]);
 
 try {
   assert(policy.version === "0.3.0", "Sora version policy differs");
   assert(fs.existsSync(sora), "pinned Sora 0.3.0 is not installed");
-  const schemaFiles = ["core.toml", "progression.toml"].map((name) => path.join(schemaRoot, name));
+  const schemaFiles = ["core.toml", "progression.toml", "content.toml", "evidence.toml"]
+    .map((name) => path.join(schemaRoot, name));
   assert(fs.existsSync(project) && schemaFiles.every((file) => fs.existsSync(file)), "isolated Gold and Gears schema is missing");
   const projectText = fs.readFileSync(project, "utf8");
   for (const forbidden of ["config/data", "config/generated", "config/universe-generated"]) {
@@ -96,6 +110,14 @@ try {
     ["GoldGearsResonanceExtrapolation", "shared_resonance_id", "GoldGearsResonance"],
     ["GoldGearsResonanceInterplay", "main_path_id", "GoldGearsPath"],
     ["GoldGearsResonanceInterplay", "sub_path_id", "GoldGearsPath"],
+    ["GoldGearsBlessingLevel", "blessing_id", "GoldGearsBlessing"],
+    ["GoldGearsCurio", "initial_state_id", "GoldGearsCurioState"],
+    ["GoldGearsCurioState", "curio_id", "GoldGearsCurio"],
+    ["GoldGearsOccurrenceVariant", "occurrence_id", "GoldGearsOccurrence"],
+    ["GoldGearsOccurrenceChoice", "variant_id", "GoldGearsOccurrenceVariant"],
+    ["GoldGearsAdventureOutcome", "downloader_service_id", "GoldGearsService"],
+    ["GoldGearsEncounterWave", "encounter_group_id", "GoldGearsEncounterGroup"],
+    ["GoldGearsEnemySlot", "encounter_wave_id", "GoldGearsEncounterWave"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) => candidate.name === fieldName);
     assert(
@@ -103,7 +125,7 @@ try {
       `${tableName}.${fieldName} is not ref<${target}.id>`,
     );
   }
-  console.log(`Gold and Gears Sora schema verified (${tables.size} isolated tables, typed core and progression references).`);
+  console.log(`Gold and Gears Sora schema verified (${tables.size} isolated tables with typed core, progression and content references).`);
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
