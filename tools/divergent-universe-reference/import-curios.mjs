@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import {
   createContext,
   decimal,
+  sha256,
   writeOrCheck,
 } from "./lib/common.mjs";
 
@@ -27,6 +28,65 @@ function valueAfter(flag) {
 function ordered(rows) {
   return rows.sort((left, right) =>
     left.id < right.id ? -1 : left.id > right.id ? 1 : 0);
+}
+
+function triggerKinds(description) {
+  const triggers = [];
+  for (const [kind, pattern] of [
+    ["Acquire", /(?:when|upon|after) (?:obtaining|gaining) this Curio|immediately (?:obtain|gain)/iu],
+    ["BattleEntry", /enter(?:ing)? (?:combat|battle)|enemy targets enter combat/iu],
+    ["BattleComplete", /(?:after )?(?:winning|completing|achieving victory).{0,40}battle/iu],
+    ["DomainEntry", /enter(?:ing)? .{0,40}Domain/iu],
+    ["TurnStart", /start of (?:every |their |the )?turn/iu],
+    ["TurnEnd", /(?:when|after) .{0,30}turn ends/iu],
+    ["Attack", /(?:after|when) .{0,35}(?:attack|attacked)/iu],
+    ["WeaknessBreak", /Weakness Break|Weakness Broken/iu],
+    ["EquationChange", /Equation(?:s)? (?:are |is )?(?:activated|expanded|replaced)/iu],
+    ["CurioDestroyed", /(?:when|after) (?:a |this )?Curio is destroyed/iu],
+  ])
+    if (pattern.test(description)) triggers.push(kind);
+  if (triggers.length === 0) triggers.push("PassiveWhileOwned");
+  return triggers;
+}
+
+function mechanicVisibility(description) {
+  const battle = /combat|battle|turn|ATK|DEF|DMG|HP|SPD|CRIT|Energy|Skill Point|Weakness/iu
+    .test(description);
+  const activity = /Domain|Curio|Blessing|Equation|Cosmic Fragment|Workbench|Occurrence|chest|beacon/iu
+    .test(description);
+  if (battle && activity) return "BattleAndCrossBattle";
+  if (battle) return "BattleVisible";
+  if (activity) return "CrossBattle";
+  return "InventoryPassive";
+}
+
+function lifecycleMarkers(description, parameters) {
+  const destructionDeclared = /discard|destroy/iu.test(description);
+  const repairDeclared = /repair/iu.test(description);
+  const replacementDeclared = /replace|swap/iu.test(description);
+  const counterMatch = description.match(
+    /#(\d+)\[i\][^.!?]{0,90}(?:time|battle|Domain|trigger|discard|destroy)/iu,
+  ) ?? description.match(
+    /(?:after|total of)[^.!?]{0,90}#(\d+)\[i\][^.!?]{0,45}(?:discard|destroy)/iu,
+  );
+  const parameterIndex = counterMatch ? Number(counterMatch[1]) : 0;
+  return {
+    charges: parameterIndex > 0 && parameters[parameterIndex - 1] !== undefined
+      ? parameters[parameterIndex - 1]
+      : destructionDeclared
+        ? "ConditionDeclaredWithoutExtractedCounter"
+        : "NotDeclaredInReleasedEffectText",
+    destruction: destructionDeclared
+      ? "ConditionalInReleasedEffectText"
+      : "NotDeclaredInReleasedEffectText",
+    repair: repairDeclared
+      ? "ConditionalInReleasedEffectText"
+      : "NotDeclaredInReleasedEffectText",
+    replacement: replacementDeclared
+      ? "ConditionalInReleasedEffectText"
+      : "NotDeclaredInReleasedEffectText",
+    counter_parameter_index: parameterIndex,
+  };
 }
 
 const miracleEntries = (await context.table("RogueTournMiracle"))
@@ -117,6 +177,13 @@ const curioStates = miracleEntries.map((entry) => {
     || `Curio mode copy ${sourceId}`;
   const nameZh = context.text(display.row.MiracleName, "zh_cn")
     || `奇物玩法副本 ${sourceId}`;
+  const descriptionEn = context.text(effect.row.MiracleDesc, "en");
+  const descriptionZh = context.text(effect.row.MiracleDesc, "zh_cn");
+  if (!descriptionEn || !descriptionZh)
+    throw new Error(`Curio state ${sourceId} lacks bilingual effect text`);
+  const parameters = (effect.row.ParamList ?? []).map(decimal);
+  const triggers = triggerKinds(descriptionEn);
+  const lifecycle = lifecycleMarkers(descriptionEn, parameters);
   return {
     ...context.envelope({
       id: `divergent-universe.curio-state.${sourceId}`,
@@ -124,15 +191,21 @@ const curioStates = miracleEntries.map((entry) => {
       nameEn,
       nameZh,
       summaryEn:
-        `Tourn3 mode copy ${sourceId} binds display ${entry.row.MiracleDisplayID} and effect ${entry.row.MiracleEffectID}; charge and transition semantics are not published by this row.`,
+        `Tourn3 mode copy ${sourceId} binds effect ${entry.row.MiracleEffectID}, ${parameters.length} canonical parameter(s), ${triggers.length} released trigger class(es) and ${mechanicVisibility(descriptionEn)} visibility.`,
       summaryZh:
-        `Tourn3 玩法副本 ${sourceId} 绑定显示 ${entry.row.MiracleDisplayID} 与效果 ${entry.row.MiracleEffectID}；该行未发布充能和转换语义。`,
-      coverageState: "Researched",
-      evidenceQuality: "ProjectPolicy",
+        `Tourn3 玩法副本 ${sourceId} 绑定效果 ${entry.row.MiracleEffectID}、${parameters.length} 个规范参数、${triggers.length} 个已发布触发类别与 ${mechanicVisibility(descriptionEn)} 可见性。`,
       sourceRefs: [
         context.sourceRef(entry),
         context.sourceRef(display),
         context.sourceRef(effect),
+        context.sourceRef(
+          context.textEntry(effect.row.MiracleDesc.Hash, "en"),
+          "ExactPublicText",
+        ),
+        context.sourceRef(
+          context.textEntry(effect.row.MiracleDesc.Hash, "zh_cn"),
+          "ExactPublicText",
+        ),
         lifecyclePolicy,
       ],
       tags: [
@@ -151,13 +224,18 @@ const curioStates = miracleEntries.map((entry) => {
     category: entry.row.MiracleCategory,
     display_id: String(entry.row.MiracleDisplayID),
     state: "ModeCopy",
-    charges: "Unspecified",
+    charges: lifecycle.charges,
     effect_ids: [String(entry.row.MiracleEffectID)],
-    effect_parameters: (effect.row.ParamList ?? []).map(decimal),
-    activation: "Unspecified",
-    destruction: "Unspecified",
-    repair: "Unspecified",
-    replacement: "Unspecified",
+    effect_parameters: parameters,
+    effect_text_sha256_en: sha256(descriptionEn),
+    effect_text_sha256_zh_cn: sha256(descriptionZh),
+    mechanic_visibility: mechanicVisibility(descriptionEn),
+    trigger_kinds: triggers,
+    activation: "DefinedByReleasedEffectText",
+    destruction: lifecycle.destruction,
+    repair: lifecycle.repair,
+    replacement: lifecycle.replacement,
+    counter_parameter_index: lifecycle.counter_parameter_index,
     runtime_lowered: false,
   };
 });
@@ -168,33 +246,61 @@ const groupPolicy = await context.policyRef(
   "RogueTournMiracleGroup publishes only a group ID; it exposes no mode selector, candidates, weights, eligibility, consumers or draw/fallback behavior.",
   "Replace the empty fail-closed group fields only when a released selector or transitive program binds exact candidates, weights and consumers.",
 );
+const gambleConsumers = (await context.table("RogueTournGambleUnit"))
+  .filter(({ row }) => row.GambleUnitType.startsWith("Miracle"));
+const consumersByGroup = Map.groupBy(gambleConsumers, ({ row }) =>
+  String(row.GambleUnitParam));
 const curioGroups = (await context.table("RogueTournMiracleGroup"))
-  .map((entry) => ({
-    ...context.envelope({
+  .map((entry) => {
+    const sourceId = String(entry.row.RogueMiracleGroupID);
+    const consumers = consumersByGroup.get(sourceId) ?? [];
+    const categories = [...new Set(consumers.map(({ row }) =>
+      row.GambleUnitType.slice("Miracle".length)))].sort();
+    if (categories.length > 1)
+      throw new Error(`Curio group ${sourceId} has conflicting categories`);
+    return {
+      ...context.envelope({
       id:
-        `divergent-universe.curio-group.${entry.row.RogueMiracleGroupID}`,
+        `divergent-universe.curio-group.${sourceId}`,
       kind: "DivergentUniverseCurioGroup",
-      nameEn: `Curio source group ${entry.row.RogueMiracleGroupID}`,
-      nameZh: `奇物源组 ${entry.row.RogueMiracleGroupID}`,
-      summaryEn:
-        `Source group ${entry.row.RogueMiracleGroupID} has no published membership or weighting fields and therefore remains fail closed.`,
-      summaryZh:
-        `源组 ${entry.row.RogueMiracleGroupID} 未发布成员或权重字段，因此保持封闭失败。`,
+      nameEn: `Curio source group ${sourceId}`,
+      nameZh: `奇物源组 ${sourceId}`,
+      summaryEn: consumers.length > 0
+        ? `Source group ${sourceId} is referenced by ${consumers.length} Tourn3 gamble unit as ${categories[0]}; membership and weights remain unpublished.`
+        : `Source group ${sourceId} has no published consumer, membership or weighting fields and remains fail closed.`,
+      summaryZh: consumers.length > 0
+        ? `源组 ${sourceId} 被 ${consumers.length} 个 Tourn3 赌博 unit 以 ${categories[0]} 类别引用；成员与权重仍未发布。`
+        : `源组 ${sourceId} 未发布消费者、成员或权重字段，因此保持封闭失败。`,
       coverageState: "Researched",
       evidenceQuality: "ProjectPolicy",
-      sourceRefs: [context.sourceRef(entry), groupPolicy],
-      tags: ["curio", "group", "membership-unresolved"],
+      sourceRefs: [
+        context.sourceRef(entry),
+        ...consumers.map((consumer) => context.sourceRef(consumer)),
+        groupPolicy,
+      ],
+      tags: [
+        "curio",
+        "group",
+        "membership-unresolved",
+        ...(consumers.length > 0 ? ["consumer-resolved"] : []),
+      ],
     }),
-    source_id: String(entry.row.RogueMiracleGroupID),
+    source_id: sourceId,
     candidate_state_ids: [],
     weights: [],
-    eligibility: "Unspecified",
-    consumers: [],
+    eligibility: categories.length === 1
+      ? `MiracleCategory:${categories[0]}`
+      : "Unspecified",
+    consumers: consumers.map(({ row }) =>
+      `divergent-universe.gamble-unit.${row.GambleUnitID}`).sort(),
     draw_count: "Unspecified",
     fallback: "RejectWithoutMutation",
-    membership_resolution: "UnavailableInReleasedGroupRow",
+    membership_resolution: consumers.length > 0
+      ? "ExactConsumerCategoryMembershipUnavailable"
+      : "UnavailableInReleasedGroupRow",
     runtime_lowered: false,
-  }));
+    };
+  });
 outputs.set("curio-groups.json", ordered(curioGroups));
 
 const lifecycleRules = curios.map((curio) => ({

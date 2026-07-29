@@ -99,18 +99,51 @@ assert(JSON.stringify(Object.fromEntries(
   Rare: 96,
 }), "Curio mode-copy category distribution drift");
 assert(states.every((row) =>
-  row.charges === "Unspecified"
+  row.coverage_state === "DataReady"
+    && row.evidence_quality === "ExactStructured"
     && row.effect_ids.length === 1
+    && /^[0-9a-f]{64}$/u.test(row.effect_text_sha256_en)
+    && /^[0-9a-f]{64}$/u.test(row.effect_text_sha256_zh_cn)
+    && row.trigger_kinds.length > 0
+    && row.activation === "DefinedByReleasedEffectText"
     && row.runtime_lowered === false),
-"Curio effect/charge boundary drift");
+"Curio effect/text/lifecycle boundary drift");
+assert(JSON.stringify(Object.fromEntries(
+  [...Map.groupBy(states, (row) => row.mechanic_visibility)]
+    .map(([visibility, rows]) => [visibility, rows.length]).sort(),
+)) === JSON.stringify({
+  BattleAndCrossBattle: 78,
+  BattleVisible: 44,
+  CrossBattle: 104,
+  InventoryPassive: 9,
+}), "Curio mechanic visibility distribution drift");
+assert(states.filter((row) =>
+  row.destruction === "ConditionalInReleasedEffectText").length === 64,
+"Curio released destruction marker count drift");
+assert(states.filter((row) =>
+  row.repair === "ConditionalInReleasedEffectText").length === 3,
+"Curio released repair marker count drift");
+assert(states.filter((row) =>
+  row.replacement === "ConditionalInReleasedEffectText").length === 6,
+"Curio released replacement marker count drift");
+assert(states.filter((row) => row.counter_parameter_index > 0).length === 67,
+  "Curio lifecycle counter binding count drift");
 
 const groups = data["curio-groups.json"];
 assert(groups.every((row) =>
   row.candidate_state_ids.length === 0
     && row.weights.length === 0
-    && row.eligibility === "Unspecified"
     && row.fallback === "RejectWithoutMutation"),
 "Curio groups must remain fail closed");
+assert(groups.filter((row) => row.consumers.length > 0).length === 12
+  && groups.filter((row) => row.consumers.length === 0).length === 274,
+"Curio group consumer closure drift");
+assert(groups.filter((row) => row.consumers.length > 0).every((row) =>
+  row.consumers.length === 1
+    && row.eligibility.startsWith("MiracleCategory:")
+    && row.membership_resolution
+      === "ExactConsumerCategoryMembershipUnavailable"),
+"Curio group typed consumer/category drift");
 const lifecycle = data["curio-lifecycle-rules.json"];
 assert(lifecycle.every((row) =>
   row.activation === "Unspecified"
