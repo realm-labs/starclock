@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 7 — Audit and release |
-| Active batch | `G07-P7-B1` |
-| Next unblocked batch | `G07-P7-B1` |
+| Active batch | `G07-P7-B2` |
+| Next unblocked batch | `G07-P7-B2` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -376,7 +376,17 @@ warm assembly retains 10,000 exact hits with zero allocations. Four material
 regressions caused by the completed rule/enemy catalog and real compiled
 player builds are explicitly reviewed. The mismatched historical Goal 04
 64-session workload exceeded a 300-second local command limit and is retained
-as replaced evidence rather than a passing claim. `G07-P7-B1` is active.
+as replaced evidence rather than a passing claim. P7-B1 is complete: all 104
+completion receipts retain exact-once 2,201/786/78/86/173 coverage, all 2,645
+provenance rows retain bilingual content bindings and license notes, and both
+authoritative workbook/Sora pipelines regenerate without drift. The dependency
+audit retains the same 136 registry package identities and explicitly reviews
+the one internal `starclock-mode-universe` to `starclock-build` edge needed for
+locked-build compilation. All 427 native candidates close without an admitted
+handler. Of 73 Phase 0 numeric candidates, 24 upgrade to `ExactPublic` and 49
+close as named, evidenced `ApprovedNumericApproximation`; all 86 enemy variants
+are mechanism-correct and no mechanic approximation remains. `G07-P7-B2` is
+active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
 model. All 104 completed partitions use scoped Excel/Sora semantic
@@ -424,7 +434,7 @@ verification commands are recorded in
 | `G07-P6-B2` | `Complete` | `node tools/goal07/verify-interface-replay-parity.mjs`; dynamic assembly, Agent Activity, CLI and MCP integration tests; quick repository gate | Verified baseline AI, CLI, Agent and MCP against World 1/difficulty 0/seed 1. All surfaces reach `64078b…`; baseline and Agent nested authority is byte-equivalent, while Agent and MCP share the exact 25,673-byte/35-action replay `ec9aff…`. CLI independently emits and freshly verifies its controller-bound 25,678-byte replay. Dynamic reconstruction consumes one current Activity snapshot per battle and rejects all eight ordered first-divergence classes; 16 malformed Agent replays leave the live session inert. |
 | `G07-P6-B3` | `Complete` | `node tools/goal07/verify-hardening.mjs`; AI, Activity, Combat resource, Universe long-run and Agent hardening tests; P6-B1 seeded matrix; quick repository gate | Proved exact-offer enemy AI and authored-hint baseline AI legality, all six frozen Battle scenarios and all 33 complete Universe runs/154 battles. Verified 16 isolated shared-factory sessions, 16 exactly-once idempotency races, 4,096 inert invalid Activity commands, 16 inert Agent replay mutations and 257-draw pairwise isolation for all eight Activity RNG streams. Added 100-cycle Cosmic Fragment and Curio charge probes with 200 accepted resource mutations, 300 charge consumptions and 200 inert overdraw/stale-command rejections. |
 | `G07-P6-B4` | `Complete` | `node tools/goal07/verify-performance.mjs`; Goal 06 stable-runner benchmark on current complete content; integrated/hardening/quick acceptance samples | Reused the exact Win10/i7-10700F/Rust 1.97 stable runner and unchanged Goal 06 workload. Warm assembly completes 10,000 hits in 14.62 ms with zero allocations; cold all-entry assembly retains one catalog composition, 33 misses and 26 evictions under the reviewed 90 s/30 GB cumulative/640 MiB peak ceilings. Eviction and 16-session rows retain exact cache/catalog shapes. Four material regression groups caused by 786-rule/86-enemy/real-build scope expansion are explicit; the out-of-contract Goal 04 64-session timeout is not promoted to evidence. |
-| `G07-P7-B1` | `Pending` | — | Complete release audits. |
+| `G07-P7-B1` | `Complete` | `node tools/goal07/verify-release-audits.mjs`; production Excel/Sora double regeneration; dependency/license, native-handler and source-policy audits | Proved exact-once 104-receipt coverage; 2,201 bilingual DataReady rows and 2,645 licensed provenance rows; zero workbook/Sora drift; 136 unchanged registry identities plus one reviewed internal build-compiler edge; 427 terminal native reviews with zero admissions; and 73/73 terminal numeric candidates with zero mechanic approximations. |
 | `G07-P7-B2` | `Pending` | — | Complete native/full clean verification. |
 | `G07-P7-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
 

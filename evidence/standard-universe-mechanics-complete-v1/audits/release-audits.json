@@ -1,0 +1,70 @@
+{
+  "schema_revision": "starclock.goal07-release-audits-evidence.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P7-B1",
+  "result": "coverage-provenance-bilingual-workbook-sora-dependency-license-native-source-and-approximation-audits-pass",
+  "coverage": {
+    "generated_content_batches": 104,
+    "content_records": 2201,
+    "rules": 786,
+    "semantic_fixtures": 78,
+    "enemy_variants": 86,
+    "encounter_members": 173,
+    "exact_once_assignment_gaps": 0,
+    "pending_partitions": 0
+  },
+  "provenance_bilingual_license": {
+    "content_rows": 2201,
+    "data_ready_rows": 2201,
+    "coverage_percent": "100",
+    "provenance_rows": 2645,
+    "missing_license_notes": 0,
+    "release_pack_sha256": "473aac7cccd0066bacf7cf2ea487bccb7bb63a67fcd66340253c0cd300026583"
+  },
+  "workbook_sora_drift": {
+    "production_tables": 82,
+    "production_content_identities": 6719,
+    "production_output_digest": "5ebaf4d8e16baa84e091132ee10de62b0119006b9bef1449fc3d630cebeed77d",
+    "production_bundle_sha256": "a6c6c67913685ccaab5e05665bb40b92001b3388e6be4977e25dd9cd029cb300",
+    "universe_bundle_sha256": "5e5234ee3977f794ae9b1b833372f51c38408c205105c464f11827e9e9ae6a75",
+    "drift": 0
+  },
+  "dependency_license": {
+    "baseline_commit": "381a94d4",
+    "reviewed_registry_packages": 136,
+    "new_registry_packages": [],
+    "reviewed_workspace_edges": [
+      {
+        "from": "starclock-mode-universe",
+        "to": "starclock-build",
+        "manifest": "crates/starclock-mode-universe/Cargo.toml",
+        "reason": "Complete-content dynamic battle assembly compiles the participant's locked build and reprojects an exact Eidolon-adjusted build through the existing deterministic build compiler.",
+        "license_disposition": "Internal unpublished workspace crate; no external license or package identity is introduced."
+      }
+    ],
+    "baseline_cargo_lock_sha256": "77c3e88bb0745e1ca82dd0d6133ebb5d8696c0506baf7e1a0a774e7ab8487cd7",
+    "current_cargo_lock_sha256": "7d518a413c182933a0f2d75b96094f40145ae2a82f8bd9dc34032d0b583a3aac"
+  },
+  "native_handler": {
+    "reviewed_candidates": 427,
+    "admitted_handlers": 0,
+    "registry_revision": "native-registry-v1"
+  },
+  "source_structure": {
+    "maximum_handwritten_lines": 1200,
+    "maximum_facade_lines": 200,
+    "line_limit_exceptions": 0,
+    "generated_or_vendor_exclusions": 3
+  },
+  "approximation": {
+    "registered_external_decisions": 52,
+    "numeric_candidates": 73,
+    "upgraded_to_exact_public": 24,
+    "approved_numeric_approximations": 49,
+    "unresolved_numeric_candidates": 0,
+    "mechanism_correct_enemy_variants": 86,
+    "mechanic_approximations": 0,
+    "source_review_sha256": "b929cecedbba6942ed4c3e24b4e993d42d252b165df61db2fa4dea1dfa37d15f"
+  },
+  "policy_sha256": "71dfcea4a427872a3a06187df6ff31a5b7be11150784f673c7de248c9a744772"
+}
