@@ -1,0 +1,472 @@
+[
+  {
+    "id": "currency-wars.workbench-function.consumable.350101",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350101",
+    "name_zh_cn": "消耗品 350101",
+    "summary_en": "Consumable 350101 applies rule direct with 0 parameter(s), stack=true, consume=true.",
+    "summary_zh_cn": "消耗品 350101 应用规则 直接 与 0 个参数，可堆叠=true，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "0",
+        "sha256": "26d907f5793a94b16d2a57dd7a74945f8d3c1ebaa3754c30fcd79859e1bfc0da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15298412367088846627",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15298412367088846627",
+        "sha256": "3757ea4633bc21090855605b8e073d6d249a7828f4af3db79dbf92711a4cfa8f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15298412367088846627",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15298412367088846627",
+        "sha256": "62a05a316b4323298384497a3c1014034aa3b4a9cb6a65180d20b6a0815a7cbe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "direct",
+      "gridfight",
+      "service"
+    ],
+    "source_id": "350101",
+    "function_type": "DirectConsumable",
+    "input_policy": {
+      "consume": true,
+      "stack": true
+    },
+    "output_policy": {
+      "parameters": []
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350102",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350102",
+    "name_zh_cn": "消耗品 350102",
+    "summary_en": "Consumable 350102 applies rule direct with 0 parameter(s), stack=false, consume=false.",
+    "summary_zh_cn": "消耗品 350102 应用规则 直接 与 0 个参数，可堆叠=false，会消耗=false。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "1",
+        "sha256": "a9e81eed36511bd3dfc35d84e71f693d7a0815d7cc9e2c10a6d8676fe09f72cf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12264024043971668447",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12264024043971668447",
+        "sha256": "f9951fc5257d1eefa5b574e17b6a839c747c2ae1b13dfcb9ea35836d04306659",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12264024043971668447",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12264024043971668447",
+        "sha256": "6b4ad1789609c50a174c919fb6cc63e73b2ddd95889be228ce626012bb39d71e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "direct",
+      "gridfight",
+      "service"
+    ],
+    "source_id": "350102",
+    "function_type": "DirectConsumable",
+    "input_policy": {
+      "consume": false,
+      "stack": false
+    },
+    "output_policy": {
+      "parameters": []
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350103",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350103",
+    "name_zh_cn": "消耗品 350103",
+    "summary_en": "Consumable 350103 applies rule Roll with 0 parameter(s), stack=true, consume=true.",
+    "summary_zh_cn": "消耗品 350103 应用规则 Roll 与 0 个参数，可堆叠=true，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "2",
+        "sha256": "13627e94602060cefc962347152ae9b6ae2c498e0e4b438cfba208823f5a70e5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16380897784992424888",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16380897784992424888",
+        "sha256": "4228d2eb778b51a182089186cd5b6e9f4d47e7461e0eb59836b5c8d11b56ca45",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16380897784992424888",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16380897784992424888",
+        "sha256": "690ac50ee529ea1db745acc7a0d6032b6785d51cbf0b7dda31542d343f124ffc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "gridfight",
+      "roll",
+      "service"
+    ],
+    "source_id": "350103",
+    "function_type": "Roll",
+    "input_policy": {
+      "consume": true,
+      "stack": true
+    },
+    "output_policy": {
+      "parameters": []
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350104",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350104",
+    "name_zh_cn": "消耗品 350104",
+    "summary_en": "Consumable 350104 applies rule Upgrade with 0 parameter(s), stack=false, consume=true.",
+    "summary_zh_cn": "消耗品 350104 应用规则 Upgrade 与 0 个参数，可堆叠=false，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "3",
+        "sha256": "20dbdbe738b8408a69c524b820e0aca795d5b20563bd011b370fa0c52fcba946",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7150554313729921518",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7150554313729921518",
+        "sha256": "d5a05dbf05982f8f5a0049f2fe95c9350a9d073b62eaebdeab2c5da16d9a324c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7150554313729921518",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7150554313729921518",
+        "sha256": "1ab12f07560f8ecc884a9b7f46c09a920addfc34096f3bc5d4a23bbc85b7ff66",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "gridfight",
+      "service",
+      "upgrade"
+    ],
+    "source_id": "350104",
+    "function_type": "Upgrade",
+    "input_policy": {
+      "consume": true,
+      "stack": false
+    },
+    "output_policy": {
+      "parameters": []
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350105",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350105",
+    "name_zh_cn": "消耗品 350105",
+    "summary_en": "Consumable 350105 applies rule Copy with 2 parameter(s), stack=true, consume=true.",
+    "summary_zh_cn": "消耗品 350105 应用规则 Copy 与 2 个参数，可堆叠=true，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "4",
+        "sha256": "004136ab71f0444f5fd321d545ea8d7b12cf12fb994d5fbad00a5f31d55ce5a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7644875178084974559",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7644875178084974559",
+        "sha256": "31767c7ff3a6b17345c3596331ada60837e441684e47cc6c82c23c2686581e95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7644875178084974559",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7644875178084974559",
+        "sha256": "1827c2c5660f63fda519dfe153947403e4c14ab10b9450eda12aecfa6cd0f6e6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "copy",
+      "gridfight",
+      "service"
+    ],
+    "source_id": "350105",
+    "function_type": "Copy",
+    "input_policy": {
+      "consume": true,
+      "stack": true
+    },
+    "output_policy": {
+      "parameters": [
+        "3",
+        "1"
+      ]
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350106",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350106",
+    "name_zh_cn": "消耗品 350106",
+    "summary_en": "Consumable 350106 applies rule Copy with 2 parameter(s), stack=true, consume=true.",
+    "summary_zh_cn": "消耗品 350106 应用规则 Copy 与 2 个参数，可堆叠=true，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "5",
+        "sha256": "b49bde2518ac6699f4296c3725945877205b7c7e96b9c8c797e568cf9975d710",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9187583903335043829",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9187583903335043829",
+        "sha256": "c887080145fa169c605df83c4d811f5d22ecd02bde260dc3a2193f595c39bc32",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9187583903335043829",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9187583903335043829",
+        "sha256": "528f9b886a5435403f183cba7a4fe1725dd62ea2f9bd2406c77c8531c6fa330c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "copy",
+      "gridfight",
+      "service"
+    ],
+    "source_id": "350106",
+    "function_type": "Copy",
+    "input_policy": {
+      "consume": true,
+      "stack": true
+    },
+    "output_policy": {
+      "parameters": [
+        "5",
+        "1"
+      ]
+    },
+    "price_rule": "InventoryItemConsumption"
+  },
+  {
+    "id": "currency-wars.workbench-function.consumable.350107",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsWorkbenchFunction",
+    "name_en": "Consumable 350107",
+    "name_zh_cn": "消耗品 350107",
+    "summary_en": "Consumable 350107 applies rule GainRecommendEquip with 1 parameter(s), stack=false, consume=true.",
+    "summary_zh_cn": "消耗品 350107 应用规则 GainRecommendEquip 与 1 个参数，可堆叠=false，会消耗=true。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightconsumables-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConsumables.json",
+        "locator": "6",
+        "sha256": "baf7ebdd16a246ce80dc6db26471261c0779bfdff1b066b04269c92a0fa8a951",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12818461315544430552",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12818461315544430552",
+        "sha256": "6651e4f4fff3ca9a7da0ab06812755cdf2f77f74e395afd5983c6611aaddb7c9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12818461315544430552",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12818461315544430552",
+        "sha256": "17bd1ddd2329401e0bc87ff3d5460cda01738114571d45dc5a1d3f2a578df480",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "consumable",
+      "gainrecommendequip",
+      "gridfight",
+      "service"
+    ],
+    "source_id": "350107",
+    "function_type": "GainRecommendEquip",
+    "input_policy": {
+      "consume": true,
+      "stack": false
+    },
+    "output_policy": {
+      "parameters": [
+        "4"
+      ]
+    },
+    "price_rule": "InventoryItemConsumption"
+  }
+]
