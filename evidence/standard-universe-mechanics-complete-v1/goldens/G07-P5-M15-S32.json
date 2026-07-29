@@ -1,0 +1,51 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S32",
+  "lane": "room-content",
+  "record_ids": [
+    "universe.room.200332",
+    "universe.room.200333",
+    "universe.room.200412",
+    "universe.room.200413",
+    "universe.room.200422",
+    "universe.room.200423",
+    "universe.room.200432",
+    "universe.room.200433",
+    "universe.room.200511",
+    "universe.room.200512",
+    "universe.room.200513",
+    "universe.room.200611",
+    "universe.room.200612",
+    "universe.room.200713",
+    "universe.room.200813",
+    "universe.room.200823",
+    "universe.room.200833",
+    "universe.room.201",
+    "universe.room.202",
+    "universe.room.203",
+    "universe.room.300111",
+    "universe.room.300112",
+    "universe.room.300121",
+    "universe.room.300122",
+    "universe.room.300131",
+    "universe.room.300132",
+    "universe.room.300141",
+    "universe.room.300142",
+    "universe.room.300152",
+    "universe.room.300211",
+    "universe.room.300212",
+    "universe.room.300213"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseRoom": {
+      "rows": 32,
+      "semantic_sha256": "0e7ed22d23726e0dfb794f7a57a7e7f3a720f645e1890d333b697fd47702445d"
+    },
+    "UniverseRoomContent": {
+      "rows": 55,
+      "semantic_sha256": "fa20779d219d087c220458cdbb24c7dd57008742a3882c3b9b34e3a38a9680e6"
+    }
+  }
+}
