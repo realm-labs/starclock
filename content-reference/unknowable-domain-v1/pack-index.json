@@ -1,0 +1,440 @@
+[
+  {
+    "id": "unknowable-domain.pack-index.v1",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferencePackIndex",
+    "name_en": "Unknowable Domain Canonical Pack Index",
+    "name_zh_cn": "不可知域规范资料包索引",
+    "summary_en": "64 pre-index normalized files are digest-bound into one Candidate reference pack and three authoring components.",
+    "summary_zh_cn": "64 个索引前规范化文件通过摘要绑定为一个 Candidate 资料包与三个作者组件。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.local.content-manifest",
+        "repository": "starclock",
+        "revision": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+        "path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+        "locator": "root",
+        "sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "ManifestClosure"
+      },
+      {
+        "source_id": "source.goal10.local.normalized-schema",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "root",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "SchemaContract"
+      }
+    ],
+    "tags": [
+      "candidate",
+      "pack-index",
+      "reference-only"
+    ],
+    "source_id": "unknowable-domain-reference-v1",
+    "file_digests": [
+      {
+        "file": "adventure-outcomes.json",
+        "rows": 9,
+        "bytes": 22375,
+        "sha256": "d3d7ce2601d4974260c5c4e4d34d46b18bb7ae89017d8fcb8139d80f1bb5f9f7"
+      },
+      {
+        "file": "alignments.json",
+        "rows": 4,
+        "bytes": 11090,
+        "sha256": "b8628c54f91d13f96133b4acd9adc7e672a17d9acfb85d1c4d668b1a033f2ecf"
+      },
+      {
+        "file": "areas.json",
+        "rows": 13,
+        "bytes": 23942,
+        "sha256": "9a4ba35b8e1bb32a0ba7cb2fc7da02232f6ea38219ea8cf1e07560a6e310603b"
+      },
+      {
+        "file": "blessings.json",
+        "rows": 0,
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      {
+        "file": "boss-choices.json",
+        "rows": 6,
+        "bytes": 48791,
+        "sha256": "64923e2a0ee7f0920c0db412a31ae40378bb3264bc5328a3a1a7dd2b39bafb37"
+      },
+      {
+        "file": "boss-pools.json",
+        "rows": 13,
+        "bytes": 63419,
+        "sha256": "78230da4a465d5373a38eeb6a7c61503c9476053dbaabef5fb5a1d1c103de868"
+      },
+      {
+        "file": "component-choice-programs.json",
+        "rows": 25,
+        "bytes": 74378,
+        "sha256": "74449fb8cab9b6d0d0cfe70151852a8b913b934953e5d4725c40a3a2eace9a8a"
+      },
+      {
+        "file": "component-levels.json",
+        "rows": 277,
+        "bytes": 1375775,
+        "sha256": "87e1de095c427f95ef66d275ad23ed23e53d05d29c345cbcc88afdc36f138b5a"
+      },
+      {
+        "file": "component-slot-compatibility.json",
+        "rows": 346,
+        "bytes": 556111,
+        "sha256": "dfc4b0f647974c195a93e4f66ab83fac1f4b76f7a8dba42e80f19d7c81ed1177"
+      },
+      {
+        "file": "components.json",
+        "rows": 114,
+        "bytes": 257715,
+        "sha256": "8884cb998e8cf59a370d3a19d65ea57615f2056b976922f05ece1e74f3c07ffe"
+      },
+      {
+        "file": "coverage.json",
+        "rows": 5377,
+        "bytes": 9073898,
+        "sha256": "1eb3196fea7ac10b49577cff537cb23fd09da543a47c169b0dcc5f06fb6cf877"
+      },
+      {
+        "file": "curio-groups.json",
+        "rows": 47,
+        "bytes": 132904,
+        "sha256": "5ea0cf15b29b3165b505383ac5921449ee250a47118778a63ef9b7056c3a99d5"
+      },
+      {
+        "file": "curio-rules.json",
+        "rows": 128,
+        "bytes": 356050,
+        "sha256": "a462419bbb28f40dc78bebac0982795be37d345b71d41d6d96a4976011bd71b9"
+      },
+      {
+        "file": "curio-states.json",
+        "rows": 81,
+        "bytes": 344185,
+        "sha256": "cef9666742be2e98e3872610b3e6ecd31e25607f7000f983372f085115cef274"
+      },
+      {
+        "file": "curios.json",
+        "rows": 60,
+        "bytes": 156098,
+        "sha256": "94e434e0e5d6fb6ffb7df467137f96839f3e5ef8fb4d4e03e8637e1dbbceaf71"
+      },
+      {
+        "file": "currencies.json",
+        "rows": 1,
+        "bytes": 2897,
+        "sha256": "8f77c246686f816f44e9b80d4978f1e57c7081e803ff87431f2b105184174444"
+      },
+      {
+        "file": "decision-components.json",
+        "rows": 25,
+        "bytes": 39803,
+        "sha256": "0497a69629bee1338803f6336ff1885c45ab5d4f1de23019ea56b5341a916ba6"
+      },
+      {
+        "file": "difficulty-compositions.json",
+        "rows": 97,
+        "bytes": 129331,
+        "sha256": "4cf4e15dccfe46466a9c89f21071ac80e4d6a67d2b564fd47322b735a3f7d8ca"
+      },
+      {
+        "file": "encounter-groups.json",
+        "rows": 0,
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      {
+        "file": "encounter-source-obligations.json",
+        "rows": 1524,
+        "bytes": 3649528,
+        "sha256": "a1f826c53234720249107aacbc37080f54ac65c0fcb3de167b64984a438b860f"
+      },
+      {
+        "file": "encounter-waves.json",
+        "rows": 0,
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      {
+        "file": "enemy-slots.json",
+        "rows": 0,
+        "bytes": 3,
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      },
+      {
+        "file": "finish-conditions.json",
+        "rows": 135,
+        "bytes": 200603,
+        "sha256": "cde5114949f20a9afe88cdd5749a217e96ba34c61511c1af69b73cb7ba4cc1f8"
+      },
+      {
+        "file": "gamble-groups.json",
+        "rows": 10,
+        "bytes": 14570,
+        "sha256": "a020f783757370ab70a134e0e493b77fda87b35f252c810fdbc846af1e9a619f"
+      },
+      {
+        "file": "gamble-units.json",
+        "rows": 7,
+        "bytes": 10707,
+        "sha256": "6ce8ece55c85676bc61c87918c52a35e82be4976b14e5ba26ab50c68a13b865c"
+      },
+      {
+        "file": "layer-effects.json",
+        "rows": 1,
+        "bytes": 1794,
+        "sha256": "a1e9e6ca7762e240fb1a95de61a2a4e4a386694bb5b2ef6f011d2cd7b78552cb"
+      },
+      {
+        "file": "layer-rooms.json",
+        "rows": 176,
+        "bytes": 245417,
+        "sha256": "8e9d2f18f52c42a5105d58d60b4097a7670e3cf23d8cce447e9dcb0d839a26e0"
+      },
+      {
+        "file": "layers.json",
+        "rows": 32,
+        "bytes": 47801,
+        "sha256": "bf096f427387b31af974b0f4262cac979c34242a01c0e73024cb403888b02fd6"
+      },
+      {
+        "file": "loadout-transition-rules.json",
+        "rows": 3,
+        "bytes": 6491,
+        "sha256": "1b29f5f27c3bbf5d9df12b060f67460334a252eb75c001729d66734ae876d3ef"
+      },
+      {
+        "file": "loadouts.json",
+        "rows": 72,
+        "bytes": 198055,
+        "sha256": "aae2c147d93ed44e844ea489506f470f9e5270d6fafc317d542442bf40efee64"
+      },
+      {
+        "file": "manifest.json",
+        "rows": 1,
+        "bytes": 5375,
+        "sha256": "d2b49f19814db3733eb577050b5214cd7d678634fcebcc9cc049e0064d35235c"
+      },
+      {
+        "file": "maze-buffs.json",
+        "rows": 387,
+        "bytes": 1018962,
+        "sha256": "a0c339cffea08297f5bee74e589af6d7ea6347b0b69bf5045f58e465042f161e"
+      },
+      {
+        "file": "mechanic-rules.json",
+        "rows": 41,
+        "bytes": 139553,
+        "sha256": "0726ced581949b46fafd49d0abb4ecdde9183cb52993bbe165a6c3afc32dc8b6"
+      },
+      {
+        "file": "mechanic-source-files.json",
+        "rows": 41,
+        "bytes": 137878,
+        "sha256": "1680dfd2aaa7c84fce0726d3567d63bdc5fa2766ee6ea657fab19b4b5107e399"
+      },
+      {
+        "file": "mode-constants.json",
+        "rows": 14,
+        "bytes": 21470,
+        "sha256": "939ba4c604e009a00da1113591d0b62a3a10f830d592a38e55ac2b8caf74caec"
+      },
+      {
+        "file": "mode-service-npcs.json",
+        "rows": 5,
+        "bytes": 30777,
+        "sha256": "69c23eb4f2a5f7751184f69c7ea79054dd578dd9678805b5ec80212bc1933171"
+      },
+      {
+        "file": "occurrence-choices.json",
+        "rows": 239,
+        "bytes": 783559,
+        "sha256": "cd1e91dc6aa89b435a9e3daffa7d243e7b3e6bbe7cb69f71e31f9cc7cbd13a71"
+      },
+      {
+        "file": "occurrence-variants.json",
+        "rows": 50,
+        "bytes": 215356,
+        "sha256": "e655a80c2291957c0accb6df14da62b8168f777d9ba76f24f9e7089b87acb1a1"
+      },
+      {
+        "file": "occurrences.json",
+        "rows": 62,
+        "bytes": 105885,
+        "sha256": "d942752653b2e0cd3f8403db3f2c7f8f769694066158b0ea7afc97cc3d822c73"
+      },
+      {
+        "file": "pool-membership.json",
+        "rows": 231,
+        "bytes": 449085,
+        "sha256": "527767632a2ed2e08299b1e5a7e3bb1e78f53f99e86f9fa963b4364e6df58e4d"
+      },
+      {
+        "file": "profiles.json",
+        "rows": 3,
+        "bytes": 10127,
+        "sha256": "407ad95c6c7c3f23d6b137bcb26dfc8e5e44e2767f535171a2d8fdb3d08613c3"
+      },
+      {
+        "file": "progression-effects.json",
+        "rows": 576,
+        "bytes": 1245330,
+        "sha256": "3bfe0c1332fc5c6629f7c8b76515de5ac55885da2f7d16dc4049ea09185342b8"
+      },
+      {
+        "file": "reconciliation-receipts.json",
+        "rows": 155,
+        "bytes": 403422,
+        "sha256": "4006fe5c6e4fb752ce10148631590e3cedf867983e7e003ba6ea6b0525dec5a8"
+      },
+      {
+        "file": "reforge-rules.json",
+        "rows": 1,
+        "bytes": 2941,
+        "sha256": "dd6378b95a84e9257ea502ab874e61f06a392395049183669192667f670f2d1a"
+      },
+      {
+        "file": "research-gaps.json",
+        "rows": 24,
+        "bytes": 65168,
+        "sha256": "5521b0f1f1f98b9e3a207f906bc0f3bd1222bf97f8dabc72db9f33406dceadd1"
+      },
+      {
+        "file": "review-fixtures.json",
+        "rows": 24,
+        "bytes": 157630,
+        "sha256": "cd79eb01bb8e5315aaa067bb8d811e297a713a49d352d5f0de0ce36aa268eaea"
+      },
+      {
+        "file": "rooms.json",
+        "rows": 1518,
+        "bytes": 2090409,
+        "sha256": "86ca4441e6125af00bee9d832c8029e3f3f095d34e72c4c05c11dd2aaf96dcb8"
+      },
+      {
+        "file": "scepter-activation-rules.json",
+        "rows": 72,
+        "bytes": 296105,
+        "sha256": "bbdc7701e1f1c8558982843e7a5e85dd402ce06572c73e92db5a2b15d216971e"
+      },
+      {
+        "file": "scepter-levels.json",
+        "rows": 72,
+        "bytes": 257885,
+        "sha256": "d7f2b01d96652a1c7b13185d1a5b9ca4a38d61df7385e2144f4e1dd68e8a2d7c"
+      },
+      {
+        "file": "scepter-state-transitions.json",
+        "rows": 216,
+        "bytes": 815961,
+        "sha256": "3b9a950e78bc898a261a4b19522f8db1f43da712f1a122501e3f13e999045e6b"
+      },
+      {
+        "file": "scepters.json",
+        "rows": 24,
+        "bytes": 63428,
+        "sha256": "fbfad4c8d4909d0e95488ed3d1bcaa69b6e255052e20d0a124905e1cf6dddc8c"
+      },
+      {
+        "file": "score-inputs.json",
+        "rows": 133,
+        "bytes": 179674,
+        "sha256": "de8e22b9d9cccdd40127cc1a4ec0a81a7b8e0235f2623856ce432e74d50b481f"
+      },
+      {
+        "file": "semantic-fixture-families.json",
+        "rows": 24,
+        "bytes": 66350,
+        "sha256": "dac834ac4f3972f8846c56cfbb8b3765ce1efdb8e727672ab7fc2d1d3283e6a4"
+      },
+      {
+        "file": "service-offer-rules.json",
+        "rows": 15,
+        "bytes": 42884,
+        "sha256": "0c80dca21950a66d53b7dcda43d2f5c582fcd932fe475e281690698b859a7e62"
+      },
+      {
+        "file": "service-rules.json",
+        "rows": 40,
+        "bytes": 103409,
+        "sha256": "22c3bb8e3e9aae2f236da55d0b6231c2e2ffa1aaecda92c9d08c7f10084bc9df"
+      },
+      {
+        "file": "slot-layouts.json",
+        "rows": 3,
+        "bytes": 4263,
+        "sha256": "95ad48519c3e2e72cc3de5a86d27dbefb12de70c0e152fd387e58283318e579d"
+      },
+      {
+        "file": "sources.json",
+        "rows": 4473,
+        "bytes": 8790828,
+        "sha256": "70f7e0ea58ad2cfcf74223649611561549ada1ae0ab42a91bbf8289beb50dbd1"
+      },
+      {
+        "file": "stage-flow.json",
+        "rows": 54,
+        "bytes": 127126,
+        "sha256": "f3bab9186c4d8e487b582aa25fd717a8612a447a3622bca1173f39851eba643f"
+      },
+      {
+        "file": "synthesis-rules.json",
+        "rows": 1,
+        "bytes": 2938,
+        "sha256": "ddb84e2ed60f27c749e61d2dd53ab224d5fde1788d14af47660a9cdfec5e9dbb"
+      },
+      {
+        "file": "talents.json",
+        "rows": 25,
+        "bytes": 61896,
+        "sha256": "2b0c1799f0d6e2bdea4078b91fa68b1318770b1cc5048f63806279f7adcb6560"
+      },
+      {
+        "file": "unlocks.json",
+        "rows": 30,
+        "bytes": 55741,
+        "sha256": "44acdbbca981883198b329da76a8a6a8b4b052bb5342b1370d32bf4ffb91cac4"
+      },
+      {
+        "file": "upgrade-rules.json",
+        "rows": 2,
+        "bytes": 5719,
+        "sha256": "bb74606d1bf3c15b00c919fccd4214ba78aac8908d98777f7802d83a8ace1994"
+      },
+      {
+        "file": "workbench-functions.json",
+        "rows": 5,
+        "bytes": 8399,
+        "sha256": "4499ad6a5c521a976dfc6d960cbef43e260590b667e7e99b627451e6b7774086"
+      },
+      {
+        "file": "workbenches.json",
+        "rows": 4,
+        "bytes": 5811,
+        "sha256": "2e8031f3cf449a85ae20ea6fb8d9fdabb41e2c6c4da376b302ec697864d0ec48"
+      }
+    ],
+    "pack_digest": "f6a8c54ece4618f6958fb8e389960dd59fd6be4ff2b41007fb9e309044f3bfc0",
+    "component_digest": "7851b781c04532f8758535c5d0e0c91567db3c33bddb23ab5a63c860035d7a88",
+    "component_digests": {
+      "UnknowableDomain.xlsx": "a41329d8cd279c3477fbe73bb5b20a3761162a9f08f4feba8741d6ff846ed0be",
+      "UnknowableDomainBindings.xlsx": "c0eb2c8b20b1a8e28d501cfd9df67228060130390392a3c46f98808495afe01a",
+      "UnknowableDomainReview.xlsx": "0414cbac07ece92e2ed6e4f114eb81d9e07f7cfa6b0f72f1e8d2cb091c91c55f"
+    },
+    "runtime_loading": "ForbiddenReferenceOnly"
+  }
+]

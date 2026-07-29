@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "unknowable-domain.research-gap.alignment-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "alignment-selection Replacement Boundary",
+    "name_zh_cn": "alignment-selection 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-alignment-selection",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews four Alignments, eligibility, offered pool, no legal selection against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves four Alignments, eligibility, offered pool, no legal selection."
+      }
+    ],
+    "tags": [
+      "alignment-selection",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "alignment-selection",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "alignment-selection",
+    "known_fact": "4 selected normalized record(s) cover the released portion of four Alignments, eligibility, offered pool, no legal selection.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.alignment.break",
+      "unknowable-domain.alignment.dot",
+      "unknowable-domain.alignment.follow",
+      "unknowable-domain.alignment.ultimate"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves four Alignments, eligibility, offered pool, no legal selection."
+  },
+  {
+    "id": "unknowable-domain.research-gap.area-layer-room-transition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "area-layer-room-transition Replacement Boundary",
+    "name_zh_cn": "area-layer-room-transition 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-layer-room-transition",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews ordered transition, carry, reset, illegal transition against 5 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves ordered transition, carry, reset, illegal transition."
+      }
+    ],
+    "tags": [
+      "area-layer-room-transition",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "area-layer-room-transition",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "area-layer-room-transition",
+    "known_fact": "5 selected normalized record(s) cover the released portion of ordered transition, carry, reset, illegal transition.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.area.101",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.layer-room.101.1",
+      "unknowable-domain.layer.101",
+      "unknowable-domain.room.11001"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves ordered transition, carry, reset, illegal transition."
+  },
+  {
+    "id": "unknowable-domain.research-gap.component-insertion-removal-replacement",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "component-insertion-removal-replacement Replacement Boundary",
+    "name_zh_cn": "component-insertion-removal-replacement 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-insertion-removal-replacement",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews insert, remove, replace, locked Component against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves insert, remove, replace, locked Component."
+      }
+    ],
+    "tags": [
+      "component-insertion-removal-replacement",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "component-insertion-removal-replacement",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "component-insertion-removal-replacement",
+    "known_fact": "4 selected normalized record(s) cover the released portion of insert, remove, replace, locked Component.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.loadout-transition.remove",
+      "unknowable-domain.loadout-transition.replace",
+      "unknowable-domain.scepter.2001.level.1.loadout"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves insert, remove, replace, locked Component."
+  },
+  {
+    "id": "unknowable-domain.research-gap.component-reforge",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "component-reforge Replacement Boundary",
+    "name_zh_cn": "component-reforge 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-reforge",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews candidate set, cost, replacement, empty candidate against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves candidate set, cost, replacement, empty candidate."
+      }
+    ],
+    "tags": [
+      "component-reforge",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "component-reforge",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "component-reforge",
+    "known_fact": "1 selected normalized record(s) cover the released portion of candidate set, cost, replacement, empty candidate.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.reforge.component"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves candidate set, cost, replacement, empty candidate."
+  },
+  {
+    "id": "unknowable-domain.research-gap.component-slot-legality",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "component-slot-legality Replacement Boundary",
+    "name_zh_cn": "component-slot-legality 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-slot-legality",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews shape, range, slot type, rejected insertion against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves shape, range, slot type, rejected insertion."
+      }
+    ],
+    "tags": [
+      "component-slot-legality",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "component-slot-legality",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "component-slot-legality",
+    "known_fact": "3 selected normalized record(s) cover the released portion of shape, range, slot type, rejected insertion.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.component.4001.level.1",
+      "unknowable-domain.component.4001.level.1.compatibility.none",
+      "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves shape, range, slot type, rejected insertion."
+  },
+  {
+    "id": "unknowable-domain.research-gap.component-synthesis",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "component-synthesis Replacement Boundary",
+    "name_zh_cn": "component-synthesis 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-synthesis",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews input count, consumption, output pool, no legal output against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves input count, consumption, output pool, no legal output."
+      }
+    ],
+    "tags": [
+      "component-synthesis",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "component-synthesis",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "component-synthesis",
+    "known_fact": "1 selected normalized record(s) cover the released portion of input count, consumption, output pool, no legal output.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.synthesis.component"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves input count, consumption, output pool, no legal output."
+  },
+  {
+    "id": "unknowable-domain.research-gap.component-upgrade",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "component-upgrade Replacement Boundary",
+    "name_zh_cn": "component-upgrade 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-upgrade",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews level transition, cost, cap, ordering against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves level transition, cost, cap, ordering."
+      }
+    ],
+    "tags": [
+      "component-upgrade",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "component-upgrade",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "component-upgrade",
+    "known_fact": "2 selected normalized record(s) cover the released portion of level transition, cost, cap, ordering.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.scepter-upgrade.1-to-2",
+      "unknowable-domain.scepter-upgrade.2-to-3"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves level transition, cost, cap, ordering."
+  },
+  {
+    "id": "unknowable-domain.research-gap.cross-battle-carry-reset",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "cross-battle-carry-reset Replacement Boundary",
+    "name_zh_cn": "cross-battle-carry-reset 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-cross-battle-carry-reset",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews state slot, carry boundary, reset boundary, finish cleanup against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves state slot, carry boundary, reset boundary, finish cleanup."
+      }
+    ],
+    "tags": [
+      "cross-battle-carry-reset",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "cross-battle-carry-reset",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "cross-battle-carry-reset",
+    "known_fact": "3 selected normalized record(s) cover the released portion of state slot, carry boundary, reset boundary, finish cleanup.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.profile.v1"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves state slot, carry boundary, reset boundary, finish cleanup."
+  },
+  {
+    "id": "unknowable-domain.research-gap.curio-lifecycle",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "curio-lifecycle Replacement Boundary",
+    "name_zh_cn": "curio-lifecycle 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-lifecycle",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews mode state, charges, repair, replacement against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves mode state, charges, repair, replacement."
+      }
+    ],
+    "tags": [
+      "curio-lifecycle",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "curio-lifecycle",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "curio-lifecycle",
+    "known_fact": "3 selected normalized record(s) cover the released portion of mode state, charges, repair, replacement.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.curio-rule.group.50002",
+      "unknowable-domain.curio-state.7101",
+      "unknowable-domain.curio.4"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves mode state, charges, repair, replacement."
+  },
+  {
+    "id": "unknowable-domain.research-gap.decision-component-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "decision-component-choice Replacement Boundary",
+    "name_zh_cn": "decision-component-choice 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-decision-component-choice",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, candidate order, scope, fallback against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, candidate order, scope, fallback."
+      }
+    ],
+    "tags": [
+      "decision-component-choice",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "decision-component-choice",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "decision-component-choice",
+    "known_fact": "2 selected normalized record(s) cover the released portion of eligibility, candidate order, scope, fallback.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.decision-component.6051",
+      "unknowable-domain.decision-component.6051.choice"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, candidate order, scope, fallback."
+  },
+  {
+    "id": "unknowable-domain.research-gap.difficulty-composition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "difficulty-composition Replacement Boundary",
+    "name_zh_cn": "difficulty-composition 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-difficulty-composition",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews difficulty parameters, drop binding, difficulty application boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves difficulty parameters, drop binding, difficulty application boundary."
+      }
+    ],
+    "tags": [
+      "difficulty-composition",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "difficulty-composition",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "difficulty-composition",
+    "known_fact": "2 selected normalized record(s) cover the released portion of difficulty parameters, drop binding, difficulty application boundary.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.difficulty-drop.101.1",
+      "unknowable-domain.difficulty.10101"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves difficulty parameters, drop binding, difficulty application boundary."
+  },
+  {
+    "id": "unknowable-domain.research-gap.encounter-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "encounter-selection Replacement Boundary",
+    "name_zh_cn": "encounter-selection 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-selection",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews room parent, candidate order, wave, enemy slots against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves room parent, candidate order, wave, enemy slots."
+      }
+    ],
+    "tags": [
+      "encounter-selection",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "encounter-selection",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "encounter-selection",
+    "known_fact": "2 selected normalized record(s) cover the released portion of room parent, candidate order, wave, enemy slots.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.room.11101"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves room parent, candidate order, wave, enemy slots."
+  },
+  {
+    "id": "unknowable-domain.research-gap.gamble-offer-and-outcome",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "gamble-offer-and-outcome Replacement Boundary",
+    "name_zh_cn": "gamble-offer-and-outcome 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-and-outcome",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews weighted candidate set, seed, outcome, failure against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves weighted candidate set, seed, outcome, failure."
+      }
+    ],
+    "tags": [
+      "gamble-offer-and-outcome",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "gamble-offer-and-outcome",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "gamble-offer-and-outcome",
+    "known_fact": "3 selected normalized record(s) cover the released portion of weighted candidate set, seed, outcome, failure.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.gamble-group.100",
+      "unknowable-domain.gamble-unit.101",
+      "unknowable-domain.service-offer.gamble-group.100"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves weighted candidate set, seed, outcome, failure."
+  },
+  {
+    "id": "unknowable-domain.research-gap.layer-and-difficulty-effect",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "layer-and-difficulty-effect Replacement Boundary",
+    "name_zh_cn": "layer-and-difficulty-effect 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-layer-and-difficulty-effect",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry trigger, cross-battle state, battle projection, teardown against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry trigger, cross-battle state, battle projection, teardown."
+      }
+    ],
+    "tags": [
+      "layer-and-difficulty-effect",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "layer-and-difficulty-effect",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "layer-and-difficulty-effect",
+    "known_fact": "3 selected normalized record(s) cover the released portion of entry trigger, cross-battle state, battle projection, teardown.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.layer-effect.401",
+      "unknowable-domain.layer-effect.401.contribution",
+      "unknowable-domain.maze-buff.682010.level.1"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry trigger, cross-battle state, battle projection, teardown."
+  },
+  {
+    "id": "unknowable-domain.research-gap.no-legal-candidate-fallback",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "no-legal-candidate-fallback Replacement Boundary",
+    "name_zh_cn": "no-legal-candidate-fallback 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews empty set, explicit fallback, no hidden RNG draw, review fact against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves empty set, explicit fallback, no hidden RNG draw, review fact."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "nonblocking",
+      "research-gap"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "no-legal-candidate-fallback",
+    "known_fact": "3 selected normalized record(s) cover the released portion of empty set, explicit fallback, no hidden RNG draw, review fact.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.synthesis.component"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves empty set, explicit fallback, no hidden RNG draw, review fact."
+  },
+  {
+    "id": "unknowable-domain.research-gap.occurrence-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "occurrence-choice Replacement Boundary",
+    "name_zh_cn": "occurrence-choice 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews variant, condition, cost, ordered outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves variant, condition, cost, ordered outcome."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "occurrence-choice",
+      "research-gap"
+    ],
+    "source_id": "occurrence-choice",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "occurrence-choice",
+    "known_fact": "3 selected normalized record(s) cover the released portion of variant, condition, cost, ordered outcome.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.occurrence-choice.510301.01.01",
+      "unknowable-domain.occurrence-variant.510301",
+      "unknowable-domain.occurrence.10"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves variant, condition, cost, ordered outcome."
+  },
+  {
+    "id": "unknowable-domain.research-gap.profile-entry-and-finish",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "profile-entry-and-finish Replacement Boundary",
+    "name_zh_cn": "profile-entry-and-finish 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-entry-and-finish",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry eligibility, initial resources, finish and terminal boundary against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry eligibility, initial resources, finish and terminal boundary."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "profile-entry-and-finish",
+      "research-gap"
+    ],
+    "source_id": "profile-entry-and-finish",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "profile-entry-and-finish",
+    "known_fact": "3 selected normalized record(s) cover the released portion of entry eligibility, initial resources, finish and terminal boundary.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.entry.activity.103",
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.profile.v1"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry eligibility, initial resources, finish and terminal boundary."
+  },
+  {
+    "id": "unknowable-domain.research-gap.scepter-activation",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "scepter-activation Replacement Boundary",
+    "name_zh_cn": "scepter-activation 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-activation",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger, targeting, ordered operations, single activation against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger, targeting, ordered operations, single activation."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "scepter-activation"
+    ],
+    "source_id": "scepter-activation",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "scepter-activation",
+    "known_fact": "3 selected normalized record(s) cover the released portion of trigger, targeting, ordered operations, single activation.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.scepter.2001",
+      "unknowable-domain.scepter.2001.level.1.activation",
+      "unknowable-domain.scepter.2001.level.1.state.dispatch"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger, targeting, ordered operations, single activation."
+  },
+  {
+    "id": "unknowable-domain.research-gap.scepter-charge-and-speed",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "scepter-charge-and-speed Replacement Boundary",
+    "name_zh_cn": "scepter-charge-and-speed 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-charge-and-speed",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews gain, spend, action ordering, cap and teardown against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves gain, spend, action ordering, cap and teardown."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "scepter-charge-and-speed",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "scepter-charge-and-speed",
+    "known_fact": "2 selected normalized record(s) cover the released portion of gain, spend, action ordering, cap and teardown.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves gain, spend, action ordering, cap and teardown."
+  },
+  {
+    "id": "unknowable-domain.research-gap.service-and-adventure",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "service-and-adventure Replacement Boundary",
+    "name_zh_cn": "service-and-adventure 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-service-and-adventure",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews service eligibility, price or tier, offered abstract outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves service eligibility, price or tier, offered abstract outcome."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "service-and-adventure"
+    ],
+    "source_id": "service-and-adventure",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "service-and-adventure",
+    "known_fact": "3 selected normalized record(s) cover the released portion of service eligibility, price or tier, offered abstract outcome.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.adventure-outcome.11001",
+      "unknowable-domain.mode-service-npc.510001",
+      "unknowable-domain.service-rule.adventure-outcome.11001"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves service eligibility, price or tier, offered abstract outcome."
+  },
+  {
+    "id": "unknowable-domain.research-gap.simultaneous-trigger-order",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "simultaneous-trigger-order Replacement Boundary",
+    "name_zh_cn": "simultaneous-trigger-order 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger phase, priority, stable tie key, expected facts against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger phase, priority, stable tie key, expected facts."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "simultaneous-trigger-order",
+    "known_fact": "3 selected normalized record(s) cover the released portion of trigger phase, priority, stable tie key, expected facts.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish",
+      "unknowable-domain.scepter.2001.level.1.state.initialize"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger phase, priority, stable tie key, expected facts."
+  },
+  {
+    "id": "unknowable-domain.research-gap.talent-and-unlock",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "talent-and-unlock Replacement Boundary",
+    "name_zh_cn": "talent-and-unlock 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-talent-and-unlock",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews prerequisite, cost, unlock consequence, evaluation boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves prerequisite, cost, unlock consequence, evaluation boundary."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "talent-and-unlock"
+    ],
+    "source_id": "talent-and-unlock",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "talent-and-unlock",
+    "known_fact": "2 selected normalized record(s) cover the released portion of prerequisite, cost, unlock consequence, evaluation boundary.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.talent.1001.level.1",
+      "unknowable-domain.unlock.5013001"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves prerequisite, cost, unlock consequence, evaluation boundary."
+  },
+  {
+    "id": "unknowable-domain.research-gap.wave-and-boss-binding",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "wave-and-boss-binding Replacement Boundary",
+    "name_zh_cn": "wave-and-boss-binding 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-wave-and-boss-binding",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews StageConfig row, wave order, boss alternative, difficulty against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves StageConfig row, wave order, boss alternative, difficulty."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "wave-and-boss-binding"
+    ],
+    "source_id": "wave-and-boss-binding",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "wave-and-boss-binding",
+    "known_fact": "3 selected normalized record(s) cover the released portion of StageConfig row, wave order, boss alternative, difficulty.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.boss-choice.2004011",
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.boss.2004011"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves StageConfig row, wave order, boss alternative, difficulty."
+  },
+  {
+    "id": "unknowable-domain.research-gap.workbench-offer-and-cost",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ReferenceResearchGap",
+    "name_en": "workbench-offer-and-cost Replacement Boundary",
+    "name_zh_cn": "workbench-offer-and-cost 替换边界",
+    "summary_en": "Nonblocking reference boundary preserves current exact facts and fail-closed policy fields until stronger released evidence exists.",
+    "summary_zh_cn": "非阻塞资料边界保留当前精确事实与失败关闭策略字段，直至出现更强的已发布证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-offer-and-cost",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, price, offer ordering, refresh lifecycle against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, price, offer ordering, refresh lifecycle."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap",
+      "workbench-offer-and-cost"
+    ],
+    "source_id": "workbench-offer-and-cost",
+    "state": "PolicyBound",
+    "blocking": false,
+    "owner": "G10-P4-B2",
+    "field": "workbench-offer-and-cost",
+    "known_fact": "3 selected normalized record(s) cover the released portion of eligibility, price, offer ordering, refresh lifecycle.",
+    "policy": "Preserve exact facts, label unavailable semantics, use stable order only in review fixtures, and fail closed without mutation or hidden RNG.",
+    "affected_data_ids": [
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.workbench-function.10",
+      "unknowable-domain.workbench.101"
+    ],
+    "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, price, offer ordering, refresh lifecycle."
+  }
+]

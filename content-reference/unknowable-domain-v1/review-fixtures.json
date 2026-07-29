@@ -1,0 +1,3670 @@
+[
+  {
+    "id": "unknowable-domain.review-fixture.alignment-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "alignment-selection Reference Review",
+    "name_zh_cn": "alignment-selection 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "0",
+        "sha256": "893388f5e2d3531ad72afc3caa0ef5452ac969caabe99ffd420b92a05f2d260b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "1",
+        "sha256": "48e81c193e447f01d3dc9d9768d808dcea879310565d52e04d74963d7c66b12d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "2",
+        "sha256": "57b0286a2692bbc493c0132106d0a8c7482de5f191ba08db9c32393bd6ffaaab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "3",
+        "sha256": "614d3388791db29114ac9163ec8c4c9f8680e82dac38e4acabb5f7fb8afde853",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "0",
+        "sha256": "b44ba82ce2e7ec2a95a2314adb6142caded9f217748785e6af2da3e550fbf097",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "1",
+        "sha256": "ece06450bc35977457bf6d1cbb866d7a1dc9ca3883bd7514c7ea51b913eed625",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "2",
+        "sha256": "23e52556f1d6e22966450e9b8241513d023b2ef00da762239b44e8754cd48092",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "3",
+        "sha256": "d8c59d279873db3caeeae8ab552d38678e2943f38d0abce02cd6c14109ef5dfa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-alignment-selection",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews four Alignments, eligibility, offered pool, no legal selection against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves four Alignments, eligibility, offered pool, no legal selection."
+      }
+    ],
+    "tags": [
+      "alignment-selection",
+      "review-fixture"
+    ],
+    "source_id": "alignment-selection",
+    "family_id": "alignment-selection",
+    "source_record_ids": [
+      "unknowable-domain.alignment.break",
+      "unknowable-domain.alignment.dot",
+      "unknowable-domain.alignment.follow",
+      "unknowable-domain.alignment.ultimate"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "four Alignments"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "offered pool"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "no legal selection"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "four Alignments",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "offered pool",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "no legal selection",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicmiscdisplay-json.0",
+      "source.goal10.exceloutput-roguemagicmiscdisplay-json.1",
+      "source.goal10.exceloutput-roguemagicmiscdisplay-json.2",
+      "source.goal10.exceloutput-roguemagicmiscdisplay-json.3",
+      "source.goal10.exceloutput-roguemagicstyletypeselect-json.0",
+      "source.goal10.exceloutput-roguemagicstyletypeselect-json.1",
+      "source.goal10.exceloutput-roguemagicstyletypeselect-json.2",
+      "source.goal10.exceloutput-roguemagicstyletypeselect-json.3",
+      "source.goal10.project-policy.semantic-fixture-alignment-selection"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.area-layer-room-transition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "area-layer-room-transition Reference Review",
+    "name_zh_cn": "area-layer-room-transition 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagiclayer-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicLayer.json",
+        "locator": "0",
+        "sha256": "dea608c72d1927dcf2aefa6617703f7facf7db3070539f3d44d39b044c53a96a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagiclayerroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicLayerRoom.json",
+        "locator": "0",
+        "sha256": "416f32db215f474939950d4ba37d2b71caef07855e564aa83491aeda2377cce2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicRoom.json",
+        "locator": "0",
+        "sha256": "a0fe3612e72178cf6286751886396ee692da23408b5b62a877674dae8ddc0944",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-area-layer-room-transition",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews ordered transition, carry, reset, illegal transition against 5 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves ordered transition, carry, reset, illegal transition."
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "area-layer-room-transition",
+      "review-fixture"
+    ],
+    "source_id": "area-layer-room-transition",
+    "family_id": "area-layer-room-transition",
+    "source_record_ids": [
+      "unknowable-domain.area.101",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.layer-room.101.1",
+      "unknowable-domain.layer.101",
+      "unknowable-domain.room.11001"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 5
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered transition"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "carry"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "reset"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "illegal transition"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "ordered transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "carry",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "reset",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "illegal transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicarea-json.0",
+      "source.goal10.exceloutput-roguemagiclayer-json.0",
+      "source.goal10.exceloutput-roguemagiclayerroom-json.0",
+      "source.goal10.exceloutput-roguemagicroom-json.0",
+      "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+      "source.goal10.project-policy.stage-flow"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.component-insertion-removal-replacement",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "component-insertion-removal-replacement Reference Review",
+    "name_zh_cn": "component-insertion-removal-replacement 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "loadout-transition-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic authoring policy for a transition whose released table does not publish rejection mutation, replacement order, or no-legal-candidate behavior.",
+        "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-insertion-removal-replacement",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews insert, remove, replace, locked Component against 4 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves insert, remove, replace, locked Component."
+      }
+    ],
+    "tags": [
+      "component-insertion-removal-replacement",
+      "review-fixture"
+    ],
+    "source_id": "component-insertion-removal-replacement",
+    "family_id": "component-insertion-removal-replacement",
+    "source_record_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.loadout-transition.remove",
+      "unknowable-domain.loadout-transition.replace",
+      "unknowable-domain.scepter.2001.level.1.loadout"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 4
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "insert"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "remove"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "replace"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "locked Component"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "insert",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "remove",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "replace",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "locked Component",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicscepter-json.0",
+      "source.goal10.project-policy.loadout-transition-policy-v1",
+      "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.component-reforge",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "component-reforge Reference Review",
+    "name_zh_cn": "component-reforge 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "3",
+        "sha256": "fb521acd35668b3462f2e064b7c1d9d9ec653f6dd05014e5f3271de354ae13f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-reforge",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews candidate set, cost, replacement, empty candidate against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves candidate set, cost, replacement, empty candidate."
+      }
+    ],
+    "tags": [
+      "component-reforge",
+      "review-fixture"
+    ],
+    "source_id": "component-reforge",
+    "family_id": "component-reforge",
+    "source_record_ids": [
+      "unknowable-domain.reforge.component"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "candidate set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "replacement"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "empty candidate"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "candidate set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cost",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "replacement",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "empty candidate",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3",
+      "source.goal10.project-policy.component-transformation-policy-v1",
+      "source.goal10.project-policy.semantic-fixture-component-reforge"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.component-slot-legality",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "component-slot-legality Reference Review",
+    "name_zh_cn": "component-slot-legality 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json.abilitylist-0-roguemagic-newmagic-eject-686010",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_NewMagic_DarkTeam.json",
+        "locator": "AbilityList/0:RogueMagic_NewMagic_Eject_686010",
+        "sha256": "fabc6af01a8068a8d522a46718a853a9e93e987331b5e6beffe396e46b4060c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmazebuff-json.139",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMazeBuff.json",
+        "locator": "139",
+        "sha256": "9d9d04667181623f35eda34aa51066989ad375ecd0e5c3f275f99bed7249c84e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunit-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnit.json",
+        "locator": "0",
+        "sha256": "5a64634df20db8c6993949a438e30dda448a4a724cbe3b5a1d5fcb3417bc7027",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunitdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnitDisplay.json",
+        "locator": "0",
+        "sha256": "a86d043d0b66552d396bbc7b9cb55f477085b6887b4ae60e145d218b7dd48a1f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-slot-legality",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews shape, range, slot type, rejected insertion against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves shape, range, slot type, rejected insertion."
+      }
+    ],
+    "tags": [
+      "component-slot-legality",
+      "review-fixture"
+    ],
+    "source_id": "component-slot-legality",
+    "family_id": "component-slot-legality",
+    "source_record_ids": [
+      "unknowable-domain.component.4001.level.1",
+      "unknowable-domain.component.4001.level.1.compatibility.none",
+      "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "shape"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "range"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "slot type"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "rejected insertion"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "shape",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "range",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "slot type",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "rejected insertion",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-configability-level-level-roguemagic-ability-newmagic-darkteam-json.abilitylist-0-roguemagic-newmagic-eject-686010",
+      "source.goal10.exceloutput-roguemagicmazebuff-json.139",
+      "source.goal10.exceloutput-roguemagicscepter-json.0",
+      "source.goal10.exceloutput-roguemagicunit-json.0",
+      "source.goal10.exceloutput-roguemagicunitdisplay-json.0",
+      "source.goal10.project-policy.semantic-fixture-component-slot-legality"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.component-synthesis",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "component-synthesis Reference Review",
+    "name_zh_cn": "component-synthesis 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "c736777dcabec036c7c9178efe2b7c6d403f80a1f70cdf5a04e23930ea3cf87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-synthesis",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews input count, consumption, output pool, no legal output against 1 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves input count, consumption, output pool, no legal output."
+      }
+    ],
+    "tags": [
+      "component-synthesis",
+      "review-fixture"
+    ],
+    "source_id": "component-synthesis",
+    "family_id": "component-synthesis",
+    "source_record_ids": [
+      "unknowable-domain.synthesis.component"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 1
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "input count"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "consumption"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "output pool"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "no legal output"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "input count",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "consumption",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "output pool",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "no legal output",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+      "source.goal10.project-policy.component-transformation-policy-v1",
+      "source.goal10.project-policy.semantic-fixture-component-synthesis"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.component-upgrade",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "component-upgrade Reference Review",
+    "name_zh_cn": "component-upgrade 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-component-upgrade",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews level transition, cost, cap, ordering against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves level transition, cost, cap, ordering."
+      }
+    ],
+    "tags": [
+      "component-upgrade",
+      "review-fixture"
+    ],
+    "source_id": "component-upgrade",
+    "family_id": "component-upgrade",
+    "source_record_ids": [
+      "unknowable-domain.scepter-upgrade.1-to-2",
+      "unknowable-domain.scepter-upgrade.2-to-3"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "level transition"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "cap"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordering"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "level transition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cost",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cap",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordering",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+      "source.goal10.project-policy.component-transformation-policy-v1",
+      "source.goal10.project-policy.semantic-fixture-component-upgrade"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.cross-battle-carry-reset",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "cross-battle-carry-reset Reference Review",
+    "name_zh_cn": "cross-battle-carry-reset 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicfinishway-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicFinishway.json",
+        "locator": "0",
+        "sha256": "4512753848c8b334818ab092f9f9aa285e2543606eefe768b7a5c0d6b7810333",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the released MagicRogue activity rows.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-cross-battle-carry-reset",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews state slot, carry boundary, reset boundary, finish cleanup against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves state slot, carry boundary, reset boundary, finish cleanup."
+      },
+      {
+        "source_id": "source.goal10.project-policy.stage-flow",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "stage-flow",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Area rows author ordered layers but do not publish transition timing, optional extra-layer eligibility, carry fields or terminal reset order.",
+        "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields."
+      }
+    ],
+    "tags": [
+      "cross-battle-carry-reset",
+      "review-fixture"
+    ],
+    "source_id": "cross-battle-carry-reset",
+    "family_id": "cross-battle-carry-reset",
+    "source_record_ids": [
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.flow.101.entry",
+      "unknowable-domain.profile.v1"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "state slot"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "carry boundary"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "reset boundary"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "finish cleanup"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "state slot",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "carry boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "reset boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "finish cleanup",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicarea-json.0",
+      "source.goal10.exceloutput-roguemagicfinishway-json.0",
+      "source.goal10.project-policy.profile",
+      "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+      "source.goal10.project-policy.stage-flow"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.curio-lifecycle",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "curio-lifecycle Reference Review",
+    "name_zh_cn": "curio-lifecycle 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguehandbookmiracle-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandbookMiracle.json",
+        "locator": "3",
+        "sha256": "ef7e45751a29a9e6d54597c527d4019190556e4d4da40c0f28782b0212f9184b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiracle-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiracle.json",
+        "locator": "0",
+        "sha256": "66a8c52c9fb6045d2b2128e4ec0dc0c3f6800f013365c4a50c724d91d4b11f01",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiraclegroup-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiracleGroup.json",
+        "locator": "0",
+        "sha256": "f3fbd2806e920a266724c85137337b324104c442c4dbae92b8d5f71873460ec2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemiracledisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleDisplay.json",
+        "locator": "3",
+        "sha256": "f8b53a0aa40e513b17999e4fb53a488d38338319845f1c5a16857670026911c4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemiracleeffect-json.237",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffect.json",
+        "locator": "237",
+        "sha256": "f9632c16fd9e5497344d75678bc55d5e07fefaad4970d56068f9764401f2cadb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemiracleeffectdisplay-json.237",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffectDisplay.json",
+        "locator": "237",
+        "sha256": "02b74fc16e3472cbd2876edc219d5f4beb01865d2ccfefbb8bd5c2228985607c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-curio-lifecycle",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews mode state, charges, repair, replacement against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves mode state, charges, repair, replacement."
+      }
+    ],
+    "tags": [
+      "curio-lifecycle",
+      "review-fixture"
+    ],
+    "source_id": "curio-lifecycle",
+    "family_id": "curio-lifecycle",
+    "source_record_ids": [
+      "unknowable-domain.curio-rule.group.50002",
+      "unknowable-domain.curio-state.7101",
+      "unknowable-domain.curio.4"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "mode state"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "charges"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "repair"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "replacement"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "mode state",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "charges",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "repair",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "replacement",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguehandbookmiracle-json.3",
+      "source.goal10.exceloutput-roguemagicmiracle-json.0",
+      "source.goal10.exceloutput-roguemagicmiraclegroup-json.0",
+      "source.goal10.exceloutput-roguemiracledisplay-json.3",
+      "source.goal10.exceloutput-roguemiracleeffect-json.237",
+      "source.goal10.exceloutput-roguemiracleeffectdisplay-json.237",
+      "source.goal10.project-policy.semantic-fixture-curio-lifecycle"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.decision-component-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "decision-component-choice Reference Review",
+    "name_zh_cn": "decision-component-choice 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunit-json.252",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnit.json",
+        "locator": "252",
+        "sha256": "8aa787a517ad50926b7f58d44630d5891cc2656bdb0eadb17751251cfcb9f7fd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-decision-component-choice",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, candidate order, scope, fallback against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, candidate order, scope, fallback."
+      }
+    ],
+    "tags": [
+      "decision-component-choice",
+      "review-fixture"
+    ],
+    "source_id": "decision-component-choice",
+    "family_id": "decision-component-choice",
+    "source_record_ids": [
+      "unknowable-domain.decision-component.6051",
+      "unknowable-domain.decision-component.6051.choice"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "candidate order"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "scope"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "fallback"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "candidate order",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "scope",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "fallback",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicunit-json.252",
+      "source.goal10.project-policy.semantic-fixture-decision-component-choice"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.difficulty-composition",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "difficulty-composition Reference Review",
+    "name_zh_cn": "difficulty-composition 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicdifficultycomp-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicDifficultyComp.json",
+        "locator": "0",
+        "sha256": "463b8cb370a2f521269278bf6d7d644d073197dae40b74139413cffa9a728bd0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicdifficultydrop-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicDifficultyDrop.json",
+        "locator": "1",
+        "sha256": "25411b95693348e847a2d8c50f903095dbb7cc9f5d6d763f0741fc7abb96bf9d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-difficulty-composition",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews difficulty parameters, drop binding, difficulty application boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves difficulty parameters, drop binding, difficulty application boundary."
+      }
+    ],
+    "tags": [
+      "difficulty-composition",
+      "review-fixture"
+    ],
+    "source_id": "difficulty-composition",
+    "family_id": "difficulty-composition",
+    "source_record_ids": [
+      "unknowable-domain.difficulty-drop.101.1",
+      "unknowable-domain.difficulty.10101"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "difficulty parameters"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "drop binding"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "difficulty application boundary"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "difficulty parameters",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "drop binding",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "difficulty application boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicdifficultycomp-json.0",
+      "source.goal10.exceloutput-roguemagicdifficultydrop-json.1",
+      "source.goal10.project-policy.semantic-fixture-difficulty-composition"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.encounter-selection",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "encounter-selection Reference Review",
+    "name_zh_cn": "encounter-selection 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Maze/MazeRogue/Rogue260/RogueMagic_Group_Monster.json",
+        "locator": "root",
+        "sha256": "662b63472687cf887c1c6b1682dda1d980eb0c7c3dfc5820c9f337f11358b6db",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.626",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "626",
+        "sha256": "a98500a775efe1fdcb48df40123d7fb61ce33cf88514ea0fab9143632a1295dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicroom-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicRoom.json",
+        "locator": "9",
+        "sha256": "af3098b1dc916e912476ba0c8da01d6527c8ae1d0d28acce9364f1eb111f2c84",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "486",
+        "sha256": "7ecffc542e9aee4740eb8554cae5c16eab47d40f688509c0accf163cef8ebe12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2109",
+        "sha256": "9ea00d44e1ad55dd673c97d31fcc7042fbba3597344e8f7e4ed1f9a9d77305a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-encounter-selection",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews room parent, candidate order, wave, enemy slots against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves room parent, candidate order, wave, enemy slots."
+      }
+    ],
+    "tags": [
+      "encounter-selection",
+      "review-fixture"
+    ],
+    "source_id": "encounter-selection",
+    "family_id": "encounter-selection",
+    "source_record_ids": [
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.room.11101"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "room parent"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "candidate order"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "wave"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "enemy slots"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "room parent",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "candidate order",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "wave",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "enemy slots",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-level-maze-mazerogue-rogue260-roguemagic-group-monster-json.root",
+      "source.goal10.exceloutput-monsterconfig-json.626",
+      "source.goal10.exceloutput-roguemagicarea-json.0",
+      "source.goal10.exceloutput-roguemagicroom-json.9",
+      "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486",
+      "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109",
+      "source.goal10.project-policy.semantic-fixture-encounter-selection"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.gamble-offer-and-outcome",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "gamble-offer-and-outcome Reference Review",
+    "name_zh_cn": "gamble-offer-and-outcome 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicGambleGroup.json",
+        "locator": "0",
+        "sha256": "337e849bb1eeda5b056f533b49674576274a571fba8034f739dc17345bf9db44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicgambleunit-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicGambleUnit.json",
+        "locator": "0",
+        "sha256": "4f2197a5c37496e6993f4f8000dbc4fa5900b749b40589598132560d12546fd8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-gamble-offer-and-outcome",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews weighted candidate set, seed, outcome, failure against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves weighted candidate set, seed, outcome, failure."
+      },
+      {
+        "source_id": "source.goal10.project-policy.service-offer-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "service-offer-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic offer fallback. Released service tables do not publish candidate membership, weights, prices, ordering, refresh, eligibility, or no-legal-candidate mutation.",
+        "replacement_condition": "Replace field by field when released service programs or reproducible observations prove exact candidates, weights, costs, ordering, refresh, eligibility, lifecycle, and failure behavior."
+      }
+    ],
+    "tags": [
+      "gamble-offer-and-outcome",
+      "review-fixture"
+    ],
+    "source_id": "gamble-offer-and-outcome",
+    "family_id": "gamble-offer-and-outcome",
+    "source_record_ids": [
+      "unknowable-domain.gamble-group.100",
+      "unknowable-domain.gamble-unit.101",
+      "unknowable-domain.service-offer.gamble-group.100"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "weighted candidate set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "seed"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "outcome"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "failure"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "weighted candidate set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "seed",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "outcome",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "failure",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+      "source.goal10.exceloutput-roguemagicgambleunit-json.0",
+      "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+      "source.goal10.project-policy.service-offer-policy-v1"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.layer-and-difficulty-effect",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "layer-and-difficulty-effect Reference Review",
+    "name_zh_cn": "layer-and-difficulty-effect 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/74:RogueMagic_PassiveScepter_682010",
+        "sha256": "8883a7c3dcd4519e6429a8bdd5c48680fe1878f401230aec2e95465ed009aded",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagiclayereffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicLayerEffect.json",
+        "locator": "0",
+        "sha256": "1b1db1a02153bf14a2864863d474da1fd4f6436f909e4acb1b19466458b3650f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMazeBuff.json",
+        "locator": "0",
+        "sha256": "4ed28f2eced64a4a0f6cc371e14c3d88e36a576bc781edb45e596cc25425338d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-layer-and-difficulty-effect",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry trigger, cross-battle state, battle projection, teardown against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry trigger, cross-battle state, battle projection, teardown."
+      }
+    ],
+    "tags": [
+      "layer-and-difficulty-effect",
+      "review-fixture"
+    ],
+    "source_id": "layer-and-difficulty-effect",
+    "family_id": "layer-and-difficulty-effect",
+    "source_record_ids": [
+      "unknowable-domain.layer-effect.401",
+      "unknowable-domain.layer-effect.401.contribution",
+      "unknowable-domain.maze-buff.682010.level.1"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "entry trigger"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "cross-battle state"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "battle projection"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "entry trigger",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cross-battle state",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "battle projection",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "teardown",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+      "source.goal10.exceloutput-roguemagiclayereffect-json.0",
+      "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+      "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.no-legal-candidate-fallback",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "no-legal-candidate-fallback Reference Review",
+    "name_zh_cn": "no-legal-candidate-fallback 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicGambleGroup.json",
+        "locator": "0",
+        "sha256": "337e849bb1eeda5b056f533b49674576274a571fba8034f739dc17345bf9db44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "c736777dcabec036c7c9178efe2b7c6d403f80a1f70cdf5a04e23930ea3cf87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      },
+      {
+        "source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "loadout-transition-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic authoring policy for a transition whose released table does not publish rejection mutation, replacement order, or no-legal-candidate behavior.",
+        "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-no-legal-candidate-fallback",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews empty set, explicit fallback, no hidden RNG draw, review fact against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves empty set, explicit fallback, no hidden RNG draw, review fact."
+      },
+      {
+        "source_id": "source.goal10.project-policy.service-offer-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "service-offer-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic offer fallback. Released service tables do not publish candidate membership, weights, prices, ordering, refresh, eligibility, or no-legal-candidate mutation.",
+        "replacement_condition": "Replace field by field when released service programs or reproducible observations prove exact candidates, weights, costs, ordering, refresh, eligibility, lifecycle, and failure behavior."
+      }
+    ],
+    "tags": [
+      "no-legal-candidate-fallback",
+      "review-fixture"
+    ],
+    "source_id": "no-legal-candidate-fallback",
+    "family_id": "no-legal-candidate-fallback",
+    "source_record_ids": [
+      "unknowable-domain.loadout-transition.insert",
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.synthesis.component"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "empty set"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "explicit fallback"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "no hidden RNG draw"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "review fact"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "empty set",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "explicit fallback",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "no hidden RNG draw",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "review fact",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+      "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+      "source.goal10.project-policy.component-transformation-policy-v1",
+      "source.goal10.project-policy.loadout-transition-policy-v1",
+      "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+      "source.goal10.project-policy.service-offer-policy-v1"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.occurrence-choice",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "occurrence-choice Reference Review",
+    "name_zh_cn": "occurrence-choice 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510301/Opt0510301.json",
+        "locator": "OptionList/0",
+        "sha256": "2a349aeea5bf5f2a2f6156583aa5492d2e76e6a5d6db573707487d662bd94431",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510301/Opt0510301.json",
+        "locator": "root",
+        "sha256": "99b2dac25e522ac71b6b84a9cbce05f01eba9b0312b499888c9ff6ab745640af",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510301.json",
+        "locator": "root",
+        "sha256": "f13367efd2563cb739d7725a389130f28be93c0e9b903828aa4390ab24528b63",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.43",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "43",
+        "sha256": "450349c4b0c091327f3ca39bbea9333a9ee108293b3eea19d43113504b6643dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguehandbookevent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "9",
+        "sha256": "00d66b4f80970877e6fc206938169e31a4e71767337221a5f7c7502c674c504b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "5",
+        "sha256": "eedd589b1de4df29c16195c8c4b609b68ec26c43852764304a2d09cabe5ca556",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-occurrence-choice",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews variant, condition, cost, ordered outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves variant, condition, cost, ordered outcome."
+      }
+    ],
+    "tags": [
+      "occurrence-choice",
+      "review-fixture"
+    ],
+    "source_id": "occurrence-choice",
+    "family_id": "occurrence-choice",
+    "source_record_ids": [
+      "unknowable-domain.occurrence-choice.510301.01.01",
+      "unknowable-domain.occurrence-variant.510301",
+      "unknowable-domain.occurrence.10"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "variant"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "condition"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered outcome"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "variant",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "condition",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cost",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordered outcome",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.optionlist-0",
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510301-opt0510301-json.root",
+      "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510301-json.root",
+      "source.goal10.exceloutput-roguedialogueoptiondisplay-json.43",
+      "source.goal10.exceloutput-roguehandbookevent-json.9",
+      "source.goal10.exceloutput-roguemagicnpc-json.5",
+      "source.goal10.project-policy.semantic-fixture-occurrence-choice"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.profile-entry-and-finish",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "profile-entry-and-finish Reference Review",
+    "name_zh_cn": "profile-entry-and-finish 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-rogueactivityresidentconfig-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "locator": "3",
+        "sha256": "bc31fc0e9f307fe377a99d3d0d460f75bd1814156b7a83b26c1ae1a234736bed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicfinishway-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicFinishway.json",
+        "locator": "0",
+        "sha256": "4512753848c8b334818ab092f9f9aa285e2543606eefe768b7a5c0d6b7810333",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "One isolated reference profile binds the released MagicRogue activity rows.",
+        "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-profile-entry-and-finish",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews entry eligibility, initial resources, finish and terminal boundary against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry eligibility, initial resources, finish and terminal boundary."
+      }
+    ],
+    "tags": [
+      "profile-entry-and-finish",
+      "review-fixture"
+    ],
+    "source_id": "profile-entry-and-finish",
+    "family_id": "profile-entry-and-finish",
+    "source_record_ids": [
+      "unknowable-domain.entry.activity.103",
+      "unknowable-domain.finish.5013001",
+      "unknowable-domain.profile.v1"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "entry eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "initial resources"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "finish and terminal boundary"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "entry eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "initial resources",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "finish and terminal boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-rogueactivityresidentconfig-json.3",
+      "source.goal10.exceloutput-roguemagicfinishway-json.0",
+      "source.goal10.project-policy.profile",
+      "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.scepter-activation",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "scepter-activation Reference Review",
+    "name_zh_cn": "scepter-activation 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/74:RogueMagic_PassiveScepter_682010",
+        "sha256": "8883a7c3dcd4519e6429a8bdd5c48680fe1878f401230aec2e95465ed009aded",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMazeBuff.json",
+        "locator": "0",
+        "sha256": "4ed28f2eced64a4a0f6cc371e14c3d88e36a576bc781edb45e596cc25425338d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepterDisplay.json",
+        "locator": "0",
+        "sha256": "f8b27e9673d70960521688bb61472f63a171d26bce73ad444bbb7ab695abcd04",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-activation",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger, targeting, ordered operations, single activation against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger, targeting, ordered operations, single activation."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "scepter-activation"
+    ],
+    "source_id": "scepter-activation",
+    "family_id": "scepter-activation",
+    "source_record_ids": [
+      "unknowable-domain.scepter.2001",
+      "unknowable-domain.scepter.2001.level.1.activation",
+      "unknowable-domain.scepter.2001.level.1.state.dispatch"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "trigger"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "targeting"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "ordered operations"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "single activation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "trigger",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "targeting",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "ordered operations",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "single activation",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+      "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+      "source.goal10.exceloutput-roguemagicscepter-json.0",
+      "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+      "source.goal10.project-policy.semantic-fixture-scepter-activation"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.scepter-charge-and-speed",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "scepter-charge-and-speed Reference Review",
+    "name_zh_cn": "scepter-charge-and-speed 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/3:RogueMagic_PassiveStaff_Temp_Sub",
+        "sha256": "1dba4b55883d94a1bf9ec330811d6c291c3243d61a3ef49e835ff38ce19328c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/74:RogueMagic_PassiveScepter_682010",
+        "sha256": "8883a7c3dcd4519e6429a8bdd5c48680fe1878f401230aec2e95465ed009aded",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMazeBuff.json",
+        "locator": "0",
+        "sha256": "4ed28f2eced64a4a0f6cc371e14c3d88e36a576bc781edb45e596cc25425338d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepterDisplay.json",
+        "locator": "0",
+        "sha256": "f8b27e9673d70960521688bb61472f63a171d26bce73ad444bbb7ab695abcd04",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-scepter-charge-and-speed",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews gain, spend, action ordering, cap and teardown against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves gain, spend, action ordering, cap and teardown."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "scepter-charge-and-speed"
+    ],
+    "source_id": "scepter-charge-and-speed",
+    "family_id": "scepter-charge-and-speed",
+    "source_record_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "gain"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "spend"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "action ordering"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "cap and teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "gain",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "spend",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "action ordering",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cap and teardown",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub",
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+      "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+      "source.goal10.exceloutput-roguemagicscepter-json.0",
+      "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+      "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.service-and-adventure",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "service-and-adventure Reference Review",
+    "name_zh_cn": "service-and-adventure 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 3 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 3 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510001/Opt0510001.json",
+        "locator": "OptionList/0",
+        "sha256": "1c35a1052415b63a05df95a7049a77b816d27f3e88614e293eabaa3e9b418539",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510001/Opt0510001.json",
+        "locator": "root",
+        "sha256": "4962d7d95c5bd70aec523e8f9dfa618484c313b2b312e2d3e5c4dd952ae46cad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "OptionList/0",
+        "sha256": "8a459f339c85281ac13c521c1a2e212cb85ded57bd0b0ded18b0c9685ad6a6c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "OptionList/1",
+        "sha256": "d5cf8b1c8918c479575b491d0b5ca51c55603a88956135b743b2fc6e23837039",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "root",
+        "sha256": "32adfcfc3cc4896387620669d1d1edfd4a64f8aebfb35649060f5533e8217030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510001.json",
+        "locator": "root",
+        "sha256": "accd94a1f8e0158ae5b160a6fbe09ee4cfadca36ead68ff4d04f01d58a53d581",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguecapturemonster-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCaptureMonster.json",
+        "locator": "2",
+        "sha256": "e3f5ca61a6655f41652c1ad5a5967b158f7b2289941dc676940977abb9d0f502",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "426",
+        "sha256": "b161d88fa8f4e97adec0d461086b3e41a52f49ee4c55a1ab884d730a8aec519b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "870",
+        "sha256": "31adb366a62e218e04e4727797247b931564f6f16043914e29dfb37fdfd7068a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "871",
+        "sha256": "c5ddf256fea33c402c3297e5d168ee621ddf2f7c4411673b6a2b7453d95a46b3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicadventureroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicAdventureRoom.json",
+        "locator": "0",
+        "sha256": "29426aa9182362a3815e4140bf4dfb84020652ac9ac324f7ecd6ccaa2d618ba5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "0",
+        "sha256": "b4e6c6f17bc9df7ff40d4d223eee3f9fbd59004957945bfcb2605a922fe64445",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-service-and-adventure",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews service eligibility, price or tier, offered abstract outcome against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves service eligibility, price or tier, offered abstract outcome."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "service-and-adventure"
+    ],
+    "source_id": "service-and-adventure",
+    "family_id": "service-and-adventure",
+    "source_record_ids": [
+      "unknowable-domain.adventure-outcome.11001",
+      "unknowable-domain.mode-service-npc.510001",
+      "unknowable-domain.service-rule.adventure-outcome.11001"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "service eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "price or tier"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "offered abstract outcome"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "service eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "price or tier",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "offered abstract outcome",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0",
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root",
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0",
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1",
+      "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root",
+      "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root",
+      "source.goal10.exceloutput-roguecapturemonster-json.2",
+      "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426",
+      "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870",
+      "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871",
+      "source.goal10.exceloutput-roguemagicadventureroom-json.0",
+      "source.goal10.exceloutput-roguemagicnpc-json.0",
+      "source.goal10.project-policy.semantic-fixture-service-and-adventure"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.simultaneous-trigger-order",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "simultaneous-trigger-order Reference Review",
+    "name_zh_cn": "simultaneous-trigger-order 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/3:RogueMagic_PassiveStaff_Temp_Sub",
+        "sha256": "1dba4b55883d94a1bf9ec330811d6c291c3243d61a3ef49e835ff38ce19328c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/ConfigAbility/Level/Level_RogueMagic_Ability_Staff.json",
+        "locator": "AbilityList/74:RogueMagic_PassiveScepter_682010",
+        "sha256": "8883a7c3dcd4519e6429a8bdd5c48680fe1878f401230aec2e95465ed009aded",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMazeBuff.json",
+        "locator": "0",
+        "sha256": "4ed28f2eced64a4a0f6cc371e14c3d88e36a576bc781edb45e596cc25425338d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepter-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepter.json",
+        "locator": "0",
+        "sha256": "1f44f6cbf216eaee51406b1e57fbb8adb227b70e6bfb8d5f22d38b66421f6db1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicScepterDisplay.json",
+        "locator": "0",
+        "sha256": "f8b27e9673d70960521688bb61472f63a171d26bce73ad444bbb7ab695abcd04",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-simultaneous-trigger-order",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews trigger phase, priority, stable tie key, expected facts against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger phase, priority, stable tie key, expected facts."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "simultaneous-trigger-order"
+    ],
+    "source_id": "simultaneous-trigger-order",
+    "family_id": "simultaneous-trigger-order",
+    "source_record_ids": [
+      "unknowable-domain.scepter.2001.level.1.state.dispatch",
+      "unknowable-domain.scepter.2001.level.1.state.finish",
+      "unknowable-domain.scepter.2001.level.1.state.initialize"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "trigger phase"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "priority"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "stable tie key"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "expected facts"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "trigger phase",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "priority",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "stable tie key",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "expected facts",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-3-roguemagic-passivestaff-temp-sub",
+      "source.goal10.config-configability-level-level-roguemagic-ability-staff-json.abilitylist-74-roguemagic-passivescepter-682010",
+      "source.goal10.exceloutput-roguemagicmazebuff-json.0",
+      "source.goal10.exceloutput-roguemagicscepter-json.0",
+      "source.goal10.exceloutput-roguemagicscepterdisplay-json.0",
+      "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.talent-and-unlock",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "talent-and-unlock Reference Review",
+    "name_zh_cn": "talent-and-unlock 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "0",
+        "sha256": "515623d8d0d61f4fb51f246ebae517840eebf074ea7f5c4422fa492e6f179b18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "0",
+        "sha256": "24831beb7c031d753b0b98ff5e12f823e3ac85d04dc099619e291ce7030b4044",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-talent-and-unlock",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews prerequisite, cost, unlock consequence, evaluation boundary against 2 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves prerequisite, cost, unlock consequence, evaluation boundary."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "talent-and-unlock"
+    ],
+    "source_id": "talent-and-unlock",
+    "family_id": "talent-and-unlock",
+    "source_record_ids": [
+      "unknowable-domain.talent.1001.level.1",
+      "unknowable-domain.unlock.5013001"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 2
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "prerequisite"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "unlock consequence"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "evaluation boundary"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "prerequisite",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "cost",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "unlock consequence",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "evaluation boundary",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+      "source.goal10.exceloutput-roguemagictalent-json.0",
+      "source.goal10.exceloutput-roguemagicunlock-json.0",
+      "source.goal10.project-policy.semantic-fixture-talent-and-unlock"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.wave-and-boss-binding",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "wave-and-boss-binding Reference Review",
+    "name_zh_cn": "wave-and-boss-binding 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-monsterconfig-json.626",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "626",
+        "sha256": "a98500a775efe1fdcb48df40123d7fb61ce33cf88514ea0fab9143632a1295dc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicArea.json",
+        "locator": "0",
+        "sha256": "cd48ecb7ce80da35fdf4bc91f2ccf866cdcf76499703944d0341811d21e6f1cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-templates.json",
+        "locator": "486",
+        "sha256": "7ecffc542e9aee4740eb8554cae5c16eab47d40f688509c0accf163cef8ebe12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2109",
+        "sha256": "9ea00d44e1ad55dd673c97d31fcc7042fbba3597344e8f7e4ed1f9a9d77305a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "InheritedStableIdClosure"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-wave-and-boss-binding",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews StageConfig row, wave order, boss alternative, difficulty against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves StageConfig row, wave order, boss alternative, difficulty."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "wave-and-boss-binding"
+    ],
+    "source_id": "wave-and-boss-binding",
+    "family_id": "wave-and-boss-binding",
+    "source_record_ids": [
+      "unknowable-domain.boss-choice.2004011",
+      "unknowable-domain.boss-pool.area.101",
+      "unknowable-domain.encounter-source.boss.2004011"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "StageConfig row"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "wave order"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "boss alternative"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "difficulty"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "StageConfig row",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "wave order",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "boss alternative",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "difficulty",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-monsterconfig-json.626",
+      "source.goal10.exceloutput-roguemagicarea-json.0",
+      "source.goal10.inherited.content-reference-v4-4-enemy-templates-json.486",
+      "source.goal10.inherited.content-reference-v4-4-enemy-variants-json.2109",
+      "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  },
+  {
+    "id": "unknowable-domain.review-fixture.workbench-offer-and-cost",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "SemanticReviewFixture",
+    "name_en": "workbench-offer-and-cost Reference Review",
+    "name_zh_cn": "workbench-offer-and-cost 资料审查",
+    "summary_en": "Reference-only semantic review asserts all 4 contract facts as exact or explicitly policy-bound.",
+    "summary_zh_cn": "仅供资料使用的语义审查将全部 4 个契约事实断言为精确事实或显式策略边界。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicGambleGroup.json",
+        "locator": "0",
+        "sha256": "337e849bb1eeda5b056f533b49674576274a571fba8034f739dc17345bf9db44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbench-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbench.json",
+        "locator": "0",
+        "sha256": "26ffa6137160df29ffc6edd14c7f754dac99b80a37849d745440e968ef5df4eb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "semantic-fixture-workbench-offer-and-cost",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference fixture reviews eligibility, price, offer ordering, refresh lifecycle against 3 selected normalized source record(s). It preserves exact facts and explicit Unspecified/ProjectPolicy boundaries without claiming runtime executability.",
+        "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, price, offer ordering, refresh lifecycle."
+      },
+      {
+        "source_id": "source.goal10.project-policy.service-offer-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "service-offer-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic offer fallback. Released service tables do not publish candidate membership, weights, prices, ordering, refresh, eligibility, or no-legal-candidate mutation.",
+        "replacement_condition": "Replace field by field when released service programs or reproducible observations prove exact candidates, weights, costs, ordering, refresh, eligibility, lifecycle, and failure behavior."
+      }
+    ],
+    "tags": [
+      "review-fixture",
+      "workbench-offer-and-cost"
+    ],
+    "source_id": "workbench-offer-and-cost",
+    "family_id": "workbench-offer-and-cost",
+    "source_record_ids": [
+      "unknowable-domain.service-offer.gamble-group.100",
+      "unknowable-domain.workbench-function.10",
+      "unknowable-domain.workbench.101"
+    ],
+    "preconditions": {
+      "candidate_lane": "ReferenceCandidate",
+      "runtime_loading": "Forbidden",
+      "source_record_count": 3
+    },
+    "input": {
+      "kind": "SemanticReview",
+      "candidate_order": "StableIdAscending",
+      "unresolved_behavior": "FailClosed"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": 1,
+        "operation": "ReviewRequiredFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": 2,
+        "operation": "ReviewRequiredFact",
+        "fact": "price"
+      },
+      {
+        "ordinal": 3,
+        "operation": "ReviewRequiredFact",
+        "fact": "offer ordering"
+      },
+      {
+        "ordinal": 4,
+        "operation": "ReviewRequiredFact",
+        "fact": "refresh lifecycle"
+      }
+    ],
+    "expected_facts": [
+      {
+        "fact": "eligibility",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "price",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "offer ordering",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      },
+      {
+        "fact": "refresh lifecycle",
+        "assertion": "ExactOrExplicitlyPolicyBound",
+        "runtime_claim": false
+      }
+    ],
+    "evidence_refs": [
+      "source.goal10.exceloutput-roguemagicgamblegroup-json.0",
+      "source.goal10.exceloutput-roguemagicworkbench-json.0",
+      "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+      "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+      "source.goal10.project-policy.service-offer-policy-v1"
+    ],
+    "fixture_evidence_quality": "ProjectPolicy",
+    "runtime_executable": false
+  }
+]
