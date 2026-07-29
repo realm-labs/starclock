@@ -1,0 +1,945 @@
+{
+  "table": {
+    "name": "UnknowableDomainModeConstant",
+    "rows": [
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Acquire_GiveUpScepter"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Acquire_GiveUpScepter"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Acquire_GiveUpScepter"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-acquire-giveupscepter"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Acquire_GiveUpScepter is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Acquire_GiveUpScepter 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"100\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_DifficultyExtra_AttachTrenchCount"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_DifficultyExtra_AttachTrenchCount"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_DifficultyExtra_AttachTrenchCount"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-difficultyextra-attachtrenchcount"
+          },
+          "summary_en": {
+            "String": "RogueMagic_DifficultyExtra_AttachTrenchCount is an exact integer-array constant with 6 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_DifficultyExtra_AttachTrenchCount 是精确的整数数组常量，包含 6 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"0\",\"0\",\"0\",\"0\",\"0\",\"0\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_DifficultyExtra_PassiveTrenchCount"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_DifficultyExtra_PassiveTrenchCount"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_DifficultyExtra_PassiveTrenchCount"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.10"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-difficultyextra-passivetrenchcount"
+          },
+          "summary_en": {
+            "String": "RogueMagic_DifficultyExtra_PassiveTrenchCount is an exact integer-array constant with 6 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_DifficultyExtra_PassiveTrenchCount 是精确的整数数组常量，包含 6 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"1\",\"1\",\"1\",\"1\",\"1\",\"1\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Extra_Round"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Extra_Round"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Extra_Round"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-extra-round"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Extra_Round is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Extra_Round 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"2\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Extra_Round_BlockAreaList"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Extra_Round_BlockAreaList"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Extra_Round_BlockAreaList"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-extra-round-blockarealist"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Extra_Round_BlockAreaList is an exact integer-array constant with 3 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Extra_Round_BlockAreaList 是精确的整数数组常量，包含 3 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"101\",\"201\",\"301\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_ExtraLayer_EnterBuffGroup"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_ExtraLayer_EnterBuffGroup"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_ExtraLayer_EnterBuffGroup"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-extralayer-enterbuffgroup"
+          },
+          "summary_en": {
+            "String": "RogueMagic_ExtraLayer_EnterBuffGroup is an exact integer-array constant with 5 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_ExtraLayer_EnterBuffGroup 是精确的整数数组常量，包含 5 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"683050\",\"685120\",\"683060\",\"683100\",\"683170\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_ExtraLayer_EnterCostRound"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_ExtraLayer_EnterCostRound"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_ExtraLayer_EnterCostRound"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-extralayer-entercostround"
+          },
+          "summary_en": {
+            "String": "RogueMagic_ExtraLayer_EnterCostRound is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_ExtraLayer_EnterCostRound 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"1\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Handbook_Scepter_QuestList"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Handbook_Scepter_QuestList"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Handbook_Scepter_QuestList"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.12"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-handbook-scepter-questlist"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Handbook_Scepter_QuestList is an exact integer-array constant with 5 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Handbook_Scepter_QuestList 是精确的整数数组常量，包含 5 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"5013101\",\"5013102\",\"5013103\",\"5013104\",\"5013105\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Handbook_Unit_QuestList"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Handbook_Unit_QuestList"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Handbook_Unit_QuestList"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-handbook-unit-questlist"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Handbook_Unit_QuestList is an exact integer-array constant with 5 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Handbook_Unit_QuestList 是精确的整数数组常量，包含 5 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "[\"5013106\",\"5013107\",\"5013108\",\"5013109\",\"5013110\"]"
+          },
+          "value_type": {
+            "String": "IntegerArray"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Max_RequiredLayerIndex"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Max_RequiredLayerIndex"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Max_RequiredLayerIndex"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-max-requiredlayerindex"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Max_RequiredLayerIndex is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Max_RequiredLayerIndex 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"3\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Max_ScepterEquip"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Max_ScepterEquip"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Max_ScepterEquip"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-max-scepterequip"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Max_ScepterEquip is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Max_ScepterEquip 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"3\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_Max_ScepterSlot"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_Max_ScepterSlot"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_Max_ScepterSlot"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-max-scepterslot"
+          },
+          "summary_en": {
+            "String": "RogueMagic_Max_ScepterSlot is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_Max_ScepterSlot 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"7\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_ToForthLayerNeedRound"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_ToForthLayerNeedRound"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_ToForthLayerNeedRound"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-toforthlayerneedround"
+          },
+          "summary_en": {
+            "String": "RogueMagic_ToForthLayerNeedRound is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_ToForthLayerNeedRound 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"1\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      },
+      {
+        "values": {
+          "consumer_ids": "Null",
+          "consumer_resolution": {
+            "String": "Unspecified"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "ModeConstant"
+          },
+          "name_en": {
+            "String": "Mode Constant RogueMagic_UnitCompose"
+          },
+          "name_zh_cn": {
+            "String": "模式常量 RogueMagic_UnitCompose"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "RogueMagic_UnitCompose"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicconstcommon-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.constant.roguemagic-unitcompose"
+          },
+          "summary_en": {
+            "String": "RogueMagic_UnitCompose is an exact integer constant with 1 value(s); consumers are not inferred."
+          },
+          "summary_zh_cn": {
+            "String": "RogueMagic_UnitCompose 是精确的整数常量，包含 1 个值；不推断消费者。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "constant"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          },
+          "value_json": {
+            "String": "\"3\""
+          },
+          "value_type": {
+            "String": "Integer"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -190,7 +190,7 @@ length = [1, 100]
 name = "data_ids"
 type = "list<string>"
 parser = { kind = "split", separator = "|" }
-length = [1, 128]
+length = [1, 1024]
 [[tables.fields]]
 name = "blocking_gap_ids"
 type = "optional<list<string>>"

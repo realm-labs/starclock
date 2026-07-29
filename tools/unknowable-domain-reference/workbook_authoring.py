@@ -268,6 +268,11 @@ def style_sheet(
         max_col=maximum_column,
     ):
         fill = EVEN_FILL if row[0].row % 2 == 0 else ODD_FILL
+        if any(
+            isinstance(cell.value, str) and len(cell.value) > 500
+            for cell in row
+        ):
+            sheet.row_dimensions[row[0].row].height = 72
         for cell in row:
             cell.fill = copy(fill)
             cell.border = copy(THIN_BORDER)
@@ -446,6 +451,15 @@ def verify(
                         f"{name}/{sheet_name}/{letter}: invalid width {width}"
                     )
             for row in sheet.iter_rows(min_row=8):
+                has_long_value = any(
+                    isinstance(cell.value, str) and len(cell.value) > 500
+                    for cell in row
+                )
+                if has_long_value and sheet.row_dimensions[row[0].row].height != 72:
+                    raise ValueError(
+                        f"{name}/{sheet_name}/row {row[0].row}: "
+                        "long-value height cap missing"
+                    )
                 for cell in row:
                     if cell.data_type in (TYPE_FORMULA, TYPE_ERROR):
                         raise ValueError(
@@ -509,6 +523,11 @@ def semantic_digest(directory: Path) -> str:
                 for key, value in sheet.column_dimensions.items()
                 if value.width is not None
             }
+            heights = {
+                key: value.height
+                for key, value in sheet.row_dimensions.items()
+                if value.height is not None
+            }
             validations = sorted(
                 (
                     str(validation.sqref),
@@ -526,6 +545,7 @@ def semantic_digest(directory: Path) -> str:
                     str(sheet.freeze_panes),
                     sheet.auto_filter.ref,
                     widths,
+                    heights,
                     validations,
                 ]
             )

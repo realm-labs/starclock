@@ -1,0 +1,132 @@
+{
+  "schema_revision": "starclock.unknowable-domain-visual-review.v1",
+  "reviewed_at": "2026-07-29",
+  "renderer": {
+    "name": "@oai/artifact-tool",
+    "version": "2.8.33",
+    "range_policy": "rows 1-12 across every used schema column"
+  },
+  "workbooks": [
+    {
+      "file": "UnknowableDomain.xlsx",
+      "sheets": [
+        "Profile",
+        "Alignment",
+        "Area",
+        "DifficultyComposition",
+        "Layer",
+        "LayerRoom",
+        "Room",
+        "StageFlow",
+        "FinishCondition",
+        "Scepter",
+        "ScepterLevel",
+        "ScepterActivationRule",
+        "ScepterStateTransition",
+        "Component",
+        "ComponentLevel",
+        "ComponentSlotCompatibility",
+        "SlotLayout",
+        "Loadout",
+        "LoadoutTransitionRule",
+        "DecisionComponent",
+        "ComponentChoiceProgram",
+        "SynthesisRule",
+        "UpgradeRule",
+        "ReforgeRule",
+        "Workbench",
+        "WorkbenchFunction",
+        "GambleGroup",
+        "GambleUnit",
+        "ServiceOfferRule",
+        "ModeConstant",
+        "Talent",
+        "Unlock",
+        "LayerEffect",
+        "MazeBuff",
+        "ScoreInput",
+        "ProgressionEffect"
+      ]
+    },
+    {
+      "file": "UnknowableDomainBindings.xlsx",
+      "sheets": [
+        "Blessing",
+        "PoolMembership",
+        "Curio",
+        "CurioState",
+        "CurioGroup",
+        "CurioRule",
+        "Occurrence",
+        "OccurrenceVariant",
+        "OccurrenceChoice",
+        "ModeServiceNpc",
+        "AdventureOutcome",
+        "Currency",
+        "ServiceRule",
+        "BossChoice",
+        "EncounterSourceObligation",
+        "EncounterGroup",
+        "EncounterWave",
+        "EnemySlot",
+        "BossPool"
+      ]
+    },
+    {
+      "file": "UnknowableDomainReview.xlsx",
+      "sheets": [
+        "MechanicSourceFile",
+        "MechanicRule",
+        "SourceEvidence",
+        "Coverage",
+        "ResearchGap",
+        "SemanticFixtureFamily",
+        "ReviewFixture",
+        "ReconciliationReceipt",
+        "Manifest",
+        "PackIndex"
+      ]
+    }
+  ],
+  "sheet_count": 65,
+  "render_manifest_sha256": "281936ea7f3873ca54f765a8ae13138e14196916108012e844ad987e4cb377e9",
+  "contact_sheet_sha256": [
+    "895e6f59d449fe4c3eaabef4ec157d24f80e035adb63bd14ad69c1e121a660b9",
+    "4d54a9afddc8e4b9f9aca669150d7d967e14c9ae9400963d12fee0e46e2a611f",
+    "db2e62f5f9de898fb02ad82a653cb4a7c496557c0fc8ab4e738b1e817cf16db4",
+    "64d49990c5b4afb07e243e9e2b78656922d032744146a71b5a73fa86e6d00726",
+    "5546c82c5acaf3288d257e4b1572c3d05dea02c6c146508a54ee49d8005657f3",
+    "f7c8018054b3d9aed7b3dcda3d6b9fd684db4e41b98c2a8e10bcbcddfc2f0289",
+    "68eb0c8fc60fb288b17ac000761d1461f2c32c5e483aa5c7fceff43ebb9c7a74",
+    "fe4c83b4629ec4a4e98a10982b98c15c1f59a67c75fa0b24886e3bbc187e1528",
+    "bd1a5bd2029a9e33f4b2cddefb415e5c641e31dd9c34dc642f850528e77e5c52"
+  ],
+  "workbook_sha256": {
+    "UnknowableDomain.xlsx": "88f16f61b5f8954d1c5e1b4950c115cbeef4588dfe5533dc4d562cf83e550cad",
+    "UnknowableDomainBindings.xlsx": "2d76d8ea8ebe5ecf5ba80900cdc020a244d71575d3e8d7dda2d732d88fe1bb6f",
+    "UnknowableDomainReview.xlsx": "8b06b74f026c135f1349d80589c6b702eba6ec5b2a63fc97a55e0dbd88bac836"
+  },
+  "workbook_semantic_sha256": "672a9f4d13b8ed9eccb022fffe6115d93b3a5be9503c75bc7b177800ccb51e10",
+  "sora_bundle": {
+    "bytes": 8718413,
+    "sha256": "5a60432638f0cb7df0e4f25b04d49c3a91d2b684960c95acb81ecc31378402f8",
+    "tables": 65,
+    "rows": 17149,
+    "verified_empty_tables": 4
+  },
+  "debug_export": {
+    "files": 65,
+    "sha256": "199a108bcb1655898c0d315a245182023a1c60a62dab94938acfda29ee9c676e",
+    "digest_algorithm": "SHA-256 over sorted filename, NUL, file bytes, NUL"
+  },
+  "checks": {
+    "all_sheets_rendered": true,
+    "metadata_rows_present": true,
+    "headers_legible": true,
+    "data_rows_present_or_verified_empty": true,
+    "alternating_fill_present": true,
+    "long_value_rows_capped_at_72_points": true,
+    "no_render_corruption": true
+  },
+  "defects": []
+}

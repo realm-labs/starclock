@@ -1,0 +1,241 @@
+{
+  "table": {
+    "name": "UnknowableDomainLoadoutTransitionRule",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "[\"SlotTypeEqualsComponentType\",\"ComponentRangeCompatibleWithScepter\",\"TargetSlotIsEmpty\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "LoadoutTransitionRule"
+          },
+          "name_en": {
+            "String": "Insert Component Policy"
+          },
+          "name_zh_cn": {
+            "String": "插入组件策略"
+          },
+          "no_legal_candidate": {
+            "String": "ReturnNoLegalCandidateWithoutMutation"
+          },
+          "operation": {
+            "String": "Insert"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "loadout-transition-policy-v1"
+          },
+          "rejected_mutation": {
+            "String": "PreserveAuthoritativeState"
+          },
+          "replacement_order_json": {
+            "String": "[]"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "loadout-transition-policy-v1:insert"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.loadout-transition.insert"
+          },
+          "summary_en": {
+            "String": "Insert validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result."
+          },
+          "summary_zh_cn": {
+            "String": "插入会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "insert"
+              },
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "[\"TargetSlotIsOccupied\",\"TargetComponentIsNotLocked\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "LoadoutTransitionRule"
+          },
+          "name_en": {
+            "String": "Remove Component Policy"
+          },
+          "name_zh_cn": {
+            "String": "移除组件策略"
+          },
+          "no_legal_candidate": {
+            "String": "ReturnNoLegalCandidateWithoutMutation"
+          },
+          "operation": {
+            "String": "Remove"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "loadout-transition-policy-v1"
+          },
+          "rejected_mutation": {
+            "String": "PreserveAuthoritativeState"
+          },
+          "replacement_order_json": {
+            "String": "[]"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "loadout-transition-policy-v1:remove"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.loadout-transition.remove"
+          },
+          "summary_en": {
+            "String": "Remove validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result."
+          },
+          "summary_zh_cn": {
+            "String": "移除会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remove"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "[\"SlotTypeEqualsComponentType\",\"ComponentRangeCompatibleWithScepter\",\"ExistingComponentIsNotLocked\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "LoadoutTransitionRule"
+          },
+          "name_en": {
+            "String": "Replace Component Policy"
+          },
+          "name_zh_cn": {
+            "String": "替换组件策略"
+          },
+          "no_legal_candidate": {
+            "String": "ReturnNoLegalCandidateWithoutMutation"
+          },
+          "operation": {
+            "String": "Replace"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "loadout-transition-policy-v1"
+          },
+          "rejected_mutation": {
+            "String": "PreserveAuthoritativeState"
+          },
+          "replacement_order_json": {
+            "String": "[\"TargetSlotOnly\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "loadout-transition-policy-v1:replace"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.loadout-transition-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.loadout-transition.replace"
+          },
+          "summary_en": {
+            "String": "Replace validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result."
+          },
+          "summary_zh_cn": {
+            "String": "替换会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "replace"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

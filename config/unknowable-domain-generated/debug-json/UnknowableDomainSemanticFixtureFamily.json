@@ -1,0 +1,2260 @@
+{
+  "table": {
+    "name": "UnknowableDomainSemanticFixtureFamily",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "four Alignments"
+              },
+              {
+                "String": "eligibility"
+              },
+              {
+                "String": "offered pool"
+              },
+              {
+                "String": "no legal selection"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "alignment-selection Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "alignment-selection 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.alignment.break"
+              },
+              {
+                "String": "unknowable-domain.alignment.dot"
+              },
+              {
+                "String": "unknowable-domain.alignment.follow"
+              },
+              {
+                "String": "unknowable-domain.alignment.ultimate"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "alignment-selection"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-alignment-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.alignment-selection"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "alignment-selection"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "ordered transition"
+              },
+              {
+                "String": "carry"
+              },
+              {
+                "String": "reset"
+              },
+              {
+                "String": "illegal transition"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "area-layer-room-transition Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "area-layer-room-transition 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.area.101"
+              },
+              {
+                "String": "unknowable-domain.flow.101.entry"
+              },
+              {
+                "String": "unknowable-domain.layer-room.101.1"
+              },
+              {
+                "String": "unknowable-domain.layer.101"
+              },
+              {
+                "String": "unknowable-domain.room.11001"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "area-layer-room-transition"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.area-layer-room-transition"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area-layer-room-transition"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "insert"
+              },
+              {
+                "String": "remove"
+              },
+              {
+                "String": "replace"
+              },
+              {
+                "String": "locked Component"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "component-insertion-removal-replacement Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "component-insertion-removal-replacement 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.loadout-transition.insert"
+              },
+              {
+                "String": "unknowable-domain.loadout-transition.remove"
+              },
+              {
+                "String": "unknowable-domain.loadout-transition.replace"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.loadout"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "component-insertion-removal-replacement"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.component-insertion-removal-replacement"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-insertion-removal-replacement"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "candidate set"
+              },
+              {
+                "String": "cost"
+              },
+              {
+                "String": "replacement"
+              },
+              {
+                "String": "empty candidate"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "component-reforge Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "component-reforge 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.reforge.component"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "component-reforge"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-reforge"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.component-reforge"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-reforge"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "shape"
+              },
+              {
+                "String": "range"
+              },
+              {
+                "String": "slot type"
+              },
+              {
+                "String": "rejected insertion"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "component-slot-legality Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "component-slot-legality 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.component.4001.level.1"
+              },
+              {
+                "String": "unknowable-domain.component.4001.level.1.compatibility.none"
+              },
+              {
+                "String": "unknowable-domain.scepter-slot-layout.active-1.attach-1.passive-2"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "component-slot-legality"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-slot-legality"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.component-slot-legality"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-slot-legality"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "input count"
+              },
+              {
+                "String": "consumption"
+              },
+              {
+                "String": "output pool"
+              },
+              {
+                "String": "no legal output"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "component-synthesis Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "component-synthesis 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.synthesis.component"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "component-synthesis"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-synthesis"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.component-synthesis"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-synthesis"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "level transition"
+              },
+              {
+                "String": "cost"
+              },
+              {
+                "String": "cap"
+              },
+              {
+                "String": "ordering"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "component-upgrade Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "component-upgrade 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter-upgrade.1-to-2"
+              },
+              {
+                "String": "unknowable-domain.scepter-upgrade.2-to-3"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "component-upgrade"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-component-upgrade"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.component-upgrade"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component-upgrade"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "state slot"
+              },
+              {
+                "String": "carry boundary"
+              },
+              {
+                "String": "reset boundary"
+              },
+              {
+                "String": "finish cleanup"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "cross-battle-carry-reset Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "cross-battle-carry-reset 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.finish.5013001"
+              },
+              {
+                "String": "unknowable-domain.flow.101.entry"
+              },
+              {
+                "String": "unknowable-domain.profile.v1"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "cross-battle-carry-reset"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.cross-battle-carry-reset"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cross-battle-carry-reset"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "mode state"
+              },
+              {
+                "String": "charges"
+              },
+              {
+                "String": "repair"
+              },
+              {
+                "String": "replacement"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "curio-lifecycle Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "curio-lifecycle 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.curio-rule.group.50002"
+              },
+              {
+                "String": "unknowable-domain.curio-state.7101"
+              },
+              {
+                "String": "unknowable-domain.curio.4"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "curio-lifecycle"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-curio-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.curio-lifecycle"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-lifecycle"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "eligibility"
+              },
+              {
+                "String": "candidate order"
+              },
+              {
+                "String": "scope"
+              },
+              {
+                "String": "fallback"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "decision-component-choice Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "decision-component-choice 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.decision-component.6051"
+              },
+              {
+                "String": "unknowable-domain.decision-component.6051.choice"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "decision-component-choice"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-decision-component-choice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.decision-component-choice"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "decision-component-choice"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "difficulty parameters"
+              },
+              {
+                "String": "drop binding"
+              },
+              {
+                "String": "difficulty application boundary"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "difficulty-composition Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "difficulty-composition 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.difficulty-drop.101.1"
+              },
+              {
+                "String": "unknowable-domain.difficulty.10101"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "difficulty-composition"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-difficulty-composition"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.difficulty-composition"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "difficulty-composition"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "room parent"
+              },
+              {
+                "String": "candidate order"
+              },
+              {
+                "String": "wave"
+              },
+              {
+                "String": "enemy slots"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "encounter-selection Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-pool.area.101"
+              },
+              {
+                "String": "unknowable-domain.encounter-source.room.11101"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "encounter-selection"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-encounter-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.encounter-selection"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-selection"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "weighted candidate set"
+              },
+              {
+                "String": "seed"
+              },
+              {
+                "String": "outcome"
+              },
+              {
+                "String": "failure"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "gamble-offer-and-outcome Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "gamble-offer-and-outcome 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.gamble-unit.101"
+              },
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "gamble-offer-and-outcome"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.gamble-offer-and-outcome"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamble-offer-and-outcome"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "entry trigger"
+              },
+              {
+                "String": "cross-battle state"
+              },
+              {
+                "String": "battle projection"
+              },
+              {
+                "String": "teardown"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "layer-and-difficulty-effect Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "layer-and-difficulty-effect 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.layer-effect.401"
+              },
+              {
+                "String": "unknowable-domain.layer-effect.401.contribution"
+              },
+              {
+                "String": "unknowable-domain.maze-buff.682010.level.1"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "layer-and-difficulty-effect"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.layer-and-difficulty-effect"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "layer-and-difficulty-effect"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "empty set"
+              },
+              {
+                "String": "explicit fallback"
+              },
+              {
+                "String": "no hidden RNG draw"
+              },
+              {
+                "String": "review fact"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "no-legal-candidate-fallback Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "no-legal-candidate-fallback 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.loadout-transition.insert"
+              },
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.synthesis.component"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "no-legal-candidate-fallback"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.no-legal-candidate-fallback"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "no-legal-candidate-fallback"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "variant"
+              },
+              {
+                "String": "condition"
+              },
+              {
+                "String": "cost"
+              },
+              {
+                "String": "ordered outcome"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "occurrence-choice Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.occurrence-choice.510301.01.01"
+              },
+              {
+                "String": "unknowable-domain.occurrence-variant.510301"
+              },
+              {
+                "String": "unknowable-domain.occurrence.10"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "occurrence-choice"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-occurrence-choice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.occurrence-choice"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence-choice"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "entry eligibility"
+              },
+              {
+                "String": "initial resources"
+              },
+              {
+                "String": "finish and terminal boundary"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "profile-entry-and-finish Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry-and-finish 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.entry.activity.103"
+              },
+              {
+                "String": "unknowable-domain.finish.5013001"
+              },
+              {
+                "String": "unknowable-domain.profile.v1"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "profile-entry-and-finish"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.profile-entry-and-finish"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "profile-entry-and-finish"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "trigger"
+              },
+              {
+                "String": "targeting"
+              },
+              {
+                "String": "ordered operations"
+              },
+              {
+                "String": "single activation"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "scepter-activation Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "scepter-activation 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.activation"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "scepter-activation"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-activation"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.scepter-activation"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "scepter-activation"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "gain"
+              },
+              {
+                "String": "spend"
+              },
+              {
+                "String": "action ordering"
+              },
+              {
+                "String": "cap and teardown"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "scepter-charge-and-speed Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "scepter-charge-and-speed 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.finish"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "scepter-charge-and-speed"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.scepter-charge-and-speed"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "scepter-charge-and-speed"
+              },
+              {
+                "String": "semantic-family"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "service eligibility"
+              },
+              {
+                "String": "price or tier"
+              },
+              {
+                "String": "offered abstract outcome"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "service-and-adventure Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "service-and-adventure 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.adventure-outcome.11001"
+              },
+              {
+                "String": "unknowable-domain.mode-service-npc.510001"
+              },
+              {
+                "String": "unknowable-domain.service-rule.adventure-outcome.11001"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "service-and-adventure"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-service-and-adventure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.service-and-adventure"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 3 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 3 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "semantic-family"
+              },
+              {
+                "String": "service-and-adventure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "trigger phase"
+              },
+              {
+                "String": "priority"
+              },
+              {
+                "String": "stable tie key"
+              },
+              {
+                "String": "expected facts"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "simultaneous-trigger-order Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "simultaneous-trigger-order 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.dispatch"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.finish"
+              },
+              {
+                "String": "unknowable-domain.scepter.2001.level.1.state.initialize"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "simultaneous-trigger-order"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.simultaneous-trigger-order"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "semantic-family"
+              },
+              {
+                "String": "simultaneous-trigger-order"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "prerequisite"
+              },
+              {
+                "String": "cost"
+              },
+              {
+                "String": "unlock consequence"
+              },
+              {
+                "String": "evaluation boundary"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "talent-and-unlock Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "talent-and-unlock 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.talent.1001.level.1"
+              },
+              {
+                "String": "unknowable-domain.unlock.5013001"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "talent-and-unlock"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-talent-and-unlock"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.talent-and-unlock"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "semantic-family"
+              },
+              {
+                "String": "talent-and-unlock"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "StageConfig row"
+              },
+              {
+                "String": "wave order"
+              },
+              {
+                "String": "boss alternative"
+              },
+              {
+                "String": "difficulty"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "wave-and-boss-binding Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "wave-and-boss-binding 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.boss-choice.2004011"
+              },
+              {
+                "String": "unknowable-domain.boss-pool.area.101"
+              },
+              {
+                "String": "unknowable-domain.encounter-source.boss.2004011"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "wave-and-boss-binding"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.wave-and-boss-binding"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "semantic-family"
+              },
+              {
+                "String": "wave-and-boss-binding"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "SemanticFixtureFamily"
+          },
+          "minimum_cases": {
+            "Integer": 1
+          },
+          "must_cover": {
+            "List": [
+              {
+                "String": "eligibility"
+              },
+              {
+                "String": "price"
+              },
+              {
+                "String": "offer ordering"
+              },
+              {
+                "String": "refresh lifecycle"
+              }
+            ]
+          },
+          "name_en": {
+            "String": "workbench-offer-and-cost Semantic Fixture Family"
+          },
+          "name_zh_cn": {
+            "String": "workbench-offer-and-cost 语义夹具族"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "selected_source_record_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.service-offer.gamble-group.100"
+              },
+              {
+                "String": "unknowable-domain.workbench-function.10"
+              },
+              {
+                "String": "unknowable-domain.workbench.101"
+              }
+            ]
+          },
+          "source_id": {
+            "String": "workbench-offer-and-cost"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.local.fixture-contract"
+              },
+              {
+                "String": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.semantic-family.workbench-offer-and-cost"
+          },
+          "summary_en": {
+            "String": "Non-shrinking review family covering 4 required fact(s) with at least one reference-only case."
+          },
+          "summary_zh_cn": {
+            "String": "不可缩减的审查族，覆盖 4 个必需事实，并至少包含一个仅供资料使用的案例。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "semantic-family"
+              },
+              {
+                "String": "workbench-offer-and-cost"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

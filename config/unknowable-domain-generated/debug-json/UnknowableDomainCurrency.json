@@ -1,0 +1,98 @@
+{
+  "table": {
+    "name": "UnknowableDomainCurrency",
+    "rows": [
+      {
+        "values": {
+          "cap": {
+            "String": "Unspecified"
+          },
+          "carry_policy": {
+            "String": "Unspecified"
+          },
+          "consumer_service_ids": {
+            "List": [
+              {
+                "String": "unknowable-domain.workbench-function.10"
+              },
+              {
+                "String": "unknowable-domain.workbench-function.6"
+              },
+              {
+                "String": "unknowable-domain.workbench-function.7"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_amount": {
+            "String": "Unspecified"
+          },
+          "kind": {
+            "String": "UnknowableCurrency"
+          },
+          "name_en": {
+            "String": "Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "runtime_lowered": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "currency:cosmic-fragments"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.0"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.1"
+              },
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.currency.cosmic-fragments"
+          },
+          "summary_en": {
+            "String": "Released workbench text identifies Cosmic Fragments as the Scepter shop, Component shop and Scepter-modification currency; initial amount, cap and carry behavior are not published."
+          },
+          "summary_zh_cn": {
+            "String": "已发布工作台文本将宇宙碎片确定为权杖商店、组件商店与权杖改装货币；未发布初始数量、上限和携带行为。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cosmic-fragments"
+              },
+              {
+                "String": "currency"
+              },
+              {
+                "String": "service"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

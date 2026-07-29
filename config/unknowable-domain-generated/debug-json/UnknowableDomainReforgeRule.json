@@ -1,0 +1,95 @@
+{
+  "table": {
+    "name": "UnknowableDomainReforgeRule",
+    "rows": [
+      {
+        "values": {
+          "candidate_set": "Null",
+          "candidate_set_resolution": {
+            "String": "Unspecified"
+          },
+          "cost": {
+            "String": "{\"amount\":\"Unspecified\",\"currency_id\":\"Unspecified\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "exclude_input_identity": {
+            "String": "Unspecified"
+          },
+          "fallback": {
+            "String": "ReturnNoLegalCandidateWithoutMutation"
+          },
+          "function_type": {
+            "String": "MagicUnitReforge"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_eligibility_json": {
+            "String": "[\"Component\"]"
+          },
+          "kind": {
+            "String": "ComponentReforgeRule"
+          },
+          "name_en": {
+            "String": "Component Overwrite Policy"
+          },
+          "name_zh_cn": {
+            "String": "组件覆写策略"
+          },
+          "ordering": {
+            "String": "StableComponentIdAscending"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "component-transformation-policy-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.reforge.component"
+          },
+          "summary_en": {
+            "String": "The released function overwrites a Component into another Component; the eligible pool and cost remain unspecified, with stable-ID ordering and deterministic nonmutation when no candidate exists."
+          },
+          "summary_zh_cn": {
+            "String": "已发布功能将组件覆写为其他组件；合法池与费用仍未指定，无候选时采用稳定 ID 顺序与确定性不变更策略。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component"
+              },
+              {
+                "String": "reforge"
+              },
+              {
+                "String": "transformation"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "table": {
+    "name": "UnknowableDomainProfile",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ResidentActivity"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_resources_json": {
+            "String": "[]"
+          },
+          "initial_resources_resolution": {
+            "String": "Unspecified"
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Unknowable Domain"
+          },
+          "name_zh_cn": {
+            "String": "不可知域"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-rogueactivityresidentconfig-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.entry.activity.103"
+          },
+          "sub_mode": {
+            "String": "MagicRogue"
+          },
+          "summary_en": {
+            "String": "Resident activity 103 selects MagicRogue and unlock 50020."
+          },
+          "summary_zh_cn": {
+            "String": "常驻活动 103 选择 MagicRogue，解锁条件为 50020。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-entry"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "50020"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ModeTitle"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_resources_json": {
+            "String": "[]"
+          },
+          "initial_resources_resolution": {
+            "String": "Unspecified"
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Unknowable Domain"
+          },
+          "name_zh_cn": {
+            "String": "不可知域"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "MagicRogue"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguecommonmodetitle-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.entry.title.magicrogue"
+          },
+          "sub_mode": {
+            "String": "MagicRogue"
+          },
+          "summary_en": {
+            "String": "Common mode-title row binds the Unknowable Domain identity."
+          },
+          "summary_zh_cn": {
+            "String": "通用模式标题行绑定不可知域的展示身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-title"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "initial_resources_json": {
+            "String": "[]"
+          },
+          "initial_resources_resolution": {
+            "String": "Unspecified"
+          },
+          "kind": {
+            "String": "UnknowableProfile"
+          },
+          "name_en": {
+            "String": "Simulated Universe: Unknowable Domain"
+          },
+          "name_zh_cn": {
+            "String": "模拟宇宙：不可知域"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.profile"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.profile.v1"
+          },
+          "sub_mode": {
+            "String": "MagicRogue"
+          },
+          "summary_en": {
+            "String": "Version 4.4 reference profile for the permanent MagicRogue activity; runtime lowering is intentionally absent."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本常驻 MagicRogue 玩法资料档案；本目标明确不包含运行时降级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate-reference"
+              },
+              {
+                "String": "magic-rogue"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      }
+    ]
+  }
+}

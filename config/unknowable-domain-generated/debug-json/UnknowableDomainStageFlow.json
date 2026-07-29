@@ -1,0 +1,4135 @@
+{
+  "table": {
+    "name": "UnknowableDomainStageFlow",
+    "rows": [
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 101 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 101 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.101.entry"
+          },
+          "summary_en": {
+            "String": "Area 101 enters its first authored layer 101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 101 进入首个已发布层级 101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 1
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.101"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 101 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 101 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.0"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.101.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 101, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 101 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 201 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 201 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.1"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.201.entry"
+          },
+          "summary_en": {
+            "String": "Area 201 enters its first authored layer 201."
+          },
+          "summary_zh_cn": {
+            "String": "区域 201 进入首个已发布层级 201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.201"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 201 Layer 201 → 202"
+          },
+          "name_zh_cn": {
+            "String": "区域 201 层级 201 → 202"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.1"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.201.layer.201.202"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 201 to 202."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 201 推进到 202。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.202"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 2
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.202"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 201 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 201 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.1"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.201.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 202, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 202 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 301 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.301.entry"
+          },
+          "summary_en": {
+            "String": "Area 301 enters its first authored layer 301."
+          },
+          "summary_zh_cn": {
+            "String": "区域 301 进入首个已发布层级 301。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.301"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.301"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 301 Layer 301 → 302"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 层级 301 → 302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.301.layer.301.302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 301 to 302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 301 推进到 302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.302"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 301 Layer 302 → 303"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 层级 302 → 303"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.301.layer.302.303"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 302 to 303."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 302 推进到 303。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.303"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 3
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.303"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 301 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 301 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.301.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 303, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 303 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 401 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.401.entry"
+          },
+          "summary_en": {
+            "String": "Area 401 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 401 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 401 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.401.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 401 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.401.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 4
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 401 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 401 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.3"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.401.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 501 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 501 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.501.entry"
+          },
+          "summary_en": {
+            "String": "Area 501 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 501 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 501 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 501 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.501.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 501 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 501 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.501.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 5
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 501 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 501 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.4"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.501.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.entry"
+          },
+          "summary_en": {
+            "String": "Area 601 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 601 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1401"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Extra Layer Terminal"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 额外层终止"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.extra-terminal.1401"
+          },
+          "summary_en": {
+            "String": "Completion of extra layer 1401 reaches the area terminal."
+          },
+          "summary_zh_cn": {
+            "String": "完成额外层 1401 后进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "extra-layer"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "CurrentLayerCompletedAndExtraLayerOffered"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1301"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Extra Layer 1401"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 额外层 1401"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterExtraLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.extra.1401"
+          },
+          "summary_en": {
+            "String": "Released area 601 references extra layer 1401; eligibility timing remains ProjectPolicy."
+          },
+          "summary_zh_cn": {
+            "String": "已发布区域 601 引用额外层 1401；其资格时机仍为 ProjectPolicy。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "extra-layer"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1401"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Layer 1201 → 1301"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 层级 1201 → 1301"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.layer.1201.1301"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1301."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1301。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1301"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 6
+          },
+          "condition": {
+            "String": "CurrentLayerCompletedAndExtraLayerNotOffered"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1301"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 601 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 601 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.5"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.601.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1301, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1301 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 7
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 701 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 701 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.701.entry"
+          },
+          "summary_en": {
+            "String": "Area 701 enters its first authored layer 4101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 701 进入首个已发布层级 4101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.4101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 7
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.4101"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 701 Layer 4101 → 4201"
+          },
+          "name_zh_cn": {
+            "String": "区域 701 层级 4101 → 4201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.701.layer.4101.4201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 4101 to 4201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 4101 推进到 4201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.4201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 7
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.4201"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 701 Layer 4201 → 4301"
+          },
+          "name_zh_cn": {
+            "String": "区域 701 层级 4201 → 4301"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.701.layer.4201.4301"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 4201 to 4301."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 4201 推进到 4301。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.4301"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 7
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.4301"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 701 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 701 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.6"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.701.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 4301, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 4301 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 8
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 801 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 801 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.801.entry"
+          },
+          "summary_en": {
+            "String": "Area 801 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 801 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 8
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 801 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 801 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.801.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 8
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 801 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 801 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.801.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 8
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 801 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 801 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.7"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.801.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 9
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 802 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 802 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.802.entry"
+          },
+          "summary_en": {
+            "String": "Area 802 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 802 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 9
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 802 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 802 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.802.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 9
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 802 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 802 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.802.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 9
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 802 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 802 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.8"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.802.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 10
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 803 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 803 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.803.entry"
+          },
+          "summary_en": {
+            "String": "Area 803 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 803 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 10
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 803 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 803 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.803.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 10
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 803 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 803 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.803.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 10
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 803 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 803 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.9"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.803.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 11
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 804 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 804 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.804.entry"
+          },
+          "summary_en": {
+            "String": "Area 804 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 804 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 11
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 804 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 804 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.804.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 11
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 804 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 804 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.804.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 11
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 804 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 804 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.10"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.804.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 12
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 805 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 805 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.805.entry"
+          },
+          "summary_en": {
+            "String": "Area 805 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 805 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 12
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 805 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 805 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.805.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 12
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 805 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 805 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.805.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 12
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 805 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 805 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.11"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.805.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 13
+          },
+          "condition": {
+            "String": "AcceptedEntry"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaEntry"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 806 Entry"
+          },
+          "name_zh_cn": {
+            "String": "区域 806 进入"
+          },
+          "ordered_operations_json": {
+            "String": "[\"InitializeArea\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.806.entry"
+          },
+          "summary_en": {
+            "String": "Area 806 enters its first authored layer 1101."
+          },
+          "summary_zh_cn": {
+            "String": "区域 806 进入首个已发布层级 1101。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "entry"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1101"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 13
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1101"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 806 Layer 1101 → 1201"
+          },
+          "name_zh_cn": {
+            "String": "区域 806 层级 1101 → 1201"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.806.layer.1101.1201"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1101 to 1201."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1101 推进到 1201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1201"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 13
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1201"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 806 Layer 1201 → 1302"
+          },
+          "name_zh_cn": {
+            "String": "区域 806 层级 1201 → 1302"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryRunState\",\"ExitLayer\",\"EnterLayer\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.806.layer.1201.1302"
+          },
+          "summary_en": {
+            "String": "Authored area order advances layer 1201 to 1302."
+          },
+          "summary_zh_cn": {
+            "String": "区域已发布顺序将层级 1201 推进到 1302。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "unknowable-domain.layer.1302"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": {
+            "Integer": 13
+          },
+          "condition": {
+            "String": "CurrentLayerCompleted"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "unknowable-domain.layer.1302"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Area 806 Terminal Transition"
+          },
+          "name_zh_cn": {
+            "String": "区域 806 终止转换"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ExitLayer\",\"EvaluateFinish\",\"FinalizeArea\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicarea-json.12"
+              },
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.806.terminal"
+          },
+          "summary_en": {
+            "String": "After the final authored layer 1302, project policy reaches the area terminal unless an authored extra layer is eligible."
+          },
+          "summary_zh_cn": {
+            "String": "完成最后已发布层级 1302 后，若无合格额外层，项目策略进入区域终止状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "AreaTerminal"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": "Null",
+          "condition": {
+            "String": "NextLayerSelected"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "LayerTerminal"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Layer Carry Boundary"
+          },
+          "name_zh_cn": {
+            "String": "层级继承边界"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryAlignment\",\"CarryScepters\",\"CarryComponents\",\"CarryCurios\",\"CarryCurrencies\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.policy.carry-layer"
+          },
+          "summary_en": {
+            "String": "Layer Carry Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered."
+          },
+          "summary_zh_cn": {
+            "String": "层级继承边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "carry-reset"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "LayerEntry"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": "Null",
+          "condition": {
+            "String": "NextRoomSelected"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "RoomTerminal"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Room Carry Boundary"
+          },
+          "name_zh_cn": {
+            "String": "房间继承边界"
+          },
+          "ordered_operations_json": {
+            "String": "[\"CarryAlignment\",\"CarryScepters\",\"CarryComponents\",\"CarryCurios\",\"CarryCurrencies\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.policy.carry-room"
+          },
+          "summary_en": {
+            "String": "Room Carry Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered."
+          },
+          "summary_zh_cn": {
+            "String": "房间继承边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "carry-reset"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "RoomEntry"
+          }
+        }
+      },
+      {
+        "values": {
+          "area_id": "Null",
+          "condition": {
+            "String": "RunFinalized"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "from_state": {
+            "String": "AreaTerminal"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "kind": {
+            "String": "StageFlowRule"
+          },
+          "name_en": {
+            "String": "Run Reset Boundary"
+          },
+          "name_zh_cn": {
+            "String": "流程重置边界"
+          },
+          "ordered_operations_json": {
+            "String": "[\"ClearRunInventory\",\"ClearRunProgress\",\"PreservePermanentUnlocks\"]"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "ordered-area-layer-flow-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.project-policy.stage-flow"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.flow.policy.reset-run"
+          },
+          "summary_en": {
+            "String": "Run Reset Boundary is a deterministic reference policy until released field-level carry/reset evidence is registered."
+          },
+          "summary_zh_cn": {
+            "String": "流程重置边界 是确定性资料策略，待公开的字段级继承/重置证据登记后替换。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "carry-reset"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "stage-flow"
+              }
+            ]
+          },
+          "to_state": {
+            "String": "ProfileReady"
+          }
+        }
+      }
+    ]
+  }
+}

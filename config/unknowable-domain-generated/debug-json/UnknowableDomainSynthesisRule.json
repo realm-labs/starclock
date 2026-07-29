@@ -1,0 +1,98 @@
+{
+  "table": {
+    "name": "UnknowableDomainSynthesisRule",
+    "rows": [
+      {
+        "values": {
+          "cost": {
+            "String": "{\"amount\":\"Unspecified\",\"currency_id\":\"Unspecified\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": {
+            "String": "ReturnNoLegalCandidateWithoutMutation"
+          },
+          "function_type": {
+            "String": "MagicUnitCompose"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_count": {
+            "String": "Unspecified"
+          },
+          "input_eligibility_json": {
+            "String": "[\"Component\"]"
+          },
+          "input_level_relation": {
+            "String": "Unspecified"
+          },
+          "kind": {
+            "String": "ComponentSynthesisRule"
+          },
+          "name_en": {
+            "String": "Component Synthesis Policy"
+          },
+          "name_zh_cn": {
+            "String": "组件合成策略"
+          },
+          "output_ordering": {
+            "String": "StableComponentIdAscending"
+          },
+          "output_pool": "Null",
+          "output_pool_resolution": {
+            "String": "Unspecified"
+          },
+          "ownership": {
+            "String": "UnknowableDomain"
+          },
+          "policy_id": {
+            "String": "component-transformation-policy-v1"
+          },
+          "schema_revision": {
+            "String": "starclock.unknowable-domain-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2"
+              },
+              {
+                "String": "source.goal10.project-policy.component-transformation-policy-v1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "unknowable-domain.synthesis.component"
+          },
+          "summary_en": {
+            "String": "The released function combines Components into a new Component; exact inputs, output pool and cost remain unspecified, with deterministic nonmutation on failure."
+          },
+          "summary_zh_cn": {
+            "String": "已发布功能将组件合成为新组件；精确输入、输出池与费用仍未指定，失败时采用确定性不变更策略。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "component"
+              },
+              {
+                "String": "synthesis"
+              },
+              {
+                "String": "transformation"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

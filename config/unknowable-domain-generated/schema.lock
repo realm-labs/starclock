@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_unknowable_domain_reference_config",
-  "fingerprint": "e944bdfa3bd29a6e",
+  "fingerprint": "73e3c3308bd43560",
   "schema": {
     "package": "starclock_unknowable_domain_reference_config",
     "enums": [
@@ -2213,7 +2213,7 @@
             "default": null,
             "range": [
               0,
-              100
+              1000
             ],
             "length": null,
             "parser": null,
@@ -21254,7 +21254,7 @@
             "range": null,
             "length": [
               1,
-              160
+              240
             ],
             "parser": null,
             "derived_from": null
@@ -22497,7 +22497,7 @@
             "range": null,
             "length": [
               1,
-              160
+              240
             ],
             "parser": null,
             "derived_from": null
@@ -25899,7 +25899,7 @@
             "range": null,
             "length": [
               1,
-              128
+              1024
             ],
             "parser": {
               "kind": "split",
