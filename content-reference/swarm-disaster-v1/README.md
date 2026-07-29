@@ -22,6 +22,8 @@ node tools/swarm-disaster-reference/import-audience-dice.mjs
 node tools/swarm-disaster-reference/verify-audience-dice.mjs
 node tools/swarm-disaster-reference/import-dice-faces.mjs
 node tools/swarm-disaster-reference/verify-dice-faces.mjs
+node tools/swarm-disaster-reference/import-communing.mjs
+node tools/swarm-disaster-reference/verify-communing.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -54,3 +56,9 @@ the exact face effects and roll/reroll/cheat controls remain owned by
 three rarity rows exactly. One typed target rule per face and four roll
 controls make stable ordering, resource failure and empty-target behavior
 explicit; these operational details remain replaceable `ProjectPolicy`.
+
+The Communing partition preserves 21 Aeon-aligned branch choices, 31 cabinet
+objectives, seven capped dimensions and 55 exact point increments. Branch
+choices increment a separate Aeon-choice counter because their source rows do
+not publish permanent point changes. Cabinet outgoing unlocks are inverted
+into prerequisites, and persistence/clamp timing is labeled `ProjectPolicy`.

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "swarm-disaster.communing-dimension.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Preservation Communing Dimension",
+    "name_zh_cn": "存护觐见维度",
+    "summary_en": "Preservation",
+    "summary_zh_cn": "存护",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "0",
+        "sha256": "d5d014d693473919cf0f86e2f9a45ad753aa6b359dbd18ebbc43d5916cd8cbb1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "preservation",
+      "project-policy"
+    ],
+    "source_id": "1",
+    "path_id": "universe.path.preservation",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Remembrance Communing Dimension",
+    "name_zh_cn": "记忆觐见维度",
+    "summary_en": "Remembrance",
+    "summary_zh_cn": "记忆",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "1",
+        "sha256": "f1890ae977febfc23790dc699fbdfc4bfb71c5054425096c08be04d22c3c88b1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "1",
+        "sha256": "fa4c9980b72514fec2809b0ad367726881f4bdbd450dfa530067d7440ea65581",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "project-policy",
+      "remembrance"
+    ],
+    "source_id": "2",
+    "path_id": "universe.path.remembrance",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Nihility Communing Dimension",
+    "name_zh_cn": "虚无觐见维度",
+    "summary_en": "Nihility",
+    "summary_zh_cn": "虚无",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "2",
+        "sha256": "e216ef411ffc2fc82ee948be036a92dac1ad7c0190374b795b80ecbb14d15425",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "2",
+        "sha256": "2aefa05ec30f366b3ee8a4f9fe2aa75ceda48152b3d523217807ba91c67f2019",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "nihility",
+      "project-policy"
+    ],
+    "source_id": "3",
+    "path_id": "universe.path.nihility",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.4",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Abundance Communing Dimension",
+    "name_zh_cn": "丰饶觐见维度",
+    "summary_en": "Abundance",
+    "summary_zh_cn": "丰饶",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "3",
+        "sha256": "1e68c529703601ba5df3bfad04f499ec94afd5141dd21592ae60000cc060ac86",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "3",
+        "sha256": "0d1b94a368884de9eef20c729e248d82c0b21f236d5a9203594091cf80646c0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "abundance",
+      "communing-dimension",
+      "project-policy"
+    ],
+    "source_id": "4",
+    "path_id": "universe.path.abundance",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "The Hunt Communing Dimension",
+    "name_zh_cn": "巡猎觐见维度",
+    "summary_en": "The Hunt",
+    "summary_zh_cn": "巡猎",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "4",
+        "sha256": "d918727c9b1c2c335581ed523bd89c111cdc15d133d939fa17bbc2f4f49e4b0f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "4",
+        "sha256": "99e875a8803e768c38745dbf738548a105fa4604f5fc1217379bfb60af31808c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "project-policy",
+      "the-hunt"
+    ],
+    "source_id": "5",
+    "path_id": "universe.path.hunt",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.6",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Destruction Communing Dimension",
+    "name_zh_cn": "毁灭觐见维度",
+    "summary_en": "Destruction",
+    "summary_zh_cn": "毁灭",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "5",
+        "sha256": "bbff443d31e5dff5aca0029d6bb4093441b76a926f44a4b19e7a0a56d51277aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "5",
+        "sha256": "9af7091113cbc3162bedf00051db9a7d6855145386af52cb20a00dc0717688b0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "destruction",
+      "project-policy"
+    ],
+    "source_id": "6",
+    "path_id": "universe.path.destruction",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  },
+  {
+    "id": "swarm-disaster.communing-dimension.7",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CommuningDimension",
+    "name_en": "Elation Communing Dimension",
+    "name_zh_cn": "欢愉觐见维度",
+    "summary_en": "Elation",
+    "summary_zh_cn": "欢愉",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "6",
+        "sha256": "41dac23891e1b02f6beff0e1b68063b152d9e4267a8e33a24d313ccdbf3f2aec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "6",
+        "sha256": "a580691815530243d4627c441fc126b69855f99cb10401d736739e61dff20007",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      }
+    ],
+    "tags": [
+      "communing-dimension",
+      "elation",
+      "project-policy"
+    ],
+    "source_id": "7",
+    "path_id": "universe.path.elation",
+    "max_points": "20",
+    "carry_policy": "PersistentAcrossRuns",
+    "clamp_policy": "ClampAfterEachOrderedIncrement"
+  }
+]
