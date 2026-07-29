@@ -93,6 +93,10 @@ const artifactCommands = [
       ]
       : []),
   ],
+  [
+    "node",
+    "tools/currency-wars-reference/verify-release.mjs",
+  ],
   ["node", "tools/dependency-policy/verify.mjs"],
   ["node", "tools/workspace/verify-dependencies.mjs"],
   ["node", "tools/repository-check/run.mjs"],

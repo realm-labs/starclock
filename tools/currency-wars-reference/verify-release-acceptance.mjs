@@ -236,11 +236,15 @@ const allowedExact = new Set([
   "docs/goals/README.md",
   "policy/repository-checks.json",
 ]);
+const releaseOnlyPaths = new Set([
+  "evidence/currency-wars-reference-v1/release/release-evidence.json",
+  "tools/currency-wars-reference/verify-release.mjs",
+]);
 const changedPaths = unique([
   ...lines(capture("git", ["diff", "--name-only", baseCommit, "--"])),
   ...lines(capture("git", ["ls-files", "--others", "--exclude-standard"])),
   outputRelative,
-]);
+]).filter((relative) => !releaseOnlyPaths.has(relative));
 const foreignChanges = changedPaths.filter((relative) =>
   !allowedExact.has(relative)
   && !allowedPrefixes.some((prefix) => relative.startsWith(prefix))

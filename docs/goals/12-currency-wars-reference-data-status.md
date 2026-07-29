@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `currency-wars-reference-v1` |
-| State | `InProgress` |
-| Current phase | Phase 4 — Review and freeze (`InProgress`) |
-| Current batch | `G12-P4-B3` — Reconcile prior Goal facts and verify the isolated release candidate |
-| Next unblocked batch | None until `G12-P4-B3` is committed, pushed and remotely verified |
+| State | `Complete` |
+| Current phase | Complete |
+| Current batch | None |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -26,7 +26,7 @@
 | Parallel condition | Separate branch/worktree and isolated Goal 12 artifacts while Goals 07 through 11 are active |
 | Ownership checkpoints | Final Goal 08 commit `b7044fcc…3a09`, tree `d5430413…ee7d` and manifest `88885b40…6085` are witnessed by the remote-backed Goal 09 final commit; final Goal 09 `d258c94d…57d0`, Goal 10 `6d8d3b1e…6b29` and Goal 11 `3071d2c2…abd2` commits, trees and manifests are directly remote-backed. Exact path + locator + digest reconciliation finds zero shared records and zero conflicts. |
 | Publication policy | Push each completed batch commit and verify the remote branch commit before starting the next batch |
-| Blocking condition | No external blocker. Only the active batch may advance; the next batch waits for its pushed and remotely verified commit. |
+| Blocking condition | None. Runtime lowering and playable integration remain explicitly outside this completed reference Goal. |
 
 ## Phase ledger
 
@@ -36,7 +36,7 @@
 | Phase 1 — Unique mode systems | `Complete` | P1-B10 replaced B1's historical Tourn3/Persona flow with GridFight; B2–B9 close Squad boundaries, economy, positions/Empowerments, Bonds, stars, build/equipment, investment systems, rank, Affixes and mechanically relevant progression at remote-backed commits through `fd0af40c…3bfb`. |
 | Phase 2 — Content and encounters | `Complete` | Every content, service, event, encounter and mechanic obligation resolves through the canonical Phase 2 pack at remote-backed commit `17c95efa…c81d`. |
 | Phase 3 — Sora and Excel | `Complete` | The isolated 102-table schema, 60/32/10-sheet workbooks, deterministic Sora exports, generated reader and every-sheet visual review are remote-backed through `c16161b9…657e`. |
-| Phase 4 — Review and freeze | `InProgress` | Ownership and semantics pass. Final Goal 08/09/10/11 reconciliation, source-cache reproduction, deterministic workbook/Sora regeneration, every-sheet visual QA and artifact acceptance pass in P4-B3; clean-checkout proof, publication and release freeze remain. |
+| Phase 4 — Review and freeze | `Complete` | Ownership, semantics, Goal 08/09/10/11 reconciliation, fixed-source reproduction, deterministic workbook/Sora regeneration, every-sheet visual QA, isolated reader, clean-checkout acceptance and Candidate release evidence are frozen through P4-B4. |
 
 ## Batch ledger
 
@@ -71,8 +71,8 @@
 | `G12-P3-B6` | `Complete` | `c16161b989825066c1e32ac7e79b1d4b3c15657e` | Corrected empty normalized domain fields to Sora `optional<string>` without weakening the required row envelope. Two independent openpyxl generations were byte-identical across all three workbooks and shared semantic digest `47175bb…fa40`; binary/debug exports were byte-identical (`config.sora` `f04ca467…a642`, 102 debug files). The generated reader (`aab73e17…6241`) loaded all 102 tables and 75,643 rows against schema lock `485d819e…fffe`; artifact-tool rendered and the reviewer passed all 102 sheets. All gates passed. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `0dd1a5eb..c16161b9 HEAD -> codex/goal12-currency-wars-reference` with an advisory 71.98 MB debug JSON warning; `git rev-parse HEAD` and `git ls-remote --heads origin refs/heads/codex/goal12-currency-wars-reference` both resolved `c16161b989825066c1e32ac7e79b1d4b3c15657e` before `G12-P4-B1` began. |
 | `G12-P4-B1` | `Complete` | `8284c1a066e4d4c3ec893b9ae6259cfb77f668bb` | Audited all 19,250 manifest obligations, 74,836 global-unique bilingual rows and 86,014 source references. The audit found and generator-fixed 256 uppercase upstream-derived IDs and 2,470 source receipts whose `Array.map` callback index had been misbound as evidence quality; current invalid IDs, invalid qualities, unresolved references, other-mode source leaks, unreleased tags and runtime-enabled/lowered rows are all zero. All 18,524 eligible obligations remain DataReady and 726 EvidenceOnly obligations remain excluded. The corrected pack digest is `59f11245…034f`; regenerated workbooks contain 74,836 rows with semantic digest `37a095b4…6793`, and the isolated reader loads all rows. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `c16161b9..8284c1a0 HEAD -> codex/goal12-currency-wars-reference` with advisory 70.52 MB/59.05 MB generated JSON warnings; `git rev-parse HEAD` and `git ls-remote --heads origin refs/heads/codex/goal12-currency-wars-reference` both resolved `8284c1a066e4d4c3ec893b9ae6259cfb77f668bb` before `G12-P4-B2` began. |
 | `G12-P4-B2` | `Complete` | `7d8dfb3dd69878346761b99d8a131953ed008ed0` | Executed all 28 required semantic fixture families against the normalized reference pack; every ordered precondition/operation/expected-fact set resolves through the stable-ID pack index and source receipts. All 2,367 mechanic dossiers are assigned by battle-visible/cross-battle scope with zero runtime lowering. All 12 `ProjectPolicy` research gaps have known facts, alternatives, selected policy, responsible fixture families and concrete replacement conditions; orphan count is zero. Added exact released bilingual rules for automatic on-field Techniques and the three-equipment-per-character cap, then regenerated the 74,842-row workbooks (`aeb04c7a…0f75`) and Sora bundle; the isolated reader loads all 102 tables. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `8284c1a0..7d8dfb3d HEAD -> codex/goal12-currency-wars-reference`; `git rev-parse HEAD` and `git ls-remote --heads origin refs/heads/codex/goal12-currency-wars-reference` both resolved `7d8dfb3dd69878346761b99d8a131953ed008ed0` before `G12-P4-B3` began. |
-| `G12-P4-B3` | `InProgress` | — | Reconciled 37,342 Goal 12 source receipts against the final Goal 08/09/10/11 committed ledgers using exact source path + row locator + evidence digest: four summary receipts, zero exact overlaps and zero conflicts (`3bf32053…f73`). Goal 08's final manifest is remotely witnessed by Goal 09; the other three final commits are direct ancestors of their recorded remote refs. Both pinned caches reproduce cleanly. Complete pack regeneration stabilizes at 74,850 bilingual rows, 86,034 source references, 19,250 exact-once coverage rows, 2,367 mechanic dossiers and pack digest `61664013…c2cb`. Independent double workbook generation is byte-identical (`5d9a4be2…c1e1` semantic digest); independent Sora binary/debug generation is byte-identical (`a4569997…8571`, 102 tables/74,850 rows). The final artifact-tool review passes all 102 sheets, and the 49-command source/artifact acceptance passes. The staged tree passes clean-checkout acceptance with a fresh target and no inherited source cache. `node tools/repository-check/run.mjs --full --with-source-cache` again reaches the immutable Goal 06 boundary and fails only at its historical `Cargo.lock baseline differs`; Goal 12 changes no Cargo input and does not claim the full gate passed. Awaiting atomic commit, push and remote SHA verification. |
-| `G12-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G12-P4-B3` | `Complete` | `c3cb837f0b7d497851204283a7e14d8117f7dc71` | Reconciled 37,342 Goal 12 source receipts against the final Goal 08/09/10/11 committed ledgers using exact source path + row locator + evidence digest: four summary receipts, zero exact overlaps and zero conflicts (`3bf32053…f73`). Goal 08's final manifest is remotely witnessed by Goal 09; the other three final commits are direct ancestors of their recorded remote refs. Both pinned caches reproduce cleanly. Complete pack regeneration stabilizes at 74,850 bilingual rows, 86,034 source references, 19,250 exact-once coverage rows, 2,367 mechanic dossiers and pack digest `61664013…c2cb`. Independent double workbook generation is byte-identical (`5d9a4be2…c1e1` semantic digest); independent Sora binary/debug generation is byte-identical (`a4569997…8571`, 102 tables/74,850 rows). The final artifact-tool review passes all 102 sheets, the 49-command source/artifact acceptance passes and the staged tree passes clean-checkout acceptance with a fresh target and no inherited source cache. `node tools/repository-check/run.mjs --full --with-source-cache` again reaches the immutable Goal 06 boundary and fails only at its historical `Cargo.lock baseline differs`; Goal 12 changes no Cargo input and does not claim the full gate passed. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `7d8dfb3d..c3cb837f HEAD -> codex/goal12-currency-wars-reference` with advisory 70.54 MB/59.06 MB generated JSON warnings; `git rev-parse HEAD` and `git ls-remote --heads origin refs/heads/codex/goal12-currency-wars-reference` both resolved `c3cb837f0b7d497851204283a7e14d8117f7dc71` before `G12-P4-B4` began. |
+| `G12-P4-B4` | `Complete` | This row's containing commit | Froze the complete Candidate reference-only identity: 3,822 source files, 19,250 exact-once obligations, 18,524 eligible DataReady rows, 726 explicit exclusions, 74,850 bilingual normalized rows, 86,034 resolved source references, 2,367 unlowered mechanic dossiers, 28 semantic fixture families, 12 nonblocking policy gaps, 102 Sora tables and three isolated workbooks. The release verifier binds the final pack, workbooks, Sora/debug export, ownership, semantics, reconciliation, protected boundaries, clean-checkout result, batch set, Markdown links and remote publication convention. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; containing commit pushed and local/remote full IDs verified equal. No PR created. |
 
 For a completed batch, the result/evidence cell must record `remote`,
 `branch`, full pushed commit ID, exact push command, remote-resolution
@@ -216,19 +216,19 @@ modules, names or ID ranges.
 - [x] Goal 03 evidence and all other mode/production bundle identities remain
       unchanged.
 - [x] Coverage reports 100% eligible `DataReady` and no blocking research row.
-- [ ] Every completed batch commit is reachable from its recorded remote
+- [x] Every completed batch commit is reachable from its recorded remote
       branch at the recorded commit ID.
-- [ ] Clean-checkout acceptance passes and `G12-P4-B4` is committed and pushed.
+- [x] Clean-checkout acceptance passes and `G12-P4-B4` is committed and pushed.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Remote/branch verification | — |
-| Currency Wars reference bundle | — |
-| Workbook semantic digest | — |
-| Coverage | 0 / 19,250 `DataReady`; corrected generated denominators frozen by `G12-P0-B5` |
-| Release evidence | — |
+| Final state | `Complete`; Candidate reference-only bundle, runtime profile unreleased |
+| Completion commit | This row's containing commit (`G12-P4-B4`) |
+| Remote/branch verification | `origin/codex/goal12-currency-wars-reference`; containing commit pushed and local/remote full IDs verified equal |
+| Currency Wars reference bundle | `config/currency-wars-generated/config.sora`; 36,964,052 bytes; SHA-256 `a4569997990727739db74a2d942e6b13a84d2466b0fe3723acb92c7406ae8571` |
+| Workbook semantic digest | `5d9a4be2fb9c5110209826d6ef5f9afc410ca7c869f0b1abc87c3fa24f29c1e1` |
+| Coverage | 19,250/19,250 exact-once dispositions; 18,524 eligible `DataReady`; 726 explicit exclusions; zero unresolved or blocking rows |
+| Release evidence | `evidence/currency-wars-reference-v1/release/release-evidence.json`; SHA-256 `c260d63c8c276d204668cbbd6128797ca74b268e9f6429aa9d4c7196454c9106`; generated and drift-checked by `tools/currency-wars-reference/verify-release.mjs` |
 | Remaining required work | Currency Wars runtime lowering, integration, handlers, controller/API exposure and seeded full runs belong to a later goal. |
