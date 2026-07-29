@@ -119,9 +119,22 @@ assert(JSON.stringify(Object.fromEntries(
 "Blessing group size distribution drift");
 assert(groups.every((row) =>
   row.source_candidate_ids.length
-    === row.resolved_mode_level_ids.length + row.unresolved_source_ids.length
+    === row.resolved_mode_level_ids.length
+      + row.resolved_subgroup_ids.length
+      + row.unresolved_source_ids.length
     && row.weight_program === "Unspecified"),
 "Blessing group exact-once candidate classification drift");
+assert(groups.every((row) =>
+  row.coverage_state === "DataReady"
+    && row.evidence_quality === "ExactStructured"
+    && row.unresolved_source_ids.length === 0),
+"Blessing groups are not fully closed");
+assert(groups.reduce((count, row) =>
+  count + row.resolved_mode_level_ids.length, 0) === 351,
+"Blessing direct terminal membership count drift");
+assert(groups.reduce((count, row) =>
+  count + row.resolved_subgroup_ids.length, 0) === 176,
+"Blessing nested subgroup membership count drift");
 
 const rewriteRows = data["blessing-rewrite-rules.json"];
 assert(rewriteRows.filter(({ evidence_quality: quality }) =>

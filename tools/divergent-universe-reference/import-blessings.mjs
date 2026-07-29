@@ -175,18 +175,25 @@ for (const blessingId of blessingIds) {
 outputs.set("blessings.json", ordered(blessingRows));
 outputs.set("blessing-levels.json", ordered(levelRows));
 
-const groupPolicy = await context.policyRef(
-  "tourn3-blessing-groups",
-  "Tourn3 group rows expose ordered RogueBuffDrop source IDs, but some IDs belong to shared Rogue tables and require the P2-B1 stable-ID closure before membership can be asserted.",
-  "Replace each unresolved source ID with an exact mode-owned/shared stable-ID receipt in P2-B1.",
-);
 const groupEntries = (await context.table("RogueTournBuffGroup"))
   .filter(({ row }) => row.TournMode === "Tourn3");
 const tagToLevel = new Map(levelRows.map((row) =>
   [row.rogue_buff_tag, row.id]));
+const groupSourceIds = new Set(groupEntries.map((entry) =>
+  String(entry.row.RogueBuffGroupID)));
 const groups = groupEntries.map((entry) => {
   const sourceIds = entry.row.RogueBuffDrop.map(String);
   const resolvedIds = sourceIds.map((id) => tagToLevel.get(id)).filter(Boolean);
+  const subgroupIds = sourceIds
+    .filter((id) => groupSourceIds.has(id))
+    .map((id) => `divergent-universe.blessing-group.${id}`);
+  const unresolvedIds = sourceIds.filter((id) =>
+    !tagToLevel.has(id) && !groupSourceIds.has(id));
+  if (unresolvedIds.length > 0)
+    throw new Error(
+      `Blessing group ${entry.row.RogueBuffGroupID} has unresolved IDs: ` +
+      unresolvedIds.join(", "),
+    );
   return {
     ...context.envelope({
       id: `divergent-universe.blessing-group.${entry.row.RogueBuffGroupID}`,
@@ -194,36 +201,27 @@ const groups = groupEntries.map((entry) => {
       nameEn: `Tourn3 Blessing Group ${entry.row.RogueBuffGroupID}`,
       nameZh: `Tourn3 祝福组 ${entry.row.RogueBuffGroupID}`,
       summaryEn:
-        `Tourn3 group ${entry.row.RogueBuffGroupID} lists ${sourceIds.length} ordered source candidate(s); ${resolvedIds.length} resolve in the current mode-owned level catalog.`,
+        `Tourn3 group ${entry.row.RogueBuffGroupID} lists ${sourceIds.length} ordered candidate(s): ${resolvedIds.length} mode-owned Blessing level tag(s) and ${subgroupIds.length} Tourn3 subgroup(s).`,
       summaryZh:
-        `Tourn3 组 ${entry.row.RogueBuffGroupID} 列出 ${sourceIds.length} 个有序源候选；其中 ${resolvedIds.length} 个在当前玩法等级目录中解析。`,
-      coverageState: resolvedIds.length === sourceIds.length
-        ? "DataReady"
-        : "Researched",
-      evidenceQuality: resolvedIds.length === sourceIds.length
-        ? "ExactStructured"
-        : "ProjectPolicy",
-      sourceRefs: resolvedIds.length === sourceIds.length
-        ? [context.sourceRef(entry)]
-        : [context.sourceRef(entry), groupPolicy],
+        `Tourn3 组 ${entry.row.RogueBuffGroupID} 列出 ${sourceIds.length} 个有序候选：${resolvedIds.length} 个玩法专属祝福等级标签与 ${subgroupIds.length} 个 Tourn3 子组。`,
+      sourceRefs: [context.sourceRef(entry)],
       tags: [
         "blessing",
         "group",
-        ...(resolvedIds.length === sourceIds.length
-          ? ["closed-membership"]
-          : ["shared-closure-pending"]),
+        "closed-membership",
+        ...(subgroupIds.length > 0 ? ["nested-group"] : []),
       ],
     }),
     source_id: String(entry.row.RogueBuffGroupID),
     source_candidate_ids: sourceIds,
     resolved_mode_level_ids: resolvedIds,
-    unresolved_source_ids:
-      sourceIds.filter((id) => !tagToLevel.has(id)),
+    resolved_subgroup_ids: subgroupIds,
+    unresolved_source_ids: unresolvedIds,
     selection_policy: "OrderedSourceCandidates",
     weight_program: "Unspecified",
-    membership_resolution: resolvedIds.length === sourceIds.length
-      ? "ClosedModeOwned"
-      : "DeferredToP2B1",
+    membership_resolution: subgroupIds.length > 0
+      ? "ClosedModeOwnedOrNested"
+      : "ClosedModeOwned",
   };
 });
 outputs.set("blessing-groups.json", ordered(groups));
