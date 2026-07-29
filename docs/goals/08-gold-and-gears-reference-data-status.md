@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G08-P0-B4` |
+| Next unblocked batch | `G08-P1-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Existing focused inventory | 21 hashed `RogueNous*` tables; denominator not yet frozen |
@@ -21,7 +21,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; isolated boundary frozen; 2,882 source files and 7,906 exact source/inherited obligations in 42 categories are machine-verified. |
+| Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 7,906 obligations, 51 normalized files, four workbook families and 18 fixture families are machine-frozen. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, Cognition, Custom Dice, Knowledge, Neural Network, Conundrum and Resonance Extrapolation data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -34,7 +34,7 @@
 | `G08-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 21 `RogueNous` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/Sora authority and six isolated artifact roots. The full source-cache gate reaches the historical Goal 06 contract before failing `Cargo.lock baseline differs`; Goal 03's current-tree verifier likewise reports evolved Universe row counts, so neither immutable historical evidence was rewritten. |
 | `G08-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`4ac50e59…55301`, 1,037,146 bytes): all 2,646 Goal 03 source paths plus StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes index files. The 2,658-file closure contains 21 `RogueNous` tables, two direct Nous ability files, 52 shared structured candidates, 2,410 shared mechanic/level candidates and 161 fail-closed other-mode/presentation exclusions; raw Git blob hashing removes checkout-EOL variance. Focused verification and the quick gate pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure recorded by B1. |
 | `G08-P0-B3` | `Complete` | This row's containing commit | Corrected `RogueDLC*` from a Swarm-only assumption to a shared framework, added 224 pinned DLC topology configs, and regenerated the 2,882-file inventory (`39ab554c…cece`). Froze `content-manifest.json` (`3c754399…01d0`, 3,332,426 bytes): 7,906 exact obligations in 42 categories, split into 7,192 Gold-owned and 714 shared records, plus 58 excluded story/account rows. Explicit `ChessRogueNous` selectors, references or inherited Goal 03 stable IDs are the only reachability grants. Released boards contain no edge list, so B4 must name a ProjectPolicy edge contract rather than label inferred edges exact. Focused and quick gates pass; the full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
-| `G08-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook and fixture contracts. |
+| `G08-P0-B4` | `Complete` | This row's containing commit | Froze 51 normalized file families (`c0820f14…f1fd`), the four-workbook Excel/openpyxl/Sora contract (`8d2becf1…5c05`) and 18 non-shrinking semantic fixture families (`d5820bf5…31ed`). Common rows require bilingual mechanical text, explicit ownership/coverage/evidence and ordered source refs. Canonical decimals are strings; bytes are UTF-8/LF/two-space JSON. The missing released chessboard edge list is bounded by replaceable `forward-nearest-column-within-one-row-v1` `ProjectPolicy`; unknown targets fail closed. All Phase 0 focused and quick gates pass; the phase-boundary full gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology, rooms, domains, beacons and boss choices. |
 | `G08-P1-B2` | `Pending` | — | Import Cognition/Intra-Cognition, Secret thresholds and lifecycle rules. |
 | `G08-P1-B3` | `Pending` | — | Import Custom Dice definitions, categories, passives, Path boosts and unlocks. |
@@ -97,6 +97,8 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Exclude story prose and account/collection rewards while retaining mechanical unlock locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal after Standard completion. |
 | 2026-07-29 | Treat an LF checkout as equivalent to Goal 03 source hashes only when LF-to-CRLF conversion reproduces the recorded byte count and SHA-256. | Goal 03 captured CRLF checkout bytes; the pinned macOS cache contains the same Git blobs with LF endings. |
+| 2026-07-29 | Treat `RogueDLC*` as a shared framework and grant Gold reachability only through `ChessRogueNous`, transitive references or inherited shared stable IDs. | Gold and Gears uses shared DLC area, difficulty, layer and chessboard tables; a prefix-only Swarm classification is incorrect. |
+| 2026-07-29 | Use `forward-nearest-column-within-one-row-v1` only as a named `ProjectPolicy` for chessboard edges. | Released configs expose coordinates but no explicit edge list; the policy is deterministic, fail-closed and replaceable when exact engine evidence is available. |
 
 ## Research cases
 

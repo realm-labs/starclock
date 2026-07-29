@@ -1,0 +1,143 @@
+{
+  "schema_revision": "starclock.gold-and-gears-authoring-contract.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "authority": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "editor_version": "3.1.5",
+    "schema_exporter": "sora-cli",
+    "schema_exporter_version": "0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-debug-only",
+    "runtime_loading": false
+  },
+  "isolation": {
+    "project": "config/gold-and-gears/project.toml",
+    "workbook_root": "config/gold-and-gears/data",
+    "generated_root": "config/gold-and-gears-generated",
+    "normalized_root": "content-reference/gold-and-gears-v1",
+    "forbidden_outputs": [
+      "config/data",
+      "config/generated",
+      "config/universe-generated",
+      "content-reference/standard-universe-v1"
+    ]
+  },
+  "generation": {
+    "complete_workbook_set": true,
+    "overwrite_existing_target": false,
+    "patch_designer_workbook": false,
+    "fixed_document_timestamps": true,
+    "double_generation_byte_identical": true,
+    "formula_cells": "reject",
+    "excel_error_cells": "reject",
+    "unknown_columns": "reject",
+    "unknown_sheets": "reject"
+  },
+  "sheet_contract": {
+    "sora_metadata_rows": "preserve rows 1 through 7 exactly",
+    "data_start_row": 8,
+    "freeze_panes": "A8",
+    "auto_filter": true,
+    "header_style": "goal08-header-v1",
+    "alternating_rows": true,
+    "wrapped_text": true,
+    "deterministic_widths": true,
+    "data_validation": true,
+    "typed_references": true,
+    "canonical_decimal_cells": "text"
+  },
+  "workbooks": [
+    {
+      "file": "GoldAndGears.xlsx",
+      "purpose": "profile, topology, Cognition, custom dice and Knowledge",
+      "normalized_files": [
+        "profiles.json",
+        "areas.json",
+        "difficulty-segments.json",
+        "planes.json",
+        "chessboards.json",
+        "map-columns.json",
+        "map-nodes.json",
+        "map-edges.json",
+        "map-events.json",
+        "block-create-rules.json",
+        "rooms.json",
+        "domains.json",
+        "beacons.json",
+        "boss-choices.json",
+        "cognition-ranges.json",
+        "mode-constants.json",
+        "dice-categories.json",
+        "dice-definitions.json",
+        "dice-path-values.json",
+        "dice-slots.json",
+        "dice-faces.json",
+        "dice-face-tags.json",
+        "knowledge-rules.json"
+      ]
+    },
+    {
+      "file": "GoldAndGearsProgression.xlsx",
+      "purpose": "Secrets, Neural Network, Conundrum, Paths and Resonance systems",
+      "normalized_files": [
+        "secrets.json",
+        "neural-network.json",
+        "conundrum-levels.json",
+        "paths.json",
+        "resonances.json",
+        "path-boosts.json",
+        "resonance-extrapolations.json",
+        "resonance-interplays.json",
+        "bonuses.json"
+      ]
+    },
+    {
+      "file": "GoldAndGearsContent.xlsx",
+      "purpose": "shared pools, mode copies, services, Adventure and encounters",
+      "normalized_files": [
+        "blessings.json",
+        "blessing-levels.json",
+        "curios.json",
+        "curio-states.json",
+        "occurrences.json",
+        "occurrence-variants.json",
+        "occurrence-choices.json",
+        "services.json",
+        "adventure-outcomes.json",
+        "encounter-groups.json",
+        "encounter-waves.json",
+        "enemy-slots.json"
+      ]
+    },
+    {
+      "file": "GoldAndGearsEvidence.xlsx",
+      "purpose": "rules, provenance, coverage, gaps, fixtures and pack identity",
+      "normalized_files": [
+        "mechanic-rules.json",
+        "sources.json",
+        "coverage.json",
+        "research-gaps.json",
+        "review-fixtures.json",
+        "manifest.json",
+        "pack-index.json"
+      ]
+    }
+  ],
+  "table_family_contract": {
+    "one_primary_table_per_normalized_file": true,
+    "child_tables": "allowed only for repeated typed fields; every child row carries parent stable ID and deterministic ordinal",
+    "table_names": "GoldGears plus PascalCase normalized file stem; child tables append semantic role",
+    "sheet_names": "explicit in Sora schema and at most 31 characters",
+    "numeric_keys": "private workbook identities only",
+    "stable_keys": "required for every cross-workbook or inherited reference"
+  },
+  "acceptance": {
+    "schema_check": "sora check --project config/gold-and-gears/project.toml",
+    "schema_build": "sora build --project config/gold-and-gears/project.toml",
+    "export": "sora export --project config/gold-and-gears/project.toml",
+    "reader_load": "every generated table and row",
+    "visual_review": "render and inspect every authored sheet",
+    "semantic_digest": "canonical cell values, types, formulas, validations, sheet order and table identity"
+  }
+}

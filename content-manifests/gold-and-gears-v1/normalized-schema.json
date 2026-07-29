@@ -1,0 +1,574 @@
+{
+  "schema_revision": "starclock.gold-and-gears-normalized-schema.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "profile": "gold-and-gears-v1",
+  "authoritative_surface": "xlsx",
+  "normalized_root": "content-reference/gold-and-gears-v1",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.gold-and-gears-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "ownership": {
+      "enum": [
+        "GoldAndGears",
+        "Shared"
+      ]
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve identifiers and TextMap hashes beyond JavaScript safe integer range"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "access_date",
+        "evidence_quality"
+      ],
+      "optional_fields": [
+        "note",
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require both note and replacement_condition"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed pack index or explicit inherited Goal 03 stable-ID set",
+      "unknown_behavior": "reject"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem or object iteration order",
+    "unicode_normalization": "NFC",
+    "null_policy": "omit optional absent values; never use null as a second absence representation",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "topology_policy": {
+    "edge_evidence_quality": "ProjectPolicy",
+    "algorithm": "forward-nearest-column-within-one-row-v1",
+    "steps": [
+      "Within one chessboard, order distinct PosX columns numerically.",
+      "For each node, consider nodes in the next greater authored PosX column.",
+      "Treat absent PosY as zero and retain candidates whose absolute PosY difference is at most one.",
+      "If no candidate remains, retain every next-column node at the minimum absolute PosY difference.",
+      "Order outgoing targets by numeric PosY, then source node ID; remove duplicate pairs.",
+      "The authored EndGridItemID has no outgoing edge."
+    ],
+    "reason": "released RogueNous chessboard files expose nodes and coordinates but no explicit edge list",
+    "replacement_condition": "replace the policy when a released explicit edge relation or verified engine graph builder becomes available",
+    "empty_block_type_policy": {
+      "value": "Unspecified",
+      "resolution": "ordered block-create rules for the active chessboard and node",
+      "no_legal_candidate": "preserve Unspecified and emit a review gap; never choose another mode's domain"
+    }
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "ProfileOrEntry",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["profiles", "entry_points"],
+      "derived": false,
+      "ordering_keys": ["kind", "id"]
+    },
+    {
+      "file": "areas.json",
+      "record_kind": "AreaOrDifficulty",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["guide_areas", "formal_difficulties"],
+      "derived": false,
+      "ordering_keys": ["area_group", "difficulty", "id"]
+    },
+    {
+      "file": "difficulty-segments.json",
+      "record_kind": "DifficultySegment",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["difficulty_segments"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "planes.json",
+      "record_kind": "Plane",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["planes"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "chessboards.json",
+      "record_kind": "Chessboard",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["chessboards"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "map-columns.json",
+      "record_kind": "MapColumn",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_columns"],
+      "derived": false,
+      "ordering_keys": ["chessboard_id", "position_x", "id"]
+    },
+    {
+      "file": "map-nodes.json",
+      "record_kind": "MapNode",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_nodes"],
+      "derived": false,
+      "ordering_keys": ["chessboard_id", "position_x", "position_y", "id"]
+    },
+    {
+      "file": "map-edges.json",
+      "record_kind": "MapEdge",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["chessboard_id", "source_node_id", "target_node_id"]
+    },
+    {
+      "file": "map-events.json",
+      "record_kind": "MapEvent",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["map_events"],
+      "derived": false,
+      "ordering_keys": ["chessboard_id", "id"]
+    },
+    {
+      "file": "block-create-rules.json",
+      "record_kind": "BlockCreateRule",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["block_create_rules"],
+      "derived": false,
+      "ordering_keys": ["chessboard_id", "id"]
+    },
+    {
+      "file": "rooms.json",
+      "record_kind": "RoomBinding",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["room_bindings"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "domains.json",
+      "record_kind": "Domain",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["domains"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "beacons.json",
+      "record_kind": "Beacon",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["beacons"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "boss-choices.json",
+      "record_kind": "BossChoice",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["boss_choices"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "cognition-ranges.json",
+      "record_kind": "CognitionRange",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["cognition_ranges"],
+      "derived": false,
+      "ordering_keys": ["area_id"]
+    },
+    {
+      "file": "secrets.json",
+      "record_kind": "SecretCondition",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["secret_conditions"],
+      "derived": false,
+      "ordering_keys": ["required_area", "minimum_cognition", "maximum_cognition", "id"]
+    },
+    {
+      "file": "mode-constants.json",
+      "record_kind": "ModeConstant",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["mode_constants"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "dice-categories.json",
+      "record_kind": "DiceCategory",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["dice_categories"],
+      "derived": false,
+      "ordering_keys": ["sort", "id"]
+    },
+    {
+      "file": "dice-definitions.json",
+      "record_kind": "CustomDice",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["dice_definitions"],
+      "derived": false,
+      "ordering_keys": ["category_id", "sort", "id"]
+    },
+    {
+      "file": "dice-path-values.json",
+      "record_kind": "DicePathValue",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["dice_path_values"],
+      "derived": false,
+      "ordering_keys": ["dice_id", "path_id"]
+    },
+    {
+      "file": "dice-slots.json",
+      "record_kind": "DiceSlot",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["dice_slots"],
+      "derived": false,
+      "ordering_keys": ["slot_index", "id"]
+    },
+    {
+      "file": "dice-faces.json",
+      "record_kind": "DiceFace",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["dice_faces"],
+      "derived": false,
+      "ordering_keys": ["rarity", "sort", "id"]
+    },
+    {
+      "file": "dice-face-tags.json",
+      "record_kind": "DiceFaceTag",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["dice_face_tags"],
+      "derived": false,
+      "ordering_keys": ["sort", "id"]
+    },
+    {
+      "file": "knowledge-rules.json",
+      "record_kind": "KnowledgeBinding",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["knowledge_bindings"],
+      "derived": false,
+      "ordering_keys": ["dice_face_id", "id"]
+    },
+    {
+      "file": "neural-network.json",
+      "record_kind": "NeuralNetworkNode",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["neural_network_nodes"],
+      "derived": false,
+      "ordering_keys": ["topological_index", "id"]
+    },
+    {
+      "file": "conundrum-levels.json",
+      "record_kind": "ConundrumLevel",
+      "phase": "P1-B7",
+      "manifest_category_inputs": ["conundrum_levels"],
+      "derived": false,
+      "ordering_keys": ["kind", "sort", "id"]
+    },
+    {
+      "file": "paths.json",
+      "record_kind": "Path",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["paths"],
+      "derived": false,
+      "ordering_keys": ["sort", "id"]
+    },
+    {
+      "file": "resonances.json",
+      "record_kind": "Resonance",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["resonances"],
+      "derived": false,
+      "ordering_keys": ["path_id", "kind", "id"]
+    },
+    {
+      "file": "path-boosts.json",
+      "record_kind": "PathBoost",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["path_boosts"],
+      "derived": false,
+      "ordering_keys": ["path_id", "id"]
+    },
+    {
+      "file": "resonance-extrapolations.json",
+      "record_kind": "ResonanceExtrapolation",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["resonance_extrapolations"],
+      "derived": false,
+      "ordering_keys": ["path_id", "enhanced", "id"]
+    },
+    {
+      "file": "resonance-interplays.json",
+      "record_kind": "ResonanceInterplay",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["resonance_interplays"],
+      "derived": false,
+      "ordering_keys": ["main_path_id", "sub_path_id", "id"]
+    },
+    {
+      "file": "bonuses.json",
+      "record_kind": "TrailblazeBonus",
+      "phase": "P1-B8",
+      "manifest_category_inputs": ["trailblaze_bonuses"],
+      "derived": false,
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "blessings.json",
+      "record_kind": "Blessing",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["blessings"],
+      "derived": false,
+      "ordering_keys": ["path_id", "rarity", "id"]
+    },
+    {
+      "file": "blessing-levels.json",
+      "record_kind": "BlessingLevel",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["blessing_levels"],
+      "derived": false,
+      "ordering_keys": ["blessing_id", "level"]
+    },
+    {
+      "file": "curios.json",
+      "record_kind": "Curio",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["curios"],
+      "derived": false,
+      "ordering_keys": ["ownership", "order", "id"]
+    },
+    {
+      "file": "curio-states.json",
+      "record_kind": "CurioState",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["curio_states"],
+      "derived": false,
+      "ordering_keys": ["curio_id", "state_index", "id"]
+    },
+    {
+      "file": "occurrences.json",
+      "record_kind": "Occurrence",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["occurrences"],
+      "derived": false,
+      "ordering_keys": ["ownership", "order", "id"]
+    },
+    {
+      "file": "occurrence-variants.json",
+      "record_kind": "OccurrenceVariant",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["occurrence_variants"],
+      "derived": false,
+      "ordering_keys": ["occurrence_id", "id"]
+    },
+    {
+      "file": "occurrence-choices.json",
+      "record_kind": "OccurrenceChoice",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["variant_id", "node_index", "choice_index", "id"]
+    },
+    {
+      "file": "services.json",
+      "record_kind": "Service",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["shared_services"],
+      "derived": false,
+      "ordering_keys": ["kind", "id"]
+    },
+    {
+      "file": "adventure-outcomes.json",
+      "record_kind": "AdventureOutcome",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["adventure_outcomes"],
+      "derived": false,
+      "ordering_keys": ["adventure_type", "id"]
+    },
+    {
+      "file": "encounter-groups.json",
+      "record_kind": "EncounterGroup",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["parent_room_id", "id"]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "EncounterWave",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["encounter_group_id", "wave_index", "id"]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "EnemySlot",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["boss_choices"],
+      "derived": true,
+      "ordering_keys": ["encounter_wave_id", "slot_index", "id"]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "MechanicRule",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["family_id", "owner_id", "id"]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "Source",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["source_id", "locator"]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "CoverageReport",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["category_id"]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "ResearchGap",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["blocking", "id"]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "ReviewFixture",
+      "phase": "P2-B6",
+      "manifest_category_inputs": ["semantic_fixture_families"],
+      "derived": true,
+      "ordering_keys": ["family_id", "id"]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "PackManifest",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["category_id"]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "PackIndex",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["file"]
+    }
+  ]
+}

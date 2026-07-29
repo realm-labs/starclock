@@ -44,3 +44,14 @@ Goal 03 sparse cache. On POSIX systems, prepare the complete pinned cache with:
 ```text
 tools/gold-and-gears-reference/fetch-sources.sh
 ```
+
+The Phase 0 normalized, Excel/Sora and semantic-fixture contracts are checked
+together with:
+
+```text
+node tools/gold-and-gears-reference/verify-contracts.mjs
+```
+
+They freeze 51 normalized file families across four isolated workbooks. JSON
+is staging/debug output only; Excel remains the sole authoring surface and
+Sora 0.3.0 remains the schema/export authority.
