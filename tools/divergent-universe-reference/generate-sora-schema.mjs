@@ -27,6 +27,11 @@ const groups = [
     first: "profiles.json",
     last: "arithmetic-mapping-rules.json",
   },
+  {
+    file: "systems.toml",
+    first: "equations.json",
+    last: "titan-contributions.json",
+  },
 ];
 const fileOrder = normalized.files.map(({ file }) => file);
 const workbookByFile = new Map(authoring.workbooks.flatMap((workbook) =>
@@ -53,7 +58,7 @@ fs.mkdirSync(path.dirname(projectPath), { recursive: true });
 fs.writeFileSync(projectPath, renderProject(groups.map(({ file }) => file)));
 
 console.log(
-  `Generated Divergent Universe P3-B1 Sora schema ` +
+  `Generated Divergent Universe P3-B2 Sora schema ` +
   `(${activeContracts.length} isolated tables).`,
 );
 
@@ -186,6 +191,55 @@ function referenceFields(file) {
     ]],
     ["cyclical-challenges.json", [
       ["area_id", "DivergentUniverseAreas", false],
+    ]],
+    ["equations.json", [
+      ["recipe_id", "DivergentUniverseEquationRecipes", false],
+      ["effect_ids", "DivergentUniverseEquationEffects", true],
+    ]],
+    ["equation-recipes.json", [
+      ["equation_id", "DivergentUniverseEquations", false],
+    ]],
+    ["equation-progress.json", [
+      ["equation_id", "DivergentUniverseEquations", false],
+      ["recipe_id", "DivergentUniverseEquationRecipes", false],
+    ]],
+    ["equation-expansion-states.json", [
+      ["equation_id", "DivergentUniverseEquations", false],
+    ]],
+    ["blessing-levels.json", [
+      ["blessing_id", "DivergentUniverseBlessings", false],
+    ]],
+    ["blessing-rewrite-rules.json", [
+      ["input_blessing_id", "DivergentUniverseBlessings", false],
+      ["output_blessing_id", "DivergentUniverseBlessings", false],
+    ]],
+    ["blessing-equation-contributions.json", [
+      ["blessing_id", "DivergentUniverseBlessings", false],
+      ["equation_ids", "DivergentUniverseEquations", true],
+    ]],
+    ["curio-states.json", [
+      ["curio_id", "DivergentUniverseCurios", false],
+    ]],
+    ["curio-lifecycle-rules.json", [
+      ["curio_id", "DivergentUniverseCurios", false],
+    ]],
+    ["grand-miracle-eligibility.json", [
+      ["grand_miracle_id", "DivergentUniverseGrandMiracles", false],
+    ]],
+    ["grand-miracle-states.json", [
+      ["grand_miracle_id", "DivergentUniverseGrandMiracles", false],
+    ]],
+    ["titan-boons.json", [
+      ["titan_type", "DivergentUniverseTitanTypes", false],
+      ["contribution_id", "DivergentUniverseTitanContributions", false],
+    ]],
+    ["titan-talents.json", [
+      ["titan_type", "DivergentUniverseTitanTypes", false],
+      ["contribution_id", "DivergentUniverseTitanContributions", false],
+    ]],
+    ["titan-choices.json", [
+      ["titan_type", "DivergentUniverseTitanTypes", false],
+      ["candidate_ids", "DivergentUniverseTitanBoons", true],
     ]],
   ]);
   return new Map((relations.get(file) ?? []).map(([name, table, many]) => [
