@@ -50,8 +50,10 @@ function unwrap(value) {
 }
 
 const coverage = await readPack("coverage.json");
+const schema = await readPack("schema.json");
 const fixtures = await readPack("review-fixtures.json");
 const rules = await readPack("mechanic-rules.json");
+const qualityRank = new Map(schema.enums.quality.map((quality, index) => [quality, index]));
 const records = new Map();
 for (const category of coverage.categories)
   for (const row of await readPack(category.file)) records.set(row.id, row);
@@ -67,8 +69,15 @@ for (const fixture of fixtures) {
     assert(records.has(id), `${fixture.id}: missing input ${id}`);
     return records.get(id);
   });
-  for (const input of inputs)
-    assert(input.mechanism_quality === fixture.quality_floor, `${fixture.id}: ${input.id} quality does not meet fixture floor`);
+  assert(qualityRank.has(fixture.quality_floor),
+    `${fixture.id}: unknown fixture quality floor`);
+  for (const input of inputs) {
+    assert(qualityRank.has(input.mechanism_quality),
+      `${fixture.id}: ${input.id} has unknown mechanism quality`);
+    assert(qualityRank.get(input.mechanism_quality)
+      <= qualityRank.get(fixture.quality_floor),
+    `${fixture.id}: ${input.id} quality does not meet fixture floor`);
+  }
   for (const fact of fixture.expected_facts) {
     assert(["contains", "equals"].includes(fact.operator), `${fixture.id}: unsupported operator`);
     assert(inputs.some((input) => evaluate(input, fact)), `${fixture.id}: expected ${fact.path} ${fact.operator} ${fact.value}`);

@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 7 — Audit and release |
-| Active batch | `G07-P7-B2` |
-| Next unblocked batch | `G07-P7-B2` |
+| Active batch | `G07-P7-B3` |
+| Next unblocked batch | `G07-P7-B3` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -386,6 +386,16 @@ locked-build compilation. All 427 native candidates close without an admitted
 handler. Of 73 Phase 0 numeric candidates, 24 upgrade to `ExactPublic` and 49
 close as named, evidenced `ApprovedNumericApproximation`; all 86 enemy variants
 are mechanism-correct and no mechanic approximation remains. `G07-P7-B2` is
+complete. The final native release gate executes unchanged on Windows x64,
+Linux x64 and macOS ARM64 successful CI jobs; Windows ARM64, Linux ARM64 and
+macOS x64 remain explicitly compile-only with zero runtime claim. The current
+Windows x64 runner completed the 33-run/154-battle matrix, 256-case fixed-seed
+replay properties, 512-case Agent schema properties, 16 live-session-inert
+replay mutations, all eight ordered divergence boundaries and native Agent/MCP
+surface checks in 256.3 seconds. The full repository gate passes after
+separating immutable Goal 01/06 evidence from current production regeneration;
+historical bytes are checked from registered completion snapshots while current
+Excel/Sora artifacts retain their own regeneration gates. `G07-P7-B3` is
 active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
@@ -435,7 +445,7 @@ verification commands are recorded in
 | `G07-P6-B3` | `Complete` | `node tools/goal07/verify-hardening.mjs`; AI, Activity, Combat resource, Universe long-run and Agent hardening tests; P6-B1 seeded matrix; quick repository gate | Proved exact-offer enemy AI and authored-hint baseline AI legality, all six frozen Battle scenarios and all 33 complete Universe runs/154 battles. Verified 16 isolated shared-factory sessions, 16 exactly-once idempotency races, 4,096 inert invalid Activity commands, 16 inert Agent replay mutations and 257-draw pairwise isolation for all eight Activity RNG streams. Added 100-cycle Cosmic Fragment and Curio charge probes with 200 accepted resource mutations, 300 charge consumptions and 200 inert overdraw/stale-command rejections. |
 | `G07-P6-B4` | `Complete` | `node tools/goal07/verify-performance.mjs`; Goal 06 stable-runner benchmark on current complete content; integrated/hardening/quick acceptance samples | Reused the exact Win10/i7-10700F/Rust 1.97 stable runner and unchanged Goal 06 workload. Warm assembly completes 10,000 hits in 14.62 ms with zero allocations; cold all-entry assembly retains one catalog composition, 33 misses and 26 evictions under the reviewed 90 s/30 GB cumulative/640 MiB peak ceilings. Eviction and 16-session rows retain exact cache/catalog shapes. Four material regression groups caused by 786-rule/86-enemy/real-build scope expansion are explicit; the out-of-contract Goal 04 64-session timeout is not promoted to evidence. |
 | `G07-P7-B1` | `Complete` | `node tools/goal07/verify-release-audits.mjs`; production Excel/Sora double regeneration; dependency/license, native-handler and source-policy audits | Proved exact-once 104-receipt coverage; 2,201 bilingual DataReady rows and 2,645 licensed provenance rows; zero workbook/Sora drift; 136 unchanged registry identities plus one reviewed internal build-compiler edge; 427 terminal native reviews with zero admissions; and 73/73 terminal numeric candidates with zero mechanic approximations. |
-| `G07-P7-B2` | `Pending` | — | Complete native/full clean verification. |
+| `G07-P7-B2` | `Complete` | `node tools/goal07/run-native-release.mjs . --record`; replay/Agent property and malformed corpora; 33-run complete-content matrix; `node tools/repository-check/run.mjs --full` | Added the Goal 07 gate to all three native CI hosts and retained three alternate targets as compile-only. Windows x64 passed in 256.3 seconds with 33 fresh replay verifications, 154 battles, 1,048 command/state pairs, 256-case replay properties, 512-case schema properties, 16 inert replay mutations and all eight divergence boundaries. The full workspace gate passes against current artifacts plus immutable historical snapshots. |
 | `G07-P7-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
 
 ## Content milestone ledger

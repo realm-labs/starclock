@@ -1,0 +1,82 @@
+{
+  "schema_revision": "starclock.goal07-native-release.v1",
+  "goal_id": "standard-universe-mechanics-complete-v1",
+  "batch": "G07-P7-B2",
+  "wall_budget_seconds": 600,
+  "native_gate": "node tools/goal07/run-native-release.mjs . --run",
+  "commands": [
+    {
+      "id": "complete-content-native-matrix",
+      "program": "node",
+      "args": ["tools/goal07/verify-integrated-scenarios.mjs"]
+    },
+    {
+      "id": "replay-property-and-malformed-corpora",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-replay", "--test", "property_contract", "--test", "battle_property_contract", "--test", "activity_replay", "--test", "nested_identity_v3", "--test", "component_identity", "--all-features"]
+    },
+    {
+      "id": "agent-property-corruption-and-rollback",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-agent-api", "--test", "schema_property_contract", "--test", "hardening_corpus", "--test", "activity_session_loop", "--all-features"]
+    },
+    {
+      "id": "mcp-native-surface-parity",
+      "program": "cargo",
+      "args": ["test", "-p", "starclock-mcp", "--test", "universe_surface_parity", "--test", "http_conformance", "--all-features"]
+    }
+  ],
+  "matrix": {
+    "evidence": "evidence/standard-universe-mechanics-complete-v1/integration/seeded-matrix.json",
+    "worlds": 9,
+    "difficulties": 33,
+    "runs": 33,
+    "nested_battles": 154,
+    "battle_commands": 1048,
+    "battle_state_records": 1048,
+    "external_actions": 1749,
+    "replay_actions": 1903,
+    "encoded_bytes": 1763830,
+    "final_state_digest": "a3751ba876d6733a8e1cef7f4f6c83812edd42394e1570467fc60ec043b864ef",
+    "replay_digest": "75f0a8bc2494a662331121ef21bc0ceee4bf606e4d6257c3d08965deca5278af"
+  },
+  "corpora": {
+    "replay_property_cases_per_property": 256,
+    "agent_schema_property_cases": 512,
+    "agent_replay_mutations": 16,
+    "ordered_first_divergence_kinds": 8,
+    "complete_matrix_replay_verifications": 33,
+    "malformed_replays_may_mutate_live_state": 0
+  },
+  "native_profiles": [
+    "windows-x64-native",
+    "linux-x64-native",
+    "macos-arm64-native"
+  ],
+  "compile_only_profiles": [
+    "windows-arm64-compile",
+    "linux-arm64-compile",
+    "macos-x64-compile"
+  ],
+  "source_targets": [
+    "crates/starclock-replay/tests/property_contract.rs",
+    "crates/starclock-replay/tests/battle_property_contract.rs",
+    "crates/starclock-replay/tests/activity_replay.rs",
+    "crates/starclock-agent-api/tests/schema_property_contract.rs",
+    "crates/starclock-agent-api/tests/hardening_corpus.rs",
+    "crates/starclock-agent-api/tests/activity_session_loop.rs",
+    "crates/starclock-mode-universe/tests/dynamic_battle_assembly.rs",
+    "crates/starclock-agent-api/examples/g05_real_universe_seed_matrix.rs",
+    "crates/starclock-mcp/tests/universe_surface_parity.rs"
+  ],
+  "contracts": {
+    "native_profiles_execute_the_same_goal07_gate": true,
+    "compile_only_profiles_make_zero_runtime_claims": true,
+    "all_constructible_difficulties_execute_real_combat": true,
+    "every_matrix_replay_verifies_from_fresh_state": true,
+    "property_seeds_and_case_counts_are_fixed": true,
+    "malformed_replays_fail_without_live_mutation": true,
+    "ordered_replay_divergence_is_preserved": true,
+    "windows_local_execution_is_not_promoted_to_other_hosts": true
+  }
+}

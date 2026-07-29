@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 
 const root = path.resolve(process.cwd());
 const evidenceRoot = path.join(root, "evidence", "core-combat-v1", "research-register");
@@ -13,6 +14,14 @@ const register = read("research-cases.json");
 const fixtures = read("fixture-specifications.json");
 const decisions = read("decision-records.json");
 const sources = read("source-register.json");
+const snapshots = JSON.parse(fs.readFileSync(
+  path.join(root, "policy", "release-snapshots.json"),
+  "utf8",
+));
+const completionCommit = snapshots.goals.find(({ goal_id }) =>
+  goal_id === "core-combat-v1")?.completion_commit;
+assert(/^[0-9a-f]{40}$/u.test(completionCommit ?? ""),
+  "core-combat-v1 completion snapshot is missing");
 const cases = register.cases;
 assert(cases.length === 37 && register.case_count === 37, `expected 37 cases, got ${cases.length}`);
 assert(new Set(cases.map((entry) => entry.id)).size === cases.length, "duplicate research case ID");
@@ -31,8 +40,9 @@ const observed = cases.filter((entry) => entry.state === "Observed");
 assert(observed.length === 6 && observed.every((entry) => ["G01-P4-B2", "G01-P4-B3", "G01-P4-B4"].includes(entry.owner_batch) && /^[0-9a-f]{64}$/.test(entry.observation.source_payload_sha256) && /^[0-9a-f]{64}$/.test(entry.observation.executable_bundle_sha256) && entry.observation.evidence_paths.length >= 2 && entry.observation.validation_commands.length === entry.observation.evidence_paths.length), "observed V1a cases lack executable evidence");
 assert(observed.every((entry) => {
   const golden = entry.observation.evidence_paths.find((relative) => relative.startsWith("config/probes/") && relative.endsWith("/golden.json"));
-  return golden && sha(path.join(root, path.dirname(golden), "config.sora")) === entry.observation.executable_bundle_sha256;
-}), "observed executable bundle hash differs from committed probe evidence");
+  const bundle = golden && path.join(path.dirname(golden), "config.sora").replaceAll("\\", "/");
+  return bundle && hashText(gitBytes(`${completionCommit}:${bundle}`)) === entry.observation.executable_bundle_sha256;
+}), "observed executable bundle hash differs from the immutable Goal 01 completion snapshot");
 assert(fixtures.fixtures.filter((fixture) => fixture.state === "GoldenVerified").length === 6, "golden fixture state differs");
 const resolved = cases.filter((entry) => entry.state === "ResolvedProjectPolicy");
 assert(resolved.length === 31, `expected 31 policy resolutions, got ${resolved.length}`);
@@ -64,4 +74,11 @@ console.log(`Goal research register verified (${index.evidence_sha256}; 37 named
 function read(name) { return JSON.parse(fs.readFileSync(path.join(evidenceRoot, name), "utf8")); }
 function sha(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
 function hashText(value) { return crypto.createHash("sha256").update(value, "utf8").digest("hex"); }
+function gitBytes(object) {
+  return execFileSync("git", ["cat-file", "blob", object], {
+    cwd: root,
+    encoding: "buffer",
+    maxBuffer: 64 * 1024 * 1024,
+  });
+}
 function assert(condition, message) { if (!condition) throw new Error(message); }
