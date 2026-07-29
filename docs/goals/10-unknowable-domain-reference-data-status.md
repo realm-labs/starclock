@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `unknowable-domain-reference-v1` |
-| State | `Ready` |
-| Active phase | None |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G10-P0-B1` |
+| Next unblocked batch | `G10-P0-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -26,7 +26,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Awaiting cache reproduction, focused source/config/TextMap/Stage/ability inventory, frozen denominator and normalized/authoring contracts. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 32-row `RogueMagic` seed, Goal 08/09 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; focused inventory generation remains. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Alignments, Scepters, Components, Decision Components, synthesis/upgrades, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -36,7 +36,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G10-P0-B1` | `Pending` | — | Reproduce pinned caches, verify Goal 03, freeze scope/exclusions, inspect Goal 08/09 ownership and prove parallel isolation. |
+| `G10-P0-B1` | `Complete` | This row's containing commit | Froze foundation `270d016b…9407`, Goal 03 commit/tree and bundle digests, the Version 4.4 revisions, 32 inherited `RogueMagic` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. The Goal 08 local-only checkpoint is `2f7b3ccf…fc5d` (7,913 obligations: 7,199 Gold-owned and 714 shared); the required remote-backed Goal 09 checkpoint is `1f9019a2…5ae2` (2,882 source records). `pwsh -File tools/content-reference/fetch-sources.ps1 -CacheRoot .cache/content-reference` could not run because `pwsh` is absent; the isolated POSIX fetcher reproduced clean detached caches repeatedly and the focused verifier, `git diff --check` and quick repository gate pass. `node tools/repository-check/run.mjs --full --with-source-cache` reaches the immutable Goal 06 contract before repeating its known `Cargo.lock baseline differs` failure. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B2 starts. |
 | `G10-P0-B2` | `Pending` | — | Generate the focused `RogueMagic`, shared Rogue, configuration, TextMap, StageConfig, enemy/wave and ability inventory. |
 | `G10-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership, shared reachability and named-mode exclusions. |
 | `G10-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
@@ -110,6 +110,8 @@ ranges.
 | 2026-07-29 | Exclude story/presentation and account/score rewards while retaining mechanical locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal. |
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
+| 2026-07-29 | Treat the Goal 08 local commit as an optional informational checkpoint and the Goal 09 remote commit as a required ancestor checkpoint. | Goal 08 has no configured remote ref yet, while Goal 09 continues to advance in parallel; neither condition should fabricate membership or block an independently reproducible Goal 10 foundation. |
+| 2026-07-29 | Add an isolated POSIX source fetcher and keep repository-pinned Sora 0.3.0 authoritative. | This host lacks `pwsh`, and its global `sora` is 0.2.0; neither host limitation changes the frozen sources or Phase 3 tool contract. |
 
 ## Research cases
 
