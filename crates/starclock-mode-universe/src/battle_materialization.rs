@@ -6,6 +6,7 @@ pub mod catalog_composition;
 mod materialization_digest;
 mod occurrence;
 mod player;
+mod runtime_roster;
 
 use std::{collections::BTreeMap, sync::Arc};
 
@@ -119,6 +120,8 @@ pub struct UniverseBattleRosterEntry {
     combatant: ResolvedCombatantSpec,
     build_digest: starclock_activity::BuildDigest,
     build_spec: Option<starclock_build::spec::CombatantBuildSpec>,
+    compiled_combatant_digest: Option<starclock_combat::CombatantSpecDigest>,
+    preserve_runtime_base_stats: bool,
 }
 
 impl UniverseBattleRosterEntry {
@@ -142,6 +145,14 @@ impl UniverseBattleRosterEntry {
     pub const fn build_spec(&self) -> Option<&starclock_build::spec::CombatantBuildSpec> {
         self.build_spec.as_ref()
     }
+    #[must_use]
+    pub const fn compiled_combatant_digest(&self) -> Option<starclock_combat::CombatantSpecDigest> {
+        self.compiled_combatant_digest
+    }
+    #[must_use]
+    pub const fn preserve_runtime_base_stats(&self) -> bool {
+        self.preserve_runtime_base_stats
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -150,6 +161,14 @@ pub struct UniverseBattleRoster {
     entries: Box<[UniverseBattleRosterEntry]>,
 }
 
+type UniverseBattleRosterInput = (
+    ParticipantId,
+    ResolvedCombatantSpec,
+    Option<starclock_build::spec::CombatantBuildSpec>,
+    Option<starclock_combat::CombatantSpecDigest>,
+    bool,
+);
+
 impl UniverseBattleRoster {
     pub fn new(
         lock: &ParticipantLock,
@@ -157,7 +176,7 @@ impl UniverseBattleRoster {
     ) -> Result<Self, UniverseBattleMaterializationError> {
         let combatants = combatants
             .into_iter()
-            .map(|(participant, combatant)| (participant, combatant, None))
+            .map(|(participant, combatant)| (participant, combatant, None, None, false))
             .collect();
         Self::new_inner(lock, combatants)
     }
@@ -174,31 +193,33 @@ impl UniverseBattleRoster {
     ) -> Result<Self, UniverseBattleMaterializationError> {
         let combatants = combatants
             .into_iter()
-            .map(|(participant, build, combatant)| (participant, combatant, Some(build)))
+            .map(|(participant, build, combatant)| {
+                let compiled = combatant.digest();
+                (participant, combatant, Some(build), Some(compiled), false)
+            })
             .collect();
         Self::new_inner(lock, combatants)
     }
 
     fn new_inner(
         lock: &ParticipantLock,
-        combatants: Vec<(
-            ParticipantId,
-            ResolvedCombatantSpec,
-            Option<starclock_build::spec::CombatantBuildSpec>,
-        )>,
+        combatants: Vec<UniverseBattleRosterInput>,
     ) -> Result<Self, UniverseBattleMaterializationError> {
         if combatants.len() != lock.entries().len() {
             return Err(UniverseBattleMaterializationError::RosterMismatch);
         }
         let mut entries = Vec::with_capacity(combatants.len());
         for locked in lock.entries() {
-            let (_, combatant, build_spec) = combatants
-                .iter()
-                .find(|(participant, _, _)| *participant == locked.participant())
-                .ok_or(UniverseBattleMaterializationError::RosterMismatch)?;
+            let (_, combatant, build_spec, compiled_combatant_digest, preserve_runtime_base_stats) =
+                combatants
+                    .iter()
+                    .find(|(participant, _, _, _, _)| *participant == locked.participant())
+                    .ok_or(UniverseBattleMaterializationError::RosterMismatch)?;
             if locked.team_index() != 0
                 || locked.character() != combatant.form()
                 || locked.build().resolved_spec_digest() != combatant.digest()
+                || build_spec.is_some() != compiled_combatant_digest.is_some()
+                || (*preserve_runtime_base_stats && build_spec.is_none())
                 || build_spec
                     .as_ref()
                     .is_some_and(|build| build.form() != combatant.form())
@@ -212,6 +233,8 @@ impl UniverseBattleRoster {
                 combatant: combatant.clone(),
                 build_digest: locked.build().build_digest(),
                 build_spec: build_spec.clone(),
+                compiled_combatant_digest: *compiled_combatant_digest,
+                preserve_runtime_base_stats: *preserve_runtime_base_stats,
             });
         }
         entries.sort_by_key(|entry| entry.formation);

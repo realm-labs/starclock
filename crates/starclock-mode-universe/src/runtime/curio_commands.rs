@@ -1127,7 +1127,7 @@ mod tests {
     }
 
     fn activity() -> (StandardUniverseActivity, Arc<UniverseCatalog>) {
-        activity_with_seed(9_700_090)
+        activity_with_seed(200_000)
     }
 
     fn activity_with_seed(seed: u64) -> (StandardUniverseActivity, Arc<UniverseCatalog>) {

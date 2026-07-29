@@ -4,7 +4,7 @@ use starclock_combat::{
     catalog::selector::{RuleSelectorChoice, RuleSelectorPredicate},
     formula::model::DamageClass,
     modifier::model::{FormulaPurpose, FormulaStage},
-    rule::model::{ProgramStep, RuleEventPoint, RuleOperationTemplate},
+    rule::model::{ProgramStep, RuleDamageClass, RuleEventPoint, RuleOperationTemplate},
 };
 
 const METABOLIC: (&str, u32) = ("universe.blessing.612742", 2);
@@ -131,6 +131,13 @@ fn exposed_brain_matter_uses_adjacent_selection_and_unboosted_event_element_dama
     let rule = combat
         .rule(binding(&contributions, "StageAbility_612744").rule())
         .unwrap();
+    let trigger = rule
+        .runtime()
+        .unwrap()
+        .triggers()
+        .first()
+        .expect("Exposed Brain Matter trigger");
+    assert_eq!(trigger.filter.damage_class, Some(RuleDamageClass::Ordinary));
     let selector = rule
         .selectors()
         .iter()

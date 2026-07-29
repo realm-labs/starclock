@@ -2,7 +2,7 @@ use std::{num::NonZeroUsize, sync::Arc};
 
 use starclock_activity::{
     ActivityDecisionKind, ActivityExternalOutcomeId, ActivityPreparationBoundary, BattleOutcome,
-    BattleResult, EventDigest, ParticipantBattleState, ParticipantId, ProjectedValue,
+    BattleResult, EventDigest, ParticipantBattleState, ProjectedValue,
 };
 use starclock_combat::{Battle, BattleStateHash, Energy, Hp, LifeState, PresenceState, TeamSide};
 use starclock_mode_universe::{
@@ -276,11 +276,19 @@ fn settled_carry_is_reassembled_into_the_next_real_battle() {
     drive_to_pending(&mut activity);
     let first = assembler.start_pending_battle(&mut activity).unwrap();
     let first_input = first.handoff().identity().combat_input_digest();
+    let expected_carry = first
+        .handoff()
+        .participant_carry()
+        .iter()
+        .map(|carry| {
+            (
+                Hp::new(carry.maximum_hp().get() * 7 / 10).unwrap(),
+                Energy::from_scaled(carry.maximum_energy().scaled() / 2).unwrap(),
+            )
+        })
+        .collect::<Vec<_>>();
     activity
-        .submit_pending_battle_result(
-            activity.view().state_hash(),
-            damaged_win(first.handoff().identity()),
-        )
+        .submit_pending_battle_result(activity.view().state_hash(), damaged_win(first.handoff()))
         .unwrap();
     assert_eq!(activity.view().participant_carry().len(), 4);
 
@@ -307,14 +315,8 @@ fn settled_carry_is_reassembled_into_the_next_real_battle() {
         let initial = participant
             .initial_state()
             .expect("the second battle embeds exact Activity carry");
-        assert_eq!(
-            initial.current_hp(),
-            Hp::new(70_000 + i64::try_from(index).unwrap()).unwrap()
-        );
-        assert_eq!(
-            initial.current_energy(),
-            Energy::from_scaled(40_000_000 + i64::try_from(index).unwrap()).unwrap()
-        );
+        assert_eq!(initial.current_hp(), expected_carry[index].0);
+        assert_eq!(initial.current_energy(), expected_carry[index].1);
     }
     Battle::create(
         Arc::clone(second.combat_catalog()),
@@ -324,28 +326,28 @@ fn settled_carry_is_reassembled_into_the_next_real_battle() {
     .expect("the carry-adjusted second battle is executable");
 }
 
-fn damaged_win(identity: starclock_activity::BattleResultIdentity) -> BattleResult {
+fn damaged_win(handoff: &starclock_activity::ActivityBattleHandoff) -> BattleResult {
     let mut values = vec![
         ProjectedValue::Outcome(BattleOutcome::Won),
         ProjectedValue::FinalStateHash(BattleStateHash::from_bytes([0x73; 32])),
         ProjectedValue::EventDigest(EventDigest::new([0x74; 32]).unwrap()),
         ProjectedValue::TerminalFault(None),
     ];
-    values.extend((0_u32..4).map(|index| {
+    values.extend(handoff.participant_carry().iter().map(|carry| {
         ProjectedValue::ParticipantState(
             ParticipantBattleState::new(
-                ParticipantId::new(index + 1).unwrap(),
-                Hp::new(70_000 + i64::from(index)).unwrap(),
-                Hp::new(100_000).unwrap(),
-                Energy::from_scaled(40_000_000 + i64::from(index)).unwrap(),
-                Energy::from_scaled(100_000_000).unwrap(),
+                carry.participant(),
+                Hp::new(carry.maximum_hp().get() * 7 / 10).unwrap(),
+                carry.maximum_hp(),
+                Energy::from_scaled(carry.maximum_energy().scaled() / 2).unwrap(),
+                carry.maximum_energy(),
                 LifeState::Alive,
                 PresenceState::Present,
             )
             .unwrap(),
         )
     }));
-    BattleResult::seal(identity, values)
+    BattleResult::seal(handoff.identity(), values)
 }
 
 #[test]

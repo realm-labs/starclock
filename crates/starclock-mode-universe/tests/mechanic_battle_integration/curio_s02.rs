@@ -1,7 +1,7 @@
 use super::*;
 use starclock_combat::{
     EffectDefinitionId, ModifierDefinitionId, ParticipantInitialState,
-    modifier::model::{FormulaStage, StatKind},
+    modifier::model::{FormulaStage, StatKind, StatQuerySubject},
     rule::model::{ProgramStep, RuleEventPoint, RuleOperationTemplate, RuleValue, ValueExpr},
 };
 
@@ -156,8 +156,19 @@ fn thalan_toxi_flame_uses_highest_attack_marker_hp_cost_and_five_stack_speed() {
     assert!(program.steps().iter().any(|step| {
         matches!(
             step,
-            ProgramStep::Operation(RuleOperationTemplate::ConsumeHp { floor, .. })
-                if literal_scalar(floor) == 1_000_000
+            ProgramStep::Operation(RuleOperationTemplate::ConsumeHp {
+                amount: ValueExpr::Multiply { lhs, .. },
+                floor,
+                ..
+            })
+                if matches!(
+                    lhs.as_ref(),
+                    ValueExpr::QueryStat {
+                        subject: StatQuerySubject::Actor,
+                        stat: StatKind::Hp,
+                        ..
+                    }
+                ) && literal_scalar(floor) == 1_000_000
         )
     }));
     assert!(program.steps().iter().any(|step| {

@@ -7,10 +7,14 @@ use starclock_activity::{
     ParticipantId, ParticipantLock, ParticipantLockEntry, ParticipantPolicy, ParticipantSourceKind,
     ParticipantUniquenessScope,
 };
+use starclock_build::{
+    ability::AbilityInvestment,
+    compiler::LoadoutCompiler,
+    spec::{CombatantBuildSpec, EidolonLevel, PromotionStage},
+};
 use starclock_combat::{
-    CombatantSpecDigest, Energy, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed,
-    StatValue, UnitDefinitionId, UnitLevel,
-    catalog::{CombatCatalog, action::AbilityKind},
+    CombatantSpecDigest, Hp, ResolvedCombatantSpec, ResolvedDefinitionBindings, Speed, StatValue,
+    UnitDefinitionId, UnitLevel, catalog::CombatCatalog,
 };
 use starclock_replay::{component::ConfigurationComponentSet, format_v2::ReplayCompatibilityV2};
 
@@ -39,7 +43,7 @@ use crate::{
 
 pub const STANDARD_UNIVERSE_PROFILE_PREFIX: &str = "standard-universe-v1/world-";
 pub const STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION: &str =
-    "standard-universe-default-resolved-build-v1";
+    "standard-universe-default-compiled-build-v2";
 
 /// Immutable bundles and catalog composition shared by CLI and
 /// protocol-neutral agent sessions.
@@ -266,30 +270,35 @@ fn default_roster(
         LoadoutLockScope::Activity,
     )
     .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?;
+    let core = catalog.simulation_catalog();
     let mut lock_entries = Vec::new();
-    let mut combatants = Vec::new();
+    let mut builds = Vec::new();
     for index in 0_u8..4 {
         let form = UnitDefinitionId::new(u32::from(index) + 1)
             .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?;
-        let unit = catalog
-            .simulation_catalog()
-            .combat_catalog()
-            .unit(form)
+        let character = core
+            .build_catalog()
+            .character(form)
             .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?;
-        let basic = unit
-            .abilities()
+        let investments = character
+            .ability_levels()
             .iter()
-            .copied()
-            .find(|ability| {
-                catalog
-                    .simulation_catalog()
-                    .combat_catalog()
-                    .ability(*ability)
-                    .and_then(|definition| definition.action())
-                    .is_some_and(|action| action.kind() == AbilityKind::Basic)
-            })
-            .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?;
-        let combatant = default_combatant(form, basic, index)?;
+            .map(|table| AbilityInvestment::new(table.family(), table.invested_cap()))
+            .collect::<Vec<_>>();
+        let build = CombatantBuildSpec::new(
+            form,
+            UnitLevel::new(80).ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
+            PromotionStage::new(6).ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
+        )
+        .with_ability_levels(investments)
+        .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?
+        .with_eidolon(
+            EidolonLevel::new(0).ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
+        );
+        let compiled = LoadoutCompiler
+            .compile(core.build_catalog(), core.combat_catalog(), &build)
+            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+        let runtime = default_runtime_combatant(compiled.combatant(), index)?;
         let participant = ParticipantId::new(u32::from(index) + 1)
             .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?;
         lock_entries.push(
@@ -299,38 +308,41 @@ fn default_roster(
                 index,
                 form,
                 OpaqueParticipantBuild::new(
-                    combatant.digest(),
-                    BuildDigest::new([index + 17; 32])
+                    runtime.digest(),
+                    BuildDigest::new(compiled.build_digest().bytes())
                         .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
                     STANDARD_UNIVERSE_DEFAULT_BUILD_REVISION,
-                    ParticipantSourceKind::FixedResolved,
+                    ParticipantSourceKind::CompiledBuild,
                 )
                 .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
             )
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
         );
-        combatants.push((participant, combatant));
+        builds.push((participant, build, compiled.combatant().clone(), runtime));
     }
     let lock = ParticipantLock::seal(policy, lock_entries)
         .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
-    let roster = UniverseBattleRoster::new(&lock, combatants)
+    let roster = UniverseBattleRoster::new_with_build_specs_and_runtime_stats(&lock, builds)
         .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
     Ok((roster, lock))
 }
 
-fn default_combatant(
-    form: UnitDefinitionId,
-    basic: starclock_combat::AbilityId,
+fn default_runtime_combatant(
+    compiled: &ResolvedCombatantSpec,
     index: u8,
 ) -> Result<ResolvedCombatantSpec, StandardUniverseRuntimeFactoryError> {
-    ResolvedCombatantSpec::new(
-        form,
-        UnitLevel::new(80).ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
+    let mut runtime = ResolvedCombatantSpec::new(
+        compiled.form(),
+        compiled.level(),
         Hp::new(100_000).map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
         Speed::from_scaled(200_000_000)
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
-        ResolvedDefinitionBindings::new(vec![basic], Vec::new(), Vec::new())
-            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
+        ResolvedDefinitionBindings::new(
+            compiled.abilities().to_vec(),
+            compiled.rule_bundles().to_vec(),
+            compiled.modifiers().to_vec(),
+        )
+        .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
         CombatantSpecDigest::new([index + 1; 32])
             .ok_or(StandardUniverseRuntimeFactoryError::Configuration)?,
     )
@@ -341,12 +353,24 @@ fn default_combatant(
         StatValue::from_scaled(1_000_000_000)
             .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
     )
-    .with_energy(
-        Energy::ZERO,
-        Energy::from_scaled(100_000_000)
-            .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?,
+    .with_base_effect_stats(
+        compiled.base_effect_hit_rate(),
+        compiled.base_effect_resistance(),
     )
-    .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)
+    .with_energy(compiled.current_energy(), compiled.maximum_energy())
+    .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?
+    .with_toughness(
+        compiled.rank(),
+        compiled.weaknesses().to_vec(),
+        compiled.toughness_layers().to_vec(),
+    )
+    .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+    runtime = runtime
+        .with_sources(compiled.sources().to_vec())
+        .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)?;
+    runtime
+        .with_modifier_bindings(compiled.modifier_bindings().to_vec())
+        .map_err(|_| StandardUniverseRuntimeFactoryError::Configuration)
 }
 
 fn initial_contributions(
