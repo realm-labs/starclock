@@ -43,7 +43,7 @@ pub struct SwarmDisasterArea {
     #[serde(rename = "plane_ids")]
     pub plane_ids: Vec<String>,
     #[serde(rename = "unlock_id")]
-    pub unlock_id: String,
+    pub unlock_id: Option<String>,
     #[serde(rename = "recommended_level")]
     pub recommended_level: i32,
     #[serde(rename = "recommended_elements")]
@@ -81,7 +81,7 @@ impl super::runtime::SoraDecode for SwarmDisasterArea {
             difficulty: <String as super::runtime::SoraDecode>::decode(reader)?,
             difficulty_segment_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
             plane_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
-            unlock_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            unlock_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             recommended_level: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             recommended_elements: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
             displayed_monsters_json: <String as super::runtime::SoraDecode>::decode(reader)?,

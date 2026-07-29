@@ -159,7 +159,7 @@ length = [1, 32]
 [[tables.fields]]
 name = "sort"
 type = "i32"
-range = [0, 100]
+range = [0, 1000]
 [[tables.fields]]
 name = "cabinet_type"
 type = "string"
@@ -174,7 +174,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "objective_id"
-type = "ref<SwarmDisasterPathObjective.id>"
+type = "string"
+length = [1, 32]
 [[tables.fields]]
 name = "point_deltas_json"
 type = "string"
@@ -667,7 +668,8 @@ type = "string"
 length = [1, 32]
 [[tables.fields]]
 name = "finish_condition_id"
-type = "ref<SwarmDisasterPathstriderFinish.id>"
+type = "string"
+length = [1, 240]
 [[tables.fields]]
 name = "progress_policy_json"
 type = "string"
@@ -925,8 +927,7 @@ name = "dimension_id"
 type = "optional<ref<SwarmDisasterCommuningDimension.id>>"
 [[tables.fields]]
 name = "point_threshold"
-type = "string"
-length = [1, 64]
+type = "optional<string>"
 [[tables.fields]]
 name = "mechanical_unlock_json"
 type = "string"
@@ -1013,11 +1014,11 @@ name = "audience_die_id"
 type = "ref<SwarmDisasterAudienceDie.id>"
 [[tables.fields]]
 name = "mode_unlock_id"
-type = "string"
-length = [1, 32]
+type = "optional<string>"
 [[tables.fields]]
-name = "propagation_unlock"
-type = "bool"
+name = "propagation_unlock_json"
+type = "string"
+length = [1, 60000]
 [[tables.fields]]
 name = "resonance_id"
 type = "ref<SwarmDisasterResonance.id>"

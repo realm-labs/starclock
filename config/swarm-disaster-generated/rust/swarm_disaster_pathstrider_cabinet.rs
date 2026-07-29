@@ -43,7 +43,7 @@ pub struct SwarmDisasterPathstriderCabinet {
     #[serde(rename = "unlocks_cabinet_ids")]
     pub unlocks_cabinet_ids: Option<Vec<String>>,
     #[serde(rename = "objective_id")]
-    pub objective_id: i32,
+    pub objective_id: String,
     #[serde(rename = "point_deltas_json")]
     pub point_deltas_json: String,
     #[serde(rename = "description_parameters")]
@@ -79,7 +79,7 @@ impl super::runtime::SoraDecode for SwarmDisasterPathstriderCabinet {
             unlocks_cabinet_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,
-            objective_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            objective_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             point_deltas_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             description_parameters: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
                 reader,

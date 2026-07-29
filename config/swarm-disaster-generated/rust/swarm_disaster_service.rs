@@ -39,11 +39,11 @@ pub struct SwarmDisasterService {
     #[serde(rename = "service_kind")]
     pub service_kind: String,
     #[serde(rename = "resource_id")]
-    pub resource_id: String,
+    pub resource_id: Option<String>,
     #[serde(rename = "inherited_price_formula_id")]
-    pub inherited_price_formula_id: String,
+    pub inherited_price_formula_id: Option<String>,
     #[serde(rename = "inherited_offer_pool_id")]
-    pub inherited_offer_pool_id: String,
+    pub inherited_offer_pool_id: Option<String>,
     #[serde(rename = "inherited_rule_ids")]
     pub inherited_rule_ids: Option<Vec<String>>,
     #[serde(rename = "parameters_json")]
@@ -79,9 +79,13 @@ impl super::runtime::SoraDecode for SwarmDisasterService {
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             shared_service_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             service_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            resource_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            inherited_price_formula_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            inherited_offer_pool_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            resource_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            inherited_price_formula_id: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
+            inherited_offer_pool_id: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
             inherited_rule_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,

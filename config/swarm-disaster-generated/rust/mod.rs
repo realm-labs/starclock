@@ -73,7 +73,7 @@ pub mod swarm_disaster_trail_prerequisite;
 pub mod swarm_disaster_trailblaze_bonus;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "62536ae811955d27";
+pub const SCHEMA_FINGERPRINT: &str = "ff0a553e2c78e768";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

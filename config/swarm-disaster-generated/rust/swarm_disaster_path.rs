@@ -43,9 +43,9 @@ pub struct SwarmDisasterPath {
     #[serde(rename = "audience_die_id")]
     pub audience_die_id: i32,
     #[serde(rename = "mode_unlock_id")]
-    pub mode_unlock_id: String,
-    #[serde(rename = "propagation_unlock")]
-    pub propagation_unlock: bool,
+    pub mode_unlock_id: Option<String>,
+    #[serde(rename = "propagation_unlock_json")]
+    pub propagation_unlock_json: String,
     #[serde(rename = "resonance_id")]
     pub resonance_id: i32,
     #[serde(rename = "formation_ids")]
@@ -83,8 +83,8 @@ impl super::runtime::SoraDecode for SwarmDisasterPath {
             selectable: <bool as super::runtime::SoraDecode>::decode(reader)?,
             sort: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             audience_die_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            mode_unlock_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            propagation_unlock: <bool as super::runtime::SoraDecode>::decode(reader)?,
+            mode_unlock_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            propagation_unlock_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             resonance_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             formation_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             battle_event_groups_json: <String as super::runtime::SoraDecode>::decode(reader)?,

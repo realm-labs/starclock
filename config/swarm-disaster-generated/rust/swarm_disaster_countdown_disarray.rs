@@ -44,8 +44,8 @@ pub struct SwarmDisasterCountdownDisarray {
     pub carry_policy: String,
     #[serde(rename = "transition_boundary")]
     pub transition_boundary: String,
-    #[serde(rename = "transition_result")]
-    pub transition_result: String,
+    #[serde(rename = "transition_result_json")]
+    pub transition_result_json: String,
     #[serde(rename = "warning_threshold")]
     pub warning_threshold: String,
     #[serde(rename = "same_boundary_order")]
@@ -86,7 +86,7 @@ impl super::runtime::SoraDecode for SwarmDisasterCountdownDisarray {
             movement_delta_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             carry_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
             transition_boundary: <String as super::runtime::SoraDecode>::decode(reader)?,
-            transition_result: <String as super::runtime::SoraDecode>::decode(reader)?,
+            transition_result_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             warning_threshold: <String as super::runtime::SoraDecode>::decode(reader)?,
             same_boundary_order: <String as super::runtime::SoraDecode>::decode(reader)?,
             cap_policy: <String as super::runtime::SoraDecode>::decode(reader)?,

@@ -37,7 +37,7 @@ pub struct SwarmDisasterPathObjective {
     #[serde(rename = "quest_id")]
     pub quest_id: String,
     #[serde(rename = "finish_condition_id")]
-    pub finish_condition_id: i32,
+    pub finish_condition_id: String,
     #[serde(rename = "progress_policy_json")]
     pub progress_policy_json: String,
     #[serde(rename = "unlock_ids")]
@@ -68,7 +68,7 @@ impl super::runtime::SoraDecode for SwarmDisasterPathObjective {
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             cabinet_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             quest_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            finish_condition_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            finish_condition_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             progress_policy_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             unlock_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
         })

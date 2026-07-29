@@ -46,8 +46,8 @@ pub struct SwarmDisasterCurioState {
     pub effect_program_json: String,
     #[serde(rename = "lifecycle_json")]
     pub lifecycle_json: String,
-    #[serde(rename = "repair_target")]
-    pub repair_target: Option<String>,
+    #[serde(rename = "repair_target_json")]
+    pub repair_target_json: String,
 }
 
 impl super::runtime::SoraDecode for SwarmDisasterCurioState {
@@ -79,7 +79,7 @@ impl super::runtime::SoraDecode for SwarmDisasterCurioState {
             charges: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             effect_program_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             lifecycle_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            repair_target: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            repair_target_json: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

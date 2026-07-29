@@ -41,7 +41,7 @@ pub struct SwarmDisasterAudiencePath {
     #[serde(rename = "audience_die_id")]
     pub audience_die_id: i32,
     #[serde(rename = "unlock_id")]
-    pub unlock_id: String,
+    pub unlock_id: Option<String>,
     #[serde(rename = "unlock_policy_json")]
     pub unlock_policy_json: String,
     #[serde(rename = "initial_effects_json")]
@@ -86,7 +86,7 @@ impl super::runtime::SoraDecode for SwarmDisasterAudiencePath {
             sort: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             path_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             audience_die_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            unlock_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            unlock_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             unlock_policy_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             initial_effects_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             passive_effects_json: <String as super::runtime::SoraDecode>::decode(reader)?,

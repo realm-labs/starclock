@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_swarm_disaster_reference_config",
-  "fingerprint": "62536ae811955d27",
+  "fingerprint": "ff0a553e2c78e768",
   "schema": {
     "package": "starclock_swarm_disaster_reference_config",
     "enums": [
@@ -919,7 +919,9 @@
           },
           {
             "name": "unlock_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -929,10 +931,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -1708,7 +1707,7 @@
             "range": null,
             "length": [
               1,
-              32
+              128
             ],
             "parser": {
               "kind": "split",
@@ -6485,7 +6484,7 @@
             "derived_from": null
           },
           {
-            "name": "transition_result",
+            "name": "transition_result_json",
             "ty": "String",
             "scope": {
               "values": [
@@ -6498,7 +6497,7 @@
             "range": null,
             "length": [
               1,
-              160
+              60000
             ],
             "parser": null,
             "derived_from": null
@@ -7438,7 +7437,9 @@
           },
           {
             "name": "unlock_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -7448,10 +7449,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -8007,7 +8005,9 @@
           },
           {
             "name": "unlock_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -8017,10 +8017,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -10417,7 +10414,7 @@
             "default": null,
             "range": [
               0,
-              100
+              1000
             ],
             "length": null,
             "parser": null,
@@ -10494,12 +10491,7 @@
           },
           {
             "name": "objective_id",
-            "ty": {
-              "Ref": {
-                "table": "SwarmDisasterPathObjective",
-                "field": "id"
-              }
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -10509,7 +10501,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              32
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -12824,12 +12819,7 @@
           },
           {
             "name": "finish_condition_id",
-            "ty": {
-              "Ref": {
-                "table": "SwarmDisasterPathstriderFinish",
-                "field": "id"
-              }
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -12839,7 +12829,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              240
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -14048,7 +14041,9 @@
           },
           {
             "name": "point_threshold",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -14058,10 +14053,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              64
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -14462,6 +14454,24 @@
           },
           {
             "name": "mode_unlock_id",
+            "ty": {
+              "Optional": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "propagation_unlock_json",
             "ty": "String",
             "scope": {
               "values": [
@@ -14474,24 +14484,8 @@
             "range": null,
             "length": [
               1,
-              32
+              60000
             ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "propagation_unlock",
-            "ty": "Bool",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -18471,10 +18465,8 @@
             "derived_from": null
           },
           {
-            "name": "repair_target",
-            "ty": {
-              "Optional": "String"
-            },
+            "name": "repair_target_json",
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -18484,7 +18476,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              60000
+            ],
             "parser": null,
             "derived_from": null
           }
@@ -20552,7 +20547,9 @@
           },
           {
             "name": "resource_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -20562,16 +20559,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "inherited_price_formula_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -20581,16 +20577,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "inherited_offer_pool_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -20600,10 +20595,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },

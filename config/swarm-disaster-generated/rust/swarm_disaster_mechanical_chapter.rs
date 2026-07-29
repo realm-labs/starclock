@@ -39,7 +39,7 @@ pub struct SwarmDisasterMechanicalChapter {
     #[serde(rename = "dimension_id")]
     pub dimension_id: Option<i32>,
     #[serde(rename = "point_threshold")]
-    pub point_threshold: String,
+    pub point_threshold: Option<String>,
     #[serde(rename = "mechanical_unlock_json")]
     pub mechanical_unlock_json: String,
 }
@@ -69,7 +69,7 @@ impl super::runtime::SoraDecode for SwarmDisasterMechanicalChapter {
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             layer: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             dimension_id: <Option<i32> as super::runtime::SoraDecode>::decode(reader)?,
-            point_threshold: <String as super::runtime::SoraDecode>::decode(reader)?,
+            point_threshold: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             mechanical_unlock_json: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

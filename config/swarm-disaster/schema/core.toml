@@ -190,8 +190,7 @@ parser = { kind = "split", separator = "|" }
 length = [1, 8]
 [[tables.fields]]
 name = "unlock_id"
-type = "string"
-length = [1, 32]
+type = "optional<string>"
 [[tables.fields]]
 name = "recommended_level"
 type = "i32"
@@ -359,7 +358,7 @@ range = [1, 3]
 name = "chessboard_ids"
 type = "list<string>"
 parser = { kind = "split", separator = "|" }
-length = [1, 32]
+length = [1, 128]
 [[tables.fields]]
 name = "terminal_policy"
 type = "string"
@@ -1373,9 +1372,9 @@ name = "transition_boundary"
 type = "string"
 length = [1, 160]
 [[tables.fields]]
-name = "transition_result"
+name = "transition_result_json"
 type = "string"
-length = [1, 160]
+length = [1, 60000]
 [[tables.fields]]
 name = "warning_threshold"
 type = "string"
@@ -1577,8 +1576,7 @@ name = "audience_die_id"
 type = "ref<SwarmDisasterAudienceDie.id>"
 [[tables.fields]]
 name = "unlock_id"
-type = "string"
-length = [1, 32]
+type = "optional<string>"
 [[tables.fields]]
 name = "unlock_policy_json"
 type = "string"
@@ -1695,8 +1693,7 @@ type = "string"
 length = [1, 60000]
 [[tables.fields]]
 name = "unlock_id"
-type = "string"
-length = [1, 32]
+type = "optional<string>"
 [[tables.fields]]
 name = "initial_effect_summary_en"
 type = "string"

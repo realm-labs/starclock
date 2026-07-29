@@ -476,8 +476,9 @@ name = "lifecycle_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "repair_target"
-type = "optional<string>"
+name = "repair_target_json"
+type = "string"
+length = [1, 60000]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -920,16 +921,13 @@ type = "string"
 length = [1, 100]
 [[tables.fields]]
 name = "resource_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "inherited_price_formula_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "inherited_offer_pool_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "inherited_rule_ids"
 type = "optional<list<string>>"
