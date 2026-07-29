@@ -10,7 +10,7 @@ name = "SwarmDisasterCoverageState"
 values = ["DataReady"]
 
 [[enums]]
-name = "SwarmDisasterEvidenceQuality"
+name = "SwarmDisasterEvidenceGrade"
 values = ["ExactStructured", "ExactPublicText", "Observed", "ApproximateFromReleasedText", "ProjectPolicy"]
 
 [[tables]]
@@ -61,7 +61,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -157,7 +157,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -262,7 +262,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -338,7 +338,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -417,7 +417,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -509,7 +509,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -587,7 +587,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -681,7 +681,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -756,7 +756,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -837,7 +837,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -925,7 +925,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1015,7 +1015,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1089,7 +1089,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1171,7 +1171,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1253,7 +1253,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1292,7 +1292,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "SwarmDisasterCountdownAndDisarray"
+name = "SwarmDisasterCountdownDisarray"
 mode = "map"
 key = "id"
 [tables.source]
@@ -1339,7 +1339,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1449,7 +1449,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1551,7 +1551,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1664,7 +1664,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1770,7 +1770,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1857,7 +1857,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -1931,7 +1931,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -2013,7 +2013,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"

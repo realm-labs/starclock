@@ -49,7 +49,7 @@ const common = [
   string("summary_zh_cn", 2400),
   { name: "ownership", type: "enum<SwarmDisasterOwnership>" },
   { name: "coverage_state", type: "enum<SwarmDisasterCoverageState>" },
-  { name: "evidence_quality", type: "enum<SwarmDisasterEvidenceQuality>" },
+  { name: "evidence_quality", type: "enum<SwarmDisasterEvidenceGrade>" },
   list("source_refs", 512),
   list("tags", 64),
 ];
@@ -251,7 +251,7 @@ const coreTables = [
     ],
   },
   {
-    name: "SwarmDisasterCountdownAndDisarray",
+    name: "SwarmDisasterCountdownDisarray",
     sheet: "CountdownDisarray",
     normalized: "countdown-and-disarray.json",
     fields: [
@@ -401,7 +401,7 @@ const progressionTables = [
       string("cabinet_type", 100),
       list("prerequisite_ids", 64),
       list("unlocks_cabinet_ids", 64),
-      ref("objective_id", "SwarmDisasterPathstriderObjective"),
+      ref("objective_id", "SwarmDisasterPathObjective"),
       json("point_deltas_json"),
       list("description_parameters", 64),
     ],
@@ -419,7 +419,7 @@ const progressionTables = [
     ],
   },
   {
-    name: "SwarmDisasterCommuningPointAdjustment",
+    name: "SwarmDisasterPointAdjustment",
     sheet: "CommuningPointAdjust",
     normalized: "communing-point-adjustments.json",
     fields: [
@@ -446,7 +446,7 @@ const progressionTables = [
     ],
   },
   {
-    name: "SwarmDisasterCommuningTrailPrerequisite",
+    name: "SwarmDisasterTrailPrerequisite",
     sheet: "CommuningTrailPrereq",
     normalized: "communing-trail-prerequisites.json",
     fields: [
@@ -457,7 +457,7 @@ const progressionTables = [
     ],
   },
   {
-    name: "SwarmDisasterCommuningTrailEffect",
+    name: "SwarmDisasterTrailEffect",
     sheet: "CommuningTrailEffect",
     normalized: "communing-trail-effects.json",
     fields: [
@@ -469,19 +469,19 @@ const progressionTables = [
     ],
   },
   {
-    name: "SwarmDisasterPathstriderObjective",
+    name: "SwarmDisasterPathObjective",
     sheet: "PathstriderObjective",
     normalized: "pathstrider-objectives.json",
     fields: [
       ref("cabinet_id", "SwarmDisasterPathstriderCabinet"),
       string("quest_id", 32),
-      ref("finish_condition_id", "SwarmDisasterPathstriderFinishCondition"),
+      ref("finish_condition_id", "SwarmDisasterPathstriderFinish"),
       json("progress_policy_json"),
       list("unlock_ids", 64),
     ],
   },
   {
-    name: "SwarmDisasterPathstriderFinishCondition",
+    name: "SwarmDisasterPathstriderFinish",
     sheet: "PathstriderFinish",
     normalized: "pathstrider-finish-conditions.json",
     fields: [
@@ -501,14 +501,14 @@ const progressionTables = [
     normalized: "pathstrider-unlocks.json",
     fields: [
       string("source_id", 32),
-      ref("finish_condition_id", "SwarmDisasterPathstriderFinishCondition"),
+      ref("finish_condition_id", "SwarmDisasterPathstriderFinish"),
       json("unlock_consequence_json"),
       string("evaluation_boundary", 160),
       string("mode_hint", 100),
     ],
   },
   {
-    name: "SwarmDisasterMechanicalChapterLocator",
+    name: "SwarmDisasterMechanicalChapter",
     sheet: "MechanicalChapter",
     normalized: "mechanical-chapter-locators.json",
     fields: [
@@ -863,13 +863,169 @@ const evidenceTables = [
       string("runtime_handler_id", 240, true),
     ],
   },
+  {
+    name: "SwarmDisasterSourceRecord",
+    sheet: "SourceRecord",
+    normalized: "sources.json",
+    baseFields: [
+      integer("id", 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("schema_revision", 100),
+      string("kind", 100),
+      string("source_id", 240),
+      string("source_kind", 100),
+      string("repository", 1000),
+      string("revision", 200),
+      string("game_version", 32),
+      string("path", 1000),
+      string("locator", 500),
+      string("sha256", 64),
+      {
+        name: "evidence_quality",
+        type: "enum<SwarmDisasterEvidenceGrade>",
+      },
+      string("access_date", 32),
+      string("note", 4000, true),
+      string("replacement_condition", 4000, true),
+    ],
+  },
+  {
+    name: "SwarmDisasterCoverage",
+    sheet: "Coverage",
+    normalized: "coverage.json",
+    fields: [
+      string("manifest_category", 160),
+      string("manifest_record_id", 500),
+      string("source_locator", 1000),
+      string("source_evidence_sha256", 64),
+      json("normalized_refs_json"),
+      list("blocking_gap_ids", 64),
+    ],
+  },
+  {
+    name: "SwarmDisasterResearchGap",
+    sheet: "ResearchGap",
+    normalized: "research-gaps.json",
+    fields: [
+      string("state", 80),
+      string("gap_state", 80),
+      boolean("blocking"),
+      string("field", 240),
+      string("policy_source_id", 240),
+      string("known_facts", 4000),
+      string("selected_policy", 4000),
+      string("note", 4000),
+      string("replacement_condition", 4000),
+    ],
+  },
+  {
+    name: "SwarmDisasterResearchGapAffected",
+    sheet: "ResearchGapAffected",
+    normalized: "research-gaps.json",
+    baseFields: [
+      integer("id", 1),
+      ref("research_gap_id", "SwarmDisasterResearchGap"),
+      integer("ordinal", 0),
+      string("file", 240),
+      string("record_stable_key", 500),
+    ],
+    noStableIndex: true,
+    fields: [],
+  },
+  {
+    name: "SwarmDisasterReviewFixture",
+    sheet: "ReviewFixture",
+    normalized: "review-fixtures.json",
+    fields: [
+      string("family_id", 160),
+      list("source_record_ids", 128, false),
+      json("preconditions_json"),
+      json("input_json"),
+      json("ordered_operations_json"),
+      json("expected_facts_json"),
+      list("evidence_refs", 512, false),
+      {
+        name: "fixture_evidence_quality",
+        type: "enum<SwarmDisasterEvidenceGrade>",
+      },
+      string("note", 4000, true),
+      string("replacement_condition", 4000, true),
+    ],
+  },
+  {
+    name: "SwarmDisasterReconcileReceipt",
+    sheet: "ReconciliationReceipt",
+    normalized: "reconciliation-receipts.json",
+    fields: [
+      string("source_path", 1000),
+      string("row_locator", 500),
+      string("evidence_sha256", 64),
+      string("swarm_category", 160),
+      string("swarm_record_id", 500),
+      string("goal08_category", 160),
+      string("goal08_record_id", 500),
+      string("goal08_commit", 64),
+      string("outcome", 100),
+    ],
+  },
+  {
+    name: "SwarmDisasterManifest",
+    sheet: "Manifest",
+    normalized: "manifest.json",
+    baseFields: [
+      integer("id", 1, 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("schema_revision", 100),
+      string("goal_id", 100),
+      string("profile_id", 240),
+      json("snapshot_json"),
+      string("source_manifest_sha256", 64),
+      string("content_manifest_sha256", 64),
+      string("structured_source_revision", 64),
+      string("bilingual_index_revision", 64),
+      integer("frozen_source_obligations", 0),
+      integer("data_ready_source_obligations", 0),
+      string("coverage_percent", 32),
+      integer("normalized_file_count", 0),
+      integer("mechanic_rule_count", 0),
+      integer("semantic_fixture_family_count", 0),
+      integer("research_gap_count", 0),
+      integer("blocking_research_gap_count", 0),
+      integer("reconciliation_receipt_count", 0),
+      string("runtime_loading", 100),
+      string("authoring_target", 100),
+      boolean("candidate_quality"),
+      list("files", 128, false),
+    ],
+  },
+  {
+    name: "SwarmDisasterPackIndex",
+    sheet: "PackIndex",
+    normalized: "pack-index.json",
+    baseFields: [
+      integer("id", 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("schema_revision", 100),
+      string("file", 240),
+      integer("bytes", 0),
+      integer("rows", 0),
+      string("sha256", 64),
+      string("pack_sha256", 64),
+    ],
+  },
 ];
 
 const enumDefinitions = [
   ["SwarmDisasterOwnership", ["SwarmDisaster", "Shared"]],
   ["SwarmDisasterCoverageState", ["DataReady"]],
   [
-    "SwarmDisasterEvidenceQuality",
+    "SwarmDisasterEvidenceGrade",
     [
       "ExactStructured",
       "ExactPublicText",
@@ -928,13 +1084,23 @@ function generate(filename, workbook, tables, enums = []) {
       if (field.length) lines.push(`length = ${toml(field.length)}`);
       if (field.range) lines.push(`range = ${toml(field.range)}`);
     }
-    lines.push(
-      "[[tables.indexes]]",
-      `name = ${quote("by_stable_key")}`,
-      'fields = ["stable_key"]',
-      "unique = true",
-      "",
-    );
+    if (!table.noStableIndex) {
+      lines.push(
+        "[[tables.indexes]]",
+        `name = ${quote("by_stable_key")}`,
+        'fields = ["stable_key"]',
+        "unique = true",
+        "",
+      );
+    } else {
+      lines.push(
+        "[[tables.indexes]]",
+        `name = ${quote("by_gap_ordinal")}`,
+        'fields = ["research_gap_id", "ordinal"]',
+        "unique = true",
+        "",
+      );
+    }
   }
   fs.mkdirSync(schemaRoot, { recursive: true });
   while (lines.at(-1) === "") lines.pop();

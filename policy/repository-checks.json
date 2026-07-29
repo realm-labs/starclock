@@ -30,6 +30,11 @@
         "path": "config/generated/rust",
         "kind": "generated",
         "reason": "Production Sora 0.3.0 Rust models/readers; regenerated and byte-verified by tools/config-production/verify.mjs."
+      },
+      {
+        "path": "config/swarm-disaster-generated/rust",
+        "kind": "generated",
+        "reason": "Exact isolated Swarm Disaster Sora 0.3.0 models/readers; regenerated and byte-verified by tools/swarm-disaster-reference/verify-sora-schema.mjs."
       }
     ],
     "line_limit_exceptions": [],

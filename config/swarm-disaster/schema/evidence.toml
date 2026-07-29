@@ -49,7 +49,7 @@ name = "coverage_state"
 type = "enum<SwarmDisasterCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<SwarmDisasterEvidenceQuality>"
+type = "enum<SwarmDisasterEvidenceGrade>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -91,6 +91,644 @@ length = [1, 100]
 [[tables.fields]]
 name = "runtime_handler_id"
 type = "optional<string>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterSourceRecord"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "SourceRecord"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "source_id"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "source_kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "repository"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "revision"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "game_version"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "path"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "locator"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "access_date"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "note"
+type = "optional<string>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterCoverage"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "Coverage"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<SwarmDisasterOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<SwarmDisasterCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "manifest_category"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "manifest_record_id"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "source_locator"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "source_evidence_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "normalized_refs_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "blocking_gap_ids"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterResearchGap"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "ResearchGap"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<SwarmDisasterOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<SwarmDisasterCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "state"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "gap_state"
+type = "string"
+length = [1, 80]
+[[tables.fields]]
+name = "blocking"
+type = "bool"
+[[tables.fields]]
+name = "field"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "policy_source_id"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "known_facts"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "selected_policy"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterResearchGapAffected"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "ResearchGapAffected"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "research_gap_id"
+type = "ref<SwarmDisasterResearchGap.id>"
+[[tables.fields]]
+name = "ordinal"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "file"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "record_stable_key"
+type = "string"
+length = [1, 500]
+[[tables.indexes]]
+name = "by_gap_ordinal"
+fields = ["research_gap_id", "ordinal"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterReviewFixture"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "ReviewFixture"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<SwarmDisasterOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<SwarmDisasterCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "family_id"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "preconditions_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "input_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "ordered_operations_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "expected_facts_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "evidence_refs"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 512]
+[[tables.fields]]
+name = "fixture_evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "note"
+type = "optional<string>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "optional<string>"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterReconcileReceipt"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "ReconciliationReceipt"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<SwarmDisasterOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<SwarmDisasterCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<SwarmDisasterEvidenceGrade>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "row_locator"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "evidence_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "swarm_category"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "swarm_record_id"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "goal08_category"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "goal08_record_id"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "goal08_commit"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "outcome"
+type = "string"
+length = [1, 100]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterManifest"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "Manifest"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 1]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "goal_id"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "profile_id"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "snapshot_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "source_manifest_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "content_manifest_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "structured_source_revision"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "bilingual_index_revision"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "frozen_source_obligations"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "data_ready_source_obligations"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "coverage_percent"
+type = "string"
+length = [1, 32]
+[[tables.fields]]
+name = "normalized_file_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "mechanic_rule_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "semantic_fixture_family_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "research_gap_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "blocking_research_gap_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "reconciliation_receipt_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "runtime_loading"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "authoring_target"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "candidate_quality"
+type = "bool"
+[[tables.fields]]
+name = "files"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "SwarmDisasterPackIndex"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "SwarmDisasterEvidence.xlsx"
+sheet = "PackIndex"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "file"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "bytes"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "rows"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "pack_sha256"
+type = "string"
+length = [1, 64]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

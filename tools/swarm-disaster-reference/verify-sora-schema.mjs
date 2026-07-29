@@ -45,7 +45,7 @@ const expected = new Map([
   ["SwarmDisasterBeacon", "beacons.json"],
   ["SwarmDisasterBossChoice", "boss-choices.json"],
   ["SwarmDisasterTopologyConsequence", "topology-consequences.json"],
-  ["SwarmDisasterCountdownAndDisarray", "countdown-and-disarray.json"],
+  ["SwarmDisasterCountdownDisarray", "countdown-and-disarray.json"],
   ["SwarmDisasterBossDecayLevel", "boss-decay-levels.json"],
   ["SwarmDisasterAudiencePath", "audience-paths.json"],
   ["SwarmDisasterAudienceDie", "audience-dice.json"],
@@ -56,17 +56,17 @@ const expected = new Map([
   ["SwarmDisasterCommuningChoice", "communing-choices.json"],
   ["SwarmDisasterPathstriderCabinet", "pathstrider-cabinets.json"],
   ["SwarmDisasterCommuningDimension", "communing-dimensions.json"],
-  ["SwarmDisasterCommuningPointAdjustment",
+  ["SwarmDisasterPointAdjustment",
     "communing-point-adjustments.json"],
   ["SwarmDisasterCommuningTrailNode", "communing-trail-nodes.json"],
-  ["SwarmDisasterCommuningTrailPrerequisite",
+  ["SwarmDisasterTrailPrerequisite",
     "communing-trail-prerequisites.json"],
-  ["SwarmDisasterCommuningTrailEffect", "communing-trail-effects.json"],
-  ["SwarmDisasterPathstriderObjective", "pathstrider-objectives.json"],
-  ["SwarmDisasterPathstriderFinishCondition",
+  ["SwarmDisasterTrailEffect", "communing-trail-effects.json"],
+  ["SwarmDisasterPathObjective", "pathstrider-objectives.json"],
+  ["SwarmDisasterPathstriderFinish",
     "pathstrider-finish-conditions.json"],
   ["SwarmDisasterPathstriderUnlock", "pathstrider-unlocks.json"],
-  ["SwarmDisasterMechanicalChapterLocator",
+  ["SwarmDisasterMechanicalChapter",
     "mechanical-chapter-locators.json"],
   ["SwarmDisasterPath", "paths.json"],
   ["SwarmDisasterResonance", "resonances.json"],
@@ -91,6 +91,16 @@ const expected = new Map([
   ["SwarmDisasterEnemySlot", "enemy-slots.json"],
   ["SwarmDisasterBossPool", "boss-pools.json"],
   ["SwarmDisasterMechanicRule", "mechanic-rules.json"],
+  ["SwarmDisasterSourceRecord", "sources.json"],
+  ["SwarmDisasterCoverage", "coverage.json"],
+  ["SwarmDisasterResearchGap", "research-gaps.json"],
+  ["SwarmDisasterReviewFixture", "review-fixtures.json"],
+  ["SwarmDisasterReconcileReceipt", "reconciliation-receipts.json"],
+  ["SwarmDisasterManifest", "manifest.json"],
+  ["SwarmDisasterPackIndex", "pack-index.json"],
+]);
+const childTables = new Set([
+  "SwarmDisasterResearchGapAffected",
 ]);
 
 try {
@@ -145,18 +155,25 @@ try {
   assert(parsed.package === "starclock_swarm_disaster_reference_config",
     "schema package differs");
   const tables = new Map(parsed.tables.map((table) => [table.name, table]));
-  assert(tables.size === expected.size,
-    `expected ${expected.size} core tables, found ${tables.size}`);
+  assert(tables.size === expected.size + childTables.size,
+    `expected ${expected.size} primary and ${childTables.size} child ` +
+    `tables, found ${tables.size}`);
   for (const [tableName, normalized] of expected) {
     assert(tables.has(tableName), `missing table ${tableName}`);
-    assert(Array.isArray(json(
+    const normalizedValue = json(
       `content-reference/swarm-disaster-v1/${normalized}`,
-    )), `${normalized} has the wrong top-level shape`);
+    );
+    assert(
+      Array.isArray(normalizedValue) || normalized === "manifest.json",
+      `${normalized} has the wrong top-level shape`,
+    );
     const stable = tables.get(tableName).fields.find((field) =>
       field.name === "stable_key");
     assert(stable?.ty === "String",
       `${tableName}.stable_key is not typed as string`);
   }
+  for (const tableName of childTables)
+    assert(tables.has(tableName), `missing child table ${tableName}`);
   for (const [tableName, fieldName, target] of [
     ["SwarmDisasterChessboard", "start_node_id", "SwarmDisasterMapNode"],
     ["SwarmDisasterChessboard", "end_node_id", "SwarmDisasterMapNode"],
@@ -181,24 +198,24 @@ try {
     ["SwarmDisasterDiceFace", "target_rule_id",
       "SwarmDisasterDiceTargetRule"],
     ["SwarmDisasterPathstriderCabinet", "objective_id",
-      "SwarmDisasterPathstriderObjective"],
-    ["SwarmDisasterCommuningPointAdjustment", "dimension_id",
+      "SwarmDisasterPathObjective"],
+    ["SwarmDisasterPointAdjustment", "dimension_id",
       "SwarmDisasterCommuningDimension"],
     ["SwarmDisasterCommuningTrailNode", "dimension_id",
       "SwarmDisasterCommuningDimension"],
-    ["SwarmDisasterCommuningTrailPrerequisite", "node_id",
+    ["SwarmDisasterTrailPrerequisite", "node_id",
       "SwarmDisasterCommuningTrailNode"],
-    ["SwarmDisasterCommuningTrailPrerequisite", "required_node_id",
+    ["SwarmDisasterTrailPrerequisite", "required_node_id",
       "SwarmDisasterCommuningTrailNode"],
-    ["SwarmDisasterCommuningTrailEffect", "node_id",
+    ["SwarmDisasterTrailEffect", "node_id",
       "SwarmDisasterCommuningTrailNode"],
-    ["SwarmDisasterPathstriderObjective", "cabinet_id",
+    ["SwarmDisasterPathObjective", "cabinet_id",
       "SwarmDisasterPathstriderCabinet"],
-    ["SwarmDisasterPathstriderObjective", "finish_condition_id",
-      "SwarmDisasterPathstriderFinishCondition"],
+    ["SwarmDisasterPathObjective", "finish_condition_id",
+      "SwarmDisasterPathstriderFinish"],
     ["SwarmDisasterPathstriderUnlock", "finish_condition_id",
-      "SwarmDisasterPathstriderFinishCondition"],
-    ["SwarmDisasterMechanicalChapterLocator", "dimension_id",
+      "SwarmDisasterPathstriderFinish"],
+    ["SwarmDisasterMechanicalChapter", "dimension_id",
       "SwarmDisasterCommuningDimension"],
     ["SwarmDisasterPath", "audience_die_id", "SwarmDisasterAudienceDie"],
     ["SwarmDisasterPath", "resonance_id", "SwarmDisasterResonance"],
@@ -220,6 +237,8 @@ try {
       "SwarmDisasterEncounterGroup"],
     ["SwarmDisasterEnemySlot", "wave_id", "SwarmDisasterEncounterWave"],
     ["SwarmDisasterBossPool", "area_id", "SwarmDisasterArea"],
+    ["SwarmDisasterResearchGapAffected", "research_gap_id",
+      "SwarmDisasterResearchGap"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) =>
       candidate.name === fieldName);
@@ -227,10 +246,70 @@ try {
     assert(type?.Ref?.table === target && type.Ref.field === "id",
       `${tableName}.${fieldName} is not ref<${target}.id>`);
   }
+  const committed = path.join(root, "config", "swarm-disaster-generated");
+  assert(fs.existsSync(path.join(committed, "schema.lock")),
+    "committed schema lock is missing");
+  const directTemplates = path.join(temporary, "templates");
+  const directRust = path.join(temporary, "rust");
+  run(sora, [
+    "--serial",
+    "excel-template",
+    "--project",
+    project,
+    "--out",
+    directTemplates,
+  ]);
+  run(sora, [
+    "--serial",
+    "gen",
+    "--target",
+    "rust",
+    "--project",
+    project,
+    "--out",
+    directRust,
+    "--format-code",
+    "never",
+  ]);
+  formatRust(directRust);
+  assert(
+    fs.readFileSync(lock).equals(
+      fs.readFileSync(path.join(committed, "schema.lock")),
+    ),
+    "committed schema lock drifted",
+  );
+  for (const workbook of [
+    "SwarmDisaster.xlsx",
+    "SwarmDisasterProgression.xlsx",
+    "SwarmDisasterContent.xlsx",
+    "SwarmDisasterEvidence.xlsx",
+  ]) {
+    assert(fs.statSync(path.join(directTemplates, workbook)).size > 1000,
+      `${workbook} direct template is missing`);
+    assert(fs.statSync(path.join(committed, "templates", workbook)).size > 1000,
+      `${workbook} committed template is missing`);
+  }
+  const committedRust = path.join(committed, "rust");
+  const directRustFiles = fs.readdirSync(directRust)
+    .filter((name) => name.endsWith(".rs"))
+    .sort();
+  const committedRustFiles = fs.readdirSync(committedRust)
+    .filter((name) => name.endsWith(".rs"))
+    .sort();
+  assert(
+    JSON.stringify(committedRustFiles) === JSON.stringify(directRustFiles),
+    "committed generated reader file set drifted",
+  );
+  for (const file of directRustFiles)
+    assert(
+      fs.readFileSync(path.join(directRust, file)).equals(
+        fs.readFileSync(path.join(committedRust, file)),
+      ),
+      `${file} generated reader drifted`,
+    );
   console.log(
-    `Swarm Disaster Sora schema verified (${tables.size} isolated core/` +
-    "progression/content/evidence tables; typed local references; pinned " +
-    "Sora 0.3.0).",
+    `Swarm Disaster Sora schema verified (${tables.size} isolated tables, ` +
+    "four templates, generated lock/readers stable).",
   );
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
@@ -268,6 +347,21 @@ function run(command, arguments_) {
     throw new Error(
       `${command} ${arguments_.join(" ")} failed\n` +
       `${result.stdout}\n${result.stderr}`,
+    );
+}
+
+function formatRust(directory) {
+  const files = fs.readdirSync(directory)
+    .filter((name) => name.endsWith(".rs"))
+    .map((name) => path.join(directory, name));
+  const result = spawnSync(
+    "rustfmt",
+    ["--edition", "2024", ...files],
+    { cwd: root, encoding: "utf8" },
+  );
+  if (result.status !== 0)
+    throw new Error(
+      `rustfmt failed\n${result.stdout}\n${result.stderr}`,
     );
 }
 
