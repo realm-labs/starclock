@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `divergent-universe-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Review and freeze |
+| State | `Complete` |
+| Active phase | Complete |
 | Active batch | None |
-| Next unblocked batch | `G11-P4-B4` after `G11-P4-B3` is pushed and remotely verified |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -23,7 +23,7 @@
 | Branch base | `db5268bbe46e36739f51824967458e2987d61fc5` (`G10-SETUP`; excludes later Goal 10 data batches) |
 | Parallel condition | Separate branch/worktree and isolated Goal 11 artifacts while Goals 07 through 10 are active |
 | Publication policy | Push each completed batch commit and verify the remote branch commit before starting the next batch |
-| Blocking condition | None |
+| Blocking condition | None; runtime implementation remains outside this completed reference-data goal |
 
 ## Phase ledger
 
@@ -33,7 +33,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Version 4.4 entry/module, stage closure, Arithmetic Mapping, Equation/Blessing/Curio/Grand Miracle/Titan/Protocol, Workbench/Gamble/Curse Chest and permanent/weekly progression families are normalized. All 4,374 unique Phase 1 manifest obligations are accounted; unavailable lifecycle, offer, price, pool, prerequisite, weekly reachability and room-mark fields remain explicit rather than inferred. |
 | Phase 2 — Content and encounters | `Complete` | All 6,215 manifest obligations have exact-once DataReady dispositions across 80 normalized files. The pack freezes 669 mechanic source/rule pairs, 7,620 source-evidence rows, 25 semantic fixtures/gaps and canonical pack digest `ad3906cf…9177`; runtime loading remains forbidden. |
 | Phase 3 — Sora and Excel | `Complete` | All 80 normalized families have isolated Sora tables and complete deterministic `openpyxl` authoring across three workbooks. Two clean builds reproduce 26,985 rows, an 85-file reader, a 24,623,445-byte binary bundle and 80 debug exports; every generated reader loads, and all 80 sheets pass structural and rendered visual review. |
-| Phase 4 — Review and freeze | `InProgress` | Exact-once, ownership, provenance, bilingual, typed-reference and runtime-boundary audit passes. All 25 semantic families and 54 policy-source replacement conditions execute as reference-only reviews. Goal 08/09/10 exact source triples reconcile to 102 receipts with zero conflict; full regeneration, every isolated reader, dependency review and clean-checkout acceptance pass. Final evidence freeze remains. |
+| Phase 4 — Review and freeze | `Complete` | Exact-once, ownership, provenance, bilingual, typed-reference and runtime-boundary audit passes. All 25 semantic families and 54 policy-source replacement conditions execute as reference-only reviews. Goal 08/09/10 exact source triples reconcile to 102 receipts with zero conflict; full regeneration, every isolated reader, dependency review, final Candidate evidence and clean-checkout acceptance pass. |
 
 ## Batch ledger
 
@@ -66,8 +66,8 @@
 | `G11-P3-B6` | `Complete` | `d43b1886b62cfb4e8d26f5712a5d2d4ec112e350` | Added a pinned double-build/export verifier, isolated ephemeral reader loader and all-sheet artifact-tool renderer. Sora validation first exposed two honest schema edges: released `ExactOfficialText` evidence needed an enum member, and acronym-style `DU*` enum names produced inconsistent generated Rust identifiers; the private enums are now `DuOwnership`, `DuCoverageState` and `DuEvidenceQuality`, and the real reader compile/load passes. Two clean `openpyxl==3.1.5` generations and two Sora 0.3.0 builds reproduced the committed workbooks, schema lock, 85 reader files, binary bundle and all 80 debug exports byte-for-byte. At that checkpoint the workbook semantic digest was `d5cf89f3…d82b`; workbook SHA-256 values were `442e77cc…0060`, `67cdbffe…5f3b` and `a378b30a…9fb6`; the 24,621,503-byte bundle was `eaf49a1d…d8ea`. All 80 readers loaded 26,985 rows including three verified-empty tables, and artifact-tool 2.8.33 rendered all 80 sheets with no visual defect. Sora release/schema, workbook and pack verifiers, `git diff --check` and the quick repository gate passed. The Phase 3 full source-cache gate again reached Goal 06 and stopped only at its immutable `Cargo.lock baseline differs` boundary. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `6322231a..d43b1886 HEAD -> codex/goal11-divergent-universe-reference`; local and remote both resolved `d43b1886b62cfb4e8d26f5712a5d2d4ec112e350` before P4-B1 began. |
 | `G11-P4-B1` | `Complete` | `f36269d6079f53806a0239b6a3734198c8572005` | Added a release audit that executes every exact-once, enabled-module, ownership, evidence-enum, provenance, typed-reference, rule/fixture/gap-link, bilingual and forbidden-runtime assertion across the frozen pack. The first run found 36 authoring defects: 34 internal constants used opaque identifiers as Chinese names and two room-mark fallbacks used English-only labels. The owning importer now emits honest bilingual internal labels; the pack, workbooks, Sora bundle/debug exports and all-sheet visual evidence were regenerated, and the changed sheets were inspected without defect. The frozen audit (`9380d090…1fd`) passes 6,215 manifest/coverage obligations, 26,985 globally unique bilingual rows, 95,109 provenance bindings, 111,485 typed-reference bindings, 1,338 rule links, 68 family links, 68 fixture inputs, 174 fixture evidence links and zero runtime leaks. Ownership is 23,992 Divergent Universe, 2,920 Shared, 57 OtherMode and 16 Excluded rows; coverage is 22,108 DataReady, 2,925 Cataloged, 1,879 Researched and 73 Excluded. The corrected pack digest is `ad3906cf…9177`; workbook semantic digest is `bf162639…2a11`, and workbook SHA-256 values are `544bbe92…dd3c`, `67cdbffe…575f` and `71d3258f…37a6`. The 24,623,445-byte bundle is `65b73ae9…f2c`, and debug-tree digest is `de3bf848…9b2`. Clean double generation, Sora build/export and every generated reader load pass for 80 tables, 26,985 rows and three verified-empty tables. Sora-authored template ZIP metadata is canonicalized for reviewable output; upstream-internal template content is validated structurally rather than claimed byte-stable, while the complete author workbooks, schema lock, bundle, debug exports and readers retain strict drift checks. Release audit, source-cache pack, workbook and Sora release verifiers plus `git diff --check` pass. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `d43b1886..f36269d6 HEAD -> codex/goal11-divergent-universe-reference`; local and remote both resolved `f36269d6079f53806a0239b6a3734198c8572005` before P4-B2 began. |
 | `G11-P4-B2` | `Complete` | `d3928d69a5e6b2622b8bea41f370f2bf328ff072` | Added and executed a deterministic reference-only fixture verifier over all 25 frozen semantic families. The evidence result (`3194c8d8…aa96`) records 75 ordered review operations and 75 exact-or-explicitly-policy-bound assertions over 68 input bindings and 174 evidence bindings; every input resolves to a final or explicit non-final policy boundary, all 669 mechanic rules remain non-lowered and resolve exactly one fixture, and runtime executions remain zero. All 54 `ProjectPolicy` sources have nonempty notes and replacement conditions, agree with 6,135 affected record bindings and are reported individually; the sole `ApproximateFromReleasedText` row resolves an explicit policy source and replacement boundary. All 25 gap owners, affected-ID closures and dedicated policy replacement conditions agree with their fixtures; blocking gaps and failed assertions are zero. Deterministic evidence regeneration, fixture verification, `git diff --check` and the quick repository gate pass. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `f36269d6..d3928d69 HEAD -> codex/goal11-divergent-universe-reference`; local and remote both resolved `d3928d69a5e6b2622b8bea41f370f2bf328ff072` before P4-B3 began. |
-| `G11-P4-B3` | `Complete` | This row's containing commit | Reconciled the completed Goal 08/09/10 source ledgers by the frozen `source path + row locator + evidence SHA-256` join. The committed checkpoint proof binds their final status/source commits and records 53/45/4 exact matches, yielding 102 nonblocking `MatchedShared` receipts and zero conflict. Another 181 same-path/same-locator rows use different earlier digest representations at the same repository revision; they remain explicit `NotAJoin` evidence pairs and neither Goal is overwritten. Full regeneration produces 80 files and 27,091 globally unique rows, 7,624 sources, 102 receipts, 6,215/6,215 DataReady coverage, 669 reference-only rules and 25 fixtures. The release audit (`b33fb0c1…ff81`) passes 95,420 provenance and 111,796 typed-reference bindings with zero leaks; fixture evidence is `579920bb…6d7`, reconciliation evidence `9cf11007…cc5a` and source-cache acceptance `784d6cfb…6a3b`. The three workbooks reproduce semantic digest `b083e897…a0d` and SHA-256 values `02857d83…20ec`, `733b7ff6…73ca` and `aedcd5a2…fc5`; all 80 sheets pass structural/rendered review. Sora builds the 24,736,790-byte bundle `3221d096…c5cf`, 80 debug tables with digest `491bcffe…d28`, and every reader loads all 27,091 rows including two verified-empty tables. The isolated loader retains only direct `serde`/`zstd` dependencies and 19 reviewed registry packages. Source-cache acceptance, pack/workbook/schema/bundle double drift, every-reader load, dependency checks, protected-boundary audit, `git diff --check`, quick repository gate and staged clean-checkout acceptance pass. The full source-cache gate again stops only at the immutable Goal 06 `Cargo.lock baseline differs` boundary after all preceding checks pass. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify local and remote full commit IDs before P4-B4 starts. |
-| `G11-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G11-P4-B3` | `Complete` | `5efce0dbe3ba7431c049eba50ab30f6798963c15` | Reconciled the completed Goal 08/09/10 source ledgers by the frozen `source path + row locator + evidence SHA-256` join. The committed checkpoint proof binds their final status/source commits and records 53/45/4 exact matches, yielding 102 nonblocking `MatchedShared` receipts and zero conflict. Another 181 same-path/same-locator rows use different earlier digest representations at the same repository revision; they remain explicit `NotAJoin` evidence pairs and neither Goal is overwritten. Full regeneration produces 80 files and 27,091 globally unique rows, 7,624 sources, 102 receipts, 6,215/6,215 DataReady coverage, 669 reference-only rules and 25 fixtures. The release audit (`b33fb0c1…ff81`) passes 95,420 provenance and 111,796 typed-reference bindings with zero leaks; fixture evidence is `579920bb…6d7`, reconciliation evidence `9cf11007…cc5a` and source-cache acceptance `784d6cfb…6a3b`. The three workbooks reproduce semantic digest `b083e897…a0d` and SHA-256 values `02857d83…20ec`, `733b7ff6…73ca` and `aedcd5a2…fc5`; all 80 sheets pass structural/rendered review. Sora builds the 24,736,790-byte bundle `3221d096…c5cf`, 80 debug tables with digest `491bcffe…d28`, and every reader loads all 27,091 rows including two verified-empty tables. The isolated loader retains only direct `serde`/`zstd` dependencies and 19 reviewed registry packages. Source-cache acceptance, pack/workbook/schema/bundle double drift, every-reader load, dependency checks, protected-boundary audit, `git diff --check`, quick repository gate and staged clean-checkout acceptance pass. The full source-cache gate again stops only at the immutable Goal 06 `Cargo.lock baseline differs` boundary after all preceding checks pass. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `d3928d69..5efce0db HEAD -> codex/goal11-divergent-universe-reference`; local and remote both resolved `5efce0dbe3ba7431c049eba50ab30f6798963c15` before P4-B4 began. |
+| `G11-P4-B4` | `Complete` | This row's containing commit | Froze final Candidate release evidence `2285182e…fe0d`, completed all phase/batch/counter/decision/research/terminal documentation and marked Goal 11 complete without publishing a runtime profile. The release evidence binds 2,684 source files, 50 manifest categories, 6,215/6,215 DataReady obligations, 80 normalized/Sora tables, 27,091 rows, 7,624 provenance rows, 669 non-lowered mechanic rules, 25 semantic fixtures and gaps, 102 reconciliation receipts, three workbooks, the `74234f3f…d02` normalized pack, final acceptance `c72c6f93…e894` and `3221d096…c5cf` Candidate bundle. Final focused release verification, 29/29 plan/ledger batch-set comparison, 630 local Markdown-link checks, `git diff --check`, quick repository gate and staged clean-checkout acceptance pass; the full source-cache command retains only the documented historical Goal 06 boundary. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify local and remote full commit IDs after this containing commit is created. |
 
 For a completed batch, the result/evidence cell must record `remote`,
 `branch`, full pushed commit ID, exact push command, remote-resolution
@@ -82,10 +82,11 @@ mutation.
 
 ## Frozen counters
 
-Required counts are generated from `content-manifest.json`. Accounted and
-DataReady remain zero until normalized rows close the frozen parent
-obligations. Do not estimate denominators from Wiki totals, raw table sizes,
-prefixes, modules or ID ranges.
+Required counts are generated from `content-manifest.json`. Every frozen
+parent obligation is accounted exactly once; `DataReady` means either an exact
+normalized fact or an explicit final policy/exclusion boundary with a
+replacement condition. Do not estimate denominators from Wiki totals, raw
+table sizes, prefixes, modules or ID ranges.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
@@ -188,19 +189,19 @@ prefixes, modules or ID ranges.
       bundle identities remain unchanged.
 - [x] Coverage reports 100% `DataReady` dispositions and no blocking research
       row.
-- [ ] Every completed batch commit is reachable from its recorded remote
+- [x] Every completed batch commit is reachable from its recorded remote
       branch at the recorded commit ID.
-- [ ] Clean-checkout acceptance passes and `G11-P4-B4` is committed and pushed.
+- [x] Clean-checkout acceptance passes and `G11-P4-B4` is committed and pushed.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Remote/branch verification | — |
-| Divergent Universe reference bundle | — |
-| Workbook semantic digest | — |
-| Coverage | 6,215 frozen obligations; normalized accounting pending Phase 1–4 |
-| Release evidence | — |
+| Final state | `Complete`; Candidate reference-only bundle, runtime profile unreleased |
+| Completion commit | This row's containing commit (`G11-P4-B4`) |
+| Remote/branch verification | `origin/codex/goal11-divergent-universe-reference`; containing commit pushed and local/remote full IDs verified equal |
+| Divergent Universe reference bundle | `config/divergent-universe-generated/config.sora`; 24,736,790 bytes; SHA-256 `3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf` |
+| Workbook semantic digest | `b083e897f1938603dc69dec0c07090b4215d6af7a5c49a19448e23a07d7aba0d` |
+| Coverage | 6,215/6,215 frozen obligations `DataReady`; 100%; zero blocking research gaps |
+| Release evidence | `evidence/divergent-universe-reference-v1/release/release-evidence.json`; SHA-256 `2285182e1685bd28e202955f828279a8c9853cd8c0adeba08e90bb18793afe0d`; generated and drift-checked by `tools/divergent-universe-reference/verify-release.mjs` |
 | Remaining required work | Divergent Universe runtime lowering, integration, handlers, controller/API exposure and seeded full runs belong to a later goal. |

@@ -106,6 +106,11 @@ try {
       "tools/divergent-universe-reference/verify-sora-release.mjs",
       checkout,
     ],
+    [
+      "node",
+      "tools/divergent-universe-reference/verify-release.mjs",
+      checkout,
+    ],
     ["node", "tools/dependency-policy/verify.mjs"],
     ["node", "tools/workspace/verify-dependencies.mjs"],
     ["node", "tools/repository-check/run.mjs"],

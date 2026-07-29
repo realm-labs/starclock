@@ -1,0 +1,144 @@
+{
+  "schema_revision": "starclock.divergent-universe-reference-release.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "completed_on": "2026-07-29",
+  "result": "complete",
+  "delivery_state": "Candidate",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "simulated-universe-divergent-universe",
+    "profile_id": "divergent-universe.profile.v1"
+  },
+  "source_revisions": {
+    "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "checkpoints": {
+    "sora_and_visual_qa": "d43b1886b62cfb4e8d26f5712a5d2d4ec112e350",
+    "release_audit": "f36269d6079f53806a0239b6a3734198c8572005",
+    "semantic_fixtures": "d3928d69a5e6b2622b8bea41f370f2bf328ff072",
+    "release_acceptance": "5efce0dbe3ba7431c049eba50ab30f6798963c15",
+    "release_batch": "G11-P4-B4"
+  },
+  "content": {
+    "source_inventory_files": 2684,
+    "manifest_categories": 50,
+    "source_obligations": 6215,
+    "data_ready": 6215,
+    "normalized_files": 80,
+    "pre_index_files": 79,
+    "normalized_rows": 27091,
+    "ownership": {
+      "DivergentUniverse": 23996,
+      "Excluded": 16,
+      "OtherMode": 57,
+      "Shared": 3022
+    },
+    "mechanic_rules": 669,
+    "provenance_rows": 7624,
+    "semantic_fixture_families": 25,
+    "semantic_operations": 75,
+    "semantic_assertions": 75,
+    "research_gaps": 25,
+    "replacement_conditions_verified": 54,
+    "blocking_research_gaps": 0,
+    "reconciliation_receipts": 102
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "tables": 80,
+    "workbook_rows": 27091,
+    "verified_empty_tables": 2,
+    "workbook_semantic_sha256": "b083e897f1938603dc69dec0c07090b4215d6af7a5c49a19448e23a07d7aba0d",
+    "workbooks": {
+      "DivergentUniverse.xlsx": "02857d83207d7faeb11ee6d9586c0b2362380fd32d64ae06c477c7fe6aad20ec",
+      "DivergentUniverseBindings.xlsx": "733b7ff60cf1b6556f69e7310cc6a96c3fff87ff9d55e7bd98f6fc22e91873ca",
+      "DivergentUniverseReview.xlsx": "aedcd5a249a38e607bdc22638bad9ebeb1ebd82e4ed6764b017d7a591fef1fc5"
+    }
+  },
+  "digests": {
+    "source_inventory_sha256": "60d9a9cd6798a2a68ce146bcecefe2edb5b5d54fcba4873b03dbe8d5201b6dc4",
+    "content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+    "normalized_schema_sha256": "d72a5e2814eb0eef914d2c3cbe28d483176241330b5c5c48c225c4b5d48b2c0f",
+    "normalized_pack_sha256": "74234f3f689db6ba897d13865e079a3404ab707d3ddd978d646390e7b50bad02",
+    "pack_index_file_sha256": "bc8629d10e6affaf3357bde0fa28d36faabe27571c4c5d74123de6412cb30729",
+    "schema_lock_sha256": "f41b3c968bb6e16c88f750aed19386dda24bff368cdf18c294107482c07fd74e",
+    "candidate_bundle_sha256": "3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf",
+    "candidate_bundle_bytes": 24736790,
+    "debug_export_sha256": "491bcffe6a0cc4a622160cd1fa448219984f1099163cf4ab72a8861e7a3bcd28",
+    "reconciliation_checkpoints_sha256": "9cf11007275b4e66c66da3e76ddfc7d2e0f1457cc84052f1669749f060e4cc5a",
+    "release_audit_sha256": "b33fb0c17dd4ceca11b7514a41b1b1624368da7b9e2275ef0c0e16ec9c75ff81",
+    "semantic_fixture_results_sha256": "579920bb61ecb2111700d6bc33aab13d953f7f9ec7698d08a1f835d27a9e86d7",
+    "release_acceptance_sha256": "c72c6f93aff4a9479cf8674f73f31be27bb0da481511ffd5d806ac2d59aee894",
+    "visual_review_sha256": "07c90b5dd3a8843ad8387f66e90521f29b56326ac4041374d2ad28050b9c48b3"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "db5268bbe46e36739f51824967458e2987d61fc5",
+    "changed_paths": 349,
+    "protected_roots": 21,
+    "foreign_goal_artifact_changes": 0,
+    "goal03_standard_production": {
+      "standard_staging_sha256": "1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf",
+      "production_sha256": "875936da8c01593585389563fcb3d0c4334bdb14d85a3e7ffb9fb0dcc018953b"
+    },
+    "completed_mode_bundles": [
+      {
+        "goal": "Goal08",
+        "commit": "2688624c34a564d87076cadb405c8da506efd373",
+        "path": "config/gold-and-gears-generated/config.sora",
+        "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+      },
+      {
+        "goal": "Goal09",
+        "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "remote_ref": "origin/codex/goal09-swarm-disaster-reference",
+        "path": "config/swarm-disaster-generated/config.sora",
+        "sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362"
+      },
+      {
+        "goal": "Goal10",
+        "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "remote_ref": "origin/codex/goal10-unknowable-domain-reference",
+        "path": "config/unknowable-domain-generated/config.sora",
+        "sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec"
+      }
+    ]
+  },
+  "reconciliation": {
+    "checkpoint_evidence_sha256": "9cf11007275b4e66c66da3e76ddfc7d2e0f1457cc84052f1669749f060e4cc5a",
+    "receipts": 102,
+    "goal08": 53,
+    "goal09": 45,
+    "goal10": 4,
+    "non_join_digest_representations": 181,
+    "conflicts": 0
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "standard_or_production_bundle_mutation": false
+  },
+  "acceptance": {
+    "focused_checks": "pass",
+    "dependency_and_workspace_checks": "pass",
+    "immutable_release_snapshots": "pass",
+    "clean_checkout": "pass",
+    "clean_checkout_staged_tree": "e79d12c706959ae934138d02ee85d21916efb974",
+    "full_repository_command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "full_repository_external_boundary": "pre-existing Goal 06 Cargo.lock baseline differs after all preceding checks pass",
+    "full_repository_external_boundary_owner": "Goal06HistoricalReleaseContract",
+    "plan_status_batches": 29,
+    "verified_local_markdown_links": 630
+  },
+  "publication": {
+    "remote": "origin",
+    "branch": "codex/goal11-divergent-universe-reference",
+    "published_through": "5efce0dbe3ba7431c049eba50ab30f6798963c15",
+    "completion_commit": "This row's containing commit (G11-P4-B4)"
+  }
+}
