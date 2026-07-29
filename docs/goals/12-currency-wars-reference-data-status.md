@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `currency-wars-reference-v1` |
 | State | `InProgress` |
-| Current phase | Phase 2 — Content and encounters (`InProgress`) |
-| Current batch | `G12-P2-B6` — Generate coverage, rules, fixtures and canonical pack |
-| Next unblocked batch | None until `G12-P2-B6` is committed, pushed and remotely verified |
+| Current phase | Phase 3 — Independent Sora and Excel (`InProgress`) |
+| Current batch | `G12-P3-B1` — Add core flow, Squad boundary and economy Sora tables |
+| Next unblocked batch | None until `G12-P3-B1` is committed, pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -34,8 +34,8 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Published B1–B4 evidence remains immutable. B5 froze the direct GridFight selector, 1,137-path source closure, corrected 19,250-obligation denominator and regenerated contracts at remote-backed commit `b56b574d…8e4`. |
 | Phase 1 — Unique mode systems | `Complete` | P1-B10 replaced B1's historical Tourn3/Persona flow with GridFight; B2–B9 close Squad boundaries, economy, positions/Empowerments, Bonds, stars, build/equipment, investment systems, rank, Affixes and mechanically relevant progression at remote-backed commits through `fd0af40c…3bfb`. |
-| Phase 2 — Content and encounters | `InProgress` | Closing pool ownership, Blessings/formulas, Curios, events, services, enemies, waves, bosses and remaining rule contributions. |
-| Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
+| Phase 2 — Content and encounters | `Complete` | Every content, service, event, encounter and mechanic obligation resolves through the canonical Phase 2 pack at remote-backed commit `17c95efa…c81d`. |
+| Phase 3 — Sora and Excel | `InProgress` | Building isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, semantic fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
 ## Batch ledger
@@ -62,8 +62,8 @@
 | `G12-P2-B3` | `Complete` | `2f1e667cea0005c0478b53503b2deded8f1d9ce0` | Imported 167 primary event obligations, 73 Pray finish-way variants and 407 total normalized occurrence/variant/choice rows (`8ccfd0ce…504b`); four AssistantMessage presentation rows remain explicitly excluded. Event/Curio/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `33710a72..2f1e667c HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `2f1e667cea0005c0478b53503b2deded8f1d9ce0` before `G12-P2-B4` began. |
 | `G12-P2-B4` | `Complete` | `798ffac6fa46917cee45b8ff187fbd8e87ad4a78` | Imported 388 direct managed-function/consumable/item/special-good/season-item obligations plus one policy-bound Gold Coin identity (`169adf20…008b`); two generic gameplay-resource presentation rows remain excluded. Service/event/Curio/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `2f1e667c..798ffac6 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `798ffac6fa46917cee45b8ff187fbd8e87ad4a78` before `G12-P2-B5` began. |
 | `G12-P2-B5` | `Complete` | `837c8639faa0566a339e661c6d9eab943281fa9b` | Imported all 336 remaining direct Camp/Monster/EliteGroup/FormationWave obligations plus 840 exact shared StageConfig rows, 21 pinned-snapshot Stage gaps and ten policy-bound boss boundaries (`1262189b…1ab`). Encounter/service/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `798ffac6..837c8639 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `837c8639faa0566a339e661c6d9eab943281fa9b` before `G12-P2-B6` began. |
-| `G12-P2-B6` | `InProgress` | — | Generated 19,250 exact-once coverage rows, 18,524/18,524 eligible DataReady obligations, 726 explicit exclusions, 2,367 exact unlowered mechanic dossiers, twelve nonblocking policy gaps, all 28 semantic fixture families/cases and canonical pack digest `e0533de7…6efb`. Awaiting final gates, atomic commit, push and remote SHA verification. |
-| `G12-P3-B1` | `Pending` | — | Add isolated profile/stage/difficulty/Squad-HP/action-value/economy Sora tables. |
+| `G12-P2-B6` | `Complete` | `17c95efa31940c5e57062561848695d720c9c81d` | Generated 19,250 exact-once coverage rows, 18,524/18,524 eligible DataReady obligations, 726 explicit exclusions, 2,367 exact unlowered mechanic dossiers, twelve nonblocking policy gaps, all 28 semantic fixture families/cases and canonical pack digest `e0533de7…6efb`. All Goal 12 verifiers, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `837c8639..17c95efa HEAD -> codex/goal12-currency-wars-reference`; GitHub warned that 70.31 MB `sources.json` exceeds its recommended 50 MB size but accepted the push; local and remote both resolved `17c95efa31940c5e57062561848695d720c9c81d` before `G12-P3-B1` began. |
+| `G12-P3-B1` | `InProgress` | — | Generating the isolated project and 22 profile/flow/Squad/economy Sora tables; no shared production schema or runtime lowering is in scope. |
 | `G12-P3-B2` | `Pending` | — | Add roster/position/star/Bond/Empowerment/build/equipment and GridFight investment-system Sora tables. |
 | `G12-P3-B3` | `Pending` | — | Add content, service, event, encounter and rule-binding tables. |
 | `G12-P3-B4` | `Pending` | — | Add evidence/coverage/reconciliation/fixture tables and isolated schema locks/templates/readers. |
