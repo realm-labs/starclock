@@ -75,9 +75,12 @@ assert(profile.entry_refs.length === 3
   && profile.formal_difficulty_ids.length === 5
   && profile.bonus_ids.join(",")
     === [
-      "swarm-disaster.bonus.101", "swarm-disaster.bonus.102",
-      "swarm-disaster.bonus.103", "swarm-disaster.bonus.104",
-      "swarm-disaster.bonus.105", "swarm-disaster.bonus.106",
+      "swarm-disaster.trailblaze-bonus.101",
+      "swarm-disaster.trailblaze-bonus.102",
+      "swarm-disaster.trailblaze-bonus.103",
+      "swarm-disaster.trailblaze-bonus.104",
+      "swarm-disaster.trailblaze-bonus.105",
+      "swarm-disaster.trailblaze-bonus.106",
     ].join(","),
 "profile binding drift");
 

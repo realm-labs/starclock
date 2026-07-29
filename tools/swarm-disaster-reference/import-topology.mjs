@@ -84,12 +84,12 @@ const profiles = [{
     "swarm-disaster.area.205",
   ],
   bonus_ids: [
-    "swarm-disaster.bonus.101",
-    "swarm-disaster.bonus.102",
-    "swarm-disaster.bonus.103",
-    "swarm-disaster.bonus.104",
-    "swarm-disaster.bonus.105",
-    "swarm-disaster.bonus.106",
+    "swarm-disaster.trailblaze-bonus.101",
+    "swarm-disaster.trailblaze-bonus.102",
+    "swarm-disaster.trailblaze-bonus.103",
+    "swarm-disaster.trailblaze-bonus.104",
+    "swarm-disaster.trailblaze-bonus.105",
+    "swarm-disaster.trailblaze-bonus.106",
   ],
 }];
 for (const activity of activityEntries.filter(({ row }) =>
