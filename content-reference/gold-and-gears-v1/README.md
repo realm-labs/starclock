@@ -110,6 +110,17 @@ node tools/gold-and-gears-reference/finalize-pack.mjs
 node tools/gold-and-gears-reference/verify-pack.mjs
 ```
 
+The isolated Gold and Gears Sora schema regenerates and validates with:
+
+```text
+node tools/gold-and-gears-reference/generate-sora-schema.mjs
+node tools/gold-and-gears-reference/verify-sora-schema.mjs
+```
+
+`config/gold-and-gears/project.toml` owns this Candidate-only authoring
+surface. Its outputs remain under `config/gold-and-gears-generated/` and do not
+modify the Standard Universe or production configuration projects.
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

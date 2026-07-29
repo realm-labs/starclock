@@ -1,0 +1,26 @@
+package = "starclock_gold_and_gears_reference_config"
+includes = [
+  "schema/core.toml",
+]
+
+[build]
+default_source_format = "xlsx"
+data_root = "data"
+schema_lock = "../gold-and-gears-generated/schema.lock"
+excel_templates = "../gold-and-gears-generated/templates"
+
+[[build.codegen]]
+target = "rust"
+out = "../gold-and-gears-generated/rust"
+format = "never"
+
+[[build.exports]]
+format = "binary"
+out = "../gold-and-gears-generated/config.sora"
+
+[[build.exports]]
+format = "json-debug"
+out = "../gold-and-gears-generated/debug-json"
+
+[codegen.rust]
+runtime_format = "sora"
