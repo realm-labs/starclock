@@ -1,0 +1,3148 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "ability-bindings.json",
+  "record_kind": "AbilityBinding",
+  "records": [
+    {
+      "id": "ability-binding.001.789098da358e",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 1",
+      "name_zh_cn": "配置绑定1",
+      "summary_en": "encounter.stage-graph reaches Config/Level/StageCommonTemplate.json through the frozen selector closure.",
+      "summary_zh_cn": "encounter.stage-graph通过冻结选择器闭包到达Config/Level/StageCommonTemplate.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/Level/StageCommonTemplate.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/Level/StageCommonTemplate.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/Level/StageCommonTemplate.json",
+          "locator": "raw Git blob",
+          "sha256": "e975a68d401253de5b3f8db0e1671a6c8dc5ffc0598ae23e37205e32efd2317e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "encounter.stage-graph"
+      ],
+      "owner_id": "encounter.stage-graph",
+      "binding_order": 1,
+      "source_path": "Config/Level/StageCommonTemplate.json",
+      "source_locator": "raw Git blob",
+      "selector": "level graph directly referenced by all five planning StageConfig rows",
+      "reachability": "ExplicitReference",
+      "program_sha256": "e975a68d401253de5b3f8db0e1671a6c8dc5ffc0598ae23e37205e32efd2317e",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.002.0f188df74cfb",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 2",
+      "name_zh_cn": "配置绑定2",
+      "summary_en": "encounter.stage-graph reaches Config/Level/SubLevelGraph/StagePerformance.json through the frozen selector closure.",
+      "summary_zh_cn": "encounter.stage-graph通过冻结选择器闭包到达Config/Level/SubLevelGraph/StagePerformance.json。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/Level/SubLevelGraph/StagePerformance.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/Level/SubLevelGraph/StagePerformance.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/Level/SubLevelGraph/StagePerformance.json",
+          "locator": "raw Git blob",
+          "sha256": "28020d415c552abfd856f4262ff3e61abc452c9748e128da8c0e72800bf28476",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "encounter.stage-graph"
+      ],
+      "owner_id": "encounter.stage-graph",
+      "binding_order": 2,
+      "source_path": "Config/Level/SubLevelGraph/StagePerformance.json",
+      "source_locator": "raw Git blob",
+      "selector": "explicit Config/*.json string reference from the focused configuration closure",
+      "reachability": "TransitiveReference",
+      "program_sha256": "28020d415c552abfd856f4262ff3e61abc452c9748e128da8c0e72800bf28476",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.001.a7cf7391db2e",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 1",
+      "name_zh_cn": "配置绑定1",
+      "summary_en": "encounter.system reaches Config/ConfigAbility/BattleEventAbility.json through the frozen selector closure.",
+      "summary_zh_cn": "encounter.system通过冻结选择器闭包到达Config/ConfigAbility/BattleEventAbility.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/BattleEventAbility.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility.json",
+          "locator": "raw Git blob",
+          "sha256": "522c68104d4fb9663cacabb1c5b3d2006491e2d5ec29e24d392c0309196e7642",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "encounter.system"
+      ],
+      "owner_id": "encounter.system",
+      "binding_order": 1,
+      "source_path": "Config/ConfigAbility/BattleEventAbility.json",
+      "source_locator": "raw Git blob",
+      "selector": "shared infinite-summon battle-event ability referenced by active candidates",
+      "reachability": "ExplicitReference",
+      "program_sha256": "522c68104d4fb9663cacabb1c5b3d2006491e2d5ec29e24d392c0309196e7642",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.002.58d7eb894165",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 2",
+      "name_zh_cn": "配置绑定2",
+      "summary_en": "encounter.system reaches Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json through the frozen selector closure.",
+      "summary_zh_cn": "encounter.system通过冻结选择器闭包到达Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json",
+          "locator": "raw Git blob",
+          "sha256": "def64ddc3dcd6badb6c18b534585c5b994a86542702aa9a02b8ad234df6049a9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "encounter.system"
+      ],
+      "owner_id": "encounter.system",
+      "binding_order": 2,
+      "source_path": "Config/ConfigAbility/BattleEventAbility_ChallengePeakBattle.json",
+      "source_locator": "raw Git blob",
+      "selector": "direct ChallengePeak battle-event ability program",
+      "reachability": "ExplicitReference",
+      "program_sha256": "def64ddc3dcd6badb6c18b534585c5b994a86542702aa9a02b8ad234df6049a9",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.003.be83ceeab7c8",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 3",
+      "name_zh_cn": "配置绑定3",
+      "summary_en": "encounter.system reaches Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "encounter.system通过冻结选择器闭包到达Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "fe1aa0e4e332593d7628fa2c4d8d9ebebe978beb9f59e4621591db35b51f6ea1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "encounter.system"
+      ],
+      "owner_id": "encounter.system",
+      "binding_order": 3,
+      "source_path": "Config/ConfigCharacter/BattleEvent/BattleEvent_ChallengePeakBattle_Elation_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "ChallengePeak Quadrant auxiliary battle-event character configuration",
+      "reachability": "ExplicitReference",
+      "program_sha256": "fe1aa0e4e332593d7628fa2c4d8d9ebebe978beb9f59e4621591db35b51f6ea1",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.001.687fc35de9c9",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 1",
+      "name_zh_cn": "配置绑定1",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_Common_SequenceThree_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_Common_SequenceThree_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_Common_SequenceThree_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_Common_SequenceThree_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 1,
+      "source_path": "Config/ConfigAI/Monster_Common_SequenceThree_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "1a0b5e6f2307d7f0c84a95f9e76083f4cad36007fe9b73b0397681e4186f724d",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.002.0245a8fec286",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 2",
+      "name_zh_cn": "配置绑定2",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W1_Mecha03_02_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W1_Mecha03_02_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W1_Mecha03_02_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W1_Mecha03_02_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W1_Mecha03_02_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "d0487b68ff90ebca2b6a7e2efecc34323b483f74dca963743818e9141cc50ea4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 2,
+      "source_path": "Config/ConfigAI/Monster_W1_Mecha03_02_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "d0487b68ff90ebca2b6a7e2efecc34323b483f74dca963743818e9141cc50ea4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.003.195def82270b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 3",
+      "name_zh_cn": "配置绑定3",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "8ded82d2e75bec62ec7ba5480574dccd075af5582aafbacf67a3a18a2095f1a1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 3,
+      "source_path": "Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "8ded82d2e75bec62ec7ba5480574dccd075af5582aafbacf67a3a18a2095f1a1",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.004.22c4ef96daaf",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 4",
+      "name_zh_cn": "配置绑定4",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W1_Svarog_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W1_Svarog_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W1_Svarog_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W1_Svarog_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W1_Svarog_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "e36613c3338c2464d82b4109bfb0688cfaa35932aa896de8f50cd472b19c8908",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 4,
+      "source_path": "Config/ConfigAI/Monster_W1_Svarog_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "e36613c3338c2464d82b4109bfb0688cfaa35932aa896de8f50cd472b19c8908",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.005.73f63aa1df34",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 5",
+      "name_zh_cn": "配置绑定5",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W2_Argenti_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W2_Argenti_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W2_Argenti_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W2_Argenti_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W2_Argenti_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "42c215b05f2e096c0d1972d3b44a0d7d7379686dd24ee0f23c7bcada1e1f1b65",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 5,
+      "source_path": "Config/ConfigAI/Monster_W2_Argenti_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "42c215b05f2e096c0d1972d3b44a0d7d7379686dd24ee0f23c7bcada1e1f1b65",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.006.63acb82490e1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 6",
+      "name_zh_cn": "配置绑定6",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W2_Beast01_01_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W2_Beast01_01_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W2_Beast01_01_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W2_Beast01_01_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W2_Beast01_01_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "ab602beaf405738fe3177a94065355f84101ab405c1099be9e3ec348ac8f605b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 6,
+      "source_path": "Config/ConfigAI/Monster_W2_Beast01_01_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "ab602beaf405738fe3177a94065355f84101ab405c1099be9e3ec348ac8f605b",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.007.135dff347379",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 7",
+      "name_zh_cn": "配置绑定7",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W2_Beast02_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W2_Beast02_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W2_Beast02_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W2_Beast02_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W2_Beast02_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "4a02f5cfafe47a9908a3b7402464e5aa77c1abcb8786a25cf2e7297f363ad419",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 7,
+      "source_path": "Config/ConfigAI/Monster_W2_Beast02_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "4a02f5cfafe47a9908a3b7402464e5aa77c1abcb8786a25cf2e7297f363ad419",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.008.308aed1733d1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 8",
+      "name_zh_cn": "配置绑定8",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W4_Griffin_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W4_Griffin_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W4_Griffin_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W4_Griffin_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W4_Griffin_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "48c7d9d9a72a14aec27ef282bdc6d04531ac1889eb6b05f3f78d33d6dc231f07",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 8,
+      "source_path": "Config/ConfigAI/Monster_W4_Griffin_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "48c7d9d9a72a14aec27ef282bdc6d04531ac1889eb6b05f3f78d33d6dc231f07",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.009.21b218132ff5",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 9",
+      "name_zh_cn": "配置绑定9",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W4_Griffin_01_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W4_Griffin_01_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W4_Griffin_01_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W4_Griffin_01_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W4_Griffin_01_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "93506adda78fd5fad2cf9ee1926f6a7a00617dca8c1120ac50a38a8b3a897de4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 9,
+      "source_path": "Config/ConfigAI/Monster_W4_Griffin_01_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "93506adda78fd5fad2cf9ee1926f6a7a00617dca8c1120ac50a38a8b3a897de4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.010.f8562f3d074d",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 10",
+      "name_zh_cn": "配置绑定10",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W4_Harpy_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W4_Harpy_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W4_Harpy_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W4_Harpy_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W4_Harpy_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "f3f56b62c71d2f9048867e7797d752201fd16b95168dae587626e9fe5b80db39",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 10,
+      "source_path": "Config/ConfigAI/Monster_W4_Harpy_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f3f56b62c71d2f9048867e7797d752201fd16b95168dae587626e9fe5b80db39",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.011.8b8b4e8e9bb8",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 11",
+      "name_zh_cn": "配置绑定11",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W4_Unicorn_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W4_Unicorn_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W4_Unicorn_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W4_Unicorn_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W4_Unicorn_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "2a3e6419fe5bc933a2da6ca17316223c9f01dd6a73e851d4ce07542b3a599e0f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 11,
+      "source_path": "Config/ConfigAI/Monster_W4_Unicorn_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "2a3e6419fe5bc933a2da6ca17316223c9f01dd6a73e851d4ce07542b3a599e0f",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.012.674e9ca4f017",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 12",
+      "name_zh_cn": "配置绑定12",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W5_Eater_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W5_Eater_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W5_Eater_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W5_Eater_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "42d1a57d64d473bac84333c7f5e0b7ac89084d408ec65ca63aba6ca2153f9d46",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 12,
+      "source_path": "Config/ConfigAI/Monster_W5_Eater_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "42d1a57d64d473bac84333c7f5e0b7ac89084d408ec65ca63aba6ca2153f9d46",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.013.9a726bda1f96",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 13",
+      "name_zh_cn": "配置绑定13",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W5_Painter_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W5_Painter_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W5_Painter_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W5_Painter_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W5_Painter_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "f6a79ff5b35b44494f2e66a5e3363a7bc564eca7355de5f1b61b247bc89d7ff0",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 13,
+      "source_path": "Config/ConfigAI/Monster_W5_Painter_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f6a79ff5b35b44494f2e66a5e3363a7bc564eca7355de5f1b61b247bc89d7ff0",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.014.69147cd06b73",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 14",
+      "name_zh_cn": "配置绑定14",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W5_Ranger_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W5_Ranger_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W5_Ranger_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W5_Ranger_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W5_Ranger_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "866ae3f1d118356419b2feda84330dc1b29997e97d1f6f7dd172d2dd3f850677",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 14,
+      "source_path": "Config/ConfigAI/Monster_W5_Ranger_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "866ae3f1d118356419b2feda84330dc1b29997e97d1f6f7dd172d2dd3f850677",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.015.f941a1885079",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 15",
+      "name_zh_cn": "配置绑定15",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W5_RipperPart_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W5_RipperPart_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W5_RipperPart_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W5_RipperPart_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W5_RipperPart_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "6c4f021a756c95b1b441e7058ad185e85696c83e11509992a9b922215d30e542",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 15,
+      "source_path": "Config/ConfigAI/Monster_W5_RipperPart_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "6c4f021a756c95b1b441e7058ad185e85696c83e11509992a9b922215d30e542",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.016.000c83f9b80e",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 16",
+      "name_zh_cn": "配置绑定16",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_W5_Ripper_00_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_W5_Ripper_00_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_W5_Ripper_00_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_W5_Ripper_00_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_W5_Ripper_00_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "e58ab27fde0dbb7b5e2dbb3a894e29440dcfc9549d162fed48d14e6f5f719e5e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 16,
+      "source_path": "Config/ConfigAI/Monster_W5_Ripper_00_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "e58ab27fde0dbb7b5e2dbb3a894e29440dcfc9549d162fed48d14e6f5f719e5e",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.017.f7647fce5315",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 17",
+      "name_zh_cn": "配置绑定17",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAI/Monster_XP_Elite02_03_AI.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAI/Monster_XP_Elite02_03_AI.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAI/Monster_XP_Elite02_03_AI.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAI/Monster_XP_Elite02_03_AI.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+          "locator": "raw Git blob",
+          "sha256": "3e252ed9184d079931b34f821430f475532a22815140f0f32ed7a5357a9ea368",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 17,
+      "source_path": "Config/ConfigAI/Monster_XP_Elite02_03_AI.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy AI program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "3e252ed9184d079931b34f821430f475532a22815140f0f32ed7a5357a9ea368",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.018.b5e887728d53",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 18",
+      "name_zh_cn": "配置绑定18",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_Common_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_Common_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_Common_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_Common_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_Common_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "f134613277eb73ae261d0046ec89cac50d9dae88b71f5a69fe43b079a1245522",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 18,
+      "source_path": "Config/ConfigAbility/Monster/Monster_Common_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f134613277eb73ae261d0046ec89cac50d9dae88b71f5a69fe43b079a1245522",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.019.17aed9c9ac1a",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 19",
+      "name_zh_cn": "配置绑定19",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "0f0985cb4e3049ed7391a01037c32f0c22feb82375f5a3cbc7460519a5893e7a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 19,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Mecha03_02_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "0f0985cb4e3049ed7391a01037c32f0c22feb82375f5a3cbc7460519a5893e7a",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.020.ab389561a408",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 20",
+      "name_zh_cn": "配置绑定20",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "87e4f654b1c1f49ea9991f57eee0a5bcd55f35cc6a3e110c9d89372119d0b8a0",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 20,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Soldier01_04_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "87e4f654b1c1f49ea9991f57eee0a5bcd55f35cc6a3e110c9d89372119d0b8a0",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.021.49e40b77e560",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 21",
+      "name_zh_cn": "配置绑定21",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "92771d38d4eec3ed47a5e4fff60d4c4ddcf995eaade40684585e19282861b0dd",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 21,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Soldier02_01_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "92771d38d4eec3ed47a5e4fff60d4c4ddcf995eaade40684585e19282861b0dd",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.022.d7f431b287d7",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 22",
+      "name_zh_cn": "配置绑定22",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "ad8faaee75446c20a6681c652b89f8c017e179931f5b459ab460cf46a88925d3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 22,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_SvarogPart_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "ad8faaee75446c20a6681c652b89f8c017e179931f5b459ab460cf46a88925d3",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.023.47a153adda17",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 23",
+      "name_zh_cn": "配置绑定23",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "7ec97ec696b7ec7b320ea782963b2599fa0140e21077a09d9a1239aebca4c8c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 23,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W1_Svarog_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "7ec97ec696b7ec7b320ea782963b2599fa0140e21077a09d9a1239aebca4c8c7",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.024.d45e6289dc04",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 24",
+      "name_zh_cn": "配置绑定24",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "5b3d3db130574938cdb29804acf160cabcb06849ad812666cfb8b21943a605b1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 24,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "5b3d3db130574938cdb29804acf160cabcb06849ad812666cfb8b21943a605b1",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.025.b63492fdd73c",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 25",
+      "name_zh_cn": "配置绑定25",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "1b9c251a8034942b0ce3ea5b7e9ab2bb4e977c5714db91d9c5b5a17ca62ba3e9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 25,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_01_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "1b9c251a8034942b0ce3ea5b7e9ab2bb4e977c5714db91d9c5b5a17ca62ba3e9",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.026.da0c79d578f1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 26",
+      "name_zh_cn": "配置绑定26",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "f8b2d733806a768d16715cd91d0e2ca55e65cc3e0bbb3e0d16c2a1a850dd572e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 26,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_ArgentiTotem_02_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f8b2d733806a768d16715cd91d0e2ca55e65cc3e0bbb3e0d16c2a1a850dd572e",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.027.45053b29d08f",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 27",
+      "name_zh_cn": "配置绑定27",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "eebffaabc849c6b99443ac017789f861afe15ca86e013fd6a1e2433be7091168",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 27,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Argenti_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "eebffaabc849c6b99443ac017789f861afe15ca86e013fd6a1e2433be7091168",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.028.11c70ad35b99",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 28",
+      "name_zh_cn": "配置绑定28",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "ae479da36ee0f31cf8fcfc015ec658b2d17a98c1a7ee7100e6a8f49d2109af16",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 28,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "ae479da36ee0f31cf8fcfc015ec658b2d17a98c1a7ee7100e6a8f49d2109af16",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.029.33f8f82cb74b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 29",
+      "name_zh_cn": "配置绑定29",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "f50667decea0974a03866d47cbd7c2e381228e494f0fa3272b4210b8979c9acb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 29,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_01_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f50667decea0974a03866d47cbd7c2e381228e494f0fa3272b4210b8979c9acb",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.030.3ebc25566616",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 30",
+      "name_zh_cn": "配置绑定30",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "7efd4dcc7cbdb9921f8b5a364fc9cb2dfb18dc5ad70cae9a16b5b74593b46e5f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 30,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast01_02_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "7efd4dcc7cbdb9921f8b5a364fc9cb2dfb18dc5ad70cae9a16b5b74593b46e5f",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.031.56cd7ac47cc5",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 31",
+      "name_zh_cn": "配置绑定31",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "920eee5b50b7fa5f0fa5d84155ddf977866017ce00eebb26733cf4eb71eef085",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 31,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W2_Beast02_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "920eee5b50b7fa5f0fa5d84155ddf977866017ce00eebb26733cf4eb71eef085",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.032.012e38928dc1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 32",
+      "name_zh_cn": "配置绑定32",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "974228c48a521ea1fe0ee91bbc33a3d984451b1c450f3e5b7649b40a53ba97e6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 32,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Griffin_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "974228c48a521ea1fe0ee91bbc33a3d984451b1c450f3e5b7649b40a53ba97e6",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.033.6f534c52cce1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 33",
+      "name_zh_cn": "配置绑定33",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "5d3563b6f290ec797b561f8fbff9625641f428a40555f98680e0f0bfbccedeba",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 33,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Griffin_01_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "5d3563b6f290ec797b561f8fbff9625641f428a40555f98680e0f0bfbccedeba",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.034.f1e1c7745db2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 34",
+      "name_zh_cn": "配置绑定34",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "2af0b6fd3f26b8a174a1c76071f7397a59087586389bc3691532571339ec5c9d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 34,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Harpy_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "2af0b6fd3f26b8a174a1c76071f7397a59087586389bc3691532571339ec5c9d",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.035.3c313f521514",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 35",
+      "name_zh_cn": "配置绑定35",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "52f39cad15709efbeabb28152494f189e917467c5639d3ffd7dcb3cf7e81574b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 35,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Shooter_01_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "52f39cad15709efbeabb28152494f189e917467c5639d3ffd7dcb3cf7e81574b",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.036.28ade8181a6a",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 36",
+      "name_zh_cn": "配置绑定36",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "5afec0bdd32d84580d0cae412be211fbcbe44db65895659b6dfec38f922c8e88",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 36,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W4_Unicorn_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "5afec0bdd32d84580d0cae412be211fbcbe44db65895659b6dfec38f922c8e88",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.037.0564298eb5d2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 37",
+      "name_zh_cn": "配置绑定37",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "d232c37a329de9100766cf9933fea3547c2917f8e7683fa8ff13665229dcedd7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 37,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Eater_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "d232c37a329de9100766cf9933fea3547c2917f8e7683fa8ff13665229dcedd7",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.038.b5ae96c7a28b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 38",
+      "name_zh_cn": "配置绑定38",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "0ac4951ef966e713e121bda5a081c75c6d9325729ac242d94b875f163cc7b6a1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 38,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Painter_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "0ac4951ef966e713e121bda5a081c75c6d9325729ac242d94b875f163cc7b6a1",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.039.417b9f9a884c",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 39",
+      "name_zh_cn": "配置绑定39",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "158779f2986f543adae295a430f95e3662afda030bfbcc2f18d1cae6b9bcdde6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 39,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Ranger_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "158779f2986f543adae295a430f95e3662afda030bfbcc2f18d1cae6b9bcdde6",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.040.1467befb48fe",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 40",
+      "name_zh_cn": "配置绑定40",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "b18c31a9ec0359485b0a3f69d03efe386194936f9316af00f6bd54ae723abbb4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 40,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_RipperPart_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "b18c31a9ec0359485b0a3f69d03efe386194936f9316af00f6bd54ae723abbb4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.041.bfdb9343d867",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 41",
+      "name_zh_cn": "配置绑定41",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "dc0463c7864ee504e2087f4a8043415e4465db7f7e0d956bee34238f8112b0b9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 41,
+      "source_path": "Config/ConfigAbility/Monster/Monster_W5_Ripper_00_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "dc0463c7864ee504e2087f4a8043415e4465db7f7e0d956bee34238f8112b0b9",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.042.a587d4267923",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 42",
+      "name_zh_cn": "配置绑定42",
+      "summary_en": "enemy.config-closure reaches Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json",
+          "locator": "raw Git blob",
+          "sha256": "9c245a9f55f13d5009027722b950f9f145ea008de8ad048606ef2cf967aa5945",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 42,
+      "source_path": "Config/ConfigAbility/Monster/Monster_XP_Elite02_03_Ability.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy ability/layout program",
+      "reachability": "TransitiveReference",
+      "program_sha256": "9c245a9f55f13d5009027722b950f9f145ea008de8ad048606ef2cf967aa5945",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.043.982168d5925c",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 43",
+      "name_zh_cn": "配置绑定43",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "6a7d651173fa7048545e8237da5c069823bedf8d9f6dd24581ac9d6e5ded7ce5",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 43,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "6a7d651173fa7048545e8237da5c069823bedf8d9f6dd24581ac9d6e5ded7ce5",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.044.22eec3f6248d",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 44",
+      "name_zh_cn": "配置绑定44",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "aa10805523735267b28eef65d967edd272d9102725cd48189d6ed26c2de9d911",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 44,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "aa10805523735267b28eef65d967edd272d9102725cd48189d6ed26c2de9d911",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.045.04f1c71d024b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 45",
+      "name_zh_cn": "配置绑定45",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "a54e6b6fd5ba56c89ac2acf9b3cd8a4e05a92b2acf4747c9f5c3971d63fa1ff9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 45,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "a54e6b6fd5ba56c89ac2acf9b3cd8a4e05a92b2acf4747c9f5c3971d63fa1ff9",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.046.cba81054da62",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 46",
+      "name_zh_cn": "配置绑定46",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "8c53e5b200a959380abcbf312077f123443150f018b70d48dfc50b6729dc6fd4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 46,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "8c53e5b200a959380abcbf312077f123443150f018b70d48dfc50b6729dc6fd4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.047.2597181f30b9",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 47",
+      "name_zh_cn": "配置绑定47",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "7b9197d3aaff633a743b72d02302e92c427a503a7d02d70804e95ed4a4d5448f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 47,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "7b9197d3aaff633a743b72d02302e92c427a503a7d02d70804e95ed4a4d5448f",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.048.3eaef45d288b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 48",
+      "name_zh_cn": "配置绑定48",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "82faa7ac50ee540014bcc2568c6949a2ab3daf40c79af87bfc0ae9e3edce25a3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 48,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "82faa7ac50ee540014bcc2568c6949a2ab3daf40c79af87bfc0ae9e3edce25a3",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.049.5fcbd86ce171",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 49",
+      "name_zh_cn": "配置绑定49",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "f4027c5b61533eac2a8b308304f686779b9772733771b00dcd8f729e9e6655a5",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 49,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "f4027c5b61533eac2a8b308304f686779b9772733771b00dcd8f729e9e6655a5",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.050.1b5cc4fe311a",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 50",
+      "name_zh_cn": "配置绑定50",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "e6833d865550bd6b77fed7940b578a9c49aa4197c26b24e2349e104a7dfe2529",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 50,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "e6833d865550bd6b77fed7940b578a9c49aa4197c26b24e2349e104a7dfe2529",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.051.72cacf38c8ab",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 51",
+      "name_zh_cn": "配置绑定51",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "87af4a2217e4667174cfd18d2dd687c674de23eb8a06e9acea9a4c3478aab0df",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 51,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "87af4a2217e4667174cfd18d2dd687c674de23eb8a06e9acea9a4c3478aab0df",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.052.dc08559e09ae",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 52",
+      "name_zh_cn": "配置绑定52",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "0e3a76a1ffe3847fcad1329afb08c63e313d7077a59fa66ffaf99e9ad814a9a4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 52,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "0e3a76a1ffe3847fcad1329afb08c63e313d7077a59fa66ffaf99e9ad814a9a4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.053.e754d01aec2c",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 53",
+      "name_zh_cn": "配置绑定53",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "b32953e1d412b7c128fa23e24f56dd470a92488b6cc743035a23f9e8d13852c8",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 53,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "b32953e1d412b7c128fa23e24f56dd470a92488b6cc743035a23f9e8d13852c8",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.054.38aa3d478778",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 54",
+      "name_zh_cn": "配置绑定54",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "7e96b85f81ac8144eaa1ce74ec8b2bc398fe55bb469922f82ac6125a47838d9d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 54,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "7e96b85f81ac8144eaa1ce74ec8b2bc398fe55bb469922f82ac6125a47838d9d",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.055.479b381ce372",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 55",
+      "name_zh_cn": "配置绑定55",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "a71d8465ad71eec05b37ec0cf5d850cc5690730720805a36aa2c5f8a850a514b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 55,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "a71d8465ad71eec05b37ec0cf5d850cc5690730720805a36aa2c5f8a850a514b",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.056.130703e0f7d5",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 56",
+      "name_zh_cn": "配置绑定56",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "86deff0cac70ffcf41e0edcf9d4372d6129f86ce0176310d4f2e026415decaf4",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 56,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "86deff0cac70ffcf41e0edcf9d4372d6129f86ce0176310d4f2e026415decaf4",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.057.973a93951d60",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 57",
+      "name_zh_cn": "配置绑定57",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "cd7a5826f4a6239a34ec11747c01ed36bee85473198e2cfc1fcfec076bfcbeb1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 57,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "cd7a5826f4a6239a34ec11747c01ed36bee85473198e2cfc1fcfec076bfcbeb1",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.058.6be9b83e2a0f",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 58",
+      "name_zh_cn": "配置绑定58",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "11fb51e2e127969e927bdedb71ddbc1dda7116e02d3b9bb9758aa71742b416cb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 58,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "11fb51e2e127969e927bdedb71ddbc1dda7116e02d3b9bb9758aa71742b416cb",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.059.4febedc7c56a",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 59",
+      "name_zh_cn": "配置绑定59",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "9f9e9cd668396111495f5f9f0dd756a12261ff6b45aba0853df9ba7510c6a5ef",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 59,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "9f9e9cd668396111495f5f9f0dd756a12261ff6b45aba0853df9ba7510c6a5ef",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.060.817c7a676c31",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 60",
+      "name_zh_cn": "配置绑定60",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "dc3c837c417139edb5672ca0ff152b36ac362a8042efc4878580c46fdf3828fa",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 60,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "dc3c837c417139edb5672ca0ff152b36ac362a8042efc4878580c46fdf3828fa",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.061.6248280d87c3",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 61",
+      "name_zh_cn": "配置绑定61",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "40a27cf75c349b2658dfc8a63f8c6b52066f9735b6f329b4fe9ddcd1ba09bb9c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 61,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "40a27cf75c349b2658dfc8a63f8c6b52066f9735b6f329b4fe9ddcd1ba09bb9c",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.062.7e318f4da1a8",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 62",
+      "name_zh_cn": "配置绑定62",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "2364017d869e483773c8e3c6f46879e8ee8b101aa3aca4275a6538971732897a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 62,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "2364017d869e483773c8e3c6f46879e8ee8b101aa3aca4275a6538971732897a",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.063.bcf8aa268f80",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 63",
+      "name_zh_cn": "配置绑定63",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "af423d96f8c4bc6a8a3bccf405e374b76380457be96517da1a8e09f1f9dde2a2",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 63,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "af423d96f8c4bc6a8a3bccf405e374b76380457be96517da1a8e09f1f9dde2a2",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.064.9b00fddb3cd5",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 64",
+      "name_zh_cn": "配置绑定64",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "d947a459e8881d91ee85452c0646b20b5eb6261ed2abbc510296af5667642aca",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 64,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "d947a459e8881d91ee85452c0646b20b5eb6261ed2abbc510296af5667642aca",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.065.ccee52136c39",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 65",
+      "name_zh_cn": "配置绑定65",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "5747ac90b9bbd923b70f273da82d8936eb1d2247d5a7fe8a560f9a08d8ccb0ea",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 65,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "5747ac90b9bbd923b70f273da82d8936eb1d2247d5a7fe8a560f9a08d8ccb0ea",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.066.e496b3559aa4",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 66",
+      "name_zh_cn": "配置绑定66",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json",
+          "locator": "raw Git blob",
+          "sha256": "429b684c43402f90c81bc95803a491a5518e2650d4f251d66e95c7a39aee3edd",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 66,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "429b684c43402f90c81bc95803a491a5518e2650d4f251d66e95c7a39aee3edd",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.067.64d886c9707d",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 67",
+      "name_zh_cn": "配置绑定67",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json",
+          "locator": "raw Git blob",
+          "sha256": "2483f57c0e34584069761c0d69bf49dbd999442c62ecb78274e81a0579faee7a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 67,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "2483f57c0e34584069761c0d69bf49dbd999442c62ecb78274e81a0579faee7a",
+      "program_body_imported": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "ability-binding.068.443e21bd559b",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "AbilityBinding",
+      "name_en": "Configuration binding 68",
+      "name_zh_cn": "配置绑定68",
+      "summary_en": "enemy.config-closure reaches Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json through the frozen selector closure.",
+      "summary_zh_cn": "enemy.config-closure通过冻结选择器闭包到达Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "config_programs:config:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json:raw Git blob",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json",
+          "locator": "raw Git blob",
+          "sha256": "1cc4209998e6627334069c439ed5cadd55fcdfff45d0aa8a4fc6af29fd850746",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact source path, locator, selector and reachability receipt."
+        }
+      ],
+      "tags": [
+        "ability-binding",
+        "enemy.config-closure"
+      ],
+      "owner_id": "enemy.config-closure",
+      "binding_order": 68,
+      "source_path": "Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json",
+      "source_locator": "raw Git blob",
+      "selector": "active-stage or summon-closure enemy character configuration",
+      "reachability": "TransitiveReference",
+      "program_sha256": "1cc4209998e6627334069c439ed5cadd55fcdfff45d0aa8a4fc6af29fd850746",
+      "program_body_imported": false,
+      "runtime_executable": false
+    }
+  ]
+}

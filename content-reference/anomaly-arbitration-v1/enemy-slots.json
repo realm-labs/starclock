@@ -1,0 +1,841 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "enemy-slots.json",
+  "record_kind": "EnemySlot",
+  "records": [
+    {
+      "id": "enemy-slot.30508011.1.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (I) wave 1 slot 1",
+      "name_zh_cn": "骑士（一）第1波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 2023020.",
+      "summary_zh_cn": "该槽位明示选择敌方变体2023020。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:2023020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=2023020",
+          "sha256": "10ed5a3c679c4790fbb986b5a5cc7f9040d3ca0797c44e89fa070c72ce0d75d9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508011",
+      "wave_order": 1,
+      "slot_order": 1,
+      "enemy_id": "enemy.2023020",
+      "source_numeric_id": 2023020,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508011.1.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (I) wave 1 slot 2",
+      "name_zh_cn": "骑士（一）第1波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 803301014.",
+      "summary_zh_cn": "该槽位明示选择敌方变体803301014。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:803301014"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=803301014",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=803301014",
+          "sha256": "204368df2380033080045eecfb907d4f1486fe991fc62bb399e604d1fa8c6adf",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508011",
+      "wave_order": 1,
+      "slot_order": 2,
+      "enemy_id": "enemy.803301014",
+      "source_numeric_id": 803301014,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508011.2.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (I) wave 2 slot 1",
+      "name_zh_cn": "骑士（一）第2波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 302401012.",
+      "summary_zh_cn": "该槽位明示选择敌方变体302401012。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:302401012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=302401012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=302401012",
+          "sha256": "29debc703abae39d5729b0bbcc619bbf1841ca9fb447b24e4571e3e6faa19553",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508011",
+      "wave_order": 2,
+      "slot_order": 1,
+      "enemy_id": "enemy.302401012",
+      "source_numeric_id": 302401012,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508012.1.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (II) wave 1 slot 1",
+      "name_zh_cn": "骑士（二）第1波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5023010.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5023010。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5023010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023010",
+          "sha256": "869687af604a4a8bf6f9d5b07fc5cdb14078e90a2794cc71083589e326c5b95d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 1,
+      "slot_order": 1,
+      "enemy_id": "enemy.5023010",
+      "source_numeric_id": 5023010,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508012.1.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (II) wave 1 slot 2",
+      "name_zh_cn": "骑士（二）第1波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5023020.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5023020。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5023020"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023020",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023020",
+          "sha256": "c9884547f1e3c2d3744c6e9f46a508f1dad0eb0fae24bfa8e71e88bbd069363c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 1,
+      "slot_order": 2,
+      "enemy_id": "enemy.5023020",
+      "source_numeric_id": 5023020,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508012.2.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (II) wave 2 slot 1",
+      "name_zh_cn": "骑士（二）第2波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 101401016.",
+      "summary_zh_cn": "该槽位明示选择敌方变体101401016。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:101401016"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=101401016",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=101401016",
+          "sha256": "8d26badbade79b2eea4489619e7fde2ad93ac1ae06dd816a6cb519531077d247",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 2,
+      "slot_order": 1,
+      "enemy_id": "enemy.101401016",
+      "source_numeric_id": 101401016,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508012.2.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (II) wave 2 slot 2",
+      "name_zh_cn": "骑士（二）第2波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5023010.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5023010。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5023010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5023010",
+          "sha256": "869687af604a4a8bf6f9d5b07fc5cdb14078e90a2794cc71083589e326c5b95d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 2,
+      "slot_order": 2,
+      "enemy_id": "enemy.5023010",
+      "source_numeric_id": 5023010,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508013.1.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (III) wave 1 slot 1",
+      "name_zh_cn": "骑士（三）第1波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5013040.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5013040。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5013040"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5013040",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5013040",
+          "sha256": "6387aa8112d1c850d7c7f9436571460e9d6fab585aa6ac4908a560ef7577b847",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508013",
+      "wave_order": 1,
+      "slot_order": 1,
+      "enemy_id": "enemy.5013040",
+      "source_numeric_id": 5013040,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508013.1.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (III) wave 1 slot 2",
+      "name_zh_cn": "骑士（三）第1波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 402301001.",
+      "summary_zh_cn": "该槽位明示选择敌方变体402301001。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:402301001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402301001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402301001",
+          "sha256": "d6c7dcf77b6d26f69f2681ba7687131bc343dc04c61f7c8c177bdf36867ced17",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508013",
+      "wave_order": 1,
+      "slot_order": 2,
+      "enemy_id": "enemy.402301001",
+      "source_numeric_id": 402301001,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508013.2.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "Knight (III) wave 2 slot 1",
+      "name_zh_cn": "骑士（三）第2波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5024010.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5024010。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5024010"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5024010",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5024010",
+          "sha256": "eab7c5220c99bcabc73791eacdf7cb5dc7bde81aefbc9943cc01287d947803f9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508013",
+      "wave_order": 2,
+      "slot_order": 1,
+      "enemy_id": "enemy.5024010",
+      "source_numeric_id": 5024010,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508021.1.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check wave 1 slot 1",
+      "name_zh_cn": "将杀王棋第1波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 4033030.",
+      "summary_zh_cn": "该槽位明示选择敌方变体4033030。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:4033030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=4033030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=4033030",
+          "sha256": "9cc248d5c756293dd79a8b466a3374fd8f1a0a7de73f88476d7d1dc950dcaee1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508021",
+      "wave_order": 1,
+      "slot_order": 1,
+      "enemy_id": "enemy.4033030",
+      "source_numeric_id": 4033030,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508021.1.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check wave 1 slot 2",
+      "name_zh_cn": "将杀王棋第1波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 402302001.",
+      "summary_zh_cn": "该槽位明示选择敌方变体402302001。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:402302001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402302001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402302001",
+          "sha256": "4c8e9f6c0be9535187c557836328a5129ef0bf1b0261790c7cf8c05c32b680dc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508021",
+      "wave_order": 1,
+      "slot_order": 2,
+      "enemy_id": "enemy.402302001",
+      "source_numeric_id": 402302001,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508021.2.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check wave 2 slot 1",
+      "name_zh_cn": "将杀王棋第2波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5014030.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5014030。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5014030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5014030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5014030",
+          "sha256": "129717dbf5e0e797ff49d421ee5d0d937f94ee5d674dd0a43a521b94daaab76d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508021",
+      "wave_order": 2,
+      "slot_order": 1,
+      "enemy_id": "enemy.5014030",
+      "source_numeric_id": 5014030,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508022.1.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check: Plight wave 1 slot 1",
+      "name_zh_cn": "将杀王棋•绝境第1波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 4033030.",
+      "summary_zh_cn": "该槽位明示选择敌方变体4033030。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:4033030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=4033030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=4033030",
+          "sha256": "9cc248d5c756293dd79a8b466a3374fd8f1a0a7de73f88476d7d1dc950dcaee1",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508022",
+      "wave_order": 1,
+      "slot_order": 1,
+      "enemy_id": "enemy.4033030",
+      "source_numeric_id": 4033030,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508022.1.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check: Plight wave 1 slot 2",
+      "name_zh_cn": "将杀王棋•绝境第1波第2槽位",
+      "summary_en": "This slot explicitly selects enemy variant 402302001.",
+      "summary_zh_cn": "该槽位明示选择敌方变体402302001。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:402302001"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 slot 2."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402302001",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=402302001",
+          "sha256": "4c8e9f6c0be9535187c557836328a5129ef0bf1b0261790c7cf8c05c32b680dc",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508022",
+      "wave_order": 1,
+      "slot_order": 2,
+      "enemy_id": "enemy.402302001",
+      "source_numeric_id": 402302001,
+      "runtime_executable": false
+    },
+    {
+      "id": "enemy-slot.30508022.2.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemySlot",
+      "name_en": "King in Check: Plight wave 2 slot 1",
+      "name_zh_cn": "将杀王棋•绝境第2波第1槽位",
+      "summary_en": "This slot explicitly selects enemy variant 5014030.",
+      "summary_zh_cn": "该槽位明示选择敌方变体5014030。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "enemy_variants:monster:5014030"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 slot 1."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5014030",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MonsterConfig.json",
+          "locator": "MonsterID=5014030",
+          "sha256": "129717dbf5e0e797ff49d421ee5d0d937f94ee5d674dd0a43a521b94daaab76d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact concrete enemy variant selected by this slot."
+        }
+      ],
+      "tags": [
+        "direct-stage-enemy",
+        "enemy-slot"
+      ],
+      "encounter_id": "encounter.30508022",
+      "wave_order": 2,
+      "slot_order": 1,
+      "enemy_id": "enemy.5014030",
+      "source_numeric_id": 5014030,
+      "runtime_executable": false
+    }
+  ]
+}

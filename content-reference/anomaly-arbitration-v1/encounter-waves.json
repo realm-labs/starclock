@@ -1,0 +1,445 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "encounter-waves.json",
+  "record_kind": "EncounterWave",
+  "records": [
+    {
+      "id": "encounter-wave.30508011.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (I) wave 1",
+      "name_zh_cn": "骑士（一）第1波",
+      "summary_en": "Wave 1 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第1波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508011"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508011",
+      "wave_order": 1,
+      "enemy_ids": [
+        "enemy.2023020",
+        "enemy.803301014"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.knight-1",
+      "carries_stage_clock": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508011.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (I) wave 2",
+      "name_zh_cn": "骑士（一）第2波",
+      "summary_en": "Wave 2 installs 1 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第2波安装1个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508011"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508011",
+          "sha256": "b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508011",
+      "wave_order": 2,
+      "enemy_ids": [
+        "enemy.302401012"
+      ],
+      "enemy_count": 1,
+      "clock_scope": "stage.knight-1",
+      "carries_stage_clock": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508012.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (II) wave 1",
+      "name_zh_cn": "骑士（二）第1波",
+      "summary_en": "Wave 1 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第1波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 1,
+      "enemy_ids": [
+        "enemy.5023010",
+        "enemy.5023020"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.knight-2",
+      "carries_stage_clock": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508012.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (II) wave 2",
+      "name_zh_cn": "骑士（二）第2波",
+      "summary_en": "Wave 2 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第2波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508012"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508012",
+          "sha256": "f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508012",
+      "wave_order": 2,
+      "enemy_ids": [
+        "enemy.101401016",
+        "enemy.5023010"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.knight-2",
+      "carries_stage_clock": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508013.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (III) wave 1",
+      "name_zh_cn": "骑士（三）第1波",
+      "summary_en": "Wave 1 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第1波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508013"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508013",
+      "wave_order": 1,
+      "enemy_ids": [
+        "enemy.5013040",
+        "enemy.402301001"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.knight-3",
+      "carries_stage_clock": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508013.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "Knight (III) wave 2",
+      "name_zh_cn": "骑士（三）第2波",
+      "summary_en": "Wave 2 installs 1 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第2波安装1个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508013"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508013",
+          "sha256": "a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508013",
+      "wave_order": 2,
+      "enemy_ids": [
+        "enemy.5024010"
+      ],
+      "enemy_count": 1,
+      "clock_scope": "stage.knight-3",
+      "carries_stage_clock": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508021.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "King in Check wave 1",
+      "name_zh_cn": "将杀王棋第1波",
+      "summary_en": "Wave 1 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第1波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508021",
+      "wave_order": 1,
+      "enemy_ids": [
+        "enemy.4033030",
+        "enemy.402302001"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.king-normal",
+      "carries_stage_clock": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508021.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "King in Check wave 2",
+      "name_zh_cn": "将杀王棋第2波",
+      "summary_en": "Wave 2 installs 1 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第2波安装1个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508021"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "normal"
+      ],
+      "encounter_id": "encounter.30508021",
+      "wave_order": 2,
+      "enemy_ids": [
+        "enemy.5014030"
+      ],
+      "enemy_count": 1,
+      "clock_scope": "stage.king-normal",
+      "carries_stage_clock": true,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508022.1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "King in Check: Plight wave 1",
+      "name_zh_cn": "将杀王棋•绝境第1波",
+      "summary_en": "Wave 1 installs 2 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第1波安装2个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508022"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 1 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "plight"
+      ],
+      "encounter_id": "encounter.30508022",
+      "wave_order": 1,
+      "enemy_ids": [
+        "enemy.4033030",
+        "enemy.402302001"
+      ],
+      "enemy_count": 2,
+      "clock_scope": "stage.king-plight",
+      "carries_stage_clock": false,
+      "runtime_executable": false
+    },
+    {
+      "id": "encounter-wave.30508022.2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EncounterWave",
+      "name_en": "King in Check: Plight wave 2",
+      "name_zh_cn": "将杀王棋•绝境第2波",
+      "summary_en": "Wave 2 installs 1 explicit StageConfig enemy slots.",
+      "summary_zh_cn": "第2波安装1个 StageConfig 明示敌方槽位。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_configs:stage:30508022"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "MonsterList wave 2 preserves source slot order."
+        }
+      ],
+      "tags": [
+        "encounter-wave",
+        "plight"
+      ],
+      "encounter_id": "encounter.30508022",
+      "wave_order": 2,
+      "enemy_ids": [
+        "enemy.5014030"
+      ],
+      "enemy_count": 1,
+      "clock_scope": "stage.king-plight",
+      "carries_stage_clock": true,
+      "runtime_executable": false
+    }
+  ]
+}
