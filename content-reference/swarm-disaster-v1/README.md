@@ -20,6 +20,8 @@ node tools/swarm-disaster-reference/import-countdown.mjs
 node tools/swarm-disaster-reference/verify-countdown.mjs
 node tools/swarm-disaster-reference/import-audience-dice.mjs
 node tools/swarm-disaster-reference/verify-audience-dice.mjs
+node tools/swarm-disaster-reference/import-dice-faces.mjs
+node tools/swarm-disaster-reference/verify-dice-faces.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -47,3 +49,8 @@ Standard Universe Path identities and preserves the two released effect slots.
 `audience-dice.json` binds each Path to its die and all 42 authored face IDs;
 the exact face effects and roll/reroll/cheat controls remain owned by
 `G09-P1-B5`.
+
+`dice-faces.json` and `dice-rarities.json` preserve the 42 released faces and
+three rarity rows exactly. One typed target rule per face and four roll
+controls make stable ordering, resource failure and empty-target behavior
+explicit; these operational details remain replaceable `ProjectPolicy`.
