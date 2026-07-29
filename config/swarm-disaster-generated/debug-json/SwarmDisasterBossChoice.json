@@ -1,0 +1,157 @@
+{
+  "table": {
+    "name": "SwarmDisasterBossChoice",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level": {
+            "Integer": 56
+          },
+          "enemy_variant_id": {
+            "String": "8003051"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "BossChoice"
+          },
+          "later_boss_consequence_json": {
+            "String": "{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"}"
+          },
+          "name_en": {
+            "String": "Stormbringer (Bug)"
+          },
+          "name_zh_cn": {
+            "String": "兴风者（错误）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8003051"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-monsterconfig-json.2277"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-choice.8003051"
+          },
+          "summary_en": {
+            "String": "Displayed ChessRogue boss candidate 8003051 at first released display level 56."
+          },
+          "summary_zh_cn": {
+            "String": "ChessRogue 展示首领候选 8003051，首次发布展示等级为 56。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "weakness_consequence_json": {
+            "String": "{\"elements\":[\"Fire\",\"Ice\",\"Imaginary\"],\"kind\":\"IntrinsicWeaknessSet\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "display_level": {
+            "Integer": 60
+          },
+          "enemy_variant_id": {
+            "String": "8024010"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "BossChoice"
+          },
+          "later_boss_consequence_json": {
+            "String": "{\"kind\":\"TypedBossDecayReference\",\"resolution_state\":\"DeferredToG09-P1-B3\",\"unresolved_reference_policy\":\"RejectAtPackCompilation\"}"
+          },
+          "name_en": {
+            "String": "Swarm: True Sting (Complete)"
+          },
+          "name_zh_cn": {
+            "String": "虫群•真蛰虫（完整）"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8024010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-monsterconfig-json.2495"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.boss-choice.8024010"
+          },
+          "summary_en": {
+            "String": "Displayed ChessRogue boss candidate 8024010 at first released display level 60."
+          },
+          "summary_zh_cn": {
+            "String": "ChessRogue 展示首领候选 8024010，首次发布展示等级为 60。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "weakness_consequence_json": {
+            "String": "{\"elements\":[\"Imaginary\",\"Quantum\"],\"kind\":\"IntrinsicWeaknessSet\"}"
+          }
+        }
+      }
+    ]
+  }
+}

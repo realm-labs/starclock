@@ -1,0 +1,76 @@
+{
+  "table": {
+    "name": "SwarmDisasterCurrency",
+    "rows": [
+      {
+        "values": {
+          "cap_policy_json": {
+            "String": "{\"maximum\":\"\",\"overflow\":\"CheckedUnboundedDomainValue\",\"reset_boundary\":\"RunStart\",\"scope\":\"ActivityRun\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_value": {
+            "String": "50"
+          },
+          "kind": {
+            "String": "SwarmCurrency"
+          },
+          "name_en": {
+            "String": "Cosmic Fragments"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "resource_id": {
+            "String": "universe.currency.cosmic-fragments"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.currency.cosmic-fragments"
+          },
+          "summary_en": {
+            "String": "Run-scoped currency used by Swarm services, Occurrence costs and Trailblaze Bonuses."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾局内货币，用于服务、事件成本与开拓祝福。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "currency"
+              },
+              {
+                "String": "run-scoped"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

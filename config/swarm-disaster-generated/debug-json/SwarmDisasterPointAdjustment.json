@@ -1,0 +1,4462 @@
+{
+  "table": {
+    "name": "SwarmDisasterPointAdjustment",
+    "rows": [
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 1 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 1 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.1.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 1 adds 1 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 1 后，为觐见维度 1 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 1 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 1 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.1.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 1 adds 2 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 1 后，为觐见维度 3 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 10 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 10 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "10"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.10.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 10 adds 2 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 10 后，为觐见维度 6 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 10 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 10 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "10"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.10.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 10 adds 2 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 10 后，为觐见维度 7 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 101 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 101 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.24"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.101.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 101 adds 4 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 101 后，为觐见维度 6 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 102 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 102 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.102.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 102 adds 4 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 102 后，为觐见维度 3 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 103 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 103 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.26"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.103.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 103 adds 4 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 103 后，为觐见维度 2 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 104 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 104 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.27"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.104.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 104 adds 4 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 104 后，为觐见维度 7 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 105 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 105 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.105.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 105 adds 4 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 105 后，为觐见维度 4 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 106 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 106 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "106"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.29"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.106.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 106 adds 4 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 106 后，为觐见维度 5 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 107 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 107 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "107"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.30"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.107.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 107 adds 4 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 107 后，为觐见维度 1 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "3"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 11 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 11 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "11"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.11.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 11 adds 3 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 11 后，为觐见维度 6 增加 3 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 11 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 11 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "11"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.11.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 11 adds 2 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 11 后，为觐见维度 1 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 12 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 12 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "12"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.12.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 12 adds 1 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 12 后，为觐见维度 7 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 12 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 12 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "12"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.12.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 12 adds 4 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 12 后，为觐见维度 4 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 13 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 13 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "13"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.13.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 13 adds 1 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 13 后，为觐见维度 1 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 13 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 13 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "13"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.13.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 13 adds 4 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 13 后，为觐见维度 3 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "5"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 14 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 14 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "14"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.14.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 14 adds 5 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 14 后，为觐见维度 1 增加 5 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 14 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 14 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "14"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.14.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 14 adds 1 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 14 后，为觐见维度 2 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 15 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 15 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "15"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.15.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 15 adds 4 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 15 后，为觐见维度 2 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 15 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 15 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "15"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.15.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 15 adds 1 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 15 后，为觐见维度 5 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 16 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 16 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "16"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.16.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 16 adds 4 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 16 后，为觐见维度 2 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 16 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 16 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "16"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.16.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 16 adds 4 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 16 后，为觐见维度 6 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 17 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 17 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "17"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.17.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 17 adds 1 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 17 后，为觐见维度 3 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 17 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 17 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "17"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.17.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 17 adds 4 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 17 后，为觐见维度 5 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 18 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 18 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "18"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.18.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 18 adds 2 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 18 后，为觐见维度 4 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "5"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 18 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 18 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "18"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.17"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.18.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 18 adds 5 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 18 后，为觐见维度 3 增加 5 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 19 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 19 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "19"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.19.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 19 adds 2 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 19 后，为觐见维度 5 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 19 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 19 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "19"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.19.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 19 adds 2 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 19 后，为觐见维度 4 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 2 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 2 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.2.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 2 adds 2 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 2 后，为觐见维度 1 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 2 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 2 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.2.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 2 adds 1 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 2 后，为觐见维度 2 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 20 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 20 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "20"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.20.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 20 adds 2 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 20 后，为觐见维度 5 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 20 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 20 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "20"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.20.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 20 adds 2 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 20 后，为觐见维度 7 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "3"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 21 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 21 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "21"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.21.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 21 adds 3 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 21 后，为觐见维度 6 增加 3 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "5"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 21 Dimension 1 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 21 维度 1 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "21"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.21.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 21 adds 5 point(s) to Communing dimension 1."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 21 后，为觐见维度 1 增加 5 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 22 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 22 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "22"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.22.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 22 adds 2 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 22 后，为觐见维度 6 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "3"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 22 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 22 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "22"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.22.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 22 adds 3 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 22 后，为觐见维度 7 增加 3 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "4"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 23 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 23 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "23"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.23.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 23 adds 4 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 23 后，为觐见维度 7 增加 4 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 23 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 23 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "23"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.23.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 23 adds 1 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 23 后，为觐见维度 2 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 24 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 24 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "24"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.24.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 24 adds 1 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 24 后，为觐见维度 7 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "5"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 24 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 24 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "24"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.24.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 24 adds 5 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 24 后，为觐见维度 4 增加 5 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 3 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 3 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.3.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 3 adds 2 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 3 后，为觐见维度 2 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 3 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 3 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.3.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 3 adds 1 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 3 后，为觐见维度 5 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 4 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 4 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.4.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 4 adds 2 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 4 后，为觐见维度 2 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 4 Dimension 6 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 4 维度 6 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.4.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 4 adds 2 point(s) to Communing dimension 6."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 4 后，为觐见维度 6 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 5 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 5 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.5.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 5 adds 1 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 5 后，为觐见维度 3 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "3"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 5 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 5 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.5.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 5 adds 3 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 5 后，为觐见维度 5 增加 3 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 6 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 6 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.6.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 6 adds 1 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 6 后，为觐见维度 4 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "3"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 6 Dimension 3 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 6 维度 3 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.6.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 6 adds 3 point(s) to Communing dimension 3."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 6 后，为觐见维度 3 增加 3 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 7 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 7 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.7.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 7 adds 2 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 7 后，为觐见维度 5 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 7 Dimension 4 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 7 维度 4 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.7.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 7 adds 2 point(s) to Communing dimension 4."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 7 后，为觐见维度 4 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 8 Dimension 5 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 8 维度 5 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.8.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 8 adds 1 point(s) to Communing dimension 5."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 8 后，为觐见维度 5 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 8 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 8 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.8.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 8 adds 1 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 8 后，为觐见维度 7 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "2"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 9 Dimension 7 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 9 维度 7 调整"
+          },
+          "operation_order": {
+            "String": "0"
+          },
+          "ordinal": {
+            "Integer": 0
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.9.0"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 9 adds 2 point(s) to Communing dimension 7."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 9 后，为觐见维度 7 增加 2 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "clamp_policy": {
+            "String": "ClampToDimensionMaximumAfterOperation"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "delta": {
+            "String": "1"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "kind": {
+            "String": "CommuningPointAdjustment"
+          },
+          "name_en": {
+            "String": "Cabinet 9 Dimension 2 Adjustment"
+          },
+          "name_zh_cn": {
+            "String": "柜节点 9 维度 2 调整"
+          },
+          "operation_order": {
+            "String": "1"
+          },
+          "ordinal": {
+            "Integer": 1
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_kind": {
+            "String": "PathstriderCabinet"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-adjustment.cabinet.9.1"
+          },
+          "summary_en": {
+            "String": "Completing cabinet 9 adds 1 point(s) to Communing dimension 2."
+          },
+          "summary_zh_cn": {
+            "String": "完成柜节点 9 后，为觐见维度 2 增加 1 点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cabinet"
+              },
+              {
+                "String": "communing-adjustment"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

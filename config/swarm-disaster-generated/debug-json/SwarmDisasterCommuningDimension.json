@@ -1,0 +1,553 @@
+{
+  "table": {
+    "name": "SwarmDisasterCommuningDimension",
+    "rows": [
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Preservation Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "存护觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.1"
+          },
+          "summary_en": {
+            "String": "Preservation"
+          },
+          "summary_zh_cn": {
+            "String": "存护"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Remembrance Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "记忆觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.2"
+          },
+          "summary_en": {
+            "String": "Remembrance"
+          },
+          "summary_zh_cn": {
+            "String": "记忆"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Nihility Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "虚无觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.3"
+          },
+          "summary_en": {
+            "String": "Nihility"
+          },
+          "summary_zh_cn": {
+            "String": "虚无"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Abundance Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "丰饶觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.4"
+          },
+          "summary_en": {
+            "String": "Abundance"
+          },
+          "summary_zh_cn": {
+            "String": "丰饶"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "The Hunt Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "巡猎觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.5"
+          },
+          "summary_en": {
+            "String": "The Hunt"
+          },
+          "summary_zh_cn": {
+            "String": "巡猎"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "the-hunt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Destruction Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "毁灭觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.6"
+          },
+          "summary_en": {
+            "String": "Destruction"
+          },
+          "summary_zh_cn": {
+            "String": "毁灭"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "carry_policy": {
+            "String": "PersistentAcrossRuns"
+          },
+          "clamp_policy": {
+            "String": "ClampAfterEachOrderedIncrement"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CommuningDimension"
+          },
+          "max_points": {
+            "Integer": 20
+          },
+          "name_en": {
+            "String": "Elation Communing Dimension"
+          },
+          "name_zh_cn": {
+            "String": "欢愉觐见维度"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-dimension.7"
+          },
+          "summary_en": {
+            "String": "Elation"
+          },
+          "summary_zh_cn": {
+            "String": "欢愉"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

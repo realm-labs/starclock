@@ -1,0 +1,5623 @@
+{
+  "table": {
+    "name": "SwarmDisasterOccurrenceVariant",
+    "rows": [
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110101.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110101.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110101.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110101.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110101.json\",\"sha256\":\"3eb98ce8521a65b655be462940ec86a5a04f8b5ee52b3e3e144a24c716baf709\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110101/Opt0110101.json\",\"sha256\":\"f18d3089c8019ef5b3cfdce63e0b966838e9a7d2de19c5fa2f68926fcdf6a179\"}]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Nomadic Miners — Swarm Variant 110101"
+          },
+          "name_zh_cn": {
+            "String": "游牧矿工·蝗灾变体 110101"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.2"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.97"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110101-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110101"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110201.06"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110201.json\",\"sha256\":\"24d182db381e00b6c70477f1e20e34b3df9cf23720ca41261d20097a4e02bfa6\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110201/Opt0110201.json\",\"sha256\":\"9d363d6f3d9e99f37619324761ea0bdef939faff2efaa65447ed0ab7e2bb52ac\"}]"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "History Fictionologists (II) — Swarm Variant 110201"
+          },
+          "name_zh_cn": {
+            "String": "虚构史学家（其二）·蝗灾变体 110201"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.4"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.98"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110201-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110201"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 6 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110301.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110301.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110301.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110301.json\",\"sha256\":\"f545c79e90bf6d5c9537cbb67925906e2968e7e8a9e06ae0cd6f323c0f323e0c\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110301/Opt0110301.json\",\"sha256\":\"e32b7c78473ded8449d1998ff0ce5766d4282a209b6265ec63d831737c0774ca\"}]"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Jim Hulk and Jim Hall — Swarm Variant 110301"
+          },
+          "name_zh_cn": {
+            "String": "杰姆·哈克与杰姆·哈尔·蝗灾变体 110301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.5"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.99"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110401.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110401.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110401.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110401.json\",\"sha256\":\"a881b41a30d94f693dfe864b7a1b95e9773dd56ecc17a2d19a1cba6d9184c084\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110401/Opt0110401.json\",\"sha256\":\"e531637ff2e91baff61e631d27a28dee36cb493f14ba700ff7bcc1b097b6dc60\"}]"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Shopping Channel — Swarm Variant 110401"
+          },
+          "name_zh_cn": {
+            "String": "电视购物频道·蝗灾变体 110401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.6"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.100"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110501.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110501.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110501.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110501.json\",\"sha256\":\"287ac9b44115c0b87840a88dab129f4f4363107cf8fec02a674154032dc1b49b\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110501/Opt0110501.json\",\"sha256\":\"eb36c5e7595a17ba3669a79fb211e720461da85e88b0b1a242935387ba6cb8bc\"}]"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The Cremators — Swarm Variant 110501"
+          },
+          "name_zh_cn": {
+            "String": "焚化工·蝗灾变体 110501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.7"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.101"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110601.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110601.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110601.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110601.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110601.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110601.json\",\"sha256\":\"3b131143fc6b6595c8c4544e36db4938103ad3d8ca38afe991eb96d6c2e0d245\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110601/Opt0110601.json\",\"sha256\":\"bbe14d1c755499b5f8048b054aaedfcbed640720aa21defa25dc2f108e825b91\"}]"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Interactive Arts — Swarm Variant 110601"
+          },
+          "name_zh_cn": {
+            "String": "互动艺术·蝗灾变体 110601"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.8"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.102"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110601-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110601"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110701.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110701.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110701.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110701.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110701.json\",\"sha256\":\"dc1e764bf18d6330ed338693a3d02a7cd4f8b7ad8290befd533b4136e2e4b326\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110701/Opt0110701.json\",\"sha256\":\"c89577e26d72c2ae2b5c1d332ee51678af323013ae369c99babadea23cebad2d\"}]"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Pixel World — Swarm Variant 110701"
+          },
+          "name_zh_cn": {
+            "String": "像素世界·蝗灾变体 110701"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.9"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.103"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110701-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110701"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110801.07"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110801.json\",\"sha256\":\"0b27fd830ee1a14d6ec1d4d9beceb67f8d9dc02b2303c8a8a9fc7000a54eb867\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110801/Opt0110801.json\",\"sha256\":\"a9189df903b5e6e841459c10c5ae3bdf4e25e983d87f176f62b9a0631ea4d588\"}]"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Aha Stuffed Toy — Swarm Variant 110801"
+          },
+          "name_zh_cn": {
+            "String": "阿哈玩偶·蝗灾变体 110801"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.10"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.104"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110801-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110801"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 7 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 7 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110901.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110901.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110901.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.110901.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC110901.json\",\"sha256\":\"36aad90a2803cb886b96bfb1b4b75748871803895c37ff89afaf1fa9623c8263\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0110901/Opt0110901.json\",\"sha256\":\"e5930503c6c7a0050990aa626a7fc951835d2e8d5c9b78488322711587f9af0e\"}]"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "I.O.U. Dispenser (II) — Swarm Variant 110901"
+          },
+          "name_zh_cn": {
+            "String": "谢债发行机（其二）·蝗灾变体 110901"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.12"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "110901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.105"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110901-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.110901"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111001.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111001.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111001.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111001.json\",\"sha256\":\"beab1eb99fd783786dddcd6b21476ac36c043cb4b5cddc65dba21aee798de77b\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111001/Opt0111001.json\",\"sha256\":\"ffd4bff4910cc5fa0dccc990203af28803a9fad4b520db68f9d75b8d9ef859ed\"}]"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Statue — Swarm Variant 111001"
+          },
+          "name_zh_cn": {
+            "String": "雕像·蝗灾变体 111001"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.13"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.106"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111001-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111001"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111101.06"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111101.json\",\"sha256\":\"3d617058a9958891a3afbdca78d4e3a8b2fc7596a2c20c58bb795ae14257433c\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111101/Opt0111101.json\",\"sha256\":\"5f0c20331a589027ee4240774f255360ad99253bdb1cdee7906e81b784e8ca03\"}]"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Insect Nest — Swarm Variant 111101"
+          },
+          "name_zh_cn": {
+            "String": "虫巢·蝗灾变体 111101"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.14"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.107"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111101-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111101"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 6 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111201.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111201.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111201.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111201.json\",\"sha256\":\"234baad8eb2a69f294df93df9f9139bf1a32a9d2783fd9e15efac0085bba6fb0\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111201/Opt0111201.json\",\"sha256\":\"b6d7ab61a2334749b1f62798487e7873be837422363162f9770baf54aeb6c243\"}]"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Ruan Mei — Swarm Variant 111201"
+          },
+          "name_zh_cn": {
+            "String": "阮•梅·蝗灾变体 111201"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.15"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.108"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111201-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111201"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111301.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111301.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111301.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111301.json\",\"sha256\":\"a590ae0077322875d64bd1e490db3c7799cfdcaf0d5a028cb4ea5b356849bd1b\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111301/Opt0111301.json\",\"sha256\":\"32e225b22edf46d67de202da071c556d4f28ff4c652060ba111ba1ce0f586ad4\"}]"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Three Little Pigs — Swarm Variant 111301"
+          },
+          "name_zh_cn": {
+            "String": "三只小猪·蝗灾变体 111301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.16"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.109"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111401.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111401.json\",\"sha256\":\"be4b74ead016915357648b7ef68529cebeb5365c40c47752f572c0d3949f098f\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111401/Opt0111401.json\",\"sha256\":\"ae1205c969edd3fb64b1cc9f632452a7a170d19efb53a072c4bbf1b477e83cd8\"}]"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Unending Darkness — Swarm Variant 111401"
+          },
+          "name_zh_cn": {
+            "String": "无尽黑暗·蝗灾变体 111401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.17"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.110"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111501.02"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111501.json\",\"sha256\":\"632b87673396767edcb4271e583eeb82a2977e5c8834a3912cdde12216dd3b87\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111501/Opt0111501.json\",\"sha256\":\"84b54e417d5125194bbdfdbb2d957de6b48135240c4f9f6efc7886db874a5f7d\"}]"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The Architects — Swarm Variant 111501"
+          },
+          "name_zh_cn": {
+            "String": "筑城者·蝗灾变体 111501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.18"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.111"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 2 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111601.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111601.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111601.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111601.json\",\"sha256\":\"f59fcab851c9fd1735fdd4a43ed01799720d8f1f1a4cfc2b0e0bd8d49da7778d\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111601/Opt0111601.json\",\"sha256\":\"ffef9c4790eda3d6b8d0005c9cb5763b4b633c22d26c52d2e53cd4e7273413f1\"}]"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Kindling of the Self-Annihilator — Swarm Variant 111601"
+          },
+          "name_zh_cn": {
+            "String": "自灭者的火种·蝗灾变体 111601"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.19"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.112"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111601-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111601"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111701.09"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111701.json\",\"sha256\":\"580c0751a5c799e3d5908378d862e1247e14976c5ff88fe912460c3dfedf9486\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111701/Opt0111701.json\",\"sha256\":\"de0990e8e8f51006cd08a27b128fa810d3146948e4cdca4c4fac5a5648f9f2aa\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111702/Opt0111702.json\",\"sha256\":\"47d0847bc8e6d7a2845bbfa05b871d619e63b5cf8488bf9a74cf40c8cefefca7\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111703/Opt0111703.json\",\"sha256\":\"71b226c63659158d2d2e5d1dc98f5f91f2a9f388ff46e76629c08d35799e3393\"}]"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Cosmic Merchant (I) — Swarm Variant 111701"
+          },
+          "name_zh_cn": {
+            "String": "银河商人（其一）·蝗灾变体 111701"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.20"
+              },
+              {
+                "String": "swarm-disaster.occurrence.21"
+              },
+              {
+                "String": "swarm-disaster.occurrence.22"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.19"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.20"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.21"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.113"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111701-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111701"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 9 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 9 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111801.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111801.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111801.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111801.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111801.json\",\"sha256\":\"2f0178d7e91f593662dff34c8c478051f670a405525c05533e7102097246ef7a\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111801/Opt0111801.json\",\"sha256\":\"66ebfa9d5f3f54318792ef38c940fb83c2f20538a364db92cf1a8faf4331d0b1\"}]"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Societal Dreamscape — Swarm Variant 111801"
+          },
+          "name_zh_cn": {
+            "String": "社会性梦境·蝗灾变体 111801"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.23"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.22"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.114"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111801-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111801"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.111901.09"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC111901.json\",\"sha256\":\"1498faa6d2fd7d1156facb78ad94e5a29a2623220c8837ee2038f432ee22b869\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111901/Opt0111901.json\",\"sha256\":\"34a7bce4d372d9f36a92eef86cb9a131a868187b22340f8b67ca45bfbf5d05f9\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111902/Opt0111902.json\",\"sha256\":\"6fef5d2ef68c3aa206a42dcac8a333f7b532f3c58a1928745f92adefa51a95ed\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0111903/Opt0111903.json\",\"sha256\":\"dba85550ac6ce9d8e9c99eef2adad2bd6230e8bbe2377cbfcb23cfd68637838f\"}]"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Saleo (I) — Swarm Variant 111901"
+          },
+          "name_zh_cn": {
+            "String": "萨里奥（其一）·蝗灾变体 111901"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.24"
+              },
+              {
+                "String": "swarm-disaster.occurrence.25"
+              },
+              {
+                "String": "swarm-disaster.occurrence.26"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "111901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.23"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.24"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.25"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.115"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc111901-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.111901"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 9 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 9 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112001.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112001.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112001.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112001.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112001.json\",\"sha256\":\"f955b888399dbabb3bf090b1c04bc67daa27b28f674e65cab396cf4bf34bf5cf\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112001/Opt0112001.json\",\"sha256\":\"e258b524a5d1312bac379cc0649ab869141d5f37d990795ff86faa87b5134db7\"}]"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Bounty Hunter — Swarm Variant 112001"
+          },
+          "name_zh_cn": {
+            "String": "赏金猎人·蝗灾变体 112001"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.27"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.26"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.116"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112001-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112001"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112101.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112101.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112101.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112101.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112101.json\",\"sha256\":\"277d7f86427ca24b344dc2c27b0a540007f2fe8befba20b63f5f9f22abb49a21\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112101/Opt0112101.json\",\"sha256\":\"e39088a655bc799106e323e16751ef63c09cfdfae8eabde17e63a6959f3b8962\"}]"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Implement of Error — Swarm Variant 112101"
+          },
+          "name_zh_cn": {
+            "String": "错误道具·蝗灾变体 112101"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.28"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.27"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.117"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112101-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112101"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112201.11"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112201.json\",\"sha256\":\"ae1b57a58eefc2f83389f29f5073472b626587f7e22991dc70a8db5339e3b448\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112201/Opt0112201.json\",\"sha256\":\"c7cf6f48e0ddc43d6d7346916546d4e0547d3555da13a6e061551504b9130474\"}]"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Knights of Beauty to the Rescue — Swarm Variant 112201"
+          },
+          "name_zh_cn": {
+            "String": "纯美骑士的帮助·蝗灾变体 112201"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.39"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.38"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.136"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112201-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112201"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 11 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 11 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112301.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112301.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112301.json\",\"sha256\":\"aedaddec3d5ef6ff62629f95ccc6abe0265c8075a5669c334861fc29ae0cbecf\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112301/Opt0112301.json\",\"sha256\":\"30ce885c7c3f5096089c2bfbc94b6b7001e02644772bd127629e4f341947b29a\"}]"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Cosmic Crescendo — Swarm Variant 112301"
+          },
+          "name_zh_cn": {
+            "String": "天外大合唱·蝗灾变体 112301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.40"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.137"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112401.11"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112401.json\",\"sha256\":\"cfe254909158baa8521fa8a53d8954c8f5d424d10d4b6807ade0e82e06b9bb4c\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112401/Opt0112401.json\",\"sha256\":\"98d624b7a180fff25f1c11ebaab5e19da54815ccf932294e27c624e39c8dc46b\"}]"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Genius Society #55 Yu Qingtu — Swarm Variant 112401"
+          },
+          "name_zh_cn": {
+            "String": "天才俱乐部#55余清涂·蝗灾变体 112401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.41"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.40"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.138"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 11 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 11 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112501.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112501.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112501.json\",\"sha256\":\"2509b588279b3ea63a92e12b3baa3ffed2e8f373ed2f74c26ce80f140bc10500\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112501/Opt0112501.json\",\"sha256\":\"b9f1fa18bfb7a75fabdca3cbc159d19852e123871c65d18679c1076b279e28c2\"}]"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Beast Horde: Voracious Catastrophe — Swarm Variant 112501"
+          },
+          "name_zh_cn": {
+            "String": "兽群•贪饕灾厄·蝗灾变体 112501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.42"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.41"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.139"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112601.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112601.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112601.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112601.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112601.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112601.json\",\"sha256\":\"1f340040a714ef50bb6e6d2cb2b718cb5db69481d9397f1bc244f6b9f9789cae\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112601/Opt0112601.json\",\"sha256\":\"bb5e868812d98a6ade8d02c42ab293331ddd657c960004c809e538c9bda7aadc\"}]"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The Curio Fixer — Swarm Variant 112601"
+          },
+          "name_zh_cn": {
+            "String": "奇物修理专家·蝗灾变体 112601"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.43"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.42"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.140"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112601-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112601"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112701.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112701.02"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112701.json\",\"sha256\":\"0bda79b84fe606aee26b3a2896201c64e3f1d2aa9fa3bd007dfbdc5b32f5c8d9\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112701/Opt0112701.json\",\"sha256\":\"4a94baee27dc2bf4fe3889ea828cbc2c7a8a4d065ff621d192b13818e27fff77\"}]"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Showman's Sleight — Swarm Variant 112701"
+          },
+          "name_zh_cn": {
+            "String": "伶人戏法·蝗灾变体 112701"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.44"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.43"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.141"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112701-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112701"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 2 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112801.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112801.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112801.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112801.json\",\"sha256\":\"87d43b4077d324abb06b85f5e9a005f62648e18f044b8bb4f2138ea76bb3c7dc\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112801/Opt0112801.json\",\"sha256\":\"cfc602d3e34ee44227c210f5a32c16cb4bf4b3d1729b02322394d2ab4f0c2ee3\"}]"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The Double Lottery Experience — Swarm Variant 112801"
+          },
+          "name_zh_cn": {
+            "String": "双乐透体验·蝗灾变体 112801"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.45"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.44"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.142"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112801-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112801"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.112901.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112901.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112901.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.112901.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC112901.json\",\"sha256\":\"f37f7a8221ed1f578077bccf7ad2e69886b87e90d74d5b7b05eda53fdfdb27ea\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0112901/Opt0112901.json\",\"sha256\":\"7f8121ffaa60126f67c52dd1bb16647ece013d90864ede15ad93ccfa0983718b\"}]"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Ruan Mei (II) — Swarm Variant 112901"
+          },
+          "name_zh_cn": {
+            "String": "阮•梅（其二）·蝗灾变体 112901"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.46"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "112901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.45"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.143"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc112901-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.112901"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.11"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113001.12"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113001.json\",\"sha256\":\"505332e904d04fe9376153498d6bfcbc2039999fba41a28c93143288104b31fc\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113001/Opt0113001.json\",\"sha256\":\"960168bec52ebcda1686676b8b6a9b430fb5a32658277cbfe559fa017c8156fb\"}]"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The *Perfect* Grand Challenge! — Swarm Variant 113001"
+          },
+          "name_zh_cn": {
+            "String": "*完美*大挑战！·蝗灾变体 113001"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.47"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.46"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.144"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113001-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113001"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 12 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 12 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113301.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113301.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113301.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113301.json\",\"sha256\":\"d8ec527b767d0f5990e2fd09e2894f2f8aabec66046b3dee605a65c1824deb73\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113301/Opt0113301.json\",\"sha256\":\"91ecc7149118441bf660d7a57dbbe22b78fcba11bbca9ca5605301cb8d40a229\"}]"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "We Are Cowboys — Swarm Variant 113301"
+          },
+          "name_zh_cn": {
+            "String": "我们是牛仔·蝗灾变体 113301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.29"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.28"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.118"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113302.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113302.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113302.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113302.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113302.json\",\"sha256\":\"f118d09c319726107b0af2a537f1986e2b1918a90ff153e80eedfccc0245a136\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113302/Opt0113302.json\",\"sha256\":\"ec2507f6d873ac3cea8e25d1c090fbf6c9a7f562679b124b9e94d019456684ee\"}]"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "We Are Cowboys — Swarm Variant 113302"
+          },
+          "name_zh_cn": {
+            "String": "我们是牛仔·蝗灾变体 113302"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.29"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.28"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.119"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113302-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113302"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113401.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113401.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113401.json\",\"sha256\":\"dc6135181a90b2e63407b6cda3cc15829df6868dd3badc0af0e45e43d4423fc6\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113401/Opt0113401.json\",\"sha256\":\"0b134cfe1119ebbddfcf8554cdaae6f81db9be72b8f9fc3ec8ee4a712b3c113b\"}]"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Rock, Paper, Scissors — Swarm Variant 113401"
+          },
+          "name_zh_cn": {
+            "String": "猜拳游戏·蝗灾变体 113401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.33"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.32"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.123"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113402.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113402.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113402.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113402.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113402.json\",\"sha256\":\"6e9daa8f021e62f3041c1c038ca3ca5158f7eec3df04598a5f84c8f529f2c4be\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113402/Opt0113402.json\",\"sha256\":\"49f77613aed8b22d81b10aa64792f7993524f26332d4ff5f282c5ca05f3e538b\"}]"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Rock, Paper, Scissors — Swarm Variant 113402"
+          },
+          "name_zh_cn": {
+            "String": "猜拳游戏·蝗灾变体 113402"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.33"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.32"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.124"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113402-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113402"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113501.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113501.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113501.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113501.json\",\"sha256\":\"f9277d904a48a73573a09580cc45e205dd7fd5aace396c97eddc0515e07b55da\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113501/Opt0113501.json\",\"sha256\":\"264c49bf9a50eac4004ec96993d18bde002d4d439d218d20b08a65e814ed63a1\"}]"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Nildis (Lightfish) — Swarm Variant 113501"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（灯鱼篇）·蝗灾变体 113501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.30"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.29"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.120"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113502.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113502.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113502.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113502.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113502.json\",\"sha256\":\"15b4e2238506cf3b527f87d4621ef1eff66a87da2e19c939b7b6dd5bde05ea9d\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113502/Opt0113502.json\",\"sha256\":\"308afe4febce536b3f4433c0131d5015497f9940b9c419ecbd9b8d3dcdd15fc5\"}]"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Nildis (Wildboar) — Swarm Variant 113502"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（野猪篇）·蝗灾变体 113502"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.31"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.30"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.121"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113502-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113502"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113503.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113503.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113503.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113503.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113503.json\",\"sha256\":\"dff9c565c6b2bf193dbf84b78c70618890881a8ac2f762032c834764eee47924\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113503/Opt0113503.json\",\"sha256\":\"d52adb23b36409fc75e28a45e0e3812339eaa7d83a0d19a169b6e15ef8686567\"}]"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Nildis (Robot) — Swarm Variant 113503"
+          },
+          "name_zh_cn": {
+            "String": "尼尔迪斯牌（机械篇）·蝗灾变体 113503"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.32"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.31"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.122"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113503-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113503"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113601.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113601.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113601.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113601.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113601.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113601.json\",\"sha256\":\"a9a27cb5282e10faed313613335d77a75b6d518f6cc4732c95d892ff7e1e32c7\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113601/Opt0113601.json\",\"sha256\":\"f651a3d9e02ae05c8483c329e1e6f4326736f2d5216ffaee6364ce34af8171c9\"}]"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Tavern — Swarm Variant 113601"
+          },
+          "name_zh_cn": {
+            "String": "酒馆·蝗灾变体 113601"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.34"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.33"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.125"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113601-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113601"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113602.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113602.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113602.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113602.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113602.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113602.json\",\"sha256\":\"7df4f2483981eaa3451cda246437de2f3111d6c80ebf58b58bf205e9a518f25e\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113602/Opt0113602.json\",\"sha256\":\"be334b1b5d0bddebb9e6364fe791f6989a2d6e580c5f6a2b8a4097a33b75f00e\"}]"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Tavern — Swarm Variant 113602"
+          },
+          "name_zh_cn": {
+            "String": "酒馆·蝗灾变体 113602"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.34"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.33"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.126"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113602-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113602"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113603.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113603.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113603.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113603.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113603.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113603.json\",\"sha256\":\"d6864ac368e822ff5146faf945762d1a1278870a639d7a21ea586c6e92ac4a79\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113603/Opt0113603.json\",\"sha256\":\"f561f22e5243f271ac0acb077cd2e96afacd12a63d78bd1b25e0c52a21c65dd0\"}]"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Tavern — Swarm Variant 113603"
+          },
+          "name_zh_cn": {
+            "String": "酒馆·蝗灾变体 113603"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.34"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113603"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.33"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.127"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113603-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113603"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113701.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113701.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113701.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113701.json\",\"sha256\":\"0f3524ce0192a08f182a14f83591cf3525f8285d50e28e13e409735dee497611\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113701/Opt0113701.json\",\"sha256\":\"85856abb29f7f83dc445d051fe5ffaf52fcdfa93a830e2385ae92aef7469904d\"}]"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Periodic Demon Lord — Swarm Variant 113701"
+          },
+          "name_zh_cn": {
+            "String": "周期性大魔王·蝗灾变体 113701"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.35"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.34"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.128"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113701-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113701"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113801.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113801.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113801.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113801.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113801.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113801.json\",\"sha256\":\"83c0b53b98e6baf1ed4bbc068acd3fa8850c2dbe7cc4fe4fbd71fbbc14044b01\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113801/Opt0113801.json\",\"sha256\":\"929997694765e3fd7d76e0f5b370ec82d700620244ae059fc6b5ab8d9250a125\"}]"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Let's Exchange Gifts — Swarm Variant 113801"
+          },
+          "name_zh_cn": {
+            "String": "来交换礼物吧·蝗灾变体 113801"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.36"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.35"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.133"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113801-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113801"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.113901.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113901.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113901.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.113901.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC113901.json\",\"sha256\":\"9ba19956be21ea1643b4cc2a29b9ebfd0b4cf697f4241bb37416ca850718c174\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0113901/Opt0113901.json\",\"sha256\":\"64d7bb1394ae3ae79d93f8044a97c3707d258122ce1f7a57503022f10e0477e0\"}]"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Make A Wish — Swarm Variant 113901"
+          },
+          "name_zh_cn": {
+            "String": "许个愿吧·蝗灾变体 113901"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.37"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "113901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.36"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.134"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc113901-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.113901"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.114001.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114001.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114001.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114001.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114001.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC114001.json\",\"sha256\":\"e2bc02dffb59741aae59e39d486f6faa5221cfc40abc8780aa792c40526f45b6\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114001/Opt0114001.json\",\"sha256\":\"651c14935a5f79de15439fb20760ce176bd646b900b8df0755c6be7f117e81d0\"}]"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Robot Sales Terminal — Swarm Variant 114001"
+          },
+          "name_zh_cn": {
+            "String": "机器人销售终端·蝗灾变体 114001"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.38"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "114001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.37"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.135"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc114001-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.114001"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.11"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.12"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.13"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.14"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114201.15"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC114201.json\",\"sha256\":\"94cb3261ce5ec6466572e63698e0c57583ca957efd548a6a36a94af485786c73\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114201/Opt0114201.json\",\"sha256\":\"465904f5953de89b8a70ff5f6ca70da2b974d5b2fb051d8e9e47c18387884e19\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114202/Opt0114202.json\",\"sha256\":\"eacbacdc2c919da56561bb591ca7b666a1243fe4e27c24f8479db28bf6c247f4\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114203/Opt0114203.json\",\"sha256\":\"b335d510721d852bfa00d951589ceea1956ade4743cd3725e53b125fd1f553f8\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114204/Opt0114204.json\",\"sha256\":\"3b9c6b729918cfc62a059ec7b8b17df992861e46b0c7cb314f67ff434ea16fec\"}]"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The IPC Promotion Saga (I) — Swarm Variant 114201"
+          },
+          "name_zh_cn": {
+            "String": "星际和平公司「升职记」（其一）·蝗灾变体 114201"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.48"
+              },
+              {
+                "String": "swarm-disaster.occurrence.49"
+              },
+              {
+                "String": "swarm-disaster.occurrence.50"
+              },
+              {
+                "String": "swarm-disaster.occurrence.51"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "114201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.47"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.48"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.49"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.50"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.145"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc114201-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.114201"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 15 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 15 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.11"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114301.12"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC114301.json\",\"sha256\":\"1c8483a025e823d667ceb3b467dc29d39fb216004d6272b5618abe76b66c4203\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114301/Opt0114301.json\",\"sha256\":\"424d70495e54e88b7a88cccdcec7775e98748cd386c7ca636409ebfd833aa78e\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114302/Opt0114302.json\",\"sha256\":\"857d910fbd82b573733fd6bbafe3b68d951a664f5f867aae2e13ab39155a80e9\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114303/Opt0114303.json\",\"sha256\":\"ebd0ec27b3398f3cfa24100b66c61acbe207ebf98f53921e55045624513ab9c0\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114304/Opt0114304.json\",\"sha256\":\"5af2b84c3c745893b84529a9a7a46b45fe5c58f689740e57b961d977de34beb4\"}]"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Ka-ching! IPC Banking (I) — Swarm Variant 114301"
+          },
+          "name_zh_cn": {
+            "String": "咔嚓——星际和平银行！（其一）·蝗灾变体 114301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.52"
+              },
+              {
+                "String": "swarm-disaster.occurrence.53"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "114301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.51"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.52"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.146"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc114301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.114301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 12 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 12 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114401.08"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC114401.json\",\"sha256\":\"eda27035e9e77613154a80c3c2b1d94a585a68d120850cfc46214c66415e6196\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114401/Opt0114401.json\",\"sha256\":\"c91707cc23393fc0f91f2a5984b811744fc7cc22f6448c5f5647194a42889bbd\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114402/Opt0114402.json\",\"sha256\":\"905d382347c8733c548b84feae49e04e9c2656a94d6ee5b6dc8cf67d9286e1fd\"}]"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Loneliness, Cosmic Beauty Bugs, Simulated Universe (I) — Swarm Variant 114401"
+          },
+          "name_zh_cn": {
+            "String": "孤独，太空美虫，模拟宇宙（其一）·蝗灾变体 114401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.54"
+              },
+              {
+                "String": "swarm-disaster.occurrence.55"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "114401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.53"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.54"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.147"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc114401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.114401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 8 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 8 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.114501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114501.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114501.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.114501.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC114501.json\",\"sha256\":\"1298af9c208bb02e62d2046d96d6410266ee711a556e969f162306a6bd31946e\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0114501/Opt0114501.json\",\"sha256\":\"0ae53dc69a05ae69e949f4d844232157fe8544d35ea35f360debe80ffd7ea0e3\"}]"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Ace Trash Digger — Swarm Variant 114501"
+          },
+          "name_zh_cn": {
+            "String": "掏垃圾桶大师·蝗灾变体 114501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.56"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "114501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.55"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.148"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc114501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.114501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118801.06"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC118801.json\",\"sha256\":\"00cfc78a84a0196f8cc3cf8aff1274c087914d1e2fbb955161073a7df6d87fe4\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118801/Opt0118801.json\",\"sha256\":\"1fe119b673d65a68f644f82949459d48a56a9c8b916b4cf6dc7b9e6d9d26b79f\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118802/Opt0118802.json\",\"sha256\":\"4fcf2b6e6edb1fca8d468e50d384e793c419541f3ec5ff1d631f08de62d5f3de\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118803/Opt0118803.json\",\"sha256\":\"30beeb49c04f9db9f834327ce3b55ac4a27630cff65c9a393fe73f69da8584e8\"}]"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Swarm: Slumbering Overlord (First Praetorian) — Swarm Variant 118801"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•沉睡领主（一级卫戍）·蝗灾变体 118801"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.57"
+              },
+              {
+                "String": "swarm-disaster.occurrence.66"
+              },
+              {
+                "String": "swarm-disaster.occurrence.67"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "118801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.56"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.65"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.66"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.149"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc118801-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.118801"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 6 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.118901.06"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC118901.json\",\"sha256\":\"099c1e5aeae1f2f696f61c8a4c2c601ef35e776877e1aef375e2bae400971c0f\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118901/Opt0118901.json\",\"sha256\":\"090dcc1256d1f3121264e8b27d3100712da77d06b54eb1bab4bd55ce96c037ab\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118902/Opt0118902.json\",\"sha256\":\"b901c5e267e6a38b14aea0b670b769644c11f9bdafeb16c7a997fb47d7325860\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0118903/Opt0118903.json\",\"sha256\":\"142f391ea91409c528cc8a80cf2f82ba5e49a07ac3f1f0d3d5c09f7f0f5c2993\"}]"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Propagation: Slumbering Overlord (First Praetorian) — Swarm Variant 118901"
+          },
+          "name_zh_cn": {
+            "String": "繁育•沉睡领主（一级卫戍）·蝗灾变体 118901"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.68"
+              },
+              {
+                "String": "swarm-disaster.occurrence.69"
+              },
+              {
+                "String": "swarm-disaster.occurrence.70"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "118901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.67"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.68"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.69"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.150"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc118901-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.118901"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 6 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119001.06"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119001.json\",\"sha256\":\"6646298a1848e8f1b1f083889813822141e1bc26b3a008871a2d7e2e43ba28b4\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119001/Opt0119001.json\",\"sha256\":\"ab31d9eaa43b2eab368b2ea1193678d417641e02fc33d9ddaa2547c618e9256b\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119002/Opt0119002.json\",\"sha256\":\"4821d7e72e631ea8df572eceb31385ab27ae7d239480857ffd91369e0cd79100\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119003/Opt0119003.json\",\"sha256\":\"52da5fc5757e09a24c09479432d82573a64f127e188c1cd98e47d6f027fbe6a0\"}]"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Swarm: Nest Exploration (First Praetorian) — Swarm Variant 119001"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•虫巢探险（一级卫戍）·蝗灾变体 119001"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.58"
+              },
+              {
+                "String": "swarm-disaster.occurrence.71"
+              },
+              {
+                "String": "swarm-disaster.occurrence.72"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.57"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.70"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.71"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.151"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119001-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119001"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 6 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 6 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119101.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119101.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119101.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119101.04"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119101.json\",\"sha256\":\"b6ca93195a86eb1a6fe7db2954ec4101bb3673e453519491272fd5a69e890ffd\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119101/Opt0119101.json\",\"sha256\":\"f143323c8b93a91ea668e180426c9c9793f4b3f13115a37896d861b9fa5190d4\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119102/Opt0119102.json\",\"sha256\":\"86c29cbdcec2ab49374c77e9b8cbed593fdc4755e72445f4e1c4e0b72558b4aa\"}]"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Propagation: Nest Exploration (First Praetorian) — Swarm Variant 119101"
+          },
+          "name_zh_cn": {
+            "String": "繁育•虫巢探险（一级卫戍）·蝗灾变体 119101"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.73"
+              },
+              {
+                "String": "swarm-disaster.occurrence.74"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.72"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.73"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.152"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119101-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119101"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 4 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 4 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119201.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119201.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119201.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119201.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119201.05"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119201.json\",\"sha256\":\"f1be0c54a40bff28c9d784827d492eb3e238578912189bba7d45e65b5ba891e7\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119201/Opt0119201.json\",\"sha256\":\"e93011ec424398b7d444f099f828908558fffa244fcb8ba410c733470e3d9c37\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119202/Opt0119202.json\",\"sha256\":\"73d1ff21c2b416c7abb52d4882d983d266e3185150237f2fdf7348b5a6fbedf2\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119203/Opt0119203.json\",\"sha256\":\"d57fdb1b907b696eb663f4ef421d2f69bb2aa39eb5f6c59f596bc0310b611acc\"}]"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Swarm: Mind of the Domain (First Praetorian) — Swarm Variant 119201"
+          },
+          "name_zh_cn": {
+            "String": "虫潮•区域脑体（一级卫戍）·蝗灾变体 119201"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.59"
+              },
+              {
+                "String": "swarm-disaster.occurrence.75"
+              },
+              {
+                "String": "swarm-disaster.occurrence.76"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.58"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.74"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.75"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.153"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119201-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119201"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 5 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 5 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119301.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119301.02"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119301.json\",\"sha256\":\"310292b14b44b5d92b5dbe776dc38628bbfa161558f9b6cc549594edef16b6cc\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119301/Opt0119301.json\",\"sha256\":\"6a11a1c3993ca720551fd246aa5042d52d8c343b7abc237ca6db5931118ba298\"}]"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Insights from the Universal Dancer — Swarm Variant 119301"
+          },
+          "name_zh_cn": {
+            "String": "寰宇舞者的启示·蝗灾变体 119301"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.60"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.59"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.154"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119301-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119301"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 2 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 2 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119401.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119401.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119401.03"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119401.json\",\"sha256\":\"21a62dad11e5b83d74ed9bfc55a1817d1d781902f43c18bcbe6ad7f5988c3f87\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119401/Opt0119401.json\",\"sha256\":\"05169e8da92cfc13a84e2fdc4f4b10a7a3f4264385f0e66a2c5fe4766c2d0aca\"}]"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Pixel World: Hidden Stage — Swarm Variant 119401"
+          },
+          "name_zh_cn": {
+            "String": "像素世界•隐藏关·蝗灾变体 119401"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.61"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.60"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.155"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119401-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119401"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 3 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 3 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.08"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.09"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.10"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.11"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.12"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.13"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.14"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.15"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.16"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.17"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119501.18"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119501.json\",\"sha256\":\"8e69db73516ab71f23fdde7a261ce91e7f27525d26b96c288a12b193ee43e25e\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119501/Opt0119501.json\",\"sha256\":\"d217da7df155ea2ec94b22f77b0f047e643ddab9517f600974beaaaba460691b\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119502/Opt0119502.json\",\"sha256\":\"b43e4df6851bc6b4effa5685ec08cc62183d25e7b8f0f909aac60e373712f094\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119503/Opt0119503.json\",\"sha256\":\"47b7a19dcb5357ad7489d57d03fc00867c0356b18c76c49197ca69e95d87bb14\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119504/Opt0119504.json\",\"sha256\":\"b36fa9ce0eceddea14165e7235e9706a5b71b1e0e33b4f6d943bb970e12a689c\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119505/Opt0119505.json\",\"sha256\":\"9dba46a31dfde2fc167648cb27ae010aa1d1b1aa57b1bfe4f27bc2381b4eeb17\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119506/Opt0119506.json\",\"sha256\":\"f7b8931e4bc0c4a4cc1cf4055842ddf30f8391db723fe16a2468f087e20ff1d0\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119507/Opt0119507.json\",\"sha256\":\"b36fa9ce0eceddea14165e7235e9706a5b71b1e0e33b4f6d943bb970e12a689c\"}]"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "Mirror of Transcendence (I) — Swarm Variant 119501"
+          },
+          "name_zh_cn": {
+            "String": "超验之镜（其一）·蝗灾变体 119501"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.62"
+              },
+              {
+                "String": "swarm-disaster.occurrence.77"
+              },
+              {
+                "String": "swarm-disaster.occurrence.78"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.76"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.77"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.156"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119501-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119501"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 18 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 18 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "choice_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.01"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.02"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.03"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.05"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.06"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.07"
+              },
+              {
+                "String": "swarm-disaster.occurrence-choice.119601.08"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "graph_refs_json": {
+            "String": "[{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueNPC/RogueNPC119601.json\",\"sha256\":\"fdff0d97208730365565858c3c36bbe3a51cbb47bfefb44ac2cace41a4476ceb\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119601/Opt0119601.json\",\"sha256\":\"58f9fd542ff23b5ad687b8b0e25821d2069de6f3b2e6a7901425775e6de4b6ee\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119602/Opt0119602.json\",\"sha256\":\"c9c5b48c12788438d220a15e51626597a70993ac74d3811c5eb4035d223c351a\"},{\"locator\":\"root\",\"path\":\"Config/Level/Rogue/RogueDialogue/Event0119603/Opt0119603.json\",\"sha256\":\"e2f625708d1098c59f86554ef156180d7ea41b7bb1f14153d9b6826f34da5341\"}]"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "kind": {
+            "String": "SwarmOccurrenceVariant"
+          },
+          "name_en": {
+            "String": "The Cuckoo Clock Fanatic (I) — Swarm Variant 119601"
+          },
+          "name_zh_cn": {
+            "String": "咕咕钟狂热粉丝（其一）·蝗灾变体 119601"
+          },
+          "occurrence_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence.63"
+              },
+              {
+                "String": "swarm-disaster.occurrence.64"
+              },
+              {
+                "String": "swarm-disaster.occurrence.65"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_dialogue_type": {
+            "String": "Event"
+          },
+          "source_id": {
+            "String": "119601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.62"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.63"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.64"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.157"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc119601-json.root"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.occurrence-variant.119601"
+          },
+          "summary_en": {
+            "String": "Released Swarm NPC graph with 8 ordered mechanical choices."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的蝗灾 NPC 图，包含 8 个有序机制选项。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-owned"
+              },
+              {
+                "String": "occurrence-variant"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

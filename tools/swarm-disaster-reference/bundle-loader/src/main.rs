@@ -1,0 +1,49 @@
+#![forbid(unsafe_code)]
+
+#[path = "../../../../config/swarm-disaster-generated/rust/mod.rs"]
+mod generated;
+
+use generated::{SoraConfig, runtime::SoraBundle};
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut arguments = std::env::args().skip(1);
+    let path = arguments.next().ok_or("bundle path missing")?;
+    let expected_tables = count(&mut arguments, "table count")?;
+    let expected_rows = count(&mut arguments, "row count")?;
+    if arguments.next().is_some() {
+        return Err("unexpected bundle-loader argument".into());
+    }
+    let bytes = std::fs::read(path)?;
+    let bundle = SoraBundle::parse(&bytes)?;
+    let config = SoraConfig::from_source(&bundle)?;
+    let tables = config.tables().collect::<Vec<_>>();
+    expect(tables.len(), expected_tables, "table count")?;
+    let rows = tables.iter().map(|table| table.len()).sum();
+    expect(rows, expected_rows, "row count")?;
+    if let Some(table) = tables.iter().find(|table| table.is_empty()) {
+        return Err(format!("{} unexpectedly has zero rows", table.info().name).into());
+    }
+    println!(
+        "Swarm Disaster bundle loaded through every generated reader: \
+         tables={expected_tables} rows={expected_rows}."
+    );
+    Ok(())
+}
+
+fn count(
+    arguments: &mut impl Iterator<Item = String>,
+    name: &'static str,
+) -> Result<usize, Box<dyn std::error::Error>> {
+    Ok(arguments.next().ok_or(name)?.parse()?)
+}
+
+fn expect(
+    actual: usize,
+    expected: usize,
+    label: &'static str,
+) -> Result<(), Box<dyn std::error::Error>> {
+    if actual != expected {
+        return Err(format!("{label}: expected {expected}, got {actual}").into());
+    }
+    Ok(())
+}

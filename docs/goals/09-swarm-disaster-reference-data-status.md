@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `swarm-disaster-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 3 — Sora and Excel |
+| Active phase | Phase 4 — Review and freeze |
 | Active batch | None |
-| Next unblocked batch | `G09-P3-B6` |
+| Next unblocked batch | `G09-P4-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -26,8 +26,8 @@
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot, commit-backed Goal 08 checkpoint, Candidate-only scope, six isolated roots, 2,882-file source closure, 6,963-obligation denominator, 64 normalized file families, four workbooks, reconciliation receipts and 23 fixture families are machine-frozen. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, countdown/Disarray, Audience Dice, Communing Device/Trail, Pathstrider, eight Paths, 32 Resonances/Formations, eight boosts, 16 Interplays and bonuses `101`–`106` are DataReady. |
 | Phase 2 — Content and encounters | `Complete` | Shared pools, mode content, services, abstract Adventure outcomes and complete 81-series encounters are DataReady. All 6,963 obligations resolve through the canonical 64-file pack with 23 rule/fixture families, 31 nonblocking gaps and 609 exact Goal 08 receipts. |
-| Phase 3 — Sora and Excel | `InProgress` | Four deterministic no-overwrite `openpyxl==3.1.5` workbooks now author 33,380 rows across 64 primary tables plus one research-gap child table. Structural QA, independent byte-identical generation and a pinned Sora binary smoke export pass; committed binary/debug exports, reader loading and all-sheet visual QA remain. |
-| Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, fixtures, regeneration, release evidence and clean-checkout acceptance. |
+| Phase 3 — Sora and Excel | `Complete` | Four deterministic no-overwrite `openpyxl==3.1.5` workbooks author 33,380 rows across 64 primary tables plus one research-gap child table. Pinned Sora production/debug exports regenerate byte-identically, all 65 generated readers load the 9,430,277-byte bundle, and every sheet plus every schema column passes Artifact Tool visual review. |
+| Phase 4 — Review and freeze | `Pending` | Exact-once/ownership/provenance audit, fixture execution, full reconciliation/regeneration and clean-checkout Candidate freeze remain. |
 
 ## Batch ledger
 
@@ -57,7 +57,7 @@
 | `G09-P3-B3` | `Complete` | This row's containing commit | Added 17 `SwarmDisasterContent.xlsx` tables for Blessings/levels/membership, Curios/states/rules, Occurrences/variants/choices, services/currency/Adventure and exact encounters/boss pools, plus `SwarmDisasterMechanicRule` in the evidence workbook. The isolated project now validates 57 primary tables. Blessing, Curio, Occurrence and encounter scalar joins use typed Sora references, including intentional Curio/state cycles and a typed boss-pool-to-area join. Polymorphic pool membership, inherited identities, repeated candidate sets and service/beacon owner IDs remain stable strings instead of unsafe cross-kind refs. Deterministic content/evidence digests are `c5bb009f…2124` and `c1baa6c3…6734`; pinned Sora 0.3.0 check/schema-lock validation, focused verification and the quick repository gate pass. The deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P3-B4 starts. |
 | `G09-P3-B4` | `Complete` | This row's containing commit | Added typed source, per-obligation coverage, research-gap/affected-record, semantic-fixture, 609-row Goal 08 reconciliation, manifest and 63-row pack-index tables. The resulting isolated Sora project contains 64 primary tables plus one child table across 23/16/17/9 sheets. Pinned Sora 0.3.0 generated the 627,751-byte schema lock, four templates and 70 formatted Rust modules; direct lock/reader regeneration is byte-identical and every template is regenerated and present. Nine table names and the evidence enum were shortened only where Excel's 32-character data-validation-title limit requires it; normalized stable keys remain unchanged. The generated Rust root has an explicit repository-policy exclusion bound to the drift verifier. Pack/schema verification and the quick repository gate pass; the full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P3-B5 starts. |
 | `G09-P3-B5` | `Complete` | This row's containing commit | Added deterministic no-overwrite `openpyxl==3.1.5` authoring and structural verification for all four workbooks. They contain 33,380 rows across 64 frozen primary tables plus one typed `ResearchGapAffected` child table; the child expands 5,560 file/record bindings instead of risking Excel's 32,767-character cell limit. Real-row validation corrected two false local Pathstrider references into external Quest locator strings, three object-valued fields into canonical JSON, seven released-empty locator families into nullable columns, inherited Path/Resonance alias resolution, plane chessboard-list capacity and hidden-cabinet sort bounds. Pre-write range/length/type/cell-limit checks now fail closed. Metadata rows, exact values/types, stable keys, typed references, sheet order, filters, frozen panes, widths, validation lists, wrapping, formulas/errors, external links and overwrite refusal pass. Independent generations are byte-identical; semantic digest is `ebc26e68…6ee44`. Artifact-tool 2.8.6 imports all 23/16/17/9 sheets, reports zero formula-error matches and produces legible representative renders for every workbook. Pinned Sora 0.3.0 smoke-exports the 9,430,277-byte bundle. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P3-B6 starts. |
-| `G09-P3-B6` | `Pending` | — | Prove deterministic Sora export/load and visual review of every sheet. |
+| `G09-P3-B6` | `Complete` | This row's containing commit | Committed the 9,430,277-byte Sora bundle (`7b2dc32d…df9af`) and 65-table debug export (`c51a6664…850909` canonical tree digest). Two independent workbook generations, two binary exports and two debug exports are byte-identical to committed artifacts; the standalone locked loader parses all 65 generated readers and 33,380 rows. Artifact Tool 2.8.6 imported and rendered rows 1–12 across every schema field column on all 65 sheets into ten manually reviewed contact sheets (`ddb47a44…6d0d1` render-manifest digest), with zero formula-error, overlap or clipping defects. The review exposed and corrected a style-only width scan that omitted metadata row 1 and a temporary render-range calculation that omitted the final schema column; the final workbook semantic digest is `9bd5a4ce…8ffc`. Visual evidence binds the four workbook hashes and schema lock. Release, visual, focused and quick gates pass; the phase-boundary full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P4-B1 starts. |
 | `G09-P4-B1` | `Pending` | — | Audit exact-once coverage, ownership, references, provenance and bilingual fields. |
 | `G09-P4-B2` | `Pending` | — | Execute all semantic fixtures and approximation replacement checks. |
 | `G09-P4-B3` | `Pending` | — | Reconcile Goal 08 overlap and run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
@@ -147,6 +147,8 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Expand all research-gap affected records into an ordered typed child table. | The 5,560 bindings remain exact and queryable while each Excel cell stays within 32,767 characters; parent policy text and replacement conditions remain independent fields. |
 | 2026-07-29 | Keep repeated and inherited progression relations as stable-key lists/JSON while typing every resolvable local scalar relation. | This preserves exact ordered source structures and cross-workbook identities without duplicating shared Path semantics or inventing unsupported repeated-reference lowering. |
 | 2026-07-29 | Keep polymorphic content membership and service/beacon ownership as stable strings while typing single-kind Blessing, Curio, Occurrence and encounter joins. | One Sora ref type cannot truthfully represent unions of Path/Resonance/Blessing members or Service/Beacon rule owners; stable keys retain the exact identity without false type narrowing. |
+| 2026-07-29 | Bind visual acceptance to all 65 sheets and every schema field column, including metadata row 1 in width calculation. | Representative renders cannot prove long table names or trailing columns are legible; the final ten-contact-sheet review covers the full workbook surface and records zero unresolved defects. |
+| 2026-07-29 | Load the committed binary bundle through every isolated generated reader. | Byte-identical export alone does not prove generated readers accept the bundle; the locked standalone loader binds all 65 table readers and the exact 33,380-row denominator. |
 
 ## Research cases
 
@@ -177,8 +179,8 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
       and Resonance Interplay have complete semantic fixtures.
 - [x] Encounter identities, waves and boss bindings resolve.
 - [x] Isolated Sora schemas, templates and generated readers validate.
-- [ ] Complete `openpyxl` workbooks pass structural and visual QA.
-- [ ] Sora production/debug exports regenerate without drift and load through
+- [x] Complete `openpyxl` workbooks pass structural and visual QA.
+- [x] Sora production/debug exports regenerate without drift and load through
       isolated readers.
 - [ ] Goal 03 evidence and current Standard/Gold/production bundle identities
       remain unchanged.

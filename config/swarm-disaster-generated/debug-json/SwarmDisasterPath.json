@@ -1,0 +1,903 @@
+{
+  "table": {
+    "name": "SwarmDisasterPath",
+    "rows": [
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 1
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12004\",\"12005\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000002"
+              },
+              {
+                "String": "61000018"
+              },
+              {
+                "String": "61000019"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612021"
+              },
+              {
+                "String": "universe.resonance.612022"
+              },
+              {
+                "String": "universe.resonance.612023"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000018"
+          },
+          "name_en": {
+            "String": "Preservation"
+          },
+          "name_zh_cn": {
+            "String": "存护"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 24
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.preservation"
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-preservation"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Preservation Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的存护命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 2
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12104\",\"12105\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000004"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612121"
+              },
+              {
+                "String": "universe.resonance.612122"
+              },
+              {
+                "String": "universe.resonance.612123"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000016"
+          },
+          "name_en": {
+            "String": "Remembrance"
+          },
+          "name_zh_cn": {
+            "String": "记忆"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 32
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-remembrance"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Remembrance Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的记忆命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 7
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12604\",\"12605\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000018"
+              },
+              {
+                "String": "61000019"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612621"
+              },
+              {
+                "String": "universe.resonance.612622"
+              },
+              {
+                "String": "universe.resonance.612623"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000015"
+          },
+          "name_en": {
+            "String": "Elation"
+          },
+          "name_zh_cn": {
+            "String": "欢愉"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 12
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.elation"
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-elation"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Elation Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的欢愉命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 5
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12404\",\"12405\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000007"
+              },
+              {
+                "String": "61000008"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612421"
+              },
+              {
+                "String": "universe.resonance.612422"
+              },
+              {
+                "String": "universe.resonance.612423"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000017"
+          },
+          "name_en": {
+            "String": "The Hunt"
+          },
+          "name_zh_cn": {
+            "String": "巡猎"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 16
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.hunt"
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-hunt"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared The Hunt Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的巡猎命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 6
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12504\",\"12505\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000013"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612521"
+              },
+              {
+                "String": "universe.resonance.612522"
+              },
+              {
+                "String": "universe.resonance.612523"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": "Null",
+          "name_en": {
+            "String": "Destruction"
+          },
+          "name_zh_cn": {
+            "String": "毁灭"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 8
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.destruction"
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-destruction"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Destruction Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的毁灭命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 3
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12204\",\"12205\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000009"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612221"
+              },
+              {
+                "String": "universe.resonance.612222"
+              },
+              {
+                "String": "universe.resonance.612223"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000013"
+          },
+          "name_en": {
+            "String": "Nihility"
+          },
+          "name_zh_cn": {
+            "String": "虚无"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 20
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.nihility"
+          },
+          "sort": {
+            "Integer": 6
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-nihility"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Nihility Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的虚无命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 4
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12304\",\"12305\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000003"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612321"
+              },
+              {
+                "String": "universe.resonance.612322"
+              },
+              {
+                "String": "universe.resonance.612323"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000014"
+          },
+          "name_en": {
+            "String": "Abundance"
+          },
+          "name_zh_cn": {
+            "String": "丰饶"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":false,\"required_unlock_id\":\"\",\"unlock_state\":\"NotApplicable\"}"
+          },
+          "resonance_id": {
+            "Integer": 4
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.abundance"
+          },
+          "sort": {
+            "Integer": 7
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-abundance"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Abundance Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的丰饶命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "audience_die_id": {
+            "Integer": 8
+          },
+          "battle_event_groups_json": {
+            "String": "[\"12704\",\"12705\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "extra_effect_ids": {
+            "List": [
+              {
+                "String": "61000012"
+              },
+              {
+                "String": "61000017"
+              }
+            ]
+          },
+          "formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612721"
+              },
+              {
+                "String": "universe.resonance.612722"
+              },
+              {
+                "String": "universe.resonance.612723"
+              }
+            ]
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmPathBinding"
+          },
+          "mode_unlock_id": {
+            "String": "swarm-disaster.pathstrider-unlock.1000008"
+          },
+          "name_en": {
+            "String": "Propagation"
+          },
+          "name_zh_cn": {
+            "String": "繁育"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "propagation_unlock_json": {
+            "String": "{\"is_propagation\":true,\"required_unlock_id\":\"swarm-disaster.pathstrider-unlock.1000008\",\"unlock_state\":\"ReleasedUnlockRowBound\"}"
+          },
+          "resonance_id": {
+            "Integer": 28
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "selectable": {
+            "Bool": true
+          },
+          "shared_path_id": {
+            "String": "universe.path.propagation"
+          },
+          "sort": {
+            "Integer": 8
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.path-binding.universe-path-propagation"
+          },
+          "summary_en": {
+            "String": "Swarm Disaster exposes the shared Propagation Path with its released Audience Die and Resonance groups."
+          },
+          "summary_zh_cn": {
+            "String": "寰宇蝗灾提供共享的繁育命途及其已发布的觐见之骰与回响组。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-binding"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "propagation"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

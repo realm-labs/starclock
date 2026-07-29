@@ -1,0 +1,171 @@
+{
+  "schema_revision": "starclock.swarm-disaster-visual-review.v1",
+  "reviewed_at": "2026-07-29",
+  "schema_lock_sha256": "7cd1a2e420a3655a52dd618fed2b2684d3edfbfe6372fc40e8a7d62184274976",
+  "renderer": {
+    "name": "@oai/artifact-tool",
+    "version": "2.8.6",
+    "range_policy": "rows 1-12 across every schema field column"
+  },
+  "workbooks": [
+    {
+      "file": "SwarmDisaster.xlsx",
+      "sha256": "de98608f1fed62fe4464b47d5cc6ca8ca3a3e287d9fab40767785a7214ee1564",
+      "sheets": [
+        "Profile",
+        "Area",
+        "DifficultySegment",
+        "Plane",
+        "Chessboard",
+        "MapColumn",
+        "MapNode",
+        "MapEdge",
+        "MapEvent",
+        "BlockCreateRule",
+        "Room",
+        "Domain",
+        "Beacon",
+        "BossChoice",
+        "TopologyConsequence",
+        "CountdownDisarray",
+        "BossDecayLevel",
+        "AudiencePath",
+        "AudienceDie",
+        "DiceFace",
+        "DiceRarity",
+        "DiceTargetRule",
+        "DiceRollControl"
+      ]
+    },
+    {
+      "file": "SwarmDisasterProgression.xlsx",
+      "sha256": "67f581afda4bd14ad8ba75f20e7f1bf9ceb7b329e3b766bf450557ae2d6a85fc",
+      "sheets": [
+        "CommuningChoice",
+        "PathstriderCabinet",
+        "CommuningDimension",
+        "CommuningPointAdjust",
+        "CommuningTrailNode",
+        "CommuningTrailPrereq",
+        "CommuningTrailEffect",
+        "PathstriderObjective",
+        "PathstriderFinish",
+        "PathstriderUnlock",
+        "MechanicalChapter",
+        "Path",
+        "Resonance",
+        "PathBoost",
+        "ResonanceInterplay",
+        "TrailblazeBonus"
+      ]
+    },
+    {
+      "file": "SwarmDisasterContent.xlsx",
+      "sha256": "2f302c6683517a77ec9e8a81693fe22b170c473117c2439fc608b24ffdb0feff",
+      "sheets": [
+        "Blessing",
+        "BlessingLevel",
+        "PoolMembership",
+        "Curio",
+        "CurioState",
+        "CurioRule",
+        "Occurrence",
+        "OccurrenceVariant",
+        "OccurrenceChoice",
+        "Service",
+        "AdventureOutcome",
+        "Currency",
+        "ServiceRule",
+        "EncounterGroup",
+        "EncounterWave",
+        "EnemySlot",
+        "BossPool"
+      ]
+    },
+    {
+      "file": "SwarmDisasterEvidence.xlsx",
+      "sha256": "6fa4bad7d34cee36a963a66e9f7fe62f69d0958f45ed69c8980c575a6693eb28",
+      "sheets": [
+        "MechanicRule",
+        "SourceRecord",
+        "Coverage",
+        "ResearchGap",
+        "ResearchGapAffected",
+        "ReviewFixture",
+        "ReconciliationReceipt",
+        "Manifest",
+        "PackIndex"
+      ]
+    }
+  ],
+  "sheet_count": 65,
+  "render_manifest_sha256": "ddb47a44f15d8325ebbddda3f22872c92375b9d2001033a48f7320d55d76d0d1",
+  "contact_sheets": [
+    {
+      "first_render": 1,
+      "last_render": 7,
+      "sha256": "6e4c81cfad7e84a2245a0aa10fad4ad893dde3b69717b34e01f1538c17c8ef07"
+    },
+    {
+      "first_render": 8,
+      "last_render": 14,
+      "sha256": "f59ff3e4cde5f0c5e01c4c5a856f807d5116f4a68dd58d08aac906d3376f1194"
+    },
+    {
+      "first_render": 15,
+      "last_render": 21,
+      "sha256": "f97c36e07afd446b0cd2b0ccfb61c4e76705a7cd4bba0a54c192e6e273478751"
+    },
+    {
+      "first_render": 22,
+      "last_render": 28,
+      "sha256": "d75f7057b3f6a274b8bfd470cc03e4b6c7551a206d2dca4bd9bbcf1b07cc9183"
+    },
+    {
+      "first_render": 29,
+      "last_render": 35,
+      "sha256": "1bc45b955f46b9bd47ddea2a07b4681bd33d9fec044bab6f1565914f9dc89482"
+    },
+    {
+      "first_render": 36,
+      "last_render": 42,
+      "sha256": "ea22de9f60f9d3e9f59a7a9b617f4c6ae2b85b089c1ad40f642e11aa8f6e3cce"
+    },
+    {
+      "first_render": 43,
+      "last_render": 49,
+      "sha256": "cc0651ab3e0686753417eba7173059e678a9fc16406f28788eed9a246c2a2958"
+    },
+    {
+      "first_render": 50,
+      "last_render": 56,
+      "sha256": "52f54f786caa56cd5e22451487564cd3dad053e9900358bc40e189be7511aa7b"
+    },
+    {
+      "first_render": 57,
+      "last_render": 63,
+      "sha256": "5c8c5dcdbbd9d88c2c7472eac6106dd9b25d2a86b094b0a1f7bff88c33136714"
+    },
+    {
+      "first_render": 64,
+      "last_render": 65,
+      "sha256": "763f2ba6cc4a1299c1c024e6ffcd913277cbd493c22d376154cde989e6a3978c"
+    }
+  ],
+  "checks": {
+    "all_sheets_rendered": true,
+    "all_schema_columns_rendered": true,
+    "metadata_rows_present": true,
+    "headers_legible": true,
+    "data_rows_present": true,
+    "alternating_fill_present": true,
+    "long_value_rows_capped": true,
+    "formula_error_matches": 0,
+    "overlap_or_clipping_defects": 0
+  },
+  "corrective_actions": [
+    "Included metadata row 1 in deterministic width calculation so long Sora table names remain visible.",
+    "Rendered the metadata label column plus every schema field column for each sheet."
+  ],
+  "defects": []
+}

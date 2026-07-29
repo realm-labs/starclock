@@ -1,0 +1,172 @@
+{
+  "table": {
+    "name": "SwarmDisasterCountdownDisarray",
+    "rows": [
+      {
+        "values": {
+          "cap_policy": {
+            "String": "Level21AndAboveRetainsLevel20Modifiers"
+          },
+          "carry_policy": {
+            "String": "CarryAcrossPlaneTransitions"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "disarray_tiers_json": {
+            "String": "[{\"enemy_damage_dealt_per_level_percent\":\"5\",\"enemy_damage_received_reduction_per_level_percent\":\"4\",\"enemy_speed_per_level_percent\":\"0\",\"maximum_level\":\"5\",\"minimum_level\":\"1\"},{\"enemy_damage_dealt_per_level_percent\":\"10\",\"enemy_damage_received_reduction_per_level_percent\":\"4\",\"enemy_speed_per_level_percent\":\"5\",\"maximum_level\":\"10\",\"minimum_level\":\"6\"},{\"enemy_damage_dealt_per_level_percent\":\"20\",\"enemy_damage_received_reduction_per_level_percent\":\"4\",\"enemy_speed_per_level_percent\":\"10\",\"maximum_level\":\"20\",\"minimum_level\":\"11\"}]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_value": {
+            "String": "20"
+          },
+          "initial_value_quality": {
+            "String": "ProjectPolicy"
+          },
+          "kind": {
+            "String": "CountdownPolicy"
+          },
+          "movement_delta": {
+            "String": "-1"
+          },
+          "movement_delta_quality": {
+            "String": "ExactReleasedText"
+          },
+          "name_en": {
+            "String": "Swarm Disaster Countdown and Planar Disarray"
+          },
+          "name_zh_cn": {
+            "String": "寰宇蝗灾倒计时与位面紊乱"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "same_boundary_order": {
+            "String": "StableOperationId"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_constant_bindings_json": {
+            "String": "[{\"id\":\"RogueDLC_Activity_NormalFinish_MainMissionID\",\"source_locator\":\"9\",\"value\":\"8013106\"},{\"id\":\"RogueDLC_Activity_Unlock_MainMissionID\",\"source_locator\":\"8\",\"value\":\"8013103\"},{\"id\":\"RogueDLC_DiceSurface_AbandonReward\",\"source_locator\":\"1\",\"value\":{\"IntValue\":\"10\"}},{\"id\":\"RogueDLC_Entrance_Locked_Round1_SubMissionID\",\"source_locator\":\"11\",\"value\":\"801310105\"},{\"id\":\"RogueDLC_Entrance_Locked_Round2_SubMissionID\",\"source_locator\":\"13\",\"value\":\"801310204\"},{\"id\":\"RogueDLC_Entrance_Locked_Round3_SubMissionID\",\"source_locator\":\"15\",\"value\":\"801310801\"},{\"id\":\"RogueDLC_Entrance_Locked_Round4_SubMissionID\",\"source_locator\":\"17\",\"value\":\"801310604\"},{\"id\":\"RogueDLC_Entrance_Unlock_MainMissionID\",\"source_locator\":\"10\",\"value\":\"8013104\"},{\"id\":\"RogueDLC_Entrance_Unlock_Round1_SubMissionID\",\"source_locator\":\"12\",\"value\":\"801310107\"},{\"id\":\"RogueDLC_Entrance_Unlock_Round2_SubMissionID\",\"source_locator\":\"14\",\"value\":\"801310205\"},{\"id\":\"RogueDLC_Entrance_Unlock_Round3_SubMissionID\",\"source_locator\":\"16\",\"value\":\"801310501\"},{\"id\":\"RogueDLC_Entrance_Unlock_Round4_SubMissionID\",\"source_locator\":\"18\",\"value\":\"801310605\"},{\"id\":\"RogueDLC_GuideAeon\",\"source_locator\":\"7\",\"value\":\"6\"},{\"id\":\"RogueDLC_GuideArea1\",\"source_locator\":\"4\",\"value\":\"101\"},{\"id\":\"RogueDLC_GuideArea2\",\"source_locator\":\"5\",\"value\":\"102\"},{\"id\":\"RogueDLC_GuideArea3\",\"source_locator\":\"6\",\"value\":\"103\"},{\"id\":\"RogueDLC_Module\",\"source_locator\":\"2\",\"value\":\"6000302\"},{\"id\":\"RogueDLC_Recover_ItemCost\",\"source_locator\":\"0\",\"value\":{\"IntValue\":\"80\"}},{\"id\":\"RogueDLC_TimeLimited_Module\",\"source_locator\":\"3\",\"value\":\"6000302\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.countdown.v1"
+          },
+          "summary_en": {
+            "String": "Movement consumes Countdown; a move from zero enters Planar Disarray, whose capped tier schedule is preserved from the released ActionPoint introduction parameters."
+          },
+          "summary_zh_cn": {
+            "String": "移动会消耗倒计时；从零再次移动进入位面紊乱，其封顶分段增益按已发布 ActionPoint 说明参数保留。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "countdown"
+              },
+              {
+                "String": "planar-disarray"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "transition_boundary": {
+            "String": "AcceptedMoveWhenPreMoveCountdownIsZero"
+          },
+          "transition_result_json": {
+            "String": "{\"countdown_value\":\"-1\",\"disruption_level\":\"1\"}"
+          },
+          "warning_threshold": {
+            "String": "5"
+          }
+        }
+      }
+    ]
+  }
+}

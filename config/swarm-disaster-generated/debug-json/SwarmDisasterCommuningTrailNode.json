@@ -1,0 +1,5509 @@
+{
+  "table": {
+    "name": "SwarmDisasterCommuningTrailNode",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.101.101"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.101"
+          },
+          "summary_en": {
+            "String": "Increases all characters' DEF by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的防御力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.106.106"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.106.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.106"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.107.107"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enhance Received Shield Effects"
+          },
+          "name_zh_cn": {
+            "String": "获得护盾量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.107.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "107"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.107"
+          },
+          "summary_en": {
+            "String": "Increases the max DMG absorption of the shield received by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色获得的护盾量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.108.108"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.108.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "108"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.108"
+          },
+          "summary_en": {
+            "String": "Increases all characters' DEF by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的防御力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.109.109"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enhance Received Shield Effects"
+          },
+          "name_zh_cn": {
+            "String": "获得护盾量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.109.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "109"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.109"
+          },
+          "summary_en": {
+            "String": "Increases the max DMG absorption of the shield received by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色获得的护盾量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.102.102"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.102.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.102"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.103.103"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enhance Received Shield Effects"
+          },
+          "name_zh_cn": {
+            "String": "获得护盾量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.103.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.103"
+          },
+          "summary_en": {
+            "String": "Increases the max DMG absorption of the shield received by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色获得的护盾量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.104.104"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Initial Resources"
+          },
+          "name_zh_cn": {
+            "String": "起始资源"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.104.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.104"
+          },
+          "summary_en": {
+            "String": "Increases the starting Cosmic Fragments amount by #1[i]."
+          },
+          "summary_zh_cn": {
+            "String": "初始获得的宇宙碎片提高#1[i]。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 1
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.105.105"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.105.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.105"
+          },
+          "summary_en": {
+            "String": "Increases all characters' DEF by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的防御力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.201.201"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enemy Effect RES Reduction"
+          },
+          "name_zh_cn": {
+            "String": "敌人效果抵抗弱化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.9"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.201"
+          },
+          "summary_en": {
+            "String": "Decreases all enemies' Effect RES by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有敌人的效果抵抗降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.206.206"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.206.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "206"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.206"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.207.207"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.207.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "207"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.207"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Effect Hit Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的效果命中提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.208.208"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enemy Effect RES Reduction"
+          },
+          "name_zh_cn": {
+            "String": "敌人效果抵抗弱化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.208.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "208"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.208"
+          },
+          "summary_en": {
+            "String": "Decreases all enemies' Effect RES by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有敌人的效果抵抗降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.209.209"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.209.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "209"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.209"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Effect Hit Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的效果命中提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.202.202"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance Charge Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响充能强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.202.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.202"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance Energy by #1[i] upon entering battle."
+          },
+          "summary_zh_cn": {
+            "String": "每次进入战斗时命途回响的能量提高#1[i]点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.203.203"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.203.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.203"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Effect Hit Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的效果命中提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.204.204"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Unlock Cheat Function"
+          },
+          "name_zh_cn": {
+            "String": "作弊功能解锁"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.204.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.204"
+          },
+          "summary_en": {
+            "String": "Unlocks the Cheat function. Specify a Dice Effect and immediately obtain that effect after re-rolling. At the start of the challenge, receive #1[i] cheat attempt(s)."
+          },
+          "summary_zh_cn": {
+            "String": "解锁作弊功能，指定一个骰面效果，重新投掷后直接获取该效果。挑战开始时获得#1[i]次作弊次数。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 2
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.205.205"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Enemy Effect RES Reduction"
+          },
+          "name_zh_cn": {
+            "String": "敌人效果抵抗弱化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.205.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.205"
+          },
+          "summary_en": {
+            "String": "Decreases all enemies' Effect RES by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有敌人的效果抵抗降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.301.301"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DoT Boost"
+          },
+          "name_zh_cn": {
+            "String": "持续伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.18"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.301"
+          },
+          "summary_en": {
+            "String": "Increases DMG dealt by all characters' applied DoT by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的持续伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.306.306"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.306.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "306"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.23"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.306"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.307.307"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.307.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "307"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.24"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.307"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Break Effect by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的击破特攻提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.308.308"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DoT Boost"
+          },
+          "name_zh_cn": {
+            "String": "持续伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.308.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "308"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.25"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.24"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.308"
+          },
+          "summary_en": {
+            "String": "Increases DMG dealt by all characters' applied DoT by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的持续伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.309.309"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.309.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "309"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.26"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.309"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Break Effect by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的击破特攻提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.302.302"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.302.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.19"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.302"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.303.303"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.303.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.20"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.303"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Break Effect by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的击破特攻提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.304.304"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Forfeit Compensation"
+          },
+          "name_zh_cn": {
+            "String": "放弃补偿"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.304.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.21"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.304"
+          },
+          "summary_en": {
+            "String": "Increases the Cosmic Fragments received when giving up the choice of the dice by #1[i]."
+          },
+          "summary_zh_cn": {
+            "String": "放弃骰面目标选择时获得的宇宙碎片提高#1[i]。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 3
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.305.305"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DoT Boost"
+          },
+          "name_zh_cn": {
+            "String": "持续伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.305.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.22"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.305"
+          },
+          "summary_en": {
+            "String": "Increases DMG dealt by all characters' applied DoT by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的持续伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.401.401"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.27"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.401"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Max HP by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的生命上限提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.406.406"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance Charge Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响充能强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.406.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.32"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.31"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.406"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance Energy by #1[i] upon entering battle."
+          },
+          "summary_zh_cn": {
+            "String": "每次进入战斗时命途回响的能量提高#1[i]点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.407.407"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Restoration Boost"
+          },
+          "name_zh_cn": {
+            "String": "回复量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.407.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "407"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.33"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.32"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.407"
+          },
+          "summary_en": {
+            "String": "All characters' HP restored increases by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的回复量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.408.408"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.408.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "408"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.34"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.33"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.408"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Max HP by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的生命上限提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.409.409"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Restoration Boost"
+          },
+          "name_zh_cn": {
+            "String": "回复量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.409.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "409"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.35"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.34"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.409"
+          },
+          "summary_en": {
+            "String": "All characters' HP restored increases by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的回复量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.402.402"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance Charge Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响充能强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.402.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.28"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.27"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.402"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance Energy by #1[i] upon entering battle."
+          },
+          "summary_zh_cn": {
+            "String": "每次进入战斗时命途回响的能量提高#1[i]点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.403.403"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Restoration Boost"
+          },
+          "name_zh_cn": {
+            "String": "回复量强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.403.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.29"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.403"
+          },
+          "summary_en": {
+            "String": "All characters' HP restored increases by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的回复量提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.404.404"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Start Countdown"
+          },
+          "name_zh_cn": {
+            "String": "起始倒计时"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.404.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.30"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.29"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.404"
+          },
+          "summary_en": {
+            "String": "Increases the initial countdown by #1[i] point(s)."
+          },
+          "summary_zh_cn": {
+            "String": "初始获得的倒计时增加#1[i]点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 4
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.405.405"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.405.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.31"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.30"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.405"
+          },
+          "summary_en": {
+            "String": "Increases all characters' Max HP by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的生命上限提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.501.501"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Speed Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.36"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.501"
+          },
+          "summary_en": {
+            "String": "Increases all characters' SPD by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的速度提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.506.506"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.506.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "506"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.41"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.40"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.506"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.507.507"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.507.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "507"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.42"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.41"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.507"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击率提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.508.508"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Speed Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.508.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "508"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.43"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.42"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.508"
+          },
+          "summary_en": {
+            "String": "Increases all characters' SPD by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的速度提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.509.509"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.509.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "509"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.44"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.43"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.509"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击率提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.502.502"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.502.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.37"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.36"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.502"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.503.503"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.503.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.38"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.37"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.503"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT Rate by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击率提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.504.504"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Bonus Charge"
+          },
+          "name_zh_cn": {
+            "String": "额外充能"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.504.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.38"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.504"
+          },
+          "summary_en": {
+            "String": "When entering Boss or Boss: Swarm domains, all allies regenerate their respective Energy to Max Energy."
+          },
+          "summary_zh_cn": {
+            "String": "进入【首领】与【首领•虫群】区域时，使我方全体能量恢复至各自的能量上限。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 5
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.505.505"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Speed Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.505.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "505"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.40"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.39"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.505"
+          },
+          "summary_en": {
+            "String": "Increases all characters' SPD by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的速度提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.601.601"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Attack Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.45"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.601"
+          },
+          "summary_en": {
+            "String": "Increases all characters' ATK by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的攻击力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.606.606"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.606.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "606"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.50"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.49"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.606"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.607.607"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DMG Received Reduction"
+          },
+          "name_zh_cn": {
+            "String": "受到伤害降低"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.607.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "607"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.51"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.50"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.607"
+          },
+          "summary_en": {
+            "String": "Reduces DMG taken by all the characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色受到的伤害降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.608.608"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Attack Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.608.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "608"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.52"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.51"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.608"
+          },
+          "summary_en": {
+            "String": "Increases all characters' ATK by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的攻击力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.609.609"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 50
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DMG Received Reduction"
+          },
+          "name_zh_cn": {
+            "String": "受到伤害降低"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.609.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "609"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.53"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.52"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.609"
+          },
+          "summary_en": {
+            "String": "Reduces DMG taken by all the characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色受到的伤害降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.602.602"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 51
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance Charge Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响充能强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.602.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.46"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.45"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.602"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance Energy by #1[i] upon entering battle."
+          },
+          "summary_zh_cn": {
+            "String": "每次进入战斗时命途回响的能量提高#1[i]点。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.603.603"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 52
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "DMG Received Reduction"
+          },
+          "name_zh_cn": {
+            "String": "受到伤害降低"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.603.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "603"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.47"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.46"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.603"
+          },
+          "summary_en": {
+            "String": "Reduces DMG taken by all the characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色受到的伤害降低#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.604.604"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 53
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Reboot Plane"
+          },
+          "name_zh_cn": {
+            "String": "位面再启动"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.604.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "604"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.48"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.47"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.604"
+          },
+          "summary_en": {
+            "String": "If you have already passed the first plane in your previous challenge, then all enemies will receive a set amount of DMG equal to #2[i]% of their respective Max HP when you enter combat for the first #1[i] battles (excluding Boss battles) in the first plane in the current Swarm Disaster challenge."
+          },
+          "summary_zh_cn": {
+            "String": "如果上次挑战中已通过第一位面，本次挑战中第一位面的前#1[i]场非【首领】区域的战斗，进入战斗时，敌方全体受到等同于各自生命上限#2[i]%的固定数值的伤害。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 6
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.605.605"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 54
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Attack Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.605.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "605"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.49"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.48"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.605"
+          },
+          "summary_en": {
+            "String": "Increases all characters' ATK by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的攻击力提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.701.701"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 55
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Follow-Up ATK DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "追加攻击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.54"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.701"
+          },
+          "summary_en": {
+            "String": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的追加攻击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "1"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.706.706"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 56
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.706.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "706"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.59"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.58"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.706"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "11"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.707.707"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 57
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.707.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "707"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.60"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.59"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.707"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "13"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.708.708"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 58
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Follow-Up ATK DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "追加攻击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.708.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "708"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.60"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.708"
+          },
+          "summary_en": {
+            "String": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的追加攻击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "16"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.709.709"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 59
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.709.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "709"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.62"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.61"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.709"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "20"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.702.702"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 60
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Resonance DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "回响伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.702.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "702"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.55"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.54"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.702"
+          },
+          "summary_en": {
+            "String": "Increases Path Resonance DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "命途回响造成的伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "3"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.703.703"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 61
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.703.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "703"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.56"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.55"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.703"
+          },
+          "summary_en": {
+            "String": "Increases all characters' CRIT DMG by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色的暴击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "5"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.704.704"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 62
+          },
+          "is_important": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Reroll Attempts"
+          },
+          "name_zh_cn": {
+            "String": "重投次数"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.704.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "704"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.57"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.56"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.704"
+          },
+          "summary_en": {
+            "String": "Every time the team enters the next plane, gains #1[i] more reroll attempt(s)."
+          },
+          "summary_zh_cn": {
+            "String": "每进入下一位面时，获得#1[i]次重投次数。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "important"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "7"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "dimension_id": {
+            "Integer": 7
+          },
+          "effect_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.705.705"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 63
+          },
+          "is_important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "CommuningTrailNode"
+          },
+          "name_en": {
+            "String": "Follow-Up ATK DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "追加攻击伤害强化"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-prerequisite.705.0"
+              }
+            ]
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "705"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.58"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.57"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-trail-prerequisites"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-trail.705"
+          },
+          "summary_en": {
+            "String": "Increases Follow-Up ATK DMG dealt by all characters by #1[i]%."
+          },
+          "summary_zh_cn": {
+            "String": "所有角色造成的追加攻击伤害提高#1[i]%。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail"
+              },
+              {
+                "String": "incremental"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "threshold": {
+            "String": "9"
+          }
+        }
+      }
+    ]
+  }
+}

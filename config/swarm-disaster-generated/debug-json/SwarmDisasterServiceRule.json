@@ -1,0 +1,1444 @@
+{
+  "table": {
+    "name": "SwarmDisasterServiceRule",
+    "rows": [
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"beacon_id\":\"swarm-disaster.beacon.1\",\"kind\":\"NodeHasBeaconAtAcceptedDomainEntry\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Enhance Beacon Rule"
+          },
+          "name_zh_cn": {
+            "String": "强化信标规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"block_intro_id\":\"14\",\"boundary\":\"TopologyMutationResolution\",\"operation\":\"ApplyBeaconContribution\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.beacon.1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.beacon.1"
+          },
+          "summary_en": {
+            "String": "Apply the released Enhance beacon contribution at domain entry."
+          },
+          "summary_zh_cn": {
+            "String": "进入区域时应用已发布的强化信标贡献。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-rule"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"beacon_id\":\"swarm-disaster.beacon.2\",\"kind\":\"NodeHasBeaconAtAcceptedDomainEntry\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Trotter Beacon Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福扑满信标规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"block_intro_id\":\"17\",\"boundary\":\"TopologyMutationResolution\",\"operation\":\"ApplyBeaconContribution\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.beacon.2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.2"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.beacon.2"
+          },
+          "summary_en": {
+            "String": "Apply the released Blessing Trotter beacon contribution at domain entry."
+          },
+          "summary_zh_cn": {
+            "String": "进入区域时应用已发布的祝福扑满信标贡献。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-rule"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"beacon_id\":\"swarm-disaster.beacon.3\",\"kind\":\"NodeHasBeaconAtAcceptedDomainEntry\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Mutation Beacon Rule"
+          },
+          "name_zh_cn": {
+            "String": "异化信标规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"block_intro_id\":\"15\",\"boundary\":\"TopologyMutationResolution\",\"operation\":\"ApplyBeaconContribution\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.beacon.3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.3"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.beacon.3"
+          },
+          "summary_en": {
+            "String": "Apply the released Mutation beacon contribution at domain entry."
+          },
+          "summary_zh_cn": {
+            "String": "进入区域时应用已发布的异化信标贡献。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-rule"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"beacon_id\":\"swarm-disaster.beacon.5\",\"kind\":\"NodeHasBeaconAtAcceptedDomainEntry\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Trotter Beacon Rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物扑满信标规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"block_intro_id\":\"18\",\"boundary\":\"TopologyMutationResolution\",\"operation\":\"ApplyBeaconContribution\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.beacon.5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.5"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.beacon.5"
+          },
+          "summary_en": {
+            "String": "Apply the released Curio Trotter beacon contribution at domain entry."
+          },
+          "summary_zh_cn": {
+            "String": "进入区域时应用已发布的奇物扑满信标贡献。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-rule"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Cosmic Fragments Rule"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.currency.cosmic-fragments\"],\"operation\":\"InitializeRunCurrency\",\"order\":0,\"parameters\":[{\"key\":\"initial_amount\",\"value\":\"50\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-currency-cosmic-fragments"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-currency-cosmic-fragments"
+          },
+          "summary_en": {
+            "String": "Resolve Cosmic Fragments as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将宇宙碎片解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Downloader Rule"
+          },
+          "name_zh_cn": {
+            "String": "下载装置规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.downloader\"],\"operation\":\"AddExternalCharacterParticipant\",\"order\":0,\"parameters\":[{\"key\":\"characters_per_device\",\"value\":\"1\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-downloader"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-downloader"
+          },
+          "summary_en": {
+            "String": "Resolve Downloader as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将下载装置解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[{\"key\":\"rarity_1_cost\",\"order\":0,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"100\"},{\"key\":\"rarity_2_cost\",\"order\":1,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"130\"},{\"key\":\"rarity_3_cost\",\"order\":2,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"160\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Enhance Blessing Rule"
+          },
+          "name_zh_cn": {
+            "String": "强化祝福规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.enhance-blessing\"],\"operation\":\"EnhanceSelectedBlessing\",\"order\":0,\"parameters\":[{\"key\":\"max_enhancements\",\"value\":\"1\"},{\"key\":\"rarity_1_cost\",\"value\":\"100\"},{\"key\":\"rarity_2_cost\",\"value\":\"130\"},{\"key\":\"rarity_3_cost\",\"value\":\"160\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-enhance-blessing"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-enhance-blessing"
+          },
+          "summary_en": {
+            "String": "Resolve Enhance Blessing as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将强化祝福解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[{\"key\":\"source_cost_schedule\",\"order\":0,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"[31:30],[31:50],[31:100]\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Reset Blessing Choice Rule"
+          },
+          "name_zh_cn": {
+            "String": "重置祝福选择规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.reset-blessing\"],\"operation\":\"RegenerateBlessingCandidates\",\"order\":0,\"parameters\":[{\"key\":\"source_cost_schedule\",\"value\":\"[31:30],[31:50],[31:100]\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-reset-blessing-choice"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-reset-blessing-choice"
+          },
+          "summary_en": {
+            "String": "Resolve Reset Blessing Choice as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将重置祝福选择解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[{\"key\":\"one_star_blessing_cost\",\"order\":0,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"80\"},{\"key\":\"curio_cost\",\"order\":1,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"120\"},{\"key\":\"two_random_enhancements_cost\",\"order\":2,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"180\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Respite Offers Rule"
+          },
+          "name_zh_cn": {
+            "String": "休整区交易规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.respite-offers\"],\"operation\":\"ResolveRespiteOffer\",\"order\":0,\"parameters\":[{\"key\":\"one_star_blessing_cost\",\"value\":\"80\"},{\"key\":\"curio_cost\",\"value\":\"120\"},{\"key\":\"two_random_enhancements_cost\",\"value\":\"180\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-respite-offers"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-respite-offers"
+          },
+          "summary_en": {
+            "String": "Resolve Respite Offers as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将休整区交易解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[{\"key\":\"cost\",\"order\":0,\"resource_id\":\"universe.currency.cosmic-fragments\",\"value\":\"80\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Reviver Rule"
+          },
+          "name_zh_cn": {
+            "String": "复活装置规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.reviver\"],\"operation\":\"ReviveSelectedCharacter\",\"order\":0,\"parameters\":[{\"key\":\"cost\",\"value\":\"80\"},{\"key\":\"restored_hp_percent\",\"value\":\"100\"}]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-reviver"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-reviver"
+          },
+          "summary_en": {
+            "String": "Resolve Reviver as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将复活装置解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Shop 100011 Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店100011规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.100011\"],\"operation\":\"PurchaseBlessing\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-100011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-100011"
+          },
+          "summary_en": {
+            "String": "Resolve Blessing Shop 100011 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将祝福商店100011解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Shop 100021 Rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店100021规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.100021\"],\"operation\":\"PurchaseCurio\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-100021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-100021"
+          },
+          "summary_en": {
+            "String": "Resolve Curio Shop 100021 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将奇物商店100021解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101010 Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101010规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.101010\"],\"operation\":\"PurchaseBlessing\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-101010"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-101010"
+          },
+          "summary_en": {
+            "String": "Resolve Blessing Shop 101010 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将祝福商店101010解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101011 Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101011规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.101011\"],\"operation\":\"PurchaseBlessing\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-101011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-101011"
+          },
+          "summary_en": {
+            "String": "Resolve Blessing Shop 101011 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将祝福商店101011解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Shop 101012 Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店101012规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.101012\"],\"operation\":\"PurchaseBlessing\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-101012"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-101012"
+          },
+          "summary_en": {
+            "String": "Resolve Blessing Shop 101012 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将祝福商店101012解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Shop 101020 Rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101020规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.101020\"],\"operation\":\"PurchaseCurio\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-101020"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-101020"
+          },
+          "summary_en": {
+            "String": "Resolve Curio Shop 101020 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将奇物商店101020解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Shop 101021 Rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店101021规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.101021\"],\"operation\":\"PurchaseCurio\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-101021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-101021"
+          },
+          "summary_en": {
+            "String": "Resolve Curio Shop 101021 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将奇物商店101021解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Blessing Shop 102011 Rule"
+          },
+          "name_zh_cn": {
+            "String": "祝福商店102011规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.102011\"],\"operation\":\"PurchaseBlessing\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-102011"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-102011"
+          },
+          "summary_en": {
+            "String": "Resolve Blessing Shop 102011 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将祝福商店102011解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "conditions_json": {
+            "String": "[{\"kind\":\"ServiceAvailableAndCommandAccepted\",\"unresolved_offer_behavior\":\"FailClosed\"}]"
+          },
+          "costs_json": {
+            "String": "[]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "SwarmServiceRule"
+          },
+          "name_en": {
+            "String": "Curio Shop 102021 Rule"
+          },
+          "name_zh_cn": {
+            "String": "奇物商店102021规则"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"inherited_rule_ids\":[\"universe.rule.service.shop.102021\"],\"operation\":\"PurchaseCurio\",\"order\":0,\"parameters\":[]}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "service_id": {
+            "String": "swarm-disaster.service.universe-service-shop-102021"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.service-rule.universe-service-shop-102021"
+          },
+          "summary_en": {
+            "String": "Resolve Curio Shop 102021 as one ordered Activity transaction."
+          },
+          "summary_zh_cn": {
+            "String": "将奇物商店102021解析为一个有序活动事务。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-operation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "service-rule"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,3356 @@
+{
+  "table": {
+    "name": "SwarmDisasterReviewFixture",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.selected-path\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.initial-effect\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.passive-effect\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.graph-mutation\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "audience-die-passive"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"audience-die-passive\",\"selected_record_ids\":[\"swarm-disaster.audience-die.1\",\"swarm-disaster.audience-path.1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "audience-die-passive Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "audience-die-passive 语义审查夹具"
+          },
+          "note": {
+            "String": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately. Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"selected Path\",\"operation\":\"ReviewSelectedPath\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"initial effect\",\"operation\":\"ReviewInitialEffect\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"passive effect\",\"operation\":\"ReviewPassiveEffect\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"graph mutation\",\"operation\":\"ReviewGraphMutation\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation. Replace the slot-to-lifecycle mapping if released engine evidence identifies a different application boundary."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.audience-die.1"
+              },
+              {
+                "String": "swarm-disaster.audience-path.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-paths"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondice-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.audience-dice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.audience-die-passive"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the audience-die-passive family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "audience-die-passive 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "audience-die-passive"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.beacon-placement\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.copy-target\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.blanking\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.simultaneous-ordering\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"7\"}]"
+          },
+          "family_id": {
+            "String": "beacon-copy-and-blanking"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"beacon-copy-and-blanking\",\"selected_record_ids\":[\"swarm-disaster.beacon.1\",\"swarm-disaster.beacon.2\",\"swarm-disaster.beacon.3\",\"swarm-disaster.beacon.5\",\"swarm-disaster.topology-consequence.dice-face.202\",\"swarm-disaster.topology-consequence.dice-face.203\",\"swarm-disaster.topology-consequence.dice-face.204\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "beacon-copy-and-blanking Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "beacon-copy-and-blanking 语义审查夹具"
+          },
+          "note": {
+            "String": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation. Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"beacon placement\",\"operation\":\"ReviewBeaconPlacement\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"copy target\",\"operation\":\"ReviewCopyTarget\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"blanking\",\"operation\":\"ReviewBlanking\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"simultaneous ordering\",\"operation\":\"ReviewSimultaneousOrdering\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule. Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.beacon.1"
+              },
+              {
+                "String": "swarm-disaster.beacon.2"
+              },
+              {
+                "String": "swarm-disaster.beacon.3"
+              },
+              {
+                "String": "swarm-disaster.beacon.5"
+              },
+              {
+                "String": "swarm-disaster.topology-consequence.dice-face.202"
+              },
+              {
+                "String": "swarm-disaster.topology-consequence.dice-face.203"
+              },
+              {
+                "String": "swarm-disaster.topology-consequence.dice-face.204"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the beacon-copy-and-blanking family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "beacon-copy-and-blanking 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "beacon-copy-and-blanking"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-monsterconfig-json.2277"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.boss-choice\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.weakness-consequence\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.later-boss-binding\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "boss-choice-consequence"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"boss-choice-consequence\",\"selected_record_ids\":[\"swarm-disaster.boss-choice.8003051\",\"swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "boss-choice-consequence Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "boss-choice-consequence 语义审查夹具"
+          },
+          "note": {
+            "String": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved. RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"boss choice\",\"operation\":\"ReviewBossChoice\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"weakness consequence\",\"operation\":\"ReviewWeaknessConsequence\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"later boss binding\",\"operation\":\"ReviewLaterBossBinding\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available. Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.boss-choice.8003051"
+              },
+              {
+                "String": "swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-monsterconfig-json.2277"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.boss-choice-consequence"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the boss-choice-consequence family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "boss-choice-consequence 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-choice-consequence"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.2"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.tier-threshold\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.stacking\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.cap\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.boss-effect-order\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "boss-decay-stack"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"boss-decay-stack\",\"selected_record_ids\":[\"swarm-disaster.boss-decay.1\",\"swarm-disaster.boss-decay.2\",\"swarm-disaster.boss-decay.3\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "boss-decay-stack Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "boss-decay-stack 语义审查夹具"
+          },
+          "note": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape. Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"tier threshold\",\"operation\":\"ReviewTierThreshold\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"stacking\",\"operation\":\"ReviewStacking\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"cap\",\"operation\":\"ReviewCap\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"boss effect order\",\"operation\":\"ReviewBossEffectOrder\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order. Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.boss-decay.1"
+              },
+              {
+                "String": "swarm-disaster.boss-decay.2"
+              },
+              {
+                "String": "swarm-disaster.boss-decay.3"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.boss-decay-stack"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the boss-decay-stack family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "boss-decay-stack 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "boss-decay-stack"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.aeon-eligibility\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.choice-order\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.point-changes\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.simultaneous-unlock\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "communing-choice"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"communing-choice\",\"selected_record_ids\":[\"swarm-disaster.communing-choice.441\",\"swarm-disaster.pathstrider-cabinet.1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "communing-choice Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "communing-choice 语义审查夹具"
+          },
+          "note": {
+            "String": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row. Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"Aeon eligibility\",\"operation\":\"ReviewAeonEligibility\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"choice order\",\"operation\":\"ReviewChoiceOrder\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"point changes\",\"operation\":\"ReviewPointChanges\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"simultaneous unlock\",\"operation\":\"ReviewSimultaneousUnlock\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics. Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-choice.441"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-cabinet.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.communing-choice"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the communing-choice family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "communing-choice 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.point-addition\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.cap\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.carry\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.dimension-threshold\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "communing-dimension-points"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"communing-dimension-points\",\"selected_record_ids\":[\"swarm-disaster.communing-adjustment.cabinet.1.0\",\"swarm-disaster.communing-dimension.1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "communing-dimension-points Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "communing-dimension-points 语义审查夹具"
+          },
+          "note": {
+            "String": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries. Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"point addition\",\"operation\":\"ReviewPointAddition\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"cap\",\"operation\":\"ReviewCap\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"carry\",\"operation\":\"ReviewCarry\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"dimension threshold\",\"operation\":\"ReviewDimensionThreshold\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle. Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-adjustment.cabinet.1.0"
+              },
+              {
+                "String": "swarm-disaster.communing-dimension.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondimension-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-dimensions"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-cabinets"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.communing-dimension-points"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the communing-dimension-points family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "communing-dimension-points 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-dimension-points"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.0"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.prerequisite\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.threshold\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.run-contribution\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.battle-projection\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "communing-trail-effect"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"communing-trail-effect\",\"selected_record_ids\":[\"swarm-disaster.communing-effect.101.101\",\"swarm-disaster.communing-trail.101\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "communing-trail-effect Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "communing-trail-effect 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"prerequisite\",\"operation\":\"ReviewPrerequisite\",\"sequence\":1,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"threshold\",\"operation\":\"ReviewThreshold\",\"sequence\":2,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"run contribution\",\"operation\":\"ReviewRunContribution\",\"sequence\":3,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"battle projection\",\"operation\":\"ReviewBattleProjection\",\"sequence\":4,\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.communing-effect.101.101"
+              },
+              {
+                "String": "swarm-disaster.communing-trail.101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeontalent-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.communing-trail-effect"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the communing-trail-effect family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "communing-trail-effect 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-trail-effect"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.initial-value\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.movement-delta\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.clamp\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.plane-carry\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"1\"}]"
+          },
+          "family_id": {
+            "String": "countdown-lifecycle"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"countdown-lifecycle\",\"selected_record_ids\":[\"swarm-disaster.countdown.v1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "countdown-lifecycle Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "countdown-lifecycle 语义审查夹具"
+          },
+          "note": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape. Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"initial value\",\"operation\":\"ReviewInitialValue\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"movement delta\",\"operation\":\"ReviewMovementDelta\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"clamp\",\"operation\":\"ReviewClamp\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"plane carry\",\"operation\":\"ReviewPlaneCarry\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering. Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.countdown.v1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.countdown-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the countdown-lifecycle family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "countdown-lifecycle 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "countdown-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-curios-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookmiracle-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracle-json.74"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracledisplay-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffect-json.72"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffectdisplay-json.72"
+              },
+              {
+                "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.1000-series-mode-copy\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.charges-or-state\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.repair-or-replacement\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "curio-lifecycle"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"curio-lifecycle\",\"selected_record_ids\":[\"swarm-disaster.curio-rule.1001\",\"swarm-disaster.curio-state.1001\",\"swarm-disaster.curio.1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "curio-lifecycle Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "curio-lifecycle 语义审查夹具"
+          },
+          "note": {
+            "String": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"1000-series mode copy\",\"operation\":\"Review1000SeriesModeCopy\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"charges or state\",\"operation\":\"ReviewChargesOrState\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"repair or replacement\",\"operation\":\"ReviewRepairOrReplacement\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace offer filters, trigger ordering or replacement selection when released pool/controller evidence supplies authoritative behavior."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.curio-rule.1001"
+              },
+              {
+                "String": "swarm-disaster.curio-state.1001"
+              },
+              {
+                "String": "swarm-disaster.curio.1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-curios-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookmiracle-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracle-json.74"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracledisplay-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffect-json.72"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemiracleeffectdisplay-json.72"
+              },
+              {
+                "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.curio-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the curio-lifecycle family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "curio-lifecycle 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.rarity\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.activation-stage\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.ordered-targets\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.no-legal-target\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "dice-face-targeting"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"dice-face-targeting\",\"selected_record_ids\":[\"swarm-disaster.dice-face.102\",\"swarm-disaster.dice-target.101\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "dice-face-targeting Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "dice-face-targeting 语义审查夹具"
+          },
+          "note": {
+            "String": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"rarity\",\"operation\":\"ReviewRarity\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"activation stage\",\"operation\":\"ReviewActivationStage\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"ordered targets\",\"operation\":\"ReviewOrderedTargets\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"no legal target\",\"operation\":\"ReviewNoLegalTarget\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-face.102"
+              },
+              {
+                "String": "swarm-disaster.dice-target.101"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.dice-face-targeting"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the dice-face-targeting family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "dice-face-targeting 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-face-targeting"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.roll-result\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.reroll-consumption\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.cheat-replacement\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.result-ordering\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"4\"}]"
+          },
+          "family_id": {
+            "String": "dice-roll-reroll-cheat"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"dice-roll-reroll-cheat\",\"selected_record_ids\":[\"swarm-disaster.dice-control.abandon\",\"swarm-disaster.dice-control.cheat\",\"swarm-disaster.dice-control.reroll\",\"swarm-disaster.dice-control.roll\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "dice-roll-reroll-cheat Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "dice-roll-reroll-cheat 语义审查夹具"
+          },
+          "note": {
+            "String": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"roll result\",\"operation\":\"ReviewRollResult\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"reroll consumption\",\"operation\":\"ReviewRerollConsumption\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"cheat replacement\",\"operation\":\"ReviewCheatReplacement\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"result ordering\",\"operation\":\"ReviewResultOrdering\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.dice-control.abandon"
+              },
+              {
+                "String": "swarm-disaster.dice-control.cheat"
+              },
+              {
+                "String": "swarm-disaster.dice-control.reroll"
+              },
+              {
+                "String": "swarm-disaster.dice-control.roll"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.dice-roll-reroll-cheat"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the dice-roll-reroll-cheat family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "dice-roll-reroll-cheat 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-roll-reroll-cheat"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.eligible-domain-set\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.replacement-order\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.no-legal-replacement\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "domain-replacement"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"domain-replacement\",\"selected_record_ids\":[\"swarm-disaster.domain.adventure\",\"swarm-disaster.topology-consequence.dice-face.202\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "domain-replacement Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "domain-replacement 语义审查夹具"
+          },
+          "note": {
+            "String": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op. Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"eligible domain set\",\"operation\":\"ReviewEligibleDomainSet\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"replacement order\",\"operation\":\"ReviewReplacementOrder\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"no legal replacement\",\"operation\":\"ReviewNoLegalReplacement\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule. Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.domain.adventure"
+              },
+              {
+                "String": "swarm-disaster.topology-consequence.dice-face.202"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.domains"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-consequences"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.domain-replacement"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the domain-replacement family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "domain-replacement 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "domain-replacement"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.351"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemonster-json.697"
+              },
+              {
+                "String": "source.goal09.exceloutput-stageconfig-json.7623"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2484"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2521"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.room-parent\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.weighted-group\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.wave-and-enemy-slot\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.boss-alternative\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"6\"}]"
+          },
+          "family_id": {
+            "String": "encounter-selection"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"encounter-selection\",\"selected_record_ids\":[\"swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative\",\"swarm-disaster.encounter-group.120001\",\"swarm-disaster.encounter-wave.120001.1200011.1\",\"swarm-disaster.encounter-wave.120001.1200011.1.slot.1\",\"swarm-disaster.encounter-wave.120001.1200011.1.slot.2\",\"swarm-disaster.encounter-wave.120001.1200011.1.slot.3\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "encounter-selection Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "encounter-selection 语义审查夹具"
+          },
+          "note": {
+            "String": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved. RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"room parent\",\"operation\":\"ReviewRoomParent\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"weighted group\",\"operation\":\"ReviewWeightedGroup\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"wave and enemy slot\",\"operation\":\"ReviewWaveAndEnemySlot\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"boss alternative\",\"operation\":\"ReviewBossAlternative\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when released engine code exposes the exact battle-level selection and override sequence. Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.boss-pool.Difficulty_1.first-plane-boss-alternative"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.120001"
+              },
+              {
+                "String": "swarm-disaster.encounter-wave.120001.1200011.1"
+              },
+              {
+                "String": "swarm-disaster.encounter-wave.120001.1200011.1.slot.1"
+              },
+              {
+                "String": "swarm-disaster.encounter-wave.120001.1200011.1.slot.2"
+              },
+              {
+                "String": "swarm-disaster.encounter-wave.120001.1200011.1.slot.3"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.351"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemonster-json.697"
+              },
+              {
+                "String": "source.goal09.exceloutput-stageconfig-json.7623"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2484"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2521"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.encounter-selection"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the encounter-selection family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "encounter-selection 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-selection"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.386"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.boss-pool\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.prior-choice-state\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.propagation-or-interplay-contribution\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.disarray-contribution\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"6\"}]"
+          },
+          "family_id": {
+            "String": "final-boss-consequence"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"final-boss-consequence\",\"selected_record_ids\":[\"swarm-disaster.boss-decay.1\",\"swarm-disaster.boss-pool.Difficulty_1.final-boss\",\"swarm-disaster.countdown.v1\",\"swarm-disaster.encounter-group.123001\",\"swarm-disaster.path-binding.universe-path-preservation\",\"swarm-disaster.resonance-interplay.1232501\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "final-boss-consequence Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "final-boss-consequence 语义审查夹具"
+          },
+          "note": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once. Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape. Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved. RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved. Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation. Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"boss pool\",\"operation\":\"ReviewBossPool\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"prior choice state\",\"operation\":\"ReviewPriorChoiceState\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"Propagation or Interplay contribution\",\"operation\":\"ReviewPropagationOrInterplayContribution\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"Disarray contribution\",\"operation\":\"ReviewDisarrayContribution\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering. Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing. Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order. Replace when released engine code exposes the exact battle-level selection and override sequence. Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join. Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.boss-decay.1"
+              },
+              {
+                "String": "swarm-disaster.boss-pool.Difficulty_1.final-boss"
+              },
+              {
+                "String": "swarm-disaster.countdown.v1"
+              },
+              {
+                "String": "swarm-disaster.encounter-group.123001"
+              },
+              {
+                "String": "swarm-disaster.path-binding.universe-path-preservation"
+              },
+              {
+                "String": "swarm-disaster.resonance-interplay.1232501"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguemonstergroup-json.386"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-selection"
+              },
+              {
+                "String": "source.goal09.project-policy.encounter-difficulty-binding"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcbossdecay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.boss-decay-levels"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.final-boss-consequence"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the final-boss-consequence family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "final-boss-consequence 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "final-boss-consequence"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedialogueoptiondisplay-json.41"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguedialogue-event0110301-opt0110301-json.root"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.99"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.100000-series-variant\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.condition\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.cost\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.ordered-result\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "occurrence-choice"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"occurrence-choice\",\"selected_record_ids\":[\"swarm-disaster.occurrence-choice.110301.04\",\"swarm-disaster.occurrence-variant.110301\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "occurrence-choice Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"100000-series variant\",\"operation\":\"Review100000SeriesVariant\",\"sequence\":1,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"condition\",\"operation\":\"ReviewCondition\",\"sequence\":2,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"cost\",\"operation\":\"ReviewCost\",\"sequence\":3,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"ordered result\",\"operation\":\"ReviewOrderedResult\",\"sequence\":4,\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.occurrence-choice.110301.04"
+              },
+              {
+                "String": "swarm-disaster.occurrence-variant.110301"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedialogueoptiondisplay-json.41"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguedialogue-event0110301-opt0110301-json.root"
+              },
+              {
+                "String": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguehandbookevent-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguenpc-json.99"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.occurrence-choice"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the occurrence-choice family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "occurrence-choice 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence-choice"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.mechanical-chapter-locator\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.path-unlock\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.propagation-availability\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "path-and-propagation-unlock"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"path-and-propagation-unlock\",\"selected_record_ids\":[\"swarm-disaster.mechanical-chapter.4\",\"swarm-disaster.path-binding.universe-path-preservation\",\"swarm-disaster.pathstrider-unlock.1000008\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "path-and-propagation-unlock Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "path-and-propagation-unlock 语义审查夹具"
+          },
+          "note": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once. Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding. Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"mechanical chapter locator\",\"operation\":\"ReviewMechanicalChapterLocator\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"Path unlock\",\"operation\":\"ReviewPathUnlock\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"Propagation availability\",\"operation\":\"ReviewPropagationAvailability\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics. Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing. Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.mechanical-chapter.4"
+              },
+              {
+                "String": "swarm-disaster.path-binding.universe-path-preservation"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-unlock.1000008"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeon-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstory-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.mechanical-chapter-locators"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the path-and-propagation-unlock family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "path-and-propagation-unlock 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-and-propagation-unlock"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.finish-condition\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.progress-update\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.comparison\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.unlock-consequence\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "pathstrider-progress"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"pathstrider-progress\",\"selected_record_ids\":[\"swarm-disaster.pathstrider-finish-condition.1000001\",\"swarm-disaster.pathstrider-objective.1\",\"swarm-disaster.pathstrider-unlock.1000001\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "pathstrider-progress Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "pathstrider-progress 语义审查夹具"
+          },
+          "note": {
+            "String": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding. Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"finish condition\",\"operation\":\"ReviewFinishCondition\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"progress update\",\"operation\":\"ReviewProgressUpdate\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"comparison\",\"operation\":\"ReviewComparison\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"unlock consequence\",\"operation\":\"ReviewUnlockConsequence\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics. Replace the external quest condition and commit boundary if released quest evaluator data exposes the authoritative progress event and ordering."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.pathstrider-finish-condition.1000001"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-objective.1"
+              },
+              {
+                "String": "swarm-disaster.pathstrider-unlock.1000001"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-objectives"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcfinishway-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcunlock-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.pathstrider-unlocks"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.pathstrider-progress"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the pathstrider-progress family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "pathstrider-progress 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "pathstrider-progress"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.entry-boundary\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.tier-selection\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.single-transition\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.battle-projection\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"1\"}]"
+          },
+          "family_id": {
+            "String": "planar-disarray-transition"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"planar-disarray-transition\",\"selected_record_ids\":[\"swarm-disaster.countdown.v1\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "planar-disarray-transition Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "planar-disarray-transition 语义审查夹具"
+          },
+          "note": {
+            "String": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape. Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"entry boundary\",\"operation\":\"ReviewEntryBoundary\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"tier selection\",\"operation\":\"ReviewTierSelection\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"single transition\",\"operation\":\"ReviewSingleTransition\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"battle projection\",\"operation\":\"ReviewBattleProjection\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering. Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.countdown.v1"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6"
+              },
+              {
+                "String": "source.goal09.textmap-textmapen-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.textmap-textmapchs-json.11306203113396055939"
+              },
+              {
+                "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+              },
+              {
+                "String": "source.goal09.project-policy.countdown-and-disarray"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.planar-disarray-transition"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the planar-disarray-transition family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "planar-disarray-transition 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "planar-disarray-transition"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.profile"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.11"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.entry-eligibility\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.five-formal-difficulties\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.bonus-101-106-ownership\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"12\"}]"
+          },
+          "family_id": {
+            "String": "profile-entry"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"profile-entry\",\"selected_record_ids\":[\"swarm-disaster.area.201\",\"swarm-disaster.area.202\",\"swarm-disaster.area.203\",\"swarm-disaster.area.204\",\"swarm-disaster.area.205\",\"swarm-disaster.profile.v1\",\"swarm-disaster.trailblaze-bonus.101\",\"swarm-disaster.trailblaze-bonus.102\",\"swarm-disaster.trailblaze-bonus.103\",\"swarm-disaster.trailblaze-bonus.104\",\"swarm-disaster.trailblaze-bonus.105\",\"swarm-disaster.trailblaze-bonus.106\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "profile-entry Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "profile-entry 语义审查夹具"
+          },
+          "note": {
+            "String": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream. One isolated Swarm Disaster reference profile binds the released ChessRogue rows."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"entry eligibility\",\"operation\":\"ReviewEntryEligibility\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"five Formal difficulties\",\"operation\":\"ReviewFiveFormalDifficulties\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"bonus 101-106 ownership\",\"operation\":\"ReviewBonus101106Ownership\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace only if a later released profile registry provides a stronger stable identity. Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.area.201"
+              },
+              {
+                "String": "swarm-disaster.area.202"
+              },
+              {
+                "String": "swarm-disaster.area.203"
+              },
+              {
+                "String": "swarm-disaster.area.204"
+              },
+              {
+                "String": "swarm-disaster.area.205"
+              },
+              {
+                "String": "swarm-disaster.profile.v1"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.101"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.102"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.103"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.104"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.105"
+              },
+              {
+                "String": "swarm-disaster.trailblaze-bonus.106"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.profile"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcarea-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.10"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebonus-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.profile-entry"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the profile-entry family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "profile-entry 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "profile-entry"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-resonances-json.13"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.main-path-threshold\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.sub-path-threshold\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.effect-binding\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.activation-order\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "resonance-interplay"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"resonance-interplay\",\"selected_record_ids\":[\"swarm-disaster.resonance-binding.612321\",\"swarm-disaster.resonance-interplay.1232501\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "resonance-interplay Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "resonance-interplay 语义审查夹具"
+          },
+          "note": {
+            "String": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"main Path threshold\",\"operation\":\"ReviewMainPathThreshold\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"sub Path threshold\",\"operation\":\"ReviewSubPathThreshold\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"effect binding\",\"operation\":\"ReviewEffectBinding\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"activation order\",\"operation\":\"ReviewActivationOrder\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.resonance-binding.612321"
+              },
+              {
+                "String": "swarm-disaster.resonance-interplay.1232501"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeoncross-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuffgroup-json.61"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguebuff-json.39"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguemazebuff-json.331"
+              },
+              {
+                "String": "source.goal09.project-policy.path-resonance-boundaries"
+              },
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-resonances-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.resonance-interplay"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the resonance-interplay family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "resonance-interplay 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "resonance-interplay"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.abstract-adventure-outcome"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.eligibility\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.price-or-abstract-tier\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.offered-result-boundary\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"3\"}]"
+          },
+          "family_id": {
+            "String": "service-and-adventure"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":true,\"family_id\":\"service-and-adventure\",\"selected_record_ids\":[\"swarm-disaster.adventure-outcome.1210601\",\"swarm-disaster.service-rule.beacon.1\",\"swarm-disaster.service.universe-service-shop-100011\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "service-and-adventure Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "service-and-adventure 语义审查夹具"
+          },
+          "note": {
+            "String": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed. Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation. Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"eligibility\",\"operation\":\"ReviewEligibility\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"price or abstract tier\",\"operation\":\"ReviewPriceOrAbstractTier\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"offered result boundary\",\"operation\":\"ReviewOfferedResultBoundary\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation. Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking. Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.adventure-outcome.1210601"
+              },
+              {
+                "String": "swarm-disaster.service-rule.beacon.1"
+              },
+              {
+                "String": "swarm-disaster.service.universe-service-shop-100011"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.service-transaction-boundary"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcmarktype-json.1"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104"
+              },
+              {
+                "String": "source.goal09.project-policy.beacons"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.abstract-adventure-outcome"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.service-and-adventure"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the service-and-adventure family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "service-and-adventure 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "service-and-adventure"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechesteventmap-202"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.rogueblockcreategrouplist-1011101"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.trigger-matching\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.weight-ordering\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.replacement-or-shuffle-order\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"2\"}]"
+          },
+          "family_id": {
+            "String": "topology-event-order"
+          },
+          "fixture_evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"topology-event-order\",\"selected_record_ids\":[\"swarm-disaster.block-rule.10111.1011101\",\"swarm-disaster.map-event.10221.202\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "topology-event-order Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "topology-event-order 语义审查夹具"
+          },
+          "note": "Null",
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"trigger matching\",\"operation\":\"ReviewTriggerMatching\",\"sequence\":1,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"weight ordering\",\"operation\":\"ReviewWeightOrdering\",\"sequence\":2,\"unresolved_behavior\":\"NotApplicable\"},{\"fact\":\"replacement or shuffle order\",\"operation\":\"ReviewReplacementOrShuffleOrder\",\"sequence\":3,\"unresolved_behavior\":\"NotApplicable\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.block-rule.10111.1011101"
+              },
+              {
+                "String": "swarm-disaster.map-event.10221.202"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechesteventmap-202"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.rogueblockcreategrouplist-1011101"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.topology-event-order"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the topology-event-order family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "topology-event-order 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "topology-event-order"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcchessboard-json.0"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.root"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-policy"
+              }
+            ]
+          },
+          "expected_facts_json": {
+            "String": "[{\"operator\":\"reviewed\",\"path\":\"must_cover.column-order\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.projectpolicy-edge-derivation\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.start-end-behavior\",\"value\":true},{\"operator\":\"reviewed\",\"path\":\"must_cover.unspecified-domain-fallback\",\"value\":true},{\"operator\":\"equals\",\"path\":\"source_record_count\",\"value\":\"4\"}]"
+          },
+          "family_id": {
+            "String": "topology-generation"
+          },
+          "fixture_evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "input_json": {
+            "String": "{\"deterministic_seed\":\"0\",\"external_outcome_only\":false,\"family_id\":\"topology-generation\",\"selected_record_ids\":[\"swarm-disaster.chessboard.10111\",\"swarm-disaster.column.10111.2\",\"swarm-disaster.edge.10111.101.202\",\"swarm-disaster.node.10111.201\"]}"
+          },
+          "kind": {
+            "String": "SemanticReviewFixture"
+          },
+          "name_en": {
+            "String": "topology-generation Semantic Review Fixture"
+          },
+          "name_zh_cn": {
+            "String": "topology-generation 语义审查夹具"
+          },
+          "note": {
+            "String": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges."
+          },
+          "ordered_operations_json": {
+            "String": "[{\"fact\":\"column order\",\"operation\":\"ReviewColumnOrder\",\"sequence\":1,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"ProjectPolicy edge derivation\",\"operation\":\"ReviewProjectpolicyEdgeDerivation\",\"sequence\":2,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"start/end behavior\",\"operation\":\"ReviewStartEndBehavior\",\"sequence\":3,\"unresolved_behavior\":\"FailClosed\"},{\"fact\":\"Unspecified domain fallback\",\"operation\":\"ReviewUnspecifiedDomainFallback\",\"sequence\":4,\"unresolved_behavior\":\"FailClosed\"}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "preconditions_json": {
+            "String": "[{\"fact\":\"runtime_loading\",\"value\":\"ForbiddenReferenceOnly\"},{\"fact\":\"source_records_data_ready\",\"value\":true}]"
+          },
+          "replacement_condition": {
+            "String": "Replace when released explicit edges or a verified engine graph builder becomes available."
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.chessboard.10111"
+              },
+              {
+                "String": "swarm-disaster.column.10111.2"
+              },
+              {
+                "String": "swarm-disaster.edge.10111.101.202"
+              },
+              {
+                "String": "swarm-disaster.node.10111.201"
+              }
+            ]
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcchessboard-json.0"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.root"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101"
+              },
+              {
+                "String": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-202"
+              },
+              {
+                "String": "source.goal09.project-policy.topology-policy"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.fixture.topology-generation"
+          },
+          "summary_en": {
+            "String": "Reference-only semantic fixture for the topology-generation family; it reviews every frozen must-cover fact without claiming runtime executability."
+          },
+          "summary_zh_cn": {
+            "String": "topology-generation 机制族的仅资料语义夹具；审查全部冻结必覆盖事实，不声称运行时可执行性。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "topology-generation"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

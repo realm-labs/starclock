@@ -1,0 +1,1834 @@
+{
+  "table": {
+    "name": "SwarmDisasterCommuningChoice",
+    "rows": [
+      {
+        "values": {
+          "aeon_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Preservation Choice 441"
+          },
+          "name_zh_cn": {
+            "String": "存护选择 441"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.1\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:441\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "116"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "441"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.441"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Preservation alignment choice through NPC 116."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 116 记录一次存护倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Remembrance Choice 461"
+          },
+          "name_zh_cn": {
+            "String": "记忆选择 461"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.2\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:461\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "118"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "461"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.9"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.461"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Remembrance alignment choice through NPC 118."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 118 记录一次记忆倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Nihility Choice 421"
+          },
+          "name_zh_cn": {
+            "String": "虚无选择 421"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.3\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:421\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "114"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "421"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.5"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.421"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Nihility alignment choice through NPC 114."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 114 记录一次虚无倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Abundance Choice 431"
+          },
+          "name_zh_cn": {
+            "String": "丰饶选择 431"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.4\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:431\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "115"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "431"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.6"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.431"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Abundance alignment choice through NPC 115."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 115 记录一次丰饶倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "The Hunt Choice 411"
+          },
+          "name_zh_cn": {
+            "String": "巡猎选择 411"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.5\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:411\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "113"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "411"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.4"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.411"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one The Hunt alignment choice through NPC 113."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 113 记录一次巡猎倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "the-hunt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "6"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Destruction Choice 451"
+          },
+          "name_zh_cn": {
+            "String": "毁灭选择 451"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.6\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:451\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "117"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "451"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.8"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.451"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Destruction alignment choice through NPC 117."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 117 记录一次毁灭倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "7"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":4}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Elation Choice 401"
+          },
+          "name_zh_cn": {
+            "String": "欢愉选择 401"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.7\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:401\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "103"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.3"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.401"
+          },
+          "story_stage": {
+            "String": "4"
+          },
+          "summary_en": {
+            "String": "Story-stage 4 branch records one Elation alignment choice through NPC 103."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 4 分支通过 NPC 103 记录一次欢愉倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Preservation Choice 641"
+          },
+          "name_zh_cn": {
+            "String": "存护选择 641"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.1\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:641\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "122"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "641"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.16"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.641"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Preservation alignment choice through NPC 122."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 122 记录一次存护倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Remembrance Choice 661"
+          },
+          "name_zh_cn": {
+            "String": "记忆选择 661"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.2\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:661\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "124"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "661"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.18"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.661"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Remembrance alignment choice through NPC 124."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 124 记录一次记忆倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Nihility Choice 621"
+          },
+          "name_zh_cn": {
+            "String": "虚无选择 621"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.3\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:621\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "120"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "621"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.14"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.621"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Nihility alignment choice through NPC 120."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 120 记录一次虚无倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Abundance Choice 631"
+          },
+          "name_zh_cn": {
+            "String": "丰饶选择 631"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.4\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:631\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "121"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "631"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.15"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.631"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Abundance alignment choice through NPC 121."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 121 记录一次丰饶倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "The Hunt Choice 611"
+          },
+          "name_zh_cn": {
+            "String": "巡猎选择 611"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.5\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:611\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "119"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "611"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.13"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.611"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one The Hunt alignment choice through NPC 119."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 119 记录一次巡猎倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "the-hunt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "6"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Destruction Choice 651"
+          },
+          "name_zh_cn": {
+            "String": "毁灭选择 651"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.6\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:651\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "123"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "651"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.17"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.651"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Destruction alignment choice through NPC 123."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 123 记录一次毁灭倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "7"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":6}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Elation Choice 601"
+          },
+          "name_zh_cn": {
+            "String": "欢愉选择 601"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.7\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:601\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "105"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.12"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.601"
+          },
+          "story_stage": {
+            "String": "6"
+          },
+          "summary_en": {
+            "String": "Story-stage 6 branch records one Elation alignment choice through NPC 105."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 6 分支通过 NPC 105 记录一次欢愉倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Preservation Choice 741"
+          },
+          "name_zh_cn": {
+            "String": "存护选择 741"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.1\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:741\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.preservation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "128"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "741"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.24"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.741"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Preservation alignment choice through NPC 128."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 128 记录一次存护倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "preservation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "2"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Remembrance Choice 761"
+          },
+          "name_zh_cn": {
+            "String": "记忆选择 761"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.2\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:761\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.remembrance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "130"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "761"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.26"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.761"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Remembrance alignment choice through NPC 130."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 130 记录一次记忆倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "remembrance"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "3"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Nihility Choice 721"
+          },
+          "name_zh_cn": {
+            "String": "虚无选择 721"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.3\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:721\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.nihility"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "126"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "721"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.22"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.721"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Nihility alignment choice through NPC 126."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 126 记录一次虚无倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "nihility"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "4"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Abundance Choice 731"
+          },
+          "name_zh_cn": {
+            "String": "丰饶选择 731"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.4\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:731\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.abundance"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "127"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "731"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.23"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.731"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Abundance alignment choice through NPC 127."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 127 记录一次丰饶倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abundance"
+              },
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "The Hunt Choice 711"
+          },
+          "name_zh_cn": {
+            "String": "巡猎选择 711"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.5\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:711\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.hunt"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "125"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "711"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.21"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.711"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one The Hunt alignment choice through NPC 125."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 125 记录一次巡猎倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "the-hunt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "6"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Destruction Choice 751"
+          },
+          "name_zh_cn": {
+            "String": "毁灭选择 751"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.6\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:751\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.destruction"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "129"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "751"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.25"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.751"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Destruction alignment choice through NPC 129."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 129 记录一次毁灭倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "destruction"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "aeon_id": {
+            "String": "7"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "eligibility_json": {
+            "String": "{\"branch_available\":true,\"story_stage\":7}"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "CommuningChoice"
+          },
+          "name_en": {
+            "String": "Elation Choice 701"
+          },
+          "name_zh_cn": {
+            "String": "欢愉选择 701"
+          },
+          "ordered_operations_json": {
+            "String": "[{\"counter_id\":\"swarm-disaster.aeon-choice-counter.7\",\"delta\":\"1\",\"once_scope\":\"MainStoryBranch:701\",\"operation\":\"IncrementAeonChoiceCounter\",\"order\":0}]"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "path_id": {
+            "String": "universe.path.elation"
+          },
+          "point_deltas_json": {
+            "String": "[]"
+          },
+          "rogue_npc_id": {
+            "String": "106"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcmainstorybranch-json.20"
+              },
+              {
+                "String": "source.goal09.exceloutput-rogueaeondisplay-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.communing-choices"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.communing-choice.701"
+          },
+          "story_stage": {
+            "String": "7"
+          },
+          "summary_en": {
+            "String": "Story-stage 7 branch records one Elation alignment choice through NPC 106."
+          },
+          "summary_zh_cn": {
+            "String": "故事阶段 7 分支通过 NPC 106 记录一次欢愉倾向选择。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "communing-choice"
+              },
+              {
+                "String": "elation"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

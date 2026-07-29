@@ -343,7 +343,7 @@ def style_sheet(
     for column in range(1, maximum_column + 1):
         values = [
             str(sheet.cell(row=row, column=column).value or "")
-            for row in range(2, min(maximum_row, 200) + 1)
+            for row in range(1, min(maximum_row, 200) + 1)
         ]
         width = min(
             60,

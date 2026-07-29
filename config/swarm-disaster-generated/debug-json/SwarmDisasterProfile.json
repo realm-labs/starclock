@@ -1,0 +1,361 @@
+{
+  "table": {
+    "name": "SwarmDisasterProfile",
+    "rows": [
+      {
+        "values": {
+          "bonus_ids": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ResidentActivity"
+          },
+          "entry_refs": "Null",
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "formal_difficulty_ids": "Null",
+          "game_version": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Swarm Disaster"
+          },
+          "name_zh_cn": {
+            "String": "寰宇蝗灾"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-rogueactivityresidentconfig-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.entry.activity.101"
+          },
+          "sub_mode": {
+            "String": "ChessRogue"
+          },
+          "summary_en": {
+            "String": "Resident activity 101 selects ChessRogue and unlock 50018."
+          },
+          "summary_zh_cn": {
+            "String": "常驻活动 101 选择 ChessRogue，解锁条件为 50018。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-entry"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "50018"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_ids": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "DlcEntrance"
+          },
+          "entry_refs": "Null",
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "formal_difficulty_ids": "Null",
+          "game_version": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Swarm Disaster"
+          },
+          "name_zh_cn": {
+            "String": "寰宇蝗灾"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "reward_item_ids": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "236"
+              },
+              {
+                "String": "241"
+              },
+              {
+                "String": "101"
+              },
+              {
+                "String": "235"
+              },
+              {
+                "String": "213"
+              },
+              {
+                "String": "233"
+              },
+              {
+                "String": "300041"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcentrance-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.entry.entrance.1"
+          },
+          "sub_mode": {
+            "String": "ChessRogue"
+          },
+          "summary_en": {
+            "String": "DLC entrance 1 selects ChessRogue; reward item IDs remain presentation-only locators."
+          },
+          "summary_zh_cn": {
+            "String": "DLC 入口 1 选择 ChessRogue；奖励物品 ID 仅保留为展示定位信息。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dlc-entrance"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "bonus_ids": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ModeTitle"
+          },
+          "entry_refs": "Null",
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "formal_difficulty_ids": "Null",
+          "game_version": "Null",
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Swarm Disaster"
+          },
+          "name_zh_cn": {
+            "String": "寰宇蝗灾"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "ChessRogue"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguecommonmodetitle-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.entry.title.chessrogue"
+          },
+          "sub_mode": {
+            "String": "ChessRogue"
+          },
+          "summary_en": {
+            "String": "Common mode-title row binds the Swarm Disaster display identity."
+          },
+          "summary_zh_cn": {
+            "String": "通用模式标题行绑定寰宇蝗灾的展示身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-title"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "bonus_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.bonus.101"
+              },
+              {
+                "String": "swarm-disaster.bonus.102"
+              },
+              {
+                "String": "swarm-disaster.bonus.103"
+              },
+              {
+                "String": "swarm-disaster.bonus.104"
+              },
+              {
+                "String": "swarm-disaster.bonus.105"
+              },
+              {
+                "String": "swarm-disaster.bonus.106"
+              }
+            ]
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": "Null",
+          "entry_refs": {
+            "List": [
+              {
+                "String": "swarm-disaster.entry.activity.101"
+              },
+              {
+                "String": "swarm-disaster.entry.entrance.1"
+              },
+              {
+                "String": "swarm-disaster.entry.title.chessrogue"
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "formal_difficulty_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.area.201"
+              },
+              {
+                "String": "swarm-disaster.area.202"
+              },
+              {
+                "String": "swarm-disaster.area.203"
+              },
+              {
+                "String": "swarm-disaster.area.204"
+              },
+              {
+                "String": "swarm-disaster.area.205"
+              }
+            ]
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "SwarmProfile"
+          },
+          "name_en": {
+            "String": "Simulated Universe: Swarm Disaster"
+          },
+          "name_zh_cn": {
+            "String": "模拟宇宙：寰宇蝗灾"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.project-policy.profile"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.profile.v1"
+          },
+          "sub_mode": {
+            "String": "ChessRogue"
+          },
+          "summary_en": {
+            "String": "Version 4.4 reference profile for the permanent ChessRogue activity; runtime lowering is intentionally absent."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本常驻 ChessRogue 玩法资料档案；本目标明确不包含运行时降级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate-reference"
+              },
+              {
+                "String": "chess-rogue"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      }
+    ]
+  }
+}

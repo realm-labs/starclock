@@ -1,0 +1,325 @@
+{
+  "table": {
+    "name": "SwarmDisasterDiceRollControl",
+    "rows": [
+      {
+        "values": {
+          "abandon_reward_json": {
+            "String": "\"10\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback_policy_json": {
+            "String": "\"RejectWithoutSelectedFace\""
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DiceRollControl"
+          },
+          "name_en": {
+            "String": "Audience Die Abandon"
+          },
+          "name_zh_cn": {
+            "String": "觐见行迹骰放弃"
+          },
+          "operation": {
+            "String": "Abandon"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "resource_cost_json": {
+            "String": "{\"amount\":\"1\",\"resource\":\"SelectedFace\"}"
+          },
+          "result_order": {
+            "String": "AuthoredSortThenStableFaceId"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-control.abandon"
+          },
+          "summary_en": {
+            "String": "Abandon uses a typed resource transition and stable result ordering."
+          },
+          "summary_zh_cn": {
+            "String": "Abandon 使用类型化资源变更与稳定结果顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "abandon"
+              },
+              {
+                "String": "dice-control"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "1000022"
+          }
+        }
+      },
+      {
+        "values": {
+          "abandon_reward_json": {
+            "String": "\"0\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback_policy_json": {
+            "String": "\"RejectInsufficientChargeOrInvalidFace\""
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DiceRollControl"
+          },
+          "name_en": {
+            "String": "Audience Die Cheat"
+          },
+          "name_zh_cn": {
+            "String": "觐见行迹骰作弊"
+          },
+          "operation": {
+            "String": "Cheat"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "resource_cost_json": {
+            "String": "{\"amount\":\"1\",\"resource\":\"CheatCharge\"}"
+          },
+          "result_order": {
+            "String": "AuthoredSortThenStableFaceId"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-control.cheat"
+          },
+          "summary_en": {
+            "String": "Cheat uses a typed resource transition and stable result ordering."
+          },
+          "summary_zh_cn": {
+            "String": "Cheat 使用类型化资源变更与稳定结果顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "cheat"
+              },
+              {
+                "String": "dice-control"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "abandon_reward_json": {
+            "String": "\"0\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback_policy_json": {
+            "String": "\"RejectInsufficientCharge\""
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DiceRollControl"
+          },
+          "name_en": {
+            "String": "Audience Die Reroll"
+          },
+          "name_zh_cn": {
+            "String": "觐见行迹骰重投"
+          },
+          "operation": {
+            "String": "Reroll"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "resource_cost_json": {
+            "String": "{\"amount\":\"1\",\"resource\":\"RerollCharge\"}"
+          },
+          "result_order": {
+            "String": "AuthoredSortThenStableFaceId"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-control.reroll"
+          },
+          "summary_en": {
+            "String": "Reroll uses a typed resource transition and stable result ordering."
+          },
+          "summary_zh_cn": {
+            "String": "Reroll 使用类型化资源变更与稳定结果顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-control"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "reroll"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "abandon_reward_json": {
+            "String": "\"0\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback_policy_json": {
+            "String": "\"RejectEmptyFaceSet\""
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DiceRollControl"
+          },
+          "name_en": {
+            "String": "Audience Die Roll"
+          },
+          "name_zh_cn": {
+            "String": "觐见行迹骰投掷"
+          },
+          "operation": {
+            "String": "Roll"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "resource_cost_json": {
+            "String": "{\"amount\":\"0\",\"resource\":\"None\"}"
+          },
+          "result_order": {
+            "String": "AuthoredSortThenStableFaceId"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1"
+              },
+              {
+                "String": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-roll-controls"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-control.roll"
+          },
+          "summary_en": {
+            "String": "Roll uses a typed resource transition and stable result ordering."
+          },
+          "summary_zh_cn": {
+            "String": "Roll 使用类型化资源变更与稳定结果顺序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dice-control"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "roll"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      }
+    ]
+  }
+}

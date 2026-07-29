@@ -1,0 +1,3157 @@
+{
+  "table": {
+    "name": "SwarmDisasterDiceTargetRule",
+    "rows": [
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"11\",\"12\"],\"effect_type\":\"SelectCellToProtect\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Preservation: Cornerstone's Spirit Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【存护•基石意志】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.101"
+          },
+          "summary_en": {
+            "String": "Typed SelectCellToProtect candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectCellToProtect 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellToProtect"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"0\"],\"effect_type\":\"ProtectCollaspeCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Preservation: Collective Shelter Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【存护•复聚庇护】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.102"
+          },
+          "summary_en": {
+            "String": "Typed ProtectCollaspeCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ProtectCollaspeCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ProtectCollaspeCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"1\"],\"effect_type\":\"ProtectCollaspeCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Preservation: Charioteer's Forge Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【存护•战车凿筑】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.2"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.103"
+          },
+          "summary_en": {
+            "String": "Typed ProtectCollaspeCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ProtectCollaspeCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ProtectCollaspeCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"25\"],\"effect_type\":\"GetMoneyByProtectCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Preservation: Credit Bias Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【存护•信用倾向】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.3"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.104"
+          },
+          "summary_en": {
+            "String": "Typed GetMoneyByProtectCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 GetMoneyByProtectCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "GetMoneyByProtectCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641201\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Preservation: Proof of Commandment Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【存护•原旨实证】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.4"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.105"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641211\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Remembrance: Confusion and Causality Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•料惑和因果】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.5"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.201"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"11\",\"12\"],\"effect_type\":\"ReplicateLastCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Remembrance: Inner Sensory Organ Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•内感官】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.202"
+          },
+          "summary_en": {
+            "String": "Typed ReplicateLastCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ReplicateLastCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateLastCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"11\",\"12\"],\"effect_type\":\"ReplicateCellToAround\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Remembrance: Darkness and Greed Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•叆叇与质欲】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.203"
+          },
+          "summary_en": {
+            "String": "Typed ReplicateCellToAround candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ReplicateCellToAround 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateCellToAround"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[],\"effect_type\":\"ReplicateAllAroundCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Remembrance: Genesis of Intellect Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•知性发生】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.204"
+          },
+          "summary_en": {
+            "String": "Typed ReplicateAllAroundCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ReplicateAllAroundCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ReplicateAllAroundCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[],\"effect_type\":\"AllowMoveToReplicateCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Remembrance: Body, Beyond, Remade Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【记忆•躯体、异域、再塑】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.9"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.205"
+          },
+          "summary_en": {
+            "String": "Typed AllowMoveToReplicateCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AllowMoveToReplicateCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AllowMoveToReplicateCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"7\",\"20002\",\"3\"],\"effect_type\":\"SelectMiracleToEmpty\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Form Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•形】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.10"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.301"
+          },
+          "summary_en": {
+            "String": "Typed SelectMiracleToEmpty candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectMiracleToEmpty 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectMiracleToEmpty"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"5\",\"200620\",\"3\",\"10001\"],\"effect_type\":\"SelectBuffToEmpty\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Shadow Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•影】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.11"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.302"
+          },
+          "summary_en": {
+            "String": "Typed SelectBuffToEmpty candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectBuffToEmpty 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectBuffToEmpty"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[],\"effect_type\":\"TurnFightCellToEmpty\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Void Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•空】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.12"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.303"
+          },
+          "summary_en": {
+            "String": "Typed TurnFightCellToEmpty candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 TurnFightCellToEmpty 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnFightCellToEmpty"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[],\"effect_type\":\"TurnEventCellToEmpty\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Dormancy Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•眠】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.13"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.304"
+          },
+          "summary_en": {
+            "String": "Typed TurnEventCellToEmpty candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 TurnEventCellToEmpty 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TurnEventCellToEmpty"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[],\"effect_type\":\"TrunEmptyToReward\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Transition Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•转】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.14"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.305"
+          },
+          "summary_en": {
+            "String": "Typed TrunEmptyToReward candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 TrunEmptyToReward 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TrunEmptyToReward"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"10\"],\"effect_type\":\"EnterEmptyGetMoney\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Nihility: Nothingness Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【虚无•无】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "306"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.15"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.306"
+          },
+          "summary_en": {
+            "String": "Typed EnterEmptyGetMoney candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 EnterEmptyGetMoney 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "EnterEmptyGetMoney"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641231\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Odium Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•可憎】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.16"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.401"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"4\"],\"effect_type\":\"SetSpecialType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Mercy Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•慈怀】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.17"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.402"
+          },
+          "summary_en": {
+            "String": "Typed SetSpecialType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetSpecialType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetSpecialType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"1\",\"5\"],\"effect_type\":\"BenefitsBySeed\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Benevolence Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•为善】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.18"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.403"
+          },
+          "summary_en": {
+            "String": "Typed BenefitsBySeed candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 BenefitsBySeed 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "BenefitsBySeed"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"1\",\"4\"],\"effect_type\":\"RandomSetSpecialType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Homebound Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•归心】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.19"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.404"
+          },
+          "summary_en": {
+            "String": "Typed RandomSetSpecialType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 RandomSetSpecialType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RandomSetSpecialType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"4\"],\"effect_type\":\"RandomNeighborSpecialType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Sustenance Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•浇灌】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.20"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.405"
+          },
+          "summary_en": {
+            "String": "Typed RandomNeighborSpecialType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 RandomNeighborSpecialType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "RandomNeighborSpecialType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"4\"],\"effect_type\":\"SetNeighborSpecialType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Abundance: Prescription Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【丰饶•对症】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.21"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.406"
+          },
+          "summary_en": {
+            "String": "Typed SetNeighborSpecialType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetNeighborSpecialType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetNeighborSpecialType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"2\",\"5\"],\"effect_type\":\"LockMarkCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "The Hunt: Restraint Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•制约】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.22"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.501"
+          },
+          "summary_en": {
+            "String": "Typed LockMarkCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 LockMarkCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "LockMarkCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"2\",\"5\"],\"effect_type\":\"MoveMarkCellUpgradeReward\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "The Hunt: Swiftness Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•疾速】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.23"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.502"
+          },
+          "summary_en": {
+            "String": "Typed MoveMarkCellUpgradeReward candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 MoveMarkCellUpgradeReward 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MoveMarkCellUpgradeReward"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\"],\"effect_type\":\"SetColCanMove\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "The Hunt: Vengeance Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•誓仇】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.24"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.503"
+          },
+          "summary_en": {
+            "String": "Typed SetColCanMove candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetColCanMove 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetColCanMove"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\",\"4\",\"5\"],\"effect_type\":\"SetMarkToRandomCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "The Hunt: Resolve Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•决断】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.25"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.504"
+          },
+          "summary_en": {
+            "String": "Typed SetMarkToRandomCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetMarkToRandomCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkToRandomCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641241\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "The Hunt: Quelled Fury Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【巡猎•制暴】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "505"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.26"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.505"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\",\"4\",\"5\"],\"effect_type\":\"SetCellTypeAndTakeReward\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Destruction: Scorched Subjugation Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•焦土征服】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.27"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.601"
+          },
+          "summary_en": {
+            "String": "Typed SetCellTypeAndTakeReward candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetCellTypeAndTakeReward 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetCellTypeAndTakeReward"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\",\"4\",\"5\"],\"effect_type\":\"SetMarkType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Destruction: War Worship Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•战争崇拜】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.28"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.602"
+          },
+          "summary_en": {
+            "String": "Typed SetMarkType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetMarkType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetMarkType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\"],\"effect_type\":\"SelectAndToFightCell\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Destruction: Corporeal Monarch Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•肉体帝侯】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "603"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.29"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.603"
+          },
+          "summary_en": {
+            "String": "Typed SelectAndToFightCell candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectAndToFightCell 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectAndToFightCell"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\",\"4\",\"5\"],\"effect_type\":\"EnterCellTriggerBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Destruction: Spiritual Suicide Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•精神自毁】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "604"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.30"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.604"
+          },
+          "summary_en": {
+            "String": "Typed EnterCellTriggerBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 EnterCellTriggerBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "EnterCellTriggerBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641251\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Destruction: Blood Like Water Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【毁灭•血溶于水】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "605"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.31"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.605"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"3\"],\"effect_type\":\"SelectCellGetHelp\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Elation: Measured Mockery Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•严谨的讽刺艺术】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.32"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.701"
+          },
+          "summary_en": {
+            "String": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"5\"],\"effect_type\":\"SelectCellGetHelp\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Elation: Mischief Master Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•奸笑专家】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "702"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.33"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.702"
+          },
+          "summary_en": {
+            "String": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"8\"],\"effect_type\":\"SelectCellGetHelp\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Elation: Always Amazed, Never Dismayed Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•惊奇永不失望】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "703"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.34"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.703"
+          },
+          "summary_en": {
+            "String": "Typed SelectCellGetHelp candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectCellGetHelp 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectCellGetHelp"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641261\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Elation: Head Harbinger of Havoc Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•首席猖獗分子】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "705"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.35"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.705"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"11\",\"12\"],\"effect_type\":\"SelectExceptCellGetHelp\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Elation: Spirit of Chaos Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【欢愉•胡作非为】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "706"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.36"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.706"
+          },
+          "summary_en": {
+            "String": "Typed SelectExceptCellGetHelp candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SelectExceptCellGetHelp 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SelectExceptCellGetHelp"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"4\",\"9\"],\"effect_type\":\"SetAroundBlockType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Propagation: Dissociated Id Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•癔症本我】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.37"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.801"
+          },
+          "summary_en": {
+            "String": "Typed SetAroundBlockType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 SetAroundBlockType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "SetAroundBlockType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"4\"],\"effect_type\":\"TriggerMark\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Propagation: Caged Madman of Corrosion Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•克制的腐蚀狂人】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "802"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.38"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.802"
+          },
+          "summary_en": {
+            "String": "Typed TriggerMark candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 TriggerMark 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "TriggerMark"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"641271\"],\"effect_type\":\"AddMazeBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Propagation: Spinal Cord Regrown Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•脊髓再生】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "803"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.39"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.803"
+          },
+          "summary_en": {
+            "String": "Typed AddMazeBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 AddMazeBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "AddMazeBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"1\"],\"effect_type\":\"ToRandomBlockType\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Propagation: The Devil, Pain, and Love Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•魔鬼与痛楚与爱】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "804"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.40"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.804"
+          },
+          "summary_en": {
+            "String": "Typed ToRandomBlockType candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 ToRandomBlockType 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ToRandomBlockType"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_filter_json": {
+            "String": "{\"authored_parameters\":[\"1270\"],\"effect_type\":\"MoveToSwarmGetBuff\"}"
+          },
+          "cardinality_json": {
+            "String": "\"AuthoredEffectDefined\""
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "DiceTargetRule"
+          },
+          "name_en": {
+            "String": "Propagation: Inorganic Embers Target Rule"
+          },
+          "name_zh_cn": {
+            "String": "【繁育•无机质火花】目标规则"
+          },
+          "no_legal_target_json": {
+            "String": "\"NoOp\""
+          },
+          "ordering": {
+            "String": "StableDomainThenNodeId"
+          },
+          "ownership": {
+            "String": "SwarmDisaster"
+          },
+          "schema_revision": {
+            "String": "starclock.swarm-disaster-row.v1"
+          },
+          "source_id": {
+            "String": "805"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal09.exceloutput-roguedlcaeondicesurface-json.41"
+              },
+              {
+                "String": "source.goal09.project-policy.dice-target-rules"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "swarm-disaster.dice-target.805"
+          },
+          "summary_en": {
+            "String": "Typed MoveToSwarmGetBuff candidates use stable ordering and an explicit empty-target fallback."
+          },
+          "summary_zh_cn": {
+            "String": "类型化 MoveToSwarmGetBuff 候选使用稳定排序与显式空目标回退。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "MoveToSwarmGetBuff"
+              },
+              {
+                "String": "dice-target"
+              },
+              {
+                "String": "project-policy"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
