@@ -18,6 +18,8 @@ node tools/swarm-disaster-reference/import-domains.mjs
 node tools/swarm-disaster-reference/verify-domains.mjs
 node tools/swarm-disaster-reference/import-countdown.mjs
 node tools/swarm-disaster-reference/verify-countdown.mjs
+node tools/swarm-disaster-reference/import-audience-dice.mjs
+node tools/swarm-disaster-reference/verify-audience-dice.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -39,3 +41,9 @@ The initial value, cross-plane carry and same-boundary ordering are isolated
 replaceable policies. `boss-decay-levels.json` retains all 42 frozen manifest
 rows, but only the 15 rows whose released text names Swarm: True Sting are
 enabled for Swarm compilation; the other 27 shared-DLC rows fail closed.
+
+`audience-paths.json` binds the eight selectable mode Paths to the inherited
+Standard Universe Path identities and preserves the two released effect slots.
+`audience-dice.json` binds each Path to its die and all 42 authored face IDs;
+the exact face effects and roll/reroll/cheat controls remain owned by
+`G09-P1-B5`.
