@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `anomaly-arbitration-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 0 — Scope, sources and contracts |
-| Active batch | None; `G13-P0-B3` complete pending this commit's publication |
-| Next unblocked batch | `G13-P0-B4` after remote verification |
+| Active phase | Phase 0 complete pending `G13-P0-B4` publication |
+| Active batch | None; `G13-P0-B4` complete pending this commit's publication |
+| Next unblocked batch | `G13-P1-B1` after remote verification |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -31,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Foundation, 2,745-file inventory and 392-record active manifest are frozen. Version 4.4 group 8, 106 exclusions, explicit shared reachability and six exact-zero pools are proven; normalized schema, authoring and fixture contracts remain. |
+| Phase 0 — Scope, sources and contracts | `Complete` | Foundation, 2,745-file inventory, 392-record active manifest, 37-file normalized schema, three-workbook authoring surface, row-level reconciliation and 18-family fixture contract are frozen. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting Knight records/uniqueness, King protection/Plight, clocks, Arbitral Quadrant, stars and settlement. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, targets, traits, battle events, stages, waves, enemies and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -43,8 +43,8 @@
 |---|---|---|---|
 | `G13-P0-B1` | `Complete` | This row's containing commit | Froze foundation `c85e2cd8…e93d`, Goal 03 commit/tree and preserved bundle digests, two Version 4.4 source revisions/trees, 6 dedicated tables, 18 turnbasedgamedata plus 3 StarRailRes file receipts, 25 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and 6 isolated roots. Checkpoints: Goal 07 remote-merged `4f466df7…0931`; Goal 08 local-only `43b989c4…8d90` (7,913: 7,199/714); Goal 09 remote-backed `9bd2ad28…09c` (6,963: 6,305/658); Goal 10 remote-backed `ce2f6b20…5683` (5,377: 5,243/134); Goal 11 remote-backed inventory `f202c1bd…1779` with no ownership manifest; Goal 12 remote-backed foundation `74cb56a2…159d` with no source/ownership manifest. A bounded fresh GitLab partial clone made no progress and was terminated; no network success is claimed. The isolated copy-on-write reproducer and verifier passed twice/idempotently. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify `git rev-parse HEAD` against `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference`, requiring identical full commit IDs before P0-B2. |
 | `G13-P0-B2` | `Complete` | `35e10e0ee2bba25c80f37dabf97395333444b393` | Froze 2,745 uniquely sorted file receipts at `86ec49ee…2583`: all 2,646 Goal 03 files, 90 turnbasedgamedata additions and 9 StarRailRes indexes. Closure includes 6 `ChallengePeak` tables, 8 shared table seeds, 5 planning Stage rows, 12 direct and 27 recursively reachable enemy IDs, 26 templates, 74 mechanical config/ability/AI files, 2 reward exclusion locators and 11 bilingual text/index files. Checked-out bytes reproduce their pinned Git blob OIDs; a clean fixed-revision alternate may supply objects missing from a partial clone without lazy fetch or cache mutation. Double generation was byte-identical. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; `git rev-parse HEAD`, tracking ref and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `35e10e0ee2bba25c80f37dabf97395333444b393`. |
-| `G13-P0-B3` | `Complete` | This row's containing commit | Released observations identify Version 4.4 rotation 8 and “尘世卷中” / “Enwreathed by the World”; pinned group row 8 then closes explicitly to aliases 801–804 and five released stages. Froze 392 active obligations across 28 categories (76 `AnomalyArbitration`, 316 `Shared`), including 7 targets, 8 traits, 3 Quadrant options, 3 battle events, 27 enemy variants, 26 templates, 115 skills, 52 statuses and 73 mechanical programs. Separately receipted 77 historical, 13 account-reward, 15 excluded-constant and 1 presentation row/file; six gameplay pool families have generated exact-zero selector proofs. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify `git rev-parse HEAD` against tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference`, requiring identical full commit IDs before P0-B4. |
-| `G13-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
+| `G13-P0-B3` | `Complete` | `a6d9ef6c79d966ae312fc36f214932ed044f123a` | Released observations identify Version 4.4 rotation 8 and “尘世卷中” / “Enwreathed by the World”; pinned group row 8 then closes explicitly to aliases 801–804 and five released stages. Froze 392 active obligations across 28 categories (76 `AnomalyArbitration`, 316 `Shared`), including 7 targets, 8 traits, 3 Quadrant options, 3 battle events, 27 enemy variants, 26 templates, 115 skills, 52 statuses and 73 mechanical programs. Separately receipted 77 historical, 13 account-reward, 15 excluded-constant and 1 presentation row/file; six gameplay pool families have generated exact-zero selector proofs. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; `git rev-parse HEAD`, tracking ref and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `a6d9ef6c79d966ae312fc36f214932ed044f123a`. |
+| `G13-P0-B4` | `Complete` | This row's containing commit | Froze 37 normalized file contracts with bilingual independent summaries, exact ownership/coverage/evidence/mechanism fields, manifest links, ordered source refs, canonical decimals/encoding, field-level approximation and shared reconciliation receipts. Froze exactly three complete no-overwrite openpyxl workbooks (`AnomalyArbitration.xlsx`, `AnomalyArbitrationBindings.xlsx`, `AnomalyArbitrationReview.xlsx`) under isolated Sora 0.3.0 paths and 18 semantic fixture families with explicit battle/cross-battle boundaries. Contract digests: schema `db436a34…a12a`, authoring `66a95988…b850`, fixture `5d523aa8…a5f8`. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` resolve to the same full commit before P1-B1. |
 | `G13-P1-B1` | `Pending` | — | Import profile, active period, entry/eligibility, stages, legal order and terminal outcomes. |
 | `G13-P1-B2` | `Pending` | — | Import Knight teams, uniqueness, records, replacement/reset and current-versus-best progress. |
 | `G13-P1-B3` | `Pending` | — | Import King protection, normal/Plight states, shortcut and transition order. |
@@ -95,6 +95,9 @@ foundation evidence before any data mutation.
 | `node tools/anomaly-arbitration-reference/manifest.mjs --source-cache .cache/content-reference --fallback-source-cache /Users/mikai/.codex/worktrees/7c74/starclock/.cache/content-reference` (twice) | Passed byte-identically; both source caches remained clean/fixed and the manifest SHA-256 was `84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4`. |
 | `node tools/anomaly-arbitration-reference/verify-manifest.mjs --source-cache .cache/content-reference --fallback-source-cache /Users/mikai/.codex/worktrees/7c74/starclock/.cache/content-reference` | Passed; active group/title chain, 28 category counts, exact-once ownership, 106 exclusions, shared reconciliation fields, 6 exact-zero proofs and counter groups verified. |
 | P0-B3 whitespace checks; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed; 25 batch IDs agree, 634 local links across 304 Markdown files resolve, no Rust scope was selected and three generated/release inputs remain deferred to the documented full boundary. |
+| `node tools/anomaly-arbitration-reference/verify-contracts.mjs` | Passed; 37 normalized files cover all 28 manifest categories, partition exactly once across 3 workbooks, and match all 18 frozen fixture families. Schema `db436a34b66bacc6811bf0b6101d58317691faccd106cf29024f2271cca0a12a`; authoring `66a959881e4877d172b57ea1ff1196a63f878c72ee34991345a51b628bc5b850`; fixtures `5d523aa85c7716cabaea6ce8d95db1f1a4558b4363adda1e44c99246da58a5f8`. |
+| P0-B4 `git diff --check`; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed; 25 batch IDs agree, 634 local links across 305 Markdown files resolve, no Rust scope was selected and five generated/release inputs remain deferred. |
+| Phase 0 checkpoint `node tools/repository-check/run.mjs --full --with-source-cache` | Reconfirmed the documented external blocker: runner, extension, dependency, workflow, release snapshots and Goal 05 release checks passed; the gate then stopped in unchanged `tools/goal06/verify-phase0.mjs` because the additive current `Cargo.lock` differs from Goal 06's immutable historical baseline. Goal 13 changes neither file and no later full-gate step is claimed. |
 
 ## Frozen counters
 
@@ -142,6 +145,9 @@ obligation. Zero denominators carry generated selector-closure proofs.
 | 2026-07-29 | Select Version 4.4 group 8 only after released observations identify rotation 8 and its exact bilingual title. | The public identity closes to the pinned title hash and explicit group references; maximum ID, prefix and adjacency remain insufficient. |
 | 2026-07-29 | Treat shared source files as symbol/row containers, not wholesale reachable content. | Stage, target, MazeBuff, battle-event, enemy and configuration membership is granted only by explicit active fields or recursive stable-ID references; unrelated Rogue symbols in shared files remain unreachable. |
 | 2026-07-29 | Freeze six mechanically relevant content-pool families at exact zero while retaining the shop and reward rows as account-facing exclusions. | No active selector/reference reaches Blessings, Curios, Occurrences, gameplay services, currencies or random pools; each zero has a digest and stronger-evidence replacement condition. |
+| 2026-07-29 | Partition 37 normalized file families exactly once across `AnomalyArbitration.xlsx`, `AnomalyArbitrationBindings.xlsx` and `AnomalyArbitrationReview.xlsx`. | Keeps system authoring, content bindings and audit/review concerns distinct while preserving typed stable references and one complete no-overwrite workbook set. |
+| 2026-07-29 | Require evidence quality and mechanism quality as independent row fields, plus a manifest record set and ordered source refs. | A precise source identity does not by itself prove exact behavior; ownership, coverage, provenance and mechanism certainty remain separately auditable. |
+| 2026-07-29 | Freeze 18 non-shrinking semantic fixture families and require six cases for the empty-pool family. | Every unique lifecycle/contribution has a review obligation, while each zero family independently proves its selector closure and replacement trigger. |
 
 ## Research cases
 
@@ -161,8 +167,8 @@ obligation. Zero denominators carry generated selector-closure proofs.
 
 ## Terminal checklist
 
-- [ ] Exact active-period category manifests and denominators are frozen.
-- [ ] Both pinned caches and the focused
+- [x] Exact active-period category manifests and denominators are frozen.
+- [x] Both pinned caches and the focused
       table/config/TextMap/Stage/ability inventory regenerate deterministically.
 - [ ] Complete normalized pack and canonical pack index regenerate without
       drift.

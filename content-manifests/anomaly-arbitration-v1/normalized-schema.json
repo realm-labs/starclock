@@ -1,0 +1,495 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-schema.v1",
+  "row_schema_revision": "starclock.anomaly-arbitration-row.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "authoritative_surface": "xlsx",
+  "normalized_root": "content-reference/anomaly-arbitration-v1",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "mechanism_quality",
+      "manifest_record_ids",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.anomaly-arbitration-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "independent_mechanical_summary": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "independent_mechanical_summary": true
+    },
+    "ownership": {
+      "enum": [
+        "AnomalyArbitration",
+        "Shared"
+      ]
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "mechanism_quality": {
+      "enum": [
+        "ExactProgram",
+        "ExactRelationship",
+        "ObservedBehavior",
+        "IdentityCrossCheck",
+        "PolicyBoundary",
+        "ContextOnly"
+      ]
+    },
+    "manifest_record_ids": {
+      "type": "array",
+      "minimum": 1,
+      "unique": true,
+      "ordering": "lexicographic",
+      "resolution": "content-manifest category record"
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve upstream IDs and TextMap hashes without JavaScript-safe-integer loss"
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed Goal 13 pack index or explicitly inherited stable identity",
+      "unknown_behavior": "reject"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository_or_url",
+        "revision_or_access_date",
+        "game_version",
+        "path_or_page",
+        "locator",
+        "sha256",
+        "evidence_quality",
+        "mechanism_quality",
+        "note"
+      ],
+      "optional_fields": [
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require a nonempty replacement_condition"
+    },
+    "approximation": {
+      "required_fields": [
+        "field_path",
+        "unavailable_fact",
+        "selected_policy",
+        "alternatives",
+        "rationale",
+        "affected_fixture_ids",
+        "confidence",
+        "replacement_condition"
+      ],
+      "confidence_enum": [
+        "Low",
+        "Medium",
+        "High"
+      ],
+      "exact_claim_forbidden": true
+    },
+    "reconciliation_receipt": {
+      "required_fields": [
+        "id",
+        "local_record_id",
+        "source_path",
+        "row_locator",
+        "evidence_sha256",
+        "peer_goal_id",
+        "peer_record_id",
+        "classification",
+        "state",
+        "note",
+        "replacement_condition"
+      ],
+      "classification_enum": [
+        "SameSourceSameMeaning",
+        "SameSourceModeSpecificMeaning",
+        "Goal13Superset",
+        "PeerSuperset",
+        "Conflict",
+        "NoPeerRecord"
+      ],
+      "state_enum": [
+        "Matched",
+        "AcceptedDifference",
+        "PendingPeer",
+        "Conflict"
+      ],
+      "conflict_rule": "record and defer to merge coordination; never rewrite another Goal artifact"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "unicode_normalization": "NFC",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem, hash-map or object iteration order",
+    "set_array_order": "stable ID lexicographic unless the file declares a numeric source key",
+    "semantic_sequence_order": "preserve authored stage, wave, slot, effect and lifecycle order",
+    "null_policy": "omit optional absent values; null is not a second absence representation",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "lifecycle_contract": {
+    "definitions_separate_from_state": true,
+    "ordered_boundaries": [
+      "period entry and eligibility",
+      "Knight slot and loadout snapshot",
+      "stage attempt start",
+      "battle contribution installation",
+      "wave and clock progression",
+      "objective evaluation",
+      "record replacement or retention",
+      "King protection and Plight projection",
+      "attempt teardown",
+      "current and best progress projection"
+    ],
+    "unknown_ordering": "ApproximateFromReleasedText or ProjectPolicy with alternatives and replacement condition",
+    "runtime_claim": false
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "Profile",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["profiles"],
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "periods.json",
+      "record_kind": "Period",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["active_periods"],
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "stages.json",
+      "record_kind": "Stage",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["stage_definitions", "boss_difficulty_definitions", "stage_configs"],
+      "ordering_keys": ["stage_order", "difficulty", "id"]
+    },
+    {
+      "file": "terminal-outcomes.json",
+      "record_kind": "TerminalOutcome",
+      "phase": "P1-B1",
+      "manifest_category_inputs": ["terminal_outcomes"],
+      "ordering_keys": ["stage_kind", "outcome_order", "id"]
+    },
+    {
+      "file": "participant-policies.json",
+      "record_kind": "ParticipantPolicy",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["participant_policies"],
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "team-slots.json",
+      "record_kind": "TeamSlot",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["participant_policies"],
+      "ordering_keys": ["slot_order", "id"]
+    },
+    {
+      "file": "loadout-records.json",
+      "record_kind": "LoadoutRecordPolicy",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["record_progress_lifecycles"],
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "progress-records.json",
+      "record_kind": "ProgressRecordPolicy",
+      "phase": "P1-B2",
+      "manifest_category_inputs": ["record_progress_lifecycles"],
+      "ordering_keys": ["projection_order", "id"]
+    },
+    {
+      "file": "king-states.json",
+      "record_kind": "KingState",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["king_state_transitions"],
+      "ordering_keys": ["state_order", "id"]
+    },
+    {
+      "file": "king-protection.json",
+      "record_kind": "KingProtectionRule",
+      "phase": "P1-B3",
+      "manifest_category_inputs": ["king_state_transitions"],
+      "ordering_keys": ["contribution_order", "id"]
+    },
+    {
+      "file": "clocks.json",
+      "record_kind": "ClockRule",
+      "phase": "P1-B4",
+      "manifest_category_inputs": ["clock_rules", "mode_constants"],
+      "ordering_keys": ["stage_kind", "boundary_order", "id"]
+    },
+    {
+      "file": "quadrant-options.json",
+      "record_kind": "QuadrantOption",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["quadrant_options"],
+      "ordering_keys": ["source_numeric_id", "id"]
+    },
+    {
+      "file": "quadrant-selections.json",
+      "record_kind": "QuadrantSelectionPolicy",
+      "phase": "P1-B5",
+      "manifest_category_inputs": ["quadrant_options"],
+      "ordering_keys": ["selection_order", "id"]
+    },
+    {
+      "file": "targets.json",
+      "record_kind": "BattleTarget",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["battle_targets"],
+      "ordering_keys": ["source_numeric_id", "id"]
+    },
+    {
+      "file": "objectives.json",
+      "record_kind": "ObjectiveRule",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["battle_targets", "objective_aggregations"],
+      "ordering_keys": ["evaluation_order", "id"]
+    },
+    {
+      "file": "stage-results.json",
+      "record_kind": "StageResultPolicy",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["objective_aggregations"],
+      "ordering_keys": ["stage_order", "id"]
+    },
+    {
+      "file": "aggregations.json",
+      "record_kind": "AggregationRule",
+      "phase": "P1-B6",
+      "manifest_category_inputs": ["objective_aggregations"],
+      "ordering_keys": ["projection_order", "id"]
+    },
+    {
+      "file": "pool-audits.json",
+      "record_kind": "PoolAudit",
+      "phase": "P2-B1",
+      "manifest_category_inputs": ["blessings", "curios", "occurrences", "gameplay_services", "currencies", "random_content_pools"],
+      "ordering_keys": ["pool_family", "id"]
+    },
+    {
+      "file": "traits.json",
+      "record_kind": "EnemyTrait",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["stage_traits"],
+      "ordering_keys": ["source_numeric_id", "id"]
+    },
+    {
+      "file": "maze-buff-bindings.json",
+      "record_kind": "MazeBuffBinding",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["stage_traits", "quadrant_options"],
+      "ordering_keys": ["stage_id", "binding_order", "id"]
+    },
+    {
+      "file": "battle-events.json",
+      "record_kind": "BattleEvent",
+      "phase": "P2-B2",
+      "manifest_category_inputs": ["battle_events"],
+      "ordering_keys": ["source_numeric_id", "id"]
+    },
+    {
+      "file": "encounters.json",
+      "record_kind": "Encounter",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["stage_configs"],
+      "ordering_keys": ["stage_order", "difficulty", "id"]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "EncounterWave",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["stage_configs"],
+      "ordering_keys": ["encounter_id", "wave_order", "id"]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "EnemySlot",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["enemy_variants"],
+      "ordering_keys": ["encounter_id", "wave_order", "slot_order", "id"]
+    },
+    {
+      "file": "enemies.json",
+      "record_kind": "EnemyVariant",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["enemy_variants", "enemy_templates"],
+      "ordering_keys": ["source_numeric_id", "id"]
+    },
+    {
+      "file": "enemy-skills.json",
+      "record_kind": "EnemySkill",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["enemy_skills"],
+      "ordering_keys": ["enemy_id", "skill_order", "id"]
+    },
+    {
+      "file": "enemy-statuses.json",
+      "record_kind": "EnemyStatus",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["enemy_statuses"],
+      "ordering_keys": ["enemy_id", "id"]
+    },
+    {
+      "file": "ability-bindings.json",
+      "record_kind": "AbilityBinding",
+      "phase": "P2-B4",
+      "manifest_category_inputs": ["config_programs"],
+      "ordering_keys": ["owner_id", "binding_order", "id"]
+    },
+    {
+      "file": "mechanic-contributions.json",
+      "record_kind": "MechanicContribution",
+      "phase": "P2-B3",
+      "manifest_category_inputs": ["stage_traits", "quadrant_options", "battle_events", "config_programs"],
+      "ordering_keys": ["scope", "install_order", "id"]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "MechanicRule",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["semantic_fixture_families"],
+      "ordering_keys": ["family_id", "id"]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "Source",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["source_id", "locator", "id"]
+    },
+    {
+      "file": "reconciliation.json",
+      "record_kind": "ReconciliationReceipt",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["source_path", "row_locator", "peer_goal_id", "id"]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "Coverage",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["manifest_category", "manifest_record_id", "id"]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "ResearchGap",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["blocking", "owner_batch", "id"]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "ReviewFixture",
+      "phase": "P2-B5",
+      "manifest_category_inputs": ["semantic_fixture_families"],
+      "ordering_keys": ["family_id", "id"]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "ManifestReceipt",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": ["id"]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "PackIndex",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "derived": true,
+      "ordering_keys": ["file_order", "record_order", "id"]
+    }
+  ]
+}

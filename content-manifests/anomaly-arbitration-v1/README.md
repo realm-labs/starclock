@@ -52,3 +52,20 @@ The manifest freezes 392 active obligations across 28 categories, split into
 historical/account/presentation exclusions and proves six gameplay content
 pools empty. Every active shared row records a source path, stable row locator,
 evidence digest and explicit selector/reference summary.
+
+The P0-B4 machine contracts are:
+
+- `normalized-schema.json`: 37 normalized files, bilingual/provenance
+  envelope, canonical encoding, field-level approximation and reconciliation
+  receipt shape;
+- `authoring-contract.json`: the three complete mode-owned workbooks,
+  openpyxl/Sora authority, isolated paths and deterministic no-overwrite
+  acceptance; and
+- `fixture-contract.json`: 18 non-shrinking semantic families, including six
+  separate empty-pool cases.
+
+Verify all three against the frozen manifest with:
+
+```text
+node tools/anomaly-arbitration-reference/verify-contracts.mjs
+```

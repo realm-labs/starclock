@@ -1,0 +1,147 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-authoring-contract.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "authority": {
+    "authoritative_format": "xlsx",
+    "editor": "python-openpyxl",
+    "editor_version": "3.1.5",
+    "schema_exporter": "sora-cli",
+    "schema_exporter_version": "0.3.0",
+    "production_artifact": "sora",
+    "json_role": "research-staging-and-debug-only",
+    "runtime_loading": false
+  },
+  "isolation": {
+    "project": "config/anomaly-arbitration/project.toml",
+    "workbook_root": "config/anomaly-arbitration/data",
+    "generated_root": "config/anomaly-arbitration-generated",
+    "normalized_root": "content-reference/anomaly-arbitration-v1",
+    "tool_root": "tools/anomaly-arbitration-reference",
+    "evidence_root": "evidence/anomaly-arbitration-reference-v1",
+    "forbidden_outputs": [
+      "config/data",
+      "config/generated",
+      "config/universe-generated",
+      "config/gold-and-gears",
+      "config/swarm-disaster",
+      "config/unknowable-domain",
+      "content-reference/standard-universe-v1"
+    ]
+  },
+  "generation": {
+    "complete_workbook_set": true,
+    "overwrite_existing_target": false,
+    "patch_designer_workbook": false,
+    "fixed_document_timestamps": true,
+    "double_generation_byte_identical": true,
+    "formula_cells": "reject",
+    "excel_error_cells": "reject",
+    "unknown_columns": "reject",
+    "unknown_sheets": "reject",
+    "unknown_references": "reject"
+  },
+  "sheet_contract": {
+    "sora_metadata_rows": "preserve rows 1 through 7 exactly",
+    "data_start_row": 8,
+    "freeze_panes": "A8",
+    "auto_filter": true,
+    "header_style": "anomaly-arbitration-header-v1",
+    "alternating_rows": true,
+    "wrapped_text": true,
+    "deterministic_widths": true,
+    "data_validation": true,
+    "typed_references": true,
+    "canonical_decimal_cells": "text",
+    "source_numeric_id_cells": "text"
+  },
+  "workbooks": [
+    {
+      "file": "AnomalyArbitration.xlsx",
+      "purpose": "profile, active period, stages, participants, records, King/Plight, clocks, Quadrants, targets and aggregation",
+      "normalized_files": [
+        "profiles.json",
+        "periods.json",
+        "stages.json",
+        "terminal-outcomes.json",
+        "participant-policies.json",
+        "team-slots.json",
+        "loadout-records.json",
+        "progress-records.json",
+        "king-states.json",
+        "king-protection.json",
+        "clocks.json",
+        "quadrant-options.json",
+        "quadrant-selections.json",
+        "targets.json",
+        "objectives.json",
+        "stage-results.json",
+        "aggregations.json"
+      ]
+    },
+    {
+      "file": "AnomalyArbitrationBindings.xlsx",
+      "purpose": "pool audits, traits, battle events, encounters, enemies, abilities and battle contributions",
+      "normalized_files": [
+        "pool-audits.json",
+        "traits.json",
+        "maze-buff-bindings.json",
+        "battle-events.json",
+        "encounters.json",
+        "encounter-waves.json",
+        "enemy-slots.json",
+        "enemies.json",
+        "enemy-skills.json",
+        "enemy-statuses.json",
+        "ability-bindings.json",
+        "mechanic-contributions.json"
+      ]
+    },
+    {
+      "file": "AnomalyArbitrationReview.xlsx",
+      "purpose": "mechanic rules, evidence, reconciliation, coverage, gaps, semantic fixtures and pack identity",
+      "normalized_files": [
+        "mechanic-rules.json",
+        "sources.json",
+        "reconciliation.json",
+        "coverage.json",
+        "research-gaps.json",
+        "review-fixtures.json",
+        "manifest.json",
+        "pack-index.json"
+      ]
+    }
+  ],
+  "table_family_contract": {
+    "one_primary_table_per_normalized_file": true,
+    "child_tables": "allowed only for repeated typed fields; every child row carries parent stable ID and deterministic ordinal",
+    "table_names": "AnomalyArbitration plus PascalCase normalized file stem; child tables append a semantic role",
+    "sheet_names": "explicit in Sora schema and at most 31 characters",
+    "numeric_keys": "private workbook identities only",
+    "stable_keys": "required for every cross-workbook, manifest or inherited reference",
+    "shared_rows": "retain source path, stable row locator and evidence digest in reconciliation receipts"
+  },
+  "visual_review": {
+    "render_every_sheet": true,
+    "inspect": [
+      "metadata rows",
+      "header clipping",
+      "wrapped bilingual text",
+      "column widths",
+      "freeze panes",
+      "filters",
+      "validation prompts",
+      "empty-table readability",
+      "cross-workbook stable IDs"
+    ],
+    "artifact_root": "evidence/anomaly-arbitration-reference-v1/workbook-review"
+  },
+  "acceptance": {
+    "schema_check": "sora check --project config/anomaly-arbitration/project.toml",
+    "schema_build": "sora build --project config/anomaly-arbitration/project.toml",
+    "export": "sora export --project config/anomaly-arbitration/project.toml",
+    "reader_load": "every generated table and row through the isolated generated reader",
+    "workbook_semantics": "canonical values, cell types, formulas, validations, sheet order, table identity and typed references",
+    "visual_review": "render and inspect every authored sheet",
+    "clean_target": "generate complete outputs into a new path; never overwrite a designer-edited workbook"
+  }
+}
