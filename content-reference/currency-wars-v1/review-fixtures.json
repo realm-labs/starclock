@@ -1,0 +1,2662 @@
+[
+  {
+    "id": "currency-wars.review-fixture.approximation-replacement-trigger.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: approximation-replacement-trigger",
+    "name_zh_cn": "基础审查夹具：approximation-replacement-trigger",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.approximation-replacement-trigger",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "approximation-replacement-trigger",
+        "sha256": "58d8a928bdcd77ef7c92e3bfa92ecf5bd259df05a3f27a3c45b6901098c30214",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.approximation-replacement-trigger",
+    "source_record_ids": [
+      "currency-wars.fixture-family.approximation-replacement-trigger"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "reviewed approximation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "released replacement evidence"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "deterministic reclassification"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "reviewed approximation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "released replacement evidence"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "deterministic reclassification"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "reviewed approximation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "released replacement evidence",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "deterministic reclassification",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.2e10b95b753db65d9f13f24129edb67e"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.automatic-technique-energy-and-lethal-rescue.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: automatic-technique-energy-and-lethal-rescue",
+    "name_zh_cn": "基础审查夹具：automatic-technique-energy-and-lethal-rescue",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.automatic-technique-energy-and-lethal-rescue",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "automatic-technique-energy-and-lethal-rescue",
+        "sha256": "9183e10c45e331271a9e8623d439fd471b0fcddba1a6191808389d650d38e734",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue",
+    "source_record_ids": [
+      "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "automatic Technique"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "defeat-energy rule"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "lethal rescue and countdown"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "automatic Technique"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "defeat-energy rule"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "lethal rescue and countdown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "automatic Technique",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "defeat-energy rule",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "lethal rescue and countdown",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.d800443c55364b37cafd7c5673e2b950"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.battle-visible-rule-contribution.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: battle-visible-rule-contribution",
+    "name_zh_cn": "基础审查夹具：battle-visible-rule-contribution",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.battle-visible-rule-contribution",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "battle-visible-rule-contribution",
+        "sha256": "bc5c53ff386e9195808f0c2a8b19bb14d3886ca1faf29e77aa44281aca4a668c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.battle-visible-rule-contribution",
+    "source_record_ids": [
+      "currency-wars.fixture-family.battle-visible-rule-contribution"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "BattleSpec contribution"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "battle observation"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "teardown"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "BattleSpec contribution"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "battle observation"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "BattleSpec contribution",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "battle observation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "teardown",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.90ccd7e35c1c0025aaa17c4e3cbf736d"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.blessing-level-offer-and-enhancement.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: blessing-level-offer-and-enhancement",
+    "name_zh_cn": "基础审查夹具：blessing-level-offer-and-enhancement",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.blessing-level-offer-and-enhancement",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "blessing-level-offer-and-enhancement",
+        "sha256": "276774437e11078ef22de2123c7961be46b69abdb861c4e44075f68b561a019a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.blessing-level-offer-and-enhancement",
+    "source_record_ids": [
+      "currency-wars.fixture-family.blessing-level-offer-and-enhancement"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "offer candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "level transition"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "enhanced contribution"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "offer candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "level transition"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "enhanced contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "offer candidates",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "level transition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "enhanced contribution",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.80ab445a2b5fe8a9346f34ade4d9cce2"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.bond-membership-threshold-and-recompute.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: bond-membership-threshold-and-recompute",
+    "name_zh_cn": "基础审查夹具：bond-membership-threshold-and-recompute",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.bond-membership-threshold-and-recompute",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "bond-membership-threshold-and-recompute",
+        "sha256": "285bbce521551d7b22782f4210f6ac483df408fa22eb96d48593954d4b19c014",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.bond-membership-threshold-and-recompute",
+    "source_record_ids": [
+      "currency-wars.fixture-family.bond-membership-threshold-and-recompute"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "membership change"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "threshold boundary"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "simultaneous recompute"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "membership change"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "threshold boundary"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "simultaneous recompute"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "membership change",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "threshold boundary",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "simultaneous recompute",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.729516c91ff4197674521a0382e78e2b"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.candidate-order-and-no-legal-result.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: candidate-order-and-no-legal-result",
+    "name_zh_cn": "基础审查夹具：candidate-order-and-no-legal-result",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.candidate-order-and-no-legal-result",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "candidate-order-and-no-legal-result",
+        "sha256": "06a4bc04643e863fdc5748ff350cb06e8672e8b9867b181cc8723586b58d1fa9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.candidate-order-and-no-legal-result",
+    "source_record_ids": [
+      "currency-wars.fixture-family.candidate-order-and-no-legal-result"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "ordered candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "eligibility rejection"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "explicit fallback"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "ordered candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "eligibility rejection"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "explicit fallback"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "ordered candidates",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "eligibility rejection",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "explicit fallback",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.39f476b6f5ffe32689fc1ad8ab9babbd"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.cross-battle-state-and-reset.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: cross-battle-state-and-reset",
+    "name_zh_cn": "基础审查夹具：cross-battle-state-and-reset",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.cross-battle-state-and-reset",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "cross-battle-state-and-reset",
+        "sha256": "e873eb8840cbf5abc98ebf4b466e8fc510ad82aa481323c6e07050074cbd645f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.cross-battle-state-and-reset",
+    "source_record_ids": [
+      "currency-wars.fixture-family.cross-battle-state-and-reset"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "state creation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "battle boundary carry"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "terminal reset"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "state creation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "battle boundary carry"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "terminal reset"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "state creation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "battle boundary carry",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "terminal reset",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.e278f2996e838ad8bd9a92ca6210e8ac"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.curio-state-charge-destruction-and-repair.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: curio-state-charge-destruction-and-repair",
+    "name_zh_cn": "基础审查夹具：curio-state-charge-destruction-and-repair",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.curio-state-charge-destruction-and-repair",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "curio-state-charge-destruction-and-repair",
+        "sha256": "7f3bce5602b3794f61d62ea5a8b379a62131f54cc7e62825bee8d6cae5953254",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.curio-state-charge-destruction-and-repair",
+    "source_record_ids": [
+      "currency-wars.fixture-family.curio-state-charge-destruction-and-repair"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "charge change"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "destroyed state"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "repair and replacement"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "charge change"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "destroyed state"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "repair and replacement"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "charge change",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "destroyed state",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "repair and replacement",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.da0a3e11be32b74335dfc181e020cdb5"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.encounter-wave-elite-and-boss-binding.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: encounter-wave-elite-and-boss-binding",
+    "name_zh_cn": "基础审查夹具：encounter-wave-elite-and-boss-binding",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.encounter-wave-elite-and-boss-binding",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "encounter-wave-elite-and-boss-binding",
+        "sha256": "5199c8d81c5231929e6ac9d011652be8db0da1e0f7b55c6aec30b79e14746066",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding",
+    "source_record_ids": [
+      "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "group selection"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "ordered waves"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "elite or boss alternative"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "group selection"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "ordered waves"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "elite or boss alternative"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "group selection",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "ordered waves",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "elite or boss alternative",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.8770881f4e9a6f879a0a0ab7125d81f1"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.field-bench-position-and-empowerment.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: field-bench-position-and-empowerment",
+    "name_zh_cn": "基础审查夹具：field-bench-position-and-empowerment",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.field-bench-position-and-empowerment",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "field-bench-position-and-empowerment",
+        "sha256": "617f6a6f6ce20fc0be159c2dc3c6d1c04ed2636f06002cb5bb3cc22dc3230f68",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.field-bench-position-and-empowerment",
+    "source_record_ids": [
+      "currency-wars.fixture-family.field-bench-position-and-empowerment"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "deployment validation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "position contribution"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "Empowerment teardown"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "deployment validation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "position contribution"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "Empowerment teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "deployment validation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "position contribution",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "Empowerment teardown",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.f584cc21ab5a195e6368e04b7b35aecc"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.formula-recipe-progress-and-contribution.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: formula-recipe-progress-and-contribution",
+    "name_zh_cn": "基础审查夹具：formula-recipe-progress-and-contribution",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.formula-recipe-progress-and-contribution",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "formula-recipe-progress-and-contribution",
+        "sha256": "6ce518dc5d55cff512f5c562ec418bdad88c0b751e64a9064bdeac96dcf1505a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.formula-recipe-progress-and-contribution",
+    "source_record_ids": [
+      "currency-wars.fixture-family.formula-recipe-progress-and-contribution"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "recipe requirements"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "progress transition"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "battle contribution"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "recipe requirements"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "progress transition"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "battle contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "recipe requirements",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "progress transition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "battle contribution",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.643cd64993c6c88467cebdbae4e15ee1"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.gambit-rank-and-enemy-affix.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: gambit-rank-and-enemy-affix",
+    "name_zh_cn": "基础审查夹具：gambit-rank-and-enemy-affix",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.gambit-rank-and-enemy-affix",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "gambit-rank-and-enemy-affix",
+        "sha256": "1166a983cce71c0ed98d52f0a9bf7bd0cca6e421acdd48e5086bfff1ade68516",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.gambit-rank-and-enemy-affix",
+    "source_record_ids": [
+      "currency-wars.fixture-family.gambit-rank-and-enemy-affix"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "Gambit selection"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "rank boundary"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "enemy affix contribution"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "Gambit selection"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "rank boundary"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "enemy affix contribution"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "Gambit selection",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "rank boundary",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "enemy affix contribution",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.63a3983050280b503f0cf5bf12f6b621"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.goal11-selector-separation-reconciliation.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: goal11-selector-separation-reconciliation",
+    "name_zh_cn": "基础审查夹具：goal11-selector-separation-reconciliation",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.goal11-selector-separation-reconciliation",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "goal11-selector-separation-reconciliation",
+        "sha256": "9df3ed94997faeda0d5d795bdd9611468d1a80dc9ead0f1bff8403355d540136",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.goal11-selector-separation-reconciliation",
+    "source_record_ids": [
+      "currency-wars.fixture-family.goal11-selector-separation-reconciliation"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "exact GridFight source locator"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "distinct Tourn3 selector"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "reopen condition"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "exact GridFight source locator"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "distinct Tourn3 selector"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "reopen condition"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "exact GridFight source locator",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "distinct Tourn3 selector",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "reopen condition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.7330c9719d9d7fd0b86ce19836d9168f"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.gold-coin-refresh-experience-and-team-size.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: gold-coin-refresh-experience-and-team-size",
+    "name_zh_cn": "基础审查夹具：gold-coin-refresh-experience-and-team-size",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.gold-coin-refresh-experience-and-team-size",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "gold-coin-refresh-experience-and-team-size",
+        "sha256": "67de54225088414bd20275f9bd7cf99c0ed338b81f6240813b6578130602f050",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size",
+    "source_record_ids": [
+      "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "currency mutation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "refresh cost"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "Experience and team-size transition"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "currency mutation"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "refresh cost"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "Experience and team-size transition"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "currency mutation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "refresh cost",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "Experience and team-size transition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.c356b65473fc39d696111785b1a5bfcd"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.hex-eligibility-activation-and-teardown.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: hex-eligibility-activation-and-teardown",
+    "name_zh_cn": "基础审查夹具：hex-eligibility-activation-and-teardown",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.hex-eligibility-activation-and-teardown",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "hex-eligibility-activation-and-teardown",
+        "sha256": "cb97ef4a93b5c4534f04e094e64f705e4fec3ddc95c882c8b2461cc01f807e73",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.hex-eligibility-activation-and-teardown",
+    "source_record_ids": [
+      "currency-wars.fixture-family.hex-eligibility-activation-and-teardown"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "activation"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "replacement or teardown"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "activation"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "replacement or teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "eligibility",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "activation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "replacement or teardown",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.38488f01b53a8e477b98443a19831f09"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.investment-environment-strategy-and-augment.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: investment-environment-strategy-and-augment",
+    "name_zh_cn": "基础审查夹具：investment-environment-strategy-and-augment",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.investment-environment-strategy-and-augment",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "investment-environment-strategy-and-augment",
+        "sha256": "5991996ea6b271cbf142fcd729ab9aadccb81ada8a85540c87c6f899d5c299ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.investment-environment-strategy-and-augment",
+    "source_record_ids": [
+      "currency-wars.fixture-family.investment-environment-strategy-and-augment"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "Augment entry"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "Projection or Portal offer"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "activation lifecycle"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "Augment entry"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "Projection or Portal offer"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "activation lifecycle"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "Augment entry",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "Projection or Portal offer",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "activation lifecycle",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.a6e12ad1e0d5fbf5a9e327c6c9532340"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.occurrence-choice-cost-and-outcome.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: occurrence-choice-cost-and-outcome",
+    "name_zh_cn": "基础审查夹具：occurrence-choice-cost-and-outcome",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.occurrence-choice-cost-and-outcome",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "occurrence-choice-cost-and-outcome",
+        "sha256": "d6b007c757b3b239d525e626cfc76fe2d51e9925c5621016b3c68e8d49812e72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.occurrence-choice-cost-and-outcome",
+    "source_record_ids": [
+      "currency-wars.fixture-family.occurrence-choice-cost-and-outcome"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "choice condition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "ordered mechanical outcome"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "choice condition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "cost"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "ordered mechanical outcome"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "choice condition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "cost",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "ordered mechanical outcome",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.539348be9b4489e281caa9e25408d97c"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.off-field-conversion-and-equipment-slots.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: off-field-conversion-and-equipment-slots",
+    "name_zh_cn": "基础审查夹具：off-field-conversion-and-equipment-slots",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.off-field-conversion-and-equipment-slots",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "off-field-conversion-and-equipment-slots",
+        "sha256": "f0c0889f1275ce8beefaf13106f6e09af0a39007d65ce7a57ebc2257786dcc4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.off-field-conversion-and-equipment-slots",
+    "source_record_ids": [
+      "currency-wars.fixture-family.off-field-conversion-and-equipment-slots"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "conversion eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "three-slot cap"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "replacement"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "conversion eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "three-slot cap"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "replacement"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "conversion eligibility",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "three-slot cap",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "replacement",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.bc2cbf7c705b675a85af770ff8607fb6"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.other-mode-ownership-rejection.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: other-mode-ownership-rejection",
+    "name_zh_cn": "基础审查夹具：other-mode-ownership-rejection",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.other-mode-ownership-rejection",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "other-mode-ownership-rejection",
+        "sha256": "a9278f6e7efd7ce65218b1c50cc8d722842d73d53567e86dd137dee82c46eed9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.other-mode-ownership-rejection",
+    "source_record_ids": [
+      "currency-wars.fixture-family.other-mode-ownership-rejection"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "named other-mode row"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "failed selector"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "no normalized promotion"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "named other-mode row"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "failed selector"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "no normalized promotion"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "named other-mode row",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "failed selector",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "no normalized promotion",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.487f2c6f08f32d08893f2ce69141ccc3"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.owned-trial-build-substitution-and-removal.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: owned-trial-build-substitution-and-removal",
+    "name_zh_cn": "基础审查夹具：owned-trial-build-substitution-and-removal",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.owned-trial-build-substitution-and-removal",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "owned-trial-build-substitution-and-removal",
+        "sha256": "67e7c39b910cc7147ce1c770c1eff6116fc90d7fbd015a64793504ffb7a87efa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.owned-trial-build-substitution-and-removal",
+    "source_record_ids": [
+      "currency-wars.fixture-family.owned-trial-build-substitution-and-removal"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "owned build boundary"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "trial fallback"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "account state unchanged"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "owned build boundary"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "trial fallback"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "account state unchanged"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "owned build boundary",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "trial fallback",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "account state unchanged",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.a86e6a5513511ee6ade367041d04b662"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.profile-gambit-entry-and-terminal.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: profile-gambit-entry-and-terminal",
+    "name_zh_cn": "基础审查夹具：profile-gambit-entry-and-terminal",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.profile-gambit-entry-and-terminal",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "profile-gambit-entry-and-terminal",
+        "sha256": "40c31ca1c0801932419829eab248eecb21ec99587a26ae61c86acd3bded63f9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.profile-gambit-entry-and-terminal",
+    "source_record_ids": [
+      "currency-wars.fixture-family.profile-gambit-entry-and-terminal"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "Standard or Overclock entry"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "initial state"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "terminal disposition"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "Standard or Overclock entry"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "initial state"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "terminal disposition"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "Standard or Overclock entry",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "initial state",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "terminal disposition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.7731b9014796e349d7189d36027c1207"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.roster-offer-cost-purchase-sale-and-cap.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: roster-offer-cost-purchase-sale-and-cap",
+    "name_zh_cn": "基础审查夹具：roster-offer-cost-purchase-sale-and-cap",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.roster-offer-cost-purchase-sale-and-cap",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "roster-offer-cost-purchase-sale-and-cap",
+        "sha256": "72db01ada452b0556f2117a714ccf8fa031082eaa4a2283e1a207eeae9d99f6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap",
+    "source_record_ids": [
+      "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "offer candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "purchase or sale"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "field and bench cap"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "offer candidates"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "purchase or sale"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "field and bench cap"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "offer candidates",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "purchase or sale",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "field and bench cap",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.0d76c11fb0736d47085be7282a020fdb"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.shop-service-price-inventory-and-fallback.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: shop-service-price-inventory-and-fallback",
+    "name_zh_cn": "基础审查夹具：shop-service-price-inventory-and-fallback",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.shop-service-price-inventory-and-fallback",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "shop-service-price-inventory-and-fallback",
+        "sha256": "2f229f1fd4d0a40ee7a26f82af2097eb8f18d1a0c131636de127fbd089330807",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.shop-service-price-inventory-and-fallback",
+    "source_record_ids": [
+      "currency-wars.fixture-family.shop-service-price-inventory-and-fallback"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "service eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "price and inventory"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "no legal offer fallback"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "service eligibility"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "price and inventory"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "no legal offer fallback"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "service eligibility",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "price and inventory",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "no legal offer fallback",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.e16e62f4a3887d41667be554df37ec7d"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.simultaneous-bond-star-and-roster-order.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: simultaneous-bond-star-and-roster-order",
+    "name_zh_cn": "基础审查夹具：simultaneous-bond-star-and-roster-order",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.simultaneous-bond-star-and-roster-order",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "simultaneous-bond-star-and-roster-order",
+        "sha256": "49c480fbb56f703afaed083b575f8f7d2be4051d60c3d127e414ce8977024411",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order",
+    "source_record_ids": [
+      "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "same-boundary changes"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "stable operation order"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "final recomputation"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "same-boundary changes"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "stable operation order"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "final recomputation"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "same-boundary changes",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "stable operation order",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "final recomputation",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.0a78617887a4c3b5d1b3ea6a82fbf773"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.squad-hp-action-value-same-boundary-order.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: squad-hp-action-value-same-boundary-order",
+    "name_zh_cn": "基础审查夹具：squad-hp-action-value-same-boundary-order",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.squad-hp-action-value-same-boundary-order",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "squad-hp-action-value-same-boundary-order",
+        "sha256": "aabab1dcab28b89217976a379a65d445ddeb21328fe897bcda61d3d502d30dc0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order",
+    "source_record_ids": [
+      "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "battle result"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "Squad HP projection"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "action-value projection order"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "battle result"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "Squad HP projection"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "action-value projection order"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "battle result",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "Squad HP projection",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "action-value projection order",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.873f3f4be0b7cb6c9c566a5aef5710b6"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.squad-hp-victory-timeout-and-run-failure.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: squad-hp-victory-timeout-and-run-failure",
+    "name_zh_cn": "基础审查夹具：squad-hp-victory-timeout-and-run-failure",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.squad-hp-victory-timeout-and-run-failure",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "squad-hp-victory-timeout-and-run-failure",
+        "sha256": "6ab24dcbadc35db3ec96c43504c60b3c58b92fdbf704b37715057dca01b839c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure",
+    "source_record_ids": [
+      "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "victory"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "timeout"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "zero-HP run failure"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "victory"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "timeout"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "zero-HP run failure"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "victory",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "timeout",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "zero-HP run failure",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.41a4729f19416fc2ea27b242cdd6d4c2"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.star-copy-combine-overflow-and-teardown.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: star-copy-combine-overflow-and-teardown",
+    "name_zh_cn": "基础审查夹具：star-copy-combine-overflow-and-teardown",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.star-copy-combine-overflow-and-teardown",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "star-copy-combine-overflow-and-teardown",
+        "sha256": "6a9ee89345c8da9885bc41cea42a55eae8688961ed115c444bf9fc86f57f0c94",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown",
+    "source_record_ids": [
+      "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "copy acquisition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "three-copy combination"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "overflow and teardown"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "copy acquisition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "three-copy combination"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "overflow and teardown"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "copy acquisition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "three-copy combination",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "overflow and teardown",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.84e86b775dfd8d33bbba0528226867d5"
+    ]
+  },
+  {
+    "id": "currency-wars.review-fixture.three-plane-node-room-flow.base",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReviewFixture",
+    "name_en": "Base review fixture: three-plane-node-room-flow",
+    "name_zh_cn": "基础审查夹具：three-plane-node-room-flow",
+    "summary_en": "A deterministic reference-only review case records the required facts and operation order without executing runtime behavior.",
+    "summary_zh_cn": "确定性的仅参考审查用例记录必需事实与操作顺序，不执行运行时行为。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.three-plane-node-room-flow",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "three-plane-node-room-flow",
+        "sha256": "ccf3e431da8800f90b56fd4da6665af31b73484a9efd646ba0ea937213926c97",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "reference-only"
+    ],
+    "family_id": "currency-wars.fixture-family.three-plane-node-room-flow",
+    "source_record_ids": [
+      "currency-wars.fixture-family.three-plane-node-room-flow"
+    ],
+    "preconditions": [
+      {
+        "ordinal": "0",
+        "kind": "RequiredReviewFact",
+        "fact": "Plane transition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "RequiredReviewFact",
+        "fact": "Node choice"
+      },
+      {
+        "ordinal": "2",
+        "kind": "RequiredReviewFact",
+        "fact": "room and Stage binding"
+      }
+    ],
+    "input": {
+      "kind": "ReferenceReviewBoundary",
+      "deterministic_seed": "0",
+      "candidate_order": "StableIdAscending"
+    },
+    "ordered_operations": [
+      {
+        "ordinal": "0",
+        "kind": "AssertReferenceFact",
+        "fact": "Plane transition"
+      },
+      {
+        "ordinal": "1",
+        "kind": "AssertReferenceFact",
+        "fact": "Node choice"
+      },
+      {
+        "ordinal": "2",
+        "kind": "AssertReferenceFact",
+        "fact": "room and Stage binding"
+      }
+    ],
+    "expected_facts": [
+      {
+        "ordinal": "0",
+        "fact": "Plane transition",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "1",
+        "fact": "Node choice",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      },
+      {
+        "ordinal": "2",
+        "fact": "room and Stage binding",
+        "disposition": "MustBeExactOrExplicitPolicy"
+      }
+    ],
+    "evidence_refs": [
+      "currency-wars.source.c6369b5c544dfef7dbcca871a3b0f1a5"
+    ]
+  }
+]

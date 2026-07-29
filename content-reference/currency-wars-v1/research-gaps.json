@@ -1,0 +1,506 @@
+[
+  {
+    "id": "currency-wars.research-gap.bond-simultaneous-recompute",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: bond-simultaneous-recompute",
+    "name_zh_cn": "研究缺口：bond-simultaneous-recompute",
+    "summary_en": "Membership, thresholds and contributions are exact; simultaneous roster ordering is not. Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures.",
+    "summary_zh_cn": "已知事实与选定策略：Membership, thresholds and contributions are exact; simultaneous roster ordering is not. Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "bond.simultaneous_recompute",
+    "known_facts": [
+      "Membership, thresholds and contributions are exact; simultaneous roster ordering is not."
+    ],
+    "selected_policy": "Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures.",
+    "alternatives": [
+      "recompute after each unordered mutation",
+      "use hash iteration"
+    ],
+    "replacement_condition": "A released operation program or reproducible simultaneous mutation trace is available."
+  },
+  {
+    "id": "currency-wars.research-gap.camp-boss-identity",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: camp-boss-identity",
+    "name_zh_cn": "研究缺口：camp-boss-identity",
+    "summary_en": "Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss. Retain every Camp candidate and reject inferred boss narrowing.",
+    "summary_zh_cn": "已知事实与选定策略：Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss. Retain every Camp candidate and reject inferred boss narrowing.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "encounter.boss_identity",
+    "known_facts": [
+      "Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss."
+    ],
+    "selected_policy": "Retain every Camp candidate and reject inferred boss narrowing.",
+    "alternatives": [
+      "match names",
+      "match numeric ranges"
+    ],
+    "replacement_condition": "A released BattleArea-to-GridFightMonster join or reproducible boss observation is available."
+  },
+  {
+    "id": "currency-wars.research-gap.configuration-program-semantics",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: configuration-program-semantics",
+    "name_zh_cn": "研究缺口：configuration-program-semantics",
+    "summary_en": "All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations.",
+    "summary_zh_cn": "已知事实与选定策略：All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "mechanic.configuration_program",
+    "known_facts": [
+      "All direct mechanic rows and 984 GridFight configuration files are hash-frozen."
+    ],
+    "selected_policy": "Preserve exact program boundaries without runtime lowering or inferred operations.",
+    "alternatives": [
+      "execute untyped JSON",
+      "translate names into handlers"
+    ],
+    "replacement_condition": "A later runtime goal supplies reviewed typed lowering with semantic fixture evidence."
+  },
+  {
+    "id": "currency-wars.research-gap.cross-node-carry-reset",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: cross-node-carry-reset",
+    "name_zh_cn": "研究缺口：cross-node-carry-reset",
+    "summary_en": "StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published. Preserve fields and require fixtures to declare carry/reset assumptions.",
+    "summary_zh_cn": "已知事实与选定策略：StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published. Preserve fields and require fixtures to declare carry/reset assumptions.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "flow.carry_reset",
+    "known_facts": [
+      "StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published."
+    ],
+    "selected_policy": "Preserve fields and require fixtures to declare carry/reset assumptions.",
+    "alternatives": [
+      "carry everything",
+      "reset everything"
+    ],
+    "replacement_condition": "A released operation program or reproducible transition trace publishes the lifecycle."
+  },
+  {
+    "id": "currency-wars.research-gap.gambit-route-membership",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: gambit-route-membership",
+    "name_zh_cn": "研究缺口：gambit-route-membership",
+    "summary_en": "GridFight routes and both released Gambit names are exact, but no released field joins them. Keep route-to-Gambit membership policy-bound and do not infer it from order.",
+    "summary_zh_cn": "已知事实与选定策略：GridFight routes and both released Gambit names are exact, but no released field joins them. Keep route-to-Gambit membership policy-bound and do not infer it from order.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "route.gambit_membership",
+    "known_facts": [
+      "GridFight routes and both released Gambit names are exact, but no released field joins them."
+    ],
+    "selected_policy": "Keep route-to-Gambit membership policy-bound and do not infer it from order.",
+    "alternatives": [
+      "infer from order",
+      "merge both Gambits"
+    ],
+    "replacement_condition": "A released Division/route-to-Gambit selector or reproducible observation is published."
+  },
+  {
+    "id": "currency-wars.research-gap.gold-coin-structured-id",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: gold-coin-structured-id",
+    "name_zh_cn": "研究缺口：gold-coin-structured-id",
+    "summary_en": "Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it. Use the stable project ID and keep the upstream resource locator unresolved.",
+    "summary_zh_cn": "已知事实与选定策略：Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it. Use the stable project ID and keep the upstream resource locator unresolved.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "economy.gold_coin_id",
+    "known_facts": [
+      "Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it."
+    ],
+    "selected_policy": "Use the stable project ID and keep the upstream resource locator unresolved.",
+    "alternatives": [
+      "select by numeric ID",
+      "select by icon"
+    ],
+    "replacement_condition": "A released structured field explicitly binds Gold Coin to a resource record."
+  },
+  {
+    "id": "currency-wars.research-gap.investment-operation-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: investment-operation-order",
+    "name_zh_cn": "研究缺口：investment-operation-order",
+    "summary_en": "All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact. Preserve configuration programs and declare offer/activation order in fixtures only.",
+    "summary_zh_cn": "已知事实与选定策略：All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact. Preserve configuration programs and declare offer/activation order in fixtures only.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "investment.operation_order",
+    "known_facts": [
+      "All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact."
+    ],
+    "selected_policy": "Preserve configuration programs and declare offer/activation order in fixtures only.",
+    "alternatives": [
+      "infer from file order",
+      "collapse source families"
+    ],
+    "replacement_condition": "Released program semantics or reproducible same-boundary activation traces are available."
+  },
+  {
+    "id": "currency-wars.research-gap.maximum-star-overflow",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: maximum-star-overflow",
+    "name_zh_cn": "研究缺口：maximum-star-overflow",
+    "summary_en": "Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not. Retain overflow as an explicit fixture policy without inventing a reward.",
+    "summary_zh_cn": "已知事实与选定策略：Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not. Retain overflow as an explicit fixture policy without inventing a reward.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "star.maximum_overflow",
+    "known_facts": [
+      "Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not."
+    ],
+    "selected_policy": "Retain overflow as an explicit fixture policy without inventing a reward.",
+    "alternatives": [
+      "discard silently",
+      "grant inferred currency"
+    ],
+    "replacement_condition": "Released overflow data or a reproducible maximum-star purchase observation is available."
+  },
+  {
+    "id": "currency-wars.research-gap.offer-sampling-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: offer-sampling-order",
+    "name_zh_cn": "研究缺口：offer-sampling-order",
+    "summary_en": "Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not. Sort candidates by stable ID before deterministic weighted review.",
+    "summary_zh_cn": "已知事实与选定策略：Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not. Sort candidates by stable ID before deterministic weighted review.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "economy.offer_sampling_order",
+    "known_facts": [
+      "Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not."
+    ],
+    "selected_policy": "Sort candidates by stable ID before deterministic weighted review.",
+    "alternatives": [
+      "source enumeration order",
+      "unordered sampling"
+    ],
+    "replacement_condition": "A released selector program or reproducible seeded offer trace publishes the order."
+  },
+  {
+    "id": "currency-wars.research-gap.position-and-rescue-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: position-and-rescue-order",
+    "name_zh_cn": "研究缺口：position-and-rescue-order",
+    "summary_en": "Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+    "summary_zh_cn": "已知事实与选定策略：Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "position.automatic_technique_rescue",
+    "known_facts": [
+      "Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete."
+    ],
+    "selected_policy": "Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+    "alternatives": [
+      "decode omitted enum",
+      "invent rescue HP"
+    ],
+    "replacement_condition": "Released enum metadata or reproducible lethal-boundary observations become available."
+  },
+  {
+    "id": "currency-wars.research-gap.role-build-join",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: role-build-join",
+    "name_zh_cn": "研究缺口：role-build-join",
+    "summary_en": "Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged.",
+    "summary_zh_cn": "已知事实与选定策略：Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "build.role_to_shared_build",
+    "known_facts": [
+      "Mode role identities and shared build sources are exact; their role-level join is absent."
+    ],
+    "selected_policy": "Keep shared builds fail closed and preserve account state unchanged.",
+    "alternatives": [
+      "join by name",
+      "join by numeric adjacency"
+    ],
+    "replacement_condition": "A released role-to-build selector or reproducible owned/trial substitution observation is available."
+  },
+  {
+    "id": "currency-wars.research-gap.squad-boundary-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsResearchGap",
+    "name_en": "Research gap: squad-boundary-order",
+    "name_zh_cn": "研究缺口：squad-boundary-order",
+    "summary_en": "Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures.",
+    "summary_zh_cn": "已知事实与选定策略：Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures.",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.project-policy.phase-2-pack-policy",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "phase-2-pack-policy",
+        "sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "The reference pack preserves exact source programs and explicit policy gaps without lowering runtime behavior.",
+        "replacement_condition": "Replace a policy field only when released structured data or a reproducible observation provides the missing operation, join or ordering."
+      }
+    ],
+    "tags": [
+      "nonblocking",
+      "research-gap"
+    ],
+    "field": "squad_hp.same_boundary_order",
+    "known_facts": [
+      "Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not."
+    ],
+    "selected_policy": "Use the reviewed victory-first policy only in reference fixtures.",
+    "alternatives": [
+      "timeout first",
+      "simultaneous merge"
+    ],
+    "replacement_condition": "A reproducible last-enemy and timeout same-boundary observation is available."
+  }
+]

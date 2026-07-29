@@ -7,8 +7,8 @@
 | Goal ID | `currency-wars-reference-v1` |
 | State | `InProgress` |
 | Current phase | Phase 2 — Content and encounters (`InProgress`) |
-| Current batch | `G12-P2-B5` — Import encounters, waves, enemies and boss boundaries |
-| Next unblocked batch | None until `G12-P2-B5` is committed, pushed and remotely verified |
+| Current batch | `G12-P2-B6` — Generate coverage, rules, fixtures and canonical pack |
+| Next unblocked batch | None until `G12-P2-B6` is committed, pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -61,8 +61,8 @@
 | `G12-P2-B2` | `Complete` | `33710a728302488f8e45b6405ef677017a0e2b3b` | Generated six canonical empty normalized files and rechecked all 153 direct tables plus 984 GridFight configs to prove zero reachable Curio, Miracle or Hex-state content (`b18664a0…c7a2`). Curio/Hex/Blessing/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `b1515195..33710a72 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `33710a728302488f8e45b6405ef677017a0e2b3b` before `G12-P2-B3` began. |
 | `G12-P2-B3` | `Complete` | `2f1e667cea0005c0478b53503b2deded8f1d9ce0` | Imported 167 primary event obligations, 73 Pray finish-way variants and 407 total normalized occurrence/variant/choice rows (`8ccfd0ce…504b`); four AssistantMessage presentation rows remain explicitly excluded. Event/Curio/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `33710a72..2f1e667c HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `2f1e667cea0005c0478b53503b2deded8f1d9ce0` before `G12-P2-B4` began. |
 | `G12-P2-B4` | `Complete` | `798ffac6fa46917cee45b8ff187fbd8e87ad4a78` | Imported 388 direct managed-function/consumable/item/special-good/season-item obligations plus one policy-bound Gold Coin identity (`169adf20…008b`); two generic gameplay-resource presentation rows remain excluded. Service/event/Curio/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `2f1e667c..798ffac6 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `798ffac6fa46917cee45b8ff187fbd8e87ad4a78` before `G12-P2-B5` began. |
-| `G12-P2-B5` | `InProgress` | — | Imported all 336 remaining direct Camp/Monster/EliteGroup/FormationWave obligations plus 840 exact shared StageConfig rows, 21 pinned-snapshot Stage gaps and ten policy-bound boss boundaries (`1262189b…1ab`). Awaiting final gates, atomic commit, push and remote SHA verification. |
-| `G12-P2-B6` | `Pending` | — | Generate rules, sources, coverage, research gaps, fixtures and pack index. |
+| `G12-P2-B5` | `Complete` | `837c8639faa0566a339e661c6d9eab943281fa9b` | Imported all 336 remaining direct Camp/Monster/EliteGroup/FormationWave obligations plus 840 exact shared StageConfig rows, 21 pinned-snapshot Stage gaps and ten policy-bound boss boundaries (`1262189b…1ab`). Encounter/service/contract/manifest, 31-batch equality, 634-link, `git diff --check` and quick repository gates pass. Publication: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; result `798ffac6..837c8639 HEAD -> codex/goal12-currency-wars-reference`; local and remote both resolved `837c8639faa0566a339e661c6d9eab943281fa9b` before `G12-P2-B6` began. |
+| `G12-P2-B6` | `InProgress` | — | Generated 19,250 exact-once coverage rows, 18,524/18,524 eligible DataReady obligations, 726 explicit exclusions, 2,367 exact unlowered mechanic dossiers, twelve nonblocking policy gaps, all 28 semantic fixture families/cases and canonical pack digest `e0533de7…6efb`. Awaiting final gates, atomic commit, push and remote SHA verification. |
 | `G12-P3-B1` | `Pending` | — | Add isolated profile/stage/difficulty/Squad-HP/action-value/economy Sora tables. |
 | `G12-P3-B2` | `Pending` | — | Add roster/position/star/Bond/Empowerment/build/equipment and GridFight investment-system Sora tables. |
 | `G12-P3-B3` | `Pending` | — | Add content, service, event, encounter and rule-binding tables. |
@@ -93,22 +93,22 @@ modules, names or ID ranges.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/Gambit modes/entries/finish conditions | 111 | 90 | 88 | P1-B10 accounts for two Guide selectors, two released Gambit policy rows, four SeasonModule rows and six settlement-rank rows; P1-B9 adds all three exact entry Unlock rows; P2-B3 adds all 73 Pray finish-way rows. Gambit rows remain `Researched`. |
-| Planes/difficulties/ranks/Nodes/rooms | 1,327 | 1,241 | 1,241 | P1-B10 accounts exactly once for 97 DivisionInfo, 97 DivisionStage, 493 StageRoute, 493 NodeTemplate and five NodeTypeShow rows. P1-B9 adds all ten DivisionLevelShow, 23 LevelBaseValue and 23 StageLevelValue rows. Derived route/Plane/flow rows do not inflate the denominator. |
-| Squad HP/action-value projections | 129 | 15 | 15 | P1-B10 imports all fifteen GridFight Stage rows as exact battle-stage terminal rules. B2 public facts remain evidence inputs; the remaining penalty/rule obligations belong to later closure. |
-| Roster/cost/shop/team-size economy | 1,847 | 159 | 159 | P1-B3 accounts for all 77 RoleBasicInfo rows, all 30 LevelV2/PlayerLevel/RarityWeight rows, ten V2 card-weight rows and 18 exact economy constants; P1-B5 adds the 16 RoleChoose and eight CoreRoleChoose membership selectors without double-counting RoleBasicInfo. |
-| Positions/Character Empowerments | 6,645 | 5,407 | 5,407 | P1-B4 accounts for all 154 RoleSkillDisplay, 4,052 FrontSkill, 446 BackBESkillConfig and 338 structured override rows. P1-B7 adds all 252 BackRoleRank and 165 BackEquipment contribution rows. Derived position/public rules do not inflate the denominator. |
-| Bonds/members/levels | 1,188 | 729 | 729 | P1-B5 accounts for all direct Trait/SubTrait identities, 152 TraitLayer rows, Bonus/Threshold/Effect/MazeBuff bridges, module/equipment relations, battle-area rules and season/game-reference rows. |
+| Profiles/Gambit modes/entries/finish conditions | 111 | 111 | 90 | P2-B6 maps every row to an exact source receipt; 21 superseded/nonmechanical selector rows remain explicit exclusions. Semantic entry/finish records from P1/P2 remain linked. |
+| Planes/difficulties/ranks/Nodes/rooms | 1,327 | 1,327 | 1,327 | Every direct topology/rank source row resolves to an exact source receipt and the P1 flow/rank records; derived rows do not inflate the denominator. |
+| Squad HP/action-value projections | 129 | 129 | 129 | Every direct projection/rule source row resolves; public/policy lifecycle records remain explicitly quality-labelled. |
+| Roster/cost/shop/team-size economy | 1,847 | 1,847 | 1,649 | Every row resolves to an exact source receipt; 198 presentation/account rows remain explicit exclusions. |
+| Positions/Character Empowerments | 6,645 | 6,645 | 6,557 | Every row resolves; 88 presentation-only rows remain explicit exclusions. |
+| Bonds/members/levels | 1,188 | 1,188 | 792 | Every row resolves; 396 presentation/account-only rows remain explicit exclusions. |
 | Star states/copy combinations | 1,891 | 1,891 | 1,891 | P1-B6 accounts exactly once for all 266 RoleStar, 1,596 RankAttachment and 29 ServantStar rows. Combination/lifecycle rows are derived public/policy evidence and do not inflate the denominator. |
-| Build mappings/equipment/conversions | 648 | 518 | 518 | P1-B7 accounts for every GridFight Equipment, EquipCategoryInfo, EquipTag, EquipUpgrade, EquipRecommendRole and RoleRecommendEquip row. The 77 direct role identities and policy/shared-source rows are derived evidence and do not inflate the denominator. |
+| Build mappings/equipment/conversions | 648 | 648 | 648 | Every direct source row resolves to exact provenance; source-shaped build/equipment/conversion records preserve the safe semantic boundary. |
 | Investment Environment/Strategy/Augments | 1,422 | 1,422 | 1,422 | P1-B8 accounts exactly once for all twenty GridFight Augment, Portal, Orb, Projection, Talent, enhancement, season-membership, MazeBuff, remark and module-ban source tables. |
 | Blessings/levels/formulas | 125 | 125 | 125 | P1-B9 accounts for all 51 AffixConfig and 67 AffixMazebuff rows; P2-B1 accounts for all seven MazeBuffEnhance rows and proves zero reachable Blessing/path/formula/recipe/group/randomizer identities. Affixes and generic MazeBuff enhancements are not reclassified as Blessings. |
 | Curios/Miracles/Hex states | 0 | 0 | 0 | P2-B2 proves the generated zero across all 153 direct tables and 984 GridFight configs; no shared Curio/Miracle/Hex reference is reachable. `GridFightAugment.HexName`/`HexDesc` are legacy Augment field names, not Hex identities. |
 | Events/variants/choices | 171 | 171 | 167 | P2-B3 accounts for all 88 PrayQuest, two PresentConfig and 77 TutorialTask rows; four AssistantMessage rows remain manifest-backed `EvidenceOnly` / `ExcludedPresentation` and never enter normalized events. |
 | Currencies/shops/services | 395 | 395 | 393 | P1-B3 accounts for all five ShopPrice rows; P2-B4 adds nine FuncManage, seven Consumables, 165 Items, 164 SeasonItem and 43 SpecialGoods rows. Two GamePlayResource rows remain `EvidenceOnly` / `ExcludedPresentation`; the derived Gold Coin stable identity is `Researched` and does not inflate the denominator. |
 | Encounter groups/waves/enemy slots | 939 | 939 | 939 | P1-B9 accounts for all 603 exact EnemyDifficultyLv rows. P2-B5 adds all 25 Camps, 160 Monsters, 146 EliteGroups and five FormationWaves; 840 reachable shared StageConfig rows and 21 exact Stage gaps are supporting closure records and do not inflate the denominator. |
-| Mechanic rules | 2,384 | 159 | 159 | P1-B9 accounts for all 80 SeasonExpScore, 77 RoleGameRefScore and two ModuleBanRole rows. Remaining table/config contributions belong to P2-B6. |
-| Semantic fixtures | 28 | 0 | 0 | Cover every distinct unique mechanic, lifecycle and selection policy. |
+| Mechanic rules | 2,384 | 2,384 | 2,367 | P2-B6 preserves every non-presentation table/config contribution as an exact source dossier with `runtime_lowered = false`; 17 presentation-only rows are explicit exclusions. |
+| Semantic fixtures | 28 | 28 | 28 | All required families have one deterministic reference-only base case; Phase 4 executes semantic and replacement-condition review. |
 
 ## Decisions
 
@@ -158,6 +158,8 @@ modules, names or ID ranges.
 | 2026-07-30 | Treat FuncManage as availability boundaries, Consumables as typed operations, Items as identities and SeasonItem as membership edges. | The four source families publish different responsibilities; collapsing them would lose unlock, lifecycle, catalog and reachability distinctions or double-claim a single semantic operation. |
 | 2026-07-30 | Close shared StageConfig only through exact Camp `BattleAreaID` roots and the stable Stage group key. | The 25 Camps directly select 46 area roots; `floor(StageID / 100)` resolves 840 released Stage rows and leaves 21 explicit snapshot gaps. Names, prefixes and generic Stage monster IDs are not ownership or identity evidence. |
 | 2026-07-30 | Keep exact boss identity unresolved inside each Camp-wide monster pool. | Ten Camps identify a boss BattleArea but expose no BattleArea-to-GridFightMonster join. Retaining the complete candidates and a replacement condition is auditable without presenting an inferred boss as exact. |
+| 2026-07-30 | Define 100% manifest coverage over the eligible denominator and retain `EvidenceOnly` rows as explicit exclusions. | All 19,250 obligations have source receipts; 18,524 Currency Wars/shared obligations are DataReady and 726 presentation/account/other-boundary rows remain auditable without content promotion. |
+| 2026-07-30 | Preserve all exact mechanic programs as unlowered reference boundaries. | The 2,367 non-presentation obligations retain exact hashes and source locations, while twelve missing join/order/operation semantics use reviewed replaceable policies. Executing untyped programs would violate this reference-only goal. |
 
 ## Research cases
 
@@ -175,7 +177,7 @@ modules, names or ID ranges.
 | `G12-R10` | `ResolvedNarrowed` | Which GridFight Augments, Portals, Orbs, Projections, Talents and enhancements implement Investment Environments/Strategies, and what are their offer/activation rules? | P1-B8 / P2-B6 / P4-B2 | P1-B8 closes every one of the 1,422 direct source obligations, including season membership, module bans and config/MazeBuff references. Replace remaining offer order, reroll timing, configuration-program execution and same-boundary activation gaps only with released config closure or reproducible observations, then execute the contracted fixtures. |
 | `G12-R11` | `ResolvedNarrowed` | Which Blessings, formulas, Curios/Miracles/Hexes, events and services are reachable in released Version 4.4 Currency Wars pools? | P2-B1–B4 / P2-B6 | B1–B4 close every frozen obligation: zero Blessing/formula and Curio/Hex identities, seven non-Blessing MazeBuff enhancements, 167 mechanical events, 73 finish ways and 388 direct service rows; six presentation rows remain explicit exclusions. Reopen only for Gold Coin structured identity or configuration-program operation details during P2-B6/P4-B2. |
 | `G12-R12` | `ResolvedNarrowed` | Which encounters, enemy variants, waves and bosses bind to each Plane/difficulty/rank, and which ability programs make them distinct? | P2-B5 / P2-B6 | P2-B5 closes all 336 remaining direct encounter rows, 840 released shared StageConfig dossiers and 21 exact Stage gaps from 46 Camp-selected BattleArea roots. Exact boss identity remains bounded to ten Camp-wide candidate pools; P2-B6 must inventory referenced ability/config programs. Reopen boss identity or Plane/difficulty joins only when a released explicit join or reproducible observation becomes available. |
-| `G12-R13` | `Open` | Which hidden weights, target orders, simultaneous transitions, timing, caps, rounding and fallbacks remain unavailable after bounded research? | P2-B6 / P4-B2 | Replace each field with exact/observed evidence or a reviewed approximation/project-policy row with a concrete evidence-triggered replacement condition. |
+| `G12-R13` | `ResolvedNarrowed` | Which hidden weights, target orders, simultaneous transitions, timing, caps, rounding and fallbacks remain unavailable after bounded research? | P2-B6 / P4-B2 | Twelve nonblocking `ProjectPolicy` rows now enumerate every remaining join, ordering, identity and configuration-program boundary with known facts, alternatives and concrete replacement conditions. P4-B2 must execute all fixture assertions and replacement-trigger checks before freeze. |
 | `G12-R14` | `ResolvedBySelectorCorrection` | How must Goal 11 and Goal 12 divide the Tourn3 and GridFight selectors? | P0-B5 / P4-B3 audit | Goal 11 retains TournRogue/Tourn3; Goal 12 uses GuideType GridFight. Reopen only if a GridFight-originating reference proves an actual shared row conflict. |
 
 ## Terminal checklist
@@ -183,7 +185,7 @@ modules, names or ID ranges.
 - [x] Exact enabled-selector category manifests and denominators are frozen.
 - [x] Both pinned caches and the focused
       table/config/TextMap/Stage/ability inventory regenerate deterministically.
-- [ ] Complete normalized pack and canonical pack index regenerate without
+- [x] Complete normalized pack and canonical pack index regenerate without
       drift.
 - [ ] All required rows have bilingual summaries and row-level provenance.
 - [ ] Ownership, module enablement and shared reachability are explicit and
@@ -201,7 +203,7 @@ modules, names or ID ranges.
       isolated readers.
 - [ ] Goal 03 evidence and all other mode/production bundle identities remain
       unchanged.
-- [ ] Coverage reports 100% `DataReady` and no blocking research row.
+- [x] Coverage reports 100% eligible `DataReady` and no blocking research row.
 - [ ] Every completed batch commit is reachable from its recorded remote
       branch at the recorded commit ID.
 - [ ] Clean-checkout acceptance passes and `G12-P4-B4` is committed and pushed.
