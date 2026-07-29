@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G08-P0-B2` |
+| Next unblocked batch | `G08-P0-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Existing focused inventory | 21 hashed `RogueNous*` tables; denominator not yet frozen |
@@ -21,7 +21,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; Goal 08 scope, exclusions, authoring boundary and isolated artifact roots are machine-frozen. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; isolated execution boundary frozen; 2,658-file Gold and Gears source/evidence inventory generated without unclassified files. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, Cognition, Custom Dice, Knowledge, Neural Network, Conundrum and Resonance Extrapolation data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -32,7 +32,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G08-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 21 `RogueNous` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/Sora authority and six isolated artifact roots. The full source-cache gate reaches the historical Goal 06 contract before failing `Cargo.lock baseline differs`; Goal 03's current-tree verifier likewise reports evolved Universe row counts, so neither immutable historical evidence was rewritten. |
-| `G08-P0-B2` | `Pending` | — | Generate the focused released-source inventory and mechanic-evidence closure. |
+| `G08-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`4ac50e59…55301`, 1,037,146 bytes): all 2,646 Goal 03 source paths plus StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes index files. The 2,658-file closure contains 21 `RogueNous` tables, two direct Nous ability files, 52 shared structured candidates, 2,410 shared mechanic/level candidates and 161 fail-closed other-mode/presentation exclusions; raw Git blob hashing removes checkout-EOL variance. Focused verification and the quick gate pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure recorded by B1. |
 | `G08-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership and shared reachability. |
 | `G08-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook and fixture contracts. |
 | `G08-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology, rooms, domains, beacons and boss choices. |
@@ -102,7 +102,7 @@ Do not estimate denominators from Wiki page counts.
 
 | ID | State | Question | Owner |
 |---|---|---|---|
-| `G08-R01` | `Open` | Which reachable shared Rogue, TextMap, StageConfig and ability files complete the twenty-one-table `RogueNous` starting inventory? | P0-B2 |
+| `G08-R01` | `Closed` | File closure is 2,649 pinned Dimbreath inputs plus nine bilingual StarRailRes indexes; row-level shared reachability remains deliberately assigned to `G08-R02`/P0-B3. | P0-B2 |
 | `G08-R02` | `Open` | What exact IDs and ownership rules separate Gold and Gears-owned, shared, evidence-only and other-mode rows? | P0-B3 |
 | `G08-R03` | `Open` | What are the exact dice-face target ordering, duration, reroll/cheat and no-legal-target semantics? | P1-B4 |
 | `G08-R04` | `Open` | At which operation boundaries are Cognition values adjusted, clamped, carried and evaluated for Secrets? | P1-B2 |
