@@ -32,6 +32,8 @@ node tools/swarm-disaster-reference/import-paths.mjs
 node tools/swarm-disaster-reference/verify-paths.mjs
 node tools/swarm-disaster-reference/import-blessings.mjs
 node tools/swarm-disaster-reference/verify-blessings.mjs
+node tools/swarm-disaster-reference/import-curios.mjs
+node tools/swarm-disaster-reference/verify-curios.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -102,3 +104,11 @@ eight selectable Paths, 32 deterministic Resonance/Formation unlocks and 144
 Blessings. Released pool weights are unavailable, so selectable Path and
 Blessing candidates use stable ID order and equal integer weight `1` as
 replaceable `ProjectPolicy`; no additional selected-Path weighting is claimed.
+
+The Curio partition keeps 66 handbook identities separate from their exact
+1000-series Swarm copies: 60 identities are shared and six are mode-owned.
+Each copy has one typed state and lifecycle rule, including six Error Code
+repair states, six numeric charge bindings, Void Wick Trimmer repair and
+Shining Trapezohedron replacement. Offer-specific eligibility and weights must
+come from the owning service or occurrence; missing bindings fail closed, and
+replacement candidates use stable ID order as replaceable `ProjectPolicy`.
