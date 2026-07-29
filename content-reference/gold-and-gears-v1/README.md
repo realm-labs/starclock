@@ -110,6 +110,19 @@ node tools/gold-and-gears-reference/finalize-pack.mjs
 node tools/gold-and-gears-reference/verify-pack.mjs
 ```
 
+The frozen Candidate release is `ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623`
+at the normalized-pack boundary. It contains 7,913/7,913 DataReady source
+obligations across 42 categories, 1,224 reference-only mechanic rules, 9,082
+provenance rows, 18 executed semantic fixture families and 16 nonblocking
+replacement conditions. Release review and evidence verify with:
+
+```text
+node tools/gold-and-gears-reference/verify-semantic-fixtures.mjs .
+node tools/gold-and-gears-reference/audit-release.mjs .
+node tools/gold-and-gears-reference/verify-release-acceptance.mjs .
+node tools/gold-and-gears-reference/verify-release.mjs .
+```
+
 The isolated Gold and Gears Sora schema regenerates and validates with:
 
 ```text
@@ -120,6 +133,12 @@ node tools/gold-and-gears-reference/verify-sora-schema.mjs
 `config/gold-and-gears/project.toml` owns this Candidate-only authoring
 surface. Its outputs remain under `config/gold-and-gears-generated/` and do not
 modify the Standard Universe or production configuration projects.
+
+The Candidate Sora bundle is a review artifact with SHA-256
+`97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b`.
+It is not a runtime bundle, does not enable `gold-gears.profile.v1`, and does
+not imply runtime lowering, handlers, controller/API exposure or seeded
+end-to-end runs. Those responsibilities belong to a later runtime goal.
 
 Complete isolated workbooks author and structurally verify with the pinned
 `openpyxl==3.1.5` environment:

@@ -5,9 +5,9 @@
 | Field | Value |
 |---|---|
 | Goal ID | `gold-and-gears-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Review and freeze |
-| Active batch | `G08-P4-B4` |
+| State | `Complete` |
+| Active phase | Complete |
+| Active batch | None |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -25,7 +25,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes, all 12 Conundrum levels and all 108 Path/Resonance obligations are DataReady. |
 | Phase 2 — Content and encounters | `Complete` | All 7,913 frozen obligations are DataReady. The 51-file normalized pack contains 1,224 reference-only mechanic rules, 9,082 source records, 42 complete coverage rows, 16 nonblocking policy boundaries, 18 semantic fixture families and a canonical pack index. |
 | Phase 3 — Sora and Excel | `Complete` | All 51 normalized families have isolated primary Sora tables across four populated workbooks, with one repeated-field child table for Excel-safe research-gap expansion. The schema lock, four templates, 57 generated Rust reader/runtime/enum modules, 5,108,198-byte production bundle and 52 debug exports reproduce without drift. Every generated reader loads its table and all 52 authored sheets pass structural and rendered visual QA. |
-| Phase 4 — Review and freeze | `InProgress` | Exact-once coverage, ownership, reference, provenance, bilingual and leak audit passes. All 18 semantic families and 16 approximation replacement conditions execute successfully; full regeneration and clean-checkout acceptance are active. |
+| Phase 4 — Review and freeze | `Complete` | Exact-once coverage, ownership, reference, provenance, bilingual and leak audit passes. All 18 semantic families and 16 approximation replacement conditions execute successfully; full regeneration, protected-boundary and clean-checkout acceptance pass. The reference pack is frozen at Candidate quality without a runtime claim. |
 
 ## Batch ledger
 
@@ -58,7 +58,7 @@
 | `G08-P4-B1` | `Complete` | This row's containing commit | Added a deterministic release audit and frozen its evidence. The audit checks all 7,913 obligations across 42 manifest categories exactly once at 100% DataReady; 7,199 obligations are Gold-owned and 714 are explicitly shared. It validates 15,031 globally unique common rows with complete English/Chinese names and mechanical summaries, 13,637 Gold-owned versus 1,394 shared normalized rows, 9,082 non-orphan source records, 31,176 exact source-reference bindings, 31 typed Sora reference fields with 27,425 resolved bindings, 1,224 rule owners plus fixture links, 46 fixture inputs, 95 fixture evidence links and all 5,025 research-gap affected-record links. All 16 gaps remain nonblocking with notes and replacement conditions. No Standard profile, Swarm Disaster, Unknowable Domain, Divergent Universe, story/account row, foreign ownership value or runtime handler leaks; 501 `source_mode_owner=Standard` values are allowed only on explicitly Shared inherited rows. `node tools/gold-and-gears-reference/audit-release.mjs .`, focused pack/schema checks, the quick repository gate and `git diff --check` pass. |
 | `G08-P4-B2` | `Complete` | This row's containing commit | Added a deterministic semantic executor and frozen its result evidence (`4bdf60ff…b065`). All 18 required families execute 63 ordered operations and pass 36 typed expected-fact assertions over 46 source-record bindings and 95 evidence bindings. Every one of the 1,224 reference-only mechanic rules resolves to its declared fixture, all 16 nonblocking approximation boundaries have an actionable source-identical replacement condition, and all 5,025 affected-record bindings are DataReady, directly bind the owning policy source and reach a semantic fixture. The executor also caught and corrected the missing explicit seed for seeded Resonance Extrapolation formation selection; the normalized fixture SHA-256 is now `515c00dd…3dc6`. The synchronized evidence workbook has semantic digest `b35d3560…3fea` and SHA-256 `c9b72548…d2c0`; the 5,108,209-byte Sora bundle has SHA-256 `97eefe25…fe7b`. Double workbook/Sora regeneration is byte-identical, all 52 generated readers load 29,140 rows, all focused verifiers, the release audit, the quick repository gate and `git diff --check` pass. |
 | `G08-P4-B3` | `Complete` | This row's containing commit | Added deterministic release-acceptance evidence (`1f54d9bb…9e48`) and a protected-boundary verifier. The pinned 2,882-file source inventory regenerates from `turnbasedgamedata@fd978d6…3568` and `StarRailRes@7b349e3…7a93`; the 50-file normalized pack remains `ea2f3a35…5623` with 7,913/7,913 DataReady obligations. Clean double workbook/Sora generation, all 52 isolated readers and 29,140 rows reproduce without drift; the current bundle is 5,108,209 bytes with SHA-256 `97eefe25…fe7b`, and the 52-file debug digest is `ff739998…ee17`. Artifact-tool 2.8.6 re-rendered the changed `ReviewFixture` sheet and visibly confirmed the explicit seed without overlap or clipping (`747886d3…4029`). Goal 03 reference evidence, Standard staging and current production configuration remain byte-identical to the Phase 3 baseline via tracked-tree digests `9e53d3b0…bd01`, `f70d47c3…94b5c` and `9dac8168…619e`; Cargo.lock and dependency policy are unchanged. Dependency, workspace-boundary, immutable-release-snapshot and staged-tree no-cache clean-checkout acceptance pass. `node tools/repository-check/run.mjs --full --with-source-cache` again exits only at the pre-existing Goal 06 `Cargo.lock baseline differs` historical contract, after the runner, extension, dependency, CI, immutable snapshot and Goal 05 release checks pass and before any Goal 08 drift step; Goal 06 evidence was not rewritten. |
-| `G08-P4-B4` | `InProgress` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G08-P4-B4` | `Complete` | This row's containing commit | Froze the Goal 08 Candidate policy, release verifier, public reference documentation, terminal counters and final release evidence (`191db83f…a28d`). The normalized Candidate identity is `ea2f3a35…5623`; the isolated 5,108,209-byte Sora review bundle is `97eefe25…fe7b`; the workbook semantic identity is `b35d3560…3fea`. Release evidence closes 7,913/7,913 source obligations, 42 coverage categories, 51 normalized files, 52 workbook/Sora tables, 29,140 rows, 1,224 reference-only rules, 9,082 provenance rows, 18 executed semantic families, 16 verified replacement conditions and zero blocking gaps or runtime handlers. Focused release verification, protected Standard/production boundaries, the quick gate, staged-tree clean-checkout acceptance and `git diff --check` pass. The repository-wide full-with-source-cache command retains the separately owned historical Goal 06 `Cargo.lock baseline differs` exception recorded by P4-B3; no historical evidence was re-blessed. |
 
 ## Frozen counters
 
@@ -153,16 +153,16 @@ Do not estimate denominators from Wiki page counts.
 - [x] Goal 03 evidence and current Standard/production bundle identities remain
       unchanged.
 - [x] Coverage reports 100% `DataReady` and no blocking research row.
-- [ ] Clean-checkout acceptance passes and `G08-P4-B4` is committed.
+- [x] Clean-checkout acceptance passes and `G08-P4-B4` is committed.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Gold and Gears reference bundle | — |
-| Workbook semantic digest | — |
+| Final state | Complete |
+| Completion commit | This row's containing commit (`G08-P4-B4`) |
+| Gold and Gears reference bundle | Candidate-only `config/gold-and-gears-generated/config.sora`, SHA-256 `97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b`; normalized pack `ea2f3a35807b9a7dae39be2d67fb5de955bfad7852718eb1d3393affed5a5623` |
+| Workbook semantic digest | `b35d3560bccc7730b54a1ec15348e2750f4f373350c147507568cb1218a83fea` |
 | Coverage | 7,913/7,913 frozen source obligations `DataReady`; 42 coverage categories report 100% and no blocking gap. |
-| Release evidence | — |
+| Release evidence | `evidence/gold-and-gears-reference-v1/release/release-evidence.json`, SHA-256 `191db83faae7490defeaa68a7025a88384243ce7821407fa5ac7f21f6c21a28d` |
 | Remaining required work | Gold and Gears runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |
