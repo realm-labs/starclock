@@ -462,12 +462,7 @@ const normalizedSchema = {
     unknown_reference: "reject",
   },
   reconciliation_policy: {
-    checkpoints: [
-      checkpoint("G08", false),
-      checkpoint("G09", true),
-      checkpoint("G10", true),
-      goal11ConflictCheckpoint(),
-    ],
+    checkpoints: reconciliationCheckpoints(),
     join_key: ["source_path", "row_locator", "evidence_sha256"],
     outcomes: [
       "MatchedShared",
@@ -819,6 +814,40 @@ function goal11ConflictCheckpoint() {
     state: conflict.state,
     replacement_condition: conflict.replacement_condition,
   };
+}
+
+function reconciliationCheckpoints() {
+  const checkpointPath = path.join(
+    root,
+    "content-manifests/currency-wars-v1/reconciliation-checkpoints.json",
+  );
+  if (!fs.existsSync(checkpointPath)) {
+    return [
+      checkpoint("G08", false),
+      checkpoint("G09", true),
+      checkpoint("G10", true),
+      goal11ConflictCheckpoint(),
+    ];
+  }
+  const register = JSON.parse(fs.readFileSync(checkpointPath, "utf8"));
+  if (register.schema_revision
+      !== "starclock.currency-wars-reconciliation-checkpoints.v1"
+    || register.checkpoints.length !== 4)
+    throw new Error("final reconciliation checkpoint register drift");
+  return register.checkpoints.map((entry) => ({
+    goal: entry.goal,
+    commit: entry.commit,
+    manifest_sha256: entry.manifest_sha256,
+    records: entry.records,
+    required_now: true,
+    ...(entry.remote_ancestor
+      ? { remote_ancestor: entry.remote_ancestor }
+      : { remote_witness: entry.remote_witness }),
+    ...(entry.selector_state ? { state: entry.selector_state } : {}),
+    ...(entry.replacement_condition
+      ? { replacement_condition: entry.replacement_condition }
+      : {}),
+  }));
 }
 
 function write(fileName, value) {

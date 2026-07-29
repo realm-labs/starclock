@@ -158,28 +158,28 @@ const checkpoints = schema.reconciliation_policy.checkpoints;
 assert(checkpoints.length === 4, "reconciliation checkpoint count drift");
 const expectedCheckpoints = {
   "gold-and-gears-reference-v1": {
-    commit: "d7031b834a72dc118b661f5dfdd2080431729bcc",
+    commit: "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
     manifest_sha256:
       "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
     records: 7913,
-    required_now: false,
+    required_now: true,
   },
   "swarm-disaster-reference-v1": {
-    commit: "77e83ed2adee63316ad390a597e0362c5af641e3",
+    commit: "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
     manifest_sha256:
       "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
     records: 6963,
     required_now: true,
   },
   "unknowable-domain-reference-v1": {
-    commit: "3064e550068429fe92df5bcadeda5dbf8b7eb115",
+    commit: "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
     manifest_sha256:
       "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
     records: 5377,
     required_now: true,
   },
   "divergent-universe-reference-v1": {
-    commit: "982af8887fdd9ba29f1a323efc0ff5f6595ba411",
+    commit: "3071d2c2fa7764c133931756769c9efe7f9dabd2",
     manifest_sha256:
       "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
     records: 6215,
@@ -197,6 +197,20 @@ for (const checkpoint of checkpoints) {
       ["merge-base", "--is-ancestor", checkpoint.commit, checkpoint.remote_ancestor],
       { cwd: root, stdio: "ignore" },
     );
+  else {
+    assert(checkpoint.remote_witness,
+      `${checkpoint.goal} lacks a remote checkpoint witness`);
+    execFileSync(
+      "git",
+      [
+        "merge-base",
+        "--is-ancestor",
+        checkpoint.remote_witness.commit,
+        checkpoint.remote_witness.remote_ancestor,
+      ],
+      { cwd: root, stdio: "ignore" },
+    );
+  }
 }
 assert(
   schema.reconciliation_policy.join_key.join(",")

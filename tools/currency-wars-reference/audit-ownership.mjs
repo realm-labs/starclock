@@ -8,6 +8,7 @@ import { canonical, sha256 } from "./lib/common.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const check = process.argv.includes("--check");
+const batch = valueAfter("--batch") ?? "G12-P4-B1";
 const manifestPath = path.join(
   root,
   "content-manifests/currency-wars-v1/content-manifest.json",
@@ -17,10 +18,8 @@ const schemaPath = path.join(
   "content-manifests/currency-wars-v1/normalized-schema.json",
 );
 const referenceRoot = path.join(root, "content-reference/currency-wars-v1");
-const outputPath = path.join(
-  root,
-  "evidence/currency-wars-reference-v1/p4b1-ownership-audit.json",
-);
+const outputPath = path.resolve(root, valueAfter("--output")
+  ?? "evidence/currency-wars-reference-v1/p4b1-ownership-audit.json");
 const reconciliationPath = path.join(
   referenceRoot,
   "reconciliation-receipts.json",
@@ -206,7 +205,7 @@ assert(allRows.every(({ row }) =>
 "unreleased evidence tag detected");
 
 const report = {
-  batch: "G12-P4-B1",
+  batch,
   result: "Pass",
   snapshot: {
     game_version: "4.4",
@@ -261,7 +260,7 @@ const report = {
 const encoded = `${JSON.stringify(report, null, 2)}\n`;
 if (check) {
   assert(fs.readFileSync(outputPath, "utf8") === encoded,
-    "P4-B1 ownership audit drift");
+    `${batch} ownership audit drift`);
 } else {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, encoded);
@@ -274,6 +273,13 @@ console.log(
 
 function json(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
+}
+function valueAfter(flag) {
+  const index = process.argv.indexOf(flag);
+  if (index < 0) return undefined;
+  if (!process.argv[index + 1] || process.argv[index + 1].startsWith("--"))
+    throw new Error(`${flag} requires a value`);
+  return process.argv[index + 1];
 }
 function sourceKey(value) {
   return canonical([

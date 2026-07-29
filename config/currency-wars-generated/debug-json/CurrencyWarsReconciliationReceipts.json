@@ -1,6 +1,239 @@
 {
   "table": {
     "name": "CurrencyWarsReconciliationReceipts",
-    "rows": []
+    "rows": [
+      {
+        "values": {
+          "checkpoint": {
+            "String": "{\"commit\":\"3071d2c2fa7764c133931756769c9efe7f9dabd2\",\"goal\":\"divergent-universe-reference-v1\",\"manifest_sha256\":\"5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_sha256": {
+            "String": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsReconciliationReceipts"
+          },
+          "name_en": {
+            "String": "Reconciliation with divergent-universe-reference-v1"
+          },
+          "name_zh_cn": {
+            "String": "与 divergent-universe-reference-v1 的对账"
+          },
+          "outcome": {
+            "String": "CurrencyWarsOnly"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "row_locator": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_path": {
+            "String": "ExcelOutput/GuideRogueTab.json"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.a669ed5eccd741bcef233741d0fcce53\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.reconciliation.divergent-universe-reference-v1.currency-wars-only"
+          },
+          "summary_en": {
+            "String": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison."
+          },
+          "summary_zh_cn": {
+            "String": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。"
+          },
+          "tags_json": {
+            "String": "[\"currencywarsonly\",\"ownership\",\"reconciliation\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "checkpoint": {
+            "String": "{\"commit\":\"b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09\",\"goal\":\"gold-and-gears-reference-v1\",\"manifest_sha256\":\"88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_sha256": {
+            "String": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsReconciliationReceipts"
+          },
+          "name_en": {
+            "String": "Reconciliation with gold-and-gears-reference-v1"
+          },
+          "name_zh_cn": {
+            "String": "与 gold-and-gears-reference-v1 的对账"
+          },
+          "outcome": {
+            "String": "CurrencyWarsOnly"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "row_locator": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_path": {
+            "String": "ExcelOutput/GuideRogueTab.json"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.a2df5ea0c56b4f47eda06fa7a3b7839d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.reconciliation.gold-and-gears-reference-v1.currency-wars-only"
+          },
+          "summary_en": {
+            "String": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison."
+          },
+          "summary_zh_cn": {
+            "String": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。"
+          },
+          "tags_json": {
+            "String": "[\"currencywarsonly\",\"ownership\",\"reconciliation\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "checkpoint": {
+            "String": "{\"commit\":\"d258c94dfb6426017fee9216f6ae2bc0f6e257d0\",\"goal\":\"swarm-disaster-reference-v1\",\"manifest_sha256\":\"e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_sha256": {
+            "String": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsReconciliationReceipts"
+          },
+          "name_en": {
+            "String": "Reconciliation with swarm-disaster-reference-v1"
+          },
+          "name_zh_cn": {
+            "String": "与 swarm-disaster-reference-v1 的对账"
+          },
+          "outcome": {
+            "String": "CurrencyWarsOnly"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "row_locator": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_path": {
+            "String": "ExcelOutput/GuideRogueTab.json"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.a4f389ce875a1b6390e254a5c1f73537\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.reconciliation.swarm-disaster-reference-v1.currency-wars-only"
+          },
+          "summary_en": {
+            "String": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison."
+          },
+          "summary_zh_cn": {
+            "String": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。"
+          },
+          "tags_json": {
+            "String": "[\"currencywarsonly\",\"ownership\",\"reconciliation\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "checkpoint": {
+            "String": "{\"commit\":\"6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29\",\"goal\":\"unknowable-domain-reference-v1\",\"manifest_sha256\":\"7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758\"}"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "evidence_sha256": {
+            "String": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsReconciliationReceipts"
+          },
+          "name_en": {
+            "String": "Reconciliation with unknowable-domain-reference-v1"
+          },
+          "name_zh_cn": {
+            "String": "与 unknowable-domain-reference-v1 的对账"
+          },
+          "outcome": {
+            "String": "CurrencyWarsOnly"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "row_locator": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_path": {
+            "String": "ExcelOutput/GuideRogueTab.json"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.94fd446ffd455d4a901543bffa157ebb\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.reconciliation.unknowable-domain-reference-v1.currency-wars-only"
+          },
+          "summary_en": {
+            "String": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison."
+          },
+          "summary_zh_cn": {
+            "String": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。"
+          },
+          "tags_json": {
+            "String": "[\"currencywarsonly\",\"ownership\",\"reconciliation\"]"
+          }
+        }
+      }
+    ]
   }
 }
