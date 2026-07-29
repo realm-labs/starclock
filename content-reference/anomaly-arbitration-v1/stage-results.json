@@ -1,0 +1,247 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "stage-results.json",
+  "record_kind": "StageResultPolicy",
+  "records": [
+    {
+      "id": "stage-result.knight-1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "StageResultPolicy",
+      "name_en": "Knight stage result",
+      "name_zh_cn": "骑士关卡结果",
+      "summary_en": "The Knight terminal result records only the targets evaluated for stage.knight-1.",
+      "summary_zh_cn": "该终局结果仅记录 stage.knight-1 对应目标的评估值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "objective_aggregations:current-stage-progress",
+        "objective_aggregations:per-stage-star-evaluation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-stage-stars",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage and Cycles",
+          "sha256": "27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined."
+        }
+      ],
+      "tags": [
+        "knight",
+        "result",
+        "stage"
+      ],
+      "stage_order": 1,
+      "stage_id": "stage.knight-1",
+      "stage_kind": "Knight",
+      "target_ids": [
+        "battle-target.3001",
+        "battle-target.3002",
+        "battle-target.3000"
+      ],
+      "terminal_success_required": true,
+      "target_results_are_attempt_local": true,
+      "current_progress_projection": "OfferOrCommitCurrentStageResult",
+      "runtime_executable": false
+    },
+    {
+      "id": "stage-result.knight-2",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "StageResultPolicy",
+      "name_en": "Knight stage result",
+      "name_zh_cn": "骑士关卡结果",
+      "summary_en": "The Knight terminal result records only the targets evaluated for stage.knight-2.",
+      "summary_zh_cn": "该终局结果仅记录 stage.knight-2 对应目标的评估值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "objective_aggregations:current-stage-progress",
+        "objective_aggregations:per-stage-star-evaluation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-stage-stars",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage and Cycles",
+          "sha256": "27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined."
+        }
+      ],
+      "tags": [
+        "knight",
+        "result",
+        "stage"
+      ],
+      "stage_order": 2,
+      "stage_id": "stage.knight-2",
+      "stage_kind": "Knight",
+      "target_ids": [
+        "battle-target.3001",
+        "battle-target.3002",
+        "battle-target.3000"
+      ],
+      "terminal_success_required": true,
+      "target_results_are_attempt_local": true,
+      "current_progress_projection": "OfferOrCommitCurrentStageResult",
+      "runtime_executable": false
+    },
+    {
+      "id": "stage-result.knight-3",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "StageResultPolicy",
+      "name_en": "Knight stage result",
+      "name_zh_cn": "骑士关卡结果",
+      "summary_en": "The Knight terminal result records only the targets evaluated for stage.knight-3.",
+      "summary_zh_cn": "该终局结果仅记录 stage.knight-3 对应目标的评估值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "objective_aggregations:current-stage-progress",
+        "objective_aggregations:per-stage-star-evaluation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:independent-stage-stars",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage and Cycles",
+          "sha256": "27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined."
+        }
+      ],
+      "tags": [
+        "knight",
+        "result",
+        "stage"
+      ],
+      "stage_order": 3,
+      "stage_id": "stage.knight-3",
+      "stage_kind": "Knight",
+      "target_ids": [
+        "battle-target.3001",
+        "battle-target.3002",
+        "battle-target.3000"
+      ],
+      "terminal_success_required": true,
+      "target_results_are_attempt_local": true,
+      "current_progress_projection": "OfferOrCommitCurrentStageResult",
+      "runtime_executable": false
+    },
+    {
+      "id": "stage-result.king-normal",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "StageResultPolicy",
+      "name_en": "KingNormal stage result",
+      "name_zh_cn": "常规王棋关卡结果",
+      "summary_en": "The KingNormal terminal result records only the targets evaluated for stage.king-normal.",
+      "summary_zh_cn": "该终局结果仅记录 stage.king-normal 对应目标的评估值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "objective_aggregations:current-stage-progress",
+        "objective_aggregations:per-stage-star-evaluation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:king-rating",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "King in Check Stage and Battle Records",
+          "sha256": "fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The King stage has its own star rating, which is retained in Battle Records."
+        }
+      ],
+      "tags": [
+        "kingnormal",
+        "result",
+        "stage"
+      ],
+      "stage_order": 4,
+      "stage_id": "stage.king-normal",
+      "stage_kind": "KingNormal",
+      "target_ids": [
+        "battle-target.3003",
+        "battle-target.3004",
+        "battle-target.3005"
+      ],
+      "terminal_success_required": true,
+      "target_results_are_attempt_local": true,
+      "current_progress_projection": "OfferOrCommitCurrentStageResult",
+      "runtime_executable": false
+    },
+    {
+      "id": "stage-result.king-plight",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "StageResultPolicy",
+      "name_en": "KingPlight stage result",
+      "name_zh_cn": "困厄王棋关卡结果",
+      "summary_en": "The KingPlight terminal result records only the targets evaluated for stage.king-plight.",
+      "summary_zh_cn": "该终局结果仅记录 stage.king-plight 对应目标的评估值。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "objective_aggregations:current-stage-progress",
+        "objective_aggregations:per-stage-star-evaluation"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:king-rating",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "King in Check Stage and Battle Records",
+          "sha256": "fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The King stage has its own star rating, which is retained in Battle Records."
+        }
+      ],
+      "tags": [
+        "kingplight",
+        "result",
+        "stage"
+      ],
+      "stage_order": 5,
+      "stage_id": "stage.king-plight",
+      "stage_kind": "KingPlight",
+      "target_ids": [
+        "battle-target.3007"
+      ],
+      "terminal_success_required": true,
+      "target_results_are_attempt_local": true,
+      "current_progress_projection": "ApplyPlightShortcutThenStoreKingResult",
+      "runtime_executable": false
+    }
+  ]
+}

@@ -160,6 +160,14 @@ assert(JSON.stringify(profile.entry_locators) === JSON.stringify({
   entrance_id: "100000352",
   tutorial_mission_id: "8036301",
 }), "entry locator drift");
+assert(JSON.stringify(profile.secondary_prerequisite_locators)
+  === JSON.stringify({
+    maze_quest_id: "2200503",
+    story_quest_id: "2200504",
+    boss_quest_id: "2200505",
+    gameplay_guide_quest_id: "4080203",
+    disposition: "MechanicalLocatorsOnly",
+  }), "secondary prerequisite locator drift");
 
 const [period] = documents["periods.json"].records;
 assert(documents["periods.json"].records.length === 1
@@ -169,6 +177,10 @@ assert(documents["periods.json"].records.length === 1
 "active period identity drift");
 assert(period.observed_end_dates.length === 2,
   "conflicting public end-date observations were not retained");
+assert(period.expiry_warning_days === 14
+  && period.retained_record_count === 3
+  && period.retained_record_days === 160,
+"period retention locator drift");
 assert(period.approximations?.some(
   ({ field_path: field }) => field === "observed_end_dates",
 ), "period end-date uncertainty is not field-level");
@@ -252,6 +264,13 @@ const required = [
     "ChallengePeak_Entrance_MapInfo",
     "ChallengePeak_Entrance",
     "ChallengePeak_TutorialMissionID",
+    "ChallengePeak_Pre_Maze_Quest",
+    "ChallengePeak_Pre_Story_Quest",
+    "ChallengePeak_Pre_Boss_Quest",
+    "ChallengePeak_Pre_GameplayGuide_Quest",
+    "ChallengePeak_About_To_Expire_Days",
+    "ChallengePeak_Record_Keep_Num",
+    "ChallengePeak_Record_Keep_Days",
   ].map((id) => `mode_constants:constant:${id}`),
   ...["801", "802", "803", "804"].map(
     (id) => `stage_definitions:alias:${id}`,

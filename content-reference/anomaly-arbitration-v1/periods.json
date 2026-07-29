@@ -18,7 +18,10 @@
       "evidence_quality": "ApproximateFromReleasedText",
       "mechanism_quality": "IdentityCrossCheck",
       "manifest_record_ids": [
-        "active_periods:period:8"
+        "active_periods:period:8",
+        "mode_constants:constant:ChallengePeak_About_To_Expire_Days",
+        "mode_constants:constant:ChallengePeak_Record_Keep_Days",
+        "mode_constants:constant:ChallengePeak_Record_Keep_Num"
       ],
       "source_refs": [
         {
@@ -80,6 +83,42 @@
           "evidence_quality": "ExactStructured",
           "mechanism_quality": "IdentityCrossCheck",
           "note": "Exact en name for the referenced TextMap hash."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=23;ConstValueName=ChallengePeak_About_To_Expire_Days",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=23;ConstValueName=ChallengePeak_About_To_Expire_Days",
+          "sha256": "331b984aeca211d74fb3b8cef4010a248a24d14c7fbf24c5c5ab41ca77e6b40b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured period-expiry warning locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=25;ConstValueName=ChallengePeak_Record_Keep_Num",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=25;ConstValueName=ChallengePeak_Record_Keep_Num",
+          "sha256": "8334e2f221ca5cd95e8b3c5db53ca7d319413651acffe8f3f8818d538c7b82e0",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Structured retained-record count."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=26;ConstValueName=ChallengePeak_Record_Keep_Days",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=26;ConstValueName=ChallengePeak_Record_Keep_Days",
+          "sha256": "3008911c4fb12cc776d0fbd14726369e8fcafe7470935bf0a5c5279003d3137b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured retained-record day window."
         }
       ],
       "tags": [
@@ -95,6 +134,9 @@
         "2026-08-25",
         "2026-08-26"
       ],
+      "expiry_warning_days": 14,
+      "retained_record_count": 3,
+      "retained_record_days": 160,
       "alias_ids": [
         "801",
         "802",

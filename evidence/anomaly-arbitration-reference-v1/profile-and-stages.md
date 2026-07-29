@@ -115,3 +115,24 @@ attempt-local policies. The fixed ability layout names plugin bodies 0022 and
 program bodies remain unresolved without weakening their exact MazeBuff
 descriptions or inventing runtime programs. Plugin 0014 resolves in the
 extracted ability list.
+
+## Targets, stars and settlement
+
+The active selector closes seven shared BattleTarget rows:
+
+- every Knight uses victory within 4 cycles, victory within 2 cycles and no
+  downed characters;
+- normal King uses victory within 6, 4 and 2 cycles;
+- Plight uses its dedicated victory-within-2-cycles target.
+
+The official guide states that each Knight stage calculates stars independently
+at completion and does not combine target results from separate clears. Best
+Battle Records retain the maximum total that was active simultaneously across
+the three Knights, so current reset/replacement and retained best are separate
+projections. The review surface retains three recent periods; structured
+locators additionally record 160 retention days and a 14-day expiry warning
+without making a runtime wall-clock claim.
+
+`ColorMedalTarget=6` is preserved exactly but not interpreted as either a
+six-star threshold or a target ID because no released join defines it. Account
+rewards and medal presentation remain excluded.

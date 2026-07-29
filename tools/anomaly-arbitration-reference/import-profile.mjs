@@ -306,7 +306,11 @@ const profile = envelope({
     "profiles:anomaly-arbitration-v1",
     "mode_constants:constant:ChallengePeak_Entrance",
     "mode_constants:constant:ChallengePeak_Entrance_MapInfo",
+    "mode_constants:constant:ChallengePeak_Pre_Boss_Quest",
+    "mode_constants:constant:ChallengePeak_Pre_GameplayGuide_Quest",
+    "mode_constants:constant:ChallengePeak_Pre_Maze_Quest",
     "mode_constants:constant:ChallengePeak_Pre_Quest",
+    "mode_constants:constant:ChallengePeak_Pre_Story_Quest",
     "mode_constants:constant:ChallengePeak_TutorialMissionID",
   ],
   sourceRefs: [
@@ -341,6 +345,20 @@ const profile = envelope({
       "Structured tutorial mission locator.",
       "ContextOnly",
     ),
+    ...[
+      ["ChallengePeak_Pre_Maze_Quest", "Structured maze prerequisite locator."],
+      ["ChallengePeak_Pre_Story_Quest", "Structured story prerequisite locator."],
+      ["ChallengePeak_Pre_Boss_Quest", "Structured boss prerequisite locator."],
+      [
+        "ChallengePeak_Pre_GameplayGuide_Quest",
+        "Structured gameplay-guide prerequisite locator.",
+      ],
+    ].map(([name, note]) => structuredRef(
+      "mode_constants",
+      `constant:${name}`,
+      note,
+      "ContextOnly",
+    )),
   ],
   tags: ["activity", "high-difficulty", "periodic", "profile"],
   fields: {
@@ -360,6 +378,15 @@ const profile = envelope({
       tutorial_mission_id: String(
         constants.get("ChallengePeak_TutorialMissionID"),
       )
+    },
+    secondary_prerequisite_locators: {
+      maze_quest_id: String(constants.get("ChallengePeak_Pre_Maze_Quest")),
+      story_quest_id: String(constants.get("ChallengePeak_Pre_Story_Quest")),
+      boss_quest_id: String(constants.get("ChallengePeak_Pre_Boss_Quest")),
+      gameplay_guide_quest_id: String(
+        constants.get("ChallengePeak_Pre_GameplayGuide_Quest"),
+      ),
+      disposition: "MechanicalLocatorsOnly",
     },
     active_period_id: "period.8",
     stage_ids: [
@@ -384,7 +411,12 @@ const period = envelope({
     "4.4 版本第 8 期，将别名 801–804 绑定到四个常规遭遇与一个绝境变体。",
   evidenceQuality: "ApproximateFromReleasedText",
   mechanismQuality: "IdentityCrossCheck",
-  manifestRecordIds: ["active_periods:period:8"],
+  manifestRecordIds: [
+    "active_periods:period:8",
+    "mode_constants:constant:ChallengePeak_About_To_Expire_Days",
+    "mode_constants:constant:ChallengePeak_Record_Keep_Days",
+    "mode_constants:constant:ChallengePeak_Record_Keep_Num",
+  ],
   sourceRefs: [
     structuredRef(
       "active_periods",
@@ -396,6 +428,24 @@ const period = envelope({
     independentRotation,
     textRef("zh_cn", group.Title.Hash, textZh[group.Title.Hash]),
     textRef("en", group.Title.Hash, textEn[group.Title.Hash]),
+    structuredRef(
+      "mode_constants",
+      "constant:ChallengePeak_About_To_Expire_Days",
+      "Structured period-expiry warning locator.",
+      "ContextOnly",
+    ),
+    structuredRef(
+      "mode_constants",
+      "constant:ChallengePeak_Record_Keep_Num",
+      "Structured retained-record count.",
+      "ExactRelationship",
+    ),
+    structuredRef(
+      "mode_constants",
+      "constant:ChallengePeak_Record_Keep_Days",
+      "Structured retained-record day window.",
+      "ContextOnly",
+    ),
   ],
   tags: ["active-at-snapshot", "period", "version-4.4"],
   fields: {
@@ -404,6 +454,15 @@ const period = envelope({
     structured_access_date: "2026-07-22",
     observed_start_date: "2026-07-15",
     observed_end_dates: ["2026-08-25", "2026-08-26"],
+    expiry_warning_days: Number(
+      constants.get("ChallengePeak_About_To_Expire_Days"),
+    ),
+    retained_record_count: Number(
+      constants.get("ChallengePeak_Record_Keep_Num"),
+    ),
+    retained_record_days: Number(
+      constants.get("ChallengePeak_Record_Keep_Days"),
+    ),
     alias_ids: ["801", "802", "803", "804"],
     stage_ids: [
       "30508011",

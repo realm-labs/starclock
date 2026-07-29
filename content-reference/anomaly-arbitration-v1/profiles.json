@@ -20,7 +20,11 @@
       "manifest_record_ids": [
         "mode_constants:constant:ChallengePeak_Entrance",
         "mode_constants:constant:ChallengePeak_Entrance_MapInfo",
+        "mode_constants:constant:ChallengePeak_Pre_Boss_Quest",
+        "mode_constants:constant:ChallengePeak_Pre_GameplayGuide_Quest",
+        "mode_constants:constant:ChallengePeak_Pre_Maze_Quest",
         "mode_constants:constant:ChallengePeak_Pre_Quest",
+        "mode_constants:constant:ChallengePeak_Pre_Story_Quest",
         "mode_constants:constant:ChallengePeak_TutorialMissionID",
         "profiles:anomaly-arbitration-v1"
       ],
@@ -96,6 +100,54 @@
           "evidence_quality": "ExactStructured",
           "mechanism_quality": "ContextOnly",
           "note": "Structured tutorial mission locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=15;ConstValueName=ChallengePeak_Pre_Maze_Quest",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=15;ConstValueName=ChallengePeak_Pre_Maze_Quest",
+          "sha256": "c4129ec0c94a58d9ddac0009e8633e7d8e87aa658f4cc12270e7adb20dc100d3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured maze prerequisite locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=16;ConstValueName=ChallengePeak_Pre_Story_Quest",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=16;ConstValueName=ChallengePeak_Pre_Story_Quest",
+          "sha256": "43214c2409e65bd65997ffb3d2e199f9a927c3e00f8ea57d7fd8b3120b50fdad",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured story prerequisite locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=17;ConstValueName=ChallengePeak_Pre_Boss_Quest",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=17;ConstValueName=ChallengePeak_Pre_Boss_Quest",
+          "sha256": "3a274090b80184b1fdfb6482ceab08ec83151530af1fe1e240270f1ce2eab037",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured boss prerequisite locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=18;ConstValueName=ChallengePeak_Pre_GameplayGuide_Quest",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=18;ConstValueName=ChallengePeak_Pre_GameplayGuide_Quest",
+          "sha256": "b3af26281a99596bc3a759a9f9a1afaf009f375a25c86d0462fcb1bd56dcd9d3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured gameplay-guide prerequisite locator."
         }
       ],
       "tags": [
@@ -118,6 +170,13 @@
         "entrance_map_id": "2116",
         "entrance_id": "100000352",
         "tutorial_mission_id": "8036301"
+      },
+      "secondary_prerequisite_locators": {
+        "maze_quest_id": "2200503",
+        "story_quest_id": "2200504",
+        "boss_quest_id": "2200505",
+        "gameplay_guide_quest_id": "4080203",
+        "disposition": "MechanicalLocatorsOnly"
       },
       "active_period_id": "period.8",
       "stage_ids": [
