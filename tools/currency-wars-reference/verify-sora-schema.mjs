@@ -40,7 +40,7 @@ execFileSync(sora, [
 const expected = {
   "P3-B1": 22,
   "P3-B2": 60,
-  "P3-B3": 92,
+  "P3-B3": 94,
   "P3-B4": 102,
 }[through];
 const schemaFiles = {
