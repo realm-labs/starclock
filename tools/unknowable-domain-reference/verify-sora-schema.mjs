@@ -26,6 +26,8 @@ const schemaFiles = [
   "systems.toml",
   "progression.toml",
   "mechanics.toml",
+  "content.toml",
+  "evidence.toml",
 ].map((name) =>
   path.join(schemaRoot, name));
 const temporary = fs.mkdtempSync(
@@ -74,6 +76,36 @@ const expected = new Map([
   ["UnknowableDomainProgressionEffect", "progression-effects.json"],
   ["UnknowableDomainMechanicSourceFile", "mechanic-source-files.json"],
   ["UnknowableDomainMechanicRule", "mechanic-rules.json"],
+  ["UnknowableDomainBlessing", "blessings.json"],
+  ["UnknowableDomainPoolMembership", "pool-membership.json"],
+  ["UnknowableDomainCurio", "curios.json"],
+  ["UnknowableDomainCurioState", "curio-states.json"],
+  ["UnknowableDomainCurioGroup", "curio-groups.json"],
+  ["UnknowableDomainCurioRule", "curio-rules.json"],
+  ["UnknowableDomainOccurrence", "occurrences.json"],
+  ["UnknowableDomainOccurrenceVariant", "occurrence-variants.json"],
+  ["UnknowableDomainOccurrenceChoice", "occurrence-choices.json"],
+  ["UnknowableDomainModeServiceNpc", "mode-service-npcs.json"],
+  ["UnknowableDomainAdventureOutcome", "adventure-outcomes.json"],
+  ["UnknowableDomainCurrency", "currencies.json"],
+  ["UnknowableDomainServiceRule", "service-rules.json"],
+  ["UnknowableDomainBossChoice", "boss-choices.json"],
+  ["UnknowableDomainEncounterSourceObligation",
+    "encounter-source-obligations.json"],
+  ["UnknowableDomainEncounterGroup", "encounter-groups.json"],
+  ["UnknowableDomainEncounterWave", "encounter-waves.json"],
+  ["UnknowableDomainEnemySlot", "enemy-slots.json"],
+  ["UnknowableDomainBossPool", "boss-pools.json"],
+  ["UnknowableDomainSourceEvidence", "sources.json"],
+  ["UnknowableDomainCoverage", "coverage.json"],
+  ["UnknowableDomainResearchGap", "research-gaps.json"],
+  ["UnknowableDomainSemanticFixtureFamily",
+    "semantic-fixture-families.json"],
+  ["UnknowableDomainReviewFixture", "review-fixtures.json"],
+  ["UnknowableDomainReconciliationReceipt",
+    "reconciliation-receipts.json"],
+  ["UnknowableDomainManifest", "manifest.json"],
+  ["UnknowableDomainPackIndex", "pack-index.json"],
 ]);
 
 try {
@@ -89,6 +121,8 @@ try {
     "schema/systems.toml",
     "schema/progression.toml",
     "schema/mechanics.toml",
+    "schema/content.toml",
+    "schema/evidence.toml",
   ])
     assert(projectText.includes(include), `project lacks ${include}`);
   for (const forbidden of [
@@ -200,6 +234,26 @@ try {
       "UnknowableDomainFinishCondition"],
     ["UnknowableDomainMechanicRule", "source_file_id",
       "UnknowableDomainMechanicSourceFile"],
+    ["UnknowableDomainCurioState", "curio_id",
+      "UnknowableDomainCurio"],
+    ["UnknowableDomainCurioRule", "curio_id",
+      "UnknowableDomainCurio"],
+    ["UnknowableDomainCurioRule", "curio_group_id",
+      "UnknowableDomainCurioGroup"],
+    ["UnknowableDomainOccurrenceVariant", "occurrence_id",
+      "UnknowableDomainOccurrence"],
+    ["UnknowableDomainOccurrenceChoice", "variant_id",
+      "UnknowableDomainOccurrenceVariant"],
+    ["UnknowableDomainEncounterWave", "encounter_group_id",
+      "UnknowableDomainEncounterGroup"],
+    ["UnknowableDomainEnemySlot", "wave_id",
+      "UnknowableDomainEncounterWave"],
+    ["UnknowableDomainBossPool", "area_id",
+      "UnknowableDomainArea"],
+    ["UnknowableDomainReviewFixture", "family_id",
+      "UnknowableDomainSemanticFixtureFamily"],
+    ["UnknowableDomainManifest", "profile_id",
+      "UnknowableDomainProfile"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) =>
       candidate.name === fieldName);
@@ -359,14 +413,151 @@ try {
       mechanicSourceIds.has(id)),
     "MechanicRule source-file normalized reference drift",
   );
+  const curios = json(
+    "content-reference/unknowable-domain-v1/curios.json",
+  );
+  const curioStates = json(
+    "content-reference/unknowable-domain-v1/curio-states.json",
+  );
+  const curioGroups = json(
+    "content-reference/unknowable-domain-v1/curio-groups.json",
+  );
+  const curioRules = json(
+    "content-reference/unknowable-domain-v1/curio-rules.json",
+  );
+  const occurrences = json(
+    "content-reference/unknowable-domain-v1/occurrences.json",
+  );
+  const occurrenceVariants = json(
+    "content-reference/unknowable-domain-v1/occurrence-variants.json",
+  );
+  const occurrenceChoices = json(
+    "content-reference/unknowable-domain-v1/occurrence-choices.json",
+  );
+  const bossPools = json(
+    "content-reference/unknowable-domain-v1/boss-pools.json",
+  );
+  const fixtureFamilies = json(
+    "content-reference/unknowable-domain-v1/" +
+      "semantic-fixture-families.json",
+  );
+  const reviewFixtures = json(
+    "content-reference/unknowable-domain-v1/review-fixtures.json",
+  );
+  const manifestRows = json(
+    "content-reference/unknowable-domain-v1/manifest.json",
+  );
+  const curioIds = new Set(curios.map(({ id }) => id));
+  const curioGroupIds = new Set(curioGroups.map(({ id }) => id));
+  const occurrenceIds = new Set(occurrences.map(({ id }) => id));
+  const occurrenceVariantIds = new Set(occurrenceVariants.map(({ id }) => id));
+  const familySourceIds = new Set(fixtureFamilies.map(
+    ({ source_id: id }) => id,
+  ));
+  const profileIds = new Set(json(
+    "content-reference/unknowable-domain-v1/profiles.json",
+  ).map(({ id }) => id));
+  assert(
+    curioStates.every(({ curio_id: id }) => curioIds.has(id))
+      && curioRules.every((row) =>
+        (row.curio_id === "NotApplicable" || curioIds.has(row.curio_id))
+          && (!row.curio_group_id
+            || row.curio_group_id === "NotApplicable"
+            || curioGroupIds.has(row.curio_group_id))),
+    "Curio state/rule normalized reference drift",
+  );
+  assert(
+    occurrenceVariants.every(({ occurrence_id: id }) =>
+      occurrenceIds.has(id))
+      && occurrenceChoices.every(({ variant_id: id }) =>
+        occurrenceVariantIds.has(id)),
+    "Occurrence variant/choice normalized reference drift",
+  );
+  assert(
+    bossPools.every(({ area_id: id }) => areaIds.has(id)),
+    "BossPool Area normalized reference drift",
+  );
+  assert(
+    reviewFixtures.every(({ family_id: id }) => familySourceIds.has(id)),
+    "ReviewFixture family normalized reference drift",
+  );
+  assert(
+    manifestRows.length === 1 && profileIds.has(manifestRows[0].profile_id),
+    "Manifest Profile normalized reference drift",
+  );
+  const committed = path.join(root, "config", "unknowable-domain-generated");
+  const committedLock = path.join(committed, "schema.lock");
+  assert(fs.existsSync(committedLock), "committed schema lock is missing");
+  assert(
+    fs.readFileSync(lock).equals(fs.readFileSync(committedLock)),
+    "committed schema lock drifted",
+  );
+  const directTemplates = path.join(temporary, "templates");
+  const directRust = path.join(temporary, "rust");
+  run(sora, [
+    "--serial",
+    "excel-template",
+    "--project",
+    project,
+    "--out",
+    directTemplates,
+  ]);
+  run(sora, [
+    "--serial",
+    "gen",
+    "--target",
+    "rust",
+    "--project",
+    project,
+    "--out",
+    directRust,
+    "--format-code",
+    "never",
+  ]);
+  formatRust(directRust);
+  for (const workbook of [
+    "UnknowableDomain.xlsx",
+    "UnknowableDomainBindings.xlsx",
+    "UnknowableDomainReview.xlsx",
+  ]) {
+    assert(
+      fs.statSync(path.join(directTemplates, workbook)).size > 1000,
+      `${workbook} direct template is missing`,
+    );
+    assert(
+      fs.statSync(path.join(committed, "templates", workbook)).size > 1000,
+      `${workbook} committed template is missing`,
+    );
+  }
+  const committedRust = path.join(committed, "rust");
+  const directRustFiles = fs.readdirSync(directRust)
+    .filter((name) => name.endsWith(".rs") && name !== "mod.rs")
+    .sort();
+  const committedRustFiles = fs.readdirSync(committedRust)
+    .filter((name) => name.endsWith(".rs"))
+    .sort();
+  assert(
+    !fs.existsSync(path.join(committedRust, "mod.rs")),
+    "oversized generated registry facade must remain uncommitted",
+  );
+  assert(
+    JSON.stringify(committedRustFiles) === JSON.stringify(directRustFiles),
+    "committed generated reader file set drifted",
+  );
+  for (const file of directRustFiles)
+    assert(
+      fs.readFileSync(path.join(directRust, file)).equals(
+        fs.readFileSync(path.join(committedRust, file)),
+      ),
+      `${file} generated reader drifted`,
+    );
   const digest = crypto.createHash("sha256")
     .update(schemaFiles.map((file) => fs.readFileSync(file)).join("\n"))
     .digest("hex");
   console.log(
     `Unknowable Domain Sora schema verified (${tables.size} isolated ` +
-    `core/system/progression/mechanic tables; typed local references; ` +
-    `schemas ${digest}; ` +
-    "pinned Sora 0.3.0).",
+    `tables; three templates; typed local references; schemas ${digest}; ` +
+    "generated lock/readers stable; pinned Sora 0.3.0).",
   );
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
@@ -404,6 +595,21 @@ function run(command, arguments_) {
     throw new Error(
       `${command} ${arguments_.join(" ")} failed\n` +
       `${result.stdout}\n${result.stderr}`,
+    );
+}
+
+function formatRust(directory) {
+  const files = fs.readdirSync(directory)
+    .filter((name) => name.endsWith(".rs"))
+    .map((name) => path.join(directory, name));
+  const result = spawnSync(
+    "rustfmt",
+    ["--edition", "2024", ...files],
+    { cwd: root, encoding: "utf8" },
+  );
+  if (result.status !== 0)
+    throw new Error(
+      `rustfmt failed\n${result.stdout}\n${result.stderr}`,
     );
 }
 

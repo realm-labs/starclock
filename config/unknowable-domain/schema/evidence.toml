@@ -2,13 +2,13 @@
 # Do not edit by hand.
 
 [[tables]]
-name = "UnknowableDomainScepter"
+name = "UnknowableDomainSourceEvidence"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "Scepter"
+file = "UnknowableDomainReview.xlsx"
+sheet = "SourceEvidence"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -61,159 +61,58 @@ parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_id"
 type = "string"
-length = [1, 32]
+length = [1, 500]
 [[tables.fields]]
-name = "style"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "alignment_id"
-type = "ref<UnknowableDomainAlignment.id>"
-[[tables.fields]]
-name = "function"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "source_function"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "unlock_id"
-type = "optional<string>"
-[[tables.fields]]
-name = "level_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 8]
-[[tables.fields]]
-name = "slot_layout_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 8]
-[[tables.fields]]
-name = "trigger_text_en"
+name = "repository"
 type = "string"
 length = [1, 1000]
 [[tables.fields]]
-name = "trigger_text_zh_cn"
+name = "revision"
+type = "string"
+length = [1, 200]
+[[tables.fields]]
+name = "path"
 type = "string"
 length = [1, 1000]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainScepterLevel"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ScepterLevel"
 [[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
+name = "locator"
 type = "string"
 length = [1, 500]
 [[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "scepter_id"
-type = "ref<UnknowableDomainScepter.id>"
-[[tables.fields]]
-name = "level"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "power"
+name = "sha256"
 type = "string"
 length = [1, 64]
 [[tables.fields]]
-name = "staff_maze_buff_id"
+name = "access_date"
 type = "string"
 length = [1, 32]
 [[tables.fields]]
-name = "locked_component_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
-[[tables.fields]]
-name = "slot_layout_id"
-type = "ref<UnknowableDomainSlotLayout.id>"
-[[tables.fields]]
-name = "slot_counts_json"
+name = "game_version"
 type = "string"
-length = [1, 60000]
+length = [1, 32]
 [[tables.fields]]
-name = "effect_ranges"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
+name = "mechanism_quality"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
-name = "effect_types"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
+name = "note"
+type = "optional<string>"
+[[tables.fields]]
+name = "replacement_condition"
+type = "optional<string>"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "UnknowableDomainScepterActivationRule"
+name = "UnknowableDomainCoverage"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ScepterActivationRule"
+file = "UnknowableDomainReview.xlsx"
+sheet = "Coverage"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -266,545 +165,331 @@ parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_id"
 type = "string"
-length = [1, 100]
+length = [1, 500]
 [[tables.fields]]
-name = "scepter_id"
-type = "ref<UnknowableDomainScepter.id>"
-[[tables.fields]]
-name = "scepter_level_id"
-type = "ref<UnknowableDomainScepterLevel.id>"
-[[tables.fields]]
-name = "trigger"
+name = "manifest_category"
 type = "string"
 length = [1, 160]
 [[tables.fields]]
-name = "trigger_text_en"
+name = "manifest_record_id"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "source_locator"
 type = "string"
 length = [1, 1000]
 [[tables.fields]]
-name = "trigger_text_zh_cn"
+name = "source_evidence_sha256"
 type = "string"
-length = [1, 1000]
+length = [1, 64]
 [[tables.fields]]
-name = "charge_or_speed_json"
+name = "state"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "data_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 128]
+[[tables.fields]]
+name = "blocking_gap_ids"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UnknowableDomainResearchGap"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UnknowableDomainReview.xlsx"
+sheet = "ResearchGap"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<UnknowableOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<UnknowableCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<UnknowableEvidenceQuality>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "source_id"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "state"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "blocking"
+type = "bool"
+[[tables.fields]]
+name = "owner"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "field"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "known_fact"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "policy"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "affected_data_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 256]
+[[tables.fields]]
+name = "replacement_condition"
+type = "string"
+length = [1, 4000]
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UnknowableDomainSemanticFixtureFamily"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UnknowableDomainReview.xlsx"
+sheet = "SemanticFixtureFamily"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<UnknowableOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<UnknowableCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<UnknowableEvidenceQuality>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "source_id"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "minimum_cases"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "must_cover"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 64]
+[[tables.fields]]
+name = "selected_source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 256]
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
+[[tables.indexes]]
+name = "by_stable_key"
+fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "UnknowableDomainReviewFixture"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "UnknowableDomainReview.xlsx"
+sheet = "ReviewFixture"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "stable_key"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "schema_revision"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "kind"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "name_en"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "name_zh_cn"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "summary_en"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "summary_zh_cn"
+type = "string"
+length = [1, 2400]
+[[tables.fields]]
+name = "ownership"
+type = "enum<UnknowableOwnership>"
+[[tables.fields]]
+name = "coverage_state"
+type = "enum<UnknowableCoverageState>"
+[[tables.fields]]
+name = "evidence_quality"
+type = "enum<UnknowableEvidenceQuality>"
+[[tables.fields]]
+name = "source_refs"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "tags"
+type = "optional<list<string>>"
+parser = { kind = "split", separator = "|" }
+[[tables.fields]]
+name = "source_id"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "family_id"
+type = "ref<UnknowableDomainSemanticFixtureFamily.id>"
+[[tables.fields]]
+name = "source_record_ids"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 256]
+[[tables.fields]]
+name = "preconditions_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "target_rule"
+name = "input_json"
 type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "target_selection_order"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "simultaneous_trigger_order"
-type = "string"
-length = [1, 160]
+length = [1, 60000]
 [[tables.fields]]
 name = "ordered_operations_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "binding_type"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "binding_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "ability_locator"
-type = "string"
-length = [1, 500]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainScepterStateTransition"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ScepterStateTransition"
-[[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "scepter_id"
-type = "ref<UnknowableDomainScepter.id>"
-[[tables.fields]]
-name = "scepter_level_id"
-type = "ref<UnknowableDomainScepterLevel.id>"
-[[tables.fields]]
-name = "activation_rule_id"
-type = "ref<UnknowableDomainScepterActivationRule.id>"
-[[tables.fields]]
-name = "teardown"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "ordinal"
-type = "i32"
-range = [0, 100]
-[[tables.fields]]
-name = "from_state"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "input"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "to_state"
-type = "string"
-length = [1, 160]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainComponent"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "Component"
-[[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 32]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainComponentLevel"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ComponentLevel"
-[[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "effect_source_id"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "component_id"
-type = "ref<UnknowableDomainComponent.id>"
-[[tables.fields]]
-name = "level"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "category"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "component_type"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "shape"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "shape_basis"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "range_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
-[[tables.fields]]
-name = "effect_types"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 32]
-[[tables.fields]]
-name = "effect_program_json"
+name = "expected_facts_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "description_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "description_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "simple_description_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "simple_description_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "style_ids"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "style_resolution"
-type = "string"
-length = [1, 160]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainComponentSlotCompatibility"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ComponentSlotCompatibility"
-[[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "component_id"
-type = "ref<UnknowableDomainComponent.id>"
-[[tables.fields]]
-name = "component_level"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "component_level_id"
-type = "ref<UnknowableDomainComponentLevel.id>"
-[[tables.fields]]
-name = "slot_type"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "range"
-type = "string"
-length = [1, 80]
-[[tables.fields]]
-name = "ordinal"
-type = "i32"
-range = [0, 100]
-[[tables.fields]]
-name = "eligibility"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "slot_layout_resolution"
-type = "string"
-length = [1, 160]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainSlotLayout"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "SlotLayout"
-[[tables.fields]]
-name = "id"
-type = "i32"
-range = [1, 2147483647]
-[[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "active_count"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "attach_count"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "passive_count"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "total_count"
-type = "string"
-length = [1, 32]
-[[tables.fields]]
-name = "slot_types"
+name = "evidence_refs"
 type = "list<string>"
 parser = { kind = "split", separator = "|" }
-length = [1, 16]
+length = [1, 512]
+[[tables.fields]]
+name = "fixture_evidence_quality"
+type = "enum<UnknowableEvidenceQuality>"
+[[tables.fields]]
+name = "runtime_executable"
+type = "bool"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "UnknowableDomainLoadout"
+name = "UnknowableDomainReconciliationReceipt"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "Loadout"
+file = "UnknowableDomainReview.xlsx"
+sheet = "ReconciliationReceipt"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -857,51 +542,75 @@ parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_id"
 type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "source_path"
+type = "string"
+length = [1, 1000]
+[[tables.fields]]
+name = "row_locator"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "evidence_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "checkpoint_goal"
+type = "string"
 length = [1, 100]
 [[tables.fields]]
-name = "scepter_id"
-type = "ref<UnknowableDomainScepter.id>"
-[[tables.fields]]
-name = "scepter_level_id"
-type = "ref<UnknowableDomainScepterLevel.id>"
-[[tables.fields]]
-name = "slot_layout_id"
-type = "ref<UnknowableDomainSlotLayout.id>"
-[[tables.fields]]
-name = "slot_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
-[[tables.fields]]
-name = "slots_json"
+name = "checkpoint_commit"
 type = "string"
-length = [1, 60000]
+length = [1, 64]
 [[tables.fields]]
-name = "locked_component_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
-[[tables.fields]]
-name = "locked_slot_resolution"
+name = "checkpoint_category"
 type = "string"
 length = [1, 160]
 [[tables.fields]]
-name = "authored_occupancy_json"
+name = "checkpoint_record_id"
 type = "string"
-length = [1, 60000]
+length = [1, 500]
+[[tables.fields]]
+name = "checkpoint_ownership"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "goal10_category"
+type = "string"
+length = [1, 160]
+[[tables.fields]]
+name = "goal10_record_id"
+type = "string"
+length = [1, 500]
+[[tables.fields]]
+name = "goal10_ownership"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "outcome"
+type = "string"
+length = [1, 100]
+[[tables.fields]]
+name = "note"
+type = "string"
+length = [1, 4000]
+[[tables.fields]]
+name = "blocking"
+type = "bool"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "UnknowableDomainLoadoutTransitionRule"
+name = "UnknowableDomainManifest"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "LoadoutTransitionRule"
+file = "UnknowableDomainReview.xlsx"
+sheet = "Manifest"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -956,131 +665,108 @@ name = "source_id"
 type = "string"
 length = [1, 160]
 [[tables.fields]]
-name = "operation"
+name = "goal_id"
 type = "string"
-length = [1, 80]
+length = [1, 160]
 [[tables.fields]]
-name = "eligibility_json"
+name = "profile_id"
+type = "ref<UnknowableDomainProfile.id>"
+[[tables.fields]]
+name = "snapshot_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "replacement_order_json"
+name = "source_inventory_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "content_manifest_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "normalized_schema_sha256"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "structured_source_revision"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "bilingual_index_revision"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "category_counts_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "rejected_mutation"
+name = "ownership_counts_json"
 type = "string"
-length = [1, 160]
+length = [1, 60000]
 [[tables.fields]]
-name = "no_legal_candidate"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "policy_id"
-type = "string"
-length = [1, 160]
-[[tables.indexes]]
-name = "by_stable_key"
-fields = ["stable_key"]
-unique = true
-
-[[tables]]
-name = "UnknowableDomainDecisionComponent"
-mode = "map"
-key = "id"
-[tables.source]
-format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "DecisionComponent"
-[[tables.fields]]
-name = "id"
+name = "frozen_source_obligations"
 type = "i32"
-range = [1, 2147483647]
+range = [0, 2147483647]
 [[tables.fields]]
-name = "stable_key"
-type = "string"
-length = [1, 240]
+name = "data_ready_source_obligations"
+type = "i32"
+range = [0, 2147483647]
 [[tables.fields]]
-name = "schema_revision"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "kind"
-type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "name_en"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "name_zh_cn"
-type = "string"
-length = [1, 500]
-[[tables.fields]]
-name = "summary_en"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "summary_zh_cn"
-type = "string"
-length = [1, 2400]
-[[tables.fields]]
-name = "ownership"
-type = "enum<UnknowableOwnership>"
-[[tables.fields]]
-name = "coverage_state"
-type = "enum<UnknowableCoverageState>"
-[[tables.fields]]
-name = "evidence_quality"
-type = "enum<UnknowableEvidenceQuality>"
-[[tables.fields]]
-name = "source_refs"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "tags"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "source_id"
+name = "coverage_percent"
 type = "string"
 length = [1, 32]
 [[tables.fields]]
-name = "component_id"
-type = "ref<UnknowableDomainComponent.id>"
+name = "normalized_file_count"
+type = "i32"
+range = [0, 2147483647]
 [[tables.fields]]
-name = "eligibility"
+name = "mechanic_source_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "mechanic_rule_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "semantic_fixture_family_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "research_gap_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "blocking_research_gap_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "reconciliation_receipt_count"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "runtime_loading"
 type = "string"
-length = [1, 160]
+length = [1, 100]
 [[tables.fields]]
-name = "scope"
+name = "authoring_target"
 type = "string"
-length = [1, 160]
+length = [1, 100]
 [[tables.fields]]
-name = "repetition"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "choice_program_ids"
-type = "list<string>"
-parser = { kind = "split", separator = "|" }
-length = [1, 16]
-[[tables.fields]]
-name = "effect_program_id"
-type = "ref<UnknowableDomainComponentLevel.id>"
+name = "candidate_quality"
+type = "bool"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "UnknowableDomainComponentChoiceProgram"
+name = "UnknowableDomainPackIndex"
 mode = "map"
 key = "id"
 [tables.source]
 format = "xlsx"
-file = "UnknowableDomain.xlsx"
-sheet = "ComponentChoiceProgram"
+file = "UnknowableDomainReview.xlsx"
+sheet = "PackIndex"
 [[tables.fields]]
 name = "id"
 type = "i32"
@@ -1133,38 +819,27 @@ parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_id"
 type = "string"
-length = [1, 100]
-[[tables.fields]]
-name = "decision_component_id"
-type = "ref<UnknowableDomainDecisionComponent.id>"
-[[tables.fields]]
-name = "candidate_set"
-type = "optional<list<string>>"
-parser = { kind = "split", separator = "|" }
-[[tables.fields]]
-name = "candidate_set_basis"
-type = "string"
 length = [1, 160]
 [[tables.fields]]
-name = "offer_reachability"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "ordering"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "repetition"
-type = "string"
-length = [1, 160]
-[[tables.fields]]
-name = "outcomes_json"
+name = "file_digests_json"
 type = "string"
 length = [1, 60000]
 [[tables.fields]]
-name = "fallback"
+name = "pack_digest"
 type = "string"
-length = [1, 160]
+length = [1, 64]
+[[tables.fields]]
+name = "component_digest"
+type = "string"
+length = [1, 64]
+[[tables.fields]]
+name = "component_digests_json"
+type = "string"
+length = [1, 60000]
+[[tables.fields]]
+name = "runtime_loading"
+type = "string"
+length = [1, 100]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

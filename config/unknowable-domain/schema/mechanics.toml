@@ -43,13 +43,13 @@ type = "string"
 length = [1, 2400]
 [[tables.fields]]
 name = "ownership"
-type = "enum<UnknowableDomainOwnership>"
+type = "enum<UnknowableOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<UnknowableDomainCoverageState>"
+type = "enum<UnknowableCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<UnknowableDomainEvidenceQuality>"
+type = "enum<UnknowableEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
@@ -145,13 +145,13 @@ type = "string"
 length = [1, 2400]
 [[tables.fields]]
 name = "ownership"
-type = "enum<UnknowableDomainOwnership>"
+type = "enum<UnknowableOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<UnknowableDomainCoverageState>"
+type = "enum<UnknowableCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<UnknowableDomainEvidenceQuality>"
+type = "enum<UnknowableEvidenceQuality>"
 [[tables.fields]]
 name = "source_refs"
 type = "optional<list<string>>"
