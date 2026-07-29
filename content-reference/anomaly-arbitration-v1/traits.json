@@ -1,0 +1,382 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "traits.json",
+  "record_kind": "EnemyTrait",
+  "records": [
+    {
+      "id": "trait.3033023",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Taunting",
+      "name_zh_cn": "挑衅",
+      "summary_en": "After six allied attacks, an enemy acts immediately; its tally clears at its turn start.",
+      "summary_zh_cn": "敌方受到我方六次攻击后立即行动，计数在其回合开始时清空。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033023"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033023",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033023",
+          "sha256": "73b929f0b4c5180aaa505c9363941f4a093e6c82e73f84b87aa87db3b776f98d",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "knight-1"
+      ],
+      "source_numeric_id": 3033023,
+      "source_parameters": [
+        "6"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0008",
+      "stage_ids": [
+        "stage.knight-1"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033038",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Depowered",
+      "name_zh_cn": "失能",
+      "summary_en": "On entry, allies lose 50% Energy and have 50% lower off-turn Energy regeneration for two turns.",
+      "summary_zh_cn": "入战时我方失去50%能量，回合外能量恢复效率降低50%，持续两回合。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033038"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033038",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033038",
+          "sha256": "92290f155a9007f2d294f9f97bb3b3b243693bc9f6cb62ae5a188b6fee80eb4f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "knight-2"
+      ],
+      "source_numeric_id": 3033038,
+      "source_parameters": [
+        "0.5",
+        "0.5",
+        "2"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0013",
+      "stage_ids": [
+        "stage.knight-2"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033051",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Equilibrium",
+      "name_zh_cn": "均衡",
+      "summary_en": "At battle start, the fastest ally loses 20% SPD and the slowest gains 15% SPD.",
+      "summary_zh_cn": "战斗开始时，最快的一名我方角色速度降低20%，最慢的一名提高15%。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033051"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033051",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033051",
+          "sha256": "64450cb0242a8a250c2657184755662cc92791d1875bf6f215375a0a247fbb7a",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "king-normal"
+      ],
+      "source_numeric_id": 3033051,
+      "source_parameters": [
+        "1",
+        "0.2",
+        "1",
+        "0.15"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0016",
+      "stage_ids": [
+        "stage.king-normal"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033052",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Equilibrium+",
+      "name_zh_cn": "均衡+",
+      "summary_en": "At battle start, the two fastest allies lose 20% SPD and the slowest gains 15% SPD.",
+      "summary_zh_cn": "战斗开始时，最快的两名我方角色速度降低20%，最慢的一名提高15%。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033052"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033052",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033052",
+          "sha256": "bcfade90ef97cac5912232f9e0b08bed05d4065b2160798694fd5b4e9f88754f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "king-plight"
+      ],
+      "source_numeric_id": 3033052,
+      "source_parameters": [
+        "2",
+        "0.2",
+        "1",
+        "0.15"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_EnhancedAbility_0016",
+      "stage_ids": [
+        "stage.king-plight"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033058",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Hemovore",
+      "name_zh_cn": "血嗜",
+      "summary_en": "At each ally turn start, that ally loses 500 HP; the loss can be fatal.",
+      "summary_zh_cn": "我方角色回合开始时损失500点生命值，且该损失可以致命。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033058"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033058",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033058",
+          "sha256": "8ae2fd85dab09b48ce55d5c7e6fb2e6f43cefaf7d992aa0e792c6f2739c4049e",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "knight-3"
+      ],
+      "source_numeric_id": 3033058,
+      "source_parameters": [
+        "500"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0018",
+      "stage_ids": [
+        "stage.knight-3"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033063",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Flow Break",
+      "name_zh_cn": "破势",
+      "summary_en": "Allied hits stack 2% damage reduction and 4% CRIT-DMG reduction on enemies up to ten; Follow-Up or Aha endpoints remove five.",
+      "summary_zh_cn": "我方命中使敌方叠加2%减伤与4%暴伤减免，最多十层；追加攻击或阿哈时刻结束移除五层。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033063"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033063",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033063",
+          "sha256": "42f95c81c765cbf696270e07b5b021ea5dac2f6f2c765dd78b369664e9705a2f",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "knight-2"
+      ],
+      "source_numeric_id": 3033063,
+      "source_parameters": [
+        "0.02",
+        "0.04",
+        "10",
+        "5"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0019",
+      "stage_ids": [
+        "stage.knight-2"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033069",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Enrage",
+      "name_zh_cn": "激怒",
+      "summary_en": "Each allied Ultimate gives all enemies one 30% SPD stack, up to four, cleared at enemy turn start.",
+      "summary_zh_cn": "我方每次施放终结技使敌方全体叠加一层30%速度提高，最多四层，并在敌方回合开始时清空。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033069"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033069",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033069",
+          "sha256": "de173a4af3611a9240e09d0c9b48425dabf8d32d27a496ea68cb708f4d943ad9",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "king-normal"
+      ],
+      "source_numeric_id": 3033069,
+      "source_parameters": [
+        "0.3",
+        "4"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_BaseAbility_0020",
+      "stage_ids": [
+        "stage.king-normal"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    },
+    {
+      "id": "trait.3033070",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "EnemyTrait",
+      "name_en": "Enrage+",
+      "name_zh_cn": "激怒+",
+      "summary_en": "Each allied Ultimate gives all enemies one 50% SPD stack, up to four, cleared at enemy turn start.",
+      "summary_zh_cn": "我方每次施放终结技使敌方全体叠加一层50%速度提高，最多四层，并在敌方回合开始时清空。",
+      "ownership": "Shared",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactStructured",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "stage_traits:trait:3033070"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033070",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/MazeBuff.json",
+          "locator": "ID=3033070",
+          "sha256": "728d745f99cd5e53a1535d539f9f58640f9c5098e77df83ade325331af8a4350",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Active normal or Plight TagList selects this exact MazeBuff row."
+        }
+      ],
+      "tags": [
+        "enemy-trait",
+        "king-plight"
+      ],
+      "source_numeric_id": 3033070,
+      "source_parameters": [
+        "0.5",
+        "4"
+      ],
+      "in_battle_binding_type": "StageAbilityBeforeCharacterBorn",
+      "in_battle_binding_key": "ChallengePeakBattle_EnhancedAbility_0020",
+      "stage_ids": [
+        "stage.king-plight"
+      ],
+      "binding_program_state": "ResolvedInExtractedAbilityList",
+      "runtime_executable": false
+    }
+  ]
+}
