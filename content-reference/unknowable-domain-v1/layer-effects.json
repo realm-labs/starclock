@@ -1,0 +1,47 @@
+[
+  {
+    "id": "unknowable-domain.layer-effect.401",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "LayerEffect",
+    "name_en": "Obtain Cosmic Fragments and Components",
+    "name_zh_cn": "获取宇宙碎片与组件",
+    "summary_en": "Obtain Cosmic Fragments and Components grants 500 Cosmic Fragments and 4 random Components; the trigger and Component pool are not published.",
+    "summary_zh_cn": "获取宇宙碎片与组件会给予 500 个宇宙碎片与 4 个随机组件；触发点与组件池未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagiclayereffect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicLayerEffect.json",
+        "locator": "0",
+        "sha256": "1b1db1a02153bf14a2864863d474da1fd4f6436f909e4acb1b19466458b3650f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "layer-effect",
+      "progression",
+      "reward"
+    ],
+    "source_id": "401",
+    "trigger": "Unspecified",
+    "parameters": [
+      "500",
+      "4"
+    ],
+    "ordered_operations": [
+      "GrantCosmicFragments:500",
+      "GrantRandomComponents:4"
+    ],
+    "component_pool_ids": [],
+    "component_pool_resolution": "Unspecified",
+    "description_en": "Obtains #1[i] Cosmic Fragment(s) and #2[i] random Component(s)",
+    "description_zh_cn": "获得#1[i]宇宙碎片，随机获得#2[i]个组件"
+  }
+]

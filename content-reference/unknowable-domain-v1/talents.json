@@ -1,0 +1,1675 @@
+[
+  {
+    "id": "unknowable-domain.talent.1001.level.1",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1001",
+    "name_zh_cn": "机制迭代天赋 1001",
+    "summary_en": "Talent 1001 is released at progression level 1 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1001 在进度等级 1 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "0",
+        "sha256": "515623d8d0d61f4fb51f246ebae517840eebf074ea7f5c4422fa492e6f179b18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1001:1",
+    "level": "1",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.05"
+      },
+      {
+        "value_type": "Number",
+        "value": "10"
+      },
+      {
+        "value_type": "Number",
+        "value": "1"
+      }
+    ],
+    "description_en": "When a Normal Enemy is defeated, increases DMG taken by the Boss Enemy by #1[i]%, stacking up to #2[i] time(s). Loses #3[i] stack(s) at the start of the Boss Enemy's turn",
+    "description_zh_cn": "普通敌人死亡时，首领敌人受到的伤害提高#1[i]%，最多叠加#2[i]层，首领敌人回合开始时降低#3[i]层",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1002.level.2",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1002",
+    "name_zh_cn": "机制迭代天赋 1002",
+    "summary_en": "Talent 1002 is released at progression level 2 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1002 在进度等级 2 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "1",
+        "sha256": "b2b8b74271a8205be60a60c9ef1dafc637537addec3fe42e0e3af6f61a816f32",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1002:2",
+    "level": "2",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "10"
+      }
+    ],
+    "description_en": "The SPD of \"SPD\" Scepters increases by #1[i]",
+    "description_zh_cn": "【速度】类权杖速度提高#1[i]点",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1003.level.3",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1003",
+    "name_zh_cn": "机制迭代天赋 1003",
+    "summary_en": "Talent 1003 is released at progression level 3 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1003 在进度等级 3 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "2",
+        "sha256": "612cf4339f6da418fabac5b090535370219996330b8c3ec50d9262c24790db66",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1003:3",
+    "level": "3",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.5"
+      }
+    ],
+    "description_en": "Initial Charge for \"Charge\" Scepters increases by #1[i]%",
+    "description_zh_cn": "【充能】类权杖的初始能量增加#1[i]%",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1004.level.4",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1004",
+    "name_zh_cn": "机制迭代天赋 1004",
+    "summary_en": "Talent 1004 is released at progression level 4 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1004 在进度等级 4 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "3",
+        "sha256": "e7eb91a8633cb94295a4287831e9abe9d670e476d5a8d468da46b280dfa2b031",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1004:4",
+    "level": "4",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "4"
+      },
+      {
+        "value_type": "Number",
+        "value": "0.99"
+      }
+    ],
+    "description_en": "All enemies will receive a set amount of DMG equal to #2[i]% of their respective Max HP when you enter combat for the first #1[i] times (excluding Boss battles) in the First Plane in the current run",
+    "description_zh_cn": "本次挑战中第一位面的前#1[i]场非首领区域的战斗，进入战斗时，敌方全体受到等同于各自生命上限#2[i]%的固定数值的伤害",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1005.level.5",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1005",
+    "name_zh_cn": "权限解锁天赋 1005",
+    "summary_en": "Talent 1005 is released at progression level 5 with 1 exact cost row(s) and 4 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1005 在进度等级 5 发布，具有 1 条精确费用与 4 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "4",
+        "sha256": "439c7b2c5ec48699642fda9589a1ef31a408b2237e0e982e6dcb55247e3906cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1005:5",
+    "level": "5",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.5031.level.3",
+      "unknowable-domain.component.5032.level.3",
+      "unknowable-domain.component.5033.level.3",
+      "unknowable-domain.component.5035.level.3"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "5031_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5032_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5033_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5035_3"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  },
+  {
+    "id": "unknowable-domain.talent.1006.level.6",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1006",
+    "name_zh_cn": "机制迭代天赋 1006",
+    "summary_en": "Talent 1006 is released at progression level 6 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1006 在进度等级 6 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "5",
+        "sha256": "bdca03513bbe513df5df544849b94559fb5b25b25078c0326b1edf1aafa36fde",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1006:6",
+    "level": "6",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.2"
+      }
+    ],
+    "description_en": "Reduces the price for Component Overwriting by #1[i]%",
+    "description_zh_cn": "组件覆写的价格降低#1[i]%",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1007.level.7",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1007",
+    "name_zh_cn": "战斗增幅天赋 1007",
+    "summary_en": "Talent 1007 is released at progression level 7 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1007 在进度等级 7 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "6",
+        "sha256": "619bfe8f5dbd90eeac2abd15f1951f86f52c219dc8bdced0c5799a12b242f278",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1007:7",
+    "level": "7",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all characters' ATK by #1[i]%",
+    "description_zh_cn": "所有角色攻击力提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1008.level.8",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1008",
+    "name_zh_cn": "机制迭代天赋 1008",
+    "summary_en": "Talent 1008 is released at progression level 8 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1008 在进度等级 8 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "7",
+        "sha256": "ac990f013958ac93aaf8f684b4a966e20cea73c01059de736a6e2b563a9c9687",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1008:8",
+    "level": "8",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "1"
+      },
+      {
+        "value_type": "Number",
+        "value": "4"
+      }
+    ],
+    "description_en": "Increases the number of purchasable Scepters by #1[i] and Components by #2[i] in Transaction domains.",
+    "description_zh_cn": "【交易】区域内增加#1[i]台可购买权杖，增加#2[i]个可购买组件",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1009.level.9",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1009",
+    "name_zh_cn": "战斗增幅天赋 1009",
+    "summary_en": "Talent 1009 is released at progression level 9 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1009 在进度等级 9 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "8",
+        "sha256": "00921285bda37e525b6761bdd0397da39e8c24ddac29e201bdfe4a0ac9ea9d3b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1009:9",
+    "level": "9",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.2"
+      }
+    ],
+    "description_en": "Increases all characters' and Scepters' Break Effect by #1[i]%",
+    "description_zh_cn": "所有角色与权杖击破特攻提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1010.level.10",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1010",
+    "name_zh_cn": "权限解锁天赋 1010",
+    "summary_en": "Talent 1010 is released at progression level 10 with 1 exact cost row(s) and 4 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1010 在进度等级 10 发布，具有 1 条精确费用与 4 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "9",
+        "sha256": "2ec337cc28b58dfd75bb1209ac067e97ddb9e98a1387643fcac124b9f235f80c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1010:10",
+    "level": "10",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.5012.level.3",
+      "unknowable-domain.component.5018.level.3",
+      "unknowable-domain.component.5019.level.3",
+      "unknowable-domain.component.5024.level.3"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "5012_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5018_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5019_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "5024_3"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  },
+  {
+    "id": "unknowable-domain.talent.1011.level.11",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1011",
+    "name_zh_cn": "战斗增幅天赋 1011",
+    "summary_en": "Talent 1011 is released at progression level 11 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1011 在进度等级 11 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "10",
+        "sha256": "363426457eb8478d2aae48b66b21caf08c1f6449a1e0f6ddc6b5b634975e4be4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1011:11",
+    "level": "11",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all characters' SPD by #1[i]%",
+    "description_zh_cn": "所有角色速度提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1012.level.12",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1012",
+    "name_zh_cn": "战斗增幅天赋 1012",
+    "summary_en": "Talent 1012 is released at progression level 12 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1012 在进度等级 12 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "11",
+        "sha256": "8996c86be89a87bb92677ff1f426f7b37efaaf60d640ae61d0bd09c5c46f16ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1012:12",
+    "level": "12",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all characters' Max HP by #1[i]%",
+    "description_zh_cn": "所有角色生命上限提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1013.level.13",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1013",
+    "name_zh_cn": "战斗增幅天赋 1013",
+    "summary_en": "Talent 1013 is released at progression level 13 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1013 在进度等级 13 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "12",
+        "sha256": "47bb1ac52721a4184031222c8bc05f0dda43a82d6bd995aeee25b8e2d151f865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1013:13",
+    "level": "13",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all characters' and Scepters' CRIT Rate by #1[i]%",
+    "description_zh_cn": "所有角色与权杖暴击率提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1014.level.14",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1014",
+    "name_zh_cn": "战斗增幅天赋 1014",
+    "summary_en": "Talent 1014 is released at progression level 14 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1014 在进度等级 14 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "13",
+        "sha256": "186be5dc334da0a43daecb44e84d17485fdbc1f2fdef513e827a3be5447367c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1014:14",
+    "level": "14",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.2"
+      }
+    ],
+    "description_en": "Increases all characters' and Scepters' CRIT DMG by #1[i]%",
+    "description_zh_cn": "所有角色与权杖暴击伤害提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1015.level.15",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1015",
+    "name_zh_cn": "权限解锁天赋 1015",
+    "summary_en": "Talent 1015 is released at progression level 15 with 1 exact cost row(s) and 3 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1015 在进度等级 15 发布，具有 1 条精确费用与 3 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "14",
+        "sha256": "d0d0704291b2f0cb0bac7ba1cc8d647a8a1a82116b10e80dfc19970f5d7577ec",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1015:15",
+    "level": "15",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.6013.level.3",
+      "unknowable-domain.component.6014.level.3",
+      "unknowable-domain.component.6015.level.3"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "6013_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6014_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6015_3"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  },
+  {
+    "id": "unknowable-domain.talent.1016.level.16",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1016",
+    "name_zh_cn": "机制迭代天赋 1016",
+    "summary_en": "Talent 1016 is released at progression level 16 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1016 在进度等级 16 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "15",
+        "sha256": "ed355c02ed19424f8d4df75123880f8b447dcdb7eb0cf817154af24a81f2b829",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1016:16",
+    "level": "16",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all Scepters' DMG by #1[i]%",
+    "description_zh_cn": "所有权杖的伤害提高#1[i]%",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1017.level.17",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1017",
+    "name_zh_cn": "战斗增幅天赋 1017",
+    "summary_en": "Talent 1017 is released at progression level 17 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1017 在进度等级 17 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "16",
+        "sha256": "4d5d2969fedd80f5669292b725f98722f28801797633750241f0b1d04276d493",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1017:17",
+    "level": "17",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases DMG dealt by all characters by #1[i]%",
+    "description_zh_cn": "所有角色造成的伤害提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1018.level.18",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1018",
+    "name_zh_cn": "战斗增幅天赋 1018",
+    "summary_en": "Talent 1018 is released at progression level 18 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1018 在进度等级 18 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "17",
+        "sha256": "9b9ad04c47ac32c00441c674189fe570bf472facb307c9c4cf155945b48ee847",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1018:18",
+    "level": "18",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Reduces DMG taken by all the characters by #1[i]%",
+    "description_zh_cn": "所有角色受到的伤害降低#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1019.level.19",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1019",
+    "name_zh_cn": "机制迭代天赋 1019",
+    "summary_en": "Talent 1019 is released at progression level 19 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1019 在进度等级 19 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "18",
+        "sha256": "5359f68461aef7729db8ffa89454b3bed7d5077282d3a4e1cdce6e1361b0aad7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1019:19",
+    "level": "19",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "1"
+      }
+    ],
+    "description_en": "Increases the number of extra Cycles usable in the stage by #1[i]",
+    "description_zh_cn": "全局可用的额外轮次增加#1[i]回合",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1020.level.20",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1020",
+    "name_zh_cn": "权限解锁天赋 1020",
+    "summary_en": "Talent 1020 is released at progression level 20 with 1 exact cost row(s) and 4 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1020 在进度等级 20 发布，具有 1 条精确费用与 4 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "19",
+        "sha256": "69892e99c110bd285b47b7160f9d2071423baac4020e86ce3a4eafa8d5cf8053",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1020:20",
+    "level": "20",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.6063.level.1",
+      "unknowable-domain.component.6064.level.1",
+      "unknowable-domain.component.6024.level.3",
+      "unknowable-domain.component.6025.level.3"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "6063_1"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6064_1"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6024_3"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6025_3"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  },
+  {
+    "id": "unknowable-domain.talent.1021.level.21",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Combat Amplification Talent 1021",
+    "name_zh_cn": "战斗增幅天赋 1021",
+    "summary_en": "Talent 1021 is released at progression level 21 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1021 在进度等级 21 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "20",
+        "sha256": "b5252108f72f697a9f99cc36a31e5aca2c91956ab207365703b27858bb443fad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "5",
+        "sha256": "979bd3a84d66c8d957f42976018b085eace64b433764f06f3b510ecb1730905e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "combat-amplification",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1021:21",
+    "level": "21",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases DMG dealt by all characters by #1[i]%",
+    "description_zh_cn": "所有角色造成的伤害提高#1[i]%",
+    "display_group_id": "202"
+  },
+  {
+    "id": "unknowable-domain.talent.1022.level.22",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1022",
+    "name_zh_cn": "机制迭代天赋 1022",
+    "summary_en": "Talent 1022 is released at progression level 22 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1022 在进度等级 22 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "21",
+        "sha256": "83cb76df33e227eff5782e0d6c8c610e4766adbca34c0428e06d34e50ee0925c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1022:22",
+    "level": "22",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "0.1"
+      }
+    ],
+    "description_en": "Increases all Scepters' DMG by #1[i]%",
+    "description_zh_cn": "所有权杖的伤害提高#1[i]%",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1023.level.23",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1023",
+    "name_zh_cn": "权限解锁天赋 1023",
+    "summary_en": "Talent 1023 is released at progression level 23 with 1 exact cost row(s) and 3 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1023 在进度等级 23 发布，具有 1 条精确费用与 3 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "22",
+        "sha256": "22a59a53a8c2602e912ddb923c0b591fba8ae699e1e95e13e450f2ebd63c9aa5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1023:23",
+    "level": "23",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.6070.level.1",
+      "unknowable-domain.component.6074.level.1",
+      "unknowable-domain.component.6075.level.1"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "6070_1"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6074_1"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6075_1"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  },
+  {
+    "id": "unknowable-domain.talent.1024.level.24",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Mechanics Iteration Talent 1024",
+    "name_zh_cn": "机制迭代天赋 1024",
+    "summary_en": "Talent 1024 is released at progression level 24 with 1 exact cost row(s) and 0 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1024 在进度等级 24 发布，具有 1 条精确费用与 0 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "23",
+        "sha256": "3e7f8014ddacb108a16eddbc5aa7807988533ed1515769ce4b9d92437a45ca5a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "4",
+        "sha256": "90df8aa106cc2a9553a5aabdd22430d3f462e11b68197279dbc48b11812fb87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "mechanics-iteration",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1024:24",
+    "level": "24",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "25"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [],
+    "effect_parameters": [
+      {
+        "value_type": "Number",
+        "value": "1"
+      }
+    ],
+    "description_en": "Increases the number of extra Cycles usable in the stage by #1[i]",
+    "description_zh_cn": "全局可用的额外轮次增加#1[i]回合",
+    "display_group_id": "201"
+  },
+  {
+    "id": "unknowable-domain.talent.1025.level.25",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableTalent",
+    "name_en": "Access Unlock Talent 1025",
+    "name_zh_cn": "权限解锁天赋 1025",
+    "summary_en": "Talent 1025 is released at progression level 25 with 1 exact cost row(s) and 2 explicit Component reference(s).",
+    "summary_zh_cn": "天赋 1025 在进度等级 25 发布，具有 1 条精确费用与 2 个显式组件引用。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagictalent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicTalent.json",
+        "locator": "24",
+        "sha256": "19f1934c52ddac13c8eae902a53e1d27c25cf092053025c42a0409e4ecd36ac4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "6",
+        "sha256": "557d19edaf32e5d8f7c33461b48a50fa6c28cab9d658faa5785370d6a7d79d8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "access-unlock",
+      "progression",
+      "talent"
+    ],
+    "source_id": "1025:25",
+    "level": "25",
+    "cost": [
+      {
+        "item_id": "281026",
+        "amount": "50"
+      }
+    ],
+    "prerequisite_ids": [],
+    "prerequisite_resolution": "Unspecified",
+    "effect_ids": [
+      "unknowable-domain.component.6071.level.1",
+      "unknowable-domain.component.6073.level.1"
+    ],
+    "effect_parameters": [
+      {
+        "value_type": "MagicUnit",
+        "value": "6071_1"
+      },
+      {
+        "value_type": "MagicUnit",
+        "value": "6073_1"
+      }
+    ],
+    "description_en": "Additionally unlocks Scepter / Component",
+    "description_zh_cn": "额外解锁权杖/组件",
+    "display_group_id": "203"
+  }
+]

@@ -1,0 +1,528 @@
+[
+  {
+    "id": "unknowable-domain.constant.roguemagic-acquire-giveupscepter",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Acquire_GiveUpScepter",
+    "name_zh_cn": "模式常量 RogueMagic_Acquire_GiveUpScepter",
+    "summary_en": "RogueMagic_Acquire_GiveUpScepter is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Acquire_GiveUpScepter 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "8",
+        "sha256": "90eadd91f7e183d3588d01ac743de3de739591ffe65be93d00f54655a3972f98",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Acquire_GiveUpScepter",
+    "value_type": "Integer",
+    "value": "100",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-difficultyextra-attachtrenchcount",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_DifficultyExtra_AttachTrenchCount",
+    "name_zh_cn": "模式常量 RogueMagic_DifficultyExtra_AttachTrenchCount",
+    "summary_en": "RogueMagic_DifficultyExtra_AttachTrenchCount is an exact integer-array constant with 6 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_DifficultyExtra_AttachTrenchCount 是精确的整数数组常量，包含 6 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "9",
+        "sha256": "aed73daa2858451c04a4877b2ea997135a8e84f9b486bb6c638cc8417c3f1fa2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_DifficultyExtra_AttachTrenchCount",
+    "value_type": "IntegerArray",
+    "value": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-difficultyextra-passivetrenchcount",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_DifficultyExtra_PassiveTrenchCount",
+    "name_zh_cn": "模式常量 RogueMagic_DifficultyExtra_PassiveTrenchCount",
+    "summary_en": "RogueMagic_DifficultyExtra_PassiveTrenchCount is an exact integer-array constant with 6 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_DifficultyExtra_PassiveTrenchCount 是精确的整数数组常量，包含 6 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "10",
+        "sha256": "6e9716602e9370c827763c0b4e13bc38a5f3eb2385e9f8c5af207620d309c7e1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_DifficultyExtra_PassiveTrenchCount",
+    "value_type": "IntegerArray",
+    "value": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-extra-round",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Extra_Round",
+    "name_zh_cn": "模式常量 RogueMagic_Extra_Round",
+    "summary_en": "RogueMagic_Extra_Round is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Extra_Round 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "1",
+        "sha256": "ebbd893369bc9a40dea8123c94ec065a436e79db56f1b0e9251c8e537b8f1f98",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Extra_Round",
+    "value_type": "Integer",
+    "value": "2",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-extra-round-blockarealist",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Extra_Round_BlockAreaList",
+    "name_zh_cn": "模式常量 RogueMagic_Extra_Round_BlockAreaList",
+    "summary_en": "RogueMagic_Extra_Round_BlockAreaList is an exact integer-array constant with 3 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Extra_Round_BlockAreaList 是精确的整数数组常量，包含 3 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "13",
+        "sha256": "c1ecb12d20f6ca7eb2221c249e3e19e9a01d217bd8381693687a23926cc95eed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Extra_Round_BlockAreaList",
+    "value_type": "IntegerArray",
+    "value": [
+      "101",
+      "201",
+      "301"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-extralayer-enterbuffgroup",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_ExtraLayer_EnterBuffGroup",
+    "name_zh_cn": "模式常量 RogueMagic_ExtraLayer_EnterBuffGroup",
+    "summary_en": "RogueMagic_ExtraLayer_EnterBuffGroup is an exact integer-array constant with 5 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_ExtraLayer_EnterBuffGroup 是精确的整数数组常量，包含 5 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "7",
+        "sha256": "600008495340efa679f5691be5c46ac7b1603ab82111555a3769815c66bd6d75",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_ExtraLayer_EnterBuffGroup",
+    "value_type": "IntegerArray",
+    "value": [
+      "683050",
+      "685120",
+      "683060",
+      "683100",
+      "683170"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-extralayer-entercostround",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_ExtraLayer_EnterCostRound",
+    "name_zh_cn": "模式常量 RogueMagic_ExtraLayer_EnterCostRound",
+    "summary_en": "RogueMagic_ExtraLayer_EnterCostRound is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_ExtraLayer_EnterCostRound 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "6",
+        "sha256": "2991c0a959b31334795ec6a401f75a683c1d599e73349a9e6b37a24d2b134a8c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_ExtraLayer_EnterCostRound",
+    "value_type": "Integer",
+    "value": "1",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-handbook-scepter-questlist",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Handbook_Scepter_QuestList",
+    "name_zh_cn": "模式常量 RogueMagic_Handbook_Scepter_QuestList",
+    "summary_en": "RogueMagic_Handbook_Scepter_QuestList is an exact integer-array constant with 5 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Handbook_Scepter_QuestList 是精确的整数数组常量，包含 5 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "12",
+        "sha256": "9abeeaae9b98d33fe8c455a28344c438d0355b94ccb9ea059ad33c5caf43bf94",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Handbook_Scepter_QuestList",
+    "value_type": "IntegerArray",
+    "value": [
+      "5013101",
+      "5013102",
+      "5013103",
+      "5013104",
+      "5013105"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-handbook-unit-questlist",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Handbook_Unit_QuestList",
+    "name_zh_cn": "模式常量 RogueMagic_Handbook_Unit_QuestList",
+    "summary_en": "RogueMagic_Handbook_Unit_QuestList is an exact integer-array constant with 5 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Handbook_Unit_QuestList 是精确的整数数组常量，包含 5 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "11",
+        "sha256": "12235cc782e4708806d4189550eca4e896d88f41dc246d79f8561d83175d6981",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Handbook_Unit_QuestList",
+    "value_type": "IntegerArray",
+    "value": [
+      "5013106",
+      "5013107",
+      "5013108",
+      "5013109",
+      "5013110"
+    ],
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-max-requiredlayerindex",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Max_RequiredLayerIndex",
+    "name_zh_cn": "模式常量 RogueMagic_Max_RequiredLayerIndex",
+    "summary_en": "RogueMagic_Max_RequiredLayerIndex is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Max_RequiredLayerIndex 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "5",
+        "sha256": "9368607419a24181e9f92fe036b0c62fc4169fa65c4c27e9c4a97fb96598e5a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Max_RequiredLayerIndex",
+    "value_type": "Integer",
+    "value": "3",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-max-scepterequip",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Max_ScepterEquip",
+    "name_zh_cn": "模式常量 RogueMagic_Max_ScepterEquip",
+    "summary_en": "RogueMagic_Max_ScepterEquip is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Max_ScepterEquip 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "3",
+        "sha256": "40c3f5021940cb8bb4cfa4a6d178c4770e883291e798f5a73f4e55e695f2ec88",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Max_ScepterEquip",
+    "value_type": "Integer",
+    "value": "3",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-max-scepterslot",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_Max_ScepterSlot",
+    "name_zh_cn": "模式常量 RogueMagic_Max_ScepterSlot",
+    "summary_en": "RogueMagic_Max_ScepterSlot is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_Max_ScepterSlot 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "4",
+        "sha256": "a483d3a3083db77662f477d01c050565d7af10572f983dc1ec6f5b62a7288e65",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_Max_ScepterSlot",
+    "value_type": "Integer",
+    "value": "7",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-toforthlayerneedround",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_ToForthLayerNeedRound",
+    "name_zh_cn": "模式常量 RogueMagic_ToForthLayerNeedRound",
+    "summary_en": "RogueMagic_ToForthLayerNeedRound is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_ToForthLayerNeedRound 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "2",
+        "sha256": "66d9d57cad01b14a2d0c18e785ac1e600b099b0248653d7abdf9b508ff3e99d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_ToForthLayerNeedRound",
+    "value_type": "Integer",
+    "value": "1",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  },
+  {
+    "id": "unknowable-domain.constant.roguemagic-unitcompose",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeConstant",
+    "name_en": "Mode Constant RogueMagic_UnitCompose",
+    "name_zh_cn": "模式常量 RogueMagic_UnitCompose",
+    "summary_en": "RogueMagic_UnitCompose is an exact integer constant with 1 value(s); consumers are not inferred.",
+    "summary_zh_cn": "RogueMagic_UnitCompose 是精确的整数常量，包含 1 个值；不推断消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicconstcommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicConstCommon.json",
+        "locator": "0",
+        "sha256": "2057d7b05347bbb602e9fd8b67437d9e0386adddd2395abbeb7e443a847ad70b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "constant",
+      "progression"
+    ],
+    "source_id": "RogueMagic_UnitCompose",
+    "value_type": "Integer",
+    "value": "3",
+    "consumer_ids": [],
+    "consumer_resolution": "Unspecified"
+  }
+]

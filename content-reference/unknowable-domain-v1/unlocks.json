@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "unknowable-domain.unlock.5013001",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013001",
+    "name_zh_cn": "解锁 5013001",
+    "summary_en": "Unlock 5013001 binds finish condition 5013001 to 41 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013001 将完成条件 5013001 绑定到 41 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "0",
+        "sha256": "24831beb7c031d753b0b98ff5e12f823e3ac85d04dc099619e291ce7030b4044",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013001",
+    "finish_condition_id": "unknowable-domain.finish.5013001",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#2",
+      "ExcelOutput/RogueMagicScepter.json#9",
+      "ExcelOutput/RogueMagicScepter.json#10",
+      "ExcelOutput/RogueMagicScepter.json#11",
+      "ExcelOutput/RogueMagicScepter.json#27",
+      "ExcelOutput/RogueMagicScepter.json#28",
+      "ExcelOutput/RogueMagicScepter.json#29",
+      "ExcelOutput/RogueMagicScepter.json#39",
+      "ExcelOutput/RogueMagicScepter.json#40",
+      "ExcelOutput/RogueMagicScepter.json#41",
+      "ExcelOutput/RogueMagicScepter.json#42",
+      "ExcelOutput/RogueMagicScepter.json#43",
+      "ExcelOutput/RogueMagicScepter.json#44",
+      "ExcelOutput/RogueMagicScepter.json#54",
+      "ExcelOutput/RogueMagicScepter.json#55",
+      "ExcelOutput/RogueMagicScepter.json#56",
+      "ExcelOutput/RogueMagicStyleTypeSelect.json#2",
+      "ExcelOutput/RogueMagicUnit.json#90",
+      "ExcelOutput/RogueMagicUnit.json#91",
+      "ExcelOutput/RogueMagicUnit.json#92",
+      "ExcelOutput/RogueMagicUnit.json#99",
+      "ExcelOutput/RogueMagicUnit.json#100",
+      "ExcelOutput/RogueMagicUnit.json#101",
+      "ExcelOutput/RogueMagicUnit.json#120",
+      "ExcelOutput/RogueMagicUnit.json#121",
+      "ExcelOutput/RogueMagicUnit.json#122",
+      "ExcelOutput/RogueMagicUnit.json#144",
+      "ExcelOutput/RogueMagicUnit.json#145",
+      "ExcelOutput/RogueMagicUnit.json#146",
+      "ExcelOutput/RogueMagicUnit.json#150",
+      "ExcelOutput/RogueMagicUnit.json#151",
+      "ExcelOutput/RogueMagicUnit.json#152",
+      "ExcelOutput/RogueMagicUnit.json#180",
+      "ExcelOutput/RogueMagicUnit.json#181",
+      "ExcelOutput/RogueMagicUnit.json#182",
+      "ExcelOutput/RogueMagicUnit.json#186",
+      "ExcelOutput/RogueMagicUnit.json#187",
+      "ExcelOutput/RogueMagicUnit.json#188",
+      "ExcelOutput/RogueMagicUnit.json#210",
+      "ExcelOutput/RogueMagicUnit.json#211",
+      "ExcelOutput/RogueMagicUnit.json#212"
+    ],
+    "description_en": "Clear \"Fading Empire\" to unlock",
+    "description_zh_cn": "通关「消逝的帝国」后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013002",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013002",
+    "name_zh_cn": "解锁 5013002",
+    "summary_en": "Unlock 5013002 binds finish condition 5013002 to 41 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013002 将完成条件 5013002 绑定到 41 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "1",
+        "sha256": "282792456c52dd4b6661ab93247e47247b7cc4bbe29e1e9e315811ff3e3322a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013002",
+    "finish_condition_id": "unknowable-domain.finish.5013002",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#3",
+      "ExcelOutput/RogueMagicScepter.json#12",
+      "ExcelOutput/RogueMagicScepter.json#13",
+      "ExcelOutput/RogueMagicScepter.json#14",
+      "ExcelOutput/RogueMagicScepter.json#15",
+      "ExcelOutput/RogueMagicScepter.json#16",
+      "ExcelOutput/RogueMagicScepter.json#17",
+      "ExcelOutput/RogueMagicScepter.json#48",
+      "ExcelOutput/RogueMagicScepter.json#49",
+      "ExcelOutput/RogueMagicScepter.json#50",
+      "ExcelOutput/RogueMagicScepter.json#51",
+      "ExcelOutput/RogueMagicScepter.json#52",
+      "ExcelOutput/RogueMagicScepter.json#53",
+      "ExcelOutput/RogueMagicScepter.json#66",
+      "ExcelOutput/RogueMagicScepter.json#67",
+      "ExcelOutput/RogueMagicScepter.json#68",
+      "ExcelOutput/RogueMagicStyleTypeSelect.json#3",
+      "ExcelOutput/RogueMagicUnit.json#108",
+      "ExcelOutput/RogueMagicUnit.json#109",
+      "ExcelOutput/RogueMagicUnit.json#110",
+      "ExcelOutput/RogueMagicUnit.json#111",
+      "ExcelOutput/RogueMagicUnit.json#112",
+      "ExcelOutput/RogueMagicUnit.json#113",
+      "ExcelOutput/RogueMagicUnit.json#114",
+      "ExcelOutput/RogueMagicUnit.json#115",
+      "ExcelOutput/RogueMagicUnit.json#116",
+      "ExcelOutput/RogueMagicUnit.json#129",
+      "ExcelOutput/RogueMagicUnit.json#130",
+      "ExcelOutput/RogueMagicUnit.json#131",
+      "ExcelOutput/RogueMagicUnit.json#183",
+      "ExcelOutput/RogueMagicUnit.json#184",
+      "ExcelOutput/RogueMagicUnit.json#185",
+      "ExcelOutput/RogueMagicUnit.json#228",
+      "ExcelOutput/RogueMagicUnit.json#229",
+      "ExcelOutput/RogueMagicUnit.json#230",
+      "ExcelOutput/RogueMagicUnit.json#252",
+      "ExcelOutput/RogueMagicUnit.json#253",
+      "ExcelOutput/RogueMagicUnit.json#256",
+      "ExcelOutput/RogueMagicUnit.json#257",
+      "ExcelOutput/RogueMagicUnit.json#258",
+      "ExcelOutput/RogueMagicUnit.json#259"
+    ],
+    "description_en": "Clear \"Future Rehearsal\" to unlock",
+    "description_zh_cn": "通关「未来的预演」后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013003",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013003",
+    "name_zh_cn": "解锁 5013003",
+    "summary_en": "Unlock 5013003 binds finish condition 5013003 to 43 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013003 将完成条件 5013003 绑定到 43 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "2",
+        "sha256": "b87334a4b2e1707902509dc3b460cb5ff6b048f57633607a9afb374d5aaf9558",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013003",
+    "finish_condition_id": "unknowable-domain.finish.5013003",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#4",
+      "ExcelOutput/RogueMagicScepter.json#3",
+      "ExcelOutput/RogueMagicScepter.json#4",
+      "ExcelOutput/RogueMagicScepter.json#5",
+      "ExcelOutput/RogueMagicScepter.json#18",
+      "ExcelOutput/RogueMagicScepter.json#19",
+      "ExcelOutput/RogueMagicScepter.json#20",
+      "ExcelOutput/RogueMagicScepter.json#57",
+      "ExcelOutput/RogueMagicScepter.json#58",
+      "ExcelOutput/RogueMagicScepter.json#59",
+      "ExcelOutput/RogueMagicScepter.json#69",
+      "ExcelOutput/RogueMagicScepter.json#70",
+      "ExcelOutput/RogueMagicScepter.json#71",
+      "ExcelOutput/RogueMagicUnit.json#72",
+      "ExcelOutput/RogueMagicUnit.json#73",
+      "ExcelOutput/RogueMagicUnit.json#74",
+      "ExcelOutput/RogueMagicUnit.json#87",
+      "ExcelOutput/RogueMagicUnit.json#88",
+      "ExcelOutput/RogueMagicUnit.json#89",
+      "ExcelOutput/RogueMagicUnit.json#93",
+      "ExcelOutput/RogueMagicUnit.json#94",
+      "ExcelOutput/RogueMagicUnit.json#95",
+      "ExcelOutput/RogueMagicUnit.json#132",
+      "ExcelOutput/RogueMagicUnit.json#133",
+      "ExcelOutput/RogueMagicUnit.json#134",
+      "ExcelOutput/RogueMagicUnit.json#153",
+      "ExcelOutput/RogueMagicUnit.json#154",
+      "ExcelOutput/RogueMagicUnit.json#155",
+      "ExcelOutput/RogueMagicUnit.json#156",
+      "ExcelOutput/RogueMagicUnit.json#157",
+      "ExcelOutput/RogueMagicUnit.json#158",
+      "ExcelOutput/RogueMagicUnit.json#207",
+      "ExcelOutput/RogueMagicUnit.json#208",
+      "ExcelOutput/RogueMagicUnit.json#209",
+      "ExcelOutput/RogueMagicUnit.json#225",
+      "ExcelOutput/RogueMagicUnit.json#226",
+      "ExcelOutput/RogueMagicUnit.json#227",
+      "ExcelOutput/RogueMagicUnit.json#240",
+      "ExcelOutput/RogueMagicUnit.json#241",
+      "ExcelOutput/RogueMagicUnit.json#242",
+      "ExcelOutput/RogueMagicUnit.json#254",
+      "ExcelOutput/RogueMagicUnit.json#255",
+      "ExcelOutput/RogueMagicUnit.json#266"
+    ],
+    "description_en": "Clear \"Ice-Cold Technology\" to unlock",
+    "description_zh_cn": "通关「冰冷的技术」后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013004",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013004",
+    "name_zh_cn": "解锁 5013004",
+    "summary_en": "Unlock 5013004 binds finish condition 5013004 to 26 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013004 将完成条件 5013004 绑定到 26 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "3",
+        "sha256": "41c5f0a8b02352ee3683fef7434ed1119a8ba9e469ccbea6ea5cc22807d5b796",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013004",
+    "finish_condition_id": "unknowable-domain.finish.5013004",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#5",
+      "ExcelOutput/RogueMagicUnit.json#81",
+      "ExcelOutput/RogueMagicUnit.json#82",
+      "ExcelOutput/RogueMagicUnit.json#83",
+      "ExcelOutput/RogueMagicUnit.json#84",
+      "ExcelOutput/RogueMagicUnit.json#85",
+      "ExcelOutput/RogueMagicUnit.json#86",
+      "ExcelOutput/RogueMagicUnit.json#96",
+      "ExcelOutput/RogueMagicUnit.json#97",
+      "ExcelOutput/RogueMagicUnit.json#98",
+      "ExcelOutput/RogueMagicUnit.json#117",
+      "ExcelOutput/RogueMagicUnit.json#118",
+      "ExcelOutput/RogueMagicUnit.json#119",
+      "ExcelOutput/RogueMagicUnit.json#147",
+      "ExcelOutput/RogueMagicUnit.json#148",
+      "ExcelOutput/RogueMagicUnit.json#149",
+      "ExcelOutput/RogueMagicUnit.json#159",
+      "ExcelOutput/RogueMagicUnit.json#160",
+      "ExcelOutput/RogueMagicUnit.json#161",
+      "ExcelOutput/RogueMagicUnit.json#192",
+      "ExcelOutput/RogueMagicUnit.json#193",
+      "ExcelOutput/RogueMagicUnit.json#194",
+      "ExcelOutput/RogueMagicUnit.json#267",
+      "ExcelOutput/RogueMagicUnit.json#268",
+      "ExcelOutput/RogueMagicUnit.json#269",
+      "ExcelOutput/RogueMagicUnit.json#270"
+    ],
+    "description_en": "Clear \"Center of Knowledge\" to unlock",
+    "description_zh_cn": "通关「知识的中心」后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013005",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013005",
+    "name_zh_cn": "解锁 5013005",
+    "summary_en": "Unlock 5013005 binds finish condition 5013005 to 30 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013005 将完成条件 5013005 绑定到 30 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "4",
+        "sha256": "c450b945f2580cc4c1e33ed8c9a1151d4497ac6740022c08a4185cb606157df5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013005",
+    "finish_condition_id": "unknowable-domain.finish.5013005",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#0",
+      "ExcelOutput/RogueMagicScepter.json#30",
+      "ExcelOutput/RogueMagicScepter.json#31",
+      "ExcelOutput/RogueMagicScepter.json#32",
+      "ExcelOutput/RogueMagicScepter.json#33",
+      "ExcelOutput/RogueMagicScepter.json#34",
+      "ExcelOutput/RogueMagicScepter.json#35",
+      "ExcelOutput/RogueMagicScepter.json#45",
+      "ExcelOutput/RogueMagicScepter.json#46",
+      "ExcelOutput/RogueMagicScepter.json#47",
+      "ExcelOutput/RogueMagicScepter.json#60",
+      "ExcelOutput/RogueMagicScepter.json#61",
+      "ExcelOutput/RogueMagicScepter.json#62",
+      "ExcelOutput/RogueMagicScepter.json#63",
+      "ExcelOutput/RogueMagicScepter.json#64",
+      "ExcelOutput/RogueMagicScepter.json#65",
+      "ExcelOutput/RogueMagicUnit.json#234",
+      "ExcelOutput/RogueMagicUnit.json#235",
+      "ExcelOutput/RogueMagicUnit.json#236",
+      "ExcelOutput/RogueMagicUnit.json#237",
+      "ExcelOutput/RogueMagicUnit.json#238",
+      "ExcelOutput/RogueMagicUnit.json#239",
+      "ExcelOutput/RogueMagicUnit.json#243",
+      "ExcelOutput/RogueMagicUnit.json#244",
+      "ExcelOutput/RogueMagicUnit.json#245",
+      "ExcelOutput/RogueMagicUnit.json#260",
+      "ExcelOutput/RogueMagicUnit.json#261",
+      "ExcelOutput/RogueMagicUnit.json#262",
+      "ExcelOutput/RogueMagicUnit.json#263",
+      "ExcelOutput/RogueMagicUnit.json#273"
+    ],
+    "description_en": "Clear \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013006",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013006",
+    "name_zh_cn": "解锁 5013006",
+    "summary_en": "Unlock 5013006 binds finish condition 5013006 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013006 将完成条件 5013006 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "5",
+        "sha256": "73bff80599e1f3185e537b77b81011a5c6efbae99ecacdf9e64c82e2d77cfff1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013006",
+    "finish_condition_id": "unknowable-domain.finish.5013006",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#1"
+    ],
+    "description_en": "Clear Conundrum 1 of \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」难题等级1后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013007",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013007",
+    "name_zh_cn": "解锁 5013007",
+    "summary_en": "Unlock 5013007 binds finish condition 5013007 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013007 将完成条件 5013007 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "6",
+        "sha256": "904862e44e89203503075b467d9aa82a7ffa25324d9fb857462b39df86737592",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013007",
+    "finish_condition_id": "unknowable-domain.finish.5013007",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#2"
+    ],
+    "description_en": "Clear Conundrum 2 of \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」难题等级2后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013008",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013008",
+    "name_zh_cn": "解锁 5013008",
+    "summary_en": "Unlock 5013008 binds finish condition 5013008 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013008 将完成条件 5013008 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "7",
+        "sha256": "f3a684cca0ed31fa1fd44fbcb385ef5e989b7fc0bc691177a2486c34c725a99f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013008",
+    "finish_condition_id": "unknowable-domain.finish.5013008",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#3"
+    ],
+    "description_en": "Clear Conundrum 3 of \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」难题等级3后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013009",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013009",
+    "name_zh_cn": "解锁 5013009",
+    "summary_en": "Unlock 5013009 binds finish condition 5013009 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013009 将完成条件 5013009 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "8",
+        "sha256": "89efb619701afc151438acd825bd744b8015f53ed357bbb519203c7b3fddf137",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013009",
+    "finish_condition_id": "unknowable-domain.finish.5013009",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#4"
+    ],
+    "description_en": "Clear Conundrum 4 of \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」难题等级4后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013010",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013010",
+    "name_zh_cn": "解锁 5013010",
+    "summary_en": "Unlock 5013010 binds finish condition 5013010 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013010 将完成条件 5013010 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "9",
+        "sha256": "d03b12565da9a72102fe2e35256519c92cf24450428afcd09537946194a6b25e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013010",
+    "finish_condition_id": "unknowable-domain.finish.5013010",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "AfterFinishConditionSatisfied",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicDifficultyComp.json#5"
+    ],
+    "description_en": "Clear Conundrum 1 of \"Someone's Mausoleum\" to unlock",
+    "description_zh_cn": "通关「谁人的陵寝」难题等级5后解锁"
+  },
+  {
+    "id": "unknowable-domain.unlock.5013011",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013011",
+    "name_zh_cn": "解锁 5013011",
+    "summary_en": "Unlock 5013011 binds finish condition 5013011 to 12 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013011 将完成条件 5013011 绑定到 12 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "10",
+        "sha256": "a935f0c64b2eac931ac602774093dd378fe9c00c1dd5b4892f4d52ad9aff1127",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013011",
+    "finish_condition_id": "unknowable-domain.finish.5013011",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#162",
+      "ExcelOutput/RogueMagicUnit.json#163",
+      "ExcelOutput/RogueMagicUnit.json#164",
+      "ExcelOutput/RogueMagicUnit.json#165",
+      "ExcelOutput/RogueMagicUnit.json#166",
+      "ExcelOutput/RogueMagicUnit.json#167",
+      "ExcelOutput/RogueMagicUnit.json#168",
+      "ExcelOutput/RogueMagicUnit.json#169",
+      "ExcelOutput/RogueMagicUnit.json#170",
+      "ExcelOutput/RogueMagicUnit.json#174",
+      "ExcelOutput/RogueMagicUnit.json#175",
+      "ExcelOutput/RogueMagicUnit.json#176"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013012",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013012",
+    "name_zh_cn": "解锁 5013012",
+    "summary_en": "Unlock 5013012 binds finish condition 5013012 to 12 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013012 将完成条件 5013012 绑定到 12 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "11",
+        "sha256": "2364e16437e9260de09438c2e8ab67be938e8e848f4a8ccc23bf62538e6b367a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013012",
+    "finish_condition_id": "unknowable-domain.finish.5013012",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#105",
+      "ExcelOutput/RogueMagicUnit.json#106",
+      "ExcelOutput/RogueMagicUnit.json#107",
+      "ExcelOutput/RogueMagicUnit.json#123",
+      "ExcelOutput/RogueMagicUnit.json#124",
+      "ExcelOutput/RogueMagicUnit.json#125",
+      "ExcelOutput/RogueMagicUnit.json#126",
+      "ExcelOutput/RogueMagicUnit.json#127",
+      "ExcelOutput/RogueMagicUnit.json#128",
+      "ExcelOutput/RogueMagicUnit.json#141",
+      "ExcelOutput/RogueMagicUnit.json#142",
+      "ExcelOutput/RogueMagicUnit.json#143"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013013",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013013",
+    "name_zh_cn": "解锁 5013013",
+    "summary_en": "Unlock 5013013 binds finish condition 5013013 to 9 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013013 将完成条件 5013013 绑定到 9 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "12",
+        "sha256": "a7dccc2e76db667e60bffaa0010ca090d7eb2badbd5e54f9a8d5806f6dd3f306",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013013",
+    "finish_condition_id": "unknowable-domain.finish.5013013",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#213",
+      "ExcelOutput/RogueMagicUnit.json#214",
+      "ExcelOutput/RogueMagicUnit.json#215",
+      "ExcelOutput/RogueMagicUnit.json#216",
+      "ExcelOutput/RogueMagicUnit.json#217",
+      "ExcelOutput/RogueMagicUnit.json#218",
+      "ExcelOutput/RogueMagicUnit.json#219",
+      "ExcelOutput/RogueMagicUnit.json#220",
+      "ExcelOutput/RogueMagicUnit.json#221"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013014",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013014",
+    "name_zh_cn": "解锁 5013014",
+    "summary_en": "Unlock 5013014 binds finish condition 5013014 to 8 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013014 将完成条件 5013014 绑定到 8 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "13",
+        "sha256": "9fde9e172a85ac0e39f5793fb443f8d4b4a555d1de8dad3945226527ef670cd1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013014",
+    "finish_condition_id": "unknowable-domain.finish.5013014",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#246",
+      "ExcelOutput/RogueMagicUnit.json#247",
+      "ExcelOutput/RogueMagicUnit.json#248",
+      "ExcelOutput/RogueMagicUnit.json#249",
+      "ExcelOutput/RogueMagicUnit.json#250",
+      "ExcelOutput/RogueMagicUnit.json#251",
+      "ExcelOutput/RogueMagicUnit.json#264",
+      "ExcelOutput/RogueMagicUnit.json#265"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013015",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013015",
+    "name_zh_cn": "解锁 5013015",
+    "summary_en": "Unlock 5013015 binds finish condition 5013015 to 3 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013015 将完成条件 5013015 绑定到 3 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "14",
+        "sha256": "1aaed97c0e7a64707ecbb842640c6752915560d321fd27f55f802d1d47fdc573",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013015",
+    "finish_condition_id": "unknowable-domain.finish.5013015",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#271",
+      "ExcelOutput/RogueMagicUnit.json#275",
+      "ExcelOutput/RogueMagicUnit.json#276"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013016",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013016",
+    "name_zh_cn": "解锁 5013016",
+    "summary_en": "Unlock 5013016 binds finish condition 5013016 to 2 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013016 将完成条件 5013016 绑定到 2 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "15",
+        "sha256": "179853571b2948a3d65a4ec9aab8d98e6349392da3819b7d30e054a3b770a95d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013016",
+    "finish_condition_id": "unknowable-domain.finish.5013016",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicUnit.json#272",
+      "ExcelOutput/RogueMagicUnit.json#274"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013017",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013017",
+    "name_zh_cn": "解锁 5013017",
+    "summary_en": "Unlock 5013017 binds finish condition 5013017 to 2 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013017 将完成条件 5013017 绑定到 2 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "16",
+        "sha256": "ed83d28a4c10938c3d1ec6804ee2a87f6c2ecb7032960173aee651a102cebabf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013017",
+    "finish_condition_id": "unknowable-domain.finish.5013017",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#1",
+      "ExcelOutput/RogueMagicStyleTypeSelect.json#1"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013018",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013018",
+    "name_zh_cn": "解锁 5013018",
+    "summary_en": "Unlock 5013018 binds finish condition 5013018 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013018 将完成条件 5013018 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "17",
+        "sha256": "57a2f97c3383050f0e6d2a4e9ce36bee4beabe1f6b9a80ae5911a37268a3046d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013018",
+    "finish_condition_id": "unknowable-domain.finish.5013018",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013019",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013019",
+    "name_zh_cn": "解锁 5013019",
+    "summary_en": "Unlock 5013019 binds finish condition 5013019 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013019 将完成条件 5013019 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "18",
+        "sha256": "e0177c63f5c5f75fac0d85f6ab3fe66df88f7b007b5219cabcc780bf81812f51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013019",
+    "finish_condition_id": "unknowable-domain.finish.5013019",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013020",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013020",
+    "name_zh_cn": "解锁 5013020",
+    "summary_en": "Unlock 5013020 binds finish condition 5013020 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013020 将完成条件 5013020 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "19",
+        "sha256": "0e63910fbd38ee2298f20e2c09e72a9307965c7a3a2450f2d33bd41c1c0a1397",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013020",
+    "finish_condition_id": "unknowable-domain.finish.5013020",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013021",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013021",
+    "name_zh_cn": "解锁 5013021",
+    "summary_en": "Unlock 5013021 binds finish condition 5013021 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013021 将完成条件 5013021 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "20",
+        "sha256": "35881f2d9fda9e4b0b7e5042ada0ecde15eb49e0c7c3830643d8b11743a86c00",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013021",
+    "finish_condition_id": "unknowable-domain.finish.5013021",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013022",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013022",
+    "name_zh_cn": "解锁 5013022",
+    "summary_en": "Unlock 5013022 binds finish condition 5013022 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013022 将完成条件 5013022 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "21",
+        "sha256": "af5d65546e588407b4fcb9f961060b5078051e9d567b052a65169f38c6e55a0f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013022",
+    "finish_condition_id": "unknowable-domain.finish.5013022",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013023",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013023",
+    "name_zh_cn": "解锁 5013023",
+    "summary_en": "Unlock 5013023 binds finish condition 5013023 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013023 将完成条件 5013023 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "22",
+        "sha256": "b6d6f147dbba9124d3bf3a24860b2865731a52a432b61b4f73907df441f615a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013023",
+    "finish_condition_id": "unknowable-domain.finish.5013023",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013024",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013024",
+    "name_zh_cn": "解锁 5013024",
+    "summary_en": "Unlock 5013024 binds finish condition 5013024 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013024 将完成条件 5013024 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "23",
+        "sha256": "b8fbff29b6dab8d3cc93d876f1b1887b7f4a7519d385e8e484492a0bb58628e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013024",
+    "finish_condition_id": "unknowable-domain.finish.5013024",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013025",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013025",
+    "name_zh_cn": "解锁 5013025",
+    "summary_en": "Unlock 5013025 binds finish condition 5013025 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013025 将完成条件 5013025 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "24",
+        "sha256": "08ff5010febc2273d2f33cbedabffd814c92515a0a3f14a3c0c81499f21d5ffa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013025",
+    "finish_condition_id": "unknowable-domain.finish.5013025",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013026",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013026",
+    "name_zh_cn": "解锁 5013026",
+    "summary_en": "Unlock 5013026 binds finish condition 5013026 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013026 将完成条件 5013026 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "25",
+        "sha256": "f99e419cc009d2f67a07fa81d55c24a04dade4a56e0e2a238685de6cd3608224",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013026",
+    "finish_condition_id": "unknowable-domain.finish.5013026",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013027",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013027",
+    "name_zh_cn": "解锁 5013027",
+    "summary_en": "Unlock 5013027 binds finish condition 5013027 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013027 将完成条件 5013027 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "26",
+        "sha256": "8c65c02e642dcf013717a469118ef691bcd637c8077b2f9f2b5ddf7143a086ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013027",
+    "finish_condition_id": "unknowable-domain.finish.5013027",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013028",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013028",
+    "name_zh_cn": "解锁 5013028",
+    "summary_en": "Unlock 5013028 binds finish condition 5013028 to 6 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013028 将完成条件 5013028 绑定到 6 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "27",
+        "sha256": "8c66ed1fc927609917460a09f883b11df8946e951b0d65973218e39fa0a71cff",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013028",
+    "finish_condition_id": "unknowable-domain.finish.5013028",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#7",
+      "ExcelOutput/RogueMagicArea.json#8",
+      "ExcelOutput/RogueMagicArea.json#9",
+      "ExcelOutput/RogueMagicArea.json#10",
+      "ExcelOutput/RogueMagicArea.json#11",
+      "ExcelOutput/RogueMagicArea.json#12"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013029",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013029",
+    "name_zh_cn": "解锁 5013029",
+    "summary_en": "Unlock 5013029 binds finish condition 5013259 to 0 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013029 将完成条件 5013259 绑定到 0 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "28",
+        "sha256": "fc4210c2f3b495dd6a513602bdf6b5304b98657a74889f8d1b8713f4d3eaed13",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013029",
+    "finish_condition_id": "unknowable-domain.finish.5013259",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [],
+    "description_en": "",
+    "description_zh_cn": ""
+  },
+  {
+    "id": "unknowable-domain.unlock.5013260",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "UnknowableUnlock",
+    "name_en": "Unlock 5013260",
+    "name_zh_cn": "解锁 5013260",
+    "summary_en": "Unlock 5013260 binds finish condition 5013260 to 1 exact source consumer(s).",
+    "summary_zh_cn": "解锁 5013260 将完成条件 5013260 绑定到 1 个精确源消费者。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicunlock-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicUnlock.json",
+        "locator": "29",
+        "sha256": "351bd3ddfe32c70d11aabfff94e016a9793b93adff5ccf730dffcd2e2462e8f5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "progression",
+      "unlock"
+    ],
+    "source_id": "5013260",
+    "finish_condition_id": "unknowable-domain.finish.5013260",
+    "consequence": "EnableSourceRowsReferencingUnlockID",
+    "evaluation_boundary": "Unspecified",
+    "consumer_source_locators": [
+      "ExcelOutput/RogueMagicArea.json#6"
+    ],
+    "description_en": "",
+    "description_zh_cn": ""
+  }
+]
