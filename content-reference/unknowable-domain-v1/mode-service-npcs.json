@@ -1,0 +1,700 @@
+[
+  {
+    "id": "unknowable-domain.mode-service-npc.510001",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeServiceNpc",
+    "name_en": "Unknowable Domain Service/Entry NPC 510001",
+    "name_zh_cn": "不可知域服务/入口 NPC 510001",
+    "summary_en": "Mode NPC graph 510001 exposes 3 mechanical service/entry option(s) without importing dialogue prose.",
+    "summary_zh_cn": "玩法 NPC 图 510001 公开 3 个机制服务/入口选项，且不导入对话原文。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510001/Opt0510001.json",
+        "locator": "OptionList/0",
+        "sha256": "1c35a1052415b63a05df95a7049a77b816d27f3e88614e293eabaa3e9b418539",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510001-opt0510001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510001/Opt0510001.json",
+        "locator": "root",
+        "sha256": "4962d7d95c5bd70aec523e8f9dfa618484c313b2b312e2d3e5c4dd952ae46cad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "OptionList/0",
+        "sha256": "8a459f339c85281ac13c521c1a2e212cb85ded57bd0b0ded18b0c9685ad6a6c8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.optionlist-1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "OptionList/1",
+        "sha256": "d5cf8b1c8918c479575b491d0b5ca51c55603a88956135b743b2fc6e23837039",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510006-opt0510006-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510006/Opt0510006.json",
+        "locator": "root",
+        "sha256": "32adfcfc3cc4896387620669d1d1edfd4a64f8aebfb35649060f5533e8217030",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510001-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510001.json",
+        "locator": "root",
+        "sha256": "accd94a1f8e0158ae5b160a6fbe09ee4cfadca36ead68ff4d04f01d58a53d581",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.426",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "426",
+        "sha256": "b161d88fa8f4e97adec0d461086b3e41a52f49ee4c55a1ab884d730a8aec519b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.870",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "870",
+        "sha256": "31adb366a62e218e04e4727797247b931564f6f16043914e29dfb37fdfd7068a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.871",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "871",
+        "sha256": "c5ddf256fea33c402c3297e5d168ee621ddf2f7c4411673b6a2b7453d95a46b3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "0",
+        "sha256": "b4e6c6f17bc9df7ff40d4d223eee3f9fbd59004957945bfcb2605a922fe64445",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "entry",
+      "mode-npc",
+      "service"
+    ],
+    "source_id": "mode-service-npc:510001",
+    "graph_path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510001.json",
+    "dialogue_type": "Event",
+    "service_ids": [
+      "unknowable-domain.mode-service-option.510001.1.1",
+      "unknowable-domain.mode-service-option.510001.2.1",
+      "unknowable-domain.mode-service-option.510001.2.2"
+    ],
+    "service_options": [
+      {
+        "service_id": "unknowable-domain.mode-service-option.510001.1.1",
+        "dialogue_ordinal": 1,
+        "option_ordinal": 1,
+        "option_id": "113413",
+        "option_display_id": "13413",
+        "operations": [
+          "Battle",
+          "Obtain"
+        ],
+        "targets": [
+          "Component"
+        ],
+        "option_values": [
+          {
+            "field": "DescValue",
+            "value": "2"
+          }
+        ],
+        "random_resolution": "NotApplicable",
+        "choice_label_sha256_en": "a962700658af552f3c69787f8c8268d8329e77a233863364f366ccd9919fd095",
+        "choice_label_sha256_zh_cn": "4092b118de1bae961e7774d2a9d64eaec0cb7ac7df0153303f36054210b54ec0",
+        "result_sha256_en": "449704d088ffaaa4470022b150d60c99ace7ae28353c7fad7a42ee52dc341233",
+        "result_sha256_zh_cn": "10492edc90fc43a231493505983776e886dd09c6180341192f699a98e3ea61ca"
+      },
+      {
+        "service_id": "unknowable-domain.mode-service-option.510001.2.1",
+        "dialogue_ordinal": 2,
+        "option_ordinal": 1,
+        "option_id": "523910",
+        "option_display_id": "23914",
+        "operations": [
+          "Obtain"
+        ],
+        "targets": [
+          "Component"
+        ],
+        "option_values": [],
+        "random_resolution": "Unspecified",
+        "choice_label_sha256_en": "3be8ff056f2167a2eea5e5fe4c6f617dc68bff83b598ecc9e598c35967e1b7cf",
+        "choice_label_sha256_zh_cn": "a561b8642b540e81a548b058c13063992fea7ac72bf2a50f2e84abe4d24cfe0e",
+        "result_sha256_en": "8a1dd9a3727cc43bad47246b0d0859013f8b598170f320d8450b54002a1e0e41",
+        "result_sha256_zh_cn": "bea90948de02ecd18b5687576957c38688421501c3ae71a90c652026fb742cee"
+      },
+      {
+        "service_id": "unknowable-domain.mode-service-option.510001.2.2",
+        "dialogue_ordinal": 2,
+        "option_ordinal": 2,
+        "option_id": "523906",
+        "option_display_id": "23913",
+        "operations": [
+          "Obtain"
+        ],
+        "targets": [
+          "Component"
+        ],
+        "option_values": [
+          {
+            "field": "DescValue",
+            "value": "1"
+          }
+        ],
+        "random_resolution": "NotApplicable",
+        "choice_label_sha256_en": "942009d6789b0fcf1276dd1a1d4a3dcf00350dfcd322d1f6fc1334e27f823a6e",
+        "choice_label_sha256_zh_cn": "da64d44463471379e08bdb71de060e69c2d60fab8a426909ef603b2bb551305a",
+        "result_sha256_en": "e02ab9252d2739f3614b2f620dd57962a6891f07761945d71cc62a9d0cd7965d",
+        "result_sha256_zh_cn": "dd98262db460688d338ecd5167187b623ba15c2b9d399301682bdcdaea47959d"
+      }
+    ],
+    "eligibility": [
+      {
+        "dialogue_ordinal": 1,
+        "dialogue_progress": "NotApplicable",
+        "unlock_id": "NotApplicable"
+      },
+      {
+        "dialogue_ordinal": 2,
+        "dialogue_progress": "1",
+        "unlock_id": "NotApplicable"
+      }
+    ],
+    "price_resolution": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mode-service-npc.510002",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeServiceNpc",
+    "name_en": "Unknowable Domain Service/Entry NPC 510002",
+    "name_zh_cn": "不可知域服务/入口 NPC 510002",
+    "summary_en": "Mode NPC graph 510002 exposes 1 mechanical service/entry option(s) without importing dialogue prose.",
+    "summary_zh_cn": "玩法 NPC 图 510002 公开 1 个机制服务/入口选项，且不导入对话原文。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510002-opt0510002-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510002/Opt0510002.json",
+        "locator": "OptionList/0",
+        "sha256": "41fdc414db6071d011edceb8a2fd6442ba7ac923f02d69b09bd541ab35b94847",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510002-opt0510002-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510002/Opt0510002.json",
+        "locator": "root",
+        "sha256": "5d94f4a8a9f78f090b8b8d30b9c7156ac9e7137e4533f358c61d326b02c803c0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510002-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510002.json",
+        "locator": "root",
+        "sha256": "7f0efa2754ec1b246c88ef07ef385cfa6f7d21914bbcf8000f287575431832d1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.247",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "247",
+        "sha256": "ba7516972b987a87326a55653a2beb7c455e55c1e78d50c8e163e7d7133f9968",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "1",
+        "sha256": "1f3fd60b7bae5fa723aa9c40ef3e064db6d357c82dbd1099b4d0dc255e0a4ad0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "entry",
+      "mode-npc",
+      "service"
+    ],
+    "source_id": "mode-service-npc:510002",
+    "graph_path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510002.json",
+    "dialogue_type": "Event",
+    "service_ids": [
+      "unknowable-domain.mode-service-option.510002.1.1"
+    ],
+    "service_options": [
+      {
+        "service_id": "unknowable-domain.mode-service-option.510002.1.1",
+        "dialogue_ordinal": 1,
+        "option_ordinal": 1,
+        "option_id": "11501",
+        "option_display_id": "11504",
+        "operations": [
+          "Obtain"
+        ],
+        "targets": [
+          "Scepter"
+        ],
+        "option_values": [
+          {
+            "field": "DescValue",
+            "value": "1"
+          }
+        ],
+        "random_resolution": "NotApplicable",
+        "choice_label_sha256_en": "9d2e8058eed7e80a8b0cf679bfcfc50440e8151d0975049551d7507a873681f6",
+        "choice_label_sha256_zh_cn": "eb4d6651ab373d63ae4df07b96e7040eacfb94351defaf13ef894d21efaceafa",
+        "result_sha256_en": "feb2c699dc308977b01437e6bbfb71eddbede38da869e3959949ff533cda1398",
+        "result_sha256_zh_cn": "3362cea210a7683cac8821c2e75a48510d43a91a6a0b5d10e1fb09d1f962c6d1"
+      }
+    ],
+    "eligibility": [
+      {
+        "dialogue_ordinal": 1,
+        "dialogue_progress": "NotApplicable",
+        "unlock_id": "NotApplicable"
+      }
+    ],
+    "price_resolution": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mode-service-npc.510003",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeServiceNpc",
+    "name_en": "Unknowable Domain Service/Entry NPC 510003",
+    "name_zh_cn": "不可知域服务/入口 NPC 510003",
+    "summary_en": "Mode NPC graph 510003 exposes 1 mechanical service/entry option(s) without importing dialogue prose.",
+    "summary_zh_cn": "玩法 NPC 图 510003 公开 1 个机制服务/入口选项，且不导入对话原文。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510003-opt0510003-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510003/Opt0510003.json",
+        "locator": "OptionList/0",
+        "sha256": "7e7fbc1bfd871564a21643f6aa5784199e257cf6d74f5a4cbcab801a47add059",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510003-opt0510003-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510003/Opt0510003.json",
+        "locator": "root",
+        "sha256": "2477d7650c50721f4f4f0e5bd02205283bfefe15ada37df9360c132c26bbd27d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510003-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510003.json",
+        "locator": "root",
+        "sha256": "75d486d54bdbfcd0e46f42fa8652550d22b2f1a901a831e47351b5832b250c08",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.556",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "556",
+        "sha256": "bbdffd29006ecc09fe6d36d2c652a006d6fbcb3c374ce3fefafe23abc86d0e77",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "2",
+        "sha256": "20b806f122a85e874ec221fbdc7f7aa170a6e42d465a938e5ecacf969017dabe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "entry",
+      "mode-npc",
+      "service"
+    ],
+    "source_id": "mode-service-npc:510003",
+    "graph_path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510003.json",
+    "dialogue_type": "Event",
+    "service_ids": [
+      "unknowable-domain.mode-service-option.510003.1.1"
+    ],
+    "service_options": [
+      {
+        "service_id": "unknowable-domain.mode-service-option.510003.1.1",
+        "dialogue_ordinal": 1,
+        "option_ordinal": 1,
+        "option_id": "114406",
+        "option_display_id": "14406",
+        "operations": [
+          "Obtain"
+        ],
+        "targets": [
+          "Curio"
+        ],
+        "option_values": [
+          {
+            "field": "DescValue",
+            "value": "4"
+          }
+        ],
+        "random_resolution": "Unspecified",
+        "choice_label_sha256_en": "06976b4348427e3670e3f8c14e41096e74e31600968f203d11352779476d4b59",
+        "choice_label_sha256_zh_cn": "64e17f741de2e6cc56dc0996feff33e3c2333bf86a35ad822d98c57323cd8775",
+        "result_sha256_en": "9d657abf8b113e44f28cf270c1a292ca97126703e360790de4aa1c1f277df7da",
+        "result_sha256_zh_cn": "d8748396de77a3629d13413e2f8721346423a1a4733db5e0ba3f33c9583db1ea"
+      }
+    ],
+    "eligibility": [
+      {
+        "dialogue_ordinal": 1,
+        "dialogue_progress": "NotApplicable",
+        "unlock_id": "NotApplicable"
+      }
+    ],
+    "price_resolution": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mode-service-npc.510004",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeServiceNpc",
+    "name_en": "Unknowable Domain Service/Entry NPC 510004",
+    "name_zh_cn": "不可知域服务/入口 NPC 510004",
+    "summary_en": "Mode NPC graph 510004 exposes 1 mechanical service/entry option(s) without importing dialogue prose.",
+    "summary_zh_cn": "玩法 NPC 图 510004 公开 1 个机制服务/入口选项，且不导入对话原文。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510004-opt0510004-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510004/Opt0510004.json",
+        "locator": "OptionList/0",
+        "sha256": "84ef056f630c3ffdc8f447c77ab1f47e27fd26ca208a56fe3cf1d3d792d5cff0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510004-opt0510004-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510004/Opt0510004.json",
+        "locator": "root",
+        "sha256": "8ff85ec621e3b219ba8f9b75c8920a7d158586aaf30ce405d39ab43f4c549c57",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510004-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510004.json",
+        "locator": "root",
+        "sha256": "39fb94df6f75956812a89d022f0442aef70b7d537ab963ba5d0ba32ab4bb12d1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "6",
+        "sha256": "c7900d95d64fdb05ed62c79c5d8733ab69611f31ff3872370777ec0a194b3f11",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "3",
+        "sha256": "e321fa481d00bb7d45294fa079ae1a3ed994b60212997c0c1142014b9a221348",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "entry",
+      "mode-npc",
+      "service"
+    ],
+    "source_id": "mode-service-npc:510004",
+    "graph_path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510004.json",
+    "dialogue_type": "Story",
+    "service_ids": [
+      "unknowable-domain.mode-service-option.510004.1.1"
+    ],
+    "service_options": [
+      {
+        "service_id": "unknowable-domain.mode-service-option.510004.1.1",
+        "dialogue_ordinal": 1,
+        "option_ordinal": 1,
+        "option_id": "510004",
+        "option_display_id": "10007",
+        "operations": [
+          "Obtain",
+          "Special"
+        ],
+        "targets": [],
+        "option_values": [],
+        "random_resolution": "NotApplicable",
+        "choice_label_sha256_en": "7712092c5d4af21e574c4b3fa67cb6549dfd2c728e1843a320a49d5860f78b44",
+        "choice_label_sha256_zh_cn": "d2d50d3562cba6dd92c0cc5c34524d1500612d1eae0faafb603e40594b006398",
+        "result_sha256_en": "af5104af9523438e4a987eee3b93f544af21d51b598ae1f090d36e13f3750cd0",
+        "result_sha256_zh_cn": "43e3bf62c41e2dc98aed0723492ba29d8d3b8b3c239ae7a6541b60e66f2e7e69"
+      }
+    ],
+    "eligibility": [
+      {
+        "dialogue_ordinal": 1,
+        "dialogue_progress": "NotApplicable",
+        "unlock_id": "NotApplicable"
+      }
+    ],
+    "price_resolution": "Unspecified",
+    "runtime_lowered": false
+  },
+  {
+    "id": "unknowable-domain.mode-service-npc.510005",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ModeServiceNpc",
+    "name_en": "Unknowable Domain Service/Entry NPC 510005",
+    "name_zh_cn": "不可知域服务/入口 NPC 510005",
+    "summary_en": "Mode NPC graph 510005 exposes 1 mechanical service/entry option(s) without importing dialogue prose.",
+    "summary_zh_cn": "玩法 NPC 图 510005 公开 1 个机制服务/入口选项，且不导入对话原文。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510005-opt0510005-json.optionlist-0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510005/Opt0510005.json",
+        "locator": "OptionList/0",
+        "sha256": "f5e090c83b3ba839e8e436ca8d99fc30731dc2f6944da735b007f0a22701fba2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguedialogue-rogueeventmagic-event0510005-opt0510005-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/RogueEventMagic/Event0510005/Opt0510005.json",
+        "locator": "root",
+        "sha256": "f7f62e9be5c4d69589c445087dab4cd9bf96c877f6113652b678c5ec946ec926",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.config-level-rogue-roguenpc-roguenpc-260-roguenpc510005-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510005.json",
+        "locator": "root",
+        "sha256": "fdce64c54d0284a7f5a3608d356e8543b7c3b91096d6fbe741bb1908e613d0a5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguedialogueoptiondisplay-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "7",
+        "sha256": "7d33cf22733127ffcd259ea0ac91bf022ed85e7c8878042e6695c825e1f0895f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicnpc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicNPC.json",
+        "locator": "4",
+        "sha256": "8a389d2b3ce7fbf98a7739be0f466f8af2dc048c8874145c4bb6c39ba41ccd71",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "entry",
+      "mode-npc",
+      "service"
+    ],
+    "source_id": "mode-service-npc:510005",
+    "graph_path": "Config/Level/Rogue/RogueNPC/RogueNPC_260/RogueNPC510005.json",
+    "dialogue_type": "Story",
+    "service_ids": [
+      "unknowable-domain.mode-service-option.510005.1.1"
+    ],
+    "service_options": [
+      {
+        "service_id": "unknowable-domain.mode-service-option.510005.1.1",
+        "dialogue_ordinal": 1,
+        "option_ordinal": 1,
+        "option_id": "510005",
+        "option_display_id": "10008",
+        "operations": [
+          "Special"
+        ],
+        "targets": [],
+        "option_values": [],
+        "random_resolution": "NotApplicable",
+        "choice_label_sha256_en": "17bab50ce2c6ba0fd999bc5ca5cfe97970a82bbc804973bde622a460c2a49bb7",
+        "choice_label_sha256_zh_cn": "0cec3edf280aa224d778b42b50230c5427cde164ecc82818dff91b7278f6bdb4",
+        "result_sha256_en": "1563dadab1fa0f9f8e7836c86e2e1a979ef3e41abbe27a4a8c2a553e597cdb1c",
+        "result_sha256_zh_cn": "1e79002933592162557680c4ff39f0d481fe56e82c9cac56dcc892007e541679"
+      }
+    ],
+    "eligibility": [
+      {
+        "dialogue_ordinal": 1,
+        "dialogue_progress": "NotApplicable",
+        "unlock_id": "NotApplicable"
+      }
+    ],
+    "price_resolution": "Unspecified",
+    "runtime_lowered": false
+  }
+]
