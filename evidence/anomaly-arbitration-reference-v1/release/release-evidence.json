@@ -1,0 +1,110 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-release-evidence.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "batch": "G13-P4-B4",
+  "completion_commit": "this file's containing commit",
+  "release_state": "CandidateReferenceData",
+  "runtime_profile_state": "Unreleased",
+  "snapshot": {
+    "game_version": "4.4",
+    "turnbasedgamedata_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "active_period": {
+    "group_id": 8,
+    "title_hash": "13457040013447238093",
+    "name_en": "Enwreathed by the World",
+    "name_zh_cn": "尘世卷中",
+    "aliases": [
+      "801",
+      "802",
+      "803",
+      "804"
+    ],
+    "stage_ids": [
+      "30508011",
+      "30508012",
+      "30508013",
+      "30508021",
+      "30508022"
+    ]
+  },
+  "counts": {
+    "manifest_records": 392,
+    "anomaly_arbitration_records": 76,
+    "shared_records": 316,
+    "normalized_files": 37,
+    "normalized_rows": 2103,
+    "source_receipts": 824,
+    "exclusions": 106,
+    "fixture_families": 18,
+    "fixture_cases": 23,
+    "blocking_gaps": 0,
+    "runtime_executable_rows": 0
+  },
+  "digests": {
+    "source_inventory_sha256": "86ec49eef98c3912fa886abd6706eee691106c9b644639d6d55bf4d23a4d2583",
+    "content_manifest_sha256": "84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4",
+    "pack_index_sha256": "923394ff72bddcc86318363e2ef248ee2d47ec05e19b60001aa3f7c1bd7dbdf3",
+    "workbook_primary_sha256": "0119370d9000e4aec476a7f5ec35b78031d3757101928c8e03828189f3c1618c",
+    "workbook_bindings_sha256": "f6373e0addd351ebfd46fe84c872fbfef0dfb7ec42b10d425db3a3b53cc50aa3",
+    "workbook_review_sha256": "a218a87f3a2cc546c221f0c200615a2a10206a5aac9d632a3f3dbe6d8d09cf9a",
+    "workbook_semantic_sha256": "d740894821b6ffbcdec0e0cf9de88441f546f627f5b35f864b3c1e22510a27e0",
+    "sora_bundle_sha256": "a646b66ad0eae515a624d838ea8574f52c6e40588f88127f281b9cd8c40f89f1",
+    "ownership_audit_sha256": "e73c06992e40d603e9e99f7d047e4f3bc50a50bea80b2633f7be562693044a7b",
+    "semantic_results_sha256": "50eaba4b9c016a3c5e7fb4141e6031ac28c8086bf303087f4d63b95f818bb365",
+    "peer_reconciliation_sha256": "2a0292c764ef9a0a100c9ac9c29cb63b0367ae2ed53ccfafb056229418e4bc1a",
+    "repository_checks_policy_sha256": "2dda069de346b7d94707071711e3f7f14aae13254fbb44f8df945ee9259f4282"
+  },
+  "generation": {
+    "sora_version": "0.3.0",
+    "generated_table_count": 37,
+    "generated_core_artifact_count": 49,
+    "generated_export_artifact_count": 38,
+    "generated_tree_sha256": "9ddfda5cda60bf10c0bc6f79a2278c3008f103ed4b71e44a73a6633bc2865b63",
+    "clean_checkout_commit": "e7889ecb3fae8e766d789a9aa703f050daec2735",
+    "clean_checkout_result": "Passed"
+  },
+  "publication": {
+    "remote": "origin",
+    "branch": "codex/goal13-anomaly-arbitration-reference",
+    "prerequisite_batch_count": 24,
+    "prerequisite_batch_commits": {
+      "G13-P0-B1": "5df39bbf69cae42e3d25a60029ee5c3e75e53306",
+      "G13-P0-B2": "35e10e0ee2bba25c80f37dabf97395333444b393",
+      "G13-P0-B3": "a6d9ef6c79d966ae312fc36f214932ed044f123a",
+      "G13-P0-B4": "15c9d067ed47e95a0401978e79e267af66b814d8",
+      "G13-P1-B1": "e8e4eee05195ba3f2429c8f91d87f8b70e8a0d8f",
+      "G13-P1-B2": "a55842951be3d02f987b8143bf0361fbffed6d94",
+      "G13-P1-B3": "beca7981b52226123c56b26ed8bbea6293947fd0",
+      "G13-P1-B4": "2b651a57dd2e7b299c0915507603e179787ac635",
+      "G13-P1-B5": "91d5a342a4f9bcf50fca898f18d9e23ac7e34af2",
+      "G13-P1-B6": "2404d181a31bd8565c3abb447d4680d13baa72aa",
+      "G13-P2-B1": "17e1aaedf1bcdb16aa93af31568529fe16aa3d48",
+      "G13-P2-B2": "cdc3fdd8e601b66c9f5ddf6be3128b4743007093",
+      "G13-P2-B3": "d705579d6a6e5985cce97e9a516c00ee1610b029",
+      "G13-P2-B4": "804a653ef741c6d09fb5a5af31451a579a406fae",
+      "G13-P2-B5": "84c471d0b71129c961a6e5b93337fba05143f7f9",
+      "G13-P3-B1": "b7f15dfaf29d148258ac332f99e6410d9ebb200e",
+      "G13-P3-B2": "4cf9e6bb172e5b5ccbb265be845847836ffc0a6b",
+      "G13-P3-B3": "a9e91249778a5020f501aeb6a2c3a1e84a030213",
+      "G13-P3-B4": "246ccb06cf3ab0b189990008779160c36af075d5",
+      "G13-P3-B5": "95677cfabd87337341e2f2face70ce8978d0ab15",
+      "G13-P3-B6": "67d5649e2c84421794e26ad89a18bbff183e93a9",
+      "G13-P4-B1": "831ee32d2876f5ed9078291c54fd12b29808d959",
+      "G13-P4-B2": "0701063d75291f9838ca2b888af78b685debbfa7",
+      "G13-P4-B3": "e7889ecb3fae8e766d789a9aa703f050daec2735"
+    },
+    "final_batch": "G13-P4-B4",
+    "final_batch_commit": "this file's containing commit",
+    "required_batch_count": 25
+  },
+  "inherited_full_gate_exception": {
+    "command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "result": "Goal 13 and Goal 05 inputs passed; unchanged historical Goal 06 verification stopped at Cargo.lock baseline differs",
+    "goal13_cargo_lock_changed": false,
+    "historical_snapshot_reblessed": false
+  },
+  "exclusions": "No runtime lowering, handlers, CLI, Agent, MCP, playable flow, shared runtime semantic change, story, asset, UI or account reward.",
+  "result": "Passed"
+}
