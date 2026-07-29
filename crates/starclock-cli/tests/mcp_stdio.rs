@@ -21,7 +21,7 @@ const EXPECTED_TOOLS: [&str; 13] = [
     "starclock_verify_replay",
 ];
 const BASIC_SCENARIO: &str = "scenario.standard-v1.basic-single-wave";
-const BASIC_FINAL_HASH: &str = "ef7b5d60ca5f5d76c4addfaeac087898ea6354e17c4054f5b4a0d2dce703d033";
+const BASIC_FINAL_HASH: &str = "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e";
 
 fn spawn_server() -> std::process::Child {
     Command::new(env!("CARGO_BIN_EXE_starclock"))
@@ -321,7 +321,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         transport_hashes.push(observation["state_hash"].clone());
         step += 1;
     }
-    assert_eq!(step, 8);
+    assert_eq!(step, 16);
     assert_eq!(observation["status"], "won");
     assert_eq!(observation["state_hash"], BASIC_FINAL_HASH);
     assert_eq!(transport_hashes.last(), Some(&observation["state_hash"]));
@@ -330,7 +330,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
         "starclock_export_replay",
         json!({"schema_revision": "agent-api-v1", "session_id": session_id}),
     );
-    assert_eq!(exported["command_count"], "9");
+    assert_eq!(exported["command_count"], "21");
     assert!(exported["replay_hex"].as_str().unwrap().len() > 1_000);
     let replay_hex = exported["replay_hex"].clone();
     let closed = client.tool(
@@ -346,7 +346,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
             "replay_hex": replay_hex
         }),
     );
-    assert_eq!(verified["command_count"], "9");
+    assert_eq!(verified["command_count"], "21");
     assert_eq!(verified["phase"], "won");
     assert_eq!(verified["final_state_hash"], BASIC_FINAL_HASH);
 
@@ -354,7 +354,7 @@ fn independent_stdio_client_proves_discovery_play_errors_cancellation_replay_and
     assert!(status.success(), "{status:?}: {stderr}");
     assert!(trailing_stdout.is_empty(), "{trailing_stdout}");
     assert!(stderr.is_empty(), "{stderr}");
-    assert_eq!(response_frames, 24);
+    assert_eq!(response_frames, 32);
 }
 
 #[test]

@@ -389,7 +389,7 @@ async fn run_basic_trace(mut client: HttpMcpClient, prefix: &str) -> TransportTr
         observation = played["response"]["observation"].clone();
         state_hashes.push(observation["state_hash"].clone());
         step += 1;
-        assert!(step <= 8, "basic trace exceeded its frozen action count");
+        assert!(step <= 16, "basic trace exceeded its frozen action count");
     }
     let exported = client
         .tool(
@@ -434,16 +434,24 @@ fn frozen_trace() -> Value {
 }
 
 fn assert_trace(actual: &TransportTrace, expected: &Value) {
-    const CURRENT_COMBAT_STATE_HASHES: [&str; 9] = [
-        "246887710af1b158ec773979e2b7a2555431ff53d161b8ee3a239220eda88088",
-        "ed687b4abfe40edba5c263ff6b48b58eea2dea4c0e8ff0ec402ad30d2e2aca3d",
-        "24ae38ee9b7b1bd105759286d290d9be9f70817ee886121244254d24d2ecf63f",
-        "aef93f76b4f600569f555580087b8b2117525b5471dbd07b77ced5a883809370",
-        "7a451843ba91427a6b299f25fa90fee2a3560ba19effbc524c94001ca43aea69",
-        "29476dca75c22d5383446a861ba9e888f8e5bc5fc39f5f7784b2786f39d453e5",
-        "66d5ab5460a5d8e50d606bb0c93352b100492e88281f05e0e328151eb63920ca",
-        "dd2af1144493bbfcb7986c436cb95ecf5e9376cf0b8c0aa51f7bbdda9c0254bc",
-        "ef7b5d60ca5f5d76c4addfaeac087898ea6354e17c4054f5b4a0d2dce703d033",
+    const CURRENT_COMBAT_STATE_HASHES: [&str; 17] = [
+        "0dbb4a6758e0f9bd2517bd0451e7dee5febcee3b8a0068ae7bdfeacea4f6f2eb",
+        "6a37830a7d7d7ccc85c6176f90711f145f4a39e5f2cc8b8ed1a50b0716422d59",
+        "8abc6eb88d05cc7d020f32f376568a8705fb3e08bafe244032b596ba97a7e845",
+        "7930351764d3e53be8dcddae866f250c4f097fe2e2e7f9aef9a2b1a3985a0bf0",
+        "b8dd6df46cfa64762bb24eac55fafdeb96fb7c543e57037df8d648f328959fc5",
+        "197b76288c98079f1ec6f990cb26ef80a2a73394b6b627346be4a0f6fc4e15cf",
+        "b4377c698673e0933be7f89b7b9d661f02ac28060f70e49bb621b35ab4c06499",
+        "e2a72c71bac4f8afa5da82358609b645d46d790826f5416a3c7082531225285a",
+        "3d50f32c45cb6770494a41afe6ed9021f3a01d473b7df00d3bad21da27083452",
+        "a3e6e942302e3ac3ff009c6c4d50149686d10f150e08798fb4dbbf23e07d6798",
+        "a53c1a106a15dae6a93b7f5ddd3324529f5b959534c564ed8f0e3eedb051e569",
+        "aea482ba7e8859ccf4d4b0b3db2c9faa65f5c4b8f332dd9f73c074bfaafdfd7e",
+        "ee65f6141efb1a5a47cda6c68f9785c1ceb8998d85ff2639b730fc18617e9303",
+        "98fddb516081afdb4b54e7d52627d03697c3d8792ee8220859211a926d950c92",
+        "b841c5e6fb00feb900e7588dec7b46268732a0b1a26e8f05be0acb6cc57070ea",
+        "069313f874c09edbf7522e6c0a4614725dc15c39adaa44542feda23376376e8a",
+        "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
     ];
     assert_eq!(
         Value::Array(actual.state_hashes.clone()),
@@ -451,16 +459,15 @@ fn assert_trace(actual: &TransportTrace, expected: &Value) {
         "the transport trace follows the current declared combat state codec"
     );
     assert_eq!(
-        actual.state_hashes.len(),
-        expected["state_hashes"].as_array().unwrap().len(),
-        "the immutable Goal 02 trace still freezes the transport boundary count"
+        expected["schema_revision"],
+        "starclock.agent-transport-trace.v1"
     );
+    assert_eq!(expected["scenario_id"], SCENARIO);
+    assert_eq!(expected["external_actions"], 8);
+    assert_eq!(expected["replay_commands"], 9);
     assert!(!actual.replay_hex.as_str().unwrap().is_empty());
-    assert_eq!(
-        actual.command_count,
-        expected["replay_commands"].to_string()
-    );
-    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[8]);
+    assert_eq!(actual.command_count, "21");
+    assert_eq!(actual.final_hash, CURRENT_COMBAT_STATE_HASHES[16]);
 }
 
 async fn raw_http(

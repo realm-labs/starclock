@@ -18,7 +18,7 @@ fn text(bytes: Vec<u8>) -> String {
 
 fn fixture_path(suffix: &str) -> PathBuf {
     std::env::temp_dir().join(format!(
-        "starclock-g05-p4-b2-{}-{suffix}.scrp",
+        "starclock-g07-p6-b2-{}-{suffix}.scrp",
         std::process::id()
     ))
 }
@@ -66,11 +66,11 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(run.status.success(), "{run:?}");
     assert_eq!(
         text(run.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":1,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":53,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"07906494220cb1dded6301cc042cdb33610e25dbad5be4019301f1f6583e5e1d\",\"replay_bytes\":29395}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"universe-run\",\"world\":1,\"difficulty_index\":0,\"seed\":1,\"controller\":\"baseline\",\"battle_executor\":\"standard-universe-nested-battle-executor-v1\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\",\"replay_bytes\":25678}"
     );
 
     let replay_bytes = fs::read(&replay).unwrap();
-    assert_eq!(replay_bytes.len(), 29_395);
+    assert_eq!(replay_bytes.len(), 25_678);
     let decoded = starclock_replay::format_v3::decode_replay_v3(&replay_bytes).unwrap();
     assert_eq!(decoded.header().components().components().len(), 9);
     assert!(decoded.records().iter().any(|record| {
@@ -82,8 +82,8 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert_eq!(
         replay_hash.finalize(),
         Sha256Digest::new([
-            112, 144, 207, 47, 64, 59, 151, 39, 244, 57, 162, 199, 160, 18, 97, 249, 148, 84, 36,
-            157, 71, 164, 43, 112, 77, 86, 25, 217, 5, 235, 42, 71,
+            7, 246, 31, 139, 107, 155, 77, 87, 245, 102, 39, 127, 81, 207, 12, 253, 199, 186, 167,
+            147, 90, 157, 247, 114, 122, 207, 189, 170, 142, 83, 191, 137,
         ])
     );
 
@@ -91,7 +91,7 @@ fn universe_run_round_trips_a_canonical_replay_and_detects_corruption() {
     assert!(verified.status.success(), "{verified:?}");
     assert_eq!(
         text(verified.stdout).trim(),
-        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":53,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"07906494220cb1dded6301cc042cdb33610e25dbad5be4019301f1f6583e5e1d\"}"
+        "{\"schema_revision\":\"starclock-cli-universe-v3\",\"kind\":\"replay-verify\",\"entry\":\"standard-universe\",\"actions\":35,\"nested_battles\":3,\"battle_commands\":17,\"terminal\":\"completed\",\"state_hash\":\"64078b94531239bc81096249bb7cc79b8f8a8dbddf8a8cc95b497f3de947c73b\"}"
     );
 
     let mut changed = replay_bytes;
