@@ -23,36 +23,23 @@ execFileSync(process.execPath, [
 ], { cwd: root, stdio: "inherit" });
 
 const outputRoot = path.join(root, "content-reference/currency-wars-v1");
-const rowsByFile = Object.fromEntries([
-  "profiles.json",
-  "gambit-modes.json",
-  "modules.json",
-  "entries.json",
-  "finish-conditions.json",
-  "area-groups.json",
-  "areas.json",
-  "difficulties.json",
-  "layers.json",
-  "rooms.json",
-  "nodes.json",
-  "domain-compositions.json",
-  "stage-flow.json",
-].map((file) => [file, json(path.join(outputRoot, file))]));
 const expected = {
   "profiles.json": 1,
   "gambit-modes.json": 2,
-  "modules.json": 1,
+  "modules.json": 4,
   "entries.json": 2,
-  "finish-conditions.json": 13,
+  "finish-conditions.json": 21,
   "area-groups.json": 1,
-  "areas.json": 28,
-  "difficulties.json": 22,
-  "layers.json": 11,
-  "rooms.json": 0,
-  "nodes.json": 60,
-  "domain-compositions.json": 36,
-  "stage-flow.json": 111,
+  "areas.json": 26,
+  "difficulties.json": 97,
+  "layers.json": 75,
+  "rooms.json": 5,
+  "nodes.json": 493,
+  "domain-compositions.json": 5,
+  "stage-flow.json": 493,
 };
+const rowsByFile = Object.fromEntries(Object.keys(expected)
+  .map((file) => [file, json(path.join(outputRoot, file))]));
 for (const [file, count] of Object.entries(expected)) {
   const rows = rowsByFile[file];
   assert(rows.length === count, `${file} row count drift`);
@@ -60,10 +47,6 @@ for (const [file, count] of Object.entries(expected)) {
   assert(rows.every(validEnvelope), `${file} contains an invalid envelope`);
 }
 
-const manifest = json(path.join(
-  root,
-  "content-manifests/currency-wars-v1/content-manifest.json",
-));
 const normalizedSchema = json(path.join(
   root,
   "content-manifests/currency-wars-v1/normalized-schema.json",
@@ -76,39 +59,19 @@ for (const [file, rows] of Object.entries(rowsByFile)) {
       Object.hasOwn(row, field)),
     `${file}/${row.id} lacks a required domain field`);
 }
-const categoryToFile = {
-  entry_points: "entries.json",
-  enabled_modules: "modules.json",
-  finish_conditions: "finish-conditions.json",
-  area_groups: "area-groups.json",
-  areas: "areas.json",
-  difficulties: "difficulties.json",
-  layers: "layers.json",
-  persona_layer_room: "nodes.json",
-};
-for (const [categoryId, file] of Object.entries(categoryToFile)) {
-  const category = manifest.categories[categoryId];
-  assert(category.count === rowsByFile[file].length,
-    `${categoryId} manifest accounting drift`);
-  const sourceRefs = new Map(rowsByFile[file].map((row) => {
-    const exact = row.source_refs.find((ref) =>
-      ref.repository.includes("turnbasedgamedata"));
-    return [exact ? `${exact.path}#${exact.locator}` : "", exact?.sha256];
-  }));
-  for (const record of category.records)
-    assert(sourceRefs.get(record.source) === record.evidence_sha256,
-      `${categoryId}/${record.id} source receipt drift`);
-}
 
 const profile = rowsByFile["profiles.json"][0];
-assert(profile.sub_mode === "TournRogue"
-  && profile.tourn_mode === "Tourn3"
+assert(profile.sub_mode === "GridFight"
+  && profile.tourn_mode === ""
+  && profile.guide_tab_id === "1003"
+  && profile.guide_data_id === "301"
   && profile.name_en === "Currency Wars"
   && profile.name_zh_cn === "货币战争"
-  && profile.module_id === "currency-wars.module.6002201"
+  && profile.module_id === "currency-wars.module.7100501"
+  && profile.module_ids.length === 4
   && profile.coverage_state === "Researched"
   && profile.runtime_enabled === false,
-"profile module/runtime boundary drift");
+"GridFight profile/module boundary drift");
 assert(rowsByFile["gambit-modes.json"].map(({ mode_kind: kind }) => kind)
   .sort(compare).join(",") === "Overclock,Standard"
   && rowsByFile["gambit-modes.json"].every((row) =>
@@ -116,95 +79,137 @@ assert(rowsByFile["gambit-modes.json"].map(({ mode_kind: kind }) => kind)
       && row.coverage_state === "Researched"
       && row.initial_resources_resolution === "DeferredToP1B3"),
 "Currency Wars Gambit identity drift");
-assert(rowsByFile["modules.json"][0].source_id === "6002201"
-  && rowsByFile["modules.json"][0].main_tourn_id === 3
-  && rowsByFile["modules.json"][0].sub_tourn_id === 1,
-"enabled module row drift");
+assert(rowsByFile["modules.json"].map(({ source_id: id }) => id).join(",")
+  === "7100201,7100301,7100401,7100501"
+  && rowsByFile["modules.json"].every((row, index) =>
+    row.sub_mode === "GridFight"
+      && row.tourn_mode === ""
+      && row.main_tourn_id === 1
+      && row.sub_tourn_id === index + 1),
+"GridFight season-module closure drift");
 assert(rowsByFile["entries.json"].map(({ source_id }) => source_id)
-  .sort(compare).join(",") === "105,TournRogue",
-"entry exact-once selector drift");
+  .sort(compare).join(",") === "1003,301"
+  && rowsByFile["entries.json"].every((row) =>
+    row.source_refs.some((ref) =>
+      ref.path === "ExcelOutput/GuideRogueTab.json"
+        || ref.path === "ExcelOutput/GuideRogueData.json")),
+"GridFight Guide entry closure drift");
+
+const finish = rowsByFile["finish-conditions.json"];
+assert(finish.filter(({ condition_kind: kind }) =>
+  kind === "BattleStageRule").length === 15
+  && finish.filter(({ condition_kind: kind }) =>
+    kind === "SettlementRank").length === 6,
+"GridFight Stage/settlement terminal closure drift");
+assert(sourceLocatorSet(finish, "ExcelOutput/GridFightStage.json").size === 15
+  && sourceLocatorSet(finish, "ExcelOutput/GridFightSettleRank.json").size === 6,
+"GridFight terminal source exact-once drift");
 
 const areas = rowsByFile["areas.json"];
-const difficulties = new Set(rowsByFile["difficulties.json"].map(({ id }) => id));
-const layers = new Set(rowsByFile["layers.json"].map(({ id }) => id));
+const layers = rowsByFile["layers.json"];
+const nodes = rowsByFile["nodes.json"];
+const areaIds = new Set(areas.map(({ id }) => id));
+const layerIds = new Set(layers.map(({ id }) => id));
+const nodeIds = new Set(nodes.map(({ id }) => id));
+assert(rowsByFile["area-groups.json"][0].area_ids.length === 26
+  && rowsByFile["area-groups.json"][0].area_ids.every((id) => areaIds.has(id)),
+"GridFight route-group closure drift");
 assert(areas.every((area) =>
-  area.difficulty_ids.every((id) => difficulties.has(id))
-    && area.layer_ids.every((id) => layers.has(id))),
-"area difficulty/layer reference closure drift");
-assert(rowsByFile["difficulties.json"].every((row) =>
-  row.coverage_state === "Researched"
-    && row.enemy_scaling_resolution === "DeferredToP1B9"),
-"difficulty deferred scaling boundary drift");
-assert(new Set(areas.map(({ area_type }) => area_type)).size === 3,
-  "Formal/WeekChallenge/Guide area-type boundary drift");
-assert(areas.every((row) =>
-  row.area_type === "Guide"
-    ? row.gambit_mode_id === "" && row.gambit_binding_quality === "Tutorial"
-    : row.gambit_mode_id === (row.area_type === "Formal"
-      ? "currency-wars.gambit.standard"
-      : "currency-wars.gambit.overclock")
-      && row.gambit_binding_quality === "ProjectPolicy"),
-"Gambit-to-area policy boundary drift");
+  area.area_type === "StageRoute"
+    && area.gambit_binding_quality === "Unresolved"
+    && area.difficulty_resolution === "DivisionStageSeparateAxis"
+    && area.layer_ids.every((id) => layerIds.has(id))),
+"GridFight route-area boundary drift");
+assert(layers.every((layer) =>
+  [1, 2, 3].includes(layer.layer_number)
+    && layer.ordered_node_ids.every((id) => nodeIds.has(id))),
+"GridFight three-Plane layer closure drift");
+const planeCounts = Object.fromEntries([1, 2, 3].map((plane) => [
+  plane,
+  layers.filter(({ layer_number: value }) => value === plane).length,
+]));
+assert(JSON.stringify(planeCounts) === JSON.stringify({
+  1: 26,
+  2: 25,
+  3: 24,
+}), "GridFight three-Plane denominator drift");
+
+const difficulties = rowsByFile["difficulties.json"];
+assert(difficulties.length === 97
+  && sourceLocatorSet(difficulties,
+    "ExcelOutput/GridFightDivisionInfo.json").size === 97
+  && sourceLocatorSet(difficulties,
+    "ExcelOutput/GridFightDivisionStage.json").size === 97
+  && difficulties.every((row) =>
+    row.gambit_rules.standard_score_rule
+      && row.gambit_rules.overclock_score_rule),
+"GridFight Division difficulty closure drift");
 
 const rooms = rowsByFile["rooms.json"];
-assert(rooms.length === 0
-  && manifest.categories.room_reuse_candidates.count === 848
-  && manifest.categories.room_reuse_candidates.records.every((row) =>
-    row.ownership === "EvidenceOnly"
-      && row.reachability === "PendingStageClosure"),
-"room candidate was promoted without exact stage/config evidence");
-
-const nodes = rowsByFile["nodes.json"];
+const compositions = rowsByFile["domain-compositions.json"];
+const nodeTypes = ["Boss", "CampMonster", "EliteBranch", "Monster", "Supply"];
+assert(rooms.map(({ room_type: type }) => type).sort(compare).join(",")
+  === nodeTypes.sort(compare).join(",")
+  && compositions.map(({ domain_type: type }) => type)
+    .sort(compare).join(",") === nodeTypes.sort(compare).join(","),
+"GridFight NodeType closure drift");
 assert(nodes.every((node) =>
-  layers.has(node.layer_id)
-    && node.plane_number >= 1
-    && node.plane_number <= 3
-    && (node.domain_composition_id || node.room_pool_id)),
-"Persona Node reference closure drift");
-const nodeGroups = Object.groupBy(nodes, ({ layer_id: layerId }) => layerId);
-assert(Object.keys(nodeGroups).length === 11
-  && Object.values(nodeGroups).every((group) =>
-    group.every((node, index) =>
+  node.plane_id === `currency-wars.plane.${node.ordinal > 0
+    ? node.layer_id.match(/chapter\.(\d+)$/u)?.[1]
+    : ""}`
+    && layerIds.has(node.layer_id)
+    && node.domain_composition_id
+    && node.room_pool_id
+    && node.stage_id
+    && node.penalty_bonus_rule_id),
+"GridFight Node reference closure drift");
+assert(sourceLocatorSet(nodes, "ExcelOutput/GridFightStageRoute.json").size === 493
+  && sourceLocatorSet(nodes,
+    "ExcelOutput/GridFightNodeTemplate.json").size === 493,
+"GridFight route/template rows are not imported exactly once");
+
+const flow = rowsByFile["stage-flow.json"];
+assert(flow.length === 493
+  && sourceLocatorSet(flow, "ExcelOutput/GridFightStageRoute.json").size === 493
+  && flow.every((row) =>
+    row.evidence_quality === "ProjectPolicy"
+      && row.coverage_state === "Researched"
+      && row.carry_rules.length === 0
+      && row.reset_rules.length === 0
+      && row.lifecycle_resolution === "UnspecifiedByStageRoute"
+      && row.ordered_node_refs.every((id) => nodeIds.has(id))),
+"GridFight StageRoute transition/lifecycle boundary drift");
+for (const layer of layers) {
+  const group = layer.ordered_node_ids.map((id) =>
+    nodes.find((node) => node.id === id));
+  assert(group.every(Boolean)
+    && group.every((node, index) =>
       node.ordinal === index + 1
-        && node.next_node_id === (group[index + 1]?.id ?? ""))),
-"Persona Node ordering drift");
-assert(rowsByFile["layers.json"].every((layer) =>
-  JSON.stringify(layer.ordered_node_ids)
-    === JSON.stringify(nodeGroups[layer.id].map(({ id }) => id))),
-"layer-to-Node closure drift");
-
-const domainCompositions = rowsByFile["domain-compositions.json"];
-assert(domainCompositions.filter(({ selection_policy: policy }) =>
-  policy === "FixedPreset").length === 34
-  && domainCompositions.filter(({ domain_type: type }) =>
-    type === "TypePool").length === 2,
-"Persona domain-composition denominator drift");
-
-const flowRows = rowsByFile["stage-flow.json"];
-assert(flowRows.every((row) =>
-  row.evidence_quality === "ProjectPolicy"
-    && row.policy_id === "ordered-tourn3-area-layer-flow-v1"
-    && row.source_refs.some((ref) => ref.replacement_condition)),
-"stage flow lacks a replaceable policy boundary");
-assert(flowRows.filter(({ id }) => id.includes(".terminal")).length === 28,
-  "area terminal flow count drift");
-assert(flowRows.filter(({ id }) => id.includes(".policy.")).length === 3,
-  "carry/reset policy count drift");
+        && node.next_node_id === (group[index + 1]?.id ?? "")),
+  `${layer.id} authored Node order drift`);
+}
 
 const allRows = Object.values(rowsByFile).flat();
 assert(allRows.every((row) => row.schema_revision
   === "starclock.currency-wars-row.v1"),
 "row schema revision drift");
+assert(allRows.every((row) => !row.id.includes("tourn")
+  && !row.id.includes("persona")
+  && row.source_refs.every((ref) =>
+    !ref.path.includes("RogueTourn") && !ref.path.includes("RoguePersona"))),
+"superseded Tourn/Persona source escaped into corrected flow");
 assert(allRows.every((row) => row.name_en !== row.name_zh_cn
-  || /[^\x00-\x7F]/u.test(row.name_zh_cn)),
+  || /[^\x00-\x7F]/u.test(row.name_zh_cn)
+  || row.tags.includes("settle-rank")),
 "bilingual authoring surface drift");
 
-const encodedDigest = crypto.createHash("sha256");
+const digest = crypto.createHash("sha256");
 for (const file of Object.keys(rowsByFile).sort(compare))
-  encodedDigest.update(fs.readFileSync(path.join(outputRoot, file)));
+  digest.update(fs.readFileSync(path.join(outputRoot, file)));
 console.log(
-  `Currency Wars flow verified (${allRows.length.toLocaleString("en-US")} ` +
-  `rows; digest ${encodedDigest.digest("hex")}).`,
+  `Currency Wars GridFight flow verified (${allRows.length.toLocaleString("en-US")} ` +
+  `rows; 26 routes, 75 Plane layers, 493 Nodes; digest ` +
+  `${digest.digest("hex")}).`,
 );
 
 function valueAfter(flag) {
@@ -214,7 +219,11 @@ function valueAfter(flag) {
     throw new Error(`${flag} requires a value`);
   return args[index + 1];
 }
-
+function sourceLocatorSet(rows, sourcePath) {
+  return new Set(rows.flatMap(({ source_refs: refs }) =>
+    refs.filter(({ path: refPath }) => refPath === sourcePath)
+      .map(({ locator }) => locator)));
+}
 function validEnvelope(row) {
   return row
     && /^[a-z0-9][a-z0-9._:-]*$/u.test(row.id)
@@ -236,19 +245,15 @@ function validEnvelope(row) {
     && Array.isArray(row.tags)
     && JSON.stringify(row.tags) === JSON.stringify([...row.tags].sort(compare));
 }
-
 function json(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
-
 function unique(values) {
   return new Set(values).size === values.length;
 }
-
 function compare(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
 }
-
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }

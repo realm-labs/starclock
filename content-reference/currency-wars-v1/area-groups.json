@@ -1,42 +1,93 @@
 [
   {
-    "id": "currency-wars.area-group.tourn3-guide",
+    "id": "currency-wars.area-group.gridfight-season-1",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsAreaGroup",
-    "name_en": "Arcadian Roam",
-    "name_zh_cn": "乐园漫游",
-    "summary_en": "The released Tourn3 area-group selector binds the Guide area family.",
-    "summary_zh_cn": "已发布的 Tourn3 区域组选择器绑定 Guide 区域族。",
+    "name_en": "Currency Wars Stage Routes",
+    "name_zh_cn": "货币战争关卡路线",
+    "summary_en": "The complete GridFight StageRoute closure contains 26 route families across three ordered chapters.",
+    "summary_zh_cn": "完整 GridFight StageRoute 闭包包含 26 个路线族，分布于三个有序章节。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
-    "evidence_quality": "ExactStructured",
+    "evidence_quality": "ProjectPolicy",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournareagroupbytourn-json.2",
+        "source_id": "source.goal12.exceloutput-gridfightstageroute-json.0",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournAreaGroupByTourn.json",
-        "locator": "2",
-        "sha256": "79e3c0b89c994e0a77c062608a54582cd04120d967a4773836d60a7fda4cf337",
+        "path": "ExcelOutput/GridFightStageRoute.json",
+        "locator": "0",
+        "sha256": "7854b5005073d6d357493fde8d86988337f51c6f23d781413cef8fb5a5dd7914",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstageroute-json.492",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageRoute.json",
+        "locator": "492",
+        "sha256": "de2eacf202e2b618c4130d16ca8708a5cc53c2d033992fa05047ce1c37e2fc99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gridfight-stage-route-gambit-binding",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gridfight-stage-route-gambit-binding",
+        "sha256": "52dc13b1fa11c6d277bea91d9271f2320d15b588822161a49970abed76c75088",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "StageRoute rows publish route IDs and three ordered chapters but no direct Standard/Overclock selector; both Gambit profiles retain the complete route set until a stronger selector is found.",
+        "replacement_condition": "Replace when released structured data directly binds a StageRoute ID to Standard or Overclock Gambit."
       }
     ],
     "tags": [
       "area-group",
-      "guide",
-      "tourn3"
+      "gridfight",
+      "stage-route"
     ],
-    "source_id": "Tourn3:Guide",
+    "source_id": "GridFightStageRoute",
     "area_ids": [
-      "currency-wars.area.103",
-      "currency-wars.area.104"
+      "currency-wars.area.route.100",
+      "currency-wars.area.route.200",
+      "currency-wars.area.route.201",
+      "currency-wars.area.route.801",
+      "currency-wars.area.route.802",
+      "currency-wars.area.route.803",
+      "currency-wars.area.route.1000",
+      "currency-wars.area.route.1100",
+      "currency-wars.area.route.1200",
+      "currency-wars.area.route.1300",
+      "currency-wars.area.route.1400",
+      "currency-wars.area.route.1500",
+      "currency-wars.area.route.1600",
+      "currency-wars.area.route.1700",
+      "currency-wars.area.route.1800",
+      "currency-wars.area.route.1801",
+      "currency-wars.area.route.2000",
+      "currency-wars.area.route.2100",
+      "currency-wars.area.route.2200",
+      "currency-wars.area.route.2300",
+      "currency-wars.area.route.2400",
+      "currency-wars.area.route.2500",
+      "currency-wars.area.route.2600",
+      "currency-wars.area.route.2700",
+      "currency-wars.area.route.2800",
+      "currency-wars.area.route.2801"
     ],
-    "selection_policy": "ExactGuideSelector",
+    "selection_policy": "CompleteGridFightStageRouteClosure",
     "transition_rules": [
-      "Guide areas do not grant Gambit rank progression."
+      "ChapterID and SectionID define the authored route order.",
+      "Gambit-specific route membership remains unresolved."
     ]
   }
 ]

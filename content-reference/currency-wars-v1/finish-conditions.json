@@ -1,335 +1,395 @@
 [
   {
-    "id": "currency-wars.finish.3000311",
+    "id": "currency-wars.finish.settle-rank.1",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000311",
-    "name_zh_cn": "Tourn3 完成条件 3000311",
-    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000311 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000311 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "C",
+    "name_zh_cn": "C",
+    "summary_en": "Settlement rank 1 covers score interval unbounded through unbounded.",
+    "summary_zh_cn": "结算评级 1 覆盖分数区间 未指定 至 未指定。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.17",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.0",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "17",
-        "sha256": "00096954350b24867df9fa3e85c29c1673a1623bfb88336be1f698f7d4b0009e",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "0",
+        "sha256": "2dbbfce9a9a69707bb44043bf1d4d00b5a572006bb7ae15c06f3ea0a362069e3",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1597035123788724731",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1597035123788724731",
+        "sha256": "0977150826b999e5bf557f4c15d84b8056d9c28a97912722ec1fbe7cc940743b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1597035123788724731",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1597035123788724731",
+        "sha256": "0977150826b999e5bf557f4c15d84b8056d9c28a97912722ec1fbe7cc940743b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishwithdifficultycompcnt",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000311",
-    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "source_id": "1",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "NoPara",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "1",
-        "2"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "",
+      "right_inclusive": "",
+      "rank_type": ""
     },
-    "parameter_type": "NoPara",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "1",
-      "2"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000312",
+    "id": "currency-wars.finish.settle-rank.2",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000312",
-    "name_zh_cn": "Tourn3 完成条件 3000312",
-    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000312 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000312 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "B",
+    "name_zh_cn": "B",
+    "summary_en": "Settlement rank 2 covers score interval 1 through 39.",
+    "summary_zh_cn": "结算评级 2 覆盖分数区间 1 至 39。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.18",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.1",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "18",
-        "sha256": "05e33469aef70bd0617142cd9f25e566c56518925ed23e631c66289f1bbfa2e9",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "1",
+        "sha256": "db6158bc0cb86ad697e6bbfbaec90eb0a3a03e825f1a61a70c9628a1d24cf0ab",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17866204184311770406",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17866204184311770406",
+        "sha256": "481fa8b2c726f83e9cccf3c962533cab5f912ff583604a5d2b502ef5cbb01f28",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17866204184311770406",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17866204184311770406",
+        "sha256": "481fa8b2c726f83e9cccf3c962533cab5f912ff583604a5d2b502ef5cbb01f28",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishwithdifficultycompcnt",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000312",
-    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "source_id": "2",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "NoPara",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "2"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "1",
+      "right_inclusive": "39",
+      "rank_type": "B"
     },
-    "parameter_type": "NoPara",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "2"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000313",
+    "id": "currency-wars.finish.settle-rank.3",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000313",
-    "name_zh_cn": "Tourn3 完成条件 3000313",
-    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000313 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000313 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "A",
+    "name_zh_cn": "A",
+    "summary_en": "Settlement rank 3 covers score interval 40 through 69.",
+    "summary_zh_cn": "结算评级 3 覆盖分数区间 40 至 69。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.19",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.2",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "19",
-        "sha256": "2384ffc23e21092fa16bdb4e8f249c8d402114a3b7aedcb62e53a3ea7532c5e7",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "2",
+        "sha256": "0d1fdebfb95f695821d91a602b8a8587946a5de1064ebc352ca261a18bdb4f2b",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8181873025861904220",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8181873025861904220",
+        "sha256": "32838278100b4baf0cdd31ee11bb80b350a1f43607a9d8b9fb9a8dad503c606f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8181873025861904220",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8181873025861904220",
+        "sha256": "32838278100b4baf0cdd31ee11bb80b350a1f43607a9d8b9fb9a8dad503c606f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishwithdifficultycompcnt",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000313",
-    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "source_id": "3",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "NoPara",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "3",
-        "2"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "40",
+      "right_inclusive": "69",
+      "rank_type": "A"
     },
-    "parameter_type": "NoPara",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "3",
-      "2"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000314",
+    "id": "currency-wars.finish.settle-rank.4",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000314",
-    "name_zh_cn": "Tourn3 完成条件 3000314",
-    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000314 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000314 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "S",
+    "name_zh_cn": "S",
+    "summary_en": "Settlement rank 4 covers score interval 70 through 89.",
+    "summary_zh_cn": "结算评级 4 覆盖分数区间 70 至 89。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.20",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.3",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "20",
-        "sha256": "11efb00ec95be2e164d2c4c331347fe33f9b38b64dc5ad1a825a016d396f946f",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "3",
+        "sha256": "fc48c487fac4a15f70476c0c1a427475241a8545013d4ddef61c495d4ef8adb3",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4480930911705752338",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4480930911705752338",
+        "sha256": "0174ef0f8b6b4dcca21f00432f3a6406fba92e58b7aee1c31a473c262cc68282",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4480930911705752338",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4480930911705752338",
+        "sha256": "0174ef0f8b6b4dcca21f00432f3a6406fba92e58b7aee1c31a473c262cc68282",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishwithdifficultycompcnt",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000314",
-    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "source_id": "4",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "NoPara",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "4",
-        "2"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "70",
+      "right_inclusive": "89",
+      "rank_type": "S"
     },
-    "parameter_type": "NoPara",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "4",
-      "2"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000315",
+    "id": "currency-wars.finish.settle-rank.5",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000315",
-    "name_zh_cn": "Tourn3 完成条件 3000315",
-    "summary_en": "Released RogueTournFinishWithDifficultyCompCnt condition 3000315 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishWithDifficultyCompCnt 条件 3000315 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "SS",
+    "name_zh_cn": "SS",
+    "summary_en": "Settlement rank 5 covers score interval 90 through 99.",
+    "summary_zh_cn": "结算评级 5 覆盖分数区间 90 至 99。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.21",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.4",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "21",
-        "sha256": "a05239d05eef1d169a982a61bc3a165df99d5cb4cae674c222e9a1a4d1d664eb",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "4",
+        "sha256": "051555e397bb7434c36b6bfcba0024c767d22bc890578c46a5e07ed2c016c47f",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11575563578775868872",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11575563578775868872",
+        "sha256": "f86f245bb4948251db472ea84ff6d0243d6b65ddad615a56628376d4a2eb80bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11575563578775868872",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11575563578775868872",
+        "sha256": "f86f245bb4948251db472ea84ff6d0243d6b65ddad615a56628376d4a2eb80bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishwithdifficultycompcnt",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000315",
-    "condition_kind": "RogueTournFinishWithDifficultyCompCnt",
+    "source_id": "5",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "NoPara",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "5",
-        "2"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "90",
+      "right_inclusive": "99",
+      "rank_type": "SS"
     },
-    "parameter_type": "NoPara",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "5",
-      "2"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000316",
+    "id": "currency-wars.finish.settle-rank.6",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000316",
-    "name_zh_cn": "Tourn3 完成条件 3000316",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000316 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000316 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "SSS",
+    "name_zh_cn": "SSS",
+    "summary_en": "Settlement rank 6 covers score interval 100 through 9999999.",
+    "summary_zh_cn": "结算评级 6 覆盖分数区间 100 至 9999999。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.22",
+        "source_id": "source.goal12.exceloutput-gridfightsettlerank-json.5",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "22",
-        "sha256": "7dc6d95e49a216ef6b88aeabe766fcacb6aa8fc72496155f7be108a862921d99",
+        "path": "ExcelOutput/GridFightSettleRank.json",
+        "locator": "5",
+        "sha256": "18a7df18acf5612bda3d79388df71e7a5b7a50095df6928f64cd05f2989c3d5f",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17709068057596029901",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17709068057596029901",
+        "sha256": "f4fb4feeb4689e6db093cfd4acc0012f44b5d16f01814cf1170037b1ed27c516",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17709068057596029901",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17709068057596029901",
+        "sha256": "f4fb4feeb4689e6db093cfd4acc0012f44b5d16f01814cf1170037b1ed27c516",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "settle-rank"
     ],
-    "source_id": "3000316",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "6",
+    "condition_kind": "SettlementRank",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "left_inclusive": "100",
+      "right_inclusive": "9999999",
+      "rank_type": "SSS"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ClassifySettlement"
   },
   {
-    "id": "currency-wars.finish.3000317",
+    "id": "currency-wars.finish.stage-rule.3260",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000317",
-    "name_zh_cn": "Tourn3 完成条件 3000317",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000317 explicitly tests Tourn mode 3 and progress 2.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000317 明确检查 Tourn 模式 3，目标进度为 2。",
+    "name_en": "Stage rule 3260",
+    "name_zh_cn": "关卡规则 3260",
+    "summary_en": "Stage 3260 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3260 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.23",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.0",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "23",
-        "sha256": "3c3d82eba12767c1ab7d41a87a317d5e763c9c7203e44a64eed33dfe06c111cd",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "0",
+        "sha256": "28a62ac21c3abd66f0d906887a7b084676126e07a87eb59e96e1cc676426619b",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -338,50 +398,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3000317",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "3260",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "2"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "2",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3000318",
+    "id": "currency-wars.finish.stage-rule.3261",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000318",
-    "name_zh_cn": "Tourn3 完成条件 3000318",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000318 explicitly tests Tourn mode 3 and progress 3.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000318 明确检查 Tourn 模式 3，目标进度为 3。",
+    "name_en": "Stage rule 3261",
+    "name_zh_cn": "关卡规则 3261",
+    "summary_en": "Stage 3261 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3261 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.24",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.1",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "24",
-        "sha256": "8eb14f36ea850f54279700f073e2635c6ce4edeef3fe0054291917742fa79b00",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "1",
+        "sha256": "4b143ae791d06dfcd8cff60c67d7746ecaaef0bb57ab32dea59540206c5a4745",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -390,50 +436,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3000318",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "3261",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "3"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "3",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3000319",
+    "id": "currency-wars.finish.stage-rule.3262",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000319",
-    "name_zh_cn": "Tourn3 完成条件 3000319",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000319 explicitly tests Tourn mode 3 and progress 4.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000319 明确检查 Tourn 模式 3，目标进度为 4。",
+    "name_en": "Stage rule 3262",
+    "name_zh_cn": "关卡规则 3262",
+    "summary_en": "Stage 3262 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3262 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.25",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.2",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "25",
-        "sha256": "6795845611a2b2fa7143a52eca938b0332272341c429acbc3a6b458317c753c6",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "2",
+        "sha256": "8571f4abfffb9818cb3009550fd6fa1df64cfe58255659d95d73f87b07698ea0",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -442,50 +474,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3000319",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "3262",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "4"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "4",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3000320",
+    "id": "currency-wars.finish.stage-rule.3263",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000320",
-    "name_zh_cn": "Tourn3 完成条件 3000320",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000320 explicitly tests Tourn mode 3 and progress 5.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000320 明确检查 Tourn 模式 3，目标进度为 5。",
+    "name_en": "Stage rule 3263",
+    "name_zh_cn": "关卡规则 3263",
+    "summary_en": "Stage 3263 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3263 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.26",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.3",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "26",
-        "sha256": "36e011a9befbe89e046e87a1b0a3da3bf3109df3dba06e0f6d854521d3c4fd3f",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "3",
+        "sha256": "b2f2d73de46f7924113817eb006bb81831f8a5bf4dcc35fff2afbf20477f262a",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -494,50 +512,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3000320",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "3263",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "5"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "5",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3000321",
+    "id": "currency-wars.finish.stage-rule.3264",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3000321",
-    "name_zh_cn": "Tourn3 完成条件 3000321",
-    "summary_en": "Released RogueTournFinishCntByAreaGroup condition 3000321 explicitly tests Tourn mode 3 and progress 10.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCntByAreaGroup 条件 3000321 明确检查 Tourn 模式 3，目标进度为 10。",
+    "name_en": "Stage rule 3264",
+    "name_zh_cn": "关卡规则 3264",
+    "summary_en": "Stage 3264 publishes 2 total turns and a 0.3 threshold.",
+    "summary_zh_cn": "关卡 3264 发布 2 回合上限与 0.3 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.27",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.4",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "27",
-        "sha256": "27b04cd9e24cb4d1bb722aadcc56a4cfaf00a50313505b0ce02b8213db3a63f1",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "4",
+        "sha256": "41ccac5a17373fb62d9d463fe750d600000a507050df7a3a175ef9218f51d01e",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -546,50 +550,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcntbyareagroup",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3000321",
-    "condition_kind": "RogueTournFinishCntByAreaGroup",
+    "source_id": "3264",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "2",
-        "3"
-      ],
-      "item_parameters": [],
-      "progress": "10"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.3"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "2",
-      "3"
-    ],
-    "item_parameters": [],
-    "progress": "10",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3001304",
+    "id": "currency-wars.finish.stage-rule.3265",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3001304",
-    "name_zh_cn": "Tourn3 完成条件 3001304",
-    "summary_en": "Released RogueTournFinishCnt condition 3001304 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCnt 条件 3001304 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "Stage rule 3265",
+    "name_zh_cn": "关卡规则 3265",
+    "summary_en": "Stage 3265 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3265 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.77",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.5",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "77",
-        "sha256": "4ac812ff6b3be2ed611c6f3c652b38fc660a5bb1df01b9d1490b6c6fee8dbf72",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "5",
+        "sha256": "4ffd237b421fca325663fb417a4f5ffb076a5e28791d6f32862e02f2a8d05637",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -598,48 +588,36 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcnt",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3001304",
-    "condition_kind": "RogueTournFinishCnt",
+    "source_id": "3265",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "103"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "103"
-    ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "terminal_disposition": "ProjectBattleResultToRun"
   },
   {
-    "id": "currency-wars.finish.3001305",
+    "id": "currency-wars.finish.stage-rule.3266",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsFinishCondition",
-    "name_en": "Tourn3 Finish Condition 3001305",
-    "name_zh_cn": "Tourn3 完成条件 3001305",
-    "summary_en": "Released RogueTournFinishCnt condition 3001305 explicitly tests Tourn mode 3 and progress 1.",
-    "summary_zh_cn": "已发布的 RogueTournFinishCnt 条件 3001305 明确检查 Tourn 模式 3，目标进度为 1。",
+    "name_en": "Stage rule 3266",
+    "name_zh_cn": "关卡规则 3266",
+    "summary_en": "Stage 3266 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3266 发布 2 回合上限与 0.4 阈值。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournfinishway-json.78",
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.6",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournFinishway.json",
-        "locator": "78",
-        "sha256": "71e3c31687fe1a5f89f6aefa87646f3a0665cf6edfac5463c2240473aa01c750",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "6",
+        "sha256": "700e6b20c61bdbb8ab7c600941475ce509ad29a401100266a34dcc7cd366ba5f",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -648,27 +626,319 @@
     ],
     "tags": [
       "finish-condition",
-      "roguetournfinishcnt",
-      "tourn3"
+      "stage-rule"
     ],
-    "source_id": "3001305",
-    "condition_kind": "RogueTournFinishCnt",
+    "source_id": "3266",
+    "condition_kind": "BattleStageRule",
     "parameters": {
-      "parameter_type": "ListContain",
-      "string_parameter": "Cond_InRogueTournMode(3)",
-      "integer_parameters": [
-        "104"
-      ],
-      "item_parameters": [],
-      "progress": "1"
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
     },
-    "parameter_type": "ListContain",
-    "string_parameter": "Cond_InRogueTournMode(3)",
-    "integer_parameters": [
-      "104"
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3267",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3267",
+    "name_zh_cn": "关卡规则 3267",
+    "summary_en": "Stage 3267 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3267 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "7",
+        "sha256": "fcc495d42eccdcdb5679609c6e880646bf44ee14c0b1508ac0c805fb90e57107",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
     ],
-    "item_parameters": [],
-    "progress": "1",
-    "terminal_disposition": "SourceConditionOnly"
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3267",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3268",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3268",
+    "name_zh_cn": "关卡规则 3268",
+    "summary_en": "Stage 3268 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3268 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "8",
+        "sha256": "bd72d303890b1fb6e1e013d517857bb8bc400ba0bb1171493772f5d2710276ea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3268",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3269",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3269",
+    "name_zh_cn": "关卡规则 3269",
+    "summary_en": "Stage 3269 publishes 2 total turns and a 0.3 threshold.",
+    "summary_zh_cn": "关卡 3269 发布 2 回合上限与 0.3 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "9",
+        "sha256": "25daba523e3fb61df05dcbd71b43a16377888c9f921e5acd97df3b1f0a1fceea",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3269",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.3"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3270",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3270",
+    "name_zh_cn": "关卡规则 3270",
+    "summary_en": "Stage 3270 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3270 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "10",
+        "sha256": "0ef7ed42c9fd58d4e2e0b0c9b12ff74ab5af3bce4d8410e749e8750bfde8dde1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3270",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3271",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3271",
+    "name_zh_cn": "关卡规则 3271",
+    "summary_en": "Stage 3271 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3271 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "11",
+        "sha256": "9a6ffd594b22bb8e48a78d333e6aef35c689a8ce49fad3f8f8f87bc57c6a55f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3271",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3272",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3272",
+    "name_zh_cn": "关卡规则 3272",
+    "summary_en": "Stage 3272 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3272 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "12",
+        "sha256": "6ba710ac96d8f887a6b7a7200b526ce45001905240f231bfc42478ddc2537802",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3272",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3273",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3273",
+    "name_zh_cn": "关卡规则 3273",
+    "summary_en": "Stage 3273 publishes 2 total turns and a 0.4 threshold.",
+    "summary_zh_cn": "关卡 3273 发布 2 回合上限与 0.4 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "13",
+        "sha256": "c01e2e712930b4ef87a5906a0a39ed8df35c13822a50c967a7995da5fef479ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3273",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.4"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
+  },
+  {
+    "id": "currency-wars.finish.stage-rule.3274",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFinishCondition",
+    "name_en": "Stage rule 3274",
+    "name_zh_cn": "关卡规则 3274",
+    "summary_en": "Stage 3274 publishes 2 total turns and a 0.3 threshold.",
+    "summary_zh_cn": "关卡 3274 发布 2 回合上限与 0.3 阈值。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstage-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStage.json",
+        "locator": "14",
+        "sha256": "156d7550ffb6f876d4659e59caa4a5252adcd56cf5c0e993bb82a1414c9fd757",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "finish-condition",
+      "stage-rule"
+    ],
+    "source_id": "3274",
+    "condition_kind": "BattleStageRule",
+    "parameters": {
+      "stage_rule_id": "1",
+      "total_turn": "2",
+      "threshold_position": "0.3"
+    },
+    "terminal_disposition": "ProjectBattleResultToRun"
   }
 ]

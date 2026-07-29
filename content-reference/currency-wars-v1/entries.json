@@ -1,78 +1,152 @@
 [
   {
-    "id": "currency-wars.entry.title.tournrogue",
+    "id": "currency-wars.entry.guide-data.301",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsEntry",
-    "name_en": "Divergent Universe",
-    "name_zh_cn": "差分宇宙",
-    "summary_en": "The common mode-title row binds the TournRogue identity.",
-    "summary_zh_cn": "通用模式标题行绑定 TournRogue 玩法身份。",
+    "name_en": "Currency Wars",
+    "name_zh_cn": "货币战争",
+    "summary_en": "Guide data 301 selects Currency Wars tab 1003.",
+    "summary_zh_cn": "指南数据 301 选择货币战争页签 1003。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguecommonmodetitle-json.3",
+        "source_id": "source.goal12.exceloutput-guideroguedata-json.5",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueCommonModeTitle.json",
-        "locator": "3",
-        "sha256": "7823313890a4ad493cb0ae08a815b5fd1ede087f694f34c80513f95bda79b5ce",
+        "path": "ExcelOutput/GuideRogueData.json",
+        "locator": "5",
+        "sha256": "3162accac44c825d114b06c9b71f08f520a78c2dfcd91a272e99bfa1c341cb5e",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12766196657685680910",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12766196657685680910",
+        "sha256": "47b3f9cf261174ba1441d522d6b56e18aa5d20d7eebd496643f726b7e3c4f585",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12766196657685680910",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12766196657685680910",
+        "sha256": "55d8ffc3b4f45b744871ecbd6f8f76f57f53aa947756f798a47b3192da2b67c6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
-      "mode-title"
+      "entry",
+      "gridfight",
+      "guidedata"
     ],
-    "entry_kind": "ModeTitle",
-    "source_id": "TournRogue",
-    "module_id": "currency-wars.module.6002201",
-    "unlock_ids": [],
+    "entry_kind": "GuideData",
+    "source_id": "301",
+    "module_id": "currency-wars.module.7100501",
+    "module_ids": [
+      "currency-wars.module.7100201",
+      "currency-wars.module.7100301",
+      "currency-wars.module.7100401",
+      "currency-wars.module.7100501"
+    ],
+    "unlock_ids": [
+      {
+        "Type": "PlayerLevel",
+        "Param": "21"
+      }
+    ],
+    "open_conditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "803710003"
+      }
+    ],
     "gambit_mode_ids": [
       "currency-wars.gambit.overclock",
       "currency-wars.gambit.standard"
-    ],
-    "related_panel_id": ""
+    ]
   },
   {
-    "id": "currency-wars.entry.activity.105",
+    "id": "currency-wars.entry.guide-tab.1003",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsEntry",
-    "name_en": "Divergent Universe: Arcadian Chronicles",
-    "name_zh_cn": "差分宇宙•乐园漫记",
-    "summary_en": "Resident activity 105 selects TournRogue module 6002201.",
-    "summary_zh_cn": "常驻活动 105 选择 TournRogue 模块 6002201。",
+    "name_en": "Currency Wars",
+    "name_zh_cn": "货币战争",
+    "summary_en": "Guide tab 1003 directly selects GuideType GridFight.",
+    "summary_zh_cn": "指南页签 1003 直接选择 GuideType GridFight。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-rogueactivityresidentconfig-json.4",
+        "source_id": "source.goal12.exceloutput-guideroguetab-json.2",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueActivityResidentConfig.json",
-        "locator": "4",
-        "sha256": "aa1c9804788a1ee9b74dbf1230768fee695e654d2cd56de595ad235c301e729c",
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
         "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11179573777653333385",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11179573777653333385",
+        "sha256": "0c5e69a58675f0737bf718d162f0e101d67167bc20dd3707a3b68f8f75417429",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11179573777653333385",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11179573777653333385",
+        "sha256": "fa5ff7866179d4a5da8ca86575a3cea779df5de66c32a8603a3b8444a5617876",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
       }
     ],
     "tags": [
-      "activity-entry"
+      "entry",
+      "gridfight",
+      "guidetab"
     ],
-    "entry_kind": "ResidentActivity",
-    "source_id": "105",
-    "module_id": "currency-wars.module.6002201",
+    "entry_kind": "GuideTab",
+    "source_id": "1003",
+    "module_id": "currency-wars.module.7100501",
+    "module_ids": [
+      "currency-wars.module.7100201",
+      "currency-wars.module.7100301",
+      "currency-wars.module.7100401",
+      "currency-wars.module.7100501"
+    ],
     "unlock_ids": [],
+    "open_conditions": [],
     "gambit_mode_ids": [
       "currency-wars.gambit.overclock",
       "currency-wars.gambit.standard"
-    ],
-    "related_panel_id": "60018"
+    ]
   }
 ]

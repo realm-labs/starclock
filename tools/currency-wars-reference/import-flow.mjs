@@ -5,6 +5,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import {
   createContext,
+  decimal,
   slug,
   writeOrCheck,
 } from "./lib/common.mjs";
@@ -23,53 +24,62 @@ function valueAfter(flag) {
     throw new Error(`${flag} requires a value`);
   return args[index + 1];
 }
-
+function compare(left, right) {
+  return left < right ? -1 : left > right ? 1 : 0;
+}
+function ordered(records, fields = ["id"]) {
+  return records.sort((left, right) => {
+    for (const field of fields) {
+      const result = compare(left[field], right[field]);
+      if (result !== 0) return result;
+    }
+    return 0;
+  });
+}
 function localized(reference, fallbackEn, fallbackZh) {
   return {
     en: context.text(reference, "en") || fallbackEn,
     zh: context.text(reference, "zh_cn") || fallbackZh,
   };
 }
-
-function ordered(records, fields = ["id"]) {
-  return records.sort((left, right) => {
-    for (const field of fields) {
-      if (left[field] < right[field]) return -1;
-      if (left[field] > right[field]) return 1;
-    }
-    return 0;
-  });
+function refsWithText(entry, reference) {
+  const refs = [context.sourceRef(entry)];
+  if (reference?.Hash !== undefined) {
+    const hash = String(reference.Hash);
+    if (context.text(reference, "en") && context.text(reference, "zh_cn"))
+      refs.push(...context.bilingualTextRefs(hash));
+  }
+  return refs;
 }
 
-function stringIds(values = []) {
-  return values.map(String);
-}
-
-const CURRENCY_WARS_NAME_HASH = "3667032256414715511";
 const STANDARD_GAMBIT_NAME_HASH = "16168571866306406443";
 const OVERCLOCK_GAMBIT_NAME_HASH = "6780709645179175648";
-const THREE_PLANE_RULE_HASH = "6393633547126864112";
 const GAMEPLAY_RULES_HASH = "7693488975416237801";
 const OVERCLOCK_UNLOCK_HASH = "6980633506989562534";
 
-const activityEntries = (await context.table("RogueActivityResidentConfig"))
-  .filter(({ row }) =>
-    row.SubMode === "TournRogue" && row.ActivityModuleID === 6002201);
-const titleEntries = (await context.table("RogueCommonModeTitle"))
-  .filter(({ row }) => row.SubMode === "TournRogue");
-const moduleEntries = (await context.table("RogueTournModule"))
-  .filter(({ row }) => row.ActivityModuleID === 6002201);
-if (activityEntries.length !== 1 || titleEntries.length !== 1
-  || moduleEntries.length !== 1)
-  throw new Error("TournRogue Version 4.4 entry/module cardinality drift");
+const guideTabs = await context.table("GuideRogueTab");
+const guideData = await context.table("GuideRogueData");
+const guideTab = guideTabs.find(({ row }) =>
+  row.ID === 1003 && row.GuideType === "GridFight");
+const guideEntry = guideData.find(({ row }) =>
+  row.ID === 301 && row.TabID === 1003);
+if (!guideTab || guideTab.locator !== "2"
+  || !guideEntry || guideEntry.locator !== "5")
+  throw new Error("fixed GridFight Guide selector drift");
+const seasonModules = await context.table("GridFightSeasonModule");
+if (seasonModules.length !== 4
+  || seasonModules.some(({ row }) => row.SeasonID !== 1))
+  throw new Error("GridFight season-module closure drift");
+const latestModule = [...seasonModules].sort((left, right) =>
+  right.row.SubSeasonID - left.row.SubSeasonID)[0];
 
 const profilePolicy = await context.policyRef(
-  "profile",
-  "One isolated reference profile binds the exact released TournRogue activity and module 6002201.",
-  "Replace only if a later released profile registry supplies a stronger stable identity.",
+  "gridfight-profile",
+  "One isolated reference profile binds the exact released GuideType GridFight selector and all four Version 4.4 sub-season modules.",
+  "Replace only if a later released GridFight profile registry supplies a stronger stable identity.",
 );
 const profileName = localized(
-  { Hash: CURRENCY_WARS_NAME_HASH },
+  guideTab.row.Name,
   "Currency Wars",
   "货币战争",
 );
@@ -80,32 +90,37 @@ const profile = {
     nameEn: profileName.en,
     nameZh: profileName.zh,
     summaryEn:
-      "Version 4.4 Candidate reference profile for the permanent TournRogue activity; runtime lowering is absent.",
+      "Version 4.4 Candidate reference profile selected directly by GuideType GridFight; runtime lowering is absent.",
     summaryZh:
-      "4.4 版本常驻 TournRogue 玩法的 Candidate 资料档案；不包含运行时降级。",
+      "由 GuideType GridFight 直接选择的 4.4 版本 Candidate 资料档案；不包含运行时降级。",
     coverageState: "Researched",
     evidenceQuality: "ProjectPolicy",
     sourceRefs: [
-      ...context.bilingualTextRefs(CURRENCY_WARS_NAME_HASH),
+      ...refsWithText(guideTab, guideTab.row.Name),
+      context.sourceRef(guideEntry),
       profilePolicy,
     ],
-    tags: ["candidate-reference", "currency-wars", "tourn-rogue"],
+    tags: ["candidate-reference", "currency-wars", "gridfight"],
   }),
-  sub_mode: "TournRogue",
-  tourn_mode: "Tourn3",
+  sub_mode: "GridFight",
+  tourn_mode: "",
+  guide_tab_id: "1003",
+  guide_data_id: "301",
   game_version: "4.4",
   runtime_enabled: false,
   entry_refs: [
-    "currency-wars.entry.activity.105",
-    "currency-wars.entry.title.tournrogue",
+    "currency-wars.entry.guide-tab.1003",
+    "currency-wars.entry.guide-data.301",
   ],
-  module_id: "currency-wars.module.6002201",
+  module_id: `currency-wars.module.${latestModule.row.ActivityModuleID}`,
+  module_ids: seasonModules.map(({ row }) =>
+    `currency-wars.module.${row.ActivityModuleID}`),
   gambit_mode_ids: [
     "currency-wars.gambit.overclock",
     "currency-wars.gambit.standard",
   ],
   initial_resources: [],
-  initial_resources_resolution: "Unspecified",
+  initial_resources_resolution: "DeferredToP1B3",
   finish_condition_ids: [],
 };
 outputs.set("profiles.json", [profile]);
@@ -113,24 +128,24 @@ outputs.set("profiles.json", [profile]);
 const gambitModes = [
   {
     id: "currency-wars.gambit.standard",
-    slug: "standard",
+    key: "standard",
     hash: STANDARD_GAMBIT_NAME_HASH,
     nameEn: "Standard Gambit",
     nameZh: "标准博弈",
-    unlock_ids: [],
-    entry_rules: [
+    unlockIds: [],
+    entryRules: [
       "Challenge difficulty is bounded by the current highest rank.",
       "Victory may advance rank; defeat does not reduce current rank.",
     ],
   },
   {
     id: "currency-wars.gambit.overclock",
-    slug: "overclock",
+    key: "overclock",
     hash: OVERCLOCK_GAMBIT_NAME_HASH,
     nameEn: "Overclock Gambit",
     nameZh: "超频博弈",
-    unlock_ids: ["complete-one-standard-gambit"],
-    entry_rules: [
+    unlockIds: ["complete-one-standard-gambit"],
+    entryRules: [
       "Challenge difficulty cannot exceed the highest Standard Gambit rank.",
       "Completion does not change current rank.",
     ],
@@ -142,606 +157,477 @@ const gambitModes = [
     nameEn: context.text({ Hash: mode.hash }, "en") || mode.nameEn,
     nameZh: context.text({ Hash: mode.hash }, "zh_cn") || mode.nameZh,
     summaryEn:
-      `${mode.nameEn} is a released Currency Wars entry choice; detailed rewards are outside this reference batch.`,
+      `${mode.nameEn} is a released Currency Wars entry choice; account rewards are excluded.`,
     summaryZh:
-      `${mode.nameZh} 是已发布的货币战争入口选择；详细奖励不属于本资料批次。`,
+      `${mode.nameZh} 是已发布的货币战争入口选择；账号奖励不在资料范围内。`,
     coverageState: "Researched",
     evidenceQuality: "ExactPublicText",
     sourceRefs: [
       ...context.bilingualTextRefs(mode.hash),
       ...context.bilingualTextRefs(GAMEPLAY_RULES_HASH),
-      ...(mode.slug === "overclock"
+      ...(mode.key === "overclock"
         ? context.bilingualTextRefs(OVERCLOCK_UNLOCK_HASH)
         : []),
     ],
-    tags: ["currency-wars", "gambit", mode.slug],
+    tags: ["currency-wars", "gambit", mode.key],
   }),
-  mode_kind: mode.slug === "standard" ? "Standard" : "Overclock",
-  unlock_ids: mode.unlock_ids,
-  entry_rules: mode.entry_rules,
+  mode_kind: mode.key === "standard" ? "Standard" : "Overclock",
+  unlock_ids: mode.unlockIds,
+  entry_rules: mode.entryRules,
   initial_resources: [],
   initial_resources_resolution: "DeferredToP1B3",
 }));
 outputs.set("gambit-modes.json", ordered(gambitModes));
 
-const modules = moduleEntries.map((entry) => ({
+const modules = seasonModules.map((entry) => ({
   ...context.envelope({
     id: `currency-wars.module.${entry.row.ActivityModuleID}`,
     kind: "CurrencyWarsModule",
-    nameEn: `Currency Wars Module ${entry.row.MainTournID}.${entry.row.SubTournID}`,
-    nameZh: `货币战争模块 ${entry.row.MainTournID}.${entry.row.SubTournID}`,
+    nameEn:
+      `Currency Wars Season ${entry.row.SeasonID}.${entry.row.SubSeasonID}`,
+    nameZh:
+      `货币战争赛季 ${entry.row.SeasonID}.${entry.row.SubSeasonID}`,
     summaryEn:
-      `Activity module ${entry.row.ActivityModuleID} is the released main-tournament ${entry.row.MainTournID}, sub-tournament ${entry.row.SubTournID} boundary.`,
+      `GridFight module ${entry.row.ActivityModuleID} selects season ${entry.row.SeasonID}, sub-season ${entry.row.SubSeasonID}.`,
     summaryZh:
-      `活动模块 ${entry.row.ActivityModuleID} 是已发布的主赛季 ${entry.row.MainTournID}、子赛季 ${entry.row.SubTournID} 边界。`,
+      `GridFight 模块 ${entry.row.ActivityModuleID} 选择赛季 ${entry.row.SeasonID}、子赛季 ${entry.row.SubSeasonID}。`,
     sourceRefs: [context.sourceRef(entry)],
-    tags: ["enabled-module", "tourn3"],
+    tags: ["enabled-module", "gridfight", `subseason-${entry.row.SubSeasonID}`],
   }),
   source_id: String(entry.row.ActivityModuleID),
-  sub_mode: "TournRogue",
-  tourn_mode: "Tourn3",
-  main_tourn_id: entry.row.MainTournID,
-  sub_tourn_id: entry.row.SubTournID,
+  sub_mode: "GridFight",
+  tourn_mode: "",
+  main_tourn_id: entry.row.SeasonID,
+  sub_tourn_id: entry.row.SubSeasonID,
+  season_id: entry.row.SeasonID,
+  sub_season_id: entry.row.SubSeasonID,
+  max_reward_exp: String(entry.row.MaxRewardExp),
+  offering_id: String(entry.row.OfferingID),
 }));
-outputs.set("modules.json", modules);
+outputs.set("modules.json", ordered(modules));
 
-const entries = [];
-for (const entry of activityEntries) {
-  const name = localized(
-    entry.row.ResidentName,
-    "Currency Wars Resident Activity",
-    "货币战争常驻活动",
-  );
-  entries.push({
-    ...context.envelope({
-      id: `currency-wars.entry.activity.${entry.row.ActivityID}`,
-      kind: "CurrencyWarsEntry",
-      nameEn: name.en,
-      nameZh: name.zh,
-      summaryEn:
-        `Resident activity ${entry.row.ActivityID} selects TournRogue module ${entry.row.ActivityModuleID}.`,
-      summaryZh:
-        `常驻活动 ${entry.row.ActivityID} 选择 TournRogue 模块 ${entry.row.ActivityModuleID}。`,
-      sourceRefs: [context.sourceRef(entry)],
-      tags: ["activity-entry"],
-    }),
-    entry_kind: "ResidentActivity",
-    source_id: String(entry.row.ActivityID),
-    module_id: `currency-wars.module.${entry.row.ActivityModuleID}`,
-    unlock_ids: [],
-    gambit_mode_ids: gambitModes.map(({ id }) => id),
-    related_panel_id: String(entry.row.RelatedActivityPanelID),
-  });
-}
-for (const entry of titleEntries) {
-  const name = localized(
-    entry.row.TitleTextmapID,
-    "Currency Wars Mode Title",
-    "货币战争模式标题",
-  );
-  entries.push({
-    ...context.envelope({
-      id: `currency-wars.entry.title.${slug(entry.row.SubMode)}`,
-      kind: "CurrencyWarsEntry",
-      nameEn: name.en,
-      nameZh: name.zh,
-      summaryEn: "The common mode-title row binds the TournRogue identity.",
-      summaryZh: "通用模式标题行绑定 TournRogue 玩法身份。",
-      sourceRefs: [context.sourceRef(entry)],
-      tags: ["mode-title"],
-    }),
-    entry_kind: "ModeTitle",
-    source_id: entry.row.SubMode,
-    module_id: "currency-wars.module.6002201",
-    unlock_ids: [],
-    gambit_mode_ids: gambitModes.map(({ id }) => id),
-    related_panel_id: "",
-  });
-}
-outputs.set("entries.json", ordered(entries, ["entry_kind", "id"]));
-
-const finishEntries = (await context.table("RogueTournFinishway"))
-  .filter(({ row }) => JSON.stringify(row).includes("Cond_InRogueTournMode(3)"));
-const finishConditions = finishEntries.map((entry) => ({
-  ...context.envelope({
-    id: `currency-wars.finish.${entry.row.ID}`,
-    kind: "CurrencyWarsFinishCondition",
-    nameEn: `Tourn3 Finish Condition ${entry.row.ID}`,
-    nameZh: `Tourn3 完成条件 ${entry.row.ID}`,
-    summaryEn:
-      `Released ${entry.row.FinishType} condition ${entry.row.ID} explicitly tests Tourn mode 3 and progress ${entry.row.Progress}.`,
-    summaryZh:
-      `已发布的 ${entry.row.FinishType} 条件 ${entry.row.ID} 明确检查 Tourn 模式 3，目标进度为 ${entry.row.Progress}。`,
-    sourceRefs: [context.sourceRef(entry)],
-    tags: ["finish-condition", slug(entry.row.FinishType), "tourn3"],
-  }),
-  source_id: String(entry.row.ID),
-  condition_kind: entry.row.FinishType,
-  parameters: {
-    parameter_type: entry.row.ParamType ?? "None",
-    string_parameter: entry.row.ParamStr1 ?? "",
-    integer_parameters: [
-      entry.row.ParamInt1,
-      entry.row.ParamInt2,
-      entry.row.ParamInt3,
-      ...(entry.row.ParamIntList ?? []),
-    ].filter((value) => value !== undefined).map(String),
-    item_parameters: entry.row.ParamItemList ?? [],
-    progress: String(entry.row.Progress),
+const entryRows = [
+  {
+    entry: guideTab,
+    id: "currency-wars.entry.guide-tab.1003",
+    kind: "GuideTab",
+    sourceId: "1003",
+    name: profileName,
+    summaryEn: "Guide tab 1003 directly selects GuideType GridFight.",
+    summaryZh: "指南页签 1003 直接选择 GuideType GridFight。",
   },
-  parameter_type: entry.row.ParamType ?? "None",
-  string_parameter: entry.row.ParamStr1 ?? "",
-  integer_parameters: [
-    entry.row.ParamInt1,
-    entry.row.ParamInt2,
-    entry.row.ParamInt3,
-    ...(entry.row.ParamIntList ?? []),
-  ].filter((value) => value !== undefined).map(String),
-  item_parameters: entry.row.ParamItemList ?? [],
-  progress: String(entry.row.Progress),
-  terminal_disposition: "SourceConditionOnly",
+  {
+    entry: guideEntry,
+    id: "currency-wars.entry.guide-data.301",
+    kind: "GuideData",
+    sourceId: "301",
+    name: localized(
+      guideEntry.row.Name,
+      "Currency Wars Guide Entry",
+      "货币战争指南入口",
+    ),
+    summaryEn: "Guide data 301 selects Currency Wars tab 1003.",
+    summaryZh: "指南数据 301 选择货币战争页签 1003。",
+  },
+].map((item) => ({
+  ...context.envelope({
+    id: item.id,
+    kind: "CurrencyWarsEntry",
+    nameEn: item.name.en,
+    nameZh: item.name.zh,
+    summaryEn: item.summaryEn,
+    summaryZh: item.summaryZh,
+    sourceRefs: refsWithText(item.entry, item.entry.row.Name),
+    tags: ["entry", "gridfight", slug(item.kind)],
+  }),
+  entry_kind: item.kind,
+  source_id: item.sourceId,
+  module_id: profile.module_id,
+  module_ids: profile.module_ids,
+  unlock_ids: item.entry.row.UnlockConditions ?? [],
+  open_conditions: item.entry.row.OpenConditions ?? [],
+  gambit_mode_ids: gambitModes.map(({ id }) => id),
 }));
+outputs.set("entries.json", ordered(entryRows));
+
+const stageEntries = await context.table("GridFightStage");
+const settleEntries = await context.table("GridFightSettleRank");
+const finishConditions = [
+  ...stageEntries.map((entry) => ({
+    ...context.envelope({
+      id: `currency-wars.finish.stage-rule.${entry.row.StageID}`,
+      kind: "CurrencyWarsFinishCondition",
+      nameEn: `Stage rule ${entry.row.StageID}`,
+      nameZh: `关卡规则 ${entry.row.StageID}`,
+      summaryEn:
+        `Stage ${entry.row.StageID} publishes ${decimal(entry.row.TotalTurn)} total turns and a ${decimal(entry.row.ThresholdPosition)} threshold.`,
+      summaryZh:
+        `关卡 ${entry.row.StageID} 发布 ${decimal(entry.row.TotalTurn)} 回合上限与 ${decimal(entry.row.ThresholdPosition)} 阈值。`,
+      sourceRefs: [context.sourceRef(entry)],
+      tags: ["finish-condition", "stage-rule"],
+    }),
+    source_id: String(entry.row.StageID),
+    condition_kind: "BattleStageRule",
+    parameters: {
+      stage_rule_id: String(entry.row.StageRuleID),
+      total_turn: decimal(entry.row.TotalTurn),
+      threshold_position: decimal(entry.row.ThresholdPosition),
+    },
+    terminal_disposition: "ProjectBattleResultToRun",
+  })),
+  ...settleEntries.map((entry) => {
+    const name = localized(
+      entry.row.RankName,
+      `Settlement rank ${entry.row.ID}`,
+      `结算评级 ${entry.row.ID}`,
+    );
+    return {
+      ...context.envelope({
+        id: `currency-wars.finish.settle-rank.${entry.row.ID}`,
+        kind: "CurrencyWarsFinishCondition",
+        nameEn: name.en,
+        nameZh: name.zh,
+        summaryEn:
+          `Settlement rank ${entry.row.ID} covers score interval ${entry.row.Rank_LeftInterval ?? "unbounded"} through ${entry.row.Rank_RightInterval ?? "unbounded"}.`,
+        summaryZh:
+          `结算评级 ${entry.row.ID} 覆盖分数区间 ${entry.row.Rank_LeftInterval ?? "未指定"} 至 ${entry.row.Rank_RightInterval ?? "未指定"}。`,
+        sourceRefs: refsWithText(entry, entry.row.RankName),
+        tags: ["finish-condition", "settle-rank"],
+      }),
+      source_id: String(entry.row.ID),
+      condition_kind: "SettlementRank",
+      parameters: {
+        left_inclusive: String(entry.row.Rank_LeftInterval ?? ""),
+        right_inclusive: String(entry.row.Rank_RightInterval ?? ""),
+        rank_type: entry.row.SettleRankType ?? "",
+      },
+      terminal_disposition: "ClassifySettlement",
+    };
+  }),
+];
 outputs.set("finish-conditions.json", ordered(finishConditions));
 profile.finish_condition_ids = finishConditions.map(({ id }) => id);
 
-const areaEntries = (await context.table("RogueTournArea"))
-  .filter(({ row }) => row.HILINOJPLGA === "Tourn3");
-const gambitAreaPolicy = await context.policyRef(
-  "gambit-area-binding",
-  "Formal and WeekChallenge are paired Tourn3 area families; the reference maps them to Standard and Overclock Gambit respectively, while Guide remains tutorial-only.",
-  "Replace when a released structured selector directly binds each Tourn3 area family to a Currency Wars Gambit mode.",
+const routeEntries = await context.table("GridFightStageRoute");
+const nodeEntries = await context.table("GridFightNodeTemplate");
+const nodeByTemplate = new Map(nodeEntries.map((entry) => [
+  String(entry.row.NodeTemplateID),
+  entry,
+]));
+if (nodeByTemplate.size !== 493 || routeEntries.length !== 493
+  || routeEntries.some(({ row }) => !nodeByTemplate.has(String(row.NodeTemplateID))))
+  throw new Error("GridFight StageRoute/NodeTemplate closure drift");
+
+const routeGroups = Object.groupBy(routeEntries, ({ row }) => String(row.ID));
+const areaIds = Object.keys(routeGroups).sort((left, right) =>
+  Number(left) - Number(right));
+const areaGroupPolicy = await context.policyRef(
+  "gridfight-stage-route-gambit-binding",
+  "StageRoute rows publish route IDs and three ordered chapters but no direct Standard/Overclock selector; both Gambit profiles retain the complete route set until a stronger selector is found.",
+  "Replace when released structured data directly binds a StageRoute ID to Standard or Overclock Gambit.",
 );
-const areas = areaEntries.map((entry) => {
-  const areaId = String(entry.row.BEOFPCAACEP);
-  const name = localized(
-    entry.row.PIKODOAKLGE,
-    `Currency Wars Area ${areaId}`,
-    `货币战争区域 ${areaId}`,
-  );
+const areaGroups = [{
+  ...context.envelope({
+    id: "currency-wars.area-group.gridfight-season-1",
+    kind: "CurrencyWarsAreaGroup",
+    nameEn: "Currency Wars Stage Routes",
+    nameZh: "货币战争关卡路线",
+    summaryEn:
+      "The complete GridFight StageRoute closure contains 26 route families across three ordered chapters.",
+    summaryZh:
+      "完整 GridFight StageRoute 闭包包含 26 个路线族，分布于三个有序章节。",
+    evidenceQuality: "ProjectPolicy",
+    sourceRefs: [
+      context.sourceRef(routeEntries[0]),
+      context.sourceRef(routeEntries.at(-1)),
+      areaGroupPolicy,
+    ],
+    tags: ["area-group", "gridfight", "stage-route"],
+  }),
+  source_id: "GridFightStageRoute",
+  area_ids: areaIds.map((id) => `currency-wars.area.route.${id}`),
+  selection_policy: "CompleteGridFightStageRouteClosure",
+  transition_rules: [
+    "ChapterID and SectionID define the authored route order.",
+    "Gambit-specific route membership remains unresolved.",
+  ],
+}];
+outputs.set("area-groups.json", areaGroups);
+
+const layerId = (routeId, chapterId) =>
+  `currency-wars.layer.route.${routeId}.chapter.${chapterId}`;
+const nodeId = (route) =>
+  `currency-wars.node.route.${route.ID}.chapter.${route.ChapterID}.section.${route.SectionID}`;
+const areas = areaIds.map((id) => {
+  const rows = routeGroups[id];
+  const chapters = [...new Set(rows.map(({ row }) => row.ChapterID))]
+    .sort((left, right) => left - right);
   return {
     ...context.envelope({
-      id: `currency-wars.area.${areaId}`,
+      id: `currency-wars.area.route.${id}`,
       kind: "CurrencyWarsArea",
-      nameEn: name.en,
-      nameZh: name.zh,
+      nameEn: `Stage route ${id}`,
+      nameZh: `关卡路线 ${id}`,
       summaryEn:
-        `${entry.row.PJGJLMIODBD} area ${areaId} binds ${entry.row.EODCEHDOAEB.length} difficulty source row(s) and ${entry.row.GLNDIILFKBN.length} ordered layer(s).`,
+        `Route ${id} contains ${rows.length} authored Nodes across ${chapters.length} chapter(s).`,
       summaryZh:
-        `${entry.row.PJGJLMIODBD} 区域 ${areaId} 绑定 ${entry.row.EODCEHDOAEB.length} 个难度源行与 ${entry.row.GLNDIILFKBN.length} 个有序层级。`,
+        `路线 ${id} 在 ${chapters.length} 个章节中包含 ${rows.length} 个已编写节点。`,
       evidenceQuality: "ProjectPolicy",
-      sourceRefs: [
-        context.sourceRef(entry),
-        ...context.bilingualTextRefs(GAMEPLAY_RULES_HASH),
-        gambitAreaPolicy,
-      ],
-      tags: ["area", slug(entry.row.PJGJLMIODBD), "tourn3"],
+      sourceRefs: [context.sourceRef(rows[0]), areaGroupPolicy],
+      tags: ["area", "gridfight", "stage-route"],
     }),
-    source_id: areaId,
-    area_type: entry.row.PJGJLMIODBD,
-    gambit_mode_id: entry.row.PJGJLMIODBD === "Formal"
-      ? "currency-wars.gambit.standard"
-      : entry.row.PJGJLMIODBD === "WeekChallenge"
-        ? "currency-wars.gambit.overclock"
-        : "",
-    gambit_binding_quality: entry.row.PJGJLMIODBD === "Guide"
-      ? "Tutorial"
-      : "ProjectPolicy",
+    source_id: id,
+    area_type: "StageRoute",
+    gambit_mode_id: "",
+    gambit_binding_quality: "Unresolved",
     gambit_binding_replacement_condition:
-      "A released structured area-to-Gambit selector supersedes the Formal/WeekChallenge mapping.",
-    area_group: entry.row.FOMEIPIEGII === undefined
-      ? ""
-      : String(entry.row.FOMEIPIEGII),
-    plane_number: entry.row.GLNDIILFKBN.length === 1
-      ? 1
-      : "",
-    plane_numbers: entry.row.GLNDIILFKBN.length === 1
-      ? [1]
-      : [1, 2, 3],
-    difficulty_ids: stringIds(entry.row.EODCEHDOAEB)
-      .map((id) => `currency-wars.difficulty.${id}`),
-    layer_ids: stringIds(entry.row.GLNDIILFKBN)
-      .map((id) => `currency-wars.layer.${id}`),
-    map_entry_id: String(entry.row.JJKLIJNFIBB),
-    map_entry_semantics: "Unspecified",
-    initial_room_type: entry.row.DOKMKLJDCEK?.LHLKJIDFLIN ?? "",
-    unlock_finish_condition_id: String(entry.row.JJKLIJNFIBB),
+      "A released StageRoute-to-Gambit selector resolves this route.",
+    area_group: "currency-wars.area-group.gridfight-season-1",
+    plane_number: "",
+    plane_numbers: chapters,
+    difficulty_ids: [],
+    difficulty_resolution: "DivisionStageSeparateAxis",
+    layer_ids: chapters.map((chapter) => layerId(id, chapter)),
+    map_entry_id: id,
+    map_entry_semantics: "GridFightStageRouteID",
   };
 });
 outputs.set("areas.json", ordered(areas));
-const areaGroupEntries = (await context.table("RogueTournAreaGroupByTourn"))
-  .filter(({ row }) => row.HILINOJPLGA === "Tourn3");
-if (areaGroupEntries.length !== 1)
-  throw new Error("Tourn3 area-group cardinality drift");
-const areaGroups = areaGroupEntries.map((entry) => ({
-  ...context.envelope({
-    id: "currency-wars.area-group.tourn3-guide",
-    kind: "CurrencyWarsAreaGroup",
-    nameEn: localized(
-      entry.row.OENAMINOLLF,
-      "Currency Wars Guide",
-      "货币战争指南",
-    ).en,
-    nameZh: localized(
-      entry.row.OENAMINOLLF,
-      "Currency Wars Guide",
-      "货币战争指南",
-    ).zh,
-    summaryEn:
-      "The released Tourn3 area-group selector binds the Guide area family.",
-    summaryZh: "已发布的 Tourn3 区域组选择器绑定 Guide 区域族。",
-    sourceRefs: [context.sourceRef(entry)],
-    tags: ["area-group", "guide", "tourn3"],
-  }),
-  source_id: "Tourn3:Guide",
-  area_ids: areas
-    .filter(({ area_type: areaType }) => areaType === "Guide")
-    .map(({ id }) => id),
-  selection_policy: "ExactGuideSelector",
-  transition_rules: ["Guide areas do not grant Gambit rank progression."],
-}));
-outputs.set("area-groups.json", areaGroups);
 
-const difficultyIds = new Set(
-  areaEntries.flatMap(({ row }) => row.EODCEHDOAEB).map(String),
-);
-const difficultyEntries = (await context.table("RogueTournDifficulty"))
-  .filter(({ row }) => difficultyIds.has(String(row.DifficultyID)));
-const difficulties = difficultyEntries.map((entry) => {
-  const sourceId = Number(entry.row.DifficultyID);
-  const relatedAreas = areas.filter(({ difficulty_ids: ids }) =>
-    ids.includes(`currency-wars.difficulty.${sourceId}`));
+const divisionInfo = await context.table("GridFightDivisionInfo");
+const divisionStage = await context.table("GridFightDivisionStage");
+const divisionInfoById = new Map(divisionInfo.map((entry) => [
+  String(entry.row.ID),
+  entry,
+]));
+if (divisionInfo.length !== 97 || divisionStage.length !== 97
+  || divisionStage.some(({ row }) =>
+    !divisionInfoById.has(String(row.DivisionID))))
+  throw new Error("GridFight DivisionInfo/DivisionStage closure drift");
+const difficulties = divisionStage.map((entry) => {
+  const info = divisionInfoById.get(String(entry.row.DivisionID));
+  const name = localized(
+    info.row.DivisionName,
+    `Division ${entry.row.DivisionID}`,
+    `段位 ${entry.row.DivisionID}`,
+  );
   return {
     ...context.envelope({
-      id: `currency-wars.difficulty.${sourceId}`,
+      id: `currency-wars.difficulty.${entry.row.DivisionID}`,
       kind: "CurrencyWarsDifficulty",
-      nameEn: `Currency Wars Difficulty ${sourceId}`,
-      nameZh: `货币战争难度 ${sourceId}`,
+      nameEn: name.en,
+      nameZh: name.zh,
       summaryEn:
-        `Difficulty ${sourceId} carries ${entry.row.LevelList.length} released level value(s) and is referenced by ${relatedAreas.length} Tourn3 area row(s).`,
+        `Division ${entry.row.DivisionID} has progress ${info.row.Progress}, Standard score rule ${entry.row.ScoreRule} and Overclock score rule ${entry.row.OCScoreRule}.`,
       summaryZh:
-        `难度 ${sourceId} 包含 ${entry.row.LevelList.length} 个已发布等级值，并被 ${relatedAreas.length} 个 Tourn3 区域行引用。`,
-      coverageState: "Researched",
-      sourceRefs: [context.sourceRef(entry)],
-      tags: ["difficulty"],
+        `段位 ${entry.row.DivisionID} 的进度为 ${info.row.Progress}，标准博弈计分规则为 ${entry.row.ScoreRule}，超频博弈计分规则为 ${entry.row.OCScoreRule}。`,
+      sourceRefs: [
+        ...refsWithText(info, info.row.DivisionName),
+        context.sourceRef(entry),
+      ],
+      tags: ["difficulty", "division", "gridfight"],
     }),
-    source_id: String(sourceId),
-    rank_bounds: sourceId === 1001
-      ? { kind: "Guide", minimum: "", maximum: "" }
-      : {
-        kind: "AuthoredDifficultyGroup",
-        minimum: String(Math.floor(sourceId / 10) - 300),
-        maximum: String(Math.floor(sourceId / 10) - 300),
-      },
-    plane_number: sourceId === 1001 ? "" : sourceId % 10,
-    level_list: entry.row.LevelList,
-    gambit_rules: relatedAreas
-      .map(({ gambit_mode_id: gambitModeId }) => gambitModeId)
-      .filter(Boolean)
-      .sort(),
-    enemy_scaling_refs: [],
-    enemy_scaling_resolution: "DeferredToP1B9",
+    source_id: String(entry.row.DivisionID),
+    rank_bounds: {
+      progress: String(info.row.Progress),
+      season_id: String(entry.row.SeasonID),
+    },
+    enemy_scaling_refs: [entry.row.JsonPath].filter(Boolean),
+    enemy_scaling_resolution: entry.row.JsonPath
+      ? "DirectJsonPath"
+      : "DeferredToP1B9",
+    gambit_rules: {
+      standard_score_rule: String(entry.row.ScoreRule),
+      overclock_score_rule: String(entry.row.OCScoreRule),
+      weekly_score_modifier: String(entry.row.WeeklyScoreModify),
+      experience_modifier: String(entry.row.ExpModify),
+    },
   };
 });
 outputs.set("difficulties.json", ordered(difficulties));
 
-const layerIds = new Set(
-  areaEntries.flatMap(({ row }) => row.GLNDIILFKBN).map(String),
-);
-const layerEntries = (await context.table("RogueTournLayer"))
-  .filter(({ row }) => layerIds.has(String(row.LayerID)));
-const legacyLayerRoomEntries = (await context.table("RogueTournLayerRoom"))
-  .filter(({ row }) => layerIds.has(String(row.LayerID)));
-if (legacyLayerRoomEntries.length !== 0)
-  throw new Error("selected Tourn3 legacy layer-room cardinality drift");
-const personaLayerRoomEntries = (await context.table("RoguePersonaLayerRoom"))
-  .filter(({ row }) => layerIds.has(String(row.CBCHIHEOEGK)));
-const nodeRows = personaLayerRoomEntries.map((entry) => {
-  const layerId = String(entry.row.CBCHIHEOEGK);
-  const ordinal = Number(entry.row.EEPIDJJJMAH);
-  const layer = layerEntries.find(({ row }) => String(row.LayerID) === layerId);
-  if (!layer) throw new Error(`node references unknown layer ${layerId}`);
-  const fixedPreset = entry.row.BKHDBIFFIKP;
+const sortedRouteEntries = [...routeEntries].sort((left, right) =>
+  left.row.ID - right.row.ID
+    || left.row.ChapterID - right.row.ChapterID
+    || left.row.SectionID - right.row.SectionID);
+const layerGroups = Object.groupBy(sortedRouteEntries, ({ row }) =>
+  `${row.ID}:${row.ChapterID}`);
+const layers = Object.values(layerGroups).map((entries) => {
+  const first = entries[0].row;
   return {
     ...context.envelope({
-      id: `currency-wars.node.${layerId}.${ordinal}`,
-      kind: "CurrencyWarsNode",
-      nameEn: `Layer ${layerId} Node ${ordinal}`,
-      nameZh: `层级 ${layerId} 节点 ${ordinal}`,
-      summaryEn: fixedPreset === undefined
-        ? `Released Currency Wars layer ${layerId} has a selectable Node at ordinal ${ordinal}.`
-        : `Released Currency Wars layer ${layerId} fixes Node ${ordinal} to room preset ${fixedPreset}.`,
-      summaryZh: fixedPreset === undefined
-        ? `已发布的货币战争层级 ${layerId} 在序位 ${ordinal} 提供可选择节点。`
-        : `已发布的货币战争层级 ${layerId} 将节点 ${ordinal} 固定为房间预设 ${fixedPreset}。`,
-      sourceRefs: [context.sourceRef(entry)],
-      tags: ["currency-wars", "node", `plane-${layer.row.LayerNumID % 100}`],
+      id: layerId(first.ID, first.ChapterID),
+      kind: "CurrencyWarsLayer",
+      nameEn: `Route ${first.ID}, Plane ${first.ChapterID}`,
+      nameZh: `路线 ${first.ID}，位面 ${first.ChapterID}`,
+      summaryEn:
+        `Route ${first.ID} Plane ${first.ChapterID} contains ${entries.length} Nodes ordered by SectionID.`,
+      summaryZh:
+        `路线 ${first.ID} 的位面 ${first.ChapterID} 包含 ${entries.length} 个按 SectionID 排序的节点。`,
+      sourceRefs: entries.map(context.sourceRef),
+      tags: ["gridfight", "layer", `plane-${first.ChapterID}`],
     }),
-    source_id: `${layerId}:${ordinal}`,
-    plane_id: `currency-wars.plane.${layer.row.LayerNumID % 100}`,
-    plane_number: layer.row.LayerNumID % 100,
-    layer_id: `currency-wars.layer.${layerId}`,
-    ordinal,
-    domain_composition_id: fixedPreset === undefined
-      ? ""
-      : `currency-wars.domain-composition.preset.${fixedPreset}`,
-    room_pool_id: fixedPreset === undefined
-      ? "currency-wars.domain-pool.random-types"
-      : "",
-    next_node_id: "",
+    source_id: `${first.ID}:${first.ChapterID}`,
+    plane_id: `currency-wars.plane.${first.ChapterID}`,
+    layer_number: first.ChapterID,
+    route_id: String(first.ID),
+    ordered_node_ids: entries.map(({ row }) => nodeId(row)),
   };
 });
-for (const nodesInLayer of Object.values(Object.groupBy(
-  nodeRows,
-  ({ layer_id: layerId }) => layerId,
-))) {
-  nodesInLayer.sort((left, right) => left.ordinal - right.ordinal);
-  for (let index = 0; index + 1 < nodesInLayer.length; index += 1)
-    nodesInLayer[index].next_node_id = nodesInLayer[index + 1].id;
-}
-outputs.set("nodes.json", ordered(nodeRows, ["layer_id", "ordinal"]));
-
-const layers = layerEntries.map((entry) => ({
-  ...context.envelope({
-    id: `currency-wars.layer.${entry.row.LayerID}`,
-    kind: "CurrencyWarsLayer",
-    nameEn: `Currency Wars Layer ${entry.row.LayerID}`,
-    nameZh: `货币战争层级 ${entry.row.LayerID}`,
-    summaryEn:
-      `Released layer ${entry.row.LayerID} is Plane ${entry.row.LayerNumID % 100} and has ${nodeRows.filter(({ layer_id: layerId }) => layerId === `currency-wars.layer.${entry.row.LayerID}`).length} ordered Persona Node row(s).`,
-    summaryZh:
-      `已发布层级 ${entry.row.LayerID} 对应第 ${entry.row.LayerNumID % 100} 位面，并具有 ${nodeRows.filter(({ layer_id: layerId }) => layerId === `currency-wars.layer.${entry.row.LayerID}`).length} 个有序 Persona 节点行。`,
-    sourceRefs: [context.sourceRef(entry)],
-    tags: ["layer", "tourn3"],
-  }),
-  source_id: String(entry.row.LayerID),
-  plane_id: `currency-wars.plane.${entry.row.LayerNumID % 100}`,
-  layer_number: entry.row.LayerNumID,
-  plane_number: entry.row.LayerNumID % 100,
-  ordered_node_ids: nodeRows
-    .filter(({ layer_id: layerId }) =>
-      layerId === `currency-wars.layer.${entry.row.LayerID}`)
-    .sort((left, right) => left.ordinal - right.ordinal)
-    .map(({ id }) => id),
-}));
 outputs.set("layers.json", ordered(layers));
 
-const roomEntries = (await context.table("RogueTournRoom"))
-  .filter(({ row }) => row.TournMode === "Tourn2");
-if (roomEntries.length !== 848)
-  throw new Error("Tourn2 room candidate denominator drift");
-const rooms = [];
-outputs.set("rooms.json", rooms);
-
-const presetEntries = await context.table("RoguePersonaRoomPreset");
-const domainCompositions = presetEntries.map((entry) => ({
-  ...context.envelope({
-    id: `currency-wars.domain-composition.preset.${entry.row.LIIPLGLNPGB}`,
-    kind: "CurrencyWarsDomainComposition",
-    nameEn: `Domain Preset ${entry.row.LIIPLGLNPGB}`,
-    nameZh: `区域预设 ${entry.row.LIIPLGLNPGB}`,
-    summaryEn:
-      `Persona room preset ${entry.row.LIIPLGLNPGB} selects composition type ${entry.row.LLICIMBCNPF} and composition state ${entry.row.AAGKEBFHLMC}.`,
-    summaryZh:
-      `Persona 房间预设 ${entry.row.LIIPLGLNPGB} 选择构成类型 ${entry.row.LLICIMBCNPF} 与构成状态 ${entry.row.AAGKEBFHLMC}。`,
-    sourceRefs: [context.sourceRef(entry)],
-    tags: ["currency-wars", "domain-composition", "persona", "preset"],
-  }),
-  source_id: String(entry.row.LIIPLGLNPGB),
-  domain_type: `currency-wars.domain-type.${entry.row.LLICIMBCNPF}`,
-  composition_state: String(entry.row.AAGKEBFHLMC),
-  room_candidate_ids: [],
-  selection_policy: "FixedPreset",
-  fallback: "RejectUnknownPreset",
-}));
-const personaConstants = await context.table("RoguePersonaConstCommon");
-for (const [sourceName, poolId, selectionPolicy] of [
-  [
-    "RogueTournPersona_FixedCompList",
-    "currency-wars.domain-pool.fixed-types",
-    "FixedTypeList",
-  ],
-  [
-    "RogueTournPersona_RandomCompList",
-    "currency-wars.domain-pool.random-types",
-    "OrderedCandidateTypeList",
-  ],
-]) {
-  const entry = personaConstants.find(({ row }) =>
-    row.ConstValueName === sourceName);
-  if (!entry) throw new Error(`missing Persona constant ${sourceName}`);
-  const candidateTypes = entry.row.Value.ArrayValue.map(
-    ({ IntValue: value }) => `currency-wars.domain-type.${value}`,
+const nodeTypeEntries = await context.table("GridFightNodeTypeShow");
+const typeByName = new Map(nodeTypeEntries.map((entry) => [
+  entry.row.NodeType,
+  entry,
+]));
+if (typeByName.size !== 5)
+  throw new Error("GridFight NodeTypeShow closure drift");
+const rooms = nodeTypeEntries.map((entry) => {
+  const name = localized(
+    entry.row.NodeName,
+    entry.row.NodeType,
+    `节点类型 ${entry.row.NodeType}`,
   );
-  domainCompositions.push({
+  return {
     ...context.envelope({
-      id: poolId,
-      kind: "CurrencyWarsDomainComposition",
-      nameEn: `${selectionPolicy} Domain Type Pool`,
-      nameZh: `${selectionPolicy} 区域类型池`,
+      id: `currency-wars.room-type.${slug(entry.row.NodeType)}`,
+      kind: "CurrencyWarsRoom",
+      nameEn: name.en,
+      nameZh: name.zh,
       summaryEn:
-        `${sourceName} publishes ${candidateTypes.length} ordered domain-type candidate(s).`,
+        `${entry.row.NodeType} is one of five direct GridFight Node types.`,
       summaryZh:
-        `${sourceName} 发布 ${candidateTypes.length} 个有序区域类型候选。`,
-      sourceRefs: [context.sourceRef(entry)],
-      tags: ["currency-wars", "domain-composition", "persona", "type-pool"],
+        `${entry.row.NodeType} 是五种直接 GridFight 节点类型之一。`,
+      sourceRefs: refsWithText(entry, entry.row.NodeName),
+      tags: ["gridfight", "node-type", slug(entry.row.NodeType)],
     }),
-    source_id: sourceName,
-    domain_type: "TypePool",
-    composition_state: "",
-    room_candidate_ids: candidateTypes,
-    selection_policy: selectionPolicy,
-    fallback: "RejectNoLegalDomainType",
-  });
-}
-outputs.set("domain-compositions.json", ordered(domainCompositions));
+    source_id: entry.row.NodeType,
+    room_type: entry.row.NodeType,
+    reachability_disposition: "DirectGridFightNodeType",
+    stage_refs: [],
+  };
+});
+outputs.set("rooms.json", ordered(rooms));
+const compositions = nodeTypeEntries.map((entry) => ({
+  ...context.envelope({
+    id: `currency-wars.domain-composition.${slug(entry.row.NodeType)}`,
+    kind: "CurrencyWarsDomainComposition",
+    nameEn: `${entry.row.NodeType} Node composition`,
+    nameZh: `${entry.row.NodeType} 节点组成`,
+    summaryEn:
+      `This composition selects the direct ${entry.row.NodeType} GridFight Node type.`,
+    summaryZh:
+      `此组成选择直接的 ${entry.row.NodeType} GridFight 节点类型。`,
+    sourceRefs: [context.sourceRef(entry)],
+    tags: ["domain-composition", "gridfight", slug(entry.row.NodeType)],
+  }),
+  source_id: entry.row.NodeType,
+  domain_type: entry.row.NodeType,
+  room_candidate_ids: [
+    `currency-wars.room-type.${slug(entry.row.NodeType)}`,
+  ],
+  selection_policy: "ExactNodeType",
+  fallback: "RejectUnknownNodeType",
+}));
+outputs.set("domain-compositions.json", ordered(compositions));
 
-const flowPolicy = await context.policyRef(
-  "stage-flow",
-  "Area rows author ordered three-Plane layers and Persona LayerRoom rows author ordered Nodes, but transition timing, field-level carry and terminal reset order are not published.",
-  "Replace when released flow configuration or reproducible observations bind transition timing and carry/reset fields.",
+const routePolicy = await context.policyRef(
+  "gridfight-stage-route-order",
+  "Rows sharing ID and ChapterID are ordered by authored SectionID; carry/reset state is not inferred from adjacency.",
+  "Replace only if a released GridFight transition program publishes a different ordering or explicit carry/reset operations.",
 );
-const flowRows = [];
-for (const entry of areaEntries) {
-  const areaId = String(entry.row.BEOFPCAACEP);
-  const selectedLayers = stringIds(entry.row.GLNDIILFKBN);
-  const exactRef = context.sourceRef(entry);
-  flowRows.push(flow(
-    `area.${areaId}.entry`,
-    `Area ${areaId} Entry`,
-    `区域 ${areaId} 进入`,
-    `Area ${areaId} enters authored layer ${selectedLayers[0]}.`,
-    `区域 ${areaId} 进入已发布层级 ${selectedLayers[0]}。`,
-    exactRef,
-    `currency-wars.area.${areaId}`,
-    "AreaEntry",
-    "AcceptedEntry",
-    `currency-wars.layer.${selectedLayers[0]}`,
-    ["InitializeArea", "EnterLayer"],
-  ));
-  for (let index = 0; index + 1 < selectedLayers.length; index += 1)
-    flowRows.push(flow(
-      `area.${areaId}.layer.${selectedLayers[index]}.${selectedLayers[index + 1]}`,
-      `Area ${areaId} Layer ${selectedLayers[index]} to ${selectedLayers[index + 1]}`,
-      `区域 ${areaId} 层级 ${selectedLayers[index]} 至 ${selectedLayers[index + 1]}`,
-      `Authored order advances layer ${selectedLayers[index]} to ${selectedLayers[index + 1]}.`,
-      `已发布顺序将层级 ${selectedLayers[index]} 推进到 ${selectedLayers[index + 1]}。`,
-      exactRef,
-      `currency-wars.area.${areaId}`,
-      `currency-wars.layer.${selectedLayers[index]}`,
-      "CurrentLayerCompleted",
-      `currency-wars.layer.${selectedLayers[index + 1]}`,
-      ["CarryRunState", "ExitLayer", "EnterLayer"],
-    ));
-  flowRows.push(flow(
-    `area.${areaId}.terminal`,
-    `Area ${areaId} Terminal`,
-    `区域 ${areaId} 终止`,
-    `Project policy reaches the area terminal after authored layer ${selectedLayers.at(-1)}.`,
-    `项目策略在完成已发布层级 ${selectedLayers.at(-1)} 后进入区域终止状态。`,
-    exactRef,
-    `currency-wars.area.${areaId}`,
-    `currency-wars.layer.${selectedLayers.at(-1)}`,
-    "CurrentLayerCompleted",
-    "AreaTerminal",
-    ["ExitLayer", "EvaluateFinish", "FinalizeArea"],
-  ));
+const nodes = [];
+const flow = [];
+for (const [groupKey, entries] of Object.entries(layerGroups)) {
+  for (const [index, routeEntry] of entries.entries()) {
+    const route = routeEntry.row;
+    const templateEntry = nodeByTemplate.get(String(route.NodeTemplateID));
+    const template = templateEntry.row;
+    const typeEntry = typeByName.get(template.NodeType);
+    if (!typeEntry)
+      throw new Error(`unknown GridFight NodeType ${template.NodeType}`);
+    const id = nodeId(route);
+    const next = entries[index + 1]?.row;
+    const name = localized(
+      typeEntry.row.NodeName,
+      template.NodeType,
+      `节点 ${template.NodeType}`,
+    );
+    nodes.push({
+      ...context.envelope({
+        id,
+        kind: "CurrencyWarsNode",
+        nameEn:
+          `${name.en} — route ${route.ID}, Plane ${route.ChapterID}, section ${route.SectionID}`,
+        nameZh:
+          `${name.zh}——路线 ${route.ID}，位面 ${route.ChapterID}，区段 ${route.SectionID}`,
+        summaryEn:
+          `Node template ${template.NodeTemplateID} selects Stage ${template.StageID}, type ${template.NodeType} and penalty/bonus rule ${template.PenaltyBonusRuleID}.`,
+        summaryZh:
+          `节点模板 ${template.NodeTemplateID} 选择关卡 ${template.StageID}、类型 ${template.NodeType} 与奖惩规则 ${template.PenaltyBonusRuleID}。`,
+        sourceRefs: [
+          context.sourceRef(routeEntry),
+          context.sourceRef(templateEntry),
+          context.sourceRef(typeEntry),
+        ],
+        tags: ["gridfight", "node", slug(template.NodeType)],
+      }),
+      source_id: `${route.ID}:${route.ChapterID}:${route.SectionID}`,
+      plane_id: `currency-wars.plane.${route.ChapterID}`,
+      layer_id: layerId(route.ID, route.ChapterID),
+      ordinal: route.SectionID,
+      domain_composition_id:
+        `currency-wars.domain-composition.${slug(template.NodeType)}`,
+      room_pool_id: `currency-wars.room-type.${slug(template.NodeType)}`,
+      node_template_id: String(template.NodeTemplateID),
+      stage_id: String(template.StageID),
+      node_type: template.NodeType,
+      parameter_ids: (template.ParamList ?? []).map(String),
+      penalty_bonus_rule_id: String(template.PenaltyBonusRuleID),
+      basic_gold_reward: String(template.BasicGoldRewardNum),
+      next_node_id: next ? nodeId(next) : "",
+    });
+    flow.push({
+      ...context.envelope({
+        id: `currency-wars.flow.${route.ID}.${route.ChapterID}.${route.SectionID}`,
+        kind: "CurrencyWarsStageFlow",
+        nameEn:
+          `Route ${route.ID}, Plane ${route.ChapterID}, section ${route.SectionID}`,
+        nameZh:
+          `路线 ${route.ID}，位面 ${route.ChapterID}，区段 ${route.SectionID}`,
+        summaryEn: next
+          ? `Authored section ${route.SectionID} precedes section ${next.SectionID} inside route ${route.ID}, Plane ${route.ChapterID}.`
+          : `Authored section ${route.SectionID} terminates route ${route.ID}, Plane ${route.ChapterID}.`,
+        summaryZh: next
+          ? `已编写区段 ${route.SectionID} 位于路线 ${route.ID}、位面 ${route.ChapterID} 的区段 ${next.SectionID} 之前。`
+          : `已编写区段 ${route.SectionID} 终止路线 ${route.ID}、位面 ${route.ChapterID}。`,
+        coverageState: "Researched",
+        evidenceQuality: "ProjectPolicy",
+        sourceRefs: [context.sourceRef(routeEntry), routePolicy],
+        tags: ["flow", "gridfight", `plane-${route.ChapterID}`],
+      }),
+      source_id: `${route.ID}:${route.ChapterID}:${route.SectionID}`,
+      entry_id: "currency-wars.profile.v1",
+      ordered_node_refs: [id],
+      next_flow_id: next
+        ? `currency-wars.flow.${next.ID}.${next.ChapterID}.${next.SectionID}`
+        : "",
+      transition_kind: next ? "NextSection" : "PlaneTerminal",
+      carry_rules: [],
+      reset_rules: [],
+      lifecycle_resolution: "UnspecifiedByStageRoute",
+      route_group: groupKey,
+    });
+  }
 }
-for (const [id, nameEn, nameZh, from, condition, to, operations] of [
-  [
-    "carry-room",
-    "Room Carry Boundary",
-    "房间继承边界",
-    "RoomTerminal",
-    "NextRoomSelected",
-    "RoomEntry",
-    ["CarryRoster", "CarryGoldCoins", "CarrySquadHp", "CarryRunInventory"],
-  ],
-  [
-    "carry-layer",
-    "Layer Carry Boundary",
-    "层级继承边界",
-    "LayerTerminal",
-    "NextLayerSelected",
-    "LayerEntry",
-    ["CarryRoster", "CarryGoldCoins", "CarrySquadHp", "CarryRunInventory"],
-  ],
-  [
-    "reset-run",
-    "Run Reset Boundary",
-    "流程重置边界",
-    "AreaTerminal",
-    "RunFinalized",
-    "ProfileReady",
-    ["ClearRunRoster", "ClearRunEconomy", "RemoveTemporaryBuilds", "PreserveRankUnlocks"],
-  ],
-])
-  flowRows.push({
-    ...context.envelope({
-      id: `currency-wars.flow.policy.${id}`,
-      kind: "CurrencyWarsStageFlow",
-      nameEn,
-      nameZh,
-      summaryEn:
-        `${nameEn} is a deterministic reference policy pending released field-level carry/reset evidence.`,
-      summaryZh:
-        `${nameZh} 是确定性资料策略，等待公开的字段级继承/重置证据。`,
-      evidenceQuality: "ProjectPolicy",
-      sourceRefs: [
-        ...context.bilingualTextRefs(THREE_PLANE_RULE_HASH),
-        flowPolicy,
-      ],
-      tags: ["carry-reset", "project-policy", "stage-flow"],
-    }),
-    area_id: "",
-    from_state: from,
-    condition,
-    to_state: to,
-    ordered_operations: operations,
-    entry_id: "currency-wars.entry.activity.105",
-    ordered_stage_refs: [],
-    ordered_node_refs: [],
-    carry_rules: operations.filter((operation) => operation.startsWith("Carry")),
-    reset_rules: operations.filter((operation) =>
-      operation.startsWith("Clear")
-        || operation.startsWith("Remove")
-        || operation.startsWith("Preserve")),
-    policy_id: "ordered-tourn3-area-layer-flow-v1",
-  });
-outputs.set("stage-flow.json", ordered(flowRows));
+outputs.set("nodes.json", ordered(nodes));
+outputs.set("stage-flow.json", ordered(flow));
 
 await writeOrCheck(context, outputs, check);
 console.log(
-  `Currency Wars flow ${check ? "verified" : "generated"}: ` +
-  `1 profile, ${gambitModes.length} Gambits, ${modules.length} module, ` +
-  `${entries.length} entries, ${finishConditions.length} finish, ` +
-  `${areaGroups.length} area group, ${areas.length} areas, ` +
-  `${difficulties.length} difficulties, ${layers.length} layers, ` +
-  `${nodeRows.length} nodes, ${domainCompositions.length} domain compositions, ` +
-  `${rooms.length} room candidates, ${flowRows.length} flow rules.`,
+  `Currency Wars GridFight flow ${check ? "verified" : "generated"}: ` +
+  `${modules.length} modules, ${difficulties.length} divisions, ` +
+  `${areas.length} routes, ${layers.length} Plane layers and ` +
+  `${nodes.length} Nodes.`,
 );
-
-function flow(
-  id,
-  nameEn,
-  nameZh,
-  summaryEn,
-  summaryZh,
-  exactRef,
-  areaId,
-  fromState,
-  condition,
-  toState,
-  operations,
-) {
-  return {
-    ...context.envelope({
-      id: `currency-wars.flow.${id}`,
-      kind: "CurrencyWarsStageFlow",
-      nameEn,
-      nameZh,
-      summaryEn,
-      summaryZh,
-      evidenceQuality: "ProjectPolicy",
-      sourceRefs: [
-        exactRef,
-        ...context.bilingualTextRefs(THREE_PLANE_RULE_HASH),
-        flowPolicy,
-      ],
-      tags: ["project-policy", "stage-flow"],
-    }),
-    area_id: areaId,
-    from_state: fromState,
-    condition,
-    to_state: toState,
-    ordered_operations: operations,
-    entry_id: "currency-wars.entry.activity.105",
-    ordered_stage_refs: [fromState, toState],
-    ordered_node_refs: [fromState, toState],
-    carry_rules: operations.filter((operation) => operation.startsWith("Carry")),
-    reset_rules: operations.filter((operation) =>
-      operation.startsWith("Clear")
-        || operation.startsWith("Remove")
-        || operation.startsWith("Preserve")),
-    policy_id: "ordered-tourn3-area-layer-flow-v1",
-  };
-}

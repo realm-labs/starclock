@@ -1,23 +1,23 @@
 [
   {
-    "id": "currency-wars.module.6002201",
+    "id": "currency-wars.module.7100201",
     "schema_revision": "starclock.currency-wars-row.v1",
     "kind": "CurrencyWarsModule",
-    "name_en": "Currency Wars Module 3.1",
-    "name_zh_cn": "货币战争模块 3.1",
-    "summary_en": "Activity module 6002201 is the released main-tournament 3, sub-tournament 1 boundary.",
-    "summary_zh_cn": "活动模块 6002201 是已发布的主赛季 3、子赛季 1 边界。",
+    "name_en": "Currency Wars Season 1.1",
+    "name_zh_cn": "货币战争赛季 1.1",
+    "summary_en": "GridFight module 7100201 selects season 1, sub-season 1.",
+    "summary_zh_cn": "GridFight 模块 7100201 选择赛季 1、子赛季 1。",
     "ownership": "CurrencyWars",
     "coverage_state": "DataReady",
     "evidence_quality": "ExactStructured",
     "source_refs": [
       {
-        "source_id": "source.goal12.exceloutput-roguetournmodule-json.7",
+        "source_id": "source.goal12.exceloutput-gridfightseasonmodule-json.0",
         "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
         "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
-        "path": "ExcelOutput/RogueTournModule.json",
-        "locator": "7",
-        "sha256": "fc9f5c3b215a895c3d6e23d6058289b416cb2f8b2f173d12320e107847857bac",
+        "path": "ExcelOutput/GridFightSeasonModule.json",
+        "locator": "0",
+        "sha256": "de64c2956c5ac985a200010e109feea67a2aa7276652426114ebbd1e1c41a1e7",
         "access_date": "2026-07-22",
         "game_version": "4.4",
         "evidence_quality": "ExactStructured",
@@ -26,12 +26,137 @@
     ],
     "tags": [
       "enabled-module",
-      "tourn3"
+      "gridfight",
+      "subseason-1"
     ],
-    "source_id": "6002201",
-    "sub_mode": "TournRogue",
-    "tourn_mode": "Tourn3",
-    "main_tourn_id": 3,
-    "sub_tourn_id": 1
+    "source_id": "7100201",
+    "sub_mode": "GridFight",
+    "tourn_mode": "",
+    "main_tourn_id": 1,
+    "sub_tourn_id": 1,
+    "season_id": 1,
+    "sub_season_id": 1,
+    "max_reward_exp": "48000",
+    "offering_id": "11"
+  },
+  {
+    "id": "currency-wars.module.7100301",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsModule",
+    "name_en": "Currency Wars Season 1.2",
+    "name_zh_cn": "货币战争赛季 1.2",
+    "summary_en": "GridFight module 7100301 selects season 1, sub-season 2.",
+    "summary_zh_cn": "GridFight 模块 7100301 选择赛季 1、子赛季 2。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightseasonmodule-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSeasonModule.json",
+        "locator": "1",
+        "sha256": "56389be3cb983f4b82b96555918ebd407b69567df369ed9416b6ab701c7479ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "enabled-module",
+      "gridfight",
+      "subseason-2"
+    ],
+    "source_id": "7100301",
+    "sub_mode": "GridFight",
+    "tourn_mode": "",
+    "main_tourn_id": 1,
+    "sub_tourn_id": 2,
+    "season_id": 1,
+    "sub_season_id": 2,
+    "max_reward_exp": "48000",
+    "offering_id": "11"
+  },
+  {
+    "id": "currency-wars.module.7100401",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsModule",
+    "name_en": "Currency Wars Season 1.3",
+    "name_zh_cn": "货币战争赛季 1.3",
+    "summary_en": "GridFight module 7100401 selects season 1, sub-season 3.",
+    "summary_zh_cn": "GridFight 模块 7100401 选择赛季 1、子赛季 3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightseasonmodule-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSeasonModule.json",
+        "locator": "2",
+        "sha256": "8314c83b12b8bf29a4932f99ba4e03eb59cbdb428764bfc18732a37c92e902d0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "enabled-module",
+      "gridfight",
+      "subseason-3"
+    ],
+    "source_id": "7100401",
+    "sub_mode": "GridFight",
+    "tourn_mode": "",
+    "main_tourn_id": 1,
+    "sub_tourn_id": 3,
+    "season_id": 1,
+    "sub_season_id": 3,
+    "max_reward_exp": "48000",
+    "offering_id": "11"
+  },
+  {
+    "id": "currency-wars.module.7100501",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsModule",
+    "name_en": "Currency Wars Season 1.4",
+    "name_zh_cn": "货币战争赛季 1.4",
+    "summary_en": "GridFight module 7100501 selects season 1, sub-season 4.",
+    "summary_zh_cn": "GridFight 模块 7100501 选择赛季 1、子赛季 4。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightseasonmodule-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightSeasonModule.json",
+        "locator": "3",
+        "sha256": "4916530e6384f142c66984a194b71d29b39fd90c5c4a464fc64f8ff7f5bf9bf9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "enabled-module",
+      "gridfight",
+      "subseason-4"
+    ],
+    "source_id": "7100501",
+    "sub_mode": "GridFight",
+    "tourn_mode": "",
+    "main_tourn_id": 1,
+    "sub_tourn_id": 4,
+    "season_id": 1,
+    "sub_season_id": 4,
+    "max_reward_exp": "48000",
+    "offering_id": "11"
   }
 ]
