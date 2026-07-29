@@ -1,0 +1,291 @@
+{
+  "table": {
+    "name": "DivergentUniverseEquationReplacementRules",
+    "rows": [
+      {
+        "values": {
+          "candidate_policy": {
+            "String": "ExplicitStableIDSelection"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseEquationReplacementRule"
+          },
+          "name_en": {
+            "String": "Acquire Equation"
+          },
+          "name_zh_cn": {
+            "String": "获得方程"
+          },
+          "operation": {
+            "String": "acquire"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_policy\":\"ExplicitStableIDSelection\",\"no_legal_candidate\":\"RejectWithoutMutation\",\"operation\":\"acquire\",\"ordered_operations\":[\"AddUnexpandedEquation\",\"RecomputeRecipeProgress\",\"ActivateIfSatisfied\"],\"preserved_state\":\"AllAuthoritativeStateOnRejection\",\"runtime_lowered\":false}"
+          },
+          "preserved_state": {
+            "String": "AllAuthoritativeStateOnRejection"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7104
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.equation-transition.acquire"
+          },
+          "summary_en": {
+            "String": "Add the accepted Equation as Unexpanded, then recompute its recipe progress."
+          },
+          "summary_zh_cn": {
+            "String": "将已接受方程以未展开状态加入，再重新计算配方进度。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "transition"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_policy": {
+            "String": "ExplicitStableIDSelection"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseEquationReplacementRule"
+          },
+          "name_en": {
+            "String": "Discard Equation"
+          },
+          "name_zh_cn": {
+            "String": "舍弃方程"
+          },
+          "operation": {
+            "String": "discard"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_policy\":\"ExplicitStableIDSelection\",\"no_legal_candidate\":\"RejectWithoutMutation\",\"operation\":\"discard\",\"ordered_operations\":[\"ValidateOwnedInput\",\"RemoveEquation\",\"RemoveDerivedState\"],\"preserved_state\":\"AllAuthoritativeStateOnRejection\",\"runtime_lowered\":false}"
+          },
+          "preserved_state": {
+            "String": "AllAuthoritativeStateOnRejection"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7104
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.equation-transition.discard"
+          },
+          "summary_en": {
+            "String": "Remove the explicitly selected Equation and its derived expansion state."
+          },
+          "summary_zh_cn": {
+            "String": "移除明确选择的方程及其派生展开状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "transition"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_policy": {
+            "String": "ExplicitStableIDSelection"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": "Null",
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseEquationReplacementRule"
+          },
+          "name_en": {
+            "String": "Refresh Equation Contribution"
+          },
+          "name_zh_cn": {
+            "String": "刷新方程贡献"
+          },
+          "operation": {
+            "String": "owned-blessing-refresh"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_policy\":\"ExplicitStableIDSelection\",\"no_legal_candidate\":\"RejectWithoutMutation\",\"operation\":\"owned-blessing-refresh\",\"ordered_operations\":[\"SortEquationsByStableId\",\"RecomputeRecipeProgress\",\"ApplyStateTransitions\"],\"preserved_state\":\"AllAuthoritativeStateOnRejection\",\"runtime_lowered\":false}"
+          },
+          "preserved_state": {
+            "String": "AllAuthoritativeStateOnRejection"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7104
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.equation-transition.owned-blessing-refresh"
+          },
+          "summary_en": {
+            "String": "After the owned Blessing set changes, recompute every Equation in stable ID order."
+          },
+          "summary_zh_cn": {
+            "String": "持有祝福集合变化后，按稳定 ID 顺序重新计算全部方程。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "transition"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_policy": {
+            "String": "ExplicitStableIDSelection"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "fallback": "Null",
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseEquationReplacementRule"
+          },
+          "name_en": {
+            "String": "Replace Equation"
+          },
+          "name_zh_cn": {
+            "String": "替换方程"
+          },
+          "operation": {
+            "String": "replace"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"candidate_policy\":\"ExplicitStableIDSelection\",\"no_legal_candidate\":\"RejectWithoutMutation\",\"operation\":\"replace\",\"ordered_operations\":[\"ValidateOwnedInput\",\"ValidateOfferedOutput\",\"CommitReplacement\"],\"preserved_state\":\"AllAuthoritativeStateOnRejection\",\"runtime_lowered\":false}"
+          },
+          "preserved_state": {
+            "String": "AllAuthoritativeStateOnRejection"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7104
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.equation-transition.replace"
+          },
+          "summary_en": {
+            "String": "Replace only an explicitly selected owned Equation; preserve state when no legal candidate exists."
+          },
+          "summary_zh_cn": {
+            "String": "仅替换明确选择的已持有方程；没有合法候选时保持状态。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation"
+              },
+              {
+                "String": "project-policy"
+              },
+              {
+                "String": "transition"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

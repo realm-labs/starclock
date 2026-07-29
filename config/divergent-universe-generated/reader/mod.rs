@@ -88,7 +88,7 @@ pub mod divergent_universe_manifest;
 pub mod divergent_universe_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "4b3cf33ecaeb31ed";
+pub const SCHEMA_FINGERPRINT: &str = "52c2f8123faee5ce";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

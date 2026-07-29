@@ -1,0 +1,2743 @@
+{
+  "table": {
+    "name": "DivergentUniverseProgressionEffects",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Trait Unlock contribution"
+          },
+          "name_zh_cn": {
+            "String": "特性解锁贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Permanent\",\"metric\":\"keyword_path_trait\",\"operation\":\"Enable\",\"parameters\":[]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Permanent\",\"metric\":\"keyword_path_trait\",\"operation\":\"Enable\",\"parameters\":[]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.100"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5288
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.100"
+          },
+          "summary_en": {
+            "String": "Trait Unlock contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "特性解锁 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "ATK Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5289
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.101"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Planar Reboot contribution"
+          },
+          "name_zh_cn": {
+            "String": "位面再启动贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"FirstFourNonBossBattlesFirstPlane\",\"metric\":\"all_enemies\",\"operation\":\"DealFixedMaxHpDamage\",\"parameters\":[\"4\",\"0.99\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"FirstFourNonBossBattlesFirstPlane\",\"metric\":\"all_enemies\",\"operation\":\"DealFixedMaxHpDamage\",\"parameters\":[\"4\",\"0.99\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5300
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.102"
+          },
+          "summary_en": {
+            "String": "Planar Reboot contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "位面再启动 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5311
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.103"
+          },
+          "summary_en": {
+            "String": "DMG Mitigation Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "伤害减免强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Break Effect Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5320
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.104"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "SPD Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "速度强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5321
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.105"
+          },
+          "summary_en": {
+            "String": "SPD Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "速度强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5322
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.106"
+          },
+          "summary_en": {
+            "String": "CRIT Rate Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "暴击率强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Blessing Level Up Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "祝福升级强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"EachWorkbench\",\"metric\":\"workbench_heat\",\"operation\":\"Increase\",\"parameters\":[\"1\"]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"EachWorkbench\",\"metric\":\"workbench_heat\",\"operation\":\"Increase\",\"parameters\":[\"1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.107"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5323
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.107"
+          },
+          "summary_en": {
+            "String": "Blessing Level Up Boost contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "祝福升级强化 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Break Effect Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5324
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.201"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5325
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.202"
+          },
+          "summary_en": {
+            "String": "Effect Hit Rate Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "效果命中强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "ATK Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5290
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.203"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Initial Resources contribution"
+          },
+          "name_zh_cn": {
+            "String": "起始资源贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"RunEntry\",\"metric\":\"starting_cosmic_fragments\",\"operation\":\"Increase\",\"parameters\":[\"30\"]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"RunEntry\",\"metric\":\"starting_cosmic_fragments\",\"operation\":\"Increase\",\"parameters\":[\"30\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5291
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.204"
+          },
+          "summary_en": {
+            "String": "Initial Resources contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "起始资源 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5292
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.205"
+          },
+          "summary_en": {
+            "String": "CRIT DMG Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "暴击伤害强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "HP Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "生命强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.206"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5293
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.206"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DEF Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "防御强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.207"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5294
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.207"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "HP Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "生命强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.208"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5295
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.208"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DEF Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "防御强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5296
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.301"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5297
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.302"
+          },
+          "summary_en": {
+            "String": "CRIT Rate Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "暴击率强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Food On-The-Go contribution"
+          },
+          "name_zh_cn": {
+            "String": "便携食品贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"ThresholdProtocolInactive\",\"metric\":\"consumable_use\",\"operation\":\"Enable\",\"parameters\":[]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"ThresholdProtocolInactive\",\"metric\":\"consumable_use\",\"operation\":\"Enable\",\"parameters\":[]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5298
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.303"
+          },
+          "summary_en": {
+            "String": "Food On-The-Go contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "便携食品 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Effect RES Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "效果抵抗强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5299
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.304"
+          },
+          "summary_en": {
+            "String": "Effect RES Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "效果抵抗强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "ATK Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5301
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.305"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DMG Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.306"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5302
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.306"
+          },
+          "summary_en": {
+            "String": "DMG Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "伤害强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Store Revamp contribution"
+          },
+          "name_zh_cn": {
+            "String": "商店改装贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"StoreDomain\",\"metric\":\"store_curio_and_blessing_slots\",\"operation\":\"Increase\",\"parameters\":[\"1\",\"1\"]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"StoreDomain\",\"metric\":\"store_curio_and_blessing_slots\",\"operation\":\"Increase\",\"parameters\":[\"1\",\"1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.307"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5303
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.307"
+          },
+          "summary_en": {
+            "String": "Store Revamp contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "商店改装 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DMG Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5304
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.401"
+          },
+          "summary_en": {
+            "String": "DMG Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "伤害强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DEF Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "防御强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5305
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.402"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Pleasant Surprise contribution"
+          },
+          "name_zh_cn": {
+            "String": "意外之喜贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"DomainGeneration\",\"metric\":\"random_treasure_and_game_machine_types\",\"operation\":\"Enable\",\"parameters\":[]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"DomainGeneration\",\"metric\":\"random_treasure_and_game_machine_types\",\"operation\":\"Enable\",\"parameters\":[]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5306
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.403"
+          },
+          "summary_en": {
+            "String": "Pleasant Surprise contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "意外之喜 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "HP Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "生命强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5307
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.404"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5308
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.405"
+          },
+          "summary_en": {
+            "String": "DMG Mitigation Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "伤害减免强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "ATK Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5309
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.406"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.407"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5310
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.407"
+          },
+          "summary_en": {
+            "String": "CRIT DMG Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "暴击伤害强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Probability Fixation contribution"
+          },
+          "name_zh_cn": {
+            "String": "概率固着贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"PerWorkbench\",\"metric\":\"discarded_or_unselected_equation_reappearance\",\"operation\":\"Decrease\",\"parameters\":[]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"PerWorkbench\",\"metric\":\"discarded_or_unselected_equation_reappearance\",\"operation\":\"Decrease\",\"parameters\":[]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.409"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5312
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.409"
+          },
+          "summary_en": {
+            "String": "Probability Fixation contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "概率固着 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "HP Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "生命强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5313
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.501"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Extra Blessings contribution"
+          },
+          "name_zh_cn": {
+            "String": "额外祝福贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"FirstBattleVictory\",\"metric\":\"first_battle_victory_blessing_selection\",\"operation\":\"Increase\",\"parameters\":[]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"FirstBattleVictory\",\"metric\":\"first_battle_victory_blessing_selection\",\"operation\":\"Increase\",\"parameters\":[]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5314
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.502"
+          },
+          "summary_en": {
+            "String": "Extra Blessings contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "额外祝福 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "ATK Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5315
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.503"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "SPD Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "速度强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5316
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.504"
+          },
+          "summary_en": {
+            "String": "SPD Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "速度强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Break Effect Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.505"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5317
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.505"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "DEF Boost contribution"
+          },
+          "name_zh_cn": {
+            "String": "防御强化贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}],\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"Always\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.506"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5318
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.506"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes one normalized Battle effect program."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 贡献一个规范化的 Battle 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "DivergentUniverseProgressionEffect"
+          },
+          "name_en": {
+            "String": "Boundary Equation contribution"
+          },
+          "name_zh_cn": {
+            "String": "临界方程贡献"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"activation\":\"PermanentTalentUnlocked\",\"rule_contribution_ids\":[{\"condition\":\"SixteenSamePathBlessings\",\"metric\":\"boundary_equation\",\"operation\":\"Enable\",\"parameters\":[\"16\"]}],\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "rule_contribution_ids": {
+            "String": "[{\"condition\":\"SixteenSamePathBlessings\",\"metric\":\"boundary_equation\",\"operation\":\"Enable\",\"parameters\":[\"16\"]}]"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "divergent-universe.permanent-talent.507"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5319
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.progression-effect.talent.507"
+          },
+          "summary_en": {
+            "String": "Boundary Equation contributes one normalized Activity effect program."
+          },
+          "summary_zh_cn": {
+            "String": "临界方程 贡献一个规范化的 Activity 效果程序。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "progression"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

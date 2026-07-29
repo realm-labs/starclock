@@ -1,0 +1,514 @@
+{
+  "table": {
+    "name": "DivergentUniverseArithmeticMappingRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Character Level Threshold"
+          },
+          "name_zh_cn": {
+            "String": "角色等级阈值"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"CharacterLevelBelowEquilibriumCap\",\"ordered_operations\":[\"RaiseCharacterToEquilibriumCap\"],\"runtime_lowered\":false,\"selection_timing\":\"RunEntryOrRefresh\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "RunEntryOrRefresh"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.character-level"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Raise a character below the current Equilibrium Level cap to that cap; preserve a character already at or above it."
+          },
+          "summary_zh_cn": {
+            "String": "角色低于当前均衡等级上限时提升至上限；已达到或超过时保持原值。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "exactpublictext"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Light Cone Mapping Boundary"
+          },
+          "name_zh_cn": {
+            "String": "光锥映射边界"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"Unspecified\",\"ordered_operations\":[\"Unspecified\"],\"runtime_lowered\":false,\"selection_timing\":\"Unspecified\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "Unspecified"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              },
+              {
+                "Integer": 7095
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.light-cone"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Released text includes Light Cone levels in Arithmetic Mapping but does not publish the exact condition or temporary identity."
+          },
+          "summary_zh_cn": {
+            "String": "已发布文本将光锥等级纳入数值映射，但未公布精确条件或临时光锥身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "approximatefromreleasedtext"
+              },
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Mapping Refresh Checkpoint"
+          },
+          "name_zh_cn": {
+            "String": "映射刷新检查点"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"MappingInputChanged\",\"ordered_operations\":[\"ReevaluateOnlyBelowThresholdFields\"],\"runtime_lowered\":false,\"selection_timing\":\"RunEntryAndAcceptedPartyChange\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "RunEntryAndAcceptedPartyChange"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7096
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.refresh"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Reference policy reevaluates mapping at run entry and accepted party changes; hidden mid-run equipment timing remains unavailable."
+          },
+          "summary_zh_cn": {
+            "String": "资料策略在流程进入与已接受的队伍变更时重新评估映射；隐藏的局内装备时机仍不可用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "projectpolicy"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Relic Total Enhancement Threshold"
+          },
+          "name_zh_cn": {
+            "String": "遗器总强化等级阈值"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"RelicTotalEnhancementBelowRequirement\",\"ordered_operations\":[\"ReplaceWithCompatibleTemporaryRelics\"],\"runtime_lowered\":false,\"selection_timing\":\"RunEntryOrRefresh\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "RunEntryOrRefresh"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.relics"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Replace equipped Relics with compatible temporary Relics only when total Enhancement Level is below the current requirement."
+          },
+          "summary_zh_cn": {
+            "String": "仅当已装备遗器总强化等级低于当前要求时，替换为适配的临时遗器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "exactpublictext"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Mode-Only Mapping Scope"
+          },
+          "name_zh_cn": {
+            "String": "玩法内映射范围"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"InsideDivergentUniverse\",\"ordered_operations\":[\"ApplyTemporaryMappingState\"],\"runtime_lowered\":false,\"selection_timing\":\"ModeBoundary\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "ModeBoundary"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.scope"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Arithmetic Mapping enhancements apply only inside Divergent Universe."
+          },
+          "summary_zh_cn": {
+            "String": "数值映射强化仅在差分宇宙内生效。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "exactpublictext"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Temporary Mapping Teardown"
+          },
+          "name_zh_cn": {
+            "String": "临时映射拆除"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"LeavingDivergentUniverse\",\"ordered_operations\":[\"RemoveTemporaryMappingState\"],\"runtime_lowered\":false,\"selection_timing\":\"RunFinalization\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "RunFinalization"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              },
+              {
+                "Integer": 7096
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.teardown"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "At run finalization, remove temporary mapping state without mutating account characters, Light Cones or Relics."
+          },
+          "summary_zh_cn": {
+            "String": "流程结束时移除临时映射状态，不修改账号角色、光锥或遗器。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "projectpolicy"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseArithmeticMappingRule"
+          },
+          "name_en": {
+            "String": "Trace Activation and Level Threshold"
+          },
+          "name_zh_cn": {
+            "String": "行迹激活与等级阈值"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"account_mutation\":false,\"condition\":\"UnlockedTraceInactiveOrBelowRequirement\",\"ordered_operations\":[\"ActivateOrRaiseTrace\"],\"runtime_lowered\":false,\"selection_timing\":\"RunEntryOrRefresh\",\"stronger_build_rule\":\"PreserveWhenConditionIsFalse\"}"
+          },
+          "refresh_timing": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "selection_timing": {
+            "String": "RunEntryOrRefresh"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7517
+              },
+              {
+                "Integer": 7280
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.mapping-rule.traces"
+          },
+          "stronger_build_rule": {
+            "String": "PreserveWhenConditionIsFalse"
+          },
+          "summary_en": {
+            "String": "Activate unlocked inactive Traces or raise below-required Trace levels; preserve already sufficient Traces."
+          },
+          "summary_zh_cn": {
+            "String": "激活已解锁但未激活的行迹，或提升低于要求的行迹等级；已满足要求时保持原值。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping"
+              },
+              {
+                "String": "exactpublictext"
+              },
+              {
+                "String": "rule"
+              }
+            ]
+          },
+          "teardown": "Null"
+        }
+      }
+    ]
+  }
+}

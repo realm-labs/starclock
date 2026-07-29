@@ -23,11 +23,11 @@ pub struct DivergentUniverseOccurrenceChoices {
     #[serde(rename = "summary_zh_cn")]
     pub summary_zh_cn: String,
     #[serde(rename = "ownership")]
-    pub ownership: DUOwnership,
+    pub ownership: DuOwnership,
     #[serde(rename = "coverage_state")]
-    pub coverage_state: DUCoverageState,
+    pub coverage_state: DuCoverageState,
     #[serde(rename = "evidence_quality")]
-    pub evidence_quality: DUEvidenceQuality,
+    pub evidence_quality: DuEvidenceQuality,
     #[serde(rename = "source_refs")]
     pub source_refs: Option<Vec<i32>>,
     #[serde(rename = "tags")]
@@ -59,9 +59,9 @@ impl super::runtime::SoraDecode for DivergentUniverseOccurrenceChoices {
             name_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             summary_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ownership: <DUOwnership as super::runtime::SoraDecode>::decode(reader)?,
-            coverage_state: <DUCoverageState as super::runtime::SoraDecode>::decode(reader)?,
-            evidence_quality: <DUEvidenceQuality as super::runtime::SoraDecode>::decode(reader)?,
+            ownership: <DuOwnership as super::runtime::SoraDecode>::decode(reader)?,
+            coverage_state: <DuCoverageState as super::runtime::SoraDecode>::decode(reader)?,
+            evidence_quality: <DuEvidenceQuality as super::runtime::SoraDecode>::decode(reader)?,
             source_refs: <Option<Vec<i32>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,

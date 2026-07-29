@@ -1,0 +1,124 @@
+{
+  "table": {
+    "name": "DivergentUniverseProfiles",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_refs": {
+            "List": [
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 3
+              },
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 13
+              }
+            ]
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_resources": {
+            "String": "[]"
+          },
+          "kind": {
+            "String": "DivergentUniverseProfile"
+          },
+          "module_id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Divergent Universe: Arcadian Chronicles"
+          },
+          "name_zh_cn": {
+            "String": "差分宇宙•乐园漫记"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"entry_refs\":[\"divergent-universe.entry.activity.105\",\"divergent-universe.entry.title.tournrogue\"],\"finish_condition_ids\":[\"divergent-universe.finish.3000311\",\"divergent-universe.finish.3000312\",\"divergent-universe.finish.3000313\",\"divergent-universe.finish.3000314\",\"divergent-universe.finish.3000315\",\"divergent-universe.finish.3000316\",\"divergent-universe.finish.3000317\",\"divergent-universe.finish.3000318\",\"divergent-universe.finish.3000319\",\"divergent-universe.finish.3000320\",\"divergent-universe.finish.3000321\",\"divergent-universe.finish.3001304\",\"divergent-universe.finish.3001305\"],\"game_version\":\"4.4\",\"initial_resources\":[],\"initial_resources_resolution\":\"Unspecified\",\"module_id\":\"divergent-universe.module.6002201\",\"runtime_enabled\":false,\"sub_mode\":\"TournRogue\",\"tourn_mode\":\"Tourn3\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 7109
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.profile.v1"
+          },
+          "summary_en": {
+            "String": "Version 4.4 Candidate reference profile for the permanent TournRogue activity; runtime lowering is absent."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本常驻 TournRogue 玩法的 Candidate 资料档案；不包含运行时降级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate-reference"
+              },
+              {
+                "String": "tourn-rogue"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

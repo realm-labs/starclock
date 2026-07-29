@@ -1,0 +1,139 @@
+{
+  "table": {
+    "name": "DivergentUniverseEntries",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ModeTitle"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseEntry"
+          },
+          "module_id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Divergent Universe"
+          },
+          "name_zh_cn": {
+            "String": "差分宇宙"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"entry_kind\":\"ModeTitle\",\"module_id\":\"divergent-universe.module.6002201\",\"related_panel_id\":\"\",\"unlock_ids\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "TournRogue"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 765
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.entry.title.tournrogue"
+          },
+          "summary_en": {
+            "String": "The common mode-title row binds the TournRogue identity."
+          },
+          "summary_zh_cn": {
+            "String": "通用模式标题行绑定 TournRogue 玩法身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-title"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "String": "[]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ResidentActivity"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseEntry"
+          },
+          "module_id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Divergent Universe: Arcadian Chronicles"
+          },
+          "name_zh_cn": {
+            "String": "差分宇宙•乐园漫记"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"entry_kind\":\"ResidentActivity\",\"module_id\":\"divergent-universe.module.6002201\",\"related_panel_id\":\"60018\",\"unlock_ids\":[]}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 761
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.entry.activity.105"
+          },
+          "summary_en": {
+            "String": "Resident activity 105 selects TournRogue module 6002201."
+          },
+          "summary_zh_cn": {
+            "String": "常驻活动 105 选择 TournRogue 模块 6002201。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-entry"
+              }
+            ]
+          },
+          "unlock_ids": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

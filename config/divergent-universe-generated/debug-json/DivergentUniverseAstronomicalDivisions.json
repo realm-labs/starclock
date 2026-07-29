@@ -1,0 +1,655 @@
+{
+  "table": {
+    "name": "DivergentUniverseAstronomicalDivisions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "1"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.1\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Gear Group"
+          },
+          "name_zh_cn": {
+            "String": "齿轮组"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"NoPublishedRetentionHint\",\"division_level\":1,\"effect_ids\":[\"divergent-universe.protocol.1\"],\"progress_boundary\":\"1\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "1"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3615
+              },
+              {
+                "Integer": 3624
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.1"
+          },
+          "summary_en": {
+            "String": "Division 1 uses progress boundary 1 and Protocol 1."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 1 使用进度边界 1，对应协议 1。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "2"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.2\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Clockwork Soldier"
+          },
+          "name_zh_cn": {
+            "String": "发条兵人"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"NoPublishedRetentionHint\",\"division_level\":2,\"effect_ids\":[\"divergent-universe.protocol.2\"],\"progress_boundary\":\"1\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "1"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3616
+              },
+              {
+                "Integer": 3625
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.2"
+          },
+          "summary_en": {
+            "String": "Division 2 uses progress boundary 1 and Protocol 2."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 2 使用进度边界 1，对应协议 2。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-2"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "3"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.3\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Automatic Puppet"
+          },
+          "name_zh_cn": {
+            "String": "自动人偶"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"NeverExtinguish\",\"division_level\":3,\"effect_ids\":[\"divergent-universe.protocol.3\"],\"progress_boundary\":\"2\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3617
+              },
+              {
+                "Integer": 3626
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.3"
+          },
+          "summary_en": {
+            "String": "Division 3 uses progress boundary 2 and Protocol 3."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 3 使用进度边界 2，对应协议 3。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-3"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "4"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.4\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Iterated Mech"
+          },
+          "name_zh_cn": {
+            "String": "迭代机甲"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"NeverExtinguish\",\"division_level\":4,\"effect_ids\":[\"divergent-universe.protocol.4\"],\"progress_boundary\":\"2\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3618
+              },
+              {
+                "Integer": 3627
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.4"
+          },
+          "summary_en": {
+            "String": "Division 4 uses progress boundary 2 and Protocol 4."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 4 使用进度边界 2，对应协议 4。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-4"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "5"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.5\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Decision-Making AI"
+          },
+          "name_zh_cn": {
+            "String": "决策智能"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"RetainAfterFirstPlaneClear\",\"division_level\":5,\"effect_ids\":[\"divergent-universe.protocol.5\"],\"progress_boundary\":\"3\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "3"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3619
+              },
+              {
+                "Integer": 3628
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.5"
+          },
+          "summary_en": {
+            "String": "Division 5 uses progress boundary 3 and Protocol 5."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 5 使用进度边界 3，对应协议 5。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-5"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "6"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.6\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Mechanical Aristocrat"
+          },
+          "name_zh_cn": {
+            "String": "机械贵族"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"RetainAfterFirstPlaneClear\",\"division_level\":6,\"effect_ids\":[\"divergent-universe.protocol.6\"],\"progress_boundary\":\"3\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "3"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3620
+              },
+              {
+                "Integer": 3629
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.6"
+          },
+          "summary_en": {
+            "String": "Division 6 uses progress boundary 3 and Protocol 6."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 6 使用进度边界 3，对应协议 6。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-6"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "7"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.7\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Inorganic General"
+          },
+          "name_zh_cn": {
+            "String": "无机统帅"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"RetainAfterSecondPlaneClear\",\"division_level\":7,\"effect_ids\":[\"divergent-universe.protocol.7\"],\"progress_boundary\":\"4\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "4"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3621
+              },
+              {
+                "Integer": 3630
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.7"
+          },
+          "summary_en": {
+            "String": "Division 7 uses progress boundary 4 and Protocol 7."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 7 使用进度边界 4，对应协议 7。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-7"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "8"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.protocol.8\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Intellitron Monarch"
+          },
+          "name_zh_cn": {
+            "String": "智械君王"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"NoPublishedRetentionHint\",\"division_level\":8,\"effect_ids\":[\"divergent-universe.protocol.8\"],\"progress_boundary\":\"5\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "5"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3622
+              },
+              {
+                "Integer": 3631
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.8"
+          },
+          "summary_en": {
+            "String": "Division 8 uses progress boundary 5 and Protocol 8."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 8 使用进度边界 5，对应协议 8。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-8"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "division_level": {
+            "String": "9"
+          },
+          "effect_ids": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseAstronomicalDivision"
+          },
+          "name_en": {
+            "String": "Intellitron Emperor"
+          },
+          "name_zh_cn": {
+            "String": "智械帝皇"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"cognoculi_retention\":\"TerminalDivision\",\"division_level\":9,\"effect_ids\":[],\"progress_boundary\":\"Terminal\",\"runtime_lowered\":false}"
+          },
+          "progress_boundary": {
+            "String": "Terminal"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3623
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.astronomical-division.9"
+          },
+          "summary_en": {
+            "String": "Division 9 uses progress boundary terminal and no published Protocol effect row."
+          },
+          "summary_zh_cn": {
+            "String": "差分等级 9 使用进度边界 终点，没有公开的协议效果行。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "level-9"
+              },
+              {
+                "String": "terminal"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

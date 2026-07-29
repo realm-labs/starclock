@@ -1,0 +1,3224 @@
+{
+  "table": {
+    "name": "DivergentUniversePermanentTalents",
+    "rows": [
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 17
+              },
+              {
+                "Integer": 32
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.100\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Trait Unlock"
+          },
+          "name_zh_cn": {
+            "String": "特性解锁"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.101\",\"divergent-universe.permanent-talent.301\",\"divergent-universe.permanent-talent.501\"],\"cost\":[{\"amount\":\"100\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.100\"],\"effect_program\":{\"condition\":\"Permanent\",\"description_hash\":\"6247385609997241073\",\"metric\":\"keyword_path_trait\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "100"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5288
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.100"
+          },
+          "summary_en": {
+            "String": "Trait Unlock contributes Enable keyword_path_trait under Permanent; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "特性解锁 在 Permanent 条件下贡献 Enable keyword_path_trait；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 3
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.101\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.102\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.101\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"8490878790397033185\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5289
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.101"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 2
+              },
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 9
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"120\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.102\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Planar Reboot"
+          },
+          "name_zh_cn": {
+            "String": "位面再启动"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.101\",\"divergent-universe.permanent-talent.103\",\"divergent-universe.permanent-talent.201\"],\"cost\":[{\"amount\":\"120\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.102\"],\"effect_program\":{\"condition\":\"FirstFourNonBossBattlesFirstPlane\",\"description_hash\":\"17679722501675702127\",\"metric\":\"all_enemies\",\"operation\":\"DealFixedMaxHpDamage\",\"parameters\":[\"4\",\"0.99\"],\"scope\":\"Battle\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5300
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.102"
+          },
+          "summary_en": {
+            "String": "Planar Reboot contributes DealFixedMaxHpDamage all_enemies under FirstFourNonBossBattlesFirstPlane; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "位面再启动 在 FirstFourNonBossBattlesFirstPlane 条件下贡献 DealFixedMaxHpDamage all_enemies；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 3
+              },
+              {
+                "Integer": 5
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.103\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.102\",\"divergent-universe.permanent-talent.104\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.103\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"18424602661656069961\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5311
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.103"
+          },
+          "summary_en": {
+            "String": "DMG Mitigation Boost contributes Decrease damage_taken under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "伤害减免强化 在 Always 条件下贡献 Decrease damage_taken；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 4
+              },
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 13
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.104\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.103\",\"divergent-universe.permanent-talent.105\",\"divergent-universe.permanent-talent.205\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.104\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"17521802184576173977\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "104"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5320
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.104"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 7
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.105\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "SPD Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.104\",\"divergent-universe.permanent-talent.106\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.105\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"12071747148827011799\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "105"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5321
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.105"
+          },
+          "summary_en": {
+            "String": "SPD Boost contributes Increase speed under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "速度强化 在 Always 条件下贡献 Increase speed；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 6
+              },
+              {
+                "Integer": 8
+              },
+              {
+                "Integer": 14
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.106\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.105\",\"divergent-universe.permanent-talent.107\",\"divergent-universe.permanent-talent.206\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.106\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"3640986879682611389\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "106"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5322
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.106"
+          },
+          "summary_en": {
+            "String": "CRIT Rate Boost contributes Increase critical_rate under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "暴击率强化 在 Always 条件下贡献 Increase critical_rate；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 7
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"180\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.107\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Blessing Level Up Boost"
+          },
+          "name_zh_cn": {
+            "String": "祝福升级强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.106\"],\"cost\":[{\"amount\":\"180\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.107\"],\"effect_program\":{\"condition\":\"EachWorkbench\",\"description_hash\":\"8192628896083438032\",\"metric\":\"workbench_heat\",\"operation\":\"Increase\",\"parameters\":[\"1\"],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "107"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5323
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.107"
+          },
+          "summary_en": {
+            "String": "Blessing Level Up Boost contributes Increase workbench_heat under EachWorkbench; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "祝福升级强化 在 EachWorkbench 条件下贡献 Increase workbench_heat；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 3
+              },
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 17
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.201\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.102\",\"divergent-universe.permanent-talent.202\",\"divergent-universe.permanent-talent.301\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.201\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"11896023374151797434\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5324
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.201"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 11
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.202\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.201\",\"divergent-universe.permanent-talent.203\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.202\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"6940349460006081215\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5325
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.202"
+          },
+          "summary_en": {
+            "String": "Effect Hit Rate Boost contributes Increase effect_hit_rate under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "效果命中强化 在 Always 条件下贡献 Increase effect_hit_rate；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 10
+              },
+              {
+                "Integer": 12
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.203\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.202\",\"divergent-universe.permanent-talent.204\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.203\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"11429978791028095523\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5290
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.203"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 11
+              },
+              {
+                "Integer": 13
+              },
+              {
+                "Integer": 14
+              },
+              {
+                "Integer": 15
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"120\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.204\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Initial Resources"
+          },
+          "name_zh_cn": {
+            "String": "起始资源"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.203\",\"divergent-universe.permanent-talent.205\",\"divergent-universe.permanent-talent.206\",\"divergent-universe.permanent-talent.207\"],\"cost\":[{\"amount\":\"120\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.204\"],\"effect_program\":{\"condition\":\"RunEntry\",\"description_hash\":\"6793160255738183634\",\"metric\":\"starting_cosmic_fragments\",\"operation\":\"Increase\",\"parameters\":[\"30\"],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5291
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.204"
+          },
+          "summary_en": {
+            "String": "Initial Resources contributes Increase starting_cosmic_fragments under RunEntry; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "起始资源 在 RunEntry 条件下贡献 Increase starting_cosmic_fragments；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 5
+              },
+              {
+                "Integer": 12
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.205\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.104\",\"divergent-universe.permanent-talent.204\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.205\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"518437086253368039\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5292
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.205"
+          },
+          "summary_en": {
+            "String": "CRIT DMG Boost contributes Increase critical_damage under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "暴击伤害强化 在 Always 条件下贡献 Increase critical_damage；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 7
+              },
+              {
+                "Integer": 12
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.206\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.106\",\"divergent-universe.permanent-talent.204\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.206\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"12362547770360538458\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "206"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5293
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.206"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 12
+              },
+              {
+                "Integer": 16
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.207\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.204\",\"divergent-universe.permanent-talent.208\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.207\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"3314758160086380955\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "207"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5294
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.207"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 15
+              },
+              {
+                "Integer": 21
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.208\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.207\",\"divergent-universe.permanent-talent.305\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.208\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"8056814645307325499\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "208"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5295
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.208"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 9
+              },
+              {
+                "Integer": 18
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.301\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.201\",\"divergent-universe.permanent-talent.302\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.301\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"16176930790982153435\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5296
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.301"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 17
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.302\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.301\",\"divergent-universe.permanent-talent.303\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.302\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"15644702451664609810\",\"metric\":\"critical_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5297
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.302"
+          },
+          "summary_en": {
+            "String": "CRIT Rate Boost contributes Increase critical_rate under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "暴击率强化 在 Always 条件下贡献 Increase critical_rate；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 18
+              },
+              {
+                "Integer": 20
+              },
+              {
+                "Integer": 25
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"120\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.303\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Food On-The-Go"
+          },
+          "name_zh_cn": {
+            "String": "便携食品"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.302\",\"divergent-universe.permanent-talent.304\",\"divergent-universe.permanent-talent.402\"],\"cost\":[{\"amount\":\"120\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.303\"],\"effect_program\":{\"condition\":\"ThresholdProtocolInactive\",\"description_hash\":\"1485802231219485930\",\"metric\":\"consumable_use\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5298
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.303"
+          },
+          "summary_en": {
+            "String": "Food On-The-Go contributes Enable consumable_use under ThresholdProtocolInactive; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "便携食品 在 ThresholdProtocolInactive 条件下贡献 Enable consumable_use；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 19
+              },
+              {
+                "Integer": 21
+              },
+              {
+                "Integer": 27
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.304\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Effect RES Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果抵抗强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.303\",\"divergent-universe.permanent-talent.305\",\"divergent-universe.permanent-talent.404\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.304\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"17624336524824711712\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "304"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5299
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.304"
+          },
+          "summary_en": {
+            "String": "Effect RES Boost contributes Increase effect_resistance under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "效果抵抗强化 在 Always 条件下贡献 Increase effect_resistance；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 16
+              },
+              {
+                "Integer": 20
+              },
+              {
+                "Integer": 22
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.305\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.208\",\"divergent-universe.permanent-talent.304\",\"divergent-universe.permanent-talent.306\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.305\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"9269353107409091468\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "305"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5301
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.305"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 21
+              },
+              {
+                "Integer": 23
+              },
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.306\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.305\",\"divergent-universe.permanent-talent.307\",\"divergent-universe.permanent-talent.407\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.306\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"8400648437876297300\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "306"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5302
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.306"
+          },
+          "summary_en": {
+            "String": "DMG Boost contributes Increase damage_dealt under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "伤害强化 在 Always 条件下贡献 Increase damage_dealt；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 22
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"180\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.307\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Store Revamp"
+          },
+          "name_zh_cn": {
+            "String": "商店改装"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.306\"],\"cost\":[{\"amount\":\"180\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.307\"],\"effect_program\":{\"condition\":\"StoreDomain\",\"description_hash\":\"13170095873814605092\",\"metric\":\"store_curio_and_blessing_slots\",\"operation\":\"Increase\",\"parameters\":[\"1\",\"1\"],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "307"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5303
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.307"
+          },
+          "summary_en": {
+            "String": "Store Revamp contributes Increase store_curio_and_blessing_slots under StoreDomain; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "商店改装 在 StoreDomain 条件下贡献 Increase store_curio_and_blessing_slots；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 25
+              },
+              {
+                "Integer": 34
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.401\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.402\",\"divergent-universe.permanent-talent.503\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.401\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"17529409590515405977\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.04\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5304
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.401"
+          },
+          "summary_en": {
+            "String": "DMG Boost contributes Increase damage_dealt under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "伤害强化 在 Always 条件下贡献 Increase damage_dealt；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 19
+              },
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 26
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.402\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.303\",\"divergent-universe.permanent-talent.401\",\"divergent-universe.permanent-talent.403\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.402\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"18250399067157512031\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5305
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.402"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 25
+              },
+              {
+                "Integer": 27
+              },
+              {
+                "Integer": 28
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"120\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.403\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Pleasant Surprise"
+          },
+          "name_zh_cn": {
+            "String": "意外之喜"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.402\",\"divergent-universe.permanent-talent.404\",\"divergent-universe.permanent-talent.405\"],\"cost\":[{\"amount\":\"120\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.403\"],\"effect_program\":{\"condition\":\"DomainGeneration\",\"description_hash\":\"3261946066583220275\",\"metric\":\"random_treasure_and_game_machine_types\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5306
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.403"
+          },
+          "summary_en": {
+            "String": "Pleasant Surprise contributes Enable random_treasure_and_game_machine_types under DomainGeneration; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "意外之喜 在 DomainGeneration 条件下贡献 Enable random_treasure_and_game_machine_types；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 20
+              },
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 30
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.404\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.304\",\"divergent-universe.permanent-talent.403\",\"divergent-universe.permanent-talent.407\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.404\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"15764084180668421222\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "404"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5307
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.404"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 26
+              },
+              {
+                "Integer": 29
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.405\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.403\",\"divergent-universe.permanent-talent.406\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.405\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"9957783933840810209\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "405"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5308
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.405"
+          },
+          "summary_en": {
+            "String": "DMG Mitigation Boost contributes Decrease damage_taken under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "伤害减免强化 在 Always 条件下贡献 Decrease damage_taken；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 28
+              },
+              {
+                "Integer": 31
+              },
+              {
+                "Integer": 37
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.406\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.405\",\"divergent-universe.permanent-talent.409\",\"divergent-universe.permanent-talent.506\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.406\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"1395261966179823977\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "406"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5309
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.406"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 22
+              },
+              {
+                "Integer": 27
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.407\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.306\",\"divergent-universe.permanent-talent.404\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.407\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"4216959902774999017\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.06\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "407"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5310
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.407"
+          },
+          "summary_en": {
+            "String": "CRIT DMG Boost contributes Increase critical_damage under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "暴击伤害强化 在 Always 条件下贡献 Increase critical_damage；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 29
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"180\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.409\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Probability Fixation"
+          },
+          "name_zh_cn": {
+            "String": "概率固着"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.406\"],\"cost\":[{\"amount\":\"180\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.409\"],\"effect_program\":{\"condition\":\"PerWorkbench\",\"description_hash\":\"949003070109394730\",\"metric\":\"discarded_or_unselected_equation_reappearance\",\"operation\":\"Decrease\",\"parameters\":[],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "409"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5312
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.409"
+          },
+          "summary_en": {
+            "String": "Probability Fixation contributes Decrease discarded_or_unselected_equation_reappearance under PerWorkbench; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "概率固着 在 PerWorkbench 条件下贡献 Decrease discarded_or_unselected_equation_reappearance；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 33
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.501\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.502\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.501\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"9312290377446757989\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5313
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.501"
+          },
+          "summary_en": {
+            "String": "HP Boost contributes Increase max_hp under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "生命强化 在 Always 条件下贡献 Increase max_hp；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 32
+              },
+              {
+                "Integer": 34
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"120\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.502\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Extra Blessings"
+          },
+          "name_zh_cn": {
+            "String": "额外祝福"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.501\",\"divergent-universe.permanent-talent.503\"],\"cost\":[{\"amount\":\"120\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.502\"],\"effect_program\":{\"condition\":\"FirstBattleVictory\",\"description_hash\":\"4669464146580536963\",\"metric\":\"first_battle_victory_blessing_selection\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5314
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.502"
+          },
+          "summary_en": {
+            "String": "Extra Blessings contributes Increase first_battle_victory_blessing_selection under FirstBattleVictory; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "额外祝福 在 FirstBattleVictory 条件下贡献 Increase first_battle_victory_blessing_selection；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 24
+              },
+              {
+                "Integer": 33
+              },
+              {
+                "Integer": 35
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.503\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.401\",\"divergent-universe.permanent-talent.502\",\"divergent-universe.permanent-talent.504\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.503\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"11866214237328495435\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5315
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.503"
+          },
+          "summary_en": {
+            "String": "ATK Boost contributes Increase attack under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "攻击强化 在 Always 条件下贡献 Increase attack；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 34
+              },
+              {
+                "Integer": 36
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.504\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "SPD Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.503\",\"divergent-universe.permanent-talent.505\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.504\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"33474488350561210\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.03\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "504"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5316
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.504"
+          },
+          "summary_en": {
+            "String": "SPD Boost contributes Increase speed under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "速度强化 在 Always 条件下贡献 Increase speed；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 35
+              },
+              {
+                "Integer": 37
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.505\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Break Effect Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破特攻强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.504\",\"divergent-universe.permanent-talent.506\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.505\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"15051089883744296710\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.1\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "505"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5317
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.505"
+          },
+          "summary_en": {
+            "String": "Break Effect Boost contributes Increase break_effect under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "击破特攻强化 在 Always 条件下贡献 Increase break_effect；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 29
+              },
+              {
+                "Integer": 36
+              },
+              {
+                "Integer": 38
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"40\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.506\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.406\",\"divergent-universe.permanent-talent.505\",\"divergent-universe.permanent-talent.507\"],\"cost\":[{\"amount\":\"40\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.506\"],\"effect_program\":{\"condition\":\"Always\",\"description_hash\":\"2241922851048286438\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.05\"],\"scope\":\"Battle\"},\"important\":false,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Battle\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Battle"
+          },
+          "source_id": {
+            "String": "506"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5318
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.506"
+          },
+          "summary_en": {
+            "String": "DEF Boost contributes Increase defense under Always; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "防御强化 在 Always 条件下贡献 Increase defense；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "adjacent_talent_ids": {
+            "List": [
+              {
+                "Integer": 37
+              }
+            ]
+          },
+          "cost": {
+            "String": "[{\"amount\":\"180\",\"item_id\":\"281018\"}]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "effect_ids": {
+            "String": "[\"divergent-universe.progression-effect.talent.507\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "DivergentUniversePermanentTalent"
+          },
+          "name_en": {
+            "String": "Boundary Equation"
+          },
+          "name_zh_cn": {
+            "String": "临界方程"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"adjacent_talent_ids\":[\"divergent-universe.permanent-talent.506\"],\"cost\":[{\"amount\":\"180\",\"item_id\":\"281018\"}],\"effect_ids\":[\"divergent-universe.progression-effect.talent.507\"],\"effect_program\":{\"condition\":\"SixteenSamePathBlessings\",\"description_hash\":\"17161161306611360605\",\"metric\":\"boundary_equation\",\"operation\":\"Enable\",\"parameters\":[\"16\"],\"scope\":\"Activity\"},\"important\":true,\"prerequisite_ids\":[],\"prerequisite_resolution\":\"UnavailableInBidirectionalAdjacency\",\"runtime_lowered\":false,\"scope\":\"Activity\"}"
+          },
+          "prerequisite_ids": "Null",
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Activity"
+          },
+          "source_id": {
+            "String": "507"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5319
+              },
+              {
+                "Integer": 7108
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.permanent-talent.507"
+          },
+          "summary_en": {
+            "String": "Boundary Equation contributes Enable boundary_equation under SixteenSamePathBlessings; prerequisite direction is not published."
+          },
+          "summary_zh_cn": {
+            "String": "临界方程 在 SixteenSamePathBlessings 条件下贡献 Enable boundary_equation；先决方向未公开。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "important-node"
+              },
+              {
+                "String": "permanent-talent"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

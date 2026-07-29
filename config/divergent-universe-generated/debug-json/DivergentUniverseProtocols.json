@@ -1,0 +1,583 @@
+{
+  "table": {
+    "name": "DivergentUniverseProtocols",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"IncreaseDomainCount\",\"EnableSecondPlaneConversionDomains\",\"IncreaseEquationRandomness\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.32\",\"max_hp\":\"2\",\"speed\":\"0.16\"}}"
+          },
+          "entry_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 1"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"IncreaseDomainCount\",\"EnableSecondPlaneConversionDomains\",\"IncreaseEquationRandomness\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.32\",\"max_hp\":\"2\",\"speed\":\"0.16\"}},\"entry_rules\":[],\"protocol_level\":1,\"runtime_lowered\":false,\"source_parameters\":[\"0.32\",\"2\",\"0.16\"]}"
+          },
+          "protocol_level": {
+            "String": "1"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3624
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.1"
+          },
+          "summary_en": {
+            "String": "Protocol 1 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 1 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-1"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"IncreaseMaskWishpowerRequirement\",\"IncreaseEquationBlessingRequirement\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.64\",\"max_hp\":\"6\",\"speed\":\"0.32\"}}"
+          },
+          "entry_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 2"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"IncreaseMaskWishpowerRequirement\",\"IncreaseEquationBlessingRequirement\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.64\",\"max_hp\":\"6\",\"speed\":\"0.32\"}},\"entry_rules\":[],\"protocol_level\":2,\"runtime_lowered\":false,\"source_parameters\":[\"0.64\",\"6\",\"0.32\"]}"
+          },
+          "protocol_level": {
+            "String": "2"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3625
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.2"
+          },
+          "summary_en": {
+            "String": "Protocol 2 applies 3 plane-scaled enemy maximum modifier(s) and 2 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 2 应用 3 个随位面缩放的敌方最大修正和 2 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-2"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"ReplaceFirstAndSecondPlaneBosses\",\"AdvanceBerserkOnset\",\"IncreaseBerserkStackRate\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[\"EarlierOnset\",\"FasterStacking\"],\"first_second_plane_boss_identity\":\"ChangedIdentityDeferredToP2B5\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.96\",\"max_hp\":\"12\",\"speed\":\"0.48\"}}"
+          },
+          "entry_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 3"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"ReplaceFirstAndSecondPlaneBosses\",\"AdvanceBerserkOnset\",\"IncreaseBerserkStackRate\"],\"enemy_changes\":{\"berserk_changes\":[\"EarlierOnset\",\"FasterStacking\"],\"first_second_plane_boss_identity\":\"ChangedIdentityDeferredToP2B5\",\"plane_scaled_maximum_increase\":{\"attack\":\"0.96\",\"max_hp\":\"12\",\"speed\":\"0.48\"}},\"entry_rules\":[],\"protocol_level\":3,\"runtime_lowered\":false,\"source_parameters\":[\"0.96\",\"12\",\"0.48\"]}"
+          },
+          "protocol_level": {
+            "String": "3"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3626
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.3"
+          },
+          "summary_en": {
+            "String": "Protocol 3 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 3 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-3"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"FurtherIncreaseDomainCount\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.28\",\"max_hp\":\"20\",\"speed\":\"0.64\"}}"
+          },
+          "entry_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 4"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 4"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"FurtherIncreaseDomainCount\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.28\",\"max_hp\":\"20\",\"speed\":\"0.64\"}},\"entry_rules\":[],\"protocol_level\":4,\"runtime_lowered\":false,\"source_parameters\":[\"1.28\",\"20\",\"0.64\"]}"
+          },
+          "protocol_level": {
+            "String": "4"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3627
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.4"
+          },
+          "summary_en": {
+            "String": "Protocol 4 applies 3 plane-scaled enemy maximum modifier(s) and 1 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 4 应用 3 个随位面缩放的敌方最大修正和 1 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-4"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"GrantOneGrandMiracleAtFirstPlaneEntry\",\"IncreaseMaskWishpowerRequirement\",\"IncreaseEquationBlessingRequirement\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.6\",\"max_hp\":\"32\",\"speed\":\"0.8\"}}"
+          },
+          "entry_rules": {
+            "String": "[\"GrantOneGrandMiracleAtFirstPlaneEntry\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 5"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 5"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"GrantOneGrandMiracleAtFirstPlaneEntry\",\"IncreaseMaskWishpowerRequirement\",\"IncreaseEquationBlessingRequirement\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.6\",\"max_hp\":\"32\",\"speed\":\"0.8\"}},\"entry_rules\":[\"GrantOneGrandMiracleAtFirstPlaneEntry\"],\"protocol_level\":5,\"runtime_lowered\":false,\"source_parameters\":[\"1.6\",\"32\",\"0.8\"]}"
+          },
+          "protocol_level": {
+            "String": "5"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3628
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.5"
+          },
+          "summary_en": {
+            "String": "Protocol 5 applies 3 plane-scaled enemy maximum modifier(s) and 3 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 5 应用 3 个随位面缩放的敌方最大修正和 3 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-5"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"AdvanceBerserkEnemyAfterAttacked\",\"IncreaseAllyDamageAfterBerserk\",\"DecreaseAllyHealingAfterBerserk\",\"DecreaseAllyShieldAfterBerserk\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[\"AdvanceAfterAttacked\"],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.92\",\"max_hp\":\"48\",\"max_toughness\":\"0.2\",\"speed\":\"0.96\"}}"
+          },
+          "entry_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 6"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 6"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"AdvanceBerserkEnemyAfterAttacked\",\"IncreaseAllyDamageAfterBerserk\",\"DecreaseAllyHealingAfterBerserk\",\"DecreaseAllyShieldAfterBerserk\"],\"enemy_changes\":{\"berserk_changes\":[\"AdvanceAfterAttacked\"],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"1.92\",\"max_hp\":\"48\",\"max_toughness\":\"0.2\",\"speed\":\"0.96\"}},\"entry_rules\":[],\"protocol_level\":6,\"runtime_lowered\":false,\"source_parameters\":[\"1.92\",\"48\",\"0.96\",\"0.2\"]}"
+          },
+          "protocol_level": {
+            "String": "6"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3629
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.6"
+          },
+          "summary_en": {
+            "String": "Protocol 6 applies 4 plane-scaled enemy maximum modifier(s) and 4 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 6 应用 4 个随位面缩放的敌方最大修正和 4 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-6"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"IncreaseStorePriceBy0.25\",\"GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"2.24\",\"max_hp\":\"70\",\"max_toughness\":\"0.3\",\"speed\":\"1.12\"}}"
+          },
+          "entry_rules": {
+            "String": "[\"GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 7"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 7"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"IncreaseStorePriceBy0.25\",\"GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"2.24\",\"max_hp\":\"70\",\"max_toughness\":\"0.3\",\"speed\":\"1.12\"}},\"entry_rules\":[\"GrantTwoRandomLevelOneDomainsAtFirstPlaneEntry\"],\"protocol_level\":7,\"runtime_lowered\":false,\"source_parameters\":[\"2.24\",\"70\",\"1.12\",\"0.3\",\"0.25\",\"2\"]}"
+          },
+          "protocol_level": {
+            "String": "7"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3630
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.7"
+          },
+          "summary_en": {
+            "String": "Protocol 7 applies 4 plane-scaled enemy maximum modifier(s) and 2 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 7 应用 4 个随位面缩放的敌方最大修正和 2 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-7"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "difficulty_changes": {
+            "String": "[\"GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry\"]"
+          },
+          "enemy_changes": {
+            "String": "{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"2.56\",\"max_hp\":\"100\",\"max_toughness\":\"0.5\",\"speed\":\"1.28\"}}"
+          },
+          "entry_rules": {
+            "String": "[\"GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseProtocol"
+          },
+          "name_en": {
+            "String": "Threshold Protocol 8"
+          },
+          "name_zh_cn": {
+            "String": "阈值协议 8"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"difficulty_changes\":[\"GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry\"],\"enemy_changes\":{\"berserk_changes\":[],\"first_second_plane_boss_identity\":\"UnchangedByThisProtocolText\",\"plane_scaled_maximum_increase\":{\"attack\":\"2.56\",\"max_hp\":\"100\",\"max_toughness\":\"0.5\",\"speed\":\"1.28\"}},\"entry_rules\":[\"GrantRandomSpecialAbsoluteFailurePrescriptionAtFirstPlaneEntry\"],\"protocol_level\":8,\"runtime_lowered\":false,\"source_parameters\":[\"2.56\",\"100\",\"1.28\",\"0.5\"]}"
+          },
+          "protocol_level": {
+            "String": "8"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3631
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.protocol.8"
+          },
+          "summary_en": {
+            "String": "Protocol 8 applies 4 plane-scaled enemy maximum modifier(s) and 1 additional rule(s)."
+          },
+          "summary_zh_cn": {
+            "String": "协议 8 应用 4 个随位面缩放的敌方最大修正和 1 个附加规则。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "level-8"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

@@ -163,9 +163,9 @@ function fields(contract) {
     string("name_zh_cn", 1000),
     string("summary_en", 4000),
     string("summary_zh_cn", 4000),
-    typed("ownership", "enum<DUOwnership>"),
-    typed("coverage_state", "enum<DUCoverageState>"),
-    typed("evidence_quality", "enum<DUEvidenceQuality>"),
+    typed("ownership", "enum<DuOwnership>"),
+    typed("coverage_state", "enum<DuCoverageState>"),
+    typed("evidence_quality", "enum<DuEvidenceQuality>"),
     typed(
       "source_refs",
       "optional<list<ref<DivergentUniverseSources.id>>>",
@@ -322,18 +322,19 @@ function referenceFields(file) {
 function enums() {
   return [
     [
-      "DUOwnership",
+      "DuOwnership",
       ["DivergentUniverse", "Shared", "OtherMode", "Excluded"],
     ],
     [
-      "DUCoverageState",
+      "DuCoverageState",
       ["Cataloged", "Researched", "DataReady", "Blocked", "Excluded"],
     ],
     [
-      "DUEvidenceQuality",
+      "DuEvidenceQuality",
       [
         "ExactStructured",
         "ExactPublicText",
+        "ExactOfficialText",
         "Observed",
         "ApproximateFromReleasedText",
         "ProjectPolicy",

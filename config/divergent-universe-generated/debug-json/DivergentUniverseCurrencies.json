@@ -1,0 +1,156 @@
+{
+  "table": {
+    "name": "DivergentUniverseCurrencies",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "gain_rules": {
+            "String": "[\"CurseChest\",\"GambleCoinUnit\"]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseCurrency"
+          },
+          "name_en": {
+            "String": "Cosmic Fragment"
+          },
+          "name_zh_cn": {
+            "String": "宇宙碎片"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"gain_rules\":[\"CurseChest\",\"GambleCoinUnit\"],\"reset_rule\":\"RunEnd\",\"runtime_lowered\":false,\"scope\":\"Run\",\"spend_rules\":[\"CurseChest\",\"OtherServicesDeferredToP2B4\"]}"
+          },
+          "reset_rule": {
+            "String": "RunEnd"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Run"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3565
+              },
+              {
+                "Integer": 7137
+              }
+            ]
+          },
+          "spend_rules": {
+            "String": "[\"CurseChest\",\"OtherServicesDeferredToP2B4\"]"
+          },
+          "stable_key": {
+            "String": "divergent-universe.currency.cosmic-fragment"
+          },
+          "summary_en": {
+            "String": "Run-scoped currency appears in exact Curse Chest gain/loss operations; the complete lifecycle is deferred."
+          },
+          "summary_zh_cn": {
+            "String": "局内货币出现在精确的诅咒宝箱获得/失去操作中；完整生命周期延后闭包。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "currency"
+              },
+              {
+                "String": "lifecycle-incomplete"
+              },
+              {
+                "String": "run"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "gain_rules": {
+            "String": "[\"Unspecified\"]"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseCurrency"
+          },
+          "name_en": {
+            "String": "Workbench Heat"
+          },
+          "name_zh_cn": {
+            "String": "工作台热量"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"gain_rules\":[\"Unspecified\"],\"reset_rule\":\"ResetAtEachWorkbench\",\"runtime_lowered\":false,\"scope\":\"Workbench\",\"spend_rules\":[\"EnhanceBlessing\"]}"
+          },
+          "reset_rule": {
+            "String": "ResetAtEachWorkbench"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "scope": {
+            "String": "Workbench"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6848
+              }
+            ]
+          },
+          "spend_rules": {
+            "String": "[\"EnhanceBlessing\"]"
+          },
+          "stable_key": {
+            "String": "divergent-universe.currency.workbench-heat"
+          },
+          "summary_en": {
+            "String": "Workbench-local Heat is consumed to enhance Blessings and resets for every Workbench."
+          },
+          "summary_zh_cn": {
+            "String": "工作台局部热量用于强化祝福，并在每个工作台重置。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "currency"
+              },
+              {
+                "String": "heat"
+              },
+              {
+                "String": "workbench"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

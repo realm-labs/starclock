@@ -1,0 +1,148 @@
+{
+  "schema_revision": "starclock.divergent-universe-visual-review.v1",
+  "reviewed_at": "2026-07-29",
+  "renderer": {
+    "name": "@oai/artifact-tool",
+    "version": "2.8.33",
+    "range_policy": "rows 1-12 across every used schema column"
+  },
+  "workbooks": [
+    {
+      "file": "DivergentUniverse.xlsx",
+      "sheets": [
+        "T01_Profiles",
+        "T02_Modules",
+        "T03_Entries",
+        "T04_FinishConditions",
+        "T05_Areas",
+        "T06_Difficulties",
+        "T07_Layers",
+        "T08_LayerRooms",
+        "T09_Rooms",
+        "T10_StageFlow",
+        "T11_CyclicalChallenges",
+        "T12_Protocols",
+        "T13_AstronomicalDivisions",
+        "T14_StarPioneerPractice",
+        "T15_Cognoculi",
+        "T16_ArithmeticMappingEligibilit",
+        "T17_ArithmeticMappingBuilds",
+        "T18_ArithmeticMappingRules",
+        "T01_Equations",
+        "T02_EquationRecipes",
+        "T03_EquationCategories",
+        "T04_EquationOffers",
+        "T05_EquationProgress",
+        "T06_EquationExpansionStates",
+        "T07_EquationEffects",
+        "T08_EquationReplacementRules",
+        "T09_BlessingPaths",
+        "T10_Blessings",
+        "T11_BlessingLevels",
+        "T12_BlessingGroups",
+        "T13_BlessingRewriteRules",
+        "T14_BlessingEquationContributio",
+        "T15_Curios",
+        "T16_CurioStates",
+        "T17_CurioGroups",
+        "T18_CurioLifecycleRules",
+        "T19_GrandMiracles",
+        "T20_GrandMiracleEligibility",
+        "T21_GrandMiracleStates",
+        "T22_TitanTypes",
+        "T23_TitanBoons",
+        "T24_TitanTalents",
+        "T25_TitanChoices",
+        "T26_TitanContributions",
+        "T01_Workbenches",
+        "T02_WorkbenchFunctions",
+        "T03_GambleGroups",
+        "T04_GambleUnits",
+        "T05_CurseChests",
+        "T06_Currencies",
+        "T07_ServiceRules",
+        "T08_ServiceOfferRules",
+        "T09_PermanentTalents",
+        "T10_Unlocks",
+        "T11_CommonConstants",
+        "T12_WeeklyModifiers",
+        "T13_RoomMarks",
+        "T14_ProgressionEffects"
+      ]
+    },
+    {
+      "file": "DivergentUniverseBindings.xlsx",
+      "sheets": [
+        "T15_PoolMembership",
+        "T16_CurioPoolMembership",
+        "T17_Occurrences",
+        "T18_OccurrenceVariants",
+        "T19_OccurrenceChoices",
+        "T20_ModeServiceNpcs",
+        "T21_AdventureOutcomes",
+        "T22_EncounterSourceObligations",
+        "T23_EncounterGroups",
+        "T24_EncounterWaves",
+        "T25_EnemySlots",
+        "T26_BossPools"
+      ]
+    },
+    {
+      "file": "DivergentUniverseReview.xlsx",
+      "sheets": [
+        "T27_MechanicSourceFiles",
+        "T28_MechanicRules",
+        "T01_Sources",
+        "T02_Coverage",
+        "T03_ResearchGaps",
+        "T04_SemanticFixtureFamilies",
+        "T05_ReviewFixtures",
+        "T06_ReconciliationReceipts",
+        "T07_Manifest",
+        "T08_PackIndex"
+      ]
+    }
+  ],
+  "sheet_count": 80,
+  "render_manifest_sha256": "2cdc2823c814a71015ce7c61a3b79bc503ef71c58fdb86c102b5074b57bfa9d2",
+  "contact_sheet_sha256": [
+    "3b463af84172e37c3658c50736e755d186648a31e96827a13e4bc10ac501b85b",
+    "5f597d80b9b5a9f886e67cf86c826a5493b97864c915537d93d897f16b7dd2c5",
+    "5ffa9877e7f1d40099614a8656d6369967e8a6385de086ab97d5f913c80a48ca",
+    "94278539ca564e99244f903356eccaf49d1e7c4dae3c8d64bacfd0aa78bc0d2a",
+    "0cd60f58879e602b0ca30c38f575df7a24e24c26a9426febaedba0fb3b72e81d",
+    "0df10ae6ec59f14e9a1a13b3f0688a6688c6700accf420015a521d1c8e985dc0",
+    "99e7425915ae8e700e0671a3f9499082e2fbedfa9c8935d592a8053256e77039",
+    "6e6a32976e6b1744633f0400317b53c7f20fb4d54821c07f7b2a9637867dc32e",
+    "4a02e8fa948a7235d7debbee047836ebe45dbdcb3a6bd5159cbc7b4090b2c7d0",
+    "b6a06ddf263c872664fedb47929bab1ce1eaae854ba3597a74c46cbbc9386d37"
+  ],
+  "workbook_sha256": {
+    "DivergentUniverse.xlsx": "442e77cc8e1ea02536c9dbb99b8881777211b6e8f80749d8ca8df22c79540060",
+    "DivergentUniverseBindings.xlsx": "67cdbffe65a559608f965b83e377ce6f629f6d0e5fc5071a7dbd60e177575f3b",
+    "DivergentUniverseReview.xlsx": "a378b30a90380ced9d125360ff7c630eafe43c06a454d7fcc7c512b422259fb6"
+  },
+  "workbook_semantic_sha256": "d5cf89f38512465239d508988228cb1a68a026bdfdd95c1e7160b09d7e5cd82b",
+  "sora_bundle": {
+    "bytes": 24621503,
+    "sha256": "eaf49a1dd25b75db6f94ca566a3d6294ec0d6881ae1e69994c4c06cd9420d8ea",
+    "tables": 80,
+    "rows": 26985,
+    "verified_empty_tables": 3
+  },
+  "debug_export": {
+    "files": 80,
+    "sha256": "d57ccd65d909f1dc44f1bcfb06758fcddadbe2d99e03bed74417a2a99abb98aa",
+    "digest_algorithm": "SHA-256 over sorted filename, NUL, file bytes, NUL"
+  },
+  "checks": {
+    "all_sheets_rendered": true,
+    "metadata_rows_present": true,
+    "headers_legible": true,
+    "data_rows_present_or_verified_empty": true,
+    "alternating_fill_present": true,
+    "long_value_rows_capped_at_72_points": true,
+    "no_render_corruption": true
+  },
+  "defects": []
+}

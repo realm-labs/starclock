@@ -1,0 +1,2951 @@
+{
+  "table": {
+    "name": "DivergentUniverseReviewFixtures",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2359
+              },
+              {
+                "Integer": 6854
+              },
+              {
+                "Integer": 6855
+              },
+              {
+                "Integer": 6856
+              },
+              {
+                "Integer": 7093
+              },
+              {
+                "Integer": 7112
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offered abstract result\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no action gameplay simulation\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 1
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "adventure-abstract-outcome Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "adventure-abstract-outcome 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"offered abstract result\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"no action gameplay simulation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournadventureroom-json.7\",\"source.goal11.exceloutput-rogueturntable-json.3\",\"source.goal11.exceloutput-rogueturntable-json.4\",\"source.goal11.exceloutput-rogueturntable-json.5\",\"source.goal11.project-policy.adventure-external-results\",\"source.goal11.project-policy.semantic-fixture-adventure-abstract-outcome\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offered abstract result\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no action gameplay simulation\",\"runtime_claim\":false}],\"family_id\":\"adventure-abstract-outcome\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"offered abstract result\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"no action gameplay simulation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.adventure-outcome.11098010.RogueTurntable\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "adventure-abstract-outcome"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2359
+              },
+              {
+                "Integer": 6854
+              },
+              {
+                "Integer": 6855
+              },
+              {
+                "Integer": 6856
+              },
+              {
+                "Integer": 7093
+              },
+              {
+                "Integer": 7112
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.adventure-abstract-outcome"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure-abstract-outcome"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2362
+              },
+              {
+                "Integer": 3593
+              },
+              {
+                "Integer": 4578
+              },
+              {
+                "Integer": 7113
+              },
+              {
+                "Integer": 7139
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered stage flow\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"legal and rejected transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty binding\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 2
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "area-difficulty-layer-transition Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "area-difficulty-layer-transition 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"ordered stage flow\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"legal and rejected transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"difficulty binding\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournarea-json.2\",\"source.goal11.exceloutput-roguetourndifficulty-json.0\",\"source.goal11.exceloutput-roguetournlayer-json.2\",\"source.goal11.project-policy.semantic-fixture-area-difficulty-layer-transition\",\"source.goal11.project-policy.stage-flow\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered stage flow\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"legal and rejected transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty binding\",\"runtime_claim\":false}],\"family_id\":\"area-difficulty-layer-transition\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"ordered stage flow\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"legal and rejected transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"difficulty binding\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.area.103\",\"divergent-universe.difficulty.1001\",\"divergent-universe.flow.area.103.entry\",\"divergent-universe.layer.103\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "area-difficulty-layer-transition"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2362
+              },
+              {
+                "Integer": 3593
+              },
+              {
+                "Integer": 4578
+              },
+              {
+                "Integer": 7113
+              },
+              {
+                "Integer": 7139
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.area-difficulty-layer-transition"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "area-difficulty-layer-transition"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 670
+              },
+              {
+                "Integer": 3423
+              },
+              {
+                "Integer": 7114
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligible character\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ineligible character\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"stronger account build boundary\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 3
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "arithmetic-mapping-eligibility Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "arithmetic-mapping-eligibility 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"eligible character\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"ineligible character\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"stronger account build boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-avatarconfig-json.0\",\"source.goal11.exceloutput-roguetournbuildrefavatar-json.0\",\"source.goal11.project-policy.semantic-fixture-arithmetic-mapping-eligibility\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"eligible character\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ineligible character\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"stronger account build boundary\",\"runtime_claim\":false}],\"family_id\":\"arithmetic-mapping-eligibility\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"eligible character\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"ineligible character\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"stronger account build boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.mapping-eligibility.1001\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "arithmetic-mapping-eligibility"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 670
+              },
+              {
+                "Integer": 3423
+              },
+              {
+                "Integer": 7114
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.arithmetic-mapping-eligibility"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping-eligibility"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 670
+              },
+              {
+                "Integer": 1361
+              },
+              {
+                "Integer": 5326
+              },
+              {
+                "Integer": 7095
+              },
+              {
+                "Integer": 7115
+              },
+              {
+                "Integer": 7280
+              },
+              {
+                "Integer": 7517
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"refresh timing\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"temporary substitution\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"account state unchanged\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 4
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "arithmetic-mapping-refresh-and-teardown Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "arithmetic-mapping-refresh-and-teardown 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"refresh timing\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"temporary substitution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"account state unchanged\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-avatarconfig-json.0\",\"source.goal11.exceloutput-roguemazebuff-json.1729\",\"source.goal11.exceloutput-roguetournrole-json.0\",\"source.goal11.project-policy.arithmetic-mapping-build-values\",\"source.goal11.project-policy.semantic-fixture-arithmetic-mapping-refresh-and-teardown\",\"source.goal11.textmap-textmapchs-json.3050660410227566581\",\"source.goal11.textmap-textmapen-json.3050660410227566581\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"refresh timing\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"temporary substitution\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"account state unchanged\",\"runtime_claim\":false}],\"family_id\":\"arithmetic-mapping-refresh-and-teardown\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"refresh timing\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"temporary substitution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"account state unchanged\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.mapping-build.1001\",\"divergent-universe.mapping-rule.character-level\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "arithmetic-mapping-refresh-and-teardown"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 670
+              },
+              {
+                "Integer": 1361
+              },
+              {
+                "Integer": 5326
+              },
+              {
+                "Integer": 7095
+              },
+              {
+                "Integer": 7115
+              },
+              {
+                "Integer": 7280
+              },
+              {
+                "Integer": 7517
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.arithmetic-mapping-refresh-and-teardown"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "arithmetic-mapping-refresh-and-teardown"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3615
+              },
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 7116
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"progress boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"effect activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"scope\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 5
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "astronomical-division Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "astronomical-division 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"progress boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"effect activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"scope\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourndivision-json.0\",\"source.goal11.exceloutput-roguetourndivisioneffect-json.0\",\"source.goal11.project-policy.semantic-fixture-astronomical-division\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"progress boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"effect activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"scope\",\"runtime_claim\":false}],\"family_id\":\"astronomical-division\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"progress boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"effect activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"scope\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.astronomical-division.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "astronomical-division"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3615
+              },
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 7116
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.astronomical-division"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "astronomical-division"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 1933
+              },
+              {
+                "Integer": 2056
+              },
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 4646
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7117
+              },
+              {
+                "Integer": 7305
+              },
+              {
+                "Integer": 7542
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"BattleSpec contribution\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"BattleResult handoff\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cross-battle lifecycle\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 6
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "battle-visible-and-cross-battle-contribution Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "battle-visible-and-cross-battle-contribution 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"BattleSpec contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"BattleResult handoff\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cross-battle lifecycle\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemazebuff-json.1222\",\"source.goal11.exceloutput-roguemiracledisplay-json.2\",\"source.goal11.exceloutput-roguemiracleeffect-json.769\",\"source.goal11.exceloutput-roguetourndivisioneffect-json.0\",\"source.goal11.exceloutput-roguetournmiracle-json.439\",\"source.goal11.exceloutput-roguetourntitanbless-json.0\",\"source.goal11.project-policy.curio-lifecycle\",\"source.goal11.project-policy.semantic-fixture-battle-visible-and-cross-battle-contribution\",\"source.goal11.textmap-textmapchs-json.449485639331447287\",\"source.goal11.textmap-textmapen-json.449485639331447287\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"BattleSpec contribution\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"BattleResult handoff\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cross-battle lifecycle\",\"runtime_claim\":false}],\"family_id\":\"battle-visible-and-cross-battle-contribution\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"BattleSpec contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"BattleResult handoff\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cross-battle lifecycle\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.curio-state.9001\",\"divergent-universe.protocol.1\",\"divergent-universe.titan-contribution.boon.10101\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "battle-visible-and-cross-battle-contribution"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 1933
+              },
+              {
+                "Integer": 2056
+              },
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 4646
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7117
+              },
+              {
+                "Integer": 7305
+              },
+              {
+                "Integer": 7542
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.battle-visible-and-cross-battle-contribution"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle-visible-and-cross-battle-contribution"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 1933
+              },
+              {
+                "Integer": 2056
+              },
+              {
+                "Integer": 4274
+              },
+              {
+                "Integer": 4646
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7118
+              },
+              {
+                "Integer": 7305
+              },
+              {
+                "Integer": 7542
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"weighted eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"charge change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"destroy and repair\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 7
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "curio-weight-charge-destruction-repair Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "curio-weight-charge-destruction-repair 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"weighted eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"charge change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"destroy and repair\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemiracledisplay-json.2\",\"source.goal11.exceloutput-roguemiracleeffect-json.769\",\"source.goal11.exceloutput-roguetournhandbookmiracle-json.341\",\"source.goal11.exceloutput-roguetournmiracle-json.439\",\"source.goal11.project-policy.curio-lifecycle\",\"source.goal11.project-policy.semantic-fixture-curio-weight-charge-destruction-repair\",\"source.goal11.textmap-textmapchs-json.449485639331447287\",\"source.goal11.textmap-textmapen-json.449485639331447287\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"weighted eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"charge change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"destroy and repair\",\"runtime_claim\":false}],\"family_id\":\"curio-weight-charge-destruction-repair\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"weighted eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"charge change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"destroy and repair\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.curio-lifecycle.9001\",\"divergent-universe.curio-state.9001\",\"divergent-universe.curio.9001\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "curio-weight-charge-destruction-repair"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 1933
+              },
+              {
+                "Integer": 2056
+              },
+              {
+                "Integer": 4274
+              },
+              {
+                "Integer": 4646
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7118
+              },
+              {
+                "Integer": 7305
+              },
+              {
+                "Integer": 7542
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.curio-weight-charge-destruction-repair"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "curio-weight-charge-destruction-repair"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 1456
+              },
+              {
+                "Integer": 2671
+              },
+              {
+                "Integer": 2682
+              },
+              {
+                "Integer": 7119
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"level state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"enhancement or rewrite\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"Equation contribution\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 8
+          },
+          "id": {
+            "Integer": 8
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "divergent-blessing-level-and-transform Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "divergent-blessing-level-and-transform 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"level state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"enhancement or rewrite\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"Equation contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemazebuff-json.435\",\"source.goal11.exceloutput-roguetournbuff-json.34\",\"source.goal11.exceloutput-roguetournbuff-json.35\",\"source.goal11.project-policy.semantic-fixture-divergent-blessing-level-and-transform\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"level state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"enhancement or rewrite\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"Equation contribution\",\"runtime_claim\":false}],\"family_id\":\"divergent-blessing-level-and-transform\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"level state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"enhancement or rewrite\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"Equation contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.blessing-contribution.615130\",\"divergent-universe.blessing-level.615130.1\",\"divergent-universe.blessing-rewrite.615130.enhance\",\"divergent-universe.blessing.615130\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "divergent-blessing-level-and-transform"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 1456
+              },
+              {
+                "Integer": 2671
+              },
+              {
+                "Integer": 2682
+              },
+              {
+                "Integer": 7119
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.divergent-blessing-level-and-transform"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "divergent-blessing-level-and-transform"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2287
+              },
+              {
+                "Integer": 2301
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6525
+              },
+              {
+                "Integer": 6534
+              },
+              {
+                "Integer": 6537
+              },
+              {
+                "Integer": 6543
+              },
+              {
+                "Integer": 6548
+              },
+              {
+                "Integer": 6553
+              },
+              {
+                "Integer": 6582
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6664
+              },
+              {
+                "Integer": 6671
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6719
+              },
+              {
+                "Integer": 6725
+              },
+              {
+                "Integer": 6777
+              },
+              {
+                "Integer": 6778
+              },
+              {
+                "Integer": 6782
+              },
+              {
+                "Integer": 6783
+              },
+              {
+                "Integer": 6793
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6801
+              },
+              {
+                "Integer": 6806
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 6857
+              },
+              {
+                "Integer": 7044
+              },
+              {
+                "Integer": 7120
+              },
+              {
+                "Integer": 7143
+              },
+              {
+                "Integer": 7144
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"group selection\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered waves\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"boss alternative\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 9
+          },
+          "id": {
+            "Integer": 9
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "encounter-wave-and-boss-binding Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "encounter-wave-and-boss-binding 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"group selection\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"ordered waves\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"boss alternative\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemonstergroup-json.610\",\"source.goal11.exceloutput-roguemonstergroup-json.627\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.0\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.10\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.16\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.19\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.24\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.29\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.33\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.6\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.0\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.1\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.15\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.16\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.2\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.22\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.23\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.32\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.33\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.37\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.38\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.47\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.5\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.54\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.59\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.6\",\"source.goal11.exceloutput-stageconfig-json.8340\",\"source.goal11.inherited.content-reference-v4-4-enemy-variants-json.2484\",\"source.goal11.project-policy.semantic-fixture-encounter-wave-and-boss-binding\",\"source.goal11.project-policy.weekly-current-selector\",\"source.goal11.project-policy.weekly-encounter-display\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"group selection\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered waves\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"boss alternative\",\"runtime_claim\":false}],\"family_id\":\"encounter-wave-and-boss-binding\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"group selection\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"ordered waves\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"boss alternative\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.boss-pool.weekly.1.final.0\",\"divergent-universe.encounter-group.300202\",\"divergent-universe.encounter-wave.83002011.1\",\"divergent-universe.encounter-wave.83002011.1.slot.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "encounter-wave-and-boss-binding"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2287
+              },
+              {
+                "Integer": 2301
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6525
+              },
+              {
+                "Integer": 6534
+              },
+              {
+                "Integer": 6537
+              },
+              {
+                "Integer": 6543
+              },
+              {
+                "Integer": 6548
+              },
+              {
+                "Integer": 6553
+              },
+              {
+                "Integer": 6582
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6664
+              },
+              {
+                "Integer": 6671
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6719
+              },
+              {
+                "Integer": 6725
+              },
+              {
+                "Integer": 6777
+              },
+              {
+                "Integer": 6778
+              },
+              {
+                "Integer": 6782
+              },
+              {
+                "Integer": 6783
+              },
+              {
+                "Integer": 6793
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6801
+              },
+              {
+                "Integer": 6806
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 6857
+              },
+              {
+                "Integer": 7044
+              },
+              {
+                "Integer": 7120
+              },
+              {
+                "Integer": 7143
+              },
+              {
+                "Integer": 7144
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.encounter-wave-and-boss-binding"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "encounter-wave-and-boss-binding"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 1329
+              },
+              {
+                "Integer": 3693
+              },
+              {
+                "Integer": 3773
+              },
+              {
+                "Integer": 3805
+              },
+              {
+                "Integer": 7103
+              },
+              {
+                "Integer": 7121
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offer candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"recipe counts\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"progress and expansion transition\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 10
+          },
+          "id": {
+            "Integer": 10
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "equation-offer-recipe-progress-expansion Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "equation-offer-recipe-progress-expansion 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"offer candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"recipe counts\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"progress and expansion transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemazebuff-json.1697\",\"source.goal11.exceloutput-roguetournformula-json.272\",\"source.goal11.exceloutput-roguetournformuladisplay-json.268\",\"source.goal11.exceloutput-roguetournformularandom-json.0\",\"source.goal11.project-policy.equation-random-offers\",\"source.goal11.project-policy.semantic-fixture-equation-offer-recipe-progress-expansion\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"offer candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"recipe counts\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"progress and expansion transition\",\"runtime_claim\":false}],\"family_id\":\"equation-offer-recipe-progress-expansion\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"offer candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"recipe counts\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"progress and expansion transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":5},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.equation-offer.1001\",\"divergent-universe.equation-progress.3102001\",\"divergent-universe.equation-recipe.3102001\",\"divergent-universe.equation-state.3102001.expanded\",\"divergent-universe.equation.3102001\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":5}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "equation-offer-recipe-progress-expansion"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 1329
+              },
+              {
+                "Integer": 3693
+              },
+              {
+                "Integer": 3773
+              },
+              {
+                "Integer": 3805
+              },
+              {
+                "Integer": 7103
+              },
+              {
+                "Integer": 7121
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.equation-offer-recipe-progress-expansion"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation-offer-recipe-progress-expansion"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2671
+              },
+              {
+                "Integer": 2682
+              },
+              {
+                "Integer": 7104
+              },
+              {
+                "Integer": 7122
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"replacement\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"Blessing ownership change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"contribution refresh\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 11
+          },
+          "id": {
+            "Integer": 11
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "equation-replacement-and-contribution Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "equation-replacement-and-contribution 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"replacement\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"Blessing ownership change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"contribution refresh\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournbuff-json.34\",\"source.goal11.exceloutput-roguetournbuff-json.35\",\"source.goal11.project-policy.equation-transitions\",\"source.goal11.project-policy.semantic-fixture-equation-replacement-and-contribution\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"replacement\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"Blessing ownership change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"contribution refresh\",\"runtime_claim\":false}],\"family_id\":\"equation-replacement-and-contribution\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"replacement\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"Blessing ownership change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"contribution refresh\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.blessing-contribution.615130\",\"divergent-universe.equation-transition.acquire\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "equation-replacement-and-contribution"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2671
+              },
+              {
+                "Integer": 2682
+              },
+              {
+                "Integer": 7104
+              },
+              {
+                "Integer": 7122
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.equation-replacement-and-contribution"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equation-replacement-and-contribution"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2362
+              },
+              {
+                "Integer": 3632
+              },
+              {
+                "Integer": 7123
+              },
+              {
+                "Integer": 7139
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"terminal condition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"carry state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"reset state\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 12
+          },
+          "id": {
+            "Integer": 12
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "finish-and-cross-battle-reset Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "finish-and-cross-battle-reset 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"terminal condition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"carry state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"reset state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournarea-json.2\",\"source.goal11.exceloutput-roguetournfinishway-json.17\",\"source.goal11.project-policy.semantic-fixture-finish-and-cross-battle-reset\",\"source.goal11.project-policy.stage-flow\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"terminal condition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"carry state\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"reset state\",\"runtime_claim\":false}],\"family_id\":\"finish-and-cross-battle-reset\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"terminal condition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"carry state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"reset state\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.finish.3000311\",\"divergent-universe.flow.area.103.entry\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "finish-and-cross-battle-reset"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2362
+              },
+              {
+                "Integer": 3632
+              },
+              {
+                "Integer": 7123
+              },
+              {
+                "Integer": 7139
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.finish-and-cross-battle-reset"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "finish-and-cross-battle-reset"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3564
+              },
+              {
+                "Integer": 3941
+              },
+              {
+                "Integer": 4067
+              },
+              {
+                "Integer": 7101
+              },
+              {
+                "Integer": 7105
+              },
+              {
+                "Integer": 7124
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"selected outcome\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no legal candidate\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 13
+          },
+          "id": {
+            "Integer": 13
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "gamble-offer-outcome-and-fallback Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "gamble-offer-outcome-and-fallback 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"selected outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"no legal candidate\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourncontentdisplay-json.12\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.7\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.8\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.9\",\"source.goal11.exceloutput-roguetourncursechest-json.0\",\"source.goal11.exceloutput-roguetourngamblegroup-json.0\",\"source.goal11.exceloutput-roguetourngambleunit-json.0\",\"source.goal11.project-policy.curse-chest-random-pools\",\"source.goal11.project-policy.gamble-group-membership\",\"source.goal11.project-policy.semantic-fixture-gamble-offer-outcome-and-fallback\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"selected outcome\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"no legal candidate\",\"runtime_claim\":false}],\"family_id\":\"gamble-offer-outcome-and-fallback\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"selected outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"no legal candidate\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.gamble-group.100\",\"divergent-universe.gamble-unit.101\",\"divergent-universe.service-offer.curse-chest.1001\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "gamble-offer-outcome-and-fallback"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3564
+              },
+              {
+                "Integer": 3941
+              },
+              {
+                "Integer": 4067
+              },
+              {
+                "Integer": 7101
+              },
+              {
+                "Integer": 7105
+              },
+              {
+                "Integer": 7124
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.gamble-offer-outcome-and-fallback"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "gamble-offer-outcome-and-fallback"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 6330
+              },
+              {
+                "Integer": 6421
+              },
+              {
+                "Integer": 7125
+              },
+              {
+                "Integer": 7141
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"choice candidates\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"level transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"run and battle contribution\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 14
+          },
+          "id": {
+            "Integer": 14
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "golden-blood-titan-choice-and-level Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "golden-blood-titan-choice-and-level 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"choice candidates\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"level transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"run and battle contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemazebuff-json.1222\",\"source.goal11.exceloutput-roguetourntitanbless-json.0\",\"source.goal11.exceloutput-roguetourntitanbless-json.42\",\"source.goal11.exceloutput-roguetourntitantype-json.6\",\"source.goal11.project-policy.semantic-fixture-golden-blood-titan-choice-and-level\",\"source.goal11.project-policy.titan-boon-choices\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"choice candidates\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"level transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"run and battle contribution\",\"runtime_claim\":false}],\"family_id\":\"golden-blood-titan-choice-and-level\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"choice candidates\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"level transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"run and battle contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.titan-boon.10101\",\"divergent-universe.titan-choice.aigle.1\",\"divergent-universe.titan-contribution.boon.10101\",\"divergent-universe.titan-type.aigle\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "golden-blood-titan-choice-and-level"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 6330
+              },
+              {
+                "Integer": 6421
+              },
+              {
+                "Integer": 7125
+              },
+              {
+                "Integer": 7141
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.golden-blood-titan-choice-and-level"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "golden-blood-titan-choice-and-level"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 4453
+              },
+              {
+                "Integer": 4529
+              },
+              {
+                "Integer": 7106
+              },
+              {
+                "Integer": 7126
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"character Path and element eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"teardown\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 15
+          },
+          "id": {
+            "Integer": 15
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "grand-miracle-eligibility-and-lifecycle Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "grand-miracle-eligibility-and-lifecycle 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"character Path and element eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournhex-json.0\",\"source.goal11.exceloutput-roguetournhexdisplay-json.13\",\"source.goal11.project-policy.grand-miracle-effects\",\"source.goal11.project-policy.semantic-fixture-grand-miracle-eligibility-and-lifecycle\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"character Path and element eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"teardown\",\"runtime_claim\":false}],\"family_id\":\"grand-miracle-eligibility-and-lifecycle\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"character Path and element eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"teardown\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.grand-miracle-eligibility.current.1001\",\"divergent-universe.grand-miracle-state.1001.active\",\"divergent-universe.grand-miracle.1001\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "grand-miracle-eligibility-and-lifecycle"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 4453
+              },
+              {
+                "Integer": 4529
+              },
+              {
+                "Integer": 7106
+              },
+              {
+                "Integer": 7126
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.grand-miracle-eligibility-and-lifecycle"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "grand-miracle-eligibility-and-lifecycle"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3564
+              },
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7101
+              },
+              {
+                "Integer": 7104
+              },
+              {
+                "Integer": 7127
+              },
+              {
+                "Integer": 7146
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"empty candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"explicit fallback\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"authoritative state preservation\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 16
+          },
+          "id": {
+            "Integer": 16
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "no-legal-candidate-fallback Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "no-legal-candidate-fallback 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"empty candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"explicit fallback\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"authoritative state preservation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourncontentdisplay-json.12\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.7\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.8\",\"source.goal11.exceloutput-roguetourncontentdisplay-json.9\",\"source.goal11.exceloutput-roguetourncursechest-json.0\",\"source.goal11.exceloutput-roguetournworkbenchfunc-json.0\",\"source.goal11.project-policy.curse-chest-random-pools\",\"source.goal11.project-policy.equation-transitions\",\"source.goal11.project-policy.semantic-fixture-no-legal-candidate-fallback\",\"source.goal11.project-policy.workbench-service-selection\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"empty candidate set\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"explicit fallback\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"authoritative state preservation\",\"runtime_claim\":false}],\"family_id\":\"no-legal-candidate-fallback\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"empty candidate set\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"explicit fallback\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"authoritative state preservation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.equation-transition.acquire\",\"divergent-universe.service-offer.curse-chest.1001\",\"divergent-universe.service-rule.workbench.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "no-legal-candidate-fallback"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3543
+              },
+              {
+                "Integer": 3561
+              },
+              {
+                "Integer": 3562
+              },
+              {
+                "Integer": 3563
+              },
+              {
+                "Integer": 3564
+              },
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7101
+              },
+              {
+                "Integer": 7104
+              },
+              {
+                "Integer": 7127
+              },
+              {
+                "Integer": 7146
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.no-legal-candidate-fallback"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "no-legal-candidate-fallback"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 4176
+              },
+              {
+                "Integer": 4210
+              },
+              {
+                "Integer": 5170
+              },
+              {
+                "Integer": 7107
+              },
+              {
+                "Integer": 7128
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"choice condition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered outcome\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 17
+          },
+          "id": {
+            "Integer": 17
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "occurrence-choice-cost-and-outcome Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "occurrence-choice-cost-and-outcome 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"choice condition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"ordered outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournhandbookevent-json.116\",\"source.goal11.exceloutput-roguetournhandbookevent-json.41\",\"source.goal11.exceloutput-roguetournnpc-json.191\",\"source.goal11.project-policy.occurrence-graphs-missing\",\"source.goal11.project-policy.semantic-fixture-occurrence-choice-cost-and-outcome\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"choice condition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cost\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered outcome\",\"runtime_claim\":false}],\"family_id\":\"occurrence-choice-cost-and-outcome\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"choice condition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"cost\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"ordered outcome\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.occurrence-variant.700103\",\"divergent-universe.occurrence.100\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "occurrence-choice-cost-and-outcome"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 4176
+              },
+              {
+                "Integer": 4210
+              },
+              {
+                "Integer": 5170
+              },
+              {
+                "Integer": 7107
+              },
+              {
+                "Integer": 7128
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.occurrence-choice-cost-and-outcome"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "occurrence-choice-cost-and-outcome"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 2377
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 7109
+              },
+              {
+                "Integer": 7129
+              },
+              {
+                "Integer": 7143
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"initial resources\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"weekly modifier binding\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 18
+          },
+          "id": {
+            "Integer": 18
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "ordinary-and-cyclical-entry Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "ordinary-and-cyclical-entry 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"entry eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"initial resources\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"weekly modifier binding\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournarea-json.70\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.0\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.0\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.1\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.2\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.5\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.6\",\"source.goal11.project-policy.profile\",\"source.goal11.project-policy.semantic-fixture-ordinary-and-cyclical-entry\",\"source.goal11.project-policy.weekly-current-selector\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"initial resources\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"weekly modifier binding\",\"runtime_claim\":false}],\"family_id\":\"ordinary-and-cyclical-entry\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"entry eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"initial resources\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"weekly modifier binding\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.cyclical-area.20401\",\"divergent-universe.profile.v1\",\"divergent-universe.weekly-modifier.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "ordinary-and-cyclical-entry"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 2377
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 7109
+              },
+              {
+                "Integer": 7129
+              },
+              {
+                "Integer": 7143
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.ordinary-and-cyclical-entry"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "ordinary-and-cyclical-entry"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 5288
+              },
+              {
+                "Integer": 6425
+              },
+              {
+                "Integer": 7108
+              },
+              {
+                "Integer": 7130
+              },
+              {
+                "Integer": 7142
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"prerequisite\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"unlock transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mechanical effect\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 19
+          },
+          "id": {
+            "Integer": 19
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "permanent-talent-and-unlock Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "permanent-talent-and-unlock 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"prerequisite\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"unlock transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"mechanical effect\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournpermanenttalent-json.0\",\"source.goal11.exceloutput-roguetournunlock-json.0\",\"source.goal11.project-policy.permanent-talent-prerequisites\",\"source.goal11.project-policy.semantic-fixture-permanent-talent-and-unlock\",\"source.goal11.project-policy.unlock-consumers\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"prerequisite\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"unlock transition\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mechanical effect\",\"runtime_claim\":false}],\"family_id\":\"permanent-talent-and-unlock\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"prerequisite\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"unlock transition\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"mechanical effect\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.permanent-talent.100\",\"divergent-universe.progression-effect.talent.100\",\"divergent-universe.unlock.3000201\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "permanent-talent-and-unlock"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5288
+              },
+              {
+                "Integer": 6425
+              },
+              {
+                "Integer": 7108
+              },
+              {
+                "Integer": 7130
+              },
+              {
+                "Integer": 7142
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.permanent-talent-and-unlock"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "permanent-talent-and-unlock"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 765
+              },
+              {
+                "Integer": 5167
+              },
+              {
+                "Integer": 7109
+              },
+              {
+                "Integer": 7131
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"TournRogue entry\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"module 6002201\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"rejected historical module\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 20
+          },
+          "id": {
+            "Integer": 20
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "profile-and-module-selection Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "profile-and-module-selection 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"TournRogue entry\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"module 6002201\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"rejected historical module\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguecommonmodetitle-json.3\",\"source.goal11.exceloutput-roguetournmodule-json.7\",\"source.goal11.project-policy.profile\",\"source.goal11.project-policy.semantic-fixture-profile-and-module-selection\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"TournRogue entry\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"module 6002201\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"rejected historical module\",\"runtime_claim\":false}],\"family_id\":\"profile-and-module-selection\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"TournRogue entry\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"module 6002201\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"rejected historical module\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.entry.title.tournrogue\",\"divergent-universe.module.6002201\",\"divergent-universe.profile.v1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "profile-and-module-selection"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 765
+              },
+              {
+                "Integer": 5167
+              },
+              {
+                "Integer": 7109
+              },
+              {
+                "Integer": 7131
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.profile-and-module-selection"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "profile-and-module-selection"
+              },
+              {
+                "String": "review-fixture"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 4274
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7132
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"same-phase triggers\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"stable priority\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered contributions\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 21
+          },
+          "id": {
+            "Integer": 21
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "simultaneous-trigger-order Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "simultaneous-trigger-order 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"same-phase triggers\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"stable priority\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"ordered contributions\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguemazebuff-json.1222\",\"source.goal11.exceloutput-roguetournhandbookmiracle-json.341\",\"source.goal11.exceloutput-roguetourntitanbless-json.0\",\"source.goal11.project-policy.curio-lifecycle\",\"source.goal11.project-policy.semantic-fixture-simultaneous-trigger-order\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"same-phase triggers\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"stable priority\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"ordered contributions\",\"runtime_claim\":false}],\"family_id\":\"simultaneous-trigger-order\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"same-phase triggers\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"stable priority\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"ordered contributions\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.curio-lifecycle.9001\",\"divergent-universe.titan-contribution.boon.10101\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "simultaneous-trigger-order"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 916
+              },
+              {
+                "Integer": 4274
+              },
+              {
+                "Integer": 6293
+              },
+              {
+                "Integer": 7099
+              },
+              {
+                "Integer": 7132
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.simultaneous-trigger-order"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "simultaneous-trigger-order"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3615
+              },
+              {
+                "Integer": 7133
+              },
+              {
+                "Integer": 7370
+              },
+              {
+                "Integer": 7607
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mode eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"available content\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mechanical Cognoculus boundary\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 22
+          },
+          "id": {
+            "Integer": 22
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "star-pioneer-practice-and-cognoculi Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "star-pioneer-practice-and-cognoculi 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"mode eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"available content\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"mechanical Cognoculus boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourndivision-json.0\",\"source.goal11.project-policy.semantic-fixture-star-pioneer-practice-and-cognoculi\",\"source.goal11.textmap-textmapchs-json.8721319055470494228\",\"source.goal11.textmap-textmapen-json.8721319055470494228\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mode eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"available content\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"mechanical Cognoculus boundary\",\"runtime_claim\":false}],\"family_id\":\"star-pioneer-practice-and-cognoculi\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"mode eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"available content\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"mechanical Cognoculus boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.astronomical-mode.practice\",\"divergent-universe.cognoculi.division.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":2}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "star-pioneer-practice-and-cognoculi"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3615
+              },
+              {
+                "Integer": 7133
+              },
+              {
+                "Integer": 7370
+              },
+              {
+                "Integer": 7607
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.star-pioneer-practice-and-cognoculi"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "star-pioneer-practice-and-cognoculi"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 7134
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"enemy or numeric contribution\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 23
+          },
+          "id": {
+            "Integer": 23
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "threshold-protocol Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "threshold-protocol 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"entry boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"difficulty change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"enemy or numeric contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourndivisioneffect-json.0\",\"source.goal11.project-policy.semantic-fixture-threshold-protocol\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"entry boundary\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"difficulty change\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"enemy or numeric contribution\",\"runtime_claim\":false}],\"family_id\":\"threshold-protocol\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"entry boundary\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"difficulty change\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"enemy or numeric contribution\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.protocol.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":1}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "threshold-protocol"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3624
+              },
+              {
+                "Integer": 7134
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.threshold-protocol"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "threshold-protocol"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 5168
+              },
+              {
+                "Integer": 6269
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 7110
+              },
+              {
+                "Integer": 7135
+              },
+              {
+                "Integer": 7138
+              },
+              {
+                "Integer": 7143
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"modifier activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"service eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cross-battle scope\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 24
+          },
+          "id": {
+            "Integer": 24
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "weekly-modifier-and-room-service Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "weekly-modifier-and-room-service 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"modifier activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"service eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cross-battle scope\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetournnpc-json.189\",\"source.goal11.exceloutput-roguetournroommark-json.0\",\"source.goal11.exceloutput-roguetournweeklychallenge-json.0\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.0\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.1\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.2\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.5\",\"source.goal11.exceloutput-roguetournweeklydisplay-json.6\",\"source.goal11.project-policy.room-mark-transitions\",\"source.goal11.project-policy.semantic-fixture-weekly-modifier-and-room-service\",\"source.goal11.project-policy.service-npc-graphs-missing\",\"source.goal11.project-policy.weekly-current-selector\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"modifier activation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"service eligibility\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"cross-battle scope\",\"runtime_claim\":false}],\"family_id\":\"weekly-modifier-and-room-service\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"modifier activation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"service eligibility\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"cross-battle scope\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.mode-service-npc.700101\",\"divergent-universe.room-mark.0\",\"divergent-universe.weekly-modifier.1\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":3}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "weekly-modifier-and-room-service"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5168
+              },
+              {
+                "Integer": 6269
+              },
+              {
+                "Integer": 6523
+              },
+              {
+                "Integer": 6626
+              },
+              {
+                "Integer": 6627
+              },
+              {
+                "Integer": 6699
+              },
+              {
+                "Integer": 6796
+              },
+              {
+                "Integer": 6807
+              },
+              {
+                "Integer": 7110
+              },
+              {
+                "Integer": 7135
+              },
+              {
+                "Integer": 7138
+              },
+              {
+                "Integer": 7143
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.weekly-modifier-and-room-service"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "weekly-modifier-and-room-service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "evidence_refs": {
+            "List": [
+              {
+                "Integer": 3565
+              },
+              {
+                "Integer": 6837
+              },
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7136
+              },
+              {
+                "Integer": 7137
+              },
+              {
+                "Integer": 7146
+              }
+            ]
+          },
+          "expected_facts": {
+            "String": "[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"legal operation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"currency and price\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"rejected operation\",\"runtime_claim\":false}]"
+          },
+          "family_id": {
+            "Integer": 25
+          },
+          "id": {
+            "Integer": 25
+          },
+          "input": {
+            "String": "{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"}"
+          },
+          "kind": {
+            "String": "DivergentUniverseReviewFixture"
+          },
+          "name_en": {
+            "String": "workbench-operation-and-price Reference Review"
+          },
+          "name_zh_cn": {
+            "String": "workbench-operation-and-price 资料审查"
+          },
+          "ordered_operations": {
+            "String": "[{\"fact\":\"legal operation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"currency and price\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"rejected operation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}]"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"evidence_refs\":[\"source.goal11.exceloutput-roguetourncursechest-json.1\",\"source.goal11.exceloutput-roguetournworkbench-json.0\",\"source.goal11.exceloutput-roguetournworkbenchfunc-json.0\",\"source.goal11.project-policy.semantic-fixture-workbench-operation-and-price\",\"source.goal11.project-policy.service-currency-reset\",\"source.goal11.project-policy.workbench-service-selection\"],\"expected_facts\":[{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"legal operation\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"currency and price\",\"runtime_claim\":false},{\"assertion\":\"ExactOrExplicitlyPolicyBound\",\"fact\":\"rejected operation\",\"runtime_claim\":false}],\"family_id\":\"workbench-operation-and-price\",\"input\":{\"kind\":\"SemanticReferenceReview\",\"ordering\":\"StableIdAscendingUnlessExactAuthoredOrder\",\"unavailable_behavior\":\"FailClosedWithoutMutation\"},\"ordered_operations\":[{\"fact\":\"legal operation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":1},{\"fact\":\"currency and price\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":2},{\"fact\":\"rejected operation\",\"operation\":\"ReviewRequiredFact\",\"ordinal\":3}],\"preconditions\":{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4},\"runtime_executable\":false,\"source_record_ids\":[\"divergent-universe.currency.cosmic-fragment\",\"divergent-universe.service-rule.workbench.1\",\"divergent-universe.workbench-function.1\",\"divergent-universe.workbench.101\"]}"
+          },
+          "preconditions": {
+            "String": "{\"content_lane\":\"CandidateReference\",\"runtime_loading\":\"Forbidden\",\"source_record_count\":4}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "workbench-operation-and-price"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 3565
+              },
+              {
+                "Integer": 6837
+              },
+              {
+                "Integer": 6848
+              },
+              {
+                "Integer": 7136
+              },
+              {
+                "Integer": 7137
+              },
+              {
+                "Integer": 7146
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.review-fixture.workbench-operation-and-price"
+          },
+          "summary_en": {
+            "String": "Reference-only fixture asserts all 3 contract facts as exact or explicitly policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "仅供资料使用的夹具将全部 3 个契约事实断言为精确事实或显式策略边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "review-fixture"
+              },
+              {
+                "String": "workbench-operation-and-price"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

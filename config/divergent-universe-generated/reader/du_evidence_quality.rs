@@ -4,6 +4,7 @@
 pub enum DuEvidenceQuality {
     ExactStructured,
     ExactPublicText,
+    ExactOfficialText,
     Observed,
     ApproximateFromReleasedText,
     ProjectPolicy,
@@ -14,9 +15,10 @@ impl super::runtime::SoraDecode for DuEvidenceQuality {
         match reader.read_var_u32()? {
             0 => Ok(Self::ExactStructured),
             1 => Ok(Self::ExactPublicText),
-            2 => Ok(Self::Observed),
-            3 => Ok(Self::ApproximateFromReleasedText),
-            4 => Ok(Self::ProjectPolicy),
+            2 => Ok(Self::ExactOfficialText),
+            3 => Ok(Self::Observed),
+            4 => Ok(Self::ApproximateFromReleasedText),
+            5 => Ok(Self::ProjectPolicy),
             value => Err(super::runtime::SoraReadError::new(format!("invalid enum ordinal {} for DuEvidenceQuality", value))),
         }
     }

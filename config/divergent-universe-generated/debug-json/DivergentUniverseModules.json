@@ -1,0 +1,79 @@
+{
+  "table": {
+    "name": "DivergentUniverseModules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseModule"
+          },
+          "main_tourn_id": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Divergent Universe Module 3.1"
+          },
+          "name_zh_cn": {
+            "String": "差分宇宙模块 3.1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"main_tourn_id\":3,\"sub_mode\":\"TournRogue\",\"sub_tourn_id\":1,\"tourn_mode\":\"Tourn3\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "6002201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 5167
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.module.6002201"
+          },
+          "sub_mode": {
+            "String": "TournRogue"
+          },
+          "sub_tourn_id": {
+            "String": "1"
+          },
+          "summary_en": {
+            "String": "Activity module 6002201 is the released main-tournament 3, sub-tournament 1 boundary."
+          },
+          "summary_zh_cn": {
+            "String": "活动模块 6002201 是已发布的主赛季 3、子赛季 1 边界。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "enabled-module"
+              },
+              {
+                "String": "tourn3"
+              }
+            ]
+          },
+          "tourn_mode": {
+            "String": "Tourn3"
+          }
+        }
+      }
+    ]
+  }
+}

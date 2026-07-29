@@ -1,0 +1,2923 @@
+{
+  "table": {
+    "name": "DivergentUniverseTitanTalents",
+    "rows": [
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 85
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Run\",\"description_hash\":\"1061377387375447842\",\"metric\":\"golden_blood_boon_choice_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Moneta — Boon Ascension 1"
+          },
+          "name_zh_cn": {
+            "String": "Moneta — 祝颂升华 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12001\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Run\",\"description_hash\":\"1061377387375447842\",\"metric\":\"golden_blood_boon_choice_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"},\"level\":1,\"predecessor_id\":\"\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817820.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6377
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12001"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases golden_blood_boon_choice_count under Run."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Run 条件下执行 Increase：golden_blood_boon_choice_count。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 86
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"10860726233009905990\",\"metric\":\"healing_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Moneta — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Moneta — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12002\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"10860726233009905990\",\"metric\":\"healing_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12501\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817850.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6378
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12002"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases healing_received under Day."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Day 条件下执行 Increase：healing_received。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 87
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"2683379921666744252\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Moneta — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Moneta — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12003\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"2683379921666744252\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12502\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817880.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.moneta\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6389
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12003"
+          },
+          "summary_en": {
+            "String": "Level 3 talent decreases damage_taken under Day."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Day 条件下执行 Decrease：damage_taken。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "moneta"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 88
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"4541638577417613356\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Ianos — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Ianos — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12101\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"4541638577417613356\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12001\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817910.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6400
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12101"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases defense under Day."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Day 条件下执行 Increase：defense。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 89
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"EnterDay\",\"description_hash\":\"2317290853902376222\",\"metric\":\"hp_from_max_hp\",\"operation\":\"Restore\",\"parameters\":[\"0.2\"],\"scope\":\"Battle\",\"value\":\"0.2\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Ianos — Boon Ascension 2"
+          },
+          "name_zh_cn": {
+            "String": "Ianos — 祝颂升华 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12102\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"EnterDay\",\"description_hash\":\"2317290853902376222\",\"metric\":\"hp_from_max_hp\",\"operation\":\"Restore\",\"parameters\":[\"0.2\"],\"scope\":\"Battle\",\"value\":\"0.2\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12002\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817940.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6407
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12102"
+          },
+          "summary_en": {
+            "String": "Level 2 talent restores hp_from_max_hp under EnterDay."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 EnterDay 条件下执行 Restore：hp_from_max_hp。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 90
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"7343041191750286680\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Ianos — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Ianos — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12103\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"7343041191750286680\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12003\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817970.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.ianos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6408
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12103"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases max_hp under Day."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Day 条件下执行 Increase：max_hp。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "ianos"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 91
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"13571003422941546268\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Phageina — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Phageina — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12201\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"13571003422941546268\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12101\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817720.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6409
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12201"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases effect_resistance under Day."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Day 条件下执行 Increase：effect_resistance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 92
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"14062907658336933352\",\"metric\":\"shield_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Phageina — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Phageina — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12202\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"14062907658336933352\",\"metric\":\"shield_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12102\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817750.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6410
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12202"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases shield_received under Day."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Day 条件下执行 Increase：shield_received。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 93
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Occurrence\",\"description_hash\":\"377016416063384199\",\"metric\":\"day_occurrence_options\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"true\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Phageina — Boon Ascension 3"
+          },
+          "name_zh_cn": {
+            "String": "Phageina — 祝颂升华 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12203\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Occurrence\",\"description_hash\":\"377016416063384199\",\"metric\":\"day_occurrence_options\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"true\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12103\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817780.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.phageina\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6411
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12203"
+          },
+          "summary_en": {
+            "String": "Level 3 talent enables day_occurrence_options under Occurrence."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Occurrence 条件下执行 Enable：day_occurrence_options。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "phageina"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 94
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"8780128208282102992\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Zagreus — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12301\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"8780128208282102992\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12201\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817540.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12301"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6412
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12301"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases attack under Night."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Night 条件下执行 Increase：attack。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 95
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"RunEntry\",\"description_hash\":\"10402452538131023217\",\"metric\":\"starting_cosmic_fragments\",\"operation\":\"Increase\",\"parameters\":[\"30\"],\"scope\":\"Activity\",\"value\":\"30\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Zagreus — Boon Ascension 2"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus — 祝颂升华 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12302\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"RunEntry\",\"description_hash\":\"10402452538131023217\",\"metric\":\"starting_cosmic_fragments\",\"operation\":\"Increase\",\"parameters\":[\"30\"],\"scope\":\"Activity\",\"value\":\"30\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12202\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817570.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12302"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6379
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12302"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases starting_cosmic_fragments under RunEntry."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 RunEntry 条件下执行 Increase：starting_cosmic_fragments。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 96
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"650275594614357641\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Zagreus — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Zagreus — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12303\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"650275594614357641\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12203\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817600.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.zagreus\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12303"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6380
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12303"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases damage_dealt under Night."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Night 条件下执行 Increase：damage_dealt。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "zagreus"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 97
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"4614394603734772572\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.3\"],\"scope\":\"Battle\",\"value\":\"0.3\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Nikadory — Boon Ascension 1"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory — 祝颂升华 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12401\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"4614394603734772572\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.3\"],\"scope\":\"Battle\",\"value\":\"0.3\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12301\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817450.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12401"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6381
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12401"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases max_hp under Night."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Night 条件下执行 Increase：max_hp。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 98
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"10970289196718335415\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Nikadory — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12402\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"10970289196718335415\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12302\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817480.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12402"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6382
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12402"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases critical_damage under Night."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Night 条件下执行 Increase：critical_damage。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 99
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"14755956893120939052\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Nikadory — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Nikadory — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12403\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"14755956893120939052\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12303\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817510.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.nikadory\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12403"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6383
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12403"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases break_effect under Night."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Night 条件下执行 Increase：break_effect。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "nikadory"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 100
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"651397872714484350\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Xenatos — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12501\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"651397872714484350\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12401\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817630.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12501"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6384
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12501"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases effect_hit_rate under Night."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Night 条件下执行 Increase：effect_hit_rate。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 101
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"2919138354616463160\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Xenatos — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12502\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"2919138354616463160\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12402\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817660.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12502"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6385
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12502"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases speed under Night."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Night 条件下执行 Increase：speed。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 102
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Occurrence\",\"description_hash\":\"10492428420394856882\",\"metric\":\"night_occurrence_options\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"true\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Xenatos — Boon Ascension 3"
+          },
+          "name_zh_cn": {
+            "String": "Xenatos — 祝颂升华 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12503\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Occurrence\",\"description_hash\":\"10492428420394856882\",\"metric\":\"night_occurrence_options\",\"operation\":\"Enable\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"true\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12403\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817690.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.xenatos\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12503"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6386
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12503"
+          },
+          "summary_en": {
+            "String": "Level 3 talent enables night_occurrence_options under Occurrence."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Occurrence 条件下执行 Enable：night_occurrence_options。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              },
+              {
+                "String": "xenatos"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 103
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Run\",\"description_hash\":\"4786106878980680592\",\"metric\":\"golden_blood_boon_choice_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Aigle — Boon Ascension 1"
+          },
+          "name_zh_cn": {
+            "String": "Aigle — 祝颂升华 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12601\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Run\",\"description_hash\":\"4786106878980680592\",\"metric\":\"golden_blood_boon_choice_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.13101\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818550.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6387
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12601"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases golden_blood_boon_choice_count under Run."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Run 条件下执行 Increase：golden_blood_boon_choice_count。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 104
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"921599370329981828\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Aigle — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Aigle — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12602\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"921599370329981828\",\"metric\":\"max_hp\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.13102\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818580.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6388
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12602"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases max_hp under Day."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Day 条件下执行 Increase：max_hp。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 105
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"6411534537330256285\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Aigle — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Aigle — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12603\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"6411534537330256285\",\"metric\":\"damage_taken\",\"operation\":\"Decrease\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.13103\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818610.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.aigle\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12603"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6390
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12603"
+          },
+          "summary_en": {
+            "String": "Level 3 talent decreases damage_taken under Day."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Day 条件下执行 Decrease：damage_taken。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "aigle"
+              },
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 106
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"7572693029335458396\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Cerces — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Cerces — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12701\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"7572693029335458396\",\"metric\":\"defense\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12601\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818460.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12701"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6391
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12701"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases defense under Day."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Day 条件下执行 Increase：defense。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 107
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"OccurrenceDomain\",\"description_hash\":\"16668372505952251797\",\"metric\":\"double_occurrence_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Cerces — Boon Ascension 2"
+          },
+          "name_zh_cn": {
+            "String": "Cerces — 祝颂升华 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12702\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"OccurrenceDomain\",\"description_hash\":\"16668372505952251797\",\"metric\":\"double_occurrence_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12602\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818490.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12702"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6392
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12702"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases double_occurrence_chance under OccurrenceDomain."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 OccurrenceDomain 条件下执行 Increase：double_occurrence_chance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 108
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"14479308093901517372\",\"metric\":\"healing_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Cerces — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Cerces — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12703\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"14479308093901517372\",\"metric\":\"healing_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12603\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818520.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.cerces\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12703"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6393
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12703"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases healing_received under Day."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Day 条件下执行 Increase：healing_received。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "cerces"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 109
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"12684241818849658305\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Kephale — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Kephale — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12801\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"12684241818849658305\",\"metric\":\"effect_resistance\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12701\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818640.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12801"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6394
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12801"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases effect_resistance under Day."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Day 条件下执行 Increase：effect_resistance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 110
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Day\",\"description_hash\":\"15429280731278223509\",\"metric\":\"shield_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Kephale — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Kephale — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12802\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Day\",\"description_hash\":\"15429280731278223509\",\"metric\":\"shield_received\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12702\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818670.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12802"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6395
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12802"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases shield_received under Day."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Day 条件下执行 Increase：shield_received。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 111
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"WeightedCurioOffer\",\"description_hash\":\"4854804142745098726\",\"metric\":\"weighted_curio_overwrite_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Kephale — Boon Ascension 3"
+          },
+          "name_zh_cn": {
+            "String": "Kephale — 祝颂升华 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12803\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"WeightedCurioOffer\",\"description_hash\":\"4854804142745098726\",\"metric\":\"weighted_curio_overwrite_count\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"1\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12703\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818700.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.kephale\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12803"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6396
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12803"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases weighted_curio_overwrite_count under WeightedCurioOffer."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 WeightedCurioOffer 条件下执行 Increase：weighted_curio_overwrite_count。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "kephale"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 112
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"11514014923849512340\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Olonyx — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12901\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"11514014923849512340\",\"metric\":\"effect_hit_rate\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12503\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818190.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12901"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6397
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12901"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases effect_hit_rate under Night."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Night 条件下执行 Increase：effect_hit_rate。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 113
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"CombatDomain\",\"description_hash\":\"14542126636272883908\",\"metric\":\"trotter_combat_domain_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Olonyx — Boon Ascension 2"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx — 祝颂升华 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12902\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"CombatDomain\",\"description_hash\":\"14542126636272883908\",\"metric\":\"trotter_combat_domain_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12801\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818220.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12902"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6398
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12902"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases trotter_combat_domain_chance under CombatDomain."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 CombatDomain 条件下执行 Increase：trotter_combat_domain_chance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 114
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"7079930604122007129\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Olonyx — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Olonyx — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.12903\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"7079930604122007129\",\"metric\":\"break_effect\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12802\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818250.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.olonyx\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "12903"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6399
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.12903"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases break_effect under Night."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Night 条件下执行 Increase：break_effect。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "olonyx"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 115
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"SecondPlaneBossDomain\",\"description_hash\":\"14607589803110014540\",\"metric\":\"second_plane_boss_altar_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Talentum — Boon Ascension 1"
+          },
+          "name_zh_cn": {
+            "String": "Talentum — 祝颂升华 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13001\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"SecondPlaneBossDomain\",\"description_hash\":\"14607589803110014540\",\"metric\":\"second_plane_boss_altar_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.12901\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818280.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13001"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6401
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13001"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases second_plane_boss_altar_chance under SecondPlaneBossDomain."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 SecondPlaneBossDomain 条件下执行 Increase：second_plane_boss_altar_chance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 116
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"2836614287191796970\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Talentum — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Talentum — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13002\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"2836614287191796970\",\"metric\":\"critical_damage\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.12902\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818310.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13002"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6402
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13002"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases critical_damage under Night."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Night 条件下执行 Increase：critical_damage。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 117
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"11921914795875453960\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Talentum — Benediction Condensation 3"
+          },
+          "name_zh_cn": {
+            "String": "Talentum — 赐福凝练 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13003\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"11921914795875453960\",\"metric\":\"speed\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.12903\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818340.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.talentum\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13003"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6403
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13003"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases speed under Night."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 Night 条件下执行 Increase：speed。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "talentum"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 118
+          },
+          "cost": {
+            "String": "[{\"amount\":\"50\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"12910770302248873477\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "1"
+          },
+          "name_en": {
+            "String": "Georia — Benediction Condensation 1"
+          },
+          "name_zh_cn": {
+            "String": "Georia — 赐福凝练 1"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13101\",\"cost\":[{\"amount\":\"50\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"12910770302248873477\",\"metric\":\"damage_dealt\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":1,\"predecessor_id\":\"divergent-universe.titan-talent.13001\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818370.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13101"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6404
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13101"
+          },
+          "summary_en": {
+            "String": "Level 1 talent increases damage_dealt under Night."
+          },
+          "summary_zh_cn": {
+            "String": "1 级天赋在 Night 条件下执行 Increase：damage_dealt。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 119
+          },
+          "cost": {
+            "String": "[{\"amount\":\"75\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"Night\",\"description_hash\":\"7816847160798969022\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "2"
+          },
+          "name_en": {
+            "String": "Georia — Benediction Condensation 2"
+          },
+          "name_zh_cn": {
+            "String": "Georia — 赐福凝练 2"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13102\",\"cost\":[{\"amount\":\"75\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"Night\",\"description_hash\":\"7816847160798969022\",\"metric\":\"attack\",\"operation\":\"Increase\",\"parameters\":[\"0.02\"],\"scope\":\"Battle\",\"value\":\"0.02\"},\"level\":2,\"predecessor_id\":\"divergent-universe.titan-talent.13002\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818400.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6405
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13102"
+          },
+          "summary_en": {
+            "String": "Level 2 talent increases attack under Night."
+          },
+          "summary_zh_cn": {
+            "String": "2 级天赋在 Night 条件下执行 Increase：attack。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "battle"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_id": {
+            "Integer": 120
+          },
+          "cost": {
+            "String": "[{\"amount\":\"100\",\"item_id\":\"281020\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_program": {
+            "String": "{\"condition\":\"DomainSelection\",\"description_hash\":\"4438436595500237862\",\"metric\":\"reward_domain_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"}"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "DivergentUniverseTitanTalent"
+          },
+          "level": {
+            "String": "3"
+          },
+          "name_en": {
+            "String": "Georia — Boon Ascension 3"
+          },
+          "name_zh_cn": {
+            "String": "Georia — 祝颂升华 3"
+          },
+          "ownership": {
+            "String": "DivergentUniverse"
+          },
+          "payload_json": {
+            "String": "{\"contribution_id\":\"divergent-universe.titan-contribution.talent.13103\",\"cost\":[{\"amount\":\"100\",\"item_id\":\"281020\"}],\"effect_program\":{\"condition\":\"DomainSelection\",\"description_hash\":\"4438436595500237862\",\"metric\":\"reward_domain_chance\",\"operation\":\"Increase\",\"parameters\":[],\"scope\":\"Activity\",\"value\":\"Unspecified\"},\"level\":3,\"predecessor_id\":\"divergent-universe.titan-talent.13003\",\"presentation_act_json\":\"Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818430.json\",\"presentation_graph_excluded\":true,\"runtime_lowered\":false,\"titan_type\":\"divergent-universe.titan-type.georia\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.divergent-universe-row.v1"
+          },
+          "source_id": {
+            "String": "13103"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "Integer": 6406
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "divergent-universe.titan-talent.13103"
+          },
+          "summary_en": {
+            "String": "Level 3 talent increases reward_domain_chance under DomainSelection."
+          },
+          "summary_zh_cn": {
+            "String": "3 级天赋在 DomainSelection 条件下执行 Increase：reward_domain_chance。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity"
+              },
+              {
+                "String": "georia"
+              },
+              {
+                "String": "permanent-talent"
+              },
+              {
+                "String": "titan"
+              }
+            ]
+          },
+          "titan_type": {
+            "Integer": 3
+          }
+        }
+      }
+    ]
+  }
+}

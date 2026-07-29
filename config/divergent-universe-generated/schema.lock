@@ -1,12 +1,12 @@
 {
   "version": 1,
   "package": "starclock_divergent_universe_reference_config",
-  "fingerprint": "4b3cf33ecaeb31ed",
+  "fingerprint": "52c2f8123faee5ce",
   "schema": {
     "package": "starclock_divergent_universe_reference_config",
     "enums": [
       {
-        "name": "DUOwnership",
+        "name": "DuOwnership",
         "scope": {
           "values": [
             "all"
@@ -20,7 +20,7 @@
         ]
       },
       {
-        "name": "DUCoverageState",
+        "name": "DuCoverageState",
         "scope": {
           "values": [
             "all"
@@ -35,7 +35,7 @@
         ]
       },
       {
-        "name": "DUEvidenceQuality",
+        "name": "DuEvidenceQuality",
         "scope": {
           "values": [
             "all"
@@ -44,6 +44,7 @@
         "values": [
           "ExactStructured",
           "ExactPublicText",
+          "ExactOfficialText",
           "Observed",
           "ApproximateFromReleasedText",
           "ProjectPolicy"
@@ -223,7 +224,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -241,7 +242,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -259,7 +260,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -648,7 +649,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -666,7 +667,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -684,7 +685,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -1044,7 +1045,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -1062,7 +1063,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -1080,7 +1081,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -1427,7 +1428,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -1445,7 +1446,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -1463,7 +1464,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -1805,7 +1806,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -1823,7 +1824,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -1841,7 +1842,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -2225,7 +2226,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -2243,7 +2244,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -2261,7 +2262,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -2603,7 +2604,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -2621,7 +2622,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -2639,7 +2640,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -2963,7 +2964,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -2981,7 +2982,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -2999,7 +3000,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -3346,7 +3347,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -3364,7 +3365,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -3382,7 +3383,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -3724,7 +3725,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -3742,7 +3743,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -3760,7 +3761,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -4120,7 +4121,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -4138,7 +4139,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -4156,7 +4157,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -4521,7 +4522,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -4539,7 +4540,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -4557,7 +4558,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -4917,7 +4918,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -4935,7 +4936,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -4953,7 +4954,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -5295,7 +5296,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -5313,7 +5314,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -5331,7 +5332,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -5691,7 +5692,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -5709,7 +5710,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -5727,7 +5728,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -6069,7 +6070,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -6087,7 +6088,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -6105,7 +6106,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -6447,7 +6448,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -6465,7 +6466,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -6483,7 +6484,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -6879,7 +6880,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -6897,7 +6898,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -6915,7 +6916,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -7275,7 +7276,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -7293,7 +7294,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -7311,7 +7312,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -7706,7 +7707,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -7724,7 +7725,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -7742,7 +7743,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -8107,7 +8108,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -8125,7 +8126,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -8143,7 +8144,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -8485,7 +8486,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -8503,7 +8504,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -8521,7 +8522,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -8881,7 +8882,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -8899,7 +8900,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -8917,7 +8918,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -9287,7 +9288,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -9305,7 +9306,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -9323,7 +9324,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -9688,7 +9689,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -9706,7 +9707,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -9724,7 +9725,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -10084,7 +10085,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -10102,7 +10103,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -10120,7 +10121,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -10480,7 +10481,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -10498,7 +10499,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -10516,7 +10517,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -10858,7 +10859,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -10876,7 +10877,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -10894,7 +10895,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -11254,7 +11255,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -11272,7 +11273,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -11290,7 +11291,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -11655,7 +11656,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -11673,7 +11674,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -11691,7 +11692,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -12033,7 +12034,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -12051,7 +12052,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -12069,7 +12070,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -12475,7 +12476,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -12493,7 +12494,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -12511,7 +12512,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -12906,7 +12907,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -12924,7 +12925,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -12942,7 +12943,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -13284,7 +13285,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -13302,7 +13303,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -13320,7 +13321,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -13685,7 +13686,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -13703,7 +13704,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -13721,7 +13722,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -14063,7 +14064,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -14081,7 +14082,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -14099,7 +14100,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -14500,7 +14501,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -14518,7 +14519,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -14536,7 +14537,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -14896,7 +14897,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -14914,7 +14915,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -14932,7 +14933,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -15297,7 +15298,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -15315,7 +15316,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -15333,7 +15334,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -15716,7 +15717,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -15734,7 +15735,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -15752,7 +15753,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -16094,7 +16095,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -16112,7 +16113,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -16130,7 +16131,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -16518,7 +16519,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -16536,7 +16537,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -16554,7 +16555,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -16942,7 +16943,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -16960,7 +16961,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -16978,7 +16979,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -17373,7 +17374,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -17391,7 +17392,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -17409,7 +17410,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -17751,7 +17752,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -17769,7 +17770,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -17787,7 +17788,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -18153,7 +18154,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -18171,7 +18172,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -18189,7 +18190,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -18549,7 +18550,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -18567,7 +18568,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -18585,7 +18586,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -18927,7 +18928,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -18945,7 +18946,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -18963,7 +18964,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -19305,7 +19306,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -19323,7 +19324,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -19341,7 +19342,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -19683,7 +19684,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -19701,7 +19702,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -19719,7 +19720,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -20079,7 +20080,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -20097,7 +20098,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -20115,7 +20116,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -20498,7 +20499,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -20516,7 +20517,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -20534,7 +20535,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -20912,7 +20913,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -20930,7 +20931,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -20948,7 +20949,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -21350,7 +21351,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -21368,7 +21369,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -21386,7 +21387,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -21733,7 +21734,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -21751,7 +21752,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -21769,7 +21770,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -22111,7 +22112,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -22129,7 +22130,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -22147,7 +22148,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -22507,7 +22508,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -22525,7 +22526,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -22543,7 +22544,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -22885,7 +22886,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -22903,7 +22904,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -22921,7 +22922,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -23245,7 +23246,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -23263,7 +23264,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -23281,7 +23282,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -23641,7 +23642,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -23659,7 +23660,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -23677,7 +23678,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -24042,7 +24043,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -24060,7 +24061,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -24078,7 +24079,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -24444,7 +24445,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -24462,7 +24463,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -24480,7 +24481,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -24887,7 +24888,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -24905,7 +24906,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -24923,7 +24924,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -25301,7 +25302,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -25319,7 +25320,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -25337,7 +25338,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -25679,7 +25680,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -25697,7 +25698,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -25715,7 +25716,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -26057,7 +26058,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -26075,7 +26076,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -26093,7 +26094,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -26465,7 +26466,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -26483,7 +26484,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -26501,7 +26502,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -26861,7 +26862,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -26879,7 +26880,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -26897,7 +26898,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -27269,7 +27270,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -27287,7 +27288,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -27305,7 +27306,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -27688,7 +27689,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -27706,7 +27707,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -27724,7 +27725,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -28130,7 +28131,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -28148,7 +28149,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -28166,7 +28167,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -28556,7 +28557,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -28574,7 +28575,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -28592,7 +28593,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -29023,7 +29024,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -29041,7 +29042,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -29059,7 +29060,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -29455,7 +29456,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -29473,7 +29474,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -29491,7 +29492,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -29881,7 +29882,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -29899,7 +29900,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -29917,7 +29918,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -30295,7 +30296,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -30313,7 +30314,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -30331,7 +30332,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -30655,7 +30656,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -30673,7 +30674,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -30691,7 +30692,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -31104,7 +31105,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -31122,7 +31123,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -31140,7 +31141,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -31518,7 +31519,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -31536,7 +31537,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -31554,7 +31555,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
@@ -31896,7 +31897,7 @@
           {
             "name": "ownership",
             "ty": {
-              "Enum": "DUOwnership"
+              "Enum": "DuOwnership"
             },
             "scope": {
               "values": [
@@ -31914,7 +31915,7 @@
           {
             "name": "coverage_state",
             "ty": {
-              "Enum": "DUCoverageState"
+              "Enum": "DuCoverageState"
             },
             "scope": {
               "values": [
@@ -31932,7 +31933,7 @@
           {
             "name": "evidence_quality",
             "ty": {
-              "Enum": "DUEvidenceQuality"
+              "Enum": "DuEvidenceQuality"
             },
             "scope": {
               "values": [
