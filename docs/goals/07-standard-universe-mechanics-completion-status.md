@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S35` |
-| Next unblocked batch | `G07-P5-M15-S35` |
+| Active batch | `G07-P5-M15-S36` |
+| Next unblocked batch | `G07-P5-M15-S36` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -339,10 +339,15 @@ bindings, split exactly into 18 encounter-group and 20 external-decision
 bindings under the same invariants. Room-content S34 is complete: its next 32
 rooms retain 101 ordered content bindings, split exactly into 37
 encounter-group, 27 fixed-content and 37 external-decision bindings under the
-same invariants. `G07-P5-M15-S35` is active.
+same invariants. Room-content S35 is complete: its final three rooms retain
+seven ordered content bindings, split into three encounter-group and four
+fixed-content bindings. Together S30-S35 close all 163 rooms and 380 content
+bindings, split exactly into 174 encounter-group, 78 fixed-content and 128
+external-decision bindings under the unique-primary and exact foreign-key
+invariants. `G07-P5-M15-S36` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 102 completed partitions use scoped Excel/Sora semantic
+model. The first 103 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
