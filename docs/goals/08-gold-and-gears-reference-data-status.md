@@ -7,7 +7,7 @@
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Review and freeze |
-| Active batch | `G08-P4-B3` |
+| Active batch | `G08-P4-B4` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -57,8 +57,8 @@
 | `G08-P3-B6` | `Complete` | This row's containing commit | Added the pinned release verifier and an isolated generated-reader loader. Two clean `openpyxl==3.1.5` generations reproduce each other and the committed workbooks byte-for-byte; two Sora 0.3.0 binary/debug exports reproduce each other and the committed outputs byte-for-byte. The 5,108,198-byte `config.sora` has SHA-256 `7d2be4bd…02c`, the 52-file debug-export digest is `24f3e801…7007`, and every one of the 52 generated readers loads a nonempty table for 29,140 total rows. Artifact-tool 2.8.6 rendered rows 1–12 across every used column of all 52 sheets; visual inspection found no remaining defect after deterministic 72-point caps were added for rows containing values longer than 500 characters. Structural verification reports workbook semantic digest `de0c2513…b3af`; the four workbook SHA-256 values are `a289bd4d…30e7`, `1965aaa1…e61`, `1c9c4479…05a3` and `17d77d0d…a0bf`. |
 | `G08-P4-B1` | `Complete` | This row's containing commit | Added a deterministic release audit and frozen its evidence. The audit checks all 7,913 obligations across 42 manifest categories exactly once at 100% DataReady; 7,199 obligations are Gold-owned and 714 are explicitly shared. It validates 15,031 globally unique common rows with complete English/Chinese names and mechanical summaries, 13,637 Gold-owned versus 1,394 shared normalized rows, 9,082 non-orphan source records, 31,176 exact source-reference bindings, 31 typed Sora reference fields with 27,425 resolved bindings, 1,224 rule owners plus fixture links, 46 fixture inputs, 95 fixture evidence links and all 5,025 research-gap affected-record links. All 16 gaps remain nonblocking with notes and replacement conditions. No Standard profile, Swarm Disaster, Unknowable Domain, Divergent Universe, story/account row, foreign ownership value or runtime handler leaks; 501 `source_mode_owner=Standard` values are allowed only on explicitly Shared inherited rows. `node tools/gold-and-gears-reference/audit-release.mjs .`, focused pack/schema checks, the quick repository gate and `git diff --check` pass. |
 | `G08-P4-B2` | `Complete` | This row's containing commit | Added a deterministic semantic executor and frozen its result evidence (`4bdf60ff…b065`). All 18 required families execute 63 ordered operations and pass 36 typed expected-fact assertions over 46 source-record bindings and 95 evidence bindings. Every one of the 1,224 reference-only mechanic rules resolves to its declared fixture, all 16 nonblocking approximation boundaries have an actionable source-identical replacement condition, and all 5,025 affected-record bindings are DataReady, directly bind the owning policy source and reach a semantic fixture. The executor also caught and corrected the missing explicit seed for seeded Resonance Extrapolation formation selection; the normalized fixture SHA-256 is now `515c00dd…3dc6`. The synchronized evidence workbook has semantic digest `b35d3560…3fea` and SHA-256 `c9b72548…d2c0`; the 5,108,209-byte Sora bundle has SHA-256 `97eefe25…fe7b`. Double workbook/Sora regeneration is byte-identical, all 52 generated readers load 29,140 rows, all focused verifiers, the release audit, the quick repository gate and `git diff --check` pass. |
-| `G08-P4-B3` | `InProgress` | — | Run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
-| `G08-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G08-P4-B3` | `Complete` | This row's containing commit | Added deterministic release-acceptance evidence (`1f54d9bb…9e48`) and a protected-boundary verifier. The pinned 2,882-file source inventory regenerates from `turnbasedgamedata@fd978d6…3568` and `StarRailRes@7b349e3…7a93`; the 50-file normalized pack remains `ea2f3a35…5623` with 7,913/7,913 DataReady obligations. Clean double workbook/Sora generation, all 52 isolated readers and 29,140 rows reproduce without drift; the current bundle is 5,108,209 bytes with SHA-256 `97eefe25…fe7b`, and the 52-file debug digest is `ff739998…ee17`. Artifact-tool 2.8.6 re-rendered the changed `ReviewFixture` sheet and visibly confirmed the explicit seed without overlap or clipping (`747886d3…4029`). Goal 03 reference evidence, Standard staging and current production configuration remain byte-identical to the Phase 3 baseline via tracked-tree digests `9e53d3b0…bd01`, `f70d47c3…94b5c` and `9dac8168…619e`; Cargo.lock and dependency policy are unchanged. Dependency, workspace-boundary, immutable-release-snapshot and staged-tree no-cache clean-checkout acceptance pass. `node tools/repository-check/run.mjs --full --with-source-cache` again exits only at the pre-existing Goal 06 `Cargo.lock baseline differs` historical contract, after the runner, extension, dependency, CI, immutable snapshot and Goal 05 release checks pass and before any Goal 08 drift step; Goal 06 evidence was not rewritten. |
+| `G08-P4-B4` | `InProgress` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
 
 ## Frozen counters
 
@@ -150,9 +150,9 @@ Do not estimate denominators from Wiki page counts.
 - [x] Complete `openpyxl` workbooks pass structural and visual QA.
 - [x] Sora production/debug exports regenerate without drift and load through
       isolated readers.
-- [ ] Goal 03 evidence and current Standard/production bundle identities remain
+- [x] Goal 03 evidence and current Standard/production bundle identities remain
       unchanged.
-- [ ] Coverage reports 100% `DataReady` and no blocking research row.
+- [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [ ] Clean-checkout acceptance passes and `G08-P4-B4` is committed.
 
 ## Completion record

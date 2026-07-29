@@ -1,0 +1,48 @@
+{
+  "schema_revision": "starclock.gold-and-gears-release-visual-review.v1",
+  "goal_id": "gold-and-gears-reference-v1",
+  "reviewed_at": "2026-07-29",
+  "result": "pass",
+  "reason": "P4-B2 added an explicit seed to the Resonance Extrapolation review-fixture input and regenerated the evidence workbook.",
+  "input": {
+    "file": "config/gold-and-gears/data/GoldAndGearsEvidence.xlsx",
+    "sha256": "c9b72548f4a658ad54267fba4b085581174c64676b1af89e736d0789a85d2c0c",
+    "sheet": "ReviewFixture",
+    "changed_row": 21,
+    "changed_field": "input_json",
+    "expected_value": {
+      "formation_count": "1",
+      "offered_path_id": "universe.path.abundance",
+      "seed": "0"
+    }
+  },
+  "renderer": {
+    "name": "@oai/artifact-tool",
+    "version": "2.8.6",
+    "renders": [
+      {
+        "range": "A1:X12",
+        "scale": 1,
+        "width": 9436,
+        "height": 615,
+        "sha256": "70305c454b5a290a4811921e6de873b55477a9e0f7aa054be8bd40062bc5cd9c"
+      },
+      {
+        "range": "R1:X25",
+        "scale": 2,
+        "width": 7136,
+        "height": 3614,
+        "sha256": "edefa03bd31d4c45356c4813d26b432e85d7a0c28f88e13f8f3435c93273443e"
+      }
+    ]
+  },
+  "checks": {
+    "metadata_rows_present": true,
+    "headers_legible": true,
+    "changed_seed_visible": true,
+    "row_height_capped": true,
+    "alternating_fill_preserved": true,
+    "validation_markers_preserved": true,
+    "overlap_or_clipping_defects": 0
+  }
+}
