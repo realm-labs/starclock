@@ -107,7 +107,7 @@ pub mod currency_wars_manifest;
 pub mod currency_wars_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "147907b59131b097";
+pub const SCHEMA_FINGERPRINT: &str = "d96fd6c74d4e2659";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {

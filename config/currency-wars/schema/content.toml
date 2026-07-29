@@ -64,15 +64,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "path_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "offer_roles"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "formula_roles"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -141,19 +141,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "path_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "category"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "level_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "effect_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -222,19 +222,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "blessing_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "level"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "parameters"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "effect_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -303,15 +303,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "candidate_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "selection_policy"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "weight_program"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -380,19 +380,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "formula_kind"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "recipe_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "progress_states"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "effect_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -461,15 +461,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "formula_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "display_state"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "mechanical_summary_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -538,19 +538,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "candidate_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "weight_program"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "reroll_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "fallback"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -619,15 +619,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "required_path_counts"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "required_blessing_states"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "completion_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -696,19 +696,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "formula_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "source_state"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "scope"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "ordered_effects"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -777,15 +777,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "category"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "state_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "eligibility_rule_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -854,19 +854,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "curio_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "state"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "charges"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "effect_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -935,15 +935,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "candidate_state_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "weights"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "eligibility"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1012,27 +1012,27 @@ length = [2, 32767]
 [[tables.fields]]
 name = "curio_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "activation"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "destruction"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "repair"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "replacement"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "fallback"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1101,23 +1101,23 @@ length = [2, 32767]
 [[tables.fields]]
 name = "hex_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "state"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "activation"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "effect_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "teardown"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1186,19 +1186,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "hex_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "subject_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "eligibility"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "replacement"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1267,15 +1267,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "variant_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "unlock_rules"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "choice_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1344,19 +1344,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "occurrence_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "graph_path"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "entry_conditions"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "choice_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1425,23 +1425,23 @@ length = [2, 32767]
 [[tables.fields]]
 name = "variant_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "ordinal"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "conditions"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "costs"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "ordered_outcomes"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1510,15 +1510,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "function_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "currency_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "availability"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1587,19 +1587,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "function_type"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "input_policy"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "output_policy"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "price_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1668,15 +1668,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "group_type"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "unit_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "offer_policy"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1745,15 +1745,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "unit_type"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "parameters"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "outcome_program"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1822,15 +1822,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "chest_type"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "parameters"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "choice_program"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1899,15 +1899,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "adventure_type"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "parameter_group_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "abstract_outcome"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1976,19 +1976,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "scope"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "gain_rules"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "spend_rules"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "reset_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2057,19 +2057,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "service_kind"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "price_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "inventory_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "refresh_rule"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2138,19 +2138,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "service_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "candidate_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "weights"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "fallback"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2219,15 +2219,15 @@ length = [2, 32767]
 [[tables.fields]]
 name = "parent_kind"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "parent_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "resolution_state"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2296,19 +2296,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "plane_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "difficulty_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "rank"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "candidate_stage_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2377,19 +2377,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "stage_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "wave_index"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "enemy_slot_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "trigger"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2458,23 +2458,23 @@ length = [2, 32767]
 [[tables.fields]]
 name = "wave_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "slot_index"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "monster_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "level"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "ability_refs"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2543,19 +2543,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "plane_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "difficulty_id"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "candidate_monster_ids"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "selection_policy"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2624,19 +2624,19 @@ length = [2, 32767]
 [[tables.fields]]
 name = "source_path"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "source_sha256"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "mechanic_family"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "disposition"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -2705,23 +2705,23 @@ length = [2, 32767]
 [[tables.fields]]
 name = "scope"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "trigger"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "ordered_operations"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "state_lifecycle"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.fields]]
 name = "runtime_lowered"
 type = "string"
-length = [2, 32767]
+length = [0, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

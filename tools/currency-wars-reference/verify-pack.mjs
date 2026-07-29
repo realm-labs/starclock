@@ -128,7 +128,14 @@ assert(gaps.length === 12
       && row.replacement_condition),
 "research-gap policy drift");
 
-const index = rowsByFile.get("pack-index.json")[0];
+const indexRows = rowsByFile.get("pack-index.json");
+assert(indexRows.length > 1
+  && indexRows.every(({ pack_digest: digest }) =>
+    digest === indexRows[0].pack_digest),
+"pack-index chunk drift");
+const index = indexRows[0];
+assert(indexRows.slice(1).every(({ file_digests: digests }) =>
+  digests.length === 0), "pack file digests must appear only in chunk zero");
 const digestEntries = [];
 for (const entry of index.file_digests) {
   const bytes = fs.readFileSync(path.join(outputRoot, entry.file));
@@ -139,13 +146,16 @@ for (const entry of index.file_digests) {
 }
 assert(sha256(digestEntries.join("\n")) === index.pack_digest,
   "pack digest drift");
-const indexedIds = new Set(index.stable_id_index.map(({ id }) => id));
-assert(indexedIds.size === index.stable_id_index.length,
+const allStableIds = indexRows.flatMap(({ stable_id_index: ids }) => ids);
+const indexedIds = new Set(allStableIds.map(({ id }) => id));
+assert(indexedIds.size === allStableIds.length,
   "stable-ID index duplicate");
 for (const row of coverage)
   for (const id of row.normalized_record_ids)
     assert(indexedIds.has(id), `${row.id} unresolved normalized ID ${id}`);
 const packManifest = rowsByFile.get("manifest.json")[0];
+assert(packManifest.record_counts["pack-index.json"]
+  === String(indexRows.length), "pack-index manifest count drift");
 assert(packManifest.content_manifest_sha256 === sha256(fs.readFileSync(path.join(
   root,
   "content-manifests/currency-wars-v1/content-manifest.json",

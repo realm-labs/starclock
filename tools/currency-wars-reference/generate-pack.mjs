@@ -471,7 +471,18 @@ for (const file of presentFiles) {
   }
   recordCounts[file] = String(json(path.join(context.outputRoot, file)).length);
 }
-recordCounts["pack-index.json"] = "1";
+const preliminaryStableIds = presentFiles
+  .filter((file) => file !== "manifest.json")
+  .flatMap((file) => json(path.join(context.outputRoot, file))
+    .map((row) => ({ id: row.id, file })));
+preliminaryStableIds.push({
+  id: "currency-wars.manifest.v1",
+  file: "manifest.json",
+});
+preliminaryStableIds.sort((left, right) =>
+  compare(left.id, right.id) || compare(left.file, right.file));
+const preliminaryIndexChunks = chunkStableIndex(preliminaryStableIds);
+recordCounts["pack-index.json"] = String(preliminaryIndexChunks.length);
 const normalizedFiles = [...presentFiles, "pack-index.json"].sort(compare);
 const packManifest = [{
   ...envelope({
@@ -513,24 +524,27 @@ stableIdIndex.sort((left, right) =>
 const packDigest = sha256(fileDigests
   .map(({ file, sha256: digest }) => `${file}\0${digest}`)
   .join("\n"));
-const packIndex = [{
+const indexChunks = chunkStableIndex(stableIdIndex);
+if (indexChunks.length !== preliminaryIndexChunks.length)
+  throw new Error("pack-index chunk count changed after manifest generation");
+const packIndex = indexChunks.map((entries, index) => ({
   ...envelope({
-    id: "currency-wars.pack-index.v1",
+    id: `currency-wars.pack-index.v1.chunk.${String(index).padStart(4, "0")}`,
     kind: "CurrencyWarsPackIndex",
-    nameEn: "Currency Wars canonical pack index",
-    nameZh: "货币战争规范包索引",
+    nameEn: `Currency Wars canonical pack index chunk ${index + 1}`,
+    nameZh: `货币战争规范包索引分块 ${index + 1}`,
     summaryEn:
-      "Canonical file digests and stable-ID locations for the Version 4.4 reference pack.",
+      `Canonical file digests and stable-ID locations, chunk ${index + 1} of ${indexChunks.length}.`,
     summaryZh:
-      "Version 4.4 资料包的规范文件摘要与稳定 ID 定位。",
+      `规范文件摘要与稳定 ID 定位，第 ${index + 1}/${indexChunks.length} 分块。`,
     sourceRefs: [policyRef],
     evidenceQuality: "ProjectPolicy",
     tags: ["index", "pack"],
   }),
   pack_digest: packDigest,
-  file_digests: fileDigests,
-  stable_id_index: stableIdIndex,
-}];
+  file_digests: index === 0 ? fileDigests : [],
+  stable_id_index: entries,
+}));
 await writeOrCheck(context, new Map([["pack-index.json", packIndex]]), check);
 
 console.log(
@@ -538,3 +552,19 @@ console.log(
   `${coverage.length} coverage rows, ${mechanicRules.length} mechanic rules, ` +
   `${reviewFixtures.length} fixture families, digest ${packDigest}.`,
 );
+
+function chunkStableIndex(entries) {
+  const chunks = [];
+  let current = [];
+  for (const entry of entries) {
+    const candidate = [...current, entry];
+    if (current.length > 0 && JSON.stringify(candidate).length > 30000) {
+      chunks.push(current);
+      current = [entry];
+    } else {
+      current = candidate;
+    }
+  }
+  if (current.length > 0) chunks.push(current);
+  return chunks;
+}

@@ -111,7 +111,7 @@ ${includes}
 
 [build]
 default_source_format = "xlsx"
-data_root = "../currency-wars-generated/templates"
+data_root = "data"
 schema_lock = "../currency-wars-generated/schema.lock"
 excel_templates = "../currency-wars-generated/templates"
 
@@ -156,7 +156,7 @@ function renderTable(contract) {
     ["evidence_quality", 1],
     ["source_refs_json", 2],
     ["tags_json", 2],
-    ...contract.required_domain_fields.map((field) => [field, 2]),
+    ...contract.required_domain_fields.map((field) => [field, 0]),
   ];
   const uniqueFields = [...new Map(fields.map((entry) =>
     [entry[0], entry])).values()];
