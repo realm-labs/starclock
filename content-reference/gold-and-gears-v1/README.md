@@ -12,7 +12,17 @@ node tools/gold-and-gears-reference/import-topology.mjs
 node tools/gold-and-gears-reference/verify-topology.mjs
 ```
 
+Phase 1 Cognition, Secret-condition and mode-constant files regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-cognition.mjs
+node tools/gold-and-gears-reference/verify-cognition.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
-no explicit edge relation.
+no explicit edge relation. Cognition ranges and Secret thresholds remain
+`ExactStructured`; their embedded adjustment/clamp/carry/reset order is a
+replaceable `ProjectPolicy`, with the released plane-boss evaluation boundary
+recorded separately as public evidence.

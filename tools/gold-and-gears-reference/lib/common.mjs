@@ -4,6 +4,7 @@ import path from "node:path";
 
 export const SOURCE_REVISION = "fd978d6ef09f941fba644c731ab54abd6f7c3568";
 export const ACCESS_DATE = "2026-07-22";
+export const PUBLIC_ACCESS_DATE = "2026-07-29";
 export const GAME_VERSION = "4.4";
 export const ROW_SCHEMA = "starclock.gold-and-gears-row.v1";
 
@@ -109,6 +110,32 @@ export async function createContext(root) {
     };
   }
 
+  function publicRef({
+    id,
+    url,
+    locator,
+    fact,
+    evidenceQuality = "ExactPublicText",
+    note,
+    replacementCondition,
+  }) {
+    const parsed = new URL(url);
+    return {
+      source_id: `source.goal08.public.${slug(id)}`,
+      repository: parsed.origin,
+      revision: `accessed-${PUBLIC_ACCESS_DATE}`,
+      path: url,
+      locator,
+      sha256: sha256(cleanText(fact)),
+      access_date: PUBLIC_ACCESS_DATE,
+      evidence_quality: evidenceQuality,
+      ...(note ? { note } : {}),
+      ...(replacementCondition ? {
+        replacement_condition: replacementCondition,
+      } : {}),
+    };
+  }
+
   function envelope({
     id,
     kind,
@@ -152,6 +179,7 @@ export async function createContext(root) {
     text,
     sourceRef,
     policyRef,
+    publicRef,
     envelope,
   };
 }
