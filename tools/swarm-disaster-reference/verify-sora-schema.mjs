@@ -14,13 +14,14 @@ const root = path.resolve(
 const policy = json("policy/sora-toolchain.json");
 const sora = locateSora();
 const project = path.join(root, "config", "swarm-disaster", "project.toml");
-const schemaFile = path.join(
+const schemaRoot = path.join(
   root,
   "config",
   "swarm-disaster",
   "schema",
-  "core.toml",
 );
+const schemaFiles = ["core.toml", "progression.toml"].map((name) =>
+  path.join(schemaRoot, name));
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-swarm-disaster-schema-"),
 );
@@ -42,16 +43,44 @@ const expected = new Map([
   ["SwarmDisasterTopologyConsequence", "topology-consequences.json"],
   ["SwarmDisasterCountdownAndDisarray", "countdown-and-disarray.json"],
   ["SwarmDisasterBossDecayLevel", "boss-decay-levels.json"],
+  ["SwarmDisasterAudiencePath", "audience-paths.json"],
+  ["SwarmDisasterAudienceDie", "audience-dice.json"],
+  ["SwarmDisasterDiceFace", "dice-faces.json"],
+  ["SwarmDisasterDiceRarity", "dice-rarities.json"],
+  ["SwarmDisasterDiceTargetRule", "dice-target-rules.json"],
+  ["SwarmDisasterDiceRollControl", "dice-roll-controls.json"],
+  ["SwarmDisasterCommuningChoice", "communing-choices.json"],
+  ["SwarmDisasterPathstriderCabinet", "pathstrider-cabinets.json"],
+  ["SwarmDisasterCommuningDimension", "communing-dimensions.json"],
+  ["SwarmDisasterCommuningPointAdjustment",
+    "communing-point-adjustments.json"],
+  ["SwarmDisasterCommuningTrailNode", "communing-trail-nodes.json"],
+  ["SwarmDisasterCommuningTrailPrerequisite",
+    "communing-trail-prerequisites.json"],
+  ["SwarmDisasterCommuningTrailEffect", "communing-trail-effects.json"],
+  ["SwarmDisasterPathstriderObjective", "pathstrider-objectives.json"],
+  ["SwarmDisasterPathstriderFinishCondition",
+    "pathstrider-finish-conditions.json"],
+  ["SwarmDisasterPathstriderUnlock", "pathstrider-unlocks.json"],
+  ["SwarmDisasterMechanicalChapterLocator",
+    "mechanical-chapter-locators.json"],
+  ["SwarmDisasterPath", "paths.json"],
+  ["SwarmDisasterResonance", "resonances.json"],
+  ["SwarmDisasterPathBoost", "path-boosts.json"],
+  ["SwarmDisasterResonanceInterplay", "resonance-interplays.json"],
+  ["SwarmDisasterTrailblazeBonus", "bonuses.json"],
 ]);
 
 try {
   assert(policy.version === "0.3.0", "Sora version policy differs");
   assert(fs.existsSync(sora), "pinned Sora 0.3.0 is not installed");
-  assert(fs.existsSync(project) && fs.existsSync(schemaFile),
+  assert(fs.existsSync(project) && schemaFiles.every((file) =>
+    fs.existsSync(file)),
     "isolated Swarm Disaster schema is missing");
   const projectText = fs.readFileSync(project, "utf8");
-  assert(projectText.includes('includes = [\n  "schema/core.toml",\n]'),
-    "P3-B1 project include set drift");
+  for (const include of ["schema/core.toml", "schema/progression.toml"])
+    assert(projectText.includes(include),
+      `project lacks ${include}`);
   for (const forbidden of [
     "config/data",
     "config/generated",
@@ -64,13 +93,17 @@ try {
     assert(!projectText.includes(forbidden),
       `isolated project references forbidden output ${forbidden}`);
 
-  const before = fs.readFileSync(schemaFile);
+  const before = new Map(schemaFiles.map((file) => [
+    file,
+    fs.readFileSync(file),
+  ]));
   run(process.execPath, [
     "tools/swarm-disaster-reference/generate-sora-schema.mjs",
     root,
   ]);
-  assert(before.equals(fs.readFileSync(schemaFile)),
-    "core.toml generation drifted");
+  for (const file of schemaFiles)
+    assert(before.get(file).equals(fs.readFileSync(file)),
+      `${path.basename(file)} generation drifted`);
   run(sora, ["--serial", "check", "--project", project]);
   const lock = path.join(temporary, "schema.lock");
   run(sora, [
@@ -111,6 +144,43 @@ try {
       "SwarmDisasterChessboard"],
     ["SwarmDisasterBlockCreateRule", "domain_id", "SwarmDisasterDomain"],
     ["SwarmDisasterRoom", "domain_id", "SwarmDisasterDomain"],
+    ["SwarmDisasterAudiencePath", "audience_die_id",
+      "SwarmDisasterAudienceDie"],
+    ["SwarmDisasterAudienceDie", "audience_path_id",
+      "SwarmDisasterAudiencePath"],
+    ["SwarmDisasterDiceFace", "audience_die_id",
+      "SwarmDisasterAudienceDie"],
+    ["SwarmDisasterDiceFace", "rarity_id", "SwarmDisasterDiceRarity"],
+    ["SwarmDisasterDiceFace", "target_rule_id",
+      "SwarmDisasterDiceTargetRule"],
+    ["SwarmDisasterPathstriderCabinet", "objective_id",
+      "SwarmDisasterPathstriderObjective"],
+    ["SwarmDisasterCommuningPointAdjustment", "dimension_id",
+      "SwarmDisasterCommuningDimension"],
+    ["SwarmDisasterCommuningTrailNode", "dimension_id",
+      "SwarmDisasterCommuningDimension"],
+    ["SwarmDisasterCommuningTrailPrerequisite", "node_id",
+      "SwarmDisasterCommuningTrailNode"],
+    ["SwarmDisasterCommuningTrailPrerequisite", "required_node_id",
+      "SwarmDisasterCommuningTrailNode"],
+    ["SwarmDisasterCommuningTrailEffect", "node_id",
+      "SwarmDisasterCommuningTrailNode"],
+    ["SwarmDisasterPathstriderObjective", "cabinet_id",
+      "SwarmDisasterPathstriderCabinet"],
+    ["SwarmDisasterPathstriderObjective", "finish_condition_id",
+      "SwarmDisasterPathstriderFinishCondition"],
+    ["SwarmDisasterPathstriderUnlock", "finish_condition_id",
+      "SwarmDisasterPathstriderFinishCondition"],
+    ["SwarmDisasterMechanicalChapterLocator", "dimension_id",
+      "SwarmDisasterCommuningDimension"],
+    ["SwarmDisasterPath", "audience_die_id", "SwarmDisasterAudienceDie"],
+    ["SwarmDisasterPath", "resonance_id", "SwarmDisasterResonance"],
+    ["SwarmDisasterResonance", "path_id", "SwarmDisasterPath"],
+    ["SwarmDisasterPathBoost", "path_id", "SwarmDisasterPath"],
+    ["SwarmDisasterResonanceInterplay", "main_path_id",
+      "SwarmDisasterPath"],
+    ["SwarmDisasterResonanceInterplay", "sub_path_id",
+      "SwarmDisasterPath"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) =>
       candidate.name === fieldName);
@@ -119,8 +189,8 @@ try {
       `${tableName}.${fieldName} is not ref<${target}.id>`);
   }
   console.log(
-    `Swarm Disaster Sora core schema verified (${tables.size} isolated ` +
-    "tables; typed topology/domain references; pinned Sora 0.3.0).",
+    `Swarm Disaster Sora schema verified (${tables.size} isolated core/` +
+    "progression tables; typed local references; pinned Sora 0.3.0).",
   );
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
