@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 6 — Integrated verification and hardening |
-| Active batch | `G07-P6-B2` |
-| Next unblocked batch | `G07-P6-B2` |
+| Active batch | `G07-P6-B3` |
+| Next unblocked batch | `G07-P6-B3` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -355,7 +355,12 @@ acquire, enhance, replace, repair, remove and projection boundaries pass.
 The fresh production matrix completes all 33 constructible World/difficulty
 runs across nine Worlds and nine Paths, executing 154 nested battles and 1,048
 authoritative battle commands with exact state-record parity. `G07-P6-B2` is
-active.
+complete: baseline AI, CLI, Agent and MCP reach the same authoritative terminal
+state, baseline and Agent retain byte-equivalent nested authority, and Agent
+and MCP emit the same complete replay. Fresh replay-v3 reconstruction resolves
+exactly one current Activity snapshot per nested battle and reports all eight
+corruption classes in component, assembly, combat-input, command, event, state,
+result and Activity order. `G07-P6-B3` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
 model. All 104 completed partitions use scoped Excel/Sora semantic
@@ -400,7 +405,7 @@ verification commands are recorded in
 | `G07-P2-M05-S03` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed Dharma Rain L2 and both levels of Dew Delight, Extended Life, Mudra, Peril Parry and Back to Life. Added target-directional incoming healing, actor-credited Break healing and ability-source once-per-action provider healing. Production execution proves the 63% nine-Blessing cap, 12%/18% Incoming Healing, 24%/36% entry healing, 16%/24% breaking-actor healing, one-turn 24%/36% DEF and 12%/18% provider healing; eleven native candidates close as `IrSufficient`. |
 | `G07-P2-M05-S04` | `Complete` | openpyxl path-partition check; production Sora verification; combat/Abundance/materialization/replay tests; partition receipt; quick repository gate | Executed both levels of Force Victoire and Empower, Abundance Resonance and all three Formations. Added generic negative-effect and team-defeat guards plus auxiliary Resonance abilities/countdowns. Production execution proves one-turn 10%/15% SPD, once-per-action 30%/45% Skill Point chance, 50% healing, 15% MaxHP, first-lethal prevention, five-stack Subduing Evils, 10% guard healing and recurring 70%-effective Resonance; eight native candidates close as `IrSufficient`. |
 | `G07-P6-B1` | `Complete` | `node tools/goal07/verify-integrated-scenarios.mjs`; 104 partition receipts; targeted dynamic-boundary tests; 33-run production combat/replay matrix; quick repository gate | Bound all 786 mechanic rules and 78 semantic fixtures to existing production execution evidence across 13 families, retained seven explicit lifecycle/projection scenarios, and completed all 33 constructible World/difficulty runs across all nine Paths. The matrix executes 154 production nested battles and retains exact parity for 1,048 battle commands/state records and fresh replay reconstruction. It also fixed ability-origin queued actions, automatic linked-actor target selection, dynamic encounter settlement identity, two over-broad content triggers, compiled-build Eidolon reprojection and legal baseline action selection exposed by the complete matrix. |
-| `G07-P6-B2` | `Pending` | — | Verify all production interfaces and replay v3. |
+| `G07-P6-B2` | `Complete` | `node tools/goal07/verify-interface-replay-parity.mjs`; dynamic assembly, Agent Activity, CLI and MCP integration tests; quick repository gate | Verified baseline AI, CLI, Agent and MCP against World 1/difficulty 0/seed 1. All surfaces reach `64078b…`; baseline and Agent nested authority is byte-equivalent, while Agent and MCP share the exact 25,673-byte/35-action replay `ec9aff…`. CLI independently emits and freshly verifies its controller-bound 25,678-byte replay. Dynamic reconstruction consumes one current Activity snapshot per battle and rejects all eight ordered first-divergence classes; 16 malformed Agent replays leave the live session inert. |
 | `G07-P6-B3` | `Pending` | — | Harden AI, concurrency, rollback and RNG isolation. |
 | `G07-P6-B4` | `Pending` | — | Freeze performance and allocation evidence. |
 | `G07-P7-B1` | `Pending` | — | Complete release audits. |
