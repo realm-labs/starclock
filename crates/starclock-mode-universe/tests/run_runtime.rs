@@ -28,6 +28,8 @@ use starclock_mode_universe::{
 const CORE_BUNDLE: &[u8] = include_bytes!("../../../config/generated/config.sora");
 const UNIVERSE_BUNDLE: &[u8] = include_bytes!("../../../config/universe-generated/config.sora");
 
+#[path = "run_runtime/hardening.rs"]
+mod hardening;
 #[path = "run_runtime/s04.rs"]
 mod s04;
 #[path = "run_runtime/s05.rs"]
