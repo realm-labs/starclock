@@ -1,0 +1,124 @@
+[
+  {
+    "id": "unknowable-domain.scepter-upgrade.1-to-2",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterUpgradeRule",
+    "name_en": "Scepter Level 1 to 2 Upgrade Policy",
+    "name_zh_cn": "权杖等级 1 至 2 升级策略",
+    "summary_en": "The policy advances a released Scepter level from 1 to 2; the exact Cosmic Fragment amount and mutation order await stronger evidence.",
+    "summary_zh_cn": "该策略将已发布权杖等级从 1 提升至 2；精确宇宙碎片数量与变更顺序等待更强证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      }
+    ],
+    "tags": [
+      "scepter",
+      "transformation",
+      "upgrade"
+    ],
+    "source_id": "10:1:2",
+    "function_type": "MagicScepterLevelUp",
+    "input_level": "1",
+    "output_level": "2",
+    "cost": {
+      "currency_id": "cosmic-fragments",
+      "amount": "Unspecified"
+    },
+    "cap": "3",
+    "ordered_operations": [
+      "ValidateOwnedScepterLevel",
+      "ResolveUnspecifiedCost",
+      "AdvanceExactlyOneReleasedLevel"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "policy_id": "component-transformation-policy-v1"
+  },
+  {
+    "id": "unknowable-domain.scepter-upgrade.2-to-3",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ScepterUpgradeRule",
+    "name_en": "Scepter Level 2 to 3 Upgrade Policy",
+    "name_zh_cn": "权杖等级 2 至 3 升级策略",
+    "summary_en": "The policy advances a released Scepter level from 2 to 3; the exact Cosmic Fragment amount and mutation order await stronger evidence.",
+    "summary_zh_cn": "该策略将已发布权杖等级从 2 提升至 3；精确宇宙碎片数量与变更顺序等待更强证据。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "component-transformation-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic transformation policy. Released Version 4.4 text proves the function class but not input counts, exact costs, candidate sets, ordering, failure behavior, or transition atomicity.",
+        "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior."
+      }
+    ],
+    "tags": [
+      "scepter",
+      "transformation",
+      "upgrade"
+    ],
+    "source_id": "10:2:3",
+    "function_type": "MagicScepterLevelUp",
+    "input_level": "2",
+    "output_level": "3",
+    "cost": {
+      "currency_id": "cosmic-fragments",
+      "amount": "Unspecified"
+    },
+    "cap": "3",
+    "ordered_operations": [
+      "ValidateOwnedScepterLevel",
+      "ResolveUnspecifiedCost",
+      "AdvanceExactlyOneReleasedLevel"
+    ],
+    "fallback": "RejectWithoutMutation",
+    "policy_id": "component-transformation-policy-v1"
+  }
+]
