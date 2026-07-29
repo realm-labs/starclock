@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `swarm-disaster-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Content and encounters |
+| Active phase | Phase 3 — Sora and Excel |
 | Active batch | None |
-| Next unblocked batch | `G09-P2-B6` |
+| Next unblocked batch | `G09-P3-B1` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -25,7 +25,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot, commit-backed Goal 08 checkpoint, Candidate-only scope, six isolated roots, 2,882-file source closure, 6,963-obligation denominator, 64 normalized file families, four workbooks, reconciliation receipts and 23 fixture families are machine-frozen. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, countdown/Disarray, Audience Dice, Communing Device/Trail, Pathstrider, eight Paths, 32 Resonances/Formations, eight boosts, 16 Interplays and bonuses `101`–`106` are DataReady. |
-| Phase 2 — Content and encounters | `InProgress` | Shared pools, Blessings, Curios, Occurrences, services, abstract Adventure outcomes and the complete 81-series encounter expansion are DataReady; mechanic/evidence closure remains. |
+| Phase 2 — Content and encounters | `Complete` | Shared pools, mode content, services, abstract Adventure outcomes and complete 81-series encounters are DataReady. All 6,963 obligations resolve through the canonical 64-file pack with 23 rule/fixture families, 31 nonblocking gaps and 609 exact Goal 08 receipts. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
@@ -51,7 +51,7 @@
 | `G09-P2-B3` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 440 rows (`6504b8fc…a52b`, 1,468,571 bytes): all 75 handbook identities, 57 released Swarm NPC graph variants and 308 ordered choices. Ownership closes at 56 shared plus 19 Swarm-owned identities; 12 variants deliberately bind multiple handbook identities. Graph paths/digests, conditions, 76 cost-bearing choices, 25 gated choices, dynamic displays, parameter vectors, printed percentages and bilingual text digests remain exact. Sixty choices name random behavior without weights; labeled Activity RNG over stable source order, fail-closed candidate pools and owning-offer membership are replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B4 starts. |
 | `G09-P2-B4` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 41 rows (`770eb76b…0a61`, 133,911 bytes): all 15 shared services, one run-scoped Cosmic Fragments record, six released Adventure room bindings and 19 service/beacon rules. Shared service parameters preserve initial `50` fragments and inherited reset/revive/enhance/shop bindings; five Blessing shops, four Curio shops and four prior beacons close exact-once. Purchases are atomic accepted Activity transactions with reject-without-mutation insufficiency and fail-closed offer pools. Adventure action input is excluded: the six rooms accept only validated external `Tier1`/`Tier2`/`Tier3` results and opaque reward payloads until released thresholds/tables exist. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B5 starts. |
 | `G09-P2-B5` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 1,611 rows (`610303f4…f7ef`, 4,438,966 bytes): the complete 179-group 81-series Swarm namespace, 347 exact StageConfig waves, 1,070 ordered enemy slots and 15 formal-difficulty/plane-tier boss pools. All slots resolve 71 inherited Version 4.4 enemy variants; both displayed boss choices resolve to concrete source slots and typed pool consequences. Role closure is 103 Combat, 40 Elite, 30 first-plane alternatives, five second-plane alternatives and one final boss. Exact group weights, stage formations and all five formal-area/15-segment schedules are retained. The unpublished room/domain-to-group join and effective area/plane level selection remain fail-closed `ProjectPolicy`; no numeric-ID join is claimed. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P2-B6 starts. |
-| `G09-P2-B6` | `Pending` | — | Generate rules, sources, coverage, research gaps, fixtures and pack index. |
+| `G09-P2-B6` | `Complete` | This row's containing commit | Generated and rechecked eight closure files with 15,852 rows (`d880c88f…f762`, 20,598,740 bytes): 23 reference-only mechanic rules, 23 semantic review fixtures, 6,963 per-obligation DataReady coverage rows, 8,139 deduplicated sources, 31 nonblocking policy/approximation gaps, 609 exact Goal 08 reconciliation receipts, the pack manifest and 63 index rows. Every fixture closes one frozen family and every rule names triggers, state ownership and ordered operations. Goal 08 overlap matches commit `457d05f0…f5ecd` by source path, row identity and evidence digest with zero conflicts. The 64-file canonical pack digest is `8e6564b9…a6333`; runtime loading remains forbidden. P2-B6 also repaired the frozen `BlockCreateRule` field aliases (`count`, `mark_candidates`) so all schema-required domain fields validate. Focused and quick gates pass; the phase-boundary full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P3-B1 starts. |
 | `G09-P3-B1` | `Pending` | — | Add isolated topology/domain/countdown/Disarray Sora tables. |
 | `G09-P3-B2` | `Pending` | — | Add dice, Communing Device/Trail and Pathstrider Sora tables. |
 | `G09-P3-B3` | `Pending` | — | Add Interplay, content, service, Adventure, encounter and mechanic binding tables. |
@@ -85,8 +85,8 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Occurrences/variants/choices | 132 | 132 | 132 | All 75 type-130 handbook identities and 57 distinct Swarm variants are DataReady; 308 expanded choice rows are typed children outside the source denominator. |
 | Services/beacons/Adventure outcomes | 31 | 31 | 31 | Four reachable beacons, 15 inherited services, six abstract Adventure definitions and six entry bonuses are DataReady; derived currency and service-rule rows are outside the source denominator. |
 | Encounter groups/waves/enemy slots | 863 | 863 | 863 | All 861 room and two displayed-boss parent obligations resolve to the complete derived 81-series expansion: 179 groups, 347 waves, 1,070 slots, 15 boss pools and 71 inherited enemy variants. |
-| Mechanic rules | 23 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
-| Semantic fixtures | 23 | 0 | 0 | Non-shrinking minimum fixture families; B4 freezes fixture shape and later batches may add cases. |
+| Mechanic rules | 23 | 23 | 23 | One reference-only rule per frozen mechanic family names its domain, triggers, state slots, ordered program and fixture; no runtime executability is claimed. |
+| Semantic fixtures | 23 | 23 | 23 | Every non-shrinking fixture family has one bilingual, provenance-bound review case covering all contract `must_cover` facts. |
 
 ## Decisions
 
@@ -138,6 +138,9 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Model Adventure rooms only as validated external three-tier outcomes with opaque reward payloads. | The released DLC table proves room type and parameter group but not action input, thresholds or reward table; excluding movement/aiming/physics prevents unsupported minigame simulation. |
 | 2026-07-29 | Select the complete 81-series RogueMonsterGroup namespace by exact StageConfig event prefix and resolve every stage slot through the frozen Goal 01 enemy catalog. | This yields a reproducible Swarm encounter closure without borrowing Goal 08's 82-series groups or admitting other-mode namespaces. |
 | 2026-07-29 | Preserve exact encounter weights and formal difficulty schedules while failing closed on the unpublished room/domain-to-group and effective-level joins. | Released tables prove group membership, waves, formations, areas and segment values separately; numeric ID structure is not sufficient evidence of the missing engine selection operation. |
+| 2026-07-29 | Close each of the 23 frozen mechanic families with one reference-only rule and one semantic review fixture. | Family-level triggers, state ownership and ordered review operations provide an implementation map without turning Goal 09 into runtime code or claiming executable parity. |
+| 2026-07-29 | Record coverage once per frozen manifest obligation and require each normalized reference to resolve to a real row. | Per-obligation closure prevents aggregate totals from hiding a missing or duplicated source row and makes the 6,963 denominator auditable. |
+| 2026-07-29 | Reconcile all 609 Goal 08 overlaps against committed checkpoint `457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd`. | Source path, stable row identity and evidence digest all match; using the committed checkpoint avoids depending on parallel unpublished Goal 08 work. |
 
 ## Research cases
 
@@ -159,12 +162,12 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 
 - [x] Exact category manifests and denominators are frozen.
 - [x] Focused source inventory and evidence closure regenerate deterministically.
-- [ ] Complete normalized pack and canonical pack index regenerate without drift.
+- [x] Complete normalized pack and canonical pack index regenerate without drift.
 - [ ] All required rows have bilingual summaries and row-level provenance.
 - [ ] Ownership and shared reachability are explicit and fail closed.
-- [ ] Shared `RogueDLC` classifications reconcile with committed Goal 08 facts.
+- [x] Shared `RogueDLC` classifications reconcile with committed Goal 08 facts.
 - [ ] All required mechanics are exact or explicitly approximate/policy-bound.
-- [ ] Topology, countdown/Disarray, dice, Communing Device/Trail, Pathstrider
+- [x] Topology, countdown/Disarray, dice, Communing Device/Trail, Pathstrider
       and Resonance Interplay have complete semantic fixtures.
 - [x] Encounter identities, waves and boss bindings resolve.
 - [ ] Isolated Sora schemas, templates and generated readers validate.
@@ -173,7 +176,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
       isolated readers.
 - [ ] Goal 03 evidence and current Standard/Gold/production bundle identities
       remain unchanged.
-- [ ] Coverage reports 100% `DataReady` and no blocking research row.
+- [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [ ] Every completed batch commit is reachable from the recorded remote
       branch.
 - [ ] Clean-checkout acceptance passes and `G09-P4-B4` is committed.
@@ -186,6 +189,6 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Completion commit | — |
 | Swarm Disaster reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | 6,940/6,963 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
+| Coverage | 6,963/6,963 frozen source obligations `DataReady`; 31 remaining evidence boundaries are nonblocking and explicitly replaceable. |
 | Release evidence | — |
 | Remaining required work | Swarm Disaster runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |

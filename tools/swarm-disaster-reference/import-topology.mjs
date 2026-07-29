@@ -502,6 +502,19 @@ for (const board of boardEntries) {
           : `swarm-disaster.beacon.${option.TypeID}`,
         weight: decimal(option.Weight ?? 0),
       })),
+      count: (rule.BlockCreatNumList ?? []).map((option, index) => ({
+        order: index,
+        create_count: option.CreateNum ?? 0,
+        weight: decimal(option.Weight ?? 0),
+      })),
+      mark_candidates: (rule.MarkCreateRandomList ?? [])
+        .map((option, index) => ({
+          order: index,
+          beacon_id: option.TypeID === undefined
+            ? ""
+            : `swarm-disaster.beacon.${option.TypeID}`,
+          weight: decimal(option.Weight ?? 0),
+        })),
     });
   }
 }

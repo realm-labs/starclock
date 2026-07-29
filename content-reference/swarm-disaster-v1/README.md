@@ -40,6 +40,8 @@ node tools/swarm-disaster-reference/import-services.mjs
 node tools/swarm-disaster-reference/verify-services.mjs
 node tools/swarm-disaster-reference/import-encounters.mjs
 node tools/swarm-disaster-reference/verify-encounters.mjs
+node tools/swarm-disaster-reference/finalize-pack.mjs
+node tools/swarm-disaster-reference/verify-pack.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -143,3 +145,14 @@ formations and formal difficulty schedules remain exact. The unpublished
 room/domain-to-group join and effective area/plane level selection remain
 replaceable, fail-closed `ProjectPolicy`; numeric room or group IDs are not
 decoded into claimed engine behavior.
+
+The evidence closure contains one implementation-facing reference rule and one
+semantic review fixture for each of the 23 frozen mechanic families. Coverage
+is recorded per manifest obligation rather than as aggregate-only totals:
+all 6,963 frozen obligations resolve to concrete DataReady rows. The source
+registry deduplicates 8,139 exact, public, inherited and policy references;
+31 evidence gaps are nonblocking and carry explicit replacement conditions.
+All 609 facts shared with the committed Goal 08 checkpoint match by source
+path, row locator/stable identity and evidence digest. `pack-index.json`
+binds every non-index normalized file to its byte length, row count and
+SHA-256; the canonical pack digest is recorded on every index row.

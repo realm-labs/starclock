@@ -1,0 +1,3583 @@
+[
+  {
+    "id": "swarm-disaster.mechanic-rule.audience-die-passive",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "audience-die-passive Mechanic Rule",
+    "name_zh_cn": "audience-die-passive 机制规则",
+    "summary_en": "audience-die-passive preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "audience-die-passive 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-paths",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-paths",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately.",
+        "replacement_condition": "Replace the slot-to-lifecycle mapping if released engine evidence identifies a different application boundary."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondice-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDice.json",
+        "locator": "0",
+        "sha256": "1c01a02ee3f70c82303a56afc8a8968e50af1b5b6f3095ddda7d470c8f0681d4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.audience-dice",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "audience-dice",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+        "replacement_condition": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
+      }
+    ],
+    "tags": [
+      "audience-die-passive",
+      "mechanic-rule"
+    ],
+    "family_id": "audience-die-passive",
+    "domain": "Activity",
+    "triggers": [
+      "PathSelected",
+      "RunStarted",
+      "MapMoveAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "selected-path",
+        "owner": "Activity"
+      },
+      {
+        "id": "audience-die",
+        "owner": "Activity"
+      },
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewSelectedPath",
+        "source_fact": "selected Path",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewInitialEffect",
+        "source_fact": "initial effect",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewPassiveEffect",
+        "source_fact": "passive effect",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewGraphMutation",
+        "source_fact": "graph mutation",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.audience-die-passive"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.beacon-copy-and-blanking",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "beacon-copy-and-blanking Mechanic Rule",
+    "name_zh_cn": "beacon-copy-and-blanking 机制规则",
+    "summary_en": "beacon-copy-and-blanking preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "beacon-copy-and-blanking 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "1",
+        "sha256": "e536c099711155e797462c152e7a68ce61982fc1c30bd18ff153edf26a58e77a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "2",
+        "sha256": "e91e5ca68270fc747add6afd3106f7d04f4e61368b191ad8df9cf010c7e24465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "3",
+        "sha256": "ab1611e7c0585d64100c421741f1d3464636259d12e4f5a17efcfd7581747fb3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "5",
+        "sha256": "4e3db998e0ba60216919c897cab3333133707876ccfe98e9e599b3df80517aea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "6",
+        "sha256": "895c2c11ef198253d89640e0590507f909e8e90f160f8a674ea705fa708c6e9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "7",
+        "sha256": "ca64b64f2734fb33329d77d5bf92401d5d75174f44b9289cd566fcd1bc8a31aa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "8",
+        "sha256": "0f418309b5b1b210de7f2fbe90ae2dc3dcb8f2dc3edd4427c3bb0e25f2ae0615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "beacon-copy-and-blanking",
+      "mechanic-rule"
+    ],
+    "family_id": "beacon-copy-and-blanking",
+    "domain": "Activity",
+    "triggers": [
+      "DiceFaceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "beacon-set",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewBeaconPlacement",
+        "source_fact": "beacon placement",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewCopyTarget",
+        "source_fact": "copy target",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewBlanking",
+        "source_fact": "blanking",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewSimultaneousOrdering",
+        "source_fact": "simultaneous ordering",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.beacon-copy-and-blanking"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.communing-choice",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "communing-choice Mechanic Rule",
+    "name_zh_cn": "communing-choice 机制规则",
+    "summary_en": "communing-choice preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "communing-choice 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstorybranch-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
+        "locator": "7",
+        "sha256": "2b8e8bf3f3ec99ba6c2e7312d7c65376bfaf7e57699c598b69f1633900ed8abf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+        "replacement_condition": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "communing-choice",
+      "mechanic-rule"
+    ],
+    "family_id": "communing-choice",
+    "domain": "Activity",
+    "triggers": [
+      "CommuningChoiceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "aeon-choice-counters",
+        "owner": "Activity"
+      },
+      {
+        "id": "communing-cabinet",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewAeonEligibility",
+        "source_fact": "Aeon eligibility",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewChoiceOrder",
+        "source_fact": "choice order",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewPointChanges",
+        "source_fact": "point changes",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewSimultaneousUnlock",
+        "source_fact": "simultaneous unlock",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.communing-choice"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.communing-dimension-points",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "communing-dimension-points Mechanic Rule",
+    "name_zh_cn": "communing-dimension-points 机制规则",
+    "summary_en": "communing-dimension-points preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "communing-dimension-points 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondimension-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDimension.json",
+        "locator": "0",
+        "sha256": "d5d014d693473919cf0f86e2f9a45ad753aa6b359dbd18ebbc43d5916cd8cbb1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-rogueaeondisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueAeonDisplay.json",
+        "locator": "0",
+        "sha256": "903217e07adf494d6581cdb8ea104c48dfdbca4387c8b309526bcb632a472f5e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.communing-dimensions",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "communing-dimensions",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+        "replacement_condition": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-cabinets",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-cabinets",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+        "replacement_condition": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
+      }
+    ],
+    "tags": [
+      "communing-dimension-points",
+      "mechanic-rule"
+    ],
+    "family_id": "communing-dimension-points",
+    "domain": "Activity",
+    "triggers": [
+      "CommuningPointAdjustmentAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "communing-dimension-points",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewPointAddition",
+        "source_fact": "point addition",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewCap",
+        "source_fact": "cap",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewCarry",
+        "source_fact": "carry",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewDimensionThreshold",
+        "source_fact": "dimension threshold",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.communing-dimension-points"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.countdown-lifecycle",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "countdown-lifecycle Mechanic Rule",
+    "name_zh_cn": "countdown-lifecycle 机制规则",
+    "summary_en": "countdown-lifecycle preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "countdown-lifecycle 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "0",
+        "sha256": "02bb9df9144e2efdebe34b19511358d9f84879b10f895a00dc4fa6a7b427bb15",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "2",
+        "sha256": "ca3a0fe281e41233fd424404c5d49c7da832e014cd30666bdfe3f2634725fa7d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "3",
+        "sha256": "122eb969445ab8aa970f1c373884c131e822b7cba93c53ab735613410542e348",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "4",
+        "sha256": "314d3c045558a25b1af2f7963178a2335e367196e86402dc8398872afdccd6f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "5",
+        "sha256": "fef8a8d625ba460bce48be5808c33c17f4ae687dabb0c2eb76e2a53c1464e69e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "6",
+        "sha256": "178edb0146af546b652049fdc6cf6fa0dee4c9eb8e6b8704cdf678b005cc2652",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "7",
+        "sha256": "8bc6e56295c8b8d81cbe77a4cfeb6c35df2f2295c66f18feda0c282474ff5291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "8",
+        "sha256": "a0a714e9d6c8dadfd8601e519f4e560f9234b95086b872398eb308c2c3f581ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "9",
+        "sha256": "c2ffe4b0611a50110a522ec64cc9926db9dd3623eef42d6cf52702e019d50b36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "10",
+        "sha256": "3e47917357d182af21fc0ac0564c90f0e9fd75451f26d09261eb72d4301b5c54",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "11",
+        "sha256": "b9e92aee8a7aaff071539e04409a28e903b9f7c8793245511e62cbccffd36fe7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "12",
+        "sha256": "29c2e8e5afdda93639d66804e9cd381c02a4beea875403bbf9d2365968e5bfc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "13",
+        "sha256": "fefa12a4353faec2d71d61342ce69601191c29a50fec002f70bf28d394de4abb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "14",
+        "sha256": "09c8da1add87a2caf5d53333d976bebd59b76b71018549c64c258eb811a5a179",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "15",
+        "sha256": "eecb674576e74cd6e1efab8e60deeea068eb0330663d2b0cc2930cb9a5d978ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "16",
+        "sha256": "81d86c62cecb2343cc402102efe6296d6acc5ebad389e31418fd83133e13087c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "17",
+        "sha256": "655dc47b7428cf28dde26f1a086fadd2919ac3447ca2a452db6842ff4aa6f231",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "18",
+        "sha256": "19b028167a95401383d8ba17bc2f891f41b48e224d680c2d15205cde48f18e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "4",
+        "sha256": "5cdd85f535d698083ef4b7aacb32485e483b9e5f854a019baf85727449ff6abc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "6",
+        "sha256": "9d8d78ef6326a614f4f7c3d704b168e8460bb25c8061c7eef4e5cfedb961dd2f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapen-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11306203113396055939",
+        "sha256": "79485bd172d924f3867892a5794f95f321aa263f8a8ae3940e6b719780e4ef4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapchs-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11306203113396055939",
+        "sha256": "1916e07dea4f2530480d828ea0afa887da675ff03a2d4c44d9c42c000c81dddf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.countdown-and-disarray",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "countdown-and-disarray",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
+        "replacement_condition": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
+      }
+    ],
+    "tags": [
+      "countdown-lifecycle",
+      "mechanic-rule"
+    ],
+    "family_id": "countdown-lifecycle",
+    "domain": "Activity",
+    "triggers": [
+      "RunStarted",
+      "MapMoveAccepted",
+      "PlaneTransitioned"
+    ],
+    "state_slots": [
+      {
+        "id": "countdown",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewInitialValue",
+        "source_fact": "initial value",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewMovementDelta",
+        "source_fact": "movement delta",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewClamp",
+        "source_fact": "clamp",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewPlaneCarry",
+        "source_fact": "plane carry",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.countdown-lifecycle"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.dice-face-targeting",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "dice-face-targeting Mechanic Rule",
+    "name_zh_cn": "dice-face-targeting 机制规则",
+    "summary_en": "dice-face-targeting preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "dice-face-targeting 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "1",
+        "sha256": "143276f384940ffb618042f791ce39f97ba4aa615e8eede0131b8c4ce69934ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "0",
+        "sha256": "3a8d541eb569829752e6a43da878fc77cc0f3899444e632531a55273c4bdc90e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-target-rules",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-target-rules",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+        "replacement_condition": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
+      }
+    ],
+    "tags": [
+      "dice-face-targeting",
+      "mechanic-rule"
+    ],
+    "family_id": "dice-face-targeting",
+    "domain": "Activity",
+    "triggers": [
+      "DiceFaceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "dice-result",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewRarity",
+        "source_fact": "rarity",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewActivationStage",
+        "source_fact": "activation stage",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewOrderedTargets",
+        "source_fact": "ordered targets",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewNoLegalTarget",
+        "source_fact": "no legal target",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.dice-face-targeting"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.dice-roll-reroll-cheat",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "dice-roll-reroll-cheat Mechanic Rule",
+    "name_zh_cn": "dice-roll-reroll-cheat 机制规则",
+    "summary_en": "dice-roll-reroll-cheat preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "dice-roll-reroll-cheat 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "9",
+        "sha256": "1d848cb8f6f95b5e0e9e8b540aae0c78806fadcaad568f600ce95409ab3bedba",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.dice-roll-controls",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "dice-roll-controls",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+        "replacement_condition": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
+      }
+    ],
+    "tags": [
+      "dice-roll-reroll-cheat",
+      "mechanic-rule"
+    ],
+    "family_id": "dice-roll-reroll-cheat",
+    "domain": "Activity",
+    "triggers": [
+      "DiceRolled",
+      "DiceRerolled",
+      "DiceCheatRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "dice-result",
+        "owner": "Activity"
+      },
+      {
+        "id": "reroll-charges",
+        "owner": "Activity"
+      },
+      {
+        "id": "cheat-charges",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewRollResult",
+        "source_fact": "roll result",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewRerollConsumption",
+        "source_fact": "reroll consumption",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewCheatReplacement",
+        "source_fact": "cheat replacement",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewResultOrdering",
+        "source_fact": "result ordering",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.dice-roll-reroll-cheat"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.domain-replacement",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "domain-replacement Mechanic Rule",
+    "name_zh_cn": "domain-replacement 机制规则",
+    "summary_en": "domain-replacement preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "domain-replacement 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_2.json",
+        "locator": "RogueChestGridItemMap/202",
+        "sha256": "963df37fd1ad88fd7e22c0079a81313f71de2731757af90959171104fff250e7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeondicesurface-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
+        "locator": "6",
+        "sha256": "895c2c11ef198253d89640e0590507f909e8e90f160f8a674ea705fa708c6e9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-consequences",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology-consequences",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+        "replacement_condition": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
+      }
+    ],
+    "tags": [
+      "domain-replacement",
+      "mechanic-rule"
+    ],
+    "family_id": "domain-replacement",
+    "domain": "Activity",
+    "triggers": [
+      "DiceFaceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "domain-kind",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewEligibleDomainSet",
+        "source_fact": "eligible domain set",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewReplacementOrder",
+        "source_fact": "replacement order",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewNoLegalReplacement",
+        "source_fact": "no legal replacement",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.domain-replacement"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.occurrence-choice",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "occurrence-choice Mechanic Rule",
+    "name_zh_cn": "occurrence-choice 机制规则",
+    "summary_en": "occurrence-choice preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "occurrence-choice 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedialogueoptiondisplay-json.41",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDialogueOptionDisplay.json",
+        "locator": "41",
+        "sha256": "8e7d5ff1ec633c1cb892eb940519bba4d1e4201763607ac08515afbccba1f986",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguedialogue-event0110301-opt0110301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueDialogue/Event0110301/Opt0110301.json",
+        "locator": "root",
+        "sha256": "e32b7c78473ded8449d1998ff0ce5766d4282a209b6265ec63d831737c0774ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-level-rogue-roguenpc-roguenpc110301-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Level/Rogue/RogueNPC/RogueNPC110301.json",
+        "locator": "root",
+        "sha256": "f545c79e90bf6d5c9537cbb67925906e2968e7e8a9e06ae0cd6f323c0f323e0c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookevent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandBookEvent.json",
+        "locator": "4",
+        "sha256": "9d1ca3ae401e2290712ed29b96ea1b5303f74dfdc7c2ba59d961091f2fd7864f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguenpc-json.99",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNPC.json",
+        "locator": "99",
+        "sha256": "7b3a679a6f218d41f5eceba3542f0bdd7812a05db528d80e02aa2a8b80e0a08b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "occurrence-choice"
+    ],
+    "family_id": "occurrence-choice",
+    "domain": "Activity",
+    "triggers": [
+      "OccurrenceChoiceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "occurrence-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "run-inventory",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "Review100000SeriesVariant",
+        "source_fact": "100000-series variant",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewCondition",
+        "source_fact": "condition",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewCost",
+        "source_fact": "cost",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewOrderedResult",
+        "source_fact": "ordered result",
+        "unresolved_behavior": "NotApplicable"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.occurrence-choice"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.path-and-propagation-unlock",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "path-and-propagation-unlock Mechanic Rule",
+    "name_zh_cn": "path-and-propagation-unlock 机制规则",
+    "summary_en": "path-and-propagation-unlock preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "path-and-propagation-unlock 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "0",
+        "sha256": "888a93f8735683c2957a88634f065ab0386fe20c67005122cab413a56c053a3f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcunlock-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCUnlock.json",
+        "locator": "7",
+        "sha256": "9c18d347895bc688c76291201aca4123e83a9a3ef7f68c3ab7af37c803428159",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcfinishway-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCFinishWay.json",
+        "locator": "7",
+        "sha256": "c4028b8cd7fc6b039a79d90ac5c76be19fabfed8b9ae60e96eec66ce32433b9e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-unlocks",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-unlocks",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding.",
+        "replacement_condition": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmainstory-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMainStory.json",
+        "locator": "3",
+        "sha256": "f1da2ddcc77b1aee19ae937d03e6ee103113b1092b143d3686480437459f421e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "mechanical-chapter-locators",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+        "replacement_condition": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "path-and-propagation-unlock"
+    ],
+    "family_id": "path-and-propagation-unlock",
+    "domain": "Activity",
+    "triggers": [
+      "MechanicalChapterRequirementSatisfied"
+    ],
+    "state_slots": [
+      {
+        "id": "available-paths",
+        "owner": "Activity"
+      },
+      {
+        "id": "mechanical-chapters",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewMechanicalChapterLocator",
+        "source_fact": "mechanical chapter locator",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewPathUnlock",
+        "source_fact": "Path unlock",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewPropagationAvailability",
+        "source_fact": "Propagation availability",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.path-and-propagation-unlock"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.pathstrider-progress",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "pathstrider-progress Mechanic Rule",
+    "name_zh_cn": "pathstrider-progress 机制规则",
+    "summary_en": "pathstrider-progress preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "pathstrider-progress 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncabinet-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCabinet.json",
+        "locator": "0",
+        "sha256": "c849c6bf2fffb2007d89dffc9943c7592f8ce0c648883024b1bf2a6f6e0ba887",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-objectives",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-objectives",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion.",
+        "replacement_condition": "Replace the external quest condition and commit boundary if released quest evaluator data exposes the authoritative progress event and ordering."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcfinishway-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCFinishWay.json",
+        "locator": "0",
+        "sha256": "9d5c6f312c2876142a87e9c164ff4919ebdf515505ad404001230e55587cf9fe",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcunlock-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCUnlock.json",
+        "locator": "0",
+        "sha256": "c8e66488d377c981826e1760925ce42103824d353abecbdbf1ea4a678af9c545",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.pathstrider-unlocks",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "pathstrider-unlocks",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding.",
+        "replacement_condition": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics."
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "pathstrider-progress"
+    ],
+    "family_id": "pathstrider-progress",
+    "domain": "Activity",
+    "triggers": [
+      "ActivityOperationCommitted"
+    ],
+    "state_slots": [
+      {
+        "id": "pathstrider-progress",
+        "owner": "Activity"
+      },
+      {
+        "id": "pathstrider-unlocks",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewFinishCondition",
+        "source_fact": "finish condition",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewProgressUpdate",
+        "source_fact": "progress update",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewComparison",
+        "source_fact": "comparison",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewUnlockConsequence",
+        "source_fact": "unlock consequence",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.pathstrider-progress"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.profile-entry",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "profile-entry Mechanic Rule",
+    "name_zh_cn": "profile-entry 机制规则",
+    "summary_en": "profile-entry preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "profile-entry 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows.",
+        "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "4",
+        "sha256": "73d94dadf0c661998f2cac431b7d46fa8cffba23c674c9aa09265ee512f1a78b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "5",
+        "sha256": "fd167f8877f9acda38ae18484daa4d16afef190284ae3581628cecc683f0d1c1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "6",
+        "sha256": "c20c82058d689d94e02e47edc19e18126ca2deb2a6f46516c063d6c3235ae28a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "7",
+        "sha256": "7955200838ee93d1562e122211c00fd6b3bd220bf384f9c0d1a2df5cd6a1097f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "6",
+        "sha256": "e73388d9e8aafd32dbb46b0bb4d6ac11fd3da579d52024909d3558f95f57b50a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "trailblaze-bonus-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+        "replacement_condition": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "7",
+        "sha256": "dd6500b1e491a40b23533e7e30349ad446ec718de524e5488cb6fb8f47268541",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "8",
+        "sha256": "e0f6fd1f446ceb2f818e04bd08913c41ce5feef35daf59a9958a1760bd3ca983",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "9",
+        "sha256": "316661a3bdec9fa67993df6ea7e5bfbdea439243fba56f56230941e70e95ac6e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "10",
+        "sha256": "e728726a81294c223ea6029fd6b807eee99edccd2ab057b5903a5b8dd580aab9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebonus-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBonus.json",
+        "locator": "11",
+        "sha256": "1e84c5f545fd4af31885a5d9e424eb0c85bbd16035e57b5df48cab91df78a2b6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "profile-entry"
+    ],
+    "family_id": "profile-entry",
+    "domain": "Activity",
+    "triggers": [
+      "RunEntryRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "profile",
+        "owner": "Activity"
+      },
+      {
+        "id": "difficulty",
+        "owner": "Activity"
+      },
+      {
+        "id": "entry-bonus",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewEntryEligibility",
+        "source_fact": "entry eligibility",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewFiveFormalDifficulties",
+        "source_fact": "five Formal difficulties",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewBonus101106Ownership",
+        "source_fact": "bonus 101-106 ownership",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.profile-entry"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.service-and-adventure",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "service-and-adventure Mechanic Rule",
+    "name_zh_cn": "service-and-adventure 机制规则",
+    "summary_en": "service-and-adventure preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "service-and-adventure 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "6",
+        "sha256": "e0d8b7c55f73ca1bb38e48cbee9e2ffbd15674dea96f145dc72231e590d33c41",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "1",
+        "sha256": "e536c099711155e797462c152e7a68ce61982fc1c30bd18ff153edf26a58e77a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "1",
+        "sha256": "349dbe0189b019b2032f182cad8df1f7070a3bc1e615c0acc077d922591e0929",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "abstract-adventure-outcome",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+        "replacement_condition": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "service-and-adventure"
+    ],
+    "family_id": "service-and-adventure",
+    "domain": "Activity",
+    "triggers": [
+      "ServicePurchaseAccepted",
+      "AdventureOutcomeOffered"
+    ],
+    "state_slots": [
+      {
+        "id": "cosmic-fragments",
+        "owner": "Activity"
+      },
+      {
+        "id": "run-inventory",
+        "owner": "Activity"
+      },
+      {
+        "id": "external-outcome",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewEligibility",
+        "source_fact": "eligibility",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewPriceOrAbstractTier",
+        "source_fact": "price or abstract tier",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewOfferedResultBoundary",
+        "source_fact": "offered result boundary",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.service-and-adventure"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.topology-event-order",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "topology-event-order Mechanic Rule",
+    "name_zh_cn": "topology-event-order 机制规则",
+    "summary_en": "topology-event-order preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "topology-event-order 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechesteventmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueChestEventMap/202",
+        "sha256": "5ef9beeb0aca9e11d5818d8d47b25acad94d125a61dc641ec2430ff14208cb0c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.rogueblockcreategrouplist-1011101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueBlockCreateGroupList/1011101",
+        "sha256": "e5549c2bea4731c5b1db9ead0bfa155ef01d62a7ccc05e78c0e6b88740aca58f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "topology-event-order"
+    ],
+    "family_id": "topology-event-order",
+    "domain": "Activity",
+    "triggers": [
+      "TopologyEventMatched"
+    ],
+    "state_slots": [
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "topology-event-queue",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewTriggerMatching",
+        "source_fact": "trigger matching",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewWeightOrdering",
+        "source_fact": "weight ordering",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewReplacementOrShuffleOrder",
+        "source_fact": "replacement or shuffle order",
+        "unresolved_behavior": "NotApplicable"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.topology-event-order"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.topology-generation",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "topology-generation Mechanic Rule",
+    "name_zh_cn": "topology-generation 机制规则",
+    "summary_en": "topology-generation preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "topology-generation 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcchessboard-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCChessBoard.json",
+        "locator": "0",
+        "sha256": "6fd520d8395e435f7d7345b16cfe7d5f6a4207ce96e267b45b47e8403d42079e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.root",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "root",
+        "sha256": "3bce5f7cf73891d0ef9c323a4618c24620533b95082e029b6b0d312b74a83eb3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/201",
+        "sha256": "76de3b78fafe47b8c94b3dfdd2d920d1d6c9e4bfe380973b7f5bdcad36a03e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/101",
+        "sha256": "53046f5301b373f84e368dc4cf00d09e89677c805f70487aa1e424e77809d334",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/202",
+        "sha256": "e241bd65b0941149df0da4ee49ccde771ee2486df7db0629390d16ebd622cfe2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.topology-policy",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "topology_policy",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges.",
+        "replacement_condition": "Replace when released explicit edges or a verified engine graph builder becomes available."
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "topology-generation"
+    ],
+    "family_id": "topology-generation",
+    "domain": "Activity",
+    "triggers": [
+      "PlaneGraphRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "plane-graph",
+        "owner": "Activity"
+      },
+      {
+        "id": "current-node",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewColumnOrder",
+        "source_fact": "column order",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewProjectpolicyEdgeDerivation",
+        "source_fact": "ProjectPolicy edge derivation",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewStartEndBehavior",
+        "source_fact": "start/end behavior",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewUnspecifiedDomainFallback",
+        "source_fact": "Unspecified domain fallback",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.topology-generation"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.boss-choice-consequence",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "boss-choice-consequence Mechanic Rule",
+    "name_zh_cn": "boss-choice-consequence 机制规则",
+    "summary_en": "boss-choice-consequence preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "boss-choice-consequence 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "0",
+        "sha256": "0667c9293e6aa382b61d4319b00277c97719154f21a9c1e98f345ea80687659f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-monsterconfig-json.2277",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/MonsterConfig.json",
+        "locator": "2277",
+        "sha256": "f9b59d416c7947ca5ba5b410789ba5877a85339c05cfa57f9a5e3581e6067bfa",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-choices",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss_choices",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3.",
+        "replacement_condition": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "boss-choice-consequence",
+      "mechanic-rule"
+    ],
+    "family_id": "boss-choice-consequence",
+    "domain": "CrossBattle",
+    "triggers": [
+      "PlaneBossChoiceAccepted"
+    ],
+    "state_slots": [
+      {
+        "id": "boss-choice-set",
+        "owner": "Activity"
+      },
+      {
+        "id": "final-boss-contributions",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewBossChoice",
+        "source_fact": "boss choice",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewWeaknessConsequence",
+        "source_fact": "weakness consequence",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewLaterBossBinding",
+        "source_fact": "later boss binding",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.boss-choice-consequence"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.boss-decay-stack",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "boss-decay-stack Mechanic Rule",
+    "name_zh_cn": "boss-decay-stack 机制规则",
+    "summary_en": "boss-decay-stack preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "boss-decay-stack 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "0",
+        "sha256": "f88ef87540aec567fb26396706a08f4dfb3b3a5ff2caece9e8416111f273f6e3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "1",
+        "sha256": "321d416495cf4a986cfd6f8172652577a3f882fa688be34ec78bfb84d3a60259",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "2",
+        "sha256": "e3407d5e24d9af18f3da77cf17b8bbdcf9f4dafbea02695edcdbd532e62e4009",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "boss-decay-stack",
+      "mechanic-rule"
+    ],
+    "family_id": "boss-decay-stack",
+    "domain": "CrossBattle",
+    "triggers": [
+      "PlaneBossChoiceAccepted",
+      "FinalBossBattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "boss-decay-selection-set",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewTierThreshold",
+        "source_fact": "tier threshold",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewStacking",
+        "source_fact": "stacking",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewCap",
+        "source_fact": "cap",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewBossEffectOrder",
+        "source_fact": "boss effect order",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.boss-decay-stack"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.communing-trail-effect",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "communing-trail-effect Mechanic Rule",
+    "name_zh_cn": "communing-trail-effect 机制规则",
+    "summary_en": "communing-trail-effect preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "communing-trail-effect 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeontalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonTalent.json",
+        "locator": "0",
+        "sha256": "974383e8280185912de908224c409496aafca9ba855390a42630bd6464c18b44",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "communing-trail-effect",
+      "mechanic-rule"
+    ],
+    "family_id": "communing-trail-effect",
+    "domain": "CrossBattle",
+    "triggers": [
+      "CommuningTrailNodeUnlocked",
+      "BattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "communing-trail-unlocks",
+        "owner": "Activity"
+      },
+      {
+        "id": "battle-contributions",
+        "owner": "Battle"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewPrerequisite",
+        "source_fact": "prerequisite",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewThreshold",
+        "source_fact": "threshold",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewRunContribution",
+        "source_fact": "run contribution",
+        "unresolved_behavior": "NotApplicable"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewBattleProjection",
+        "source_fact": "battle projection",
+        "unresolved_behavior": "NotApplicable"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.communing-trail-effect"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.curio-lifecycle",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "curio-lifecycle Mechanic Rule",
+    "name_zh_cn": "curio-lifecycle 机制规则",
+    "summary_en": "curio-lifecycle preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "curio-lifecycle 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-curios-json.12",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/curios.json",
+        "locator": "12",
+        "sha256": "39163a9d2f6a62c7ac046269d0de1e7a2e5a57a6dc98728c39d2024111b70520",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguehandbookmiracle-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueHandbookMiracle.json",
+        "locator": "0",
+        "sha256": "6b1f268bae65e61df906d3824fbe2578248586b70184032adcf81c9c2bd1371b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemiracle-json.74",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracle.json",
+        "locator": "74",
+        "sha256": "afa026c5c9844d133fbd9707b9fc4396a310a9e91fb3d3859ed481654cf101ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemiracledisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleDisplay.json",
+        "locator": "0",
+        "sha256": "1503c01c4ca7e571fa26d68bb8058177be4444a7926ce4e9e1a6a704d9f9b222",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemiracleeffect-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffect.json",
+        "locator": "72",
+        "sha256": "474dc0664543c7fe1ceff1981c8a870d979d95238d99ee3dc849aa46d7a4aaf2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemiracleeffectdisplay-json.72",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMiracleEffectDisplay.json",
+        "locator": "72",
+        "sha256": "0486f29bfcb876d18db009cbd0b0f7d9587db5447d5e56ab13d89d384f318792",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.curio-selection-and-lifecycle",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "curio-selection-and-lifecycle",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order.",
+        "replacement_condition": "Replace offer filters, trigger ordering or replacement selection when released pool/controller evidence supplies authoritative behavior."
+      }
+    ],
+    "tags": [
+      "curio-lifecycle",
+      "mechanic-rule"
+    ],
+    "family_id": "curio-lifecycle",
+    "domain": "CrossBattle",
+    "triggers": [
+      "CurioGranted",
+      "BattleCompleted",
+      "CurioRepairRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "curio-inventory",
+        "owner": "Activity"
+      },
+      {
+        "id": "curio-state",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "Review1000SeriesModeCopy",
+        "source_fact": "1000-series mode copy",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewChargesOrState",
+        "source_fact": "charges or state",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewRepairOrReplacement",
+        "source_fact": "repair or replacement",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.curio-lifecycle"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.encounter-selection",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "encounter-selection Mechanic Rule",
+    "name_zh_cn": "encounter-selection 机制规则",
+    "summary_en": "encounter-selection preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "encounter-selection 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguemonstergroup-json.351",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonsterGroup.json",
+        "locator": "351",
+        "sha256": "29a2a405c27090321f044d7f23398068644c36bb235e9c72c69cde69fbed807a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-difficulty-binding",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-difficulty-binding",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved.",
+        "replacement_condition": "Replace when released engine code exposes the exact battle-level selection and override sequence."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemonster-json.697",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonster.json",
+        "locator": "697",
+        "sha256": "6593cbc408e22cff7f775e077701c76e1a37eb1268a884e45a97c487c5e8879e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-stageconfig-json.7623",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/StageConfig.json",
+        "locator": "7623",
+        "sha256": "36320c5e576fb97ee6508a6a0a2f8ffd930bae1280fadb405e96df9a9615e6dd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2484",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2484",
+        "sha256": "4d8a97341591279b29d25194a884d480fb54983da5214232dddd8e9f7035a1e8",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-v4-4-enemy-variants-json.2521",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/v4.4/enemy-variants.json",
+        "locator": "2521",
+        "sha256": "4435e714d052989e683a331f9be3b6dc2c7a774139795a0f02225495f9501476",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.0",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "0",
+        "sha256": "da5b05d5f3be7a408e96e0ffc768ae8b523e615a5d9a0a6ce63935a5c24a7b67",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "encounter-selection",
+      "mechanic-rule"
+    ],
+    "family_id": "encounter-selection",
+    "domain": "CrossBattle",
+    "triggers": [
+      "BattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "resolved-domain",
+        "owner": "Activity"
+      },
+      {
+        "id": "difficulty-segment",
+        "owner": "Activity"
+      },
+      {
+        "id": "encounter-selection",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewRoomParent",
+        "source_fact": "room parent",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewWeightedGroup",
+        "source_fact": "weighted group",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewWaveAndEnemySlot",
+        "source_fact": "wave and enemy slot",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewBossAlternative",
+        "source_fact": "boss alternative",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.encounter-selection"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.final-boss-consequence",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "final-boss-consequence Mechanic Rule",
+    "name_zh_cn": "final-boss-consequence 机制规则",
+    "summary_en": "final-boss-consequence preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "final-boss-consequence 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguemonstergroup-json.386",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMonsterGroup.json",
+        "locator": "386",
+        "sha256": "c89788964f1f369d1275dd02c53b664795eddf1596bf8f0259f88f98301db3da",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-selection",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-selection",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+        "replacement_condition": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
+      },
+      {
+        "source_id": "source.goal09.project-policy.encounter-difficulty-binding",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "encounter-difficulty-binding",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved.",
+        "replacement_condition": "Replace when released engine code exposes the exact battle-level selection and override sequence."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-swarm-disaster-v1-boss-choices-json.1",
+        "repository": "starclock",
+        "revision": "goal01-enemy-reference-v4.4",
+        "path": "content-reference/swarm-disaster-v1/boss-choices.json",
+        "locator": "1",
+        "sha256": "c6069b9d4731da4f865b8436365bf55a3294da356b932f5e9a84ee21b91e79fc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcarea-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCArea.json",
+        "locator": "3",
+        "sha256": "1c9545355dc9262638ab5d8433bbb2e456eb650ec3df218b3856e1e17af814c9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-paths-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/paths.json",
+        "locator": "0",
+        "sha256": "888a93f8735683c2957a88634f065ab0386fe20c67005122cab413a56c053a3f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeon.json",
+        "locator": "0",
+        "sha256": "2b12054f75d72e50923c1cbbc523e0ac2f2f8c12818899465e783ebf56286fdb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "6",
+        "sha256": "aa81e627b5bd8030b0d79ba3cbaff2b08416c3a4e4c402d11e1689409c03e5b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "61",
+        "sha256": "959241a5553e9f003153345af781ce48ee082403c4258911135162e25b5a25fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "39",
+        "sha256": "3efe4c21d11b51dca54e6acae60dd4611d5f946a46d10500ae967a8b72afb615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.331",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "331",
+        "sha256": "1a0708820925ed5c2f2f4792f23bc374393a572102de79ac51122daaeca8a784",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "0",
+        "sha256": "02bb9df9144e2efdebe34b19511358d9f84879b10f895a00dc4fa6a7b427bb15",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "2",
+        "sha256": "ca3a0fe281e41233fd424404c5d49c7da832e014cd30666bdfe3f2634725fa7d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "3",
+        "sha256": "122eb969445ab8aa970f1c373884c131e822b7cba93c53ab735613410542e348",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "4",
+        "sha256": "314d3c045558a25b1af2f7963178a2335e367196e86402dc8398872afdccd6f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "5",
+        "sha256": "fef8a8d625ba460bce48be5808c33c17f4ae687dabb0c2eb76e2a53c1464e69e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "6",
+        "sha256": "178edb0146af546b652049fdc6cf6fa0dee4c9eb8e6b8704cdf678b005cc2652",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "7",
+        "sha256": "8bc6e56295c8b8d81cbe77a4cfeb6c35df2f2295c66f18feda0c282474ff5291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "8",
+        "sha256": "a0a714e9d6c8dadfd8601e519f4e560f9234b95086b872398eb308c2c3f581ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "9",
+        "sha256": "c2ffe4b0611a50110a522ec64cc9926db9dd3623eef42d6cf52702e019d50b36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "10",
+        "sha256": "3e47917357d182af21fc0ac0564c90f0e9fd75451f26d09261eb72d4301b5c54",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "11",
+        "sha256": "b9e92aee8a7aaff071539e04409a28e903b9f7c8793245511e62cbccffd36fe7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "12",
+        "sha256": "29c2e8e5afdda93639d66804e9cd381c02a4beea875403bbf9d2365968e5bfc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "13",
+        "sha256": "fefa12a4353faec2d71d61342ce69601191c29a50fec002f70bf28d394de4abb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "14",
+        "sha256": "09c8da1add87a2caf5d53333d976bebd59b76b71018549c64c258eb811a5a179",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "15",
+        "sha256": "eecb674576e74cd6e1efab8e60deeea068eb0330663d2b0cc2930cb9a5d978ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "16",
+        "sha256": "81d86c62cecb2343cc402102efe6296d6acc5ebad389e31418fd83133e13087c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "17",
+        "sha256": "655dc47b7428cf28dde26f1a086fadd2919ac3447ca2a452db6842ff4aa6f231",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "18",
+        "sha256": "19b028167a95401383d8ba17bc2f891f41b48e224d680c2d15205cde48f18e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "4",
+        "sha256": "5cdd85f535d698083ef4b7aacb32485e483b9e5f854a019baf85727449ff6abc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "6",
+        "sha256": "9d8d78ef6326a614f4f7c3d704b168e8460bb25c8061c7eef4e5cfedb961dd2f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapen-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11306203113396055939",
+        "sha256": "79485bd172d924f3867892a5794f95f321aa263f8a8ae3940e6b719780e4ef4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapchs-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11306203113396055939",
+        "sha256": "1916e07dea4f2530480d828ea0afa887da675ff03a2d4c44d9c42c000c81dddf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.countdown-and-disarray",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "countdown-and-disarray",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
+        "replacement_condition": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcbossdecay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCBossDecay.json",
+        "locator": "0",
+        "sha256": "f88ef87540aec567fb26396706a08f4dfb3b3a5ff2caece9e8416111f273f6e3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.boss-decay-levels",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "boss-decay-levels",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+        "replacement_condition": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
+      }
+    ],
+    "tags": [
+      "final-boss-consequence",
+      "mechanic-rule"
+    ],
+    "family_id": "final-boss-consequence",
+    "domain": "CrossBattle",
+    "triggers": [
+      "FinalBossBattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "final-boss-selection",
+        "owner": "Activity"
+      },
+      {
+        "id": "boss-decay-selection-set",
+        "owner": "Activity"
+      },
+      {
+        "id": "active-interplays",
+        "owner": "Activity"
+      },
+      {
+        "id": "planar-disarray-tier",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewBossPool",
+        "source_fact": "boss pool",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewPriorChoiceState",
+        "source_fact": "prior choice state",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewPropagationOrInterplayContribution",
+        "source_fact": "Propagation or Interplay contribution",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewDisarrayContribution",
+        "source_fact": "Disarray contribution",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.final-boss-consequence"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.planar-disarray-transition",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "planar-disarray-transition Mechanic Rule",
+    "name_zh_cn": "planar-disarray-transition 机制规则",
+    "summary_en": "planar-disarray-transition preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "planar-disarray-transition 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "0",
+        "sha256": "02bb9df9144e2efdebe34b19511358d9f84879b10f895a00dc4fa6a7b427bb15",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "2",
+        "sha256": "ca3a0fe281e41233fd424404c5d49c7da832e014cd30666bdfe3f2634725fa7d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "3",
+        "sha256": "122eb969445ab8aa970f1c373884c131e822b7cba93c53ab735613410542e348",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "4",
+        "sha256": "314d3c045558a25b1af2f7963178a2335e367196e86402dc8398872afdccd6f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "5",
+        "sha256": "fef8a8d625ba460bce48be5808c33c17f4ae687dabb0c2eb76e2a53c1464e69e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "6",
+        "sha256": "178edb0146af546b652049fdc6cf6fa0dee4c9eb8e6b8704cdf678b005cc2652",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "7",
+        "sha256": "8bc6e56295c8b8d81cbe77a4cfeb6c35df2f2295c66f18feda0c282474ff5291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "8",
+        "sha256": "a0a714e9d6c8dadfd8601e519f4e560f9234b95086b872398eb308c2c3f581ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "9",
+        "sha256": "c2ffe4b0611a50110a522ec64cc9926db9dd3623eef42d6cf52702e019d50b36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "10",
+        "sha256": "3e47917357d182af21fc0ac0564c90f0e9fd75451f26d09261eb72d4301b5c54",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "11",
+        "sha256": "b9e92aee8a7aaff071539e04409a28e903b9f7c8793245511e62cbccffd36fe7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "12",
+        "sha256": "29c2e8e5afdda93639d66804e9cd381c02a4beea875403bbf9d2365968e5bfc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "13",
+        "sha256": "fefa12a4353faec2d71d61342ce69601191c29a50fec002f70bf28d394de4abb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "14",
+        "sha256": "09c8da1add87a2caf5d53333d976bebd59b76b71018549c64c258eb811a5a179",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "15",
+        "sha256": "eecb674576e74cd6e1efab8e60deeea068eb0330663d2b0cc2930cb9a5d978ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "16",
+        "sha256": "81d86c62cecb2343cc402102efe6296d6acc5ebad389e31418fd83133e13087c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "17",
+        "sha256": "655dc47b7428cf28dde26f1a086fadd2919ac3447ca2a452db6842ff4aa6f231",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "18",
+        "sha256": "19b028167a95401383d8ba17bc2f891f41b48e224d680c2d15205cde48f18e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "4",
+        "sha256": "5cdd85f535d698083ef4b7aacb32485e483b9e5f854a019baf85727449ff6abc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "6",
+        "sha256": "9d8d78ef6326a614f4f7c3d704b168e8460bb25c8061c7eef4e5cfedb961dd2f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapen-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11306203113396055939",
+        "sha256": "79485bd172d924f3867892a5794f95f321aa263f8a8ae3940e6b719780e4ef4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapchs-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11306203113396055939",
+        "sha256": "1916e07dea4f2530480d828ea0afa887da675ff03a2d4c44d9c42c000c81dddf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.countdown-and-disarray",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "countdown-and-disarray",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
+        "replacement_condition": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "planar-disarray-transition"
+    ],
+    "family_id": "planar-disarray-transition",
+    "domain": "CrossBattle",
+    "triggers": [
+      "MapMoveAccepted",
+      "BattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "countdown",
+        "owner": "Activity"
+      },
+      {
+        "id": "planar-disarray-tier",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewEntryBoundary",
+        "source_fact": "entry boundary",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewTierSelection",
+        "source_fact": "tier selection",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewSingleTransition",
+        "source_fact": "single transition",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewBattleProjection",
+        "source_fact": "battle projection",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.planar-disarray-transition"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  },
+  {
+    "id": "swarm-disaster.mechanic-rule.resonance-interplay",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmMechanicRule",
+    "name_en": "resonance-interplay Mechanic Rule",
+    "name_zh_cn": "resonance-interplay 机制规则",
+    "summary_en": "resonance-interplay preserves implementation-facing triggers, state ownership and ordered reference operations while remaining runtime-disabled.",
+    "summary_zh_cn": "resonance-interplay 保留面向实现的触发器、状态归属与有序资料操作，同时保持运行时禁用。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcaeoncross-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAeonCross.json",
+        "locator": "6",
+        "sha256": "aa81e627b5bd8030b0d79ba3cbaff2b08416c3a4e4c402d11e1689409c03e5b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuffgroup-json.61",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuffGroup.json",
+        "locator": "61",
+        "sha256": "959241a5553e9f003153345af781ce48ee082403c4258911135162e25b5a25fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguebuff-json.39",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueBuff.json",
+        "locator": "39",
+        "sha256": "3efe4c21d11b51dca54e6acae60dd4611d5f946a46d10500ae967a8b72afb615",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguemazebuff-json.331",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMazeBuff.json",
+        "locator": "331",
+        "sha256": "1a0708820925ed5c2f2f4792f23bc374393a572102de79ac51122daaeca8a784",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.path-resonance-boundaries",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "path-resonance-boundaries",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+        "replacement_condition": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
+      },
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-resonances-json.13",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/resonances.json",
+        "locator": "13",
+        "sha256": "3f9dcac061042534db011c29cf22114dff26c27bcbcbf2f5f13c3bcbdb0ad926",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mechanic-rule",
+      "resonance-interplay"
+    ],
+    "family_id": "resonance-interplay",
+    "domain": "CrossBattle",
+    "triggers": [
+      "BlessingInventoryMutationCommitted",
+      "BattleSpecRequested"
+    ],
+    "state_slots": [
+      {
+        "id": "blessing-inventory",
+        "owner": "Activity"
+      },
+      {
+        "id": "active-interplays",
+        "owner": "Activity"
+      }
+    ],
+    "program": [
+      {
+        "sequence": 1,
+        "operation": "ReviewMainPathThreshold",
+        "source_fact": "main Path threshold",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 2,
+        "operation": "ReviewSubPathThreshold",
+        "source_fact": "sub Path threshold",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 3,
+        "operation": "ReviewEffectBinding",
+        "source_fact": "effect binding",
+        "unresolved_behavior": "FailClosed"
+      },
+      {
+        "sequence": 4,
+        "operation": "ReviewActivationOrder",
+        "source_fact": "activation order",
+        "unresolved_behavior": "FailClosed"
+      }
+    ],
+    "fixture_ids": [
+      "swarm-disaster.fixture.resonance-interplay"
+    ],
+    "execution_disposition": "ReferenceOnly",
+    "runtime_handler_id": ""
+  }
+]
