@@ -104,7 +104,7 @@ const bonds = [
           ...context.bilingualTextRefs(String(entry.row.TraitName.Hash)),
           ...roleEntries.filter(({ row }) =>
             (row.TraitList ?? []).map(String).includes(id))
-            .map(context.sourceRef),
+            .map((member) => context.sourceRef(member)),
         ],
         tags: ["bond", "gridfight", "trait"],
       }),
@@ -144,7 +144,7 @@ const bonds = [
           ...context.bilingualTextRefs(String(entry.row.SubTraitName.Hash)),
           ...[...roleChoose, ...coreRoleChoose]
             .filter(({ row }) => String(row.SubTraitID) === id)
-            .map(context.sourceRef),
+            .map((member) => context.sourceRef(member)),
         ],
         tags: ["bond", "gridfight", "subtrait"],
       }),
@@ -276,7 +276,7 @@ const bonusEntries = await addContributionTable(
     effects: (row.BonusParamList ?? []).map((value) =>
       `Apply bonus parameter ${value}.`),
     extraRefs: (thresholdById.get(String(row.ID)) ?? [])
-      .map(context.sourceRef),
+      .map((member) => context.sourceRef(member)),
   }),
 );
 const effectEntries = await context.table("GridFightTraitEffect");

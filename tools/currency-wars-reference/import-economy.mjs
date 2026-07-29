@@ -141,7 +141,7 @@ const economyRules = [{
       "GridFight 编写每次刷新五张卡、两金币刷新、波次经验、升级费用、利息与前台/后台/备选区边界。",
     evidenceQuality: "ProjectPolicy",
     sourceRefs: [
-      ...economyConstants.map(context.sourceRef),
+      ...economyConstants.map((entry) => context.sourceRef(entry)),
       ...context.bilingualTextRefs("7693488975416237801"),
       economyPolicy,
     ],

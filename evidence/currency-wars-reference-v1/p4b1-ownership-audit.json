@@ -1,0 +1,57 @@
+{
+  "batch": "G12-P4-B1",
+  "result": "Pass",
+  "snapshot": {
+    "game_version": "4.4",
+    "turnbasedgamedata_revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres_revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "selector": {
+    "guide_type": "GridFight",
+    "guide_tab_id": 1003,
+    "guide_data_id": 301
+  },
+  "manifest": {
+    "category_count": 16,
+    "obligation_count": 19250,
+    "ownership_counts": {
+      "CurrencyWars": 18524,
+      "EvidenceOnly": 726
+    },
+    "reachability_counts": {
+      "DirectModeTable": 17508,
+      "ExcludedHistorical": 576,
+      "ExcludedPresentation": 150,
+      "ExplicitModeSelector": 2,
+      "SourceObligation": 1014
+    },
+    "sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef"
+  },
+  "coverage": {
+    "exact_once_count": 19250,
+    "data_ready": 18524,
+    "excluded": 726,
+    "unresolved": 0
+  },
+  "pack": {
+    "digest": "59f1124586670d513a703ff25691aa8625080cd0519af1af8f1f750ce3f4034f",
+    "index_chunk_count": 232
+  },
+  "normalized": {
+    "contract_file_count": 102,
+    "present_file_count": 102,
+    "nonempty_file_count": 85,
+    "empty_file_count": 17,
+    "row_count": 74836,
+    "globally_unique_id_count": 74836,
+    "bilingual_rows_audited": 74836,
+    "source_receipt_count": 37334,
+    "source_reference_count": 86014,
+    "policy_reference_count": 1019,
+    "unresolved_source_references": 0,
+    "other_mode_source_leaks": 0,
+    "runtime_enabled_or_lowered_rows": 0,
+    "unreleased_evidence_tags": 0,
+    "schema_sha256": "6a88c3981a69450b40ffd29e411f08d992d989829fbfe407e02193b72c3805fb"
+  }
+}

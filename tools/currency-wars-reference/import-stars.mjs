@@ -71,7 +71,7 @@ const states = roleStars.map((entry) => {
         `角色 ${entry.row.ID} 的 ${entry.row.Star} 星状态绑定战斗事件 ${entry.row.BEID}、${attachments.length} 个位阶附件与 ${entry.row.GeneralPropertyModifyList.length} 个属性修改。`,
       sourceRefs: [
         context.sourceRef(entry),
-        ...attachments.map(context.sourceRef),
+        ...attachments.map((attachment) => context.sourceRef(attachment)),
         ...publicStarRefs,
       ],
       tags: ["gridfight", "role-star", `star-${entry.row.Star}`],

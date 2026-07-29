@@ -77,7 +77,8 @@ const roleMappings = roles.map((entry) => {
       evidenceQuality: authoredPosition ? "ExactStructured" : "ProjectPolicy",
       sourceRefs: [
         context.sourceRef(entry),
-        ...displaysByRole[String(entry.row.ID)].map(context.sourceRef),
+        ...displaysByRole[String(entry.row.ID)]
+          .map((display) => context.sourceRef(display)),
         ...(authoredPosition ? [] : [omittedPositionPolicy]),
       ],
       tags: ["gridfight", "position", "role-mapping"],
@@ -234,7 +235,7 @@ async function addTableOverrides(tableName, ruleKind, make) {
     overrides.push({
       ...context.envelope({
         id:
-          `currency-wars.battle-override.${slug(tableName)}.${detail.id}.${entry.locator}`,
+          `currency-wars.battle-override.${slug(tableName)}.${slug(detail.id)}.${entry.locator}`,
         kind: "CurrencyWarsBattleOverride",
         nameEn: `${ruleKind} ${detail.id}`,
         nameZh: `${ruleKind} ${detail.id}`,

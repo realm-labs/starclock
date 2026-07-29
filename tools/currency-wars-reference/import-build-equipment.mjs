@@ -263,7 +263,7 @@ async function addEquipmentFamily(tableName, family, make) {
     equipmentRows.push({
       ...context.envelope({
         id:
-          `currency-wars.equipment.${slug(family)}.${detail.id}.${entry.locator}`,
+          `currency-wars.equipment.${slug(family)}.${slug(detail.id)}.${entry.locator}`,
         kind: "CurrencyWarsEquipment",
         nameEn: `${family} ${detail.id}`,
         nameZh: `${family} ${detail.id}`,

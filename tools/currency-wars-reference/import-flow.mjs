@@ -464,7 +464,7 @@ const layers = Object.values(layerGroups).map((entries) => {
         `Route ${first.ID} Plane ${first.ChapterID} contains ${entries.length} Nodes ordered by SectionID.`,
       summaryZh:
         `路线 ${first.ID} 的位面 ${first.ChapterID} 包含 ${entries.length} 个按 SectionID 排序的节点。`,
-      sourceRefs: entries.map(context.sourceRef),
+      sourceRefs: entries.map((entry) => context.sourceRef(entry)),
       tags: ["gridfight", "layer", `plane-${first.ChapterID}`],
     }),
     source_id: `${first.ID}:${first.ChapterID}`,
