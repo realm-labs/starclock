@@ -4,8 +4,18 @@
     "rows": [
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -42,6 +52,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.abstract-adventure-outcome"
+          },
+          "rationale": {
+            "String": "Keep abstract-adventure-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat abstract-adventure-outcome as exact without released evidence."
+              },
+              {
+                "String": "Borrow abstract-adventure-outcome from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace abstract result tiers when released structured reward/threshold tables become available without requiring action-minigame input simulation."
@@ -85,8 +108,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.audience-die-passive"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -123,6 +156,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.audience-dice"
+          },
+          "rationale": {
+            "String": "Keep audience-dice deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat audience-dice as exact without released evidence."
+              },
+              {
+                "String": "Borrow audience-dice from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace only the provisional roll policy fields when G09-P1-B5 or stronger released engine evidence supplies the exact operation."
@@ -166,8 +212,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.audience-die-passive"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -204,6 +260,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.audience-paths"
+          },
+          "rationale": {
+            "String": "Keep audience-paths deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat audience-paths as exact without released evidence."
+              },
+              {
+                "String": "Borrow audience-paths from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the slot-to-lifecycle mapping if released engine evidence identifies a different application boundary."
@@ -247,8 +316,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+              },
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -285,6 +367,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.beacons"
+          },
+          "rationale": {
+            "String": "Keep beacons deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat beacons as exact without released evidence."
+              },
+              {
+                "String": "Borrow beacons from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
@@ -328,8 +423,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-choice-consequence"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -366,6 +471,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.boss-choices"
+          },
+          "rationale": {
+            "String": "Keep boss_choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat boss_choices as exact without released evidence."
+              },
+              {
+                "String": "Borrow boss_choices from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the unresolved consequence only when an exact released boss-choice-to-decay join is available."
@@ -409,8 +527,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-decay-stack"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -447,6 +578,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.boss-decay-levels"
+          },
+          "rationale": {
+            "String": "Keep boss-decay-levels deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat boss-decay-levels as exact without released evidence."
+              },
+              {
+                "String": "Borrow boss-decay-levels from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace stacking or application timing when released structured engine evidence establishes exact selection storage and battle-lowering order."
@@ -490,8 +634,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-choice"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -528,6 +682,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.communing-choices"
+          },
+          "rationale": {
+            "String": "Keep communing-choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-choices as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-choices from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace only if released structured evidence binds a branch choice directly to an AeonDimension point delta."
@@ -571,8 +738,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-dimension-points"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -609,6 +786,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.communing-dimensions"
+          },
+          "rationale": {
+            "String": "Keep communing-dimensions deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-dimensions as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-dimensions from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace carry or clamp timing if released persistence evidence establishes a different lifecycle."
@@ -652,8 +842,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-trail-effect"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -690,6 +890,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.communing-trail-prerequisites"
+          },
+          "rationale": {
+            "String": "Keep communing-trail-prerequisites deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat communing-trail-prerequisites as exact without released evidence."
+              },
+              {
+                "String": "Borrow communing-trail-prerequisites from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the derived predecessor edge if released structured graph data supplies an explicit prerequisite relation."
@@ -733,8 +946,24 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.countdown-lifecycle"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.planar-disarray-transition"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -771,6 +1000,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.countdown-and-disarray"
+          },
+          "rationale": {
+            "String": "Keep countdown-and-disarray deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat countdown-and-disarray as exact without released evidence."
+              },
+              {
+                "String": "Borrow countdown-and-disarray from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
@@ -814,8 +1056,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.curio-lifecycle"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -852,6 +1104,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.curio-selection-and-lifecycle"
+          },
+          "rationale": {
+            "String": "Keep curio-selection-and-lifecycle deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat curio-selection-and-lifecycle as exact without released evidence."
+              },
+              {
+                "String": "Borrow curio-selection-and-lifecycle from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace offer filters, trigger ordering or replacement selection when released pool/controller evidence supplies authoritative behavior."
@@ -895,8 +1160,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-roll-reroll-cheat"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -933,6 +1208,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.dice-roll-controls"
+          },
+          "rationale": {
+            "String": "Keep dice-roll-controls deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat dice-roll-controls as exact without released evidence."
+              },
+              {
+                "String": "Borrow dice-roll-controls from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace resource accounting, result timing or selection behavior when released engine evidence supplies an exact control protocol."
@@ -976,8 +1264,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.dice-face-targeting"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1014,6 +1312,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.dice-target-rules"
+          },
+          "rationale": {
+            "String": "Keep dice-target-rules deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat dice-target-rules as exact without released evidence."
+              },
+              {
+                "String": "Borrow dice-target-rules from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the per-effect candidate filter, cardinality or empty-target behavior when released engine evidence provides an exact rule."
@@ -1057,8 +1368,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.domain-replacement"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1095,6 +1416,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.domains"
+          },
+          "rationale": {
+            "String": "Keep domains deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat domains as exact without released evidence."
+              },
+              {
+                "String": "Borrow domains from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
@@ -1138,8 +1472,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1176,6 +1523,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.encounter-difficulty-binding"
+          },
+          "rationale": {
+            "String": "Keep encounter-difficulty-binding deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat encounter-difficulty-binding as exact without released evidence."
+              },
+              {
+                "String": "Borrow encounter-difficulty-binding from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace when released engine code exposes the exact battle-level selection and override sequence."
@@ -1219,8 +1579,24 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-choice-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1257,6 +1633,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.encounter-selection"
+          },
+          "rationale": {
+            "String": "Keep encounter-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat encounter-selection as exact without released evidence."
+              },
+              {
+                "String": "Borrow encounter-selection from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace when released engine code or a pinned table exposes the exact ChessRogue room/domain/difficulty-to-RogueMonsterGroup join."
@@ -1300,8 +1689,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1338,6 +1737,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.mechanical-chapter-locators"
+          },
+          "rationale": {
+            "String": "Keep mechanical-chapter-locators deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat mechanical-chapter-locators as exact without released evidence."
+              },
+              {
+                "String": "Borrow mechanical-chapter-locators from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the locator-only consequence when released structured data binds a chapter to an exact simulation-visible payload."
@@ -1381,8 +1793,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.occurrence-choice"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1419,6 +1841,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.occurrence-pool-selection"
+          },
+          "rationale": {
+            "String": "Keep occurrence-pool-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat occurrence-pool-selection as exact without released evidence."
+              },
+              {
+                "String": "Borrow occurrence-pool-selection from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace offer membership and weights when released Swarm occurrence pool tables become available."
@@ -1462,8 +1897,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.occurrence-choice"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1500,6 +1945,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.occurrence-random-outcome"
+          },
+          "rationale": {
+            "String": "Keep occurrence-random-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat occurrence-random-outcome as exact without released evidence."
+              },
+              {
+                "String": "Borrow occurrence-random-outcome from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace hidden weights, candidate construction or outcome ordering when released occurrence programs or reproducible engine evidence supplies them."
@@ -1543,8 +2001,24 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              },
+              {
+                "String": "swarm-disaster.fixture.resonance-interplay"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1581,6 +2055,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.path-resonance-boundaries"
+          },
+          "rationale": {
+            "String": "Keep path-resonance-boundaries deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat path-resonance-boundaries as exact without released evidence."
+              },
+              {
+                "String": "Borrow path-resonance-boundaries from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace lifecycle boundaries, once scope or threshold counting if released engine evidence establishes different authoritative timing."
@@ -1624,8 +2111,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.communing-choice"
+              },
+              {
+                "String": "swarm-disaster.fixture.communing-dimension-points"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1662,6 +2162,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.pathstrider-cabinets"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-cabinets deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-cabinets as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-cabinets from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace edge direction or simultaneous increment order if released engine evidence demonstrates different semantics."
@@ -1705,8 +2218,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.pathstrider-progress"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1743,6 +2266,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.pathstrider-objectives"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-objectives deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-objectives as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-objectives from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace the external quest condition and commit boundary if released quest evaluator data exposes the authoritative progress event and ordering."
@@ -1786,8 +2322,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.path-and-propagation-unlock"
+              },
+              {
+                "String": "swarm-disaster.fixture.pathstrider-progress"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1824,6 +2373,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.pathstrider-unlocks"
+          },
+          "rationale": {
+            "String": "Keep pathstrider-unlocks deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat pathstrider-unlocks as exact without released evidence."
+              },
+              {
+                "String": "Borrow pathstrider-unlocks from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace evaluation timing, revocation or mode applicability when released engine evidence and exact consumers establish those semantics."
@@ -1867,8 +2429,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.profile-entry"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1905,6 +2477,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.profile"
+          },
+          "rationale": {
+            "String": "Keep profile deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat profile as exact without released evidence."
+              },
+              {
+                "String": "Borrow profile from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace only if a later released profile registry provides a stronger stable identity."
@@ -1948,8 +2533,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.encounter-selection"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -1986,6 +2581,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.rooms"
+          },
+          "rationale": {
+            "String": "Keep rooms deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat rooms as exact without released evidence."
+              },
+              {
+                "String": "Borrow rooms from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace an empty binding only with an exact released source join; never infer it from numeric room-ID encoding."
@@ -2029,8 +2637,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2067,6 +2685,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.service-transaction-boundary"
+          },
+          "rationale": {
+            "String": "Keep service-transaction-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat service-transaction-boundary as exact without released evidence."
+              },
+              {
+                "String": "Borrow service-transaction-boundary from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
@@ -2110,8 +2741,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.resonance-interplay"
+              },
+              {
+                "String": "swarm-disaster.fixture.service-and-adventure"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2148,6 +2792,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.shared-content-pool-weight"
+          },
+          "rationale": {
+            "String": "Keep shared-content-pool-weight deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat shared-content-pool-weight as exact without released evidence."
+              },
+              {
+                "String": "Borrow shared-content-pool-weight from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace equal candidate weights and selected-Path weighting when released pool tables or reproducible engine observations provide authoritative weights."
@@ -2191,8 +2848,21 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.beacon-copy-and-blanking"
+              },
+              {
+                "String": "swarm-disaster.fixture.domain-replacement"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2229,6 +2899,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.topology-consequences"
+          },
+          "rationale": {
+            "String": "Keep topology-consequences deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat topology-consequences as exact without released evidence."
+              },
+              {
+                "String": "Borrow topology-consequences from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace an operation policy only when released engine behavior or a reproducible observation provides a stronger exact ordering rule."
@@ -2272,8 +2955,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.topology-generation"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2310,6 +3003,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.topology-policy"
+          },
+          "rationale": {
+            "String": "Keep topology_policy deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat topology_policy as exact without released evidence."
+              },
+              {
+                "String": "Borrow topology_policy from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace when released explicit edges or a verified engine graph builder becomes available."
@@ -2353,8 +3059,18 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.profile-entry"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "DeterministicPolicyNotObservedParity"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2391,6 +3107,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.project-policy.trailblaze-bonus-boundary"
+          },
+          "rationale": {
+            "String": "Keep trailblaze-bonus-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat trailblaze-bonus-boundary as exact without released evidence."
+              },
+              {
+                "String": "Borrow trailblaze-bonus-boundary from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace transaction timing, failure behavior or RNG labels if released engine evidence supplies the authoritative bonus controller."
@@ -2434,8 +3163,27 @@
       },
       {
         "values": {
+          "affected_fixture_ids": {
+            "List": [
+              {
+                "String": "swarm-disaster.fixture.boss-decay-stack"
+              },
+              {
+                "String": "swarm-disaster.fixture.countdown-lifecycle"
+              },
+              {
+                "String": "swarm-disaster.fixture.final-boss-consequence"
+              },
+              {
+                "String": "swarm-disaster.fixture.planar-disarray-transition"
+              }
+            ]
+          },
           "blocking": {
             "Bool": false
+          },
+          "confidence": {
+            "String": "ReleasedTextCrossCheck"
           },
           "coverage_state": {
             "String": "DataReady"
@@ -2472,6 +3220,19 @@
           },
           "policy_source_id": {
             "String": "source.goal09.public.hoyolab-swarm-progression-countdown"
+          },
+          "rationale": {
+            "String": "Keep Planar Disarray & Countdown / Summary of the Game Mode deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity."
+          },
+          "rejected_alternatives": {
+            "List": [
+              {
+                "String": "Treat Planar Disarray & Countdown / Summary of the Game Mode as exact without released evidence."
+              },
+              {
+                "String": "Borrow Planar Disarray & Countdown / Summary of the Game Mode from an adjacent mode without a proven Swarm consumer."
+              }
+            ]
           },
           "replacement_condition": {
             "String": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."

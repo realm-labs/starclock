@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_swarm_disaster_reference_config",
-  "fingerprint": "ff0a553e2c78e768",
+  "fingerprint": "e1a4fc5af6b64ee9",
   "schema": {
     "package": "starclock_swarm_disaster_reference_config",
     "enums": [
@@ -25239,6 +25239,96 @@
             "length": [
               1,
               4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "rejected_alternatives",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4
+            ],
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "rationale",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              4000
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "affected_fixture_ids",
+            "ty": {
+              "List": "String"
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              16
+            ],
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
+            "derived_from": null
+          },
+          {
+            "name": "confidence",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              100
             ],
             "parser": null,
             "derived_from": null

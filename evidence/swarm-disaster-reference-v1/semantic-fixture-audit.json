@@ -1,0 +1,706 @@
+{
+  "schema_revision": "starclock.swarm-disaster-semantic-fixture-audit.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "snapshot": "Version 4.4",
+  "fixture_contract_sha256": "864f8fd4e648c65bc6f3a1df68b03913a9bee439141d1884b1d0b490ae03d690",
+  "normalized_schema_sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+  "denominators": {
+    "mechanic_families": 23,
+    "mechanic_rules": 23,
+    "semantic_fixtures": 23,
+    "selected_record_occurrences": 76,
+    "ordered_operations_executed": 85,
+    "expected_facts_executed": 108,
+    "policy_fixtures": 20,
+    "exact_fixtures": 3,
+    "replacement_boundaries": 31,
+    "affected_record_bindings": 5560,
+    "affected_fixture_bindings": 47
+  },
+  "checks": {
+    "fixture_families_exact_once": true,
+    "source_records_resolve_and_are_data_ready": true,
+    "operation_order_matches_frozen_contract": true,
+    "expected_facts_executed": true,
+    "unresolved_behavior_explicit": true,
+    "runtime_execution_remains_forbidden": true,
+    "sora_rules_match_normalized_rows": true,
+    "sora_fixtures_match_normalized_rows": true,
+    "sora_research_gaps_match_normalized_rows": true,
+    "sora_affected_bindings_match_normalized_rows": true,
+    "every_policy_has_rejected_alternatives": true,
+    "every_policy_has_rationale": true,
+    "every_policy_has_affected_fixtures": true,
+    "every_policy_has_field_confidence": true,
+    "every_policy_has_replacement_condition": true,
+    "blocking_boundaries": 0
+  },
+  "families": [
+    {
+      "family_id": "profile-entry",
+      "rule_id": "swarm-disaster.mechanic-rule.profile-entry",
+      "fixture_id": "swarm-disaster.fixture.profile-entry",
+      "selected_record_count": 12,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "topology-generation",
+      "rule_id": "swarm-disaster.mechanic-rule.topology-generation",
+      "fixture_id": "swarm-disaster.fixture.topology-generation",
+      "selected_record_count": 4,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "topology-event-order",
+      "rule_id": "swarm-disaster.mechanic-rule.topology-event-order",
+      "fixture_id": "swarm-disaster.fixture.topology-event-order",
+      "selected_record_count": 2,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ExactStructured",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "domain-replacement",
+      "rule_id": "swarm-disaster.mechanic-rule.domain-replacement",
+      "fixture_id": "swarm-disaster.fixture.domain-replacement",
+      "selected_record_count": 2,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "beacon-copy-and-blanking",
+      "rule_id": "swarm-disaster.mechanic-rule.beacon-copy-and-blanking",
+      "fixture_id": "swarm-disaster.fixture.beacon-copy-and-blanking",
+      "selected_record_count": 7,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "boss-choice-consequence",
+      "rule_id": "swarm-disaster.mechanic-rule.boss-choice-consequence",
+      "fixture_id": "swarm-disaster.fixture.boss-choice-consequence",
+      "selected_record_count": 2,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "countdown-lifecycle",
+      "rule_id": "swarm-disaster.mechanic-rule.countdown-lifecycle",
+      "fixture_id": "swarm-disaster.fixture.countdown-lifecycle",
+      "selected_record_count": 1,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "planar-disarray-transition",
+      "rule_id": "swarm-disaster.mechanic-rule.planar-disarray-transition",
+      "fixture_id": "swarm-disaster.fixture.planar-disarray-transition",
+      "selected_record_count": 1,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "boss-decay-stack",
+      "rule_id": "swarm-disaster.mechanic-rule.boss-decay-stack",
+      "fixture_id": "swarm-disaster.fixture.boss-decay-stack",
+      "selected_record_count": 3,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "audience-die-passive",
+      "rule_id": "swarm-disaster.mechanic-rule.audience-die-passive",
+      "fixture_id": "swarm-disaster.fixture.audience-die-passive",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "dice-face-targeting",
+      "rule_id": "swarm-disaster.mechanic-rule.dice-face-targeting",
+      "fixture_id": "swarm-disaster.fixture.dice-face-targeting",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "dice-roll-reroll-cheat",
+      "rule_id": "swarm-disaster.mechanic-rule.dice-roll-reroll-cheat",
+      "fixture_id": "swarm-disaster.fixture.dice-roll-reroll-cheat",
+      "selected_record_count": 4,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "communing-choice",
+      "rule_id": "swarm-disaster.mechanic-rule.communing-choice",
+      "fixture_id": "swarm-disaster.fixture.communing-choice",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "communing-dimension-points",
+      "rule_id": "swarm-disaster.mechanic-rule.communing-dimension-points",
+      "fixture_id": "swarm-disaster.fixture.communing-dimension-points",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "communing-trail-effect",
+      "rule_id": "swarm-disaster.mechanic-rule.communing-trail-effect",
+      "fixture_id": "swarm-disaster.fixture.communing-trail-effect",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ExactStructured",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "pathstrider-progress",
+      "rule_id": "swarm-disaster.mechanic-rule.pathstrider-progress",
+      "fixture_id": "swarm-disaster.fixture.pathstrider-progress",
+      "selected_record_count": 3,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "path-and-propagation-unlock",
+      "rule_id": "swarm-disaster.mechanic-rule.path-and-propagation-unlock",
+      "fixture_id": "swarm-disaster.fixture.path-and-propagation-unlock",
+      "selected_record_count": 3,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "resonance-interplay",
+      "rule_id": "swarm-disaster.mechanic-rule.resonance-interplay",
+      "fixture_id": "swarm-disaster.fixture.resonance-interplay",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "curio-lifecycle",
+      "rule_id": "swarm-disaster.mechanic-rule.curio-lifecycle",
+      "fixture_id": "swarm-disaster.fixture.curio-lifecycle",
+      "selected_record_count": 3,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "occurrence-choice",
+      "rule_id": "swarm-disaster.mechanic-rule.occurrence-choice",
+      "fixture_id": "swarm-disaster.fixture.occurrence-choice",
+      "selected_record_count": 2,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ExactStructured",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "service-and-adventure",
+      "rule_id": "swarm-disaster.mechanic-rule.service-and-adventure",
+      "fixture_id": "swarm-disaster.fixture.service-and-adventure",
+      "selected_record_count": 3,
+      "ordered_operation_count": 3,
+      "expected_fact_count": 4,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "Activity",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "encounter-selection",
+      "rule_id": "swarm-disaster.mechanic-rule.encounter-selection",
+      "fixture_id": "swarm-disaster.fixture.encounter-selection",
+      "selected_record_count": 6,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    },
+    {
+      "family_id": "final-boss-consequence",
+      "rule_id": "swarm-disaster.mechanic-rule.final-boss-consequence",
+      "fixture_id": "swarm-disaster.fixture.final-boss-consequence",
+      "selected_record_count": 6,
+      "ordered_operation_count": 4,
+      "expected_fact_count": 5,
+      "evidence_quality": "ProjectPolicy",
+      "domain": "CrossBattle",
+      "execution_disposition": "ReferenceOnly",
+      "result": "Passed"
+    }
+  ],
+  "replacement_boundaries": [
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-abstract-adventure-outcome",
+      "policy_source_id": "source.goal09.project-policy.abstract-adventure-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 8,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.service-and-adventure"
+      ],
+      "replacement_condition_sha256": "50d42f48d449182f628f46ca4b9abfcf0a2d853927762b7a1854e2dd25d90da6",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-audience-dice",
+      "policy_source_id": "source.goal09.project-policy.audience-dice",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 10,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.audience-die-passive"
+      ],
+      "replacement_condition_sha256": "ebe7c7fca17d1ffcf1d6778450d69e71ae76f355ad7bd2d4ef7dfa468c571b07",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-audience-paths",
+      "policy_source_id": "source.goal09.project-policy.audience-paths",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 10,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.audience-die-passive"
+      ],
+      "replacement_condition_sha256": "729ebc43263f93d5bb1108226605db497ea06be222b287955cba698d6fc708ca",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-beacons",
+      "policy_source_id": "source.goal09.project-policy.beacons",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 12,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.beacon-copy-and-blanking",
+        "swarm-disaster.fixture.service-and-adventure"
+      ],
+      "replacement_condition_sha256": "b8213d0561c619305eea53ef04243a8f6da0a7da5b697bb2b1ec84cc6e6611a7",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-boss-choices",
+      "policy_source_id": "source.goal09.project-policy.boss-choices",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 4,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.boss-choice-consequence"
+      ],
+      "replacement_condition_sha256": "eda21dfeceffec292d06438fb21ca803692507241a583123107fbc1a1d8147d2",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-boss-decay-levels",
+      "policy_source_id": "source.goal09.project-policy.boss-decay-levels",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 46,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.boss-decay-stack",
+        "swarm-disaster.fixture.final-boss-consequence"
+      ],
+      "replacement_condition_sha256": "eb353ccbea82e80b060cd6a41f602fd0ce8027ba2b8242b9b3d41e17f47678db",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-choices",
+      "policy_source_id": "source.goal09.project-policy.communing-choices",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 23,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.communing-choice"
+      ],
+      "replacement_condition_sha256": "86359723510304e8e9040e3d706871d9a5a1d25048c9ae3980dc406b0b4cbfbe",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-dimensions",
+      "policy_source_id": "source.goal09.project-policy.communing-dimensions",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 9,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.communing-dimension-points"
+      ],
+      "replacement_condition_sha256": "4f299c1401205d28312b5ed0da82c6d97e627b9c0014b6f038c93e434304e5ca",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-communing-trail-prerequisites",
+      "policy_source_id": "source.goal09.project-policy.communing-trail-prerequisites",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 112,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.communing-trail-effect"
+      ],
+      "replacement_condition_sha256": "fe1d33a5b93eefc41f3e189458faccacda10010bf4185b67fd19ddc6fd77a1ca",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-countdown-and-disarray",
+      "policy_source_id": "source.goal09.project-policy.countdown-and-disarray",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 7,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.countdown-lifecycle",
+        "swarm-disaster.fixture.final-boss-consequence",
+        "swarm-disaster.fixture.planar-disarray-transition"
+      ],
+      "replacement_condition_sha256": "c8030d1233e05f27a03fb476fa08a2d34754ddd8838784615f761b22db772570",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-curio-selection-and-lifecycle",
+      "policy_source_id": "source.goal09.project-policy.curio-selection-and-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 200,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.curio-lifecycle"
+      ],
+      "replacement_condition_sha256": "12cb8e02a5a29ccc705307a6550588557f9d4a5f7ad237357541e27a1b1a2b26",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-dice-roll-controls",
+      "policy_source_id": "source.goal09.project-policy.dice-roll-controls",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 6,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.dice-roll-reroll-cheat"
+      ],
+      "replacement_condition_sha256": "f7dc1dab0cfacc14e8d34e193552c7dff8b3c0716f2f1f9bba776cfefcb00df1",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-dice-target-rules",
+      "policy_source_id": "source.goal09.project-policy.dice-target-rules",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 44,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.dice-face-targeting"
+      ],
+      "replacement_condition_sha256": "b1690cba5070b8908e7253cb05546958ec9cecc72de409cba0ad52c7ca62b5f1",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-domains",
+      "policy_source_id": "source.goal09.project-policy.domains",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 14,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.domain-replacement"
+      ],
+      "replacement_condition_sha256": "5d9994adbb916c45ea0f7f8f584f79a29dcc98d5ad4f18bf134ca1d0d564dea6",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-encounter-difficulty-binding",
+      "policy_source_id": "source.goal09.project-policy.encounter-difficulty-binding",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 530,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.encounter-selection",
+        "swarm-disaster.fixture.final-boss-consequence"
+      ],
+      "replacement_condition_sha256": "0db819ade9b4b49b1502b97932021ed22e4d0dc2bad4cd8954497b1d5829731a",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-encounter-selection",
+      "policy_source_id": "source.goal09.project-policy.encounter-selection",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 200,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.boss-choice-consequence",
+        "swarm-disaster.fixture.encounter-selection",
+        "swarm-disaster.fixture.final-boss-consequence"
+      ],
+      "replacement_condition_sha256": "a01cce5c90d01e217c319a47f4adc91921ca4425f955776475d5ffe19199aabc",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-mechanical-chapter-locators",
+      "policy_source_id": "source.goal09.project-policy.mechanical-chapter-locators",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 15,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.path-and-propagation-unlock"
+      ],
+      "replacement_condition_sha256": "0fe52369ac7ca42f05e6f6c13c6d53317e1c4bf08b2a7f3e35ad52131c316f57",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-occurrence-pool-selection",
+      "policy_source_id": "source.goal09.project-policy.occurrence-pool-selection",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 75,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.occurrence-choice"
+      ],
+      "replacement_condition_sha256": "eb486870308c84a84a88f72ec5c2caffa5f3eca5cbbb6512a6d9173f2d2fa467",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-occurrence-random-outcome",
+      "policy_source_id": "source.goal09.project-policy.occurrence-random-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 60,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.occurrence-choice"
+      ],
+      "replacement_condition_sha256": "f64372e4ed62ddc6765d5adef32b14444e04f733f6bd52413189a216d8e6dc2c",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-path-resonance-boundaries",
+      "policy_source_id": "source.goal09.project-policy.path-resonance-boundaries",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 38,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.final-boss-consequence",
+        "swarm-disaster.fixture.path-and-propagation-unlock",
+        "swarm-disaster.fixture.resonance-interplay"
+      ],
+      "replacement_condition_sha256": "aae745b1073b1e6c731fdefd7d496e1bf9145026bb45f363cebc185532d8e7e1",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-cabinets",
+      "policy_source_id": "source.goal09.project-policy.pathstrider-cabinets",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 90,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.communing-choice",
+        "swarm-disaster.fixture.communing-dimension-points"
+      ],
+      "replacement_condition_sha256": "8f64dc8f7a2b2f18a6c956dd0879376a8c6a4f9da4c55328035022435f9d01f1",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-objectives",
+      "policy_source_id": "source.goal09.project-policy.pathstrider-objectives",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 33,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.pathstrider-progress"
+      ],
+      "replacement_condition_sha256": "8159444242225e6aca15b5be9c2c483f3bc094dd730d385380b36d36989340a4",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-pathstrider-unlocks",
+      "policy_source_id": "source.goal09.project-policy.pathstrider-unlocks",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 114,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.path-and-propagation-unlock",
+        "swarm-disaster.fixture.pathstrider-progress"
+      ],
+      "replacement_condition_sha256": "64346f123415380843d9c274c160c140dc5ad03d43f5baf9a16856aa4ac91c8b",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-profile",
+      "policy_source_id": "source.goal09.project-policy.profile",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 3,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.profile-entry"
+      ],
+      "replacement_condition_sha256": "953da6627125dec728bc5848cf231b430bf02ec95a16ad12d7a386ddc494943d",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-rooms",
+      "policy_source_id": "source.goal09.project-policy.rooms",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 861,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.encounter-selection"
+      ],
+      "replacement_condition_sha256": "2e14d57fdc4a2ec87138e34910760825611a4dd4cfb7cae1f173243f370fd1cd",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-service-transaction-boundary",
+      "policy_source_id": "source.goal09.project-policy.service-transaction-boundary",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 37,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.service-and-adventure"
+      ],
+      "replacement_condition_sha256": "b62ea3719b4067aaae07c8f29617decdc1cd1672b2ff00c9139848e9fbe72cb3",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-shared-content-pool-weight",
+      "policy_source_id": "source.goal09.project-policy.shared-content-pool-weight",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 328,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.resonance-interplay",
+        "swarm-disaster.fixture.service-and-adventure"
+      ],
+      "replacement_condition_sha256": "6d0f8514d3cdd2718466b2ed94ae41e730d1822ba4e24f9cc961dcbc6f5964a3",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-topology-consequences",
+      "policy_source_id": "source.goal09.project-policy.topology-consequences",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 17,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.beacon-copy-and-blanking",
+        "swarm-disaster.fixture.domain-replacement"
+      ],
+      "replacement_condition_sha256": "129becdddc4d93ae9809a60636098634c25eace18f7abc099c965d3867508c22",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-topology-policy",
+      "policy_source_id": "source.goal09.project-policy.topology-policy",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 2595,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.topology-generation"
+      ],
+      "replacement_condition_sha256": "2c4b18bd472ca900aa8c39b70afd0a3f98afb50f66b8ea304e2d69ca250abf64",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-project-policy-trailblaze-bonus-boundary",
+      "policy_source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
+      "evidence_quality": "ProjectPolicy",
+      "confidence": "DeterministicPolicyNotObservedParity",
+      "affected_record_count": 8,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.profile-entry"
+      ],
+      "replacement_condition_sha256": "a5df1a6d0ff69f1d67afb3ca4afcd40b4bf5516883a0f8735ac8ebeecdb82bb4",
+      "result": "Passed"
+    },
+    {
+      "research_gap_id": "swarm-disaster.research-gap.source-goal09-public-hoyolab-swarm-progression-countdown",
+      "policy_source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "confidence": "ReleasedTextCrossCheck",
+      "affected_record_count": 51,
+      "affected_fixture_ids": [
+        "swarm-disaster.fixture.boss-decay-stack",
+        "swarm-disaster.fixture.countdown-lifecycle",
+        "swarm-disaster.fixture.final-boss-consequence",
+        "swarm-disaster.fixture.planar-disarray-transition"
+      ],
+      "replacement_condition_sha256": "937763aff73fe8de58faf8147b9f46bade52221f36f558ddeb0e2c081da40f8c",
+      "result": "Passed"
+    }
+  ]
+}

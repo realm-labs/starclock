@@ -685,9 +685,51 @@ function researchGaps(allSourceRefs) {
         affected.get(ref.source_id).push({ file, id: row.id });
       }
   }
+  const fixtureOverrides = new Map([
+    [
+      "source.goal09.project-policy.communing-trail-prerequisites",
+      ["communing-trail-effect"],
+    ],
+    [
+      "source.goal09.project-policy.occurrence-pool-selection",
+      ["occurrence-choice"],
+    ],
+    [
+      "source.goal09.project-policy.occurrence-random-outcome",
+      ["occurrence-choice"],
+    ],
+    [
+      "source.goal09.project-policy.rooms",
+      ["encounter-selection"],
+    ],
+    [
+      "source.goal09.project-policy.shared-content-pool-weight",
+      ["resonance-interplay", "service-and-adventure"],
+    ],
+  ]);
   return allSourceRefs.filter(({ evidence_quality: quality }) =>
     ["ProjectPolicy", "ApproximateFromReleasedText"].includes(quality))
-    .map((ref) => ({
+    .map((ref) => {
+      const affectedRecords = uniqueBy(
+        affected.get(ref.source_id) ?? [],
+        ({ file, id }) => `${file}\0${id}`,
+      ).sort((left, right) =>
+        left.file.localeCompare(right.file) || left.id.localeCompare(right.id));
+      const affectedIds = new Set(affectedRecords.map(({ id }) => id));
+      const affectedFixtureIds = uniqueSorted([
+        ...fixtures.filter((fixture) =>
+          affectedIds.has(fixture.id)
+          || fixture.source_record_ids.some((id) => affectedIds.has(id)))
+          .map(({ id }) => id),
+        ...(fixtureOverrides.get(ref.source_id) ?? []).map((family) =>
+          `swarm-disaster.fixture.${family}`),
+      ]);
+      if (affectedFixtureIds.length === 0)
+        throw new Error(`${ref.source_id} lacks an affected fixture`);
+      const confidence = ref.evidence_quality === "ProjectPolicy"
+        ? "DeterministicPolicyNotObservedParity"
+        : "ReleasedTextCrossCheck";
+      return ({
       ...context.envelope({
         id: `swarm-disaster.research-gap.${slug(ref.source_id)}`,
         kind: "ResearchGap",
@@ -708,14 +750,21 @@ function researchGaps(allSourceRefs) {
       policy_source_id: ref.source_id,
       known_facts: ref.note ?? "",
       selected_policy: ref.note ?? "",
-      affected_records: uniqueBy(
-        affected.get(ref.source_id) ?? [],
-        ({ file, id }) => `${file}\0${id}`,
-      ).sort((left, right) =>
-        left.file.localeCompare(right.file) || left.id.localeCompare(right.id)),
+      rejected_alternatives: [
+        `Treat ${ref.locator} as exact without released evidence.`,
+        `Borrow ${ref.locator} from an adjacent mode without a proven Swarm consumer.`,
+      ],
+      rationale:
+        `Keep ${ref.locator} deterministic and fail closed while preserving ` +
+        "released facts separately; never claim the selected policy as " +
+        "observed parity.",
+      affected_fixture_ids: affectedFixtureIds,
+      confidence,
+      affected_records: affectedRecords,
       note: ref.note ?? "",
       replacement_condition: ref.replacement_condition ?? "",
-    }))
+    });
+    })
     .sort((left, right) =>
       left.state.localeCompare(right.state) || left.id.localeCompare(right.id));
 }

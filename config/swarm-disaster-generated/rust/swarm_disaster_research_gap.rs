@@ -46,6 +46,14 @@ pub struct SwarmDisasterResearchGap {
     pub known_facts: String,
     #[serde(rename = "selected_policy")]
     pub selected_policy: String,
+    #[serde(rename = "rejected_alternatives")]
+    pub rejected_alternatives: Vec<String>,
+    #[serde(rename = "rationale")]
+    pub rationale: String,
+    #[serde(rename = "affected_fixture_ids")]
+    pub affected_fixture_ids: Vec<String>,
+    #[serde(rename = "confidence")]
+    pub confidence: String,
     #[serde(rename = "note")]
     pub note: String,
     #[serde(rename = "replacement_condition")]
@@ -81,6 +89,10 @@ impl super::runtime::SoraDecode for SwarmDisasterResearchGap {
             policy_source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             known_facts: <String as super::runtime::SoraDecode>::decode(reader)?,
             selected_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
+            rejected_alternatives: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            rationale: <String as super::runtime::SoraDecode>::decode(reader)?,
+            affected_fixture_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            confidence: <String as super::runtime::SoraDecode>::decode(reader)?,
             note: <String as super::runtime::SoraDecode>::decode(reader)?,
             replacement_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
         })

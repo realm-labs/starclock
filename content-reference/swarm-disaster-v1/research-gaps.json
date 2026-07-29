@@ -35,6 +35,15 @@
     "policy_source_id": "source.goal09.project-policy.abstract-adventure-outcome",
     "known_facts": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
     "selected_policy": "Accept one externally resolved Tier1, Tier2 or Tier3 Adventure result and apply only its validated reward payload. Movement, aiming, physics, timing input, score thresholds and unavailable reward tables remain outside the simulation and fail closed.",
+    "rejected_alternatives": [
+      "Treat abstract-adventure-outcome as exact without released evidence.",
+      "Borrow abstract-adventure-outcome from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep abstract-adventure-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.service-and-adventure"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "adventure-outcomes.json",
@@ -108,6 +117,15 @@
     "policy_source_id": "source.goal09.project-policy.audience-dice",
     "known_facts": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
     "selected_policy": "Retain authored face Sort ordering and reject an empty face set. Exact roll, reroll, cheat and no-legal-target behavior is supplied by the typed G09-P1-B5 rows.",
+    "rejected_alternatives": [
+      "Treat audience-dice as exact without released evidence.",
+      "Borrow audience-dice from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep audience-dice deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.audience-die-passive"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "audience-dice.json",
@@ -189,6 +207,15 @@
     "policy_source_id": "source.goal09.project-policy.audience-paths",
     "known_facts": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately.",
     "selected_policy": "Lower EffectType1 as the run-start maze effect and EffectType3 as the persistent Path graph effect while preserving every authored parameter slot separately.",
+    "rejected_alternatives": [
+      "Treat audience-paths as exact without released evidence.",
+      "Borrow audience-paths from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep audience-paths deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.audience-die-passive"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "audience-paths.json",
@@ -270,6 +297,16 @@
     "policy_source_id": "source.goal09.project-policy.beacons",
     "known_facts": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
     "selected_policy": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+    "rejected_alternatives": [
+      "Treat beacons as exact without released evidence.",
+      "Borrow beacons from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep beacons deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.beacon-copy-and-blanking",
+      "swarm-disaster.fixture.service-and-adventure"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "beacons.json",
@@ -359,6 +396,15 @@
     "policy_source_id": "source.goal09.project-policy.boss-choices",
     "known_facts": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3.",
     "selected_policy": "RogueDLCArea identifies displayed boss candidates but does not bind a selected candidate to a RogueDLCBossDecay row. Preserve intrinsic weaknesses now and require an exact typed decay reference from G09-P1-B3.",
+    "rejected_alternatives": [
+      "Treat boss_choices as exact without released evidence.",
+      "Borrow boss_choices from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep boss_choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.boss-choice-consequence"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "boss-choices.json",
@@ -416,6 +462,16 @@
     "policy_source_id": "source.goal09.project-policy.boss-decay-levels",
     "known_facts": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
     "selected_policy": "Selected boss effects coexist by stable BossDecayID and apply when the final-boss BattleSpec is created. Rows without Swarm-specific released text remain disabled for Swarm compilation.",
+    "rejected_alternatives": [
+      "Treat boss-decay-levels as exact without released evidence.",
+      "Borrow boss-decay-levels from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep boss-decay-levels deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.boss-decay-stack",
+      "swarm-disaster.fixture.final-boss-consequence"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "boss-decay-levels.json",
@@ -641,6 +697,15 @@
     "policy_source_id": "source.goal09.project-policy.communing-choices",
     "known_facts": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
     "selected_policy": "A released MainStoryBranch Aeon choice increments its per-Aeon choice counter once; it does not directly change permanent Communing points without an authored increment row.",
+    "rejected_alternatives": [
+      "Treat communing-choices as exact without released evidence.",
+      "Borrow communing-choices from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep communing-choices deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.communing-choice"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "communing-choices.json",
@@ -774,6 +839,15 @@
     "policy_source_id": "source.goal09.project-policy.communing-dimensions",
     "known_facts": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
     "selected_policy": "Communing dimensions are persistent account progression, clamp after each ordered increment to the released maximum, and do not decrease at run boundaries.",
+    "rejected_alternatives": [
+      "Treat communing-dimensions as exact without released evidence.",
+      "Borrow communing-dimensions from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep communing-dimensions deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.communing-dimension-points"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "communing-dimensions.json",
@@ -851,6 +925,15 @@
     "policy_source_id": "source.goal09.project-policy.communing-trail-prerequisites",
     "known_facts": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
     "selected_policy": "Within each Communing dimension, order nodes by released point threshold then stable Talent ID; each non-root node requires the immediately preceding node.",
+    "rejected_alternatives": [
+      "Treat communing-trail-prerequisites as exact without released evidence.",
+      "Borrow communing-trail-prerequisites from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep communing-trail-prerequisites deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.communing-trail-effect"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "communing-trail-nodes.json",
@@ -1340,6 +1423,17 @@
     "policy_source_id": "source.goal09.project-policy.countdown-and-disarray",
     "known_facts": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
     "selected_policy": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
+    "rejected_alternatives": [
+      "Treat countdown-and-disarray as exact without released evidence.",
+      "Borrow countdown-and-disarray from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep countdown-and-disarray deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.countdown-lifecycle",
+      "swarm-disaster.fixture.final-boss-consequence",
+      "swarm-disaster.fixture.planar-disarray-transition"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "countdown-and-disarray.json",
@@ -1409,6 +1503,15 @@
     "policy_source_id": "source.goal09.project-policy.curio-selection-and-lifecycle",
     "known_facts": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order.",
     "selected_policy": "Use only the 66 manifest-proven handbook identities and their exact 1000-series Swarm copies. Offer-specific eligibility must be supplied by the owning occurrence or service; absent a binding, random selection fails closed. Apply charge transitions after the released trigger and resolve replacement candidates in stable ID order.",
+    "rejected_alternatives": [
+      "Treat curio-selection-and-lifecycle as exact without released evidence.",
+      "Borrow curio-selection-and-lifecycle from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep curio-selection-and-lifecycle deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.curio-lifecycle"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "curio-rules.json",
@@ -2250,6 +2353,15 @@
     "policy_source_id": "source.goal09.project-policy.dice-roll-controls",
     "known_facts": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
     "selected_policy": "Roll samples from authored ordered faces; reroll and cheat consume one typed charge; abandon returns the released reward; unavailable controls reject without state mutation.",
+    "rejected_alternatives": [
+      "Treat dice-roll-controls as exact without released evidence.",
+      "Borrow dice-roll-controls from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep dice-roll-controls deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.dice-roll-reroll-cheat"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "dice-roll-controls.json",
@@ -2315,6 +2427,15 @@
     "policy_source_id": "source.goal09.project-policy.dice-target-rules",
     "known_facts": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
     "selected_policy": "Resolve each face against its typed effect candidate filter, sort candidates by stable domain/node ID, and treat an empty legal set as a no-op without consuming additional randomness.",
+    "rejected_alternatives": [
+      "Treat dice-target-rules as exact without released evidence.",
+      "Borrow dice-target-rules from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep dice-target-rules deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.dice-face-targeting"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "dice-target-rules.json",
@@ -2532,6 +2653,15 @@
     "policy_source_id": "source.goal09.project-policy.domains",
     "known_facts": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
     "selected_policy": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+    "rejected_alternatives": [
+      "Treat domains as exact without released evidence.",
+      "Borrow domains from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep domains deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.domain-replacement"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "domains.json",
@@ -2629,6 +2759,16 @@
     "policy_source_id": "source.goal09.project-policy.encounter-difficulty-binding",
     "known_facts": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved.",
     "selected_policy": "RogueDLCArea and RogueDLCDifficulty expose exact formal areas, planes, cut positions, and level schedules, while StageConfig preserves an authored base level. Released rows do not expose the engine operation that selects the effective area/plane level for a battle. Bind the selected formal area's ordered plane segment and fail closed when either key is unresolved.",
+    "rejected_alternatives": [
+      "Treat encounter-difficulty-binding as exact without released evidence.",
+      "Borrow encounter-difficulty-binding from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep encounter-difficulty-binding deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.encounter-selection",
+      "swarm-disaster.fixture.final-boss-consequence"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "encounter-groups.json",
@@ -4790,6 +4930,17 @@
     "policy_source_id": "source.goal09.project-policy.encounter-selection",
     "known_facts": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
     "selected_policy": "Released rows expose the complete 81-series Swarm encounter namespace, weighted RogueMonsterGroup membership, exact StageConfig waves, and displayed boss identities. They do not expose the static ChessRogue room/domain/difficulty-to-group join. Select only from a resolved combat role, use stable source order for equal weights, and fail closed when the role, room, area, or group family cannot be resolved.",
+    "rejected_alternatives": [
+      "Treat encounter-selection as exact without released evidence.",
+      "Borrow encounter-selection from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep encounter-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.boss-choice-consequence",
+      "swarm-disaster.fixture.encounter-selection",
+      "swarm-disaster.fixture.final-boss-consequence"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "boss-pools.json",
@@ -5631,6 +5782,15 @@
     "policy_source_id": "source.goal09.project-policy.mechanical-chapter-locators",
     "known_facts": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
     "selected_policy": "Use released layer, Communing dimension and point threshold only as a mechanical chapter-availability locator. Do not replay story presentation or infer a bonus payload from IsBonusUnlock.",
+    "rejected_alternatives": [
+      "Treat mechanical-chapter-locators as exact without released evidence.",
+      "Borrow mechanical-chapter-locators from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep mechanical-chapter-locators deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.path-and-propagation-unlock"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -5732,6 +5892,15 @@
     "policy_source_id": "source.goal09.project-policy.occurrence-pool-selection",
     "known_facts": "An occurrence enters a domain pool only through an owning domain/service binding. The 75 handbook identities and 57 Swarm variants are the maximum eligible closure; absent an exact offer binding, selection fails closed.",
     "selected_policy": "An occurrence enters a domain pool only through an owning domain/service binding. The 75 handbook identities and 57 Swarm variants are the maximum eligible closure; absent an exact offer binding, selection fails closed.",
+    "rejected_alternatives": [
+      "Treat occurrence-pool-selection as exact without released evidence.",
+      "Borrow occurrence-pool-selection from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep occurrence-pool-selection deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.occurrence-choice"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "occurrences.json",
@@ -6073,6 +6242,15 @@
     "policy_source_id": "source.goal09.project-policy.occurrence-random-outcome",
     "known_facts": "Preserve released option order, text parameters and printed percentages. If an option names random selection without weights, use a labeled Activity RNG stream over stable source order; an unresolved eligible pool fails closed.",
     "selected_policy": "Preserve released option order, text parameters and printed percentages. If an option names random selection without weights, use a labeled Activity RNG stream over stable source order; an unresolved eligible pool fails closed.",
+    "rejected_alternatives": [
+      "Treat occurrence-random-outcome as exact without released evidence.",
+      "Borrow occurrence-random-outcome from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep occurrence-random-outcome deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.occurrence-choice"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "occurrence-choices.json",
@@ -6354,6 +6532,17 @@
     "policy_source_id": "source.goal09.project-policy.path-resonance-boundaries",
     "known_facts": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
     "selected_policy": "Apply the selected Path's AddMazeBuff program after Path selection at run start. Count distinct owned blessing identities per Path, re-evaluate Resonance Interplay thresholds after an accepted blessing-inventory mutation, and apply each unlocked binding once.",
+    "rejected_alternatives": [
+      "Treat path-resonance-boundaries as exact without released evidence.",
+      "Borrow path-resonance-boundaries from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep path-resonance-boundaries deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.final-boss-consequence",
+      "swarm-disaster.fixture.path-and-propagation-unlock",
+      "swarm-disaster.fixture.resonance-interplay"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -6547,6 +6736,16 @@
     "policy_source_id": "source.goal09.project-policy.pathstrider-cabinets",
     "known_facts": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
     "selected_policy": "Interpret UnlockCabinetID as outgoing unlock edges and invert them into prerequisite IDs. Apply authored point increments in source-list order, clamping each dimension to its released maximum.",
+    "rejected_alternatives": [
+      "Treat pathstrider-cabinets as exact without released evidence.",
+      "Borrow pathstrider-cabinets from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep pathstrider-cabinets deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.communing-choice",
+      "swarm-disaster.fixture.communing-dimension-points"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "communing-point-adjustments.json",
@@ -6948,6 +7147,15 @@
     "policy_source_id": "source.goal09.project-policy.pathstrider-objectives",
     "known_facts": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion.",
     "selected_policy": "Treat each cabinet QuestID as an external quest-completion condition. Commit its cabinet point adjustments and outgoing cabinet unlocks once, after the accepted Activity operation reports quest completion.",
+    "rejected_alternatives": [
+      "Treat pathstrider-objectives as exact without released evidence.",
+      "Borrow pathstrider-objectives from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep pathstrider-objectives deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.pathstrider-progress"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -7121,6 +7329,16 @@
     "policy_source_id": "source.goal09.project-policy.pathstrider-unlocks",
     "known_facts": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding.",
     "selected_policy": "Evaluate a released FinishWay after an accepted Activity operation, set its unlock flag once, and never infer a Swarm consumer from the shared DLC unlock row alone. Only explicit Swarm text enables a row before a later exact consumer binding.",
+    "rejected_alternatives": [
+      "Treat pathstrider-unlocks as exact without released evidence.",
+      "Borrow pathstrider-unlocks from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep pathstrider-unlocks deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.path-and-propagation-unlock",
+      "swarm-disaster.fixture.pathstrider-progress"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -7618,6 +7836,15 @@
     "policy_source_id": "source.goal09.project-policy.profile",
     "known_facts": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows.",
     "selected_policy": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows.",
+    "rejected_alternatives": [
+      "Treat profile as exact without released evidence.",
+      "Borrow profile from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep profile deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.profile-entry"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -7671,6 +7898,15 @@
     "policy_source_id": "source.goal09.project-policy.rooms",
     "known_facts": "RogueDLCRoom publishes room-to-section membership only. Domain and encounter-pool bindings remain empty until exact released joins are imported in G09-P2-B5.",
     "selected_policy": "RogueDLCRoom publishes room-to-section membership only. Domain and encounter-pool bindings remain empty until exact released joins are imported in G09-P2-B5.",
+    "rejected_alternatives": [
+      "Treat rooms as exact without released evidence.",
+      "Borrow rooms from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep rooms deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.encounter-selection"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "rooms.json",
@@ -11156,6 +11392,15 @@
     "policy_source_id": "source.goal09.project-policy.service-transaction-boundary",
     "known_facts": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
     "selected_policy": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+    "rejected_alternatives": [
+      "Treat service-transaction-boundary as exact without released evidence.",
+      "Borrow service-transaction-boundary from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep service-transaction-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.service-and-adventure"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "currencies.json",
@@ -11345,6 +11590,16 @@
     "policy_source_id": "source.goal09.project-policy.shared-content-pool-weight",
     "known_facts": "Use stable member-ID order and equal integer weight 1 for selectable Path and Blessing candidates after exact eligibility filtering. Resonances and Formations unlock deterministically from the selected Path and inherited thresholds rather than random weighting.",
     "selected_policy": "Use stable member-ID order and equal integer weight 1 for selectable Path and Blessing candidates after exact eligibility filtering. Resonances and Formations unlock deterministically from the selected Path and inherited thresholds rather than random weighting.",
+    "rejected_alternatives": [
+      "Treat shared-content-pool-weight as exact without released evidence.",
+      "Borrow shared-content-pool-weight from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep shared-content-pool-weight deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.resonance-interplay",
+      "swarm-disaster.fixture.service-and-adventure"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "blessings.json",
@@ -12698,6 +12953,16 @@
     "policy_source_id": "source.goal09.project-policy.topology-consequences",
     "known_facts": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
     "selected_policy": "Each released topology-changing dice face becomes one typed ordered operation. Random target sets are sorted by stable node ID before labeled integer sampling; empty legal target sets are no-ops.",
+    "rejected_alternatives": [
+      "Treat topology-consequences as exact without released evidence.",
+      "Borrow topology-consequences from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep topology-consequences deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.beacon-copy-and-blanking",
+      "swarm-disaster.fixture.domain-replacement"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "mechanic-rules.json",
@@ -12807,6 +13072,15 @@
     "policy_source_id": "source.goal09.project-policy.topology-policy",
     "known_facts": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges.",
     "selected_policy": "Released chessboard data has coordinates but no explicit edge list; derive only forward nearest-column edges.",
+    "rejected_alternatives": [
+      "Treat topology_policy as exact without released evidence.",
+      "Borrow topology_policy from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep topology_policy deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.topology-generation"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "map-edges.json",
@@ -23228,6 +23502,15 @@
     "policy_source_id": "source.goal09.project-policy.trailblaze-bonus-boundary",
     "known_facts": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
     "selected_policy": "Execute the chosen Trailblaze Bonus as one accepted run-start Activity transaction. Reject an unaffordable cost without mutation and draw random rewards from stable eligible pools using a labeled Activity RNG stream.",
+    "rejected_alternatives": [
+      "Treat trailblaze-bonus-boundary as exact without released evidence.",
+      "Borrow trailblaze-bonus-boundary from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep trailblaze-bonus-boundary deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.profile-entry"
+    ],
+    "confidence": "DeterministicPolicyNotObservedParity",
     "affected_records": [
       {
         "file": "bonuses.json",
@@ -23301,6 +23584,18 @@
     "policy_source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
     "known_facts": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
     "selected_policy": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+    "rejected_alternatives": [
+      "Treat Planar Disarray & Countdown / Summary of the Game Mode as exact without released evidence.",
+      "Borrow Planar Disarray & Countdown / Summary of the Game Mode from an adjacent mode without a proven Swarm consumer."
+    ],
+    "rationale": "Keep Planar Disarray & Countdown / Summary of the Game Mode deterministic and fail closed while preserving released facts separately; never claim the selected policy as observed parity.",
+    "affected_fixture_ids": [
+      "swarm-disaster.fixture.boss-decay-stack",
+      "swarm-disaster.fixture.countdown-lifecycle",
+      "swarm-disaster.fixture.final-boss-consequence",
+      "swarm-disaster.fixture.planar-disarray-transition"
+    ],
+    "confidence": "ReleasedTextCrossCheck",
     "affected_records": [
       {
         "file": "boss-decay-levels.json",
