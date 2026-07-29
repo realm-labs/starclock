@@ -1,0 +1,137 @@
+[
+  {
+    "id": "gold-gears.entry.activity.102",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Gold and Gears",
+    "name_zh_cn": "黄金与机械",
+    "summary_en": "Resident activity 102 selects ChessRogueNous and unlock 50019.",
+    "summary_zh_cn": "常驻活动 102 选择 ChessRogueNous，解锁条件为 50019。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-rogueactivityresidentconfig-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "locator": "2",
+        "sha256": "a8b0a1c244c1c8669ef6fc3509e976e38b9a31645f395def4ab04038702ab5c7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "activity-entry"
+    ],
+    "entry_kind": "ResidentActivity",
+    "source_id": "102",
+    "sub_mode": "ChessRogueNous",
+    "unlock_id": "50019"
+  },
+  {
+    "id": "gold-gears.entry.entrance.2",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Gold and Gears",
+    "name_zh_cn": "黄金与机械",
+    "summary_en": "DLC entrance 2 selects ChessRogueNous; reward item IDs remain presentation-only locators.",
+    "summary_zh_cn": "DLC 入口 2 选择 ChessRogueNous；奖励物品 ID 仅保留为展示定位信息。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcentrance-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCEntrance.json",
+        "locator": "1",
+        "sha256": "9b55953de567b3b47c7913920e55427c4391a03521e55cbc24d4836f3e3f5257",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "dlc-entrance"
+    ],
+    "entry_kind": "DlcEntrance",
+    "source_id": "2",
+    "sub_mode": "ChessRogueNous",
+    "reward_item_ids": [
+      "1",
+      "236",
+      "241",
+      "101",
+      "235",
+      "213",
+      "223",
+      "233",
+      "2"
+    ]
+  },
+  {
+    "id": "gold-gears.entry.title.chessroguenous",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Gold and Gears",
+    "name_zh_cn": "黄金与机械",
+    "summary_en": "Common mode-title row binds the Gold and Gears display identity.",
+    "summary_zh_cn": "通用模式标题行绑定黄金与机械的展示身份。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguecommonmodetitle-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCommonModeTitle.json",
+        "locator": "2",
+        "sha256": "07d3866cf3cc19050411ec8ff0fa593b328cccd44f7ced11c08b760a358d7e6a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-title"
+    ],
+    "entry_kind": "ModeTitle",
+    "source_id": "ChessRogueNous",
+    "sub_mode": "ChessRogueNous"
+  },
+  {
+    "id": "gold-gears.profile.v1",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Profile",
+    "name_en": "Simulated Universe: Gold and Gears",
+    "name_zh_cn": "模拟宇宙：黄金与机械",
+    "summary_en": "Version 4.4 reference profile for the permanent ChessRogueNous activity; runtime lowering is intentionally absent.",
+    "summary_zh_cn": "4.4 版本常驻 ChessRogueNous 玩法资料档案；本目标明确不包含运行时降级。",
+    "ownership": "GoldAndGears",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "One isolated Gold and Gears reference profile binds the released ChessRogueNous rows.",
+        "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity."
+      }
+    ],
+    "tags": [
+      "candidate-reference",
+      "chess-rogue-nous"
+    ],
+    "sub_mode": "ChessRogueNous",
+    "game_version": "4.4",
+    "runtime_enabled": false
+  }
+]
