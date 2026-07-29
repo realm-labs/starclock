@@ -13,7 +13,7 @@ const sora = path.join(
   process.platform === "win32" ? "sora.exe" : "sora",
 );
 const project = path.join(root, "config", "gold-and-gears", "project.toml");
-const schema = path.join(root, "config", "gold-and-gears", "schema", "core.toml");
+const schemaRoot = path.join(root, "config", "gold-and-gears", "schema");
 const normalizedRoot = path.join(root, "content-reference", "gold-and-gears-v1");
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "starclock-gold-gears-schema-"));
 
@@ -41,19 +41,31 @@ const expected = new Map([
   ["GoldGearsDiceFace", "dice-faces.json"],
   ["GoldGearsDiceFaceTag", "dice-face-tags.json"],
   ["GoldGearsKnowledgeRule", "knowledge-rules.json"],
+  ["GoldGearsSecret", "secrets.json"],
+  ["GoldGearsNeuralNetwork", "neural-network.json"],
+  ["GoldGearsConundrumLevel", "conundrum-levels.json"],
+  ["GoldGearsPath", "paths.json"],
+  ["GoldGearsResonance", "resonances.json"],
+  ["GoldGearsPathBoost", "path-boosts.json"],
+  ["GoldGearsResonanceExtrapolation", "resonance-extrapolations.json"],
+  ["GoldGearsResonanceInterplay", "resonance-interplays.json"],
+  ["GoldGearsTrailblazeBonus", "bonuses.json"],
 ]);
 
 try {
   assert(policy.version === "0.3.0", "Sora version policy differs");
   assert(fs.existsSync(sora), "pinned Sora 0.3.0 is not installed");
-  assert(fs.existsSync(project) && fs.existsSync(schema), "isolated Gold and Gears schema is missing");
+  const schemaFiles = ["core.toml", "progression.toml"].map((name) => path.join(schemaRoot, name));
+  assert(fs.existsSync(project) && schemaFiles.every((file) => fs.existsSync(file)), "isolated Gold and Gears schema is missing");
   const projectText = fs.readFileSync(project, "utf8");
   for (const forbidden of ["config/data", "config/generated", "config/universe-generated"]) {
     assert(!projectText.includes(forbidden), `isolated project references forbidden output ${forbidden}`);
   }
-  const before = fs.readFileSync(schema);
+  const before = new Map(schemaFiles.map((file) => [file, fs.readFileSync(file)]));
   run("node", ["tools/gold-and-gears-reference/generate-sora-schema.mjs", root]);
-  assert(before.equals(fs.readFileSync(schema)), "Gold and Gears core schema generation drifted");
+  for (const file of schemaFiles) {
+    assert(before.get(file).equals(fs.readFileSync(file)), `${path.basename(file)} generation drifted`);
+  }
   run(sora, ["--serial", "check", "--project", project]);
   const lock = path.join(temporary, "schema.lock");
   run(sora, ["--serial", "schema-lock", "--project", project, "--out", lock]);
@@ -77,6 +89,13 @@ try {
     ["GoldGearsDiceDefinition", "category_id", "GoldGearsDiceCategory"],
     ["GoldGearsDicePathValue", "dice_id", "GoldGearsDiceDefinition"],
     ["GoldGearsKnowledgeRule", "dice_face_id", "GoldGearsDiceFace"],
+    ["GoldGearsPath", "shared_resonance_id", "GoldGearsResonance"],
+    ["GoldGearsPath", "path_boost_id", "GoldGearsPathBoost"],
+    ["GoldGearsResonance", "path_id", "GoldGearsPath"],
+    ["GoldGearsPathBoost", "path_id", "GoldGearsPath"],
+    ["GoldGearsResonanceExtrapolation", "shared_resonance_id", "GoldGearsResonance"],
+    ["GoldGearsResonanceInterplay", "main_path_id", "GoldGearsPath"],
+    ["GoldGearsResonanceInterplay", "sub_path_id", "GoldGearsPath"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) => candidate.name === fieldName);
     assert(
@@ -84,7 +103,7 @@ try {
       `${tableName}.${fieldName} is not ref<${target}.id>`,
     );
   }
-  console.log(`Gold and Gears core Sora schema verified (${tables.size} isolated tables, typed topology/dice/Knowledge references).`);
+  console.log(`Gold and Gears Sora schema verified (${tables.size} isolated tables, typed core and progression references).`);
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

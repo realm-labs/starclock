@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const root = path.resolve(process.argv[2] ?? ".");
-const output = path.join(root, "config", "gold-and-gears", "schema", "core.toml");
+const schemaRoot = path.join(root, "config", "gold-and-gears", "schema");
 
 const string = (name, maximum = 4000, optional = false) => ({
   name,
@@ -47,7 +47,7 @@ const common = [
   list("tags", 64),
 ];
 
-const tables = [
+const coreTables = [
   {
     name: "GoldGearsProfile",
     sheet: "Profile",
@@ -377,6 +377,212 @@ const tables = [
   },
 ];
 
+const progressionTables = [
+  {
+    name: "GoldGearsSecret",
+    sheet: "Secret",
+    normalized: "secrets.json",
+    fields: [
+      string("source_id", 32),
+      string("required_area_stable_key", 240),
+      string("required_area_source_id", 32),
+      integer("plane_layer", 1, 3),
+      string("minimum_cognition", 64),
+      string("maximum_cognition", 64),
+      string("minimum_origin", 80),
+      string("maximum_origin", 80),
+      boolean("bounds_inclusive"),
+      list("predecessor_secret_ids", 32),
+      list("next_secret_ids", 32),
+      string("evaluation_boundary", 100),
+      string("trigger_condition_hash", 32),
+      string("trigger_condition_digest", 64),
+      boolean("terminal"),
+      string("lifecycle_policy_id", 160),
+    ],
+  },
+  {
+    name: "GoldGearsNeuralNetwork",
+    sheet: "NeuralNetwork",
+    normalized: "neural-network.json",
+    fields: [
+      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      json("quality_overrides_json"),
+      string("source_id", 32),
+      integer("topological_index", 1, 100),
+      list("prerequisite_ids", 32),
+      list("next_ids", 32),
+      list("external_unlock_ids", 32),
+      json("costs_json"),
+      boolean("important"),
+      string("disposition", 100),
+      string("effect_domain", 100),
+      string("effect_tag_en", 200),
+      string("effect_tag_zh_cn", 200),
+      string("effect_tag_text_hash", 32),
+      string("title_text_hash", 32),
+      string("description_text_hash", 32),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      json("source_parameters_json"),
+      json("effect_contributions_json"),
+      string("rule_contribution_id", 240),
+    ],
+  },
+  {
+    name: "GoldGearsConundrumLevel",
+    sheet: "ConundrumLevel",
+    normalized: "conundrum-levels.json",
+    fields: [
+      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      json("quality_overrides_json"),
+      string("source_id", 32),
+      string("source_type", 100),
+      string("track", 80),
+      integer("level", 1, 6),
+      integer("track_cap", 6, 6),
+      integer("total_conundrum_cap", 12, 12),
+      string("total_level_formula", 160),
+      json("unlock_requirement_json"),
+      string("composition_mode", 160),
+      list("active_contribution_ids", 32, false),
+      list("replaces_level_ids", 32),
+      integer("source_tag", 0),
+      integer("source_sort", 0),
+      string("description_text_hash", 32),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      json("source_parameters_json"),
+      json("effect_contributions_json"),
+      string("rule_contribution_id", 240),
+    ],
+  },
+  {
+    name: "GoldGearsPath",
+    sheet: "Path",
+    normalized: "paths.json",
+    fields: [
+      string("source_id", 32),
+      integer("sort", 0),
+      integer("buff_type", 0),
+      ref("shared_resonance_id", "GoldGearsResonance"),
+      list("shared_formation_ids", 8, false),
+      ref("path_boost_id", "GoldGearsPathBoost"),
+      string("normal_battle_event_group", 32),
+      string("enhanced_battle_event_group", 32),
+    ],
+  },
+  {
+    name: "GoldGearsResonance",
+    sheet: "Resonance",
+    normalized: "resonances.json",
+    fields: [
+      string("source_id", 32),
+      ref("path_id", "GoldGearsPath"),
+      string("resonance_kind", 80),
+      integer("threshold", 0, 100),
+      string("energy_max", 64),
+      string("initial_energy", 64),
+      json("parameter_values_json"),
+      list("mechanic_tags", 64),
+      string("source_modifier_name", 200),
+      string("source_binding_type", 160),
+      string("source_binding_key", 160),
+      list("inherited_rule_ids", 64),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+    ],
+  },
+  {
+    name: "GoldGearsPathBoost",
+    sheet: "PathBoost",
+    normalized: "path-boosts.json",
+    fields: [
+      string("source_id", 32),
+      ref("path_id", "GoldGearsPath"),
+      string("aeon_source_id", 32),
+      string("effect_type", 100),
+      string("ability_name", 200),
+      string("target_team", 80),
+      string("target_property", 160),
+      string("boost_stat", 100),
+      string("stacking", 100),
+      string("source_value_conversion", 160),
+      list("dice_path_value_ids", 32, false),
+      list("allowed_increment_values", 32, false),
+      string("description_text_hash", 32),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      string("rule_contribution_id", 240),
+    ],
+  },
+  {
+    name: "GoldGearsResonanceExtrapolation",
+    sheet: "ResonanceExtrapolation",
+    normalized: "resonance-extrapolations.json",
+    fields: [
+      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      json("quality_overrides_json"),
+      string("source_id", 32),
+      ref("path_id", "GoldGearsPath"),
+      string("aeon_source_id", 32),
+      string("buff_group_id", 32),
+      boolean("enhanced"),
+      ref("shared_resonance_id", "GoldGearsResonance"),
+      string("shared_resonance_kind", 80),
+      string("source_battle_event_type", 160),
+      string("source_modifier_name", 200),
+      string("source_binding_type", 160),
+      string("source_binding_key", 160),
+      json("source_parameters_json"),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      string("battle_scope", 100),
+      json("controller_policy_json"),
+      string("rule_contribution_id", 240),
+    ],
+  },
+  {
+    name: "GoldGearsResonanceInterplay",
+    sheet: "ResonanceInterplay",
+    normalized: "resonance-interplays.json",
+    fields: [
+      string("source_id", 32),
+      ref("main_path_id", "GoldGearsPath"),
+      ref("sub_path_id", "GoldGearsPath"),
+      integer("main_blessing_threshold", 0, 100),
+      integer("sub_blessing_threshold", 0, 100),
+      string("buff_group_id", 32),
+      string("shared_maze_buff_id", 32),
+      string("source_modifier_name", 200),
+      string("source_binding_type", 160),
+      string("source_binding_key", 160),
+      json("source_parameters_json"),
+      string("name_text_hash", 32),
+      string("description_text_hash", 32),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      string("rule_contribution_id", 240),
+    ],
+  },
+  {
+    name: "GoldGearsTrailblazeBonus",
+    sheet: "TrailblazeBonus",
+    normalized: "bonuses.json",
+    fields: [
+      string("source_id", 32),
+      string("bonus_event_id", 32),
+      string("title_text_hash", 32),
+      string("description_text_hash", 32),
+      string("tag_text_hash", 32),
+      string("source_description_sha256_en", 64),
+      string("source_description_sha256_zh_cn", 64),
+      json("effect_contributions_json"),
+      string("rule_contribution_id", 240),
+    ],
+  },
+];
+
 const enumDefinitions = [
   ["GoldGearsOwnership", ["GoldAndGears", "Shared"]],
   ["GoldGearsCoverageState", ["DataReady"]],
@@ -386,43 +592,47 @@ const enumDefinitions = [
   ],
 ];
 
-const lines = [
-  "# @generated by tools/gold-and-gears-reference/generate-sora-schema.mjs",
-  "# Do not edit by hand.",
-  "",
-];
-for (const [name, values] of enumDefinitions) {
-  lines.push("[[enums]]", `name = ${quote(name)}`, `values = ${toml(values)}`, "");
-}
-for (const table of tables) {
-  lines.push(
-    "[[tables]]",
-    `name = ${quote(table.name)}`,
-    'mode = "map"',
-    'key = "id"',
-    "[tables.source]",
-    'format = "xlsx"',
-    'file = "GoldAndGears.xlsx"',
-    `sheet = ${quote(table.sheet)}`,
-  );
-  for (const field of [...common, ...table.fields]) {
-    lines.push("[[tables.fields]]", `name = ${quote(field.name)}`, `type = ${quote(field.type)}`);
-    if (field.parser) lines.push(`parser = ${toml(field.parser)}`);
-    if (field.length) lines.push(`length = ${toml(field.length)}`);
-    if (field.range) lines.push(`range = ${toml(field.range)}`);
-  }
-  lines.push(
-    "[[tables.indexes]]",
-    `name = ${quote("by_stable_key")}`,
-    'fields = ["stable_key"]',
-    "unique = true",
-    "",
-  );
-}
+generate("core.toml", "GoldAndGears.xlsx", coreTables, enumDefinitions);
+generate("progression.toml", "GoldAndGearsProgression.xlsx", progressionTables);
+console.log(`Generated Gold and Gears Sora schema (${coreTables.length + progressionTables.length} tables).`);
 
-fs.mkdirSync(path.dirname(output), { recursive: true });
-fs.writeFileSync(output, `${lines.join("\n")}\n`);
-console.log(`Generated ${path.relative(root, output)} (${tables.length} tables).`);
+function generate(filename, workbook, tables, enums = []) {
+  const lines = [
+    "# @generated by tools/gold-and-gears-reference/generate-sora-schema.mjs",
+    "# Do not edit by hand.",
+    "",
+  ];
+  for (const [name, values] of enums) {
+    lines.push("[[enums]]", `name = ${quote(name)}`, `values = ${toml(values)}`, "");
+  }
+  for (const table of tables) {
+    lines.push(
+      "[[tables]]",
+      `name = ${quote(table.name)}`,
+      'mode = "map"',
+      'key = "id"',
+      "[tables.source]",
+      'format = "xlsx"',
+      `file = ${quote(workbook)}`,
+      `sheet = ${quote(table.sheet)}`,
+    );
+    for (const field of [...common, ...table.fields]) {
+      lines.push("[[tables.fields]]", `name = ${quote(field.name)}`, `type = ${quote(field.type)}`);
+      if (field.parser) lines.push(`parser = ${toml(field.parser)}`);
+      if (field.length) lines.push(`length = ${toml(field.length)}`);
+      if (field.range) lines.push(`range = ${toml(field.range)}`);
+    }
+    lines.push(
+      "[[tables.indexes]]",
+      `name = ${quote("by_stable_key")}`,
+      'fields = ["stable_key"]',
+      "unique = true",
+      "",
+    );
+  }
+  fs.mkdirSync(schemaRoot, { recursive: true });
+  fs.writeFileSync(path.join(schemaRoot, filename), `${lines.join("\n")}\n`);
+}
 
 function quote(value) {
   return JSON.stringify(value);
