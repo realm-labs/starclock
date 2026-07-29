@@ -34,6 +34,33 @@ prefix, `_S3` suffix, module number, ID range, adjacent record or matching
 localized name never grants membership; shared records require an explicit
 enabled selector, transitive reference or inherited stable-ID closure.
 
+`content-manifest.json` is generated and verified by:
+
+```text
+node tools/currency-wars-reference/manifest.mjs \
+  --source-cache <turnbasedgamedata-repository>
+node tools/currency-wars-reference/manifest.mjs --check \
+  --source-cache <turnbasedgamedata-repository>
+node tools/currency-wars-reference/verify-manifest.mjs \
+  --source-cache <turnbasedgamedata-repository>
+```
+
+The manifest binds its two generated inputs by SHA-256 and freezes 5,283
+exact-once research obligations in 54 categories: 1,254 `CurrencyWars`, 1,839
+`Shared` and 2,190 fail-closed `EvidenceOnly` records. Evidence-only
+obligations are denominators for later closure, not a claim that the content is
+reachable or data-ready. The same rule applies to the 848 retained room reuse
+candidates: `G12-P1-B1` must promote only rooms selected through the complete
+Stage/room reference graph.
+
+The manifest also records that Goal 11 commit
+`982af8887fdd9ba29f1a323efc0ff5f6595ba411` assigns the identical
+`TournRogue` / `Tourn3` / Activity Module `6002201` selector to Divergent
+Universe even though Goal 11 excludes Currency Wars. The receipt includes the
+other manifest digest and three source-path/row/digest samples. Goal 12 does
+not rewrite that manifest; `G12-P4-B3` must receive a merge-stage ownership
+decision and regenerate both sides or the terminal goal remains blocked.
+
 The ignored source cache is reproduced through
 `tools/currency-wars-reference/fetch-sources.sh`. Both repositories must be
 clean, detached and at the exact revisions frozen in `foundation.json`.
