@@ -21,8 +21,26 @@ the focused Divergent Universe configuration, StageConfig and TextMap entries,
 and retains nine bilingual public indexes for identity cross-checking.
 
 File families are research inputs, not content-row ownership or reachability
-decisions. `G11-P0-B3` freezes those exact row-level decisions. A
-`RogueTourn` prefix, module number, ID range, adjacent record or matching
+decisions. `content-manifest.json` is generated and checked by:
+
+```text
+node tools/divergent-universe-reference/manifest.mjs \
+  --source-cache <cache-root>
+node tools/divergent-universe-reference/manifest.mjs --check \
+  --source-cache <cache-root>
+node tools/divergent-universe-reference/verify-manifest.mjs \
+  --source-cache <cache-root>
+```
+
+The manifest freezes 6,215 exact source obligations in 50 categories:
+4,507 mode-owned, one proven shared StageConfig root and 1,707 fail-closed
+shared candidates. The current released selector is `TournRogue` /
+`Tourn3`, activity module `6002201`, main tournament 3, sub-tournament 1.
+There are no `Tourn3` room rows or matching layer-room rows in the fixed
+snapshot, so all 848 `Tourn2` room rows remain `SharedCandidate` obligations
+until P1-B1 proves or excludes each through stage/config reachability.
+
+A `RogueTourn` prefix, module number, ID range, adjacent record or matching
 localized name never grants membership; shared records require an explicit
 selector, transitive reference or inherited stable-ID closure.
 

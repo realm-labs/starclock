@@ -7,15 +7,15 @@
 | Goal ID | `divergent-universe-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
-| Active batch | None |
-| Next unblocked batch | `G11-P0-B3` after `G11-P0-B2` is pushed and remotely verified |
+| Active batch | `G11-P0-B3` |
+| Next unblocked batch | None while `G11-P0-B3` is active |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Source-cache reproduction | `G11-P0-B1`: both fixed caches materialized twice in an isolated target from the clean connected object cache; exact detached HEAD, origin, worktree cleanliness, connectivity and the 64-table/direct-entry seed verified |
 | Starting source oracle | 64 `RogueTourn*` tables, 3 direct ability programs plus layout companions, CHS/EN TextMaps, StageConfig and transitive config/shared-source closure |
-| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes`; exact content denominator remains pending `G11-P0-B3` |
-| Content manifest | Denominators pending `G11-P0-B3` |
+| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes` |
+| Content manifest | 6,215 obligations in 50 categories: 4,507 `DivergentUniverse`, 1 proven `Shared` and 1,707 fail-closed `SharedCandidate` records |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -29,7 +29,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, Goal 08/09/10 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; exact row denominator and authoring contracts remain. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, 6,215 exact row/source obligations, Goal 08/09/10 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Arithmetic Mapping, Equations, Divergent Blessings, Curios/Grand Miracles/Hex, Golden Blood/Titan, protocols, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -40,8 +40,8 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G11-P0-B1` | `Complete` | `ab6d3ed8131463a4c99ce337845502895ece6d53` | Froze foundation `9f8a3e33…144b7`, Goal 03 commit/tree and preserved bundle digests, the two Version 4.4 source revisions, 64 inherited `RogueTourn` seed rows, 29 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. Ownership checkpoints: Goal 08 local committed `c283c7f1…55a` (7,913 rows: 7,199 mode-owned/714 shared), Goal 09 remote-backed `d5d261a3…c46` (6,963: 6,305/658), Goal 10 remote-backed `a2e64e1d…94d` (5,377: 5,243/134). Fresh GitLab reproduction failed once with HTTP/2 `PROTOCOL_ERROR`; a bounded HTTP/1.1 attempt resolved the commit but stalled during promisor checkout. The accepted isolated object-cache materialization ran twice; the focused verifier, `git diff --check`, batch-set check and quick repository gate pass; no fresh-network success is claimed. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `b0cd3cb9..ab6d3ed8 HEAD -> codex/goal11-divergent-universe-reference`; `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference` both resolved `ab6d3ed8131463a4c99ce337845502895ece6d53` before P0-B2 began. |
-| `G11-P0-B2` | `Complete` | This row's containing commit | Generated `source-inventory.json` (`60d9a9cd…6dc4`, 1,028,567 bytes, 2,684 files): all 2,646 Goal 03 source files plus 29 focused StageConfig/TextMap/Tourn configuration entries and nine bilingual StarRailRes indexes. The closure contains 64 `RogueTourn` tables, six direct ability/layout files, 478 occurrence graphs, 159 candidate NPC graphs, three service graphs, 13 Adventure graphs and nine Maze graphs; 125 named other-mode files and three mode test/GodMode files remain fail-closed exclusion evidence. Raw Git blob hashing avoids checkout-EOL variance; prefixes and file families grant no row ownership. Byte-identical regeneration and the inventory verifier pass. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference`, requiring identical full commit IDs before P0-B3 starts. |
-| `G11-P0-B3` | `Pending` | — | Freeze enabled modules, exact row obligations/counts, ownership, reachability and named exclusions. |
+| `G11-P0-B2` | `Complete` | `f202c1bd0769922be394d4983dc4d0f0f3121779` | Generated `source-inventory.json` (`60d9a9cd…6dc4`, 1,028,567 bytes, 2,684 files): all 2,646 Goal 03 source files plus 29 focused StageConfig/TextMap/Tourn configuration entries and nine bilingual StarRailRes indexes. The closure contains 64 `RogueTourn` tables, six direct ability/layout files, 478 occurrence graphs, 159 candidate NPC graphs, three service graphs, 13 Adventure graphs and nine Maze graphs; 125 named other-mode files and three mode test/GodMode files remain fail-closed exclusion evidence. Raw Git blob hashing avoids checkout-EOL variance; prefixes and file families grant no row ownership. Byte-identical regeneration and the inventory verifier pass. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `ab6d3ed8..f202c1bd HEAD -> codex/goal11-divergent-universe-reference`; local and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference` both resolved `f202c1bd0769922be394d4983dc4d0f0f3121779` before P0-B3 began. |
+| `G11-P0-B3` | `Complete` | This row's containing commit | Generated and rechecked `content-manifest.json` (`5cbfa748…c13e`, 2,669,145 bytes): 6,215 obligations in 50 categories, split into 4,507 `DivergentUniverse`, one proven `Shared` and 1,707 fail-closed `SharedCandidate` records. The exact Version 4.4 entry selects `TournRogue`, `Tourn3`, module `6002201`, main tournament 3 and sub-tournament 1. Twenty-eight current areas close to 22 difficulties and 11 layers; 13 finish rows explicitly test mode 3. No `Tourn3` room row or matching layer-room row exists, so 848 `Tourn2` rooms remain candidate obligations pending P1-B1 stage/config proof rather than being promoted by name or ID shape. The manifest also freezes 414 Blessings/828 levels under eight active types, 80 Equations, 235 Curio states/179 non-null handbook identities, 17 Grand Miracles, all Golden Blood/Titan direct rows, 118 Occurrences, 97 referenced current variants, 23 current service NPCs, 669 mechanic source files and 25 semantic fixture families. There are 666 explicitly historical module/Tourn1/Tourn2 rows, 128 named other-mode/test source files and 35 presentation/account source files retained as exclusion evidence. Manifest/foundation/inventory verifiers, deterministic regeneration, `git diff --check`, batch-set/link checks and the quick repository gate pass. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference`, requiring identical full commit IDs before P0-B4 starts. |
 | `G11-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G11-P1-B1` | `Pending` | — | Import modules, entry modes, difficulties, areas, layers, rooms, stage flow, finish and carry/reset rules. |
 | `G11-P1-B2` | `Pending` | — | Import temporary character/Trace/Light Cone/Relic Arithmetic Mapping and teardown. |
@@ -82,29 +82,30 @@ mutation.
 
 ## Frozen counters
 
-Populate required counts only from the generated manifest in `G11-P0-B3`.
-Do not estimate denominators from Wiki totals, raw table sizes, prefixes,
-modules or ID ranges.
+Required counts are generated from `content-manifest.json`. Accounted and
+DataReady remain zero until normalized rows close the frozen parent
+obligations. Do not estimate denominators from Wiki totals, raw table sizes,
+prefixes, modules or ID ranges.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/modules/entries/finish conditions | TBD | 0 | 0 | Includes Ordinary/Cyclical selection, unlocks, initial resources and terminal boundaries. |
-| Areas/difficulties/layers/rooms | TBD | 0 | 0 | Includes legal stage flow, module binding, transitions and carry/reset rules. |
-| Threshold Protocol/Astronomical Division | TBD | 0 | 0 | Includes Star-Pioneer/Practice Mode and Cognoculi only where they change entry, difficulty, enemies or contributions. |
-| Arithmetic Mappings | TBD | 0 | 0 | Includes eligibility, temporary builds, refresh timing and teardown without account mutation. |
-| Equations/recipes/expansion states | TBD | 0 | 0 | Includes categories, Path counts, offers, progress, effects and replacement. |
-| Divergent Blessings/levels/transforms | TBD | 0 | 0 | Includes Equation contribution and exact enhanced/rewrite behavior. |
-| Curios/Weighted Curios/states | TBD | 0 | 0 | Includes eligibility, weighting, charges, destruction, repair and replacement. |
-| Grand Miracles/Hex states | TBD | 0 | 0 | Includes character/Path/element eligibility, effects and lifecycle. |
-| Golden Blood/Titan definitions | TBD | 0 | 0 | Includes Boons, Titan types/talents, choices, levels and contributions. |
-| Workbench/gamble/services | TBD | 0 | 0 | Includes operations, currencies, prices, offered sets and deterministic fallback. |
-| Permanent talents/unlocks/modifiers | TBD | 0 | 0 | Only simulation-visible progression, weekly and module effects are enabled. |
-| Blessing/Path/shared content pools | TBD | 0 | 0 | Shared reachability and mode copies require explicit proof. |
-| Occurrences/variants/choices | TBD | 0 | 0 | Presentation prose is excluded; mechanical graphs and outcomes are included. |
-| Services/Adventure outcomes | TBD | 0 | 0 | Adventure input is an abstract offered result, not simulated action gameplay. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Must resolve exact released StageConfig rows, enemy identities and boss alternatives. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every distinct unique mechanic, lifecycle and selection policy. |
+| Profiles/modules/entries/finish conditions | 17 | 0 | 0 | Exact `TournRogue`/`Tourn3`/`6002201` boundary; includes terminal conditions. |
+| Areas/difficulties/layers/rooms | 921 | 0 | 0 | Includes 848 fail-closed room candidates; P1-B1 must prove/exclude each through stage/config closure. |
+| Threshold Protocol/Astronomical Division | 17 | 0 | 0 | Star-Pioneer/Practice Mode and Cognoculi may expand normalized children only where simulation-visible. |
+| Arithmetic Mappings | 258 | 0 | 0 | Includes eligibility, temporary builds, refresh timing and teardown without account mutation. |
+| Equations/recipes/expansion states | 330 | 0 | 0 | Includes categories, Path counts, offers, progress, effects and replacement. |
+| Divergent Blessings/levels/transforms | 1,360 | 0 | 0 | Includes Equation contribution and exact enhanced/rewrite behavior. |
+| Curios/Weighted Curios/states | 700 | 0 | 0 | Includes eligibility, weighting, charges, destruction, repair and replacement. |
+| Grand Miracles/Hex states | 74 | 0 | 0 | Includes character/Path/element eligibility, effects and lifecycle. |
+| Golden Blood/Titan definitions | 132 | 0 | 0 | Includes Boons, Titan types/talents, choices, levels and contributions. |
+| Workbench/gamble/services | 261 | 0 | 0 | Includes operations, currencies, prices, offered sets and deterministic fallback. |
+| Permanent talents/unlocks/modifiers | 296 | 0 | 0 | Only simulation-visible progression, weekly and module effects may become DataReady. |
+| Blessing/Path/shared content pools | 8 | 0 | 0 | Current active Blessing types are exact; shared reachability still requires explicit proof. |
+| Occurrences/variants/choices | 215 | 0 | 0 | Presentation prose is excluded; mechanical graphs and outcomes are included. |
+| Services/Adventure outcomes | 316 | 0 | 0 | Adventure input is an abstract offered result, not simulated action gameplay. |
+| Encounter groups/waves/enemy slots | 877 | 0 | 0 | Parent obligations expand into exact StageConfig rows, identities and waves in P2-B5. |
+| Mechanic rules | 669 | 0 | 0 | Reference source-file obligations only; no runtime executability claim. |
+| Semantic fixtures | 25 | 0 | 0 | Non-shrinking minimum covering every distinct lifecycle and selection policy. |
 
 ## Decisions
 
@@ -121,13 +122,15 @@ modules or ID ranges.
 | 2026-07-29 | Exclude story/presentation and account/collection/fitting rewards while retaining mechanical locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal. |
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
+| 2026-07-29 | Freeze Version 4.4 to `TournRogue`/`Tourn3`, activity module `6002201`, main tournament 3 and sub-tournament 1. | The resident activity row selects `6002201`, and the module table resolves that stable reference exactly; older module rows remain historical evidence. |
+| 2026-07-29 | Keep all 848 `Tourn2` room rows as `SharedCandidate` obligations instead of reachable shared content. | The fixed snapshot has no `Tourn3` room rows or layer-room rows matching the 11 selected layers; only P1 stage/config closure may promote or exclude a room. |
 
 ## Research cases
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
 | `G11-R01` | `ResolvedExact` | Which direct and transitive configuration, TextMap, StageConfig, enemy/wave, shared Rogue and ability files complete the 64-table seed inventory? | P0-B2 | Replaced by the 2,684-file raw-Git-blob inventory (`60d9a9cd…6dc4`); reopen only if P0-B3 discovers a referenced path absent from this fail-closed closure. |
-| `G11-R02` | `Open` | Which Version 4.4 module selectors separate enabled Divergent-owned, shared, evidence-only, historical/test and other-mode rows? | P0-B3 | Replace with a frozen exact-once ownership manifest whose rows carry selector/reference evidence and fail-closed exclusions. |
+| `G11-R02` | `ResolvedExact` | Which Version 4.4 module selectors separate enabled Divergent-owned, shared, evidence-only, historical/test and other-mode rows? | P0-B3 | Replaced by `content-manifest.json` (`5cbfa748…c13e`): exact `TournRogue`/`Tourn3`/`6002201` selection, transitive row closures, 666 historical rows and named fail-closed exclusions. Room reuse remains deliberately unpromoted under `G11-R03`. |
 | `G11-R03` | `Open` | What are the exact Ordinary/Cyclical area, difficulty, layer, room, transition, finish and carry/reset boundaries for each enabled module? | P1-B1 | Replace with structured stage-flow facts and entry/transition/reset/terminal fixtures. |
 | `G11-R04` | `Open` | How are temporary character, Trace, Light Cone and Relic mappings selected, refreshed and removed, including already-stronger account builds? | P1-B2 | Replace with source-backed eligibility/substitution/teardown rows and positive/rejected fixtures for every mapping class. |
 | `G11-R05` | `Open` | How are Equations offered, rerolled, progressed, expanded, replaced and evaluated when Blessing ownership changes? | P1-B3–B4 | Replace with exact source programs or field-level policies carrying alternatives, affected fixtures and stronger-evidence triggers. |
@@ -142,7 +145,7 @@ modules or ID ranges.
 
 ## Terminal checklist
 
-- [ ] Exact enabled-module category manifests and denominators are frozen.
+- [x] Exact enabled-module category manifests and denominators are frozen.
 - [ ] Both pinned caches and the focused
       table/config/TextMap/Stage/ability inventory regenerate deterministically.
 - [ ] Complete normalized pack and canonical pack index regenerate without
@@ -177,6 +180,6 @@ modules or ID ranges.
 | Remote/branch verification | — |
 | Divergent Universe reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | Denominators pending `G11-P0-B3` |
+| Coverage | 6,215 frozen obligations; normalized accounting pending Phase 1–4 |
 | Release evidence | — |
 | Remaining required work | Divergent Universe runtime lowering, integration, handlers, controller/API exposure and seeded full runs belong to a later goal. |
