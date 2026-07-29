@@ -42,18 +42,18 @@ execFileSync(sora, ["check", "--project", projectPath], {
 assert(project.includes('"schema/bindings.toml"'),
   "bindings schema include drift");
 const expected = new Map([
-  ["AnomalyArbitrationPoolAudits", "PoolAudits"],
-  ["AnomalyArbitrationTraits", "Traits"],
-  ["AnomalyArbitrationMazeBuffBindings", "MazeBuffBindings"],
-  ["AnomalyArbitrationBattleEvents", "BattleEvents"],
-  ["AnomalyArbitrationEncounters", "Encounters"],
-  ["AnomalyArbitrationEncounterWaves", "EncounterWaves"],
-  ["AnomalyArbitrationEnemySlots", "EnemySlots"],
-  ["AnomalyArbitrationEnemies", "Enemies"],
-  ["AnomalyArbitrationEnemySkills", "EnemySkills"],
-  ["AnomalyArbitrationEnemyStatuses", "EnemyStatuses"],
-  ["AnomalyArbitrationAbilityBindings", "AbilityBindings"],
-  ["AnomalyArbitrationMechanicContributions", "MechanicContributions"],
+  ["AAPoolAudits", "PoolAudits"],
+  ["AATraits", "Traits"],
+  ["AAMazeBuffBindings", "MazeBuffBindings"],
+  ["AABattleEvents", "BattleEvents"],
+  ["AAEncounters", "Encounters"],
+  ["AAEncounterWaves", "EncounterWaves"],
+  ["AAEnemySlots", "EnemySlots"],
+  ["AAEnemies", "Enemies"],
+  ["AAEnemySkills", "EnemySkills"],
+  ["AAEnemyStatuses", "EnemyStatuses"],
+  ["AAAbilityBindings", "AbilityBindings"],
+  ["AAMechanicContributions", "MechanicContributions"],
 ]);
 const tableBlocks = schema.split("[[tables]]").slice(1);
 assert(tableBlocks.length === expected.size, "bindings table count drift");
@@ -70,9 +70,9 @@ for (const block of tableBlocks) {
   `${name} authoring fields drift`);
 }
 for (const typedReference of [
-  "ref<AnomalyArbitrationStages.id>",
-  "ref<AnomalyArbitrationEncounters.id>",
-  "ref<AnomalyArbitrationEnemies.id>",
+  "ref<AAStages.id>",
+  "ref<AAEncounters.id>",
+  "ref<AAEnemies.id>",
 ])
   assert(schema.includes(typedReference),
     `missing binding typed reference ${typedReference}`);

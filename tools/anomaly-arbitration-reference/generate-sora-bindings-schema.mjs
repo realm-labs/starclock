@@ -11,66 +11,66 @@ const output = path.join(
 );
 
 const definitions = [
-  ["AnomalyArbitrationPoolAudits", "PoolAudits", [
+  ["AAPoolAudits", "PoolAudits", [
     field("pool_family", "string", 'length = [1, 100]'),
   ]],
-  ["AnomalyArbitrationTraits", "Traits", [
+  ["AATraits", "Traits", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AnomalyArbitrationMazeBuffBindings", "MazeBuffBindings", [
+  ["AAMazeBuffBindings", "MazeBuffBindings", [
     field("stage_stable_key", "string", 'length = [1, 200]'),
     field("binding_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AnomalyArbitrationBattleEvents", "BattleEvents", [
+  ["AABattleEvents", "BattleEvents", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AnomalyArbitrationEncounters", "Encounters", [
+  ["AAEncounters", "Encounters", [
     field(
       "stage_id",
-      "ref<AnomalyArbitrationStages.id>",
+      "ref<AAStages.id>",
     ),
     field("source_stage_id", "string", 'length = [1, 64]'),
   ]],
-  ["AnomalyArbitrationEncounterWaves", "EncounterWaves", [
+  ["AAEncounterWaves", "EncounterWaves", [
     field(
       "encounter_id",
-      "ref<AnomalyArbitrationEncounters.id>",
+      "ref<AAEncounters.id>",
     ),
     field("wave_order", "i32", "range = [1, 100]"),
   ]],
-  ["AnomalyArbitrationEnemySlots", "EnemySlots", [
+  ["AAEnemySlots", "EnemySlots", [
     field(
       "encounter_id",
-      "ref<AnomalyArbitrationEncounters.id>",
+      "ref<AAEncounters.id>",
     ),
     field("wave_order", "i32", "range = [1, 100]"),
     field("slot_order", "i32", "range = [1, 100]"),
     field(
       "enemy_id",
-      "ref<AnomalyArbitrationEnemies.id>",
+      "ref<AAEnemies.id>",
     ),
   ]],
-  ["AnomalyArbitrationEnemies", "Enemies", [
+  ["AAEnemies", "Enemies", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
     field("source_template_id", "string", 'length = [1, 64]'),
   ]],
-  ["AnomalyArbitrationEnemySkills", "EnemySkills", [
+  ["AAEnemySkills", "EnemySkills", [
     field(
       "enemy_id",
-      "ref<AnomalyArbitrationEnemies.id>",
+      "ref<AAEnemies.id>",
     ),
     field("source_numeric_id", "string", 'length = [1, 64]'),
     field("skill_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AnomalyArbitrationEnemyStatuses", "EnemyStatuses", [
+  ["AAEnemyStatuses", "EnemyStatuses", [
     field("owner_stable_key", "string", 'length = [1, 300]'),
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AnomalyArbitrationAbilityBindings", "AbilityBindings", [
+  ["AAAbilityBindings", "AbilityBindings", [
     field("owner_stable_key", "string", 'length = [1, 300]'),
     field("binding_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AnomalyArbitrationMechanicContributions", "MechanicContributions", [
+  ["AAMechanicContributions", "MechanicContributions", [
     field("scope", "string", 'length = [1, 100]'),
     field("install_order", "i32", "range = [1, 10000]"),
   ]],
@@ -97,10 +97,10 @@ const commonFields = [
   field("name_zh_cn", "string", "length = [1, 300]"),
   field("summary_en", "string", "length = [1, 2000]"),
   field("summary_zh_cn", "string", "length = [1, 2000]"),
-  field("ownership", "enum<AnomalyArbitrationOwnership>"),
-  field("coverage_state", "enum<AnomalyArbitrationCoverageState>"),
-  field("evidence_quality", "enum<AnomalyArbitrationEvidenceQuality>"),
-  field("mechanism_quality", "enum<AnomalyArbitrationMechanismQuality>"),
+  field("ownership", "enum<AAOwnership>"),
+  field("coverage_state", "enum<AACoverageState>"),
+  field("evidence_quality", "enum<AAEvidenceQuality>"),
+  field("mechanism_quality", "enum<AAMechanismQuality>"),
   field(
     "manifest_record_ids",
     "list<string>",

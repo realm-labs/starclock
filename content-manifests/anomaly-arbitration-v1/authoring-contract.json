@@ -114,7 +114,7 @@
   "table_family_contract": {
     "one_primary_table_per_normalized_file": true,
     "child_tables": "allowed only for repeated typed fields; every child row carries parent stable ID and deterministic ordinal",
-    "table_names": "AnomalyArbitration plus PascalCase normalized file stem; child tables append a semantic role",
+    "table_names": "AA plus PascalCase normalized file stem; the short logical prefix keeps Sora-generated Excel validation titles within the 32-character limit; child tables append a semantic role",
     "sheet_names": "explicit in Sora schema and at most 31 characters",
     "numeric_keys": "private workbook identities only",
     "stable_keys": "required for every cross-workbook, manifest or inherited reference",

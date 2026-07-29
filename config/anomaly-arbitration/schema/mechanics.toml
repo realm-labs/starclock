@@ -1,5 +1,5 @@
 [[tables]]
-name = "AnomalyArbitrationKingStates"
+name = "AAKingStates"
 mode = "map"
 key = "id"
 [tables.source]
@@ -12,7 +12,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -39,16 +39,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -72,7 +72,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationKingProtection"
+name = "AAKingProtection"
 mode = "map"
 key = "id"
 [tables.source]
@@ -85,7 +85,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -112,16 +112,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -145,7 +145,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationClocks"
+name = "AAClocks"
 mode = "map"
 key = "id"
 [tables.source]
@@ -158,7 +158,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -190,16 +190,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -223,7 +223,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationQuadrantOptions"
+name = "AAQuadrantOptions"
 mode = "map"
 key = "id"
 [tables.source]
@@ -236,7 +236,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -267,16 +267,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -304,7 +304,7 @@ fields = ["source_numeric_id"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationQuadrantSelections"
+name = "AAQuadrantSelections"
 mode = "map"
 key = "id"
 [tables.source]
@@ -317,7 +317,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -349,16 +349,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -382,7 +382,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationTargets"
+name = "AATargets"
 mode = "map"
 key = "id"
 [tables.source]
@@ -395,7 +395,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -426,16 +426,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -463,7 +463,7 @@ fields = ["source_numeric_id"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationObjectives"
+name = "AAObjectives"
 mode = "map"
 key = "id"
 [tables.source]
@@ -476,7 +476,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -508,16 +508,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -541,7 +541,7 @@ fields = ["stable_key"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationStageResults"
+name = "AAStageResults"
 mode = "map"
 key = "id"
 [tables.source]
@@ -554,7 +554,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "stage_id"
-type = "ref<AnomalyArbitrationStages.id>"
+type = "ref<AAStages.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -586,16 +586,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -623,7 +623,7 @@ fields = ["stage_id"]
 unique = true
 
 [[tables]]
-name = "AnomalyArbitrationAggregations"
+name = "AAAggregations"
 mode = "map"
 key = "id"
 [tables.source]
@@ -636,7 +636,7 @@ type = "i32"
 range = [1, 2147483647]
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AnomalyArbitrationProfiles.id>"
+type = "ref<AAProfiles.id>"
 [[tables.fields]]
 name = "stable_key"
 type = "string"
@@ -668,16 +668,16 @@ type = "string"
 length = [1, 2000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AnomalyArbitrationOwnership>"
+type = "enum<AAOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AnomalyArbitrationCoverageState>"
+type = "enum<AACoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AnomalyArbitrationEvidenceQuality>"
+type = "enum<AAEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AnomalyArbitrationMechanismQuality>"
+type = "enum<AAMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
