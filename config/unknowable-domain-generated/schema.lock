@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_unknowable_domain_reference_config",
-  "fingerprint": "49cc7c3d2b253ed0",
+  "fingerprint": "e944bdfa3bd29a6e",
   "schema": {
     "package": "starclock_unknowable_domain_reference_config",
     "enums": [
@@ -13678,7 +13678,9 @@
           {
             "name": "effect_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -13689,10 +13691,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              128
-            ],
+            "length": null,
             "parser": {
               "kind": "split",
               "options": {
@@ -14164,7 +14163,9 @@
           },
           {
             "name": "description_en",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -14174,16 +14175,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              2400
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "description_zh_cn",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -14193,10 +14193,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              2400
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           }
@@ -15076,7 +15073,9 @@
           },
           {
             "name": "description_en",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -15086,16 +15085,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              2400
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "description_zh_cn",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -15105,10 +15103,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              2400
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -19328,7 +19323,9 @@
           },
           {
             "name": "eligibility",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19338,16 +19335,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              160
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "ordering",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19357,16 +19353,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              160
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "fallback",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19376,10 +19371,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              160
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },

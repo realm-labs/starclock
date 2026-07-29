@@ -47,11 +47,11 @@ pub struct UnknowableDomainCurioRule {
     #[serde(rename = "replacement_json")]
     pub replacement_json: String,
     #[serde(rename = "eligibility")]
-    pub eligibility: String,
+    pub eligibility: Option<String>,
     #[serde(rename = "ordering")]
-    pub ordering: String,
+    pub ordering: Option<String>,
     #[serde(rename = "fallback")]
-    pub fallback: String,
+    pub fallback: Option<String>,
     #[serde(rename = "runtime_lowered")]
     pub runtime_lowered: bool,
 }
@@ -85,9 +85,9 @@ impl super::runtime::SoraDecode for UnknowableDomainCurioRule {
             lifecycle_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             repair_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             replacement_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordering: <String as super::runtime::SoraDecode>::decode(reader)?,
-            fallback: <String as super::runtime::SoraDecode>::decode(reader)?,
+            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordering: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            fallback: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             runtime_lowered: <bool as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

@@ -523,16 +523,13 @@ type = "string"
 length = [1, 60000]
 [[tables.fields]]
 name = "eligibility"
-type = "string"
-length = [1, 160]
+type = "optional<string>"
 [[tables.fields]]
 name = "ordering"
-type = "string"
-length = [1, 160]
+type = "optional<string>"
 [[tables.fields]]
 name = "fallback"
-type = "string"
-length = [1, 160]
+type = "optional<string>"
 [[tables.fields]]
 name = "runtime_lowered"
 type = "bool"

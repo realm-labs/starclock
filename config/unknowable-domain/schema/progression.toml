@@ -904,9 +904,8 @@ type = "string"
 length = [1, 160]
 [[tables.fields]]
 name = "effect_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
-length = [1, 128]
 [[tables.fields]]
 name = "effect_parameters_json"
 type = "string"
@@ -1006,12 +1005,10 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "description_en"
-type = "string"
-length = [1, 2400]
+type = "optional<string>"
 [[tables.fields]]
 name = "description_zh_cn"
-type = "string"
-length = [1, 2400]
+type = "optional<string>"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1202,12 +1199,10 @@ type = "string"
 length = [1, 100]
 [[tables.fields]]
 name = "description_en"
-type = "string"
-length = [1, 2400]
+type = "optional<string>"
 [[tables.fields]]
 name = "description_zh_cn"
-type = "string"
-length = [1, 2400]
+type = "optional<string>"
 [[tables.fields]]
 name = "battle_projection"
 type = "string"

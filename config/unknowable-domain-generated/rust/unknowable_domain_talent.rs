@@ -43,7 +43,7 @@ pub struct UnknowableDomainTalent {
     #[serde(rename = "prerequisite_resolution")]
     pub prerequisite_resolution: String,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: Vec<String>,
+    pub effect_ids: Option<Vec<String>>,
     #[serde(rename = "effect_parameters_json")]
     pub effect_parameters_json: String,
     #[serde(rename = "description_en")]
@@ -81,7 +81,7 @@ impl super::runtime::SoraDecode for UnknowableDomainTalent {
             cost_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             prerequisite_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             prerequisite_resolution: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             effect_parameters_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             description_en: <String as super::runtime::SoraDecode>::decode(reader)?,
             description_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,

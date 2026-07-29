@@ -49,9 +49,9 @@ pub struct UnknowableDomainMazeBuff {
     #[serde(rename = "maze_buff_type")]
     pub maze_buff_type: String,
     #[serde(rename = "description_en")]
-    pub description_en: String,
+    pub description_en: Option<String>,
     #[serde(rename = "description_zh_cn")]
-    pub description_zh_cn: String,
+    pub description_zh_cn: Option<String>,
     #[serde(rename = "battle_projection")]
     pub battle_projection: String,
 }
@@ -86,8 +86,8 @@ impl super::runtime::SoraDecode for UnknowableDomainMazeBuff {
             binding_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             parameters_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             maze_buff_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            description_en: <String as super::runtime::SoraDecode>::decode(reader)?,
-            description_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
+            description_en: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            description_zh_cn: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             battle_projection: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }

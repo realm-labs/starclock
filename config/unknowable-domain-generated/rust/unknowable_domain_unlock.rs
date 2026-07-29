@@ -43,9 +43,9 @@ pub struct UnknowableDomainUnlock {
     #[serde(rename = "consumer_source_locators")]
     pub consumer_source_locators: Option<Vec<String>>,
     #[serde(rename = "description_en")]
-    pub description_en: String,
+    pub description_en: Option<String>,
     #[serde(rename = "description_zh_cn")]
-    pub description_zh_cn: String,
+    pub description_zh_cn: Option<String>,
 }
 
 impl super::runtime::SoraDecode for UnknowableDomainUnlock {
@@ -77,8 +77,8 @@ impl super::runtime::SoraDecode for UnknowableDomainUnlock {
             consumer_source_locators: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,
-            description_en: <String as super::runtime::SoraDecode>::decode(reader)?,
-            description_zh_cn: <String as super::runtime::SoraDecode>::decode(reader)?,
+            description_en: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            description_zh_cn: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }
