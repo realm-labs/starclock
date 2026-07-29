@@ -78,6 +78,14 @@ node tools/gold-and-gears-reference/import-curios.mjs
 node tools/gold-and-gears-reference/verify-curios.mjs
 ```
 
+Occurrence identities, reachable Gold variants and derived mechanical choice
+graphs regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-occurrences.mjs
+node tools/gold-and-gears-reference/verify-occurrences.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

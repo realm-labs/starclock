@@ -7,7 +7,7 @@
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Content and encounters |
-| Active batch | `G08-P2-B3` |
+| Active batch | `G08-P2-B4` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -23,7 +23,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 51 normalized files, four workbook families and 18 fixture families are machine-frozen; P1-B5 amended the manifest from 7,906 to 7,913 after correcting the Knowledge tag discriminator. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes, all 12 Conundrum levels and all 108 Path/Resonance obligations are DataReady. |
-| Phase 2 — Content and encounters | `InProgress` | Shared Blessings and all reachable Curio identities/mode copies are DataReady; importing Occurrences next, followed by services, Adventure outcomes and encounters. |
+| Phase 2 — Content and encounters | `InProgress` | Shared Blessings, Curios and all reachable Occurrence identities/variants are DataReady; importing services and Adventure outcomes next, followed by encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
@@ -45,8 +45,8 @@
 | `G08-P1-B8` | `Complete` | This row's containing commit | Generated and rechecked six normalized files with 113 rows (429,528 bytes; SHA-256: paths `572af86a…299f`, Resonances `94cedded…f81a`, boosts `b2107dc1…15f8`, Extrapolations `b2a1213b…6a49`, Interplays `4fd0cccb…9159`, bonuses `08820529…48ff`): nine shared Paths, 36 shared Resonances/Formations, nine exact Path boosts, 36 Third Plane Extrapolation bindings, 18 exact two-Path Interplays and bonuses `201`–`205`. The source ability programs correct four prior dice boost labels to Effect Hit Rate, DoT, CRIT DMG and all DMG without changing the frozen 108-row denominator. Released rows prove group membership, buff parameters, 3+3 Interplay thresholds and Path-boost conversion; generic Extrapolation selection, scheduling and target-polarity lowering remain a named replaceable fail-closed policy. All focused verifiers and the quick gate pass. The Phase 1 full gate again stops only at the frozen Goal 06 `Cargo.lock baseline differs` historical boundary. |
 | `G08-P2-B1` | `Complete` | This row's containing commit | Generated and rechecked 162 shared Blessings (`b7ba9e79…7b40`) and 324 exact authored levels (`b20ae1cd…4a6a`), totaling 486 rows and 1,430,177 bytes. Each of the nine directly selectable Gold and Gears Paths owns exactly 18 inherited Blessings with a fixed 8 one-star, seven two-star and three three-star distribution; every Blessing closes to exactly two unchanged Goal 03 levels. Rows retain Goal 03 stable IDs, rule identities, parameters, modifiers, prerequisites and mechanic tags while binding inherited, direct source-row and Gold Path reachability evidence. No mode-owned Blessing is introduced. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
 | `G08-P2-B2` | `Complete` | This row's containing commit | Generated and rechecked 80 reachable Curio identities (`d57f9b3c…8e17`) and exactly 80 Gold mode-copy states (`6ddf0a46…d254`), totaling 160 rows and 855,477 bytes. Ownership closes at 61 shared Goal 03 identities plus 19 Gold-owned identities; category membership closes at 60 Normal, 14 Negative and six Error Code Curios. Exact mode-copy parameters, 12 numeric limited-use counters, three conditional destruction rules, six three-battle Error Code repairs with inherited fixed-state values, Void Wick default-charge repair, Shining Trapezohedron whole-inventory replacement and King of Sponges post-destruction retention are preserved. Released membership categories are exact; offer-specific exclusions and candidate ordering use `curio-random-selection-v1` and fail closed until the owning Occurrence/service binds them. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
-| `G08-P2-B3` | `InProgress` | — | Importing Occurrences, variants, choices, conditions, costs and mechanical outcomes. |
-| `G08-P2-B4` | `Pending` | — | Import currencies, services, beacons and abstract Adventure outcomes. |
+| `G08-P2-B3` | `Complete` | This row's containing commit | Generated and rechecked 62 reachable Occurrence identities (`3e6e92be…73f8`), 65 Gold mode variants (`53c81929…8cc4`) and 257 derived ordered choices (`615e5991…b8f7`), totaling 384 rows and 1,231,641 bytes. Ownership closes at 51 shared Goal 03 identities plus 11 Gold-owned identities; four source variants deliberately serve multiple handbook identities without duplication. Every NPC/option config, condition ID, special option, dynamic display mapping, label/result digest, printed percentage, numeric literal, cost target and outcome kind is preserved without presentation prose. Forty-three choices say random/chance without released weights; `occurrence-random-outcome-v1` uses the seeded Activity stream over stable source order and fails closed when an eligible pool is unresolved. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
+| `G08-P2-B4` | `InProgress` | — | Importing currencies, shared services, beacons and abstract Adventure outcomes. |
 | `G08-P2-B5` | `Pending` | — | Import encounter groups, waves, enemy variants, elite/boss pools and difficulty bindings. |
 | `G08-P2-B6` | `Pending` | — | Generate rules, sources, coverage, research gaps, fixtures and pack index. |
 | `G08-P3-B1` | `Pending` | — | Add isolated topology/Cognition/dice/Knowledge Sora tables. |
@@ -79,7 +79,7 @@ Do not estimate denominators from Wiki page counts.
 | Paths/boosts/Resonance Extrapolations | 108 | 108 | 108 | Nine shared Paths, 36 shared Resonances/Formations, nine exact Path boosts, 36 policy-bounded Extrapolation bindings and 18 exact Interplays are DataReady. |
 | Blessings/enhanced levels | 486 | 486 | 486 | All 162 Goal 03 stable Blessing IDs and both authored levels are reachable shared content; no mode-owned Blessing exists in the frozen pool. |
 | Curios/states | 160 | 160 | 160 | Eighty reachable handbook identities and exactly one 3000-series Gold mode copy each are DataReady; ownership is 61 shared and 19 mode-owned. |
-| Occurrences/variants/choices | 127 | 0 | 0 | Sixty-two reachable handbook identities and 65 distinct 300000-series Gold variants; choice expansion remains child rows. |
+| Occurrences/variants/choices | 127 | 127 | 127 | Sixty-two reachable handbook identities and 65 distinct 300000-series Gold variants are DataReady; 257 choice rows are derived children outside the frozen denominator. |
 | Services/beacons/Adventure outcomes | 34 | 6 | 6 | Six beacons are DataReady; shared services, Adventure definitions and entry bonuses remain. |
 | Encounter groups/waves/enemy slots | 1,230 | 1,230 | 1,230 | All room/boss parent obligations are DataReady; P2-B5 must still attach derived groups, waves and enemy slots without shrinking parents. |
 | Mechanic rules | 18 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
@@ -109,6 +109,8 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Inherit all 162 Goal 03 Blessings and 324 authored levels as the Gold and Gears shared Path pool. | RogueNous exposes all nine Paths, the frozen manifest contains every stable Goal 03 Path Blessing, and the inherited pool closes uniformly at 18 Blessings and two levels per identity. The mode adds Path boosts and Interplays but no separate Blessing identities. |
 | 2026-07-29 | Model each reachable Curio identity separately from its one Gold and Gears 3000-series mode copy. | Handbook type `160` proves reachability and shared versus mode-owned identity, while the mode copy owns the exact effect vector and lifecycle. This preserves shared stable IDs without pretending a Standard state row is the Gold copy. |
 | 2026-07-29 | Keep Curio categories exact while policy-binding offer-specific random selection. | Released categories prove the 60 Normal, 14 Negative and six Error Code identities, and structured rows prove parameters and lifecycle text. Complete per-offer exclusions and candidate ordering are not exposed by one global source table, so each owning Occurrence/service must bind eligibility or fail closed. |
+| 2026-07-29 | Share Occurrence identity but own every 300000-series Gold choice graph in the mode pack. | Fifty-one handbook identities already have Goal 03 stable IDs, eleven exist only in Gold and Gears, and all 65 reachable NPC variants use Gold-specific configs. Four variants are referenced by multiple handbook rows and therefore remain one graph with multiple parents. |
+| 2026-07-29 | Preserve printed occurrence probabilities and policy-bind only hidden random selection. | Exact option text, parameters and percentages remain row evidence. For 43 options that say random or chance without weights, seeded stable-order selection is an explicit replaceable policy and an unresolved eligible pool fails closed. |
 
 ## Research cases
 
@@ -121,8 +123,8 @@ Do not estimate denominators from Wiki page counts.
 | `G08-R05` | `PolicyBound` | Exact face templates and active-dice-specific countdown/collapse interactions are typed; canonical target enumeration, seeded selection, empty-set behavior and simultaneous movement/Knowledge/collapse/reward order use replaceable `knowledge-*-v1` policies until pinned engine evidence is available. | P1-B5 / P4-B2 |
 | `G08-R06` | `PolicyBound` | Track composition, independent caps of six, summed cap of 12 and all released semantic effects are bound. Numeric enemy-stat/Toughness/action-advance ratios and Berserk cycle/stack values remain a named fail-closed `conundrum-unreleased-numeric-bindings-v1` policy until pinned released engine data or reproducible Version 4.4 observations replace them. | P1-B7 / P4-B2 |
 | `G08-R07` | `PolicyBound` | Path-boost targets and percent-to-ratio conversion, all group memberships, shared Resonance parameters, 3+3 Interplay thresholds and the Third Plane boss scope are exact. Extrapolation candidate enumeration, seeded formation selection, action-gauge/tie order and generic target-polarity lowering use `resonance-extrapolation-controller-v1`; unresolved action/polarity lowering fails closed until pinned engine evidence replaces the policy. | P1-B8 / P4-B2 |
-| `G08-R08` | `PartiallyBound` | All Blessings and levels are shared; Curios close at 61 shared plus 19 Gold-owned identities with one exact Gold mode copy each. Curio category membership and lifecycle are bound, while offer-specific selection fails closed until the owning rule supplies eligibility. Occurrence and service membership remains assigned to P2-B3–B4. | P2-B1–B4 |
-| `G08-R09` | `Open` | Which map-generation, room-selection, occurrence and reward weights are released, observed or require explicit project policy? | P1-B1 / P2-B3–B4 |
+| `G08-R08` | `PartiallyBound` | Blessings, Curios and Occurrences now close exactly: 162 shared Blessings, 61 shared plus 19 Gold-owned Curios, and 51 shared plus 11 Gold-owned Occurrences with 65 exact Gold variants. Offer-specific Curio selection is owned by each choice/service rule; shared service membership remains P2-B4. | P2-B1–B4 |
+| `G08-R09` | `PartiallyBound` | Map nodes/rooms and printed occurrence percentages are exact; derived chessboard edges and 43 unweighted random occurrence choices use named replaceable policies with stable ordering and fail-closed unresolved pools. Service, Adventure and reward selection remains P2-B4. | P1-B1 / P2-B3–B4 |
 | `G08-R10` | `Closed` | All 40 nodes are mechanically relevant: 30 contribute battle ratios, nine change run decisions/resources/services/dice behavior and Reboot Plane projects an entry effect into eligible battles. No node is reward-only. The two unpublished slot/reroll details are field-level replaceable policies rather than unresolved blockers. | P1-B6 |
 
 ## Terminal checklist
@@ -153,6 +155,6 @@ Do not estimate denominators from Wiki page counts.
 | Completion commit | — |
 | Gold and Gears reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | 7,745/7,913 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
+| Coverage | 7,872/7,913 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
 | Release evidence | — |
 | Remaining required work | Gold and Gears runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |
