@@ -8,13 +8,13 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G11-P0-B2` after `G11-P0-B1` is pushed and remotely verified |
+| Next unblocked batch | `G11-P0-B3` after `G11-P0-B2` is pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Source-cache reproduction | `G11-P0-B1`: both fixed caches materialized twice in an isolated target from the clean connected object cache; exact detached HEAD, origin, worktree cleanliness, connectivity and the 64-table/direct-entry seed verified |
 | Starting source oracle | 64 `RogueTourn*` tables, 3 direct ability programs plus layout companions, CHS/EN TextMaps, StageConfig and transitive config/shared-source closure |
-| Focused inventory | Pending `G11-P0-B2` |
+| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes`; exact content denominator remains pending `G11-P0-B3` |
 | Content manifest | Denominators pending `G11-P0-B3` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -29,7 +29,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 64-row `RogueTourn` seed, Goal 08/09/10 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; focused inventory generation remains. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, Goal 08/09/10 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; exact row denominator and authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Arithmetic Mapping, Equations, Divergent Blessings, Curios/Grand Miracles/Hex, Golden Blood/Titan, protocols, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -39,8 +39,8 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G11-P0-B1` | `Complete` | This row's containing commit | Froze foundation `9f8a3e33…144b7`, Goal 03 commit/tree and preserved bundle digests, the two Version 4.4 source revisions, 64 inherited `RogueTourn` seed rows, 29 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. Ownership checkpoints: Goal 08 local committed `c283c7f1…55a` (7,913 rows: 7,199 mode-owned/714 shared), Goal 09 remote-backed `d5d261a3…c46` (6,963: 6,305/658), Goal 10 remote-backed `a2e64e1d…94d` (5,377: 5,243/134). Fresh GitLab reproduction failed once with HTTP/2 `PROTOCOL_ERROR`; a bounded HTTP/1.1 attempt resolved the commit but stalled during promisor checkout. The accepted isolated object-cache materialization ran twice; the focused verifier, `git diff --check`, batch-set check and quick repository gate pass; no fresh-network success is claimed. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference`, requiring identical full commit IDs before P0-B2 starts. |
-| `G11-P0-B2` | `Pending` | — | Inventory all 64 focused tables, config/ability programs, TextMaps, StageConfig, shared Rogue/enemy closure and exclusions. |
+| `G11-P0-B1` | `Complete` | `ab6d3ed8131463a4c99ce337845502895ece6d53` | Froze foundation `9f8a3e33…144b7`, Goal 03 commit/tree and preserved bundle digests, the two Version 4.4 source revisions, 64 inherited `RogueTourn` seed rows, 29 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. Ownership checkpoints: Goal 08 local committed `c283c7f1…55a` (7,913 rows: 7,199 mode-owned/714 shared), Goal 09 remote-backed `d5d261a3…c46` (6,963: 6,305/658), Goal 10 remote-backed `a2e64e1d…94d` (5,377: 5,243/134). Fresh GitLab reproduction failed once with HTTP/2 `PROTOCOL_ERROR`; a bounded HTTP/1.1 attempt resolved the commit but stalled during promisor checkout. The accepted isolated object-cache materialization ran twice; the focused verifier, `git diff --check`, batch-set check and quick repository gate pass; no fresh-network success is claimed. Publication: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; result `b0cd3cb9..ab6d3ed8 HEAD -> codex/goal11-divergent-universe-reference`; `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference` both resolved `ab6d3ed8131463a4c99ce337845502895ece6d53` before P0-B2 began. |
+| `G11-P0-B2` | `Complete` | This row's containing commit | Generated `source-inventory.json` (`60d9a9cd…6dc4`, 1,028,567 bytes, 2,684 files): all 2,646 Goal 03 source files plus 29 focused StageConfig/TextMap/Tourn configuration entries and nine bilingual StarRailRes indexes. The closure contains 64 `RogueTourn` tables, six direct ability/layout files, 478 occurrence graphs, 159 candidate NPC graphs, three service graphs, 13 Adventure graphs and nine Maze graphs; 125 named other-mode files and three mode test/GodMode files remain fail-closed exclusion evidence. Raw Git blob hashing avoids checkout-EOL variance; prefixes and file families grant no row ownership. Byte-identical regeneration and the inventory verifier pass. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference`, requiring identical full commit IDs before P0-B3 starts. |
 | `G11-P0-B3` | `Pending` | — | Freeze enabled modules, exact row obligations/counts, ownership, reachability and named exclusions. |
 | `G11-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G11-P1-B1` | `Pending` | — | Import modules, entry modes, difficulties, areas, layers, rooms, stage flow, finish and carry/reset rules. |
@@ -126,7 +126,7 @@ modules or ID ranges.
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G11-R01` | `Open` | Which direct and transitive configuration, TextMap, StageConfig, enemy/wave, shared Rogue and ability files complete the 64-table seed inventory? | P0-B2 | Replace when the generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
+| `G11-R01` | `ResolvedExact` | Which direct and transitive configuration, TextMap, StageConfig, enemy/wave, shared Rogue and ability files complete the 64-table seed inventory? | P0-B2 | Replaced by the 2,684-file raw-Git-blob inventory (`60d9a9cd…6dc4`); reopen only if P0-B3 discovers a referenced path absent from this fail-closed closure. |
 | `G11-R02` | `Open` | Which Version 4.4 module selectors separate enabled Divergent-owned, shared, evidence-only, historical/test and other-mode rows? | P0-B3 | Replace with a frozen exact-once ownership manifest whose rows carry selector/reference evidence and fail-closed exclusions. |
 | `G11-R03` | `Open` | What are the exact Ordinary/Cyclical area, difficulty, layer, room, transition, finish and carry/reset boundaries for each enabled module? | P1-B1 | Replace with structured stage-flow facts and entry/transition/reset/terminal fixtures. |
 | `G11-R04` | `Open` | How are temporary character, Trace, Light Cone and Relic mappings selected, refreshed and removed, including already-stronger account builds? | P1-B2 | Replace with source-backed eligibility/substitution/teardown rows and positive/rejected fixtures for every mapping class. |
