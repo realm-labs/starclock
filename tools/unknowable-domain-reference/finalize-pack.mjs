@@ -3,7 +3,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import {
   ACCESS_DATE,
@@ -16,10 +15,10 @@ import {
   writeOrCheck,
 } from "./lib/common.mjs";
 
-const GOAL08_CHECKPOINT = "2f7b3ccf699c52c2738136b8636d140e053bb2eb";
+const GOAL08_CHECKPOINT = "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09";
 const GOAL08_MANIFEST_SHA256 =
   "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085";
-const GOAL09_CHECKPOINT = "9bd2ad285de4c10e7ab060f00bf078855923a09c";
+const GOAL09_CHECKPOINT = "b8da6744a63cd92554b45f8e780d79a1be131f50";
 const GOAL09_MANIFEST_SHA256 =
   "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850";
 const args = process.argv.slice(2);
@@ -40,19 +39,27 @@ const fixtureContractPath =
   "content-manifests/unknowable-domain-v1/fixture-contract.json";
 const authoringContractPath =
   "content-manifests/unknowable-domain-v1/authoring-contract.json";
+const reconciliationCheckpointPath =
+  "evidence/unknowable-domain-reference-v1/reconciliation-checkpoints.json";
 const [
   schema,
   sourceManifest,
   sourceInventory,
   fixtureContract,
   authoringContract,
+  reconciliationCheckpointEvidence,
 ] = await Promise.all([
   json(schemaPath),
   json(manifestPath),
   json(inventoryPath),
   json(fixtureContractPath),
   json(authoringContractPath),
+  json(reconciliationCheckpointPath),
 ]);
+if (reconciliationCheckpointEvidence.schema_revision
+  !== "starclock.unknowable-domain-reconciliation-checkpoints.v1"
+  || reconciliationCheckpointEvidence.result !== "pass")
+  throw new Error("reconciliation checkpoint evidence envelope drift");
 const finalFiles = new Set([
   "mechanic-source-files.json",
   "mechanic-rules.json",
@@ -936,20 +943,30 @@ function reconciliationReceipts() {
 }
 
 function checkpoint({ goal, commit, manifestPath: relative, expectedSha256 }) {
-  const object = `${commit}:${relative}`;
-  const result = spawnSync("git", ["cat-file", "blob", object], {
-    cwd: root,
-    encoding: "utf8",
-    maxBuffer: 32 * 1024 * 1024,
-  });
-  if (result.status !== 0)
-    throw new Error(`cannot read ${goal} checkpoint: ${result.stderr.trim()}`);
-  if (sha256(result.stdout) !== expectedSha256)
-    throw new Error(`${goal} checkpoint manifest digest drift`);
+  const proof = reconciliationCheckpointEvidence.checkpoints.find(
+    (value) => value.goal === goal,
+  );
+  if (!proof
+    || proof.commit !== commit
+    || proof.manifest_path !== relative
+    || proof.manifest_sha256 !== expectedSha256
+    || proof.reconciliation_record_count
+      !== proof.reconciliation_records.length)
+    throw new Error(`${goal} compact checkpoint proof drift`);
+  const categories = Object.fromEntries(
+    proof.frozen_categories.map((categoryId) => [
+      categoryId,
+      {
+        records: proof.reconciliation_records
+          .filter(({ category_id: value }) => value === categoryId)
+          .map(({ category_id: _categoryId, ...record }) => record),
+      },
+    ]),
+  );
   return {
     goal,
     commit,
-    value: JSON.parse(result.stdout),
+    value: { categories },
     ref: {
       source_id: `source.goal10.${goal.toLowerCase()}-checkpoint`,
       repository: "starclock",

@@ -7,7 +7,7 @@
 | Goal ID | `unknowable-domain-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 4 — Review and freeze |
-| Active batch | `G10-P4-B3` |
+| Active batch | `G10-P4-B4` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -31,7 +31,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Profile/entry/flow, all four Alignments, every Scepter/Component/Decision Component, loadout/transformation/service boundaries, 14 constants, 25 Talents, 30 unlocks, one layer effect, 387 maze buffs, 133 score inputs and 576 non-runtime rule-contribution rows are normalized with exact or explicitly replaceable semantics. |
 | Phase 2 — Content and encounters | `Complete` | The 65-file Candidate reference pack closes all 5,377 obligations exactly once at `DataReady`: reachable pools, Curios, Occurrences, services and encounter boundaries; 41 paired mechanic-source/rule rows; 4,473 source-evidence rows; 24 semantic fixture families, fixtures and nonblocking gaps; 155 Goal 08/09 reconciliation receipts; and one digest-bound pack index. The 832 combat-capable rooms and all boss StageConfig bindings fail closed because the released snapshot publishes no forward selector. |
 | Phase 3 — Sora and Excel | `Complete` | All 65 normalized families have isolated Sora tables and complete deterministic `openpyxl` authoring across three workbooks. Two clean builds reproduce the 17,149 rows, 69 committed reader/model modules, 8,718,413-byte binary bundle and 65 debug exports; every generated reader loads, and all 65 sheets pass structural and rendered visual review. |
-| Phase 4 — Review and freeze | `InProgress` | Exact-once coverage, ownership, reference, provenance, bilingual and leak audit passes. All 24 semantic review fixtures and all 29 ProjectPolicy replacement boundaries pass without runtime execution; cross-Goal reconciliation, full regeneration and clean-checkout acceptance are active. |
+| Phase 4 — Review and freeze | `InProgress` | Exact-once coverage, ownership, reference, provenance, bilingual and leak audit passes. All 24 semantic review fixtures and all 29 ProjectPolicy replacement boundaries pass without runtime execution. Final Goal 08/09 reconciliation, full double regeneration, reader loading, protected-boundary checks and clean-checkout acceptance pass; Candidate release freeze is active. |
 
 ## Batch ledger
 
@@ -63,8 +63,8 @@
 | `G10-P3-B6` | `Complete` | This row's containing commit | Added a pinned release verifier and isolated ephemeral-facade reader loader. Two clean `openpyxl==3.1.5` generations reproduce each other and the committed workbooks byte-for-byte; two Sora 0.3.0 builds reproduce the schema lock, 69 formatted reader/model modules, binary bundle and all debug exports byte-for-byte. The 8,718,413-byte `config.sora` has SHA-256 `5a604326…02f8`; the 65-file debug-export digest is `199a108b…676e`; and all 65 generated table readers load 17,149 rows, including the four intentionally empty Blessing/encounter child tables. Full build validation widened only source-backed bounds: layer number up to 1,000, structured eligibility text up to 240 characters and coverage membership lists up to 1,024 IDs. The final workbooks have SHA-256 values `88f16f61…0cad`, `2d76d8ea…bb6f` and `8b06b74f…c836`, with structural semantic digest `672a9f4d…1e10`. Artifact-tool 2.8.33 rendered rows 1–12 across every schema column of all 65 sheets; visual inspection found and corrected over-tall long-value rows with deterministic 72-point caps, then found no remaining defect. Sora release/workbook/schema/pack verifiers, `git diff --check` and the quick repository gate pass; the phase-boundary full source-cache gate repeats the immutable Goal 06 `Cargo.lock baseline differs` boundary. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; commit is this row's containing commit; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verification command `git rev-parse HEAD && git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, with identical full commit IDs required before P4-B1 starts. |
 | `G10-P4-B1` | `Complete` | This row's containing commit | Added a deterministic release audit and froze its evidence. The audit checks all 5,377 obligations across 43 categories exactly once with 5,377 coverage rows, 6,909 resolved data bindings and 100% `DataReady`; 5,243 obligations are Unknowable-owned and 134 are explicitly shared. It validates 17,147 globally unique common rows with complete English/Chinese names and independent mechanical summaries, 16,602 Unknowable-owned versus 545 shared normalized rows, all 4,473 non-orphan source rows, 23,167 exact source-reference bindings, 34 typed Sora reference fields with 3,082 resolved bindings, 41 rule-to-source plus 41 rule-to-fixture bindings, 66 family inputs, 66 fixture inputs, 126 fixture evidence links and all 66 research-gap affected-record links. All 24 gaps remain nonblocking, policy-bound, owned by P4-B2 and carry known facts, deterministic policy and replacement conditions. All 155 Goal 08/09 receipts resolve their Goal 10 source-path/row/digest obligation, with 143 `MatchedShared`, 12 nonblocking `DivergentRepresentation` and zero conflict. No foreign ownership value, other-mode source evidence, presentation/account evidence, runtime lowering, executable fixture family or runtime fact leaks. `node tools/unknowable-domain-reference/audit-release.mjs .`, focused pack/schema checks, the quick repository gate and `git diff --check` pass. |
 | `G10-P4-B2` | `Complete` | This row's containing commit | Added a deterministic semantic-fixture executor and froze its results. All 24 required families have exactly one normalized, non-runtime review fixture; their 66 selected `DataReady` inputs match the family and research-gap closures, and all 126 evidence bindings resolve. The executor performs 93 ordered `ReviewRequiredFact` operations and passes 93 assertions in contract order, each explicitly classified `ExplicitlyPolicyBound` with a dedicated policy source and `runtime_claim=false`; every fixture fails closed, uses stable-ID candidate order and keeps runtime loading forbidden. All 41 mechanic rules remain unlowered and resolve one source file plus a same-family fixture. All 29 ProjectPolicy source boundaries have actionable `Replace…` conditions, at least one linked fixture, exact note/condition propagation across 191 row bindings and full coverage of all 178 policy-quality rows. The 24 paired research gaps retain owner `G10-P4-B2`, identical 66 affected records, nonblocking state and exact replacement conditions. Evidence records zero runtime executions, zero blocking gaps and zero failed assertions. Semantic fixture/release/pack/schema verifiers, `git diff --check` and the quick repository gate pass. |
-| `G10-P4-B3` | `InProgress` | — | Reconcile Goal 08/09 overlap and run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
-| `G10-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G10-P4-B3` | `Complete` | This row's containing commit | Reconciled the finalized Goal 08 completion `b7044fcc…c3a09` (locally registered by `2688624c…d373`) and latest remote Goal 09 checkpoint `b8da6744…31f50` without changing either Goal. A compact Goal 10-only proof freezes 148 Gold and 143 Swarm ownership locators as category/record ID, source path/row, digest and ownership only, so clean regeneration never depends on another worktree's object database or imports foreign gameplay data. Rebuilt all 155 receipts: 143 `MatchedShared`, 12 `DivergentRepresentation`, zero conflict. The final 64-file nonrecursive pack identity is `f48f264f…3b28`, component identity `4ead3689…ec9d`; schema contract is `a81fc7e6…3052`. Two clean `openpyxl==3.1.5` and Sora 0.3.0 builds reproduce byte-for-byte; all 65 readers load 17,149 rows. The 8,718,478-byte bundle is `05114105…51ec`, debug bytes are `339d8186…8f9b`, Review workbook is `de548443…7884`, and workbook semantic identity is `650e301d…0c77`; the other two workbooks remain byte-identical. Artifact Tool 2.8.33 rerendered all 65 sheets and visual review of every changed Review sheet found no overlap, clipping or corruption. Both pinned caches reproduce cleanly; Goal 03 evidence, Standard staging, production configuration, Cargo.lock, dependency policy and every foreign Goal artifact remain unchanged. Focused acceptance, dependency/workspace/snapshot checks, staged-tree no-cache clean-checkout acceptance, `git diff --check` and the quick repository gate pass. The repository-wide full source-cache gate again stops only at the immutable Goal 06 `Cargo.lock baseline differs` historical contract; Goal 06 evidence is not rewritten. |
+| `G10-P4-B4` | `InProgress` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
 
 For a completed batch, the result/evidence cell must record `remote`,
 `branch`, full pushed commit ID, exact push command, remote-resolution
@@ -170,6 +170,7 @@ remove or silently merge an obligation.
 | 2026-07-29 | Cap authored rows containing a value longer than 500 characters at 72 points. | Every full value remains stored, wrapped and inspectable, while deterministic row height prevents source lists and canonical JSON cells from making visual review sheets unusably tall. |
 | 2026-07-29 | Audit exclusion leakage by evidence identity instead of source path alone. | A mechanically relevant row can share a file with excluded presentation rows. The audit therefore rejects a frozen excluded file only when its source path and evidence digest match, while shared-content reconciliation continues to use the stronger source-path, row-locator and digest triple. |
 | 2026-07-29 | Execute every Goal 10 semantic fixture as a deterministic reference review, never as a runtime simulation. | The frozen fixtures use `ReviewRequiredFact`, `ReferenceCandidate`, stable-ID order and fail-closed unresolved behavior. Their 93 assertions therefore pass as explicitly policy-bound review facts with dedicated replacement sources, while the evidence records zero runtime executions and makes no parity claim. |
+| 2026-07-29 | Freeze compact Goal 08/09 ownership proofs inside Goal 10 instead of depending on foreign worktree objects. | The proof contains only category, record ID, source path/row, evidence digest and ownership for the three reconciled categories. It is permitted attribution evidence, imports no foreign gameplay semantics, cross-checks available commits, and lets Goal 10 regenerate all 155 receipts from a clean checkout even while Goal 08 has no published branch. |
 
 ## Research cases
 
@@ -192,13 +193,13 @@ remove or silently merge an obligation.
 ## Terminal checklist
 
 - [x] Exact category manifests and denominators are frozen.
-- [ ] Both pinned caches and the focused source/config/TextMap/Stage/ability
+- [x] Both pinned caches and the focused source/config/TextMap/Stage/ability
       inventory regenerate deterministically.
 - [x] Complete normalized pack and canonical pack index regenerate without
       drift.
 - [x] All required rows have bilingual summaries and row-level provenance.
 - [x] Ownership and shared reachability are explicit and fail closed.
-- [ ] Shared classifications reconcile with committed Goal 08/09 facts.
+- [x] Shared classifications reconcile with committed Goal 08/09 facts.
 - [x] All required mechanics are exact or explicitly
       approximate/policy-bound.
 - [x] Stage flow, Alignments, Scepters, charge/speed, Components, slots,
@@ -209,7 +210,7 @@ remove or silently merge an obligation.
 - [x] All three complete `openpyxl` workbooks pass structural and visual QA.
 - [x] Sora production/debug exports regenerate without drift and load through
       isolated readers.
-- [ ] Goal 03 evidence and current Standard/Gold/Swarm/production bundle
+- [x] Goal 03 evidence and current Standard/Gold/Swarm/production bundle
       identities remain unchanged.
 - [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [ ] Every completed batch commit is reachable from its recorded remote

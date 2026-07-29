@@ -263,22 +263,27 @@ const schema = {
     unknown_reference: "reject",
   },
   reconciliation_policy: {
+    checkpoint_proof_path:
+      "evidence/unknowable-domain-reference-v1/reconciliation-checkpoints.json",
     checkpoints: [
       {
         goal: "gold-and-gears-reference-v1",
-        commit: "2f7b3ccf699c52c2738136b8636d140e053bb2eb",
+        commit: "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
         manifest_sha256:
           "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
-        required_now: false,
-        replacement:
-          "replace with a remote-backed or merged checkpoint before G10-P4-B3",
+        required_now: true,
+        completion_state: "Complete",
+        registration_commit:
+          "2688624c34a564d87076cadb405c8da506efd373",
+        checkpoint_transport: "LocalCommittedReleaseRegistration",
       },
       {
         goal: "swarm-disaster-reference-v1",
-        commit: "9bd2ad285de4c10e7ab060f00bf078855923a09c",
+        commit: "b8da6744a63cd92554b45f8e780d79a1be131f50",
         manifest_sha256:
           "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
         required_now: true,
+        checkpoint_transport: "RemoteBranch",
         remote_ancestor: "origin/codex/goal09-swarm-disaster-reference",
       },
     ],

@@ -1,0 +1,96 @@
+{
+  "schema_revision": "starclock.unknowable-domain-release-acceptance.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "checked_at": "2026-07-29",
+  "result": "pass",
+  "source_cache": {
+    "inventory_files": 2684,
+    "revisions": {
+      "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+    },
+    "clean": true
+  },
+  "normalized_pack": {
+    "files": 64,
+    "pack_sha256": "f48f264fb55221e2494156c5ab7911719d703ec47f492c9c0e2d7fd2c8123b28",
+    "component_sha256": "4ead36892ea92087bf0cb555559862a6959378a1c7c6a9307c8b2b13b9cbec9d",
+    "coverage_rows": 5377,
+    "source_obligations": 5377,
+    "data_ready": 5377,
+    "semantic_fixtures": 24,
+    "nonblocking_research_gaps": 24
+  },
+  "reconciliation": {
+    "checkpoint_evidence_sha256": "9588f6b8a5efe5fd3c05e71693b43720b3888f7eb5013421a817b917a7f3d9e3",
+    "goal08_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+    "goal08_registration_commit": "2688624c34a564d87076cadb405c8da506efd373",
+    "goal08_source_transport": "LocalCommittedReleaseRegistration",
+    "goal09_commit": "b8da6744a63cd92554b45f8e780d79a1be131f50",
+    "goal09_remote_ref": "origin/codex/goal09-swarm-disaster-reference",
+    "goal09_source_transport": "RemoteBranch",
+    "receipts": 155,
+    "matched_shared": 143,
+    "divergent_representation": 12,
+    "conflicts": 0
+  },
+  "authoring": {
+    "workbooks": {
+      "UnknowableDomain.xlsx": {
+        "bytes": 627641,
+        "sha256": "88f16f61b5f8954d1c5e1b4950c115cbeef4588dfe5533dc4d562cf83e550cad"
+      },
+      "UnknowableDomainBindings.xlsx": {
+        "bytes": 424395,
+        "sha256": "2d76d8ea8ebe5ecf5ba80900cdc020a244d71575d3e8d7dda2d732d88fe1bb6f"
+      },
+      "UnknowableDomainReview.xlsx": {
+        "bytes": 1655781,
+        "sha256": "de548443cb0dcf9c1c76993b9e860bd7f70da6f8c2e7c3ca5bd06a9a49437884"
+      }
+    },
+    "workbook_semantic_sha256": "650e301dac0b1c6f3a0572e78586052c8b65cd06fc8c22bc80b7487d23e70c77",
+    "tables": 65,
+    "rows": 17149,
+    "bundle": {
+      "bytes": 8718478,
+      "sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec"
+    },
+    "debug_files": 65,
+    "debug_digest": "f17f49dbe7dc0f42db9bd16faf2384567662b6a44cd3a884e12214b62c3709d4",
+    "visual_review_sha256": "4566b03e4ee7b0d5ebb3e36c6fdf712d9690c3a789fc71b5df87f96b64108beb"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "b5d84f0d982c05e52108b2e7cc4b89957d7f0982",
+    "tracked_tree_digests": {
+      "goal03_reference": "9e53d3b0800870fc9ae0b2f4f3ba1614c090cae7788e426845c3c56c2f54bd01",
+      "production_configuration": "9dac8168443833eaea2c3a27bc89d4919eaddda3dc3cd824866ed895928f619e",
+      "standard_staging": "f70d47c3c85b90829d44ab5d44f636a71b7f669d859d70120816c1f32ad94b5c"
+    },
+    "goal03_release_evidence_preserved": true,
+    "standard_staging_preserved": true,
+    "production_configuration_preserved": true,
+    "foreign_goal_artifact_changes": 0
+  },
+  "dependencies": {
+    "cargo_lock_sha256": "7d518a413c182933a0f2d75b96094f40145ae2a82f8bd9dc34032d0b583a3aac",
+    "dependency_policy_sha256": "7fcac805af11fb4ebd8a3686082fdbf4244baca4aa8377aa581d359ffff5b507",
+    "release_snapshot_policy_sha256": "44181afbe9dfae408b72a7ffbc9f962c2bbc1e664c43e74b49fbc6e890512e4d",
+    "sora_toolchain_policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a"
+  },
+  "acceptance_commands": [
+    "node tools/unknowable-domain-reference/freeze-reconciliation-checkpoints.mjs .",
+    "node tools/unknowable-domain-reference/verify-inventory.mjs .",
+    "node tools/unknowable-domain-reference/verify-manifest.mjs .",
+    "node tools/unknowable-domain-reference/verify-contracts.mjs .",
+    "node tools/unknowable-domain-reference/verify-pack.mjs .",
+    "python3 tools/unknowable-domain-reference/verify_workbooks.py --root . --data config/unknowable-domain/data",
+    "node tools/unknowable-domain-reference/verify-sora-release.mjs .",
+    "node tools/unknowable-domain-reference/verify-semantic-fixtures.mjs .",
+    "node tools/unknowable-domain-reference/audit-release.mjs .",
+    "node tools/dependency-policy/verify.mjs",
+    "node tools/workspace/verify-dependencies.mjs",
+    "node tools/repository-check/verify-release-snapshots.mjs",
+    "node tools/release/run-clean-checkout.mjs"
+  ]
+}

@@ -215,8 +215,8 @@ assert(
   "ownership reconciliation conflict or locator drift",
 );
 const checkpoints = new Map([
-  ["Goal08", "2f7b3ccf699c52c2738136b8636d140e053bb2eb"],
-  ["Goal09", "9bd2ad285de4c10e7ab060f00bf078855923a09c"],
+  ["Goal08", "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09"],
+  ["Goal09", "b8da6744a63cd92554b45f8e780d79a1be131f50"],
 ]);
 assert(receipts.every((row) =>
   row.checkpoint_commit === checkpoints.get(row.checkpoint_goal)),

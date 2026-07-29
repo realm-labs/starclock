@@ -121,6 +121,15 @@ assert(schema.canonical_encoding.decimal_policy
 "canonical numeric/order contract drift");
 
 const reconciliation = schema.reconciliation_policy;
+assert(reconciliation.checkpoint_proof_path
+  === "evidence/unknowable-domain-reference-v1/reconciliation-checkpoints.json",
+"reconciliation checkpoint proof path drift");
+const checkpointProof = json(reconciliation.checkpoint_proof_path);
+assert(checkpointProof.schema_revision
+  === "starclock.unknowable-domain-reconciliation-checkpoints.v1"
+  && checkpointProof.result === "pass"
+  && checkpointProof.checkpoints.length === 2,
+"reconciliation checkpoint proof envelope drift");
 assert(reconciliation.join_key.join(",")
   === "source_path,row_locator,evidence_sha256",
 "reconciliation join key drift");
@@ -135,24 +144,52 @@ assert(reconciliation.checkpoints.length === 2,
   "reconciliation checkpoint denominator drift");
 const gold = reconciliation.checkpoints.find(({ goal }) =>
   goal === "gold-and-gears-reference-v1");
-assert(gold?.required_now === false && gold.replacement.includes("remote-backed"),
-  "Goal 08 optional checkpoint contract drift");
-if (gitObjectExists(gold.commit))
+assert(gold?.required_now === true
+  && gold.completion_state === "Complete"
+  && gold.checkpoint_transport === "LocalCommittedReleaseRegistration",
+"Goal 08 completed checkpoint contract drift");
+const goldProof = checkpointProof.checkpoints.find(
+  ({ goal }) => goal === "Goal08",
+);
+assert(goldProof?.commit === gold.commit
+  && goldProof.registration_commit === gold.registration_commit
+  && goldProof.manifest_sha256 === gold.manifest_sha256,
+"Goal 08 compact checkpoint proof drift");
+if (gitObjectExists(gold.commit) && gitObjectExists(gold.registration_commit)) {
+  execFileSync("git", [
+    "merge-base", "--is-ancestor", gold.commit, gold.registration_commit,
+  ], { cwd: root, stdio: "ignore" });
   assert(gitBlobSha256(gold.commit,
     "content-manifests/gold-and-gears-v1/content-manifest.json")
     === gold.manifest_sha256,
   "Goal 08 manifest checkpoint drift");
+  const goldStatus = execFileSync("git", [
+    "show", `${gold.commit}:docs/goals/08-gold-and-gears-reference-data-status.md`,
+  ], { cwd: root, encoding: "utf8" }).includes("| State | `Complete` |");
+  assert(goldStatus === true, "Goal 08 completion status drift");
+}
 const swarm = reconciliation.checkpoints.find(({ goal }) =>
   goal === "swarm-disaster-reference-v1");
-assert(swarm?.required_now === true,
+assert(swarm?.required_now === true
+  && swarm.checkpoint_transport === "RemoteBranch",
   "Goal 09 checkpoint is not required");
-execFileSync("git", [
-  "merge-base", "--is-ancestor", swarm.commit, swarm.remote_ancestor,
-], { cwd: root, stdio: "ignore" });
-assert(gitBlobSha256(swarm.commit,
-  "content-manifests/swarm-disaster-v1/content-manifest.json")
-  === swarm.manifest_sha256,
-"Goal 09 manifest checkpoint drift");
+const swarmProof = checkpointProof.checkpoints.find(
+  ({ goal }) => goal === "Goal09",
+);
+assert(swarmProof?.commit === swarm.commit
+  && swarmProof.manifest_sha256 === swarm.manifest_sha256
+  && swarmProof.remote_ref === swarm.remote_ancestor,
+"Goal 09 compact checkpoint proof drift");
+if (gitObjectExists(swarm.commit)) {
+  if (gitObjectExists(swarm.remote_ancestor))
+    execFileSync("git", [
+      "merge-base", "--is-ancestor", swarm.commit, swarm.remote_ancestor,
+    ], { cwd: root, stdio: "ignore" });
+  assert(gitBlobSha256(swarm.commit,
+    "content-manifests/swarm-disaster-v1/content-manifest.json")
+    === swarm.manifest_sha256,
+  "Goal 09 manifest checkpoint drift");
+}
 
 assert(authoring.authority.authoritative_format === "xlsx"
   && authoring.authority.editor === "python-openpyxl"

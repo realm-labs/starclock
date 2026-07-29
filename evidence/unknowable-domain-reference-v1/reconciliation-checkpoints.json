@@ -1,0 +1,2084 @@
+{
+  "schema_revision": "starclock.unknowable-domain-reconciliation-checkpoints.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "frozen_at": "2026-07-29",
+  "purpose": "Compact ownership-only proof for Goal 08/09 source-path, row, digest and ownership reconciliation; no foreign gameplay data is imported.",
+  "result": "pass",
+  "checkpoints": [
+    {
+      "goal": "Goal08",
+      "goal_id": "gold-and-gears-reference-v1",
+      "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+      "registration_commit": "2688624c34a564d87076cadb405c8da506efd373",
+      "manifest_path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+      "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+      "source_manifest_records": 7913,
+      "source_transport": "LocalCommittedReleaseRegistration",
+      "frozen_categories": [
+        "boss_choices",
+        "curios",
+        "occurrences"
+      ],
+      "reconciliation_record_count": 148,
+      "reconciliation_records_sha256": "8ef79554054ba624ab8533c3293afec0d4975570528af8371f957e34f15f3640",
+      "reconciliation_records": [
+        {
+          "category_id": "boss_choices",
+          "id": "1013014",
+          "source": "ExcelOutput/RogueDLCArea.json#10",
+          "evidence_sha256": "b1f8149b486c4a27133566c9bf812029fda1bc3b02f490dd40f22b34a0215f2e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "1013024",
+          "source": "ExcelOutput/RogueDLCArea.json#10",
+          "evidence_sha256": "b1f8149b486c4a27133566c9bf812029fda1bc3b02f490dd40f22b34a0215f2e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "3024011",
+          "source": "ExcelOutput/RogueDLCArea.json#10",
+          "evidence_sha256": "b1f8149b486c4a27133566c9bf812029fda1bc3b02f490dd40f22b34a0215f2e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "8024011",
+          "source": "ExcelOutput/RogueDLCArea.json#10",
+          "evidence_sha256": "b1f8149b486c4a27133566c9bf812029fda1bc3b02f490dd40f22b34a0215f2e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "8003051",
+          "source": "ExcelOutput/RogueDLCArea.json#8",
+          "evidence_sha256": "f33160aea9a697d63fa0fda3729c35d92fd08483b86dcc910bb3fcb8902351d6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "8024010",
+          "source": "ExcelOutput/RogueDLCArea.json#9",
+          "evidence_sha256": "8775a070d570ff42587d6a81ecf1ae989f692be38c6e801e86f3a8de2d7401c8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "1",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#0",
+          "evidence_sha256": "d967357756a6de6de7cd17bb31ec416b6a1118e5e30f23b9b062e6edb88f29d7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "2",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#1",
+          "evidence_sha256": "71698df33237ff9f9b6e944607d7f2c75dbd3fd5b2723f92d2c458a95c72d581",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "13",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#10",
+          "evidence_sha256": "56b20631443a73e5feb42b098d991f7fafe966b00d01f8a88de9c4fc5cfbd7d8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "14",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#11",
+          "evidence_sha256": "2d97a34172a1ed7b5be447549e678e02034dbac6c9715c2c976331dd78011359",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "15",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#12",
+          "evidence_sha256": "5dac0b08e3561af87469fec1e3df05c4835f0d7183ba579f9928c21b77fbbded",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "17",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#13",
+          "evidence_sha256": "29c3be0ef9a745bdee3364f84122041b49be71ac1509fc2f831380fbfc834c02",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "19",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#14",
+          "evidence_sha256": "3fb6368641c0ef3a21345c954a3d087f989788012149df10a65c9f1eff326575",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "20",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#15",
+          "evidence_sha256": "bb6d87db98cf55230f7b53d65a03adeee3f5f0254a67f213eba2d07b392a3b48",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "21",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#16",
+          "evidence_sha256": "cdf043ec2edc92fd958f281ffd57b001d259b95130c65832cd78d6bbe221ceb8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "22",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#17",
+          "evidence_sha256": "1977b1be4b02b8dcebe72fde4f976b2c0be05c7cc01c800a51a54c51e870078f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "23",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#18",
+          "evidence_sha256": "7860625ff2c3d795188db21bf038ad88eb2c90094a08564f795b9db5a55b591a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "24",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#19",
+          "evidence_sha256": "fd95b86b266f13e93089de98c777ad3db377f045996c94b8acfdf65a73b1a17f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "3",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#2",
+          "evidence_sha256": "a8f7ff53a8db71faac8a6c562b1da44b1cb812a238b1453de53dc2ad82a7b31a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "25",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#20",
+          "evidence_sha256": "f5bd146dea20ab9d0edec1643c8cdea68267cf80091851aa3d1824d0681536a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "26",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#21",
+          "evidence_sha256": "ba4b9c68fbcb707835d09e89431f15a743b6e71d8053a23c9284da1c7a4d6af9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "27",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#22",
+          "evidence_sha256": "58829d0b3abb47b511d0f4d8cc9ecd3cb1b10170e93f155650026771881d85a6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "28",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#23",
+          "evidence_sha256": "91cffd86e541cbd66ecf5cc6abca02c175f79207a4faf71179bf78e133f0e454",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "45",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#24",
+          "evidence_sha256": "8be002f35ea52d1d68369b329400342617c26d2e7e83fa00a743f9f1f05252d9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "47",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#25",
+          "evidence_sha256": "5fddee821c4b5542babdd0726fb24442e96c0ca8f072250af7381ad7e674fa18",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "49",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#26",
+          "evidence_sha256": "b9abc016e06dd64b681492fa5ea502f07be286b0c366197ba4b4a89c27e4e754",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "51",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#27",
+          "evidence_sha256": "236004c5b6667927af62453a9b785857ce3377e3286eae77461daa0d6a93156c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "53",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#28",
+          "evidence_sha256": "f2519a0717e25572d30de8c86a6f9ff38ffa911fe91046705399ffdc6e0c41e7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "55",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#29",
+          "evidence_sha256": "f7b6590cc38b54ee93c25d020962297820b055ddda91aa7d52c15cb1f19b396c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "4",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#3",
+          "evidence_sha256": "ef7e45751a29a9e6d54597c527d4019190556e4d4da40c0f28782b0212f9184b",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "57",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#30",
+          "evidence_sha256": "8958531acef6c209fa32ba873d1f58b5528118e953349064bfcbd5548d75af9d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "58",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#31",
+          "evidence_sha256": "81cae77c93a185df1620f1379513dc9f44a4924bcdb9b5b156a3ee8dedbdffd1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "59",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#32",
+          "evidence_sha256": "e4679f9faa42b6c7c4313853395aaaecbd36767d3769a838c8f97546ac2b4f40",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "60",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#33",
+          "evidence_sha256": "5d5bb720223fcf99ed4646c4e1d7c0ceed4ccb85e4d7d7bcf760a7e0293a401a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "61",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#34",
+          "evidence_sha256": "1385080eb859c43b08d4ca16e42754c5e15295e09c24e5179e1f7f97a6e59724",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "62",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#35",
+          "evidence_sha256": "6e7298b1aea5ffd6bc722a670116da7a465cd833698ee3e5f1d6db11a8f9e1dc",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "63",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#36",
+          "evidence_sha256": "d86977394c5051106cd7d88bd6e4b28a74943f7728c94f0002aa96c0c31af3c6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "64",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#37",
+          "evidence_sha256": "1956f3f39815f57733ed69540d8f0b4b8aa3358cdb4e27541aea40237b603bd5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "65",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#38",
+          "evidence_sha256": "e6c0133f047fcc7f4c2b47c538783aa560fd4a8756180f1c40d863e259d077a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "66",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#39",
+          "evidence_sha256": "ee1102c7670567d4a3cf9569dceea44ecc857f12b0521206ae8a57202ce3683d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "5",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#4",
+          "evidence_sha256": "8926d7e961263b9cc6d219fa0a44ed3996edbed7fa7b3b8534e8c0f1010de07d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "67",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#40",
+          "evidence_sha256": "d98efe1993556c0e31495fa21609d88e2f7d745ea1c4901c9641b1bab7523d05",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "68",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#41",
+          "evidence_sha256": "e070c5577fbc750b80323d4219552e9b3c97f219499b463050b5ba0517a2a09a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "69",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#42",
+          "evidence_sha256": "0f1081a63b80f6b0845572e2be6c4e4b68d838f0a3f7abc5237f0be3ff237905",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "70",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#43",
+          "evidence_sha256": "5b16fb0acd74d2c1499bda0fd52991faf75a63f1d863ea736e8087e9aa33caa8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "71",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#44",
+          "evidence_sha256": "0541a20df08c8399ec79c38114936dc2646958bd0a2674fa47899f5ff02ea6f2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "102",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#46",
+          "evidence_sha256": "d4dbbb35ff59ad74f1f51766fe95257d406e7223037dc181ea00062f9b179a6d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "104",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#47",
+          "evidence_sha256": "02b74e0573c683fc59ab0d5b3d814bd12779d8b4b5d6109ee6f7bffced520930",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "105",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#48",
+          "evidence_sha256": "e5b61cc913bda7be9a0f97150116b123baacf938e29bbb5a25ed2177044166c8",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "106",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#49",
+          "evidence_sha256": "fce449f2363f0e31e08ac66f5672fa832c5ef818527e67f97513a7cc3b944ad6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "6",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#5",
+          "evidence_sha256": "fe3409724f374ab472bd84c37ba5ba8a3e2af7d3f46c700ac64a7a100bf24a27",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "107",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#50",
+          "evidence_sha256": "34e8218e9a585dd18ec511947f486885cd592da57ce575609607ea9a7fe62b3d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "108",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#51",
+          "evidence_sha256": "7bf04a8aaa758d016c640ca7bcb50cfab59dfd66862e347d8f06afb2c7987f6f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "110",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#52",
+          "evidence_sha256": "b5f201bfd0c7d98035a7e75a76aff9d03a1186cf2936ef871406cff9089a00d5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "111",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#53",
+          "evidence_sha256": "4c580f0b638f38b1e54d36c14120da5dfbb20219b9559c745a0e6fba315295a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "112",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#54",
+          "evidence_sha256": "3c1ce1a8324ffc495514b5ffa0ba0d182a58c859f0dba5921cbc9a182dfcfbfe",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "113",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#55",
+          "evidence_sha256": "d203b160f1a077a557b9c31b7da7ac52c56ca6e3e32b74a24b7b3f0e77ac7524",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "115",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#57",
+          "evidence_sha256": "614be80892af86e655fba000bcdc8548542a27c4bc4f139d2dc01db46c124c98",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "116",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#58",
+          "evidence_sha256": "f227ac9cbb9a367b4d4ed50513a4b3a9feaa806e9dce25992ffffd4dd03dd0f0",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "117",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#59",
+          "evidence_sha256": "02dfb4929d872df1192dc0d93a8620c439b689f1eb8c7de1620be4a993b26766",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "7",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#6",
+          "evidence_sha256": "d61a805fdd4214cf9a3be5b1936eea957b33d04a319d256f3d344f35d168e316",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "118",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#60",
+          "evidence_sha256": "f96fdb48b7189027b8ca0fe8213f52929041dbc75ea6a89a7d08356c5dac11a7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "119",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#61",
+          "evidence_sha256": "60469ceb003fd910c028cefb371cdcac0465e69415ee8117510e9129167a8459",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "120",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#62",
+          "evidence_sha256": "518c445f624e1caae91defa0179c5085e2517eeb9d385e1b2ba5595ced9808a2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "121",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#63",
+          "evidence_sha256": "3163c6b24cad107465e7d3beca2b3b3fef3270eb69ac33210bded165ac056121",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "122",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#64",
+          "evidence_sha256": "c8e5474e5e0bbf85a626f97c62b8283d610a2b381319d5900b93d147a2230e00",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "123",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#65",
+          "evidence_sha256": "1edf21255931454c71131b3f2b320df9168415e94f342e73f28aafa2195620b5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "201",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#66",
+          "evidence_sha256": "9d1cfc56a6ee1cc1cd04797fba27191f3392e960ea1b23d2be5681492a977019",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "202",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#67",
+          "evidence_sha256": "26cdd255d31c859bb1531941775e21eabb2fca439be558d15cf8d7c842e896f9",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "203",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#68",
+          "evidence_sha256": "a7ec8ba8197d86db6ed0703b5cbefa5e055a44051f84d582511f287d19e02c1f",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "204",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#69",
+          "evidence_sha256": "c5902f9e68769a27de30dadb0dfdbc6da590f84fa4e2e3a15a9de06cd4bc4112",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "8",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#7",
+          "evidence_sha256": "6e84a07be89b047a9bd8611e5159735468516f4d07520a421abafd353791e84f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "205",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#70",
+          "evidence_sha256": "73f023286ccb5517ec542068c9a68c82365e09890f778eb2eb5591714c996d15",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "206",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#71",
+          "evidence_sha256": "da8d5f599c1ba51e6e757a69bc589e7c0249f75e8b8332bba967f5749f725e77",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "207",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#72",
+          "evidence_sha256": "59c845908577ec281dfdf24fe94f0e3f81950ed7077dbd712be87dc5a7a1c8fd",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "208",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#73",
+          "evidence_sha256": "1d13f18caebad59a258161f556cdd2900ca9ade14a50a57f589fa531b564d0f9",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "209",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#74",
+          "evidence_sha256": "70781cbf74d0fd7102c780d8074542ed17adc2f896f01cd062f6903bf479d411",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "210",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#75",
+          "evidence_sha256": "0eaf34f5984b478f22f4e1efc0c534f88a0353be9eb99d4c46f72178385892e0",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "211",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#76",
+          "evidence_sha256": "b80deb885ff32dd96677077f32cf29aa8a64e5b3cff5f953147cc9a91e9bbbb1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "212",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#77",
+          "evidence_sha256": "101fcc8f4bd88d745bff8539fe05cedcedf9c5bc9d861eb1db2e414ecd8316b5",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "213",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#78",
+          "evidence_sha256": "185a65844834c59637a52704fd11d0714b01601a0150f782686df0bb26b8e00f",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "214",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#79",
+          "evidence_sha256": "a1454d0f6b923ac0c804ba5c493d1158abd682ca455c2a9d3d2d505ec0c6ea77",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "11",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#8",
+          "evidence_sha256": "c45543f96564b00a13f6469a52513949d58beec304ea8e75536cf2fba0098649",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "215",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#80",
+          "evidence_sha256": "4c2a00eb0e42dff65b53e6f60536cc720b72d25059190c7f43804dd5f2c26529",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "216",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#81",
+          "evidence_sha256": "4756e052901b41e12dda46e026b46a35dde3c33e1d0afd9828efb11f96896b0d",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "curios",
+          "id": "12",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#9",
+          "evidence_sha256": "b91c51f122e845522787df9aa2e99e018600f41a901c3f338620ad020cdae2f6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "2",
+          "source": "ExcelOutput/RogueHandBookEvent.json#1",
+          "evidence_sha256": "92a68b56c566c0d5801ec7bc94f4b6e7b69314ff647c7b94f8f5f6268cf22c04",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "12",
+          "source": "ExcelOutput/RogueHandBookEvent.json#11",
+          "evidence_sha256": "9552d3ed6b675dfc89537ea0efa6bf3e9bb4662420722ca9a5114fd5cd81c0d9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "13",
+          "source": "ExcelOutput/RogueHandBookEvent.json#12",
+          "evidence_sha256": "15a6c3ee3e82ad90d572e9015d0333f64da89d0f67f49f30a1c21042eff46f88",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "14",
+          "source": "ExcelOutput/RogueHandBookEvent.json#13",
+          "evidence_sha256": "27f444c4145d01a319859376d82c2bb2d8eaa5604bef607378c5297075bef60c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "15",
+          "source": "ExcelOutput/RogueHandBookEvent.json#14",
+          "evidence_sha256": "2bfa09c07748fd5ff471ae481c5cd69f1971bc914d5659ab435652c8b442e064",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "16",
+          "source": "ExcelOutput/RogueHandBookEvent.json#15",
+          "evidence_sha256": "8793106e817f2b2c3c1659e02e51b48c94c00e380482a5bdd76551460dc5ef38",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "17",
+          "source": "ExcelOutput/RogueHandBookEvent.json#16",
+          "evidence_sha256": "3855d9038cb984c75c71ca70bddffbf5d29078e4a475de774a754b42720150b9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "18",
+          "source": "ExcelOutput/RogueHandBookEvent.json#17",
+          "evidence_sha256": "da91b930c3f31b50fa8a9fefb55f0b1e93fabe6d720cdcd486398313b0924e68",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "19",
+          "source": "ExcelOutput/RogueHandBookEvent.json#18",
+          "evidence_sha256": "12e379aaef31839e46c57c344326531752758fc1c392a36cf0976d6f4078a638",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "22",
+          "source": "ExcelOutput/RogueHandBookEvent.json#21",
+          "evidence_sha256": "9c505152fb036ea200e4acf64411452666d29c09c56a49740bbec6055264fcb3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "23",
+          "source": "ExcelOutput/RogueHandBookEvent.json#22",
+          "evidence_sha256": "ba81f0a4dd81d0d44fe3dbf27189539b364ee31d5b27c7cb5fd77c151d279e46",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "24",
+          "source": "ExcelOutput/RogueHandBookEvent.json#23",
+          "evidence_sha256": "1b3ff73dbfc277d5133c2d7fba783579511a42765615f0b7219ce7f7351edb7f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "25",
+          "source": "ExcelOutput/RogueHandBookEvent.json#24",
+          "evidence_sha256": "fe11d2d4ee166bc3d9d82b610bf99de95bbc30234f842c9f88f1fe615ae35add",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "26",
+          "source": "ExcelOutput/RogueHandBookEvent.json#25",
+          "evidence_sha256": "24089f3b4e0622b2ba99663cc2130e81465da5ce7f3c2cd333a720b585bf0bfb",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "27",
+          "source": "ExcelOutput/RogueHandBookEvent.json#26",
+          "evidence_sha256": "c4ef0e33e1611692db465dc957c6261bba65f085fe0b976d560b63d8c561b093",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "28",
+          "source": "ExcelOutput/RogueHandBookEvent.json#27",
+          "evidence_sha256": "ef774e74d4bb80ba7d126e79032160b48e4561f5de0cc29af02ee611a6922921",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "29",
+          "source": "ExcelOutput/RogueHandBookEvent.json#28",
+          "evidence_sha256": "af652b05f625ae66c309ee1858891c6a5efe021c5db00123cb8b1b2b5104f3bc",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "30",
+          "source": "ExcelOutput/RogueHandBookEvent.json#29",
+          "evidence_sha256": "e055c8c714945ba8f1b20026c87e83323ed6ac7bd27ad9fa0c45b06d40b4265c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "4",
+          "source": "ExcelOutput/RogueHandBookEvent.json#3",
+          "evidence_sha256": "cac547fa7a1aa7989c7bfb1265d2e058abf0df78509b3035a66c6b7d8671dd2a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "31",
+          "source": "ExcelOutput/RogueHandBookEvent.json#30",
+          "evidence_sha256": "9817cca388596e05244a18c16e476984a584b5c0fcee82c08730cfe10da80401",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "32",
+          "source": "ExcelOutput/RogueHandBookEvent.json#31",
+          "evidence_sha256": "0e9bf1bb1b44a143e047eba570dea37056a79e4982a3616a966cae0a7fc73e34",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "33",
+          "source": "ExcelOutput/RogueHandBookEvent.json#32",
+          "evidence_sha256": "a33e466950239bd8a87c9bd8930116de0e6d96a58361ed95b27020b5d02ab17f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "34",
+          "source": "ExcelOutput/RogueHandBookEvent.json#33",
+          "evidence_sha256": "deb621283eb4c3f78ffa2b6b0125ddd2a1f66ab2286f953da9a94b2b3bfaa2c8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "35",
+          "source": "ExcelOutput/RogueHandBookEvent.json#34",
+          "evidence_sha256": "57fe03acf9623afe48b6ae5854a38b7414c72a49352a563251f64c5499aa0aaf",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "36",
+          "source": "ExcelOutput/RogueHandBookEvent.json#35",
+          "evidence_sha256": "7a2d93ae97c90fe4828133a16368dee1b89298c39499ca113b04c3214912cbe4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "37",
+          "source": "ExcelOutput/RogueHandBookEvent.json#36",
+          "evidence_sha256": "221caa1597aaf46cc346dc94ac69685d7059d37326d8586efc330ec39a295290",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "38",
+          "source": "ExcelOutput/RogueHandBookEvent.json#37",
+          "evidence_sha256": "0c4920cd77cc54ea3229d0c8fa83067c2e5c5923e412fc34cca6c9b796ae131e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "39",
+          "source": "ExcelOutput/RogueHandBookEvent.json#38",
+          "evidence_sha256": "22dd497207e6e373b4d39cf1c0d938959adc9363ff4dfec7ae0cefe1a1b0ab84",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "40",
+          "source": "ExcelOutput/RogueHandBookEvent.json#39",
+          "evidence_sha256": "0abbc5d42c19246ff9b64963341a34bbe3260952a489882bb1820657f53fc2e1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "5",
+          "source": "ExcelOutput/RogueHandBookEvent.json#4",
+          "evidence_sha256": "240f85a09b671dcc22b27e7d610c15be5448f180c02e7e680d462106055e172d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "41",
+          "source": "ExcelOutput/RogueHandBookEvent.json#40",
+          "evidence_sha256": "a161f61ef7cdd4e81c2247e268322b9da3970bb78554f6b2e7dc6bee6eef4748",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "42",
+          "source": "ExcelOutput/RogueHandBookEvent.json#41",
+          "evidence_sha256": "e96bfae762be53e78f67022869e64beb91627b31832384ff50fcbd2cb8fd9180",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "43",
+          "source": "ExcelOutput/RogueHandBookEvent.json#42",
+          "evidence_sha256": "6940dbd9d7dffe7bdfb4a105ab5a5b4723d4a1701c7e061800ff241212ddfbdf",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "44",
+          "source": "ExcelOutput/RogueHandBookEvent.json#43",
+          "evidence_sha256": "8b4911a843b81ad9e3648094bb07297a2190ebdf8d59f4f4bc22f56d33696757",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "45",
+          "source": "ExcelOutput/RogueHandBookEvent.json#44",
+          "evidence_sha256": "a61c618400a6e3e349c2315379da85fec7799d8702f1dda0373137d7f76aca1e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "46",
+          "source": "ExcelOutput/RogueHandBookEvent.json#45",
+          "evidence_sha256": "1b58702eb730b0da9b2126214f019475a85dc04ef07aaecb7d89412e0cfd900c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "47",
+          "source": "ExcelOutput/RogueHandBookEvent.json#46",
+          "evidence_sha256": "e4e55bdad519d97fd4ca5699e66ec184f830f184a1a0b230530d8f06c5759fe2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "6",
+          "source": "ExcelOutput/RogueHandBookEvent.json#5",
+          "evidence_sha256": "62b7f95fdd986b2d098bc04cacfddcd4baed15a489d158d07c5e04bf0ea6c859",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "52",
+          "source": "ExcelOutput/RogueHandBookEvent.json#51",
+          "evidence_sha256": "673f0d3d8fdc4c23b0b61b39f04b87a7e621922092abc52c3ad9f0ef8d46cf58",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "53",
+          "source": "ExcelOutput/RogueHandBookEvent.json#52",
+          "evidence_sha256": "10920db9c74bdd575ec6207204291b6eeb3dfb0f9d2aa575a233f6b2b304009d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "55",
+          "source": "ExcelOutput/RogueHandBookEvent.json#54",
+          "evidence_sha256": "3b90fc9871e3ca719f5bd3f006bf347a32089c062944d2e52dc2875c83d08656",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "56",
+          "source": "ExcelOutput/RogueHandBookEvent.json#55",
+          "evidence_sha256": "3bd65dc95593f3e2170aa2979deca6ff919de0ba2486cfd83f1d7e0e0b6ae4a3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "60",
+          "source": "ExcelOutput/RogueHandBookEvent.json#59",
+          "evidence_sha256": "bf9740d444573c8e904514e27324d08762a5fac9d7ffec9e421ec51d7cb1fed7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "7",
+          "source": "ExcelOutput/RogueHandBookEvent.json#6",
+          "evidence_sha256": "75af2df0f2988fbb2ba930431ea26f32f1f05d0c1e4c53c76d246a3d4906d816",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "61",
+          "source": "ExcelOutput/RogueHandBookEvent.json#60",
+          "evidence_sha256": "28d3e51d87d21c47ad9ab0dea6528ef502d53bb8ed498199e01afccdfa1dc396",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "62",
+          "source": "ExcelOutput/RogueHandBookEvent.json#61",
+          "evidence_sha256": "dbb774e41e0ba885b2ab18ba7e954ce4757f412a94fb37b7c58bb0d0d73b794c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "65",
+          "source": "ExcelOutput/RogueHandBookEvent.json#64",
+          "evidence_sha256": "a749932822e440276691ba388cbd6f4c360138aa143c67a50ca5f50201e5e6d3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "8",
+          "source": "ExcelOutput/RogueHandBookEvent.json#7",
+          "evidence_sha256": "fd011412c5855fc58bbde6aaaa9bf912b08419df61f06383719ddd034e840bde",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "77",
+          "source": "ExcelOutput/RogueHandBookEvent.json#76",
+          "evidence_sha256": "dda9f06aa339402de863aa69b0ca1a0059f14bba3ae74c8579cbc5b9ba52c04d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "78",
+          "source": "ExcelOutput/RogueHandBookEvent.json#77",
+          "evidence_sha256": "69a5c17eaee303c350ee32b9c7b277d441f0a2a08c07f0ce74126dc30b0232c7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "79",
+          "source": "ExcelOutput/RogueHandBookEvent.json#78",
+          "evidence_sha256": "d3b0bcd66c72d326e2fb259eb502e5d8af35e7117a1e64b25bd093726eee2697",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "80",
+          "source": "ExcelOutput/RogueHandBookEvent.json#79",
+          "evidence_sha256": "4a46c92d2f93ef5be9e55ba68885556a690dca67c8e9c911c5505c30ecb40493",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "9",
+          "source": "ExcelOutput/RogueHandBookEvent.json#8",
+          "evidence_sha256": "3817069bfb248f4e6c1a6bf3906fdce59b2ee83eff1392be4003b14c3e0fab35",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "81",
+          "source": "ExcelOutput/RogueHandBookEvent.json#80",
+          "evidence_sha256": "a89b862562c1a28087a6a9be85c31ee8374bba782e660a87488a68345142403c",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "82",
+          "source": "ExcelOutput/RogueHandBookEvent.json#81",
+          "evidence_sha256": "b9b8ba3a9e608bca814c82d08d29e3d71da5d2d2228c572c76a34d8b64cb0d16",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "83",
+          "source": "ExcelOutput/RogueHandBookEvent.json#82",
+          "evidence_sha256": "ee4cd90f36f59fdb71eb9801e4aad0300f2de1229c46f1744be3140c832585f2",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "84",
+          "source": "ExcelOutput/RogueHandBookEvent.json#83",
+          "evidence_sha256": "e44e1e2da8026308b926fd10a162fd0593224239786484173f6168c0f7381b28",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "85",
+          "source": "ExcelOutput/RogueHandBookEvent.json#84",
+          "evidence_sha256": "74091667a4e4149412d1229526f909cecece924cc51a3c39164c94c29b42f0c9",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "86",
+          "source": "ExcelOutput/RogueHandBookEvent.json#85",
+          "evidence_sha256": "6ebf3530cde931ea5201491c86e91d290568de39ab623c7cc3102d681e48961d",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "87",
+          "source": "ExcelOutput/RogueHandBookEvent.json#86",
+          "evidence_sha256": "65455184f92786d0e63a4aa420c0689b13ab2a74d8ef439d69ac51ffa4f7290c",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "88",
+          "source": "ExcelOutput/RogueHandBookEvent.json#87",
+          "evidence_sha256": "f000a6ffad1545bd46c6ea86e43ed3feae40491f06dff4c258d79d79645c3f0e",
+          "ownership": "GoldAndGears"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "10",
+          "source": "ExcelOutput/RogueHandBookEvent.json#9",
+          "evidence_sha256": "00d66b4f80970877e6fc206938169e31a4e71767337221a5f7c7502c674c504b",
+          "ownership": "Shared"
+        }
+      ]
+    },
+    {
+      "goal": "Goal09",
+      "goal_id": "swarm-disaster-reference-v1",
+      "commit": "b8da6744a63cd92554b45f8e780d79a1be131f50",
+      "manifest_path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+      "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+      "source_manifest_records": 6963,
+      "source_transport": "RemoteBranch",
+      "remote_ref": "origin/codex/goal09-swarm-disaster-reference",
+      "frozen_categories": [
+        "boss_choices",
+        "curios",
+        "occurrences"
+      ],
+      "reconciliation_record_count": 143,
+      "reconciliation_records_sha256": "a743c64619b84e62cc4cf9955f2c4abd736b33a236c4010d35c75ec807f311d7",
+      "reconciliation_records": [
+        {
+          "category_id": "boss_choices",
+          "id": "8003051",
+          "source": "ExcelOutput/RogueDLCArea.json#0",
+          "evidence_sha256": "67dd54697e6dd42d4bfc9c76866e248551bd3435bb4975c2b00d3a627d2851dd",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "boss_choices",
+          "id": "8024010",
+          "source": "ExcelOutput/RogueDLCArea.json#1",
+          "evidence_sha256": "c225680dde9732905562e5a8e580c31a71827c9b30280a21f2c83e4f2e201bf6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "1",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#0",
+          "evidence_sha256": "d967357756a6de6de7cd17bb31ec416b6a1118e5e30f23b9b062e6edb88f29d7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "2",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#1",
+          "evidence_sha256": "71698df33237ff9f9b6e944607d7f2c75dbd3fd5b2723f92d2c458a95c72d581",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "13",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#10",
+          "evidence_sha256": "56b20631443a73e5feb42b098d991f7fafe966b00d01f8a88de9c4fc5cfbd7d8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "14",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#11",
+          "evidence_sha256": "2d97a34172a1ed7b5be447549e678e02034dbac6c9715c2c976331dd78011359",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "15",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#12",
+          "evidence_sha256": "5dac0b08e3561af87469fec1e3df05c4835f0d7183ba579f9928c21b77fbbded",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "17",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#13",
+          "evidence_sha256": "29c3be0ef9a745bdee3364f84122041b49be71ac1509fc2f831380fbfc834c02",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "19",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#14",
+          "evidence_sha256": "3fb6368641c0ef3a21345c954a3d087f989788012149df10a65c9f1eff326575",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "20",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#15",
+          "evidence_sha256": "bb6d87db98cf55230f7b53d65a03adeee3f5f0254a67f213eba2d07b392a3b48",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "21",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#16",
+          "evidence_sha256": "cdf043ec2edc92fd958f281ffd57b001d259b95130c65832cd78d6bbe221ceb8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "22",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#17",
+          "evidence_sha256": "1977b1be4b02b8dcebe72fde4f976b2c0be05c7cc01c800a51a54c51e870078f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "23",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#18",
+          "evidence_sha256": "7860625ff2c3d795188db21bf038ad88eb2c90094a08564f795b9db5a55b591a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "24",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#19",
+          "evidence_sha256": "fd95b86b266f13e93089de98c777ad3db377f045996c94b8acfdf65a73b1a17f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "3",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#2",
+          "evidence_sha256": "a8f7ff53a8db71faac8a6c562b1da44b1cb812a238b1453de53dc2ad82a7b31a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "25",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#20",
+          "evidence_sha256": "f5bd146dea20ab9d0edec1643c8cdea68267cf80091851aa3d1824d0681536a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "26",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#21",
+          "evidence_sha256": "ba4b9c68fbcb707835d09e89431f15a743b6e71d8053a23c9284da1c7a4d6af9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "27",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#22",
+          "evidence_sha256": "58829d0b3abb47b511d0f4d8cc9ecd3cb1b10170e93f155650026771881d85a6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "28",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#23",
+          "evidence_sha256": "91cffd86e541cbd66ecf5cc6abca02c175f79207a4faf71179bf78e133f0e454",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "45",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#24",
+          "evidence_sha256": "8be002f35ea52d1d68369b329400342617c26d2e7e83fa00a743f9f1f05252d9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "47",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#25",
+          "evidence_sha256": "5fddee821c4b5542babdd0726fb24442e96c0ca8f072250af7381ad7e674fa18",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "49",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#26",
+          "evidence_sha256": "b9abc016e06dd64b681492fa5ea502f07be286b0c366197ba4b4a89c27e4e754",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "51",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#27",
+          "evidence_sha256": "236004c5b6667927af62453a9b785857ce3377e3286eae77461daa0d6a93156c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "53",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#28",
+          "evidence_sha256": "f2519a0717e25572d30de8c86a6f9ff38ffa911fe91046705399ffdc6e0c41e7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "55",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#29",
+          "evidence_sha256": "f7b6590cc38b54ee93c25d020962297820b055ddda91aa7d52c15cb1f19b396c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "4",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#3",
+          "evidence_sha256": "ef7e45751a29a9e6d54597c527d4019190556e4d4da40c0f28782b0212f9184b",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "57",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#30",
+          "evidence_sha256": "8958531acef6c209fa32ba873d1f58b5528118e953349064bfcbd5548d75af9d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "58",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#31",
+          "evidence_sha256": "81cae77c93a185df1620f1379513dc9f44a4924bcdb9b5b156a3ee8dedbdffd1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "59",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#32",
+          "evidence_sha256": "e4679f9faa42b6c7c4313853395aaaecbd36767d3769a838c8f97546ac2b4f40",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "60",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#33",
+          "evidence_sha256": "5d5bb720223fcf99ed4646c4e1d7c0ceed4ccb85e4d7d7bcf760a7e0293a401a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "61",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#34",
+          "evidence_sha256": "1385080eb859c43b08d4ca16e42754c5e15295e09c24e5179e1f7f97a6e59724",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "62",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#35",
+          "evidence_sha256": "6e7298b1aea5ffd6bc722a670116da7a465cd833698ee3e5f1d6db11a8f9e1dc",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "63",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#36",
+          "evidence_sha256": "d86977394c5051106cd7d88bd6e4b28a74943f7728c94f0002aa96c0c31af3c6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "64",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#37",
+          "evidence_sha256": "1956f3f39815f57733ed69540d8f0b4b8aa3358cdb4e27541aea40237b603bd5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "65",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#38",
+          "evidence_sha256": "e6c0133f047fcc7f4c2b47c538783aa560fd4a8756180f1c40d863e259d077a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "66",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#39",
+          "evidence_sha256": "ee1102c7670567d4a3cf9569dceea44ecc857f12b0521206ae8a57202ce3683d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "5",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#4",
+          "evidence_sha256": "8926d7e961263b9cc6d219fa0a44ed3996edbed7fa7b3b8534e8c0f1010de07d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "67",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#40",
+          "evidence_sha256": "d98efe1993556c0e31495fa21609d88e2f7d745ea1c4901c9641b1bab7523d05",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "68",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#41",
+          "evidence_sha256": "e070c5577fbc750b80323d4219552e9b3c97f219499b463050b5ba0517a2a09a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "69",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#42",
+          "evidence_sha256": "0f1081a63b80f6b0845572e2be6c4e4b68d838f0a3f7abc5237f0be3ff237905",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "70",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#43",
+          "evidence_sha256": "5b16fb0acd74d2c1499bda0fd52991faf75a63f1d863ea736e8087e9aa33caa8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "71",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#44",
+          "evidence_sha256": "0541a20df08c8399ec79c38114936dc2646958bd0a2674fa47899f5ff02ea6f2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "101",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#45",
+          "evidence_sha256": "efbbb1b2856e76c1d91fd778717c8d3fd69b8f748f08338f4df348999f9cb8a8",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "102",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#46",
+          "evidence_sha256": "d4dbbb35ff59ad74f1f51766fe95257d406e7223037dc181ea00062f9b179a6d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "104",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#47",
+          "evidence_sha256": "02b74e0573c683fc59ab0d5b3d814bd12779d8b4b5d6109ee6f7bffced520930",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "105",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#48",
+          "evidence_sha256": "e5b61cc913bda7be9a0f97150116b123baacf938e29bbb5a25ed2177044166c8",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "106",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#49",
+          "evidence_sha256": "fce449f2363f0e31e08ac66f5672fa832c5ef818527e67f97513a7cc3b944ad6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "6",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#5",
+          "evidence_sha256": "fe3409724f374ab472bd84c37ba5ba8a3e2af7d3f46c700ac64a7a100bf24a27",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "107",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#50",
+          "evidence_sha256": "34e8218e9a585dd18ec511947f486885cd592da57ce575609607ea9a7fe62b3d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "108",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#51",
+          "evidence_sha256": "7bf04a8aaa758d016c640ca7bcb50cfab59dfd66862e347d8f06afb2c7987f6f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "110",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#52",
+          "evidence_sha256": "b5f201bfd0c7d98035a7e75a76aff9d03a1186cf2936ef871406cff9089a00d5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "111",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#53",
+          "evidence_sha256": "4c580f0b638f38b1e54d36c14120da5dfbb20219b9559c745a0e6fba315295a4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "112",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#54",
+          "evidence_sha256": "3c1ce1a8324ffc495514b5ffa0ba0d182a58c859f0dba5921cbc9a182dfcfbfe",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "113",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#55",
+          "evidence_sha256": "d203b160f1a077a557b9c31b7da7ac52c56ca6e3e32b74a24b7b3f0e77ac7524",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "114",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#56",
+          "evidence_sha256": "cf3e7b6c2f1a992379b3930307e85032e1de114cd221468e6e13a76c405cd6a0",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "115",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#57",
+          "evidence_sha256": "614be80892af86e655fba000bcdc8548542a27c4bc4f139d2dc01db46c124c98",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "116",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#58",
+          "evidence_sha256": "f227ac9cbb9a367b4d4ed50513a4b3a9feaa806e9dce25992ffffd4dd03dd0f0",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "117",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#59",
+          "evidence_sha256": "02dfb4929d872df1192dc0d93a8620c439b689f1eb8c7de1620be4a993b26766",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "7",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#6",
+          "evidence_sha256": "d61a805fdd4214cf9a3be5b1936eea957b33d04a319d256f3d344f35d168e316",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "118",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#60",
+          "evidence_sha256": "f96fdb48b7189027b8ca0fe8213f52929041dbc75ea6a89a7d08356c5dac11a7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "119",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#61",
+          "evidence_sha256": "60469ceb003fd910c028cefb371cdcac0465e69415ee8117510e9129167a8459",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "curios",
+          "id": "120",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#62",
+          "evidence_sha256": "518c445f624e1caae91defa0179c5085e2517eeb9d385e1b2ba5595ced9808a2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "121",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#63",
+          "evidence_sha256": "3163c6b24cad107465e7d3beca2b3b3fef3270eb69ac33210bded165ac056121",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "122",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#64",
+          "evidence_sha256": "c8e5474e5e0bbf85a626f97c62b8283d610a2b381319d5900b93d147a2230e00",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "123",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#65",
+          "evidence_sha256": "1edf21255931454c71131b3f2b320df9168415e94f342e73f28aafa2195620b5",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "8",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#7",
+          "evidence_sha256": "6e84a07be89b047a9bd8611e5159735468516f4d07520a421abafd353791e84f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "11",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#8",
+          "evidence_sha256": "c45543f96564b00a13f6469a52513949d58beec304ea8e75536cf2fba0098649",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "curios",
+          "id": "12",
+          "source": "ExcelOutput/RogueHandbookMiracle.json#9",
+          "evidence_sha256": "b91c51f122e845522787df9aa2e99e018600f41a901c3f338620ad020cdae2f6",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "2",
+          "source": "ExcelOutput/RogueHandBookEvent.json#1",
+          "evidence_sha256": "92a68b56c566c0d5801ec7bc94f4b6e7b69314ff647c7b94f8f5f6268cf22c04",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "12",
+          "source": "ExcelOutput/RogueHandBookEvent.json#11",
+          "evidence_sha256": "9552d3ed6b675dfc89537ea0efa6bf3e9bb4662420722ca9a5114fd5cd81c0d9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "13",
+          "source": "ExcelOutput/RogueHandBookEvent.json#12",
+          "evidence_sha256": "15a6c3ee3e82ad90d572e9015d0333f64da89d0f67f49f30a1c21042eff46f88",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "14",
+          "source": "ExcelOutput/RogueHandBookEvent.json#13",
+          "evidence_sha256": "27f444c4145d01a319859376d82c2bb2d8eaa5604bef607378c5297075bef60c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "15",
+          "source": "ExcelOutput/RogueHandBookEvent.json#14",
+          "evidence_sha256": "2bfa09c07748fd5ff471ae481c5cd69f1971bc914d5659ab435652c8b442e064",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "16",
+          "source": "ExcelOutput/RogueHandBookEvent.json#15",
+          "evidence_sha256": "8793106e817f2b2c3c1659e02e51b48c94c00e380482a5bdd76551460dc5ef38",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "17",
+          "source": "ExcelOutput/RogueHandBookEvent.json#16",
+          "evidence_sha256": "3855d9038cb984c75c71ca70bddffbf5d29078e4a475de774a754b42720150b9",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "18",
+          "source": "ExcelOutput/RogueHandBookEvent.json#17",
+          "evidence_sha256": "da91b930c3f31b50fa8a9fefb55f0b1e93fabe6d720cdcd486398313b0924e68",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "19",
+          "source": "ExcelOutput/RogueHandBookEvent.json#18",
+          "evidence_sha256": "12e379aaef31839e46c57c344326531752758fc1c392a36cf0976d6f4078a638",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "20",
+          "source": "ExcelOutput/RogueHandBookEvent.json#19",
+          "evidence_sha256": "fe21ac65095c7f2d519a209e36950534c2a678fb2494e1a465f70fb551a165b1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "21",
+          "source": "ExcelOutput/RogueHandBookEvent.json#20",
+          "evidence_sha256": "3072475dce665dae5a59672ab04a2b848e344ef340d0a5c152e3f521f5f7c4ce",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "22",
+          "source": "ExcelOutput/RogueHandBookEvent.json#21",
+          "evidence_sha256": "9c505152fb036ea200e4acf64411452666d29c09c56a49740bbec6055264fcb3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "23",
+          "source": "ExcelOutput/RogueHandBookEvent.json#22",
+          "evidence_sha256": "ba81f0a4dd81d0d44fe3dbf27189539b364ee31d5b27c7cb5fd77c151d279e46",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "24",
+          "source": "ExcelOutput/RogueHandBookEvent.json#23",
+          "evidence_sha256": "1b3ff73dbfc277d5133c2d7fba783579511a42765615f0b7219ce7f7351edb7f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "25",
+          "source": "ExcelOutput/RogueHandBookEvent.json#24",
+          "evidence_sha256": "fe11d2d4ee166bc3d9d82b610bf99de95bbc30234f842c9f88f1fe615ae35add",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "26",
+          "source": "ExcelOutput/RogueHandBookEvent.json#25",
+          "evidence_sha256": "24089f3b4e0622b2ba99663cc2130e81465da5ce7f3c2cd333a720b585bf0bfb",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "27",
+          "source": "ExcelOutput/RogueHandBookEvent.json#26",
+          "evidence_sha256": "c4ef0e33e1611692db465dc957c6261bba65f085fe0b976d560b63d8c561b093",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "28",
+          "source": "ExcelOutput/RogueHandBookEvent.json#27",
+          "evidence_sha256": "ef774e74d4bb80ba7d126e79032160b48e4561f5de0cc29af02ee611a6922921",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "29",
+          "source": "ExcelOutput/RogueHandBookEvent.json#28",
+          "evidence_sha256": "af652b05f625ae66c309ee1858891c6a5efe021c5db00123cb8b1b2b5104f3bc",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "30",
+          "source": "ExcelOutput/RogueHandBookEvent.json#29",
+          "evidence_sha256": "e055c8c714945ba8f1b20026c87e83323ed6ac7bd27ad9fa0c45b06d40b4265c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "4",
+          "source": "ExcelOutput/RogueHandBookEvent.json#3",
+          "evidence_sha256": "cac547fa7a1aa7989c7bfb1265d2e058abf0df78509b3035a66c6b7d8671dd2a",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "31",
+          "source": "ExcelOutput/RogueHandBookEvent.json#30",
+          "evidence_sha256": "9817cca388596e05244a18c16e476984a584b5c0fcee82c08730cfe10da80401",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "32",
+          "source": "ExcelOutput/RogueHandBookEvent.json#31",
+          "evidence_sha256": "0e9bf1bb1b44a143e047eba570dea37056a79e4982a3616a966cae0a7fc73e34",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "33",
+          "source": "ExcelOutput/RogueHandBookEvent.json#32",
+          "evidence_sha256": "a33e466950239bd8a87c9bd8930116de0e6d96a58361ed95b27020b5d02ab17f",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "34",
+          "source": "ExcelOutput/RogueHandBookEvent.json#33",
+          "evidence_sha256": "deb621283eb4c3f78ffa2b6b0125ddd2a1f66ab2286f953da9a94b2b3bfaa2c8",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "35",
+          "source": "ExcelOutput/RogueHandBookEvent.json#34",
+          "evidence_sha256": "57fe03acf9623afe48b6ae5854a38b7414c72a49352a563251f64c5499aa0aaf",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "36",
+          "source": "ExcelOutput/RogueHandBookEvent.json#35",
+          "evidence_sha256": "7a2d93ae97c90fe4828133a16368dee1b89298c39499ca113b04c3214912cbe4",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "37",
+          "source": "ExcelOutput/RogueHandBookEvent.json#36",
+          "evidence_sha256": "221caa1597aaf46cc346dc94ac69685d7059d37326d8586efc330ec39a295290",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "38",
+          "source": "ExcelOutput/RogueHandBookEvent.json#37",
+          "evidence_sha256": "0c4920cd77cc54ea3229d0c8fa83067c2e5c5923e412fc34cca6c9b796ae131e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "39",
+          "source": "ExcelOutput/RogueHandBookEvent.json#38",
+          "evidence_sha256": "22dd497207e6e373b4d39cf1c0d938959adc9363ff4dfec7ae0cefe1a1b0ab84",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "40",
+          "source": "ExcelOutput/RogueHandBookEvent.json#39",
+          "evidence_sha256": "0abbc5d42c19246ff9b64963341a34bbe3260952a489882bb1820657f53fc2e1",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "5",
+          "source": "ExcelOutput/RogueHandBookEvent.json#4",
+          "evidence_sha256": "240f85a09b671dcc22b27e7d610c15be5448f180c02e7e680d462106055e172d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "41",
+          "source": "ExcelOutput/RogueHandBookEvent.json#40",
+          "evidence_sha256": "a161f61ef7cdd4e81c2247e268322b9da3970bb78554f6b2e7dc6bee6eef4748",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "42",
+          "source": "ExcelOutput/RogueHandBookEvent.json#41",
+          "evidence_sha256": "e96bfae762be53e78f67022869e64beb91627b31832384ff50fcbd2cb8fd9180",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "43",
+          "source": "ExcelOutput/RogueHandBookEvent.json#42",
+          "evidence_sha256": "6940dbd9d7dffe7bdfb4a105ab5a5b4723d4a1701c7e061800ff241212ddfbdf",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "44",
+          "source": "ExcelOutput/RogueHandBookEvent.json#43",
+          "evidence_sha256": "8b4911a843b81ad9e3648094bb07297a2190ebdf8d59f4f4bc22f56d33696757",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "45",
+          "source": "ExcelOutput/RogueHandBookEvent.json#44",
+          "evidence_sha256": "a61c618400a6e3e349c2315379da85fec7799d8702f1dda0373137d7f76aca1e",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "46",
+          "source": "ExcelOutput/RogueHandBookEvent.json#45",
+          "evidence_sha256": "1b58702eb730b0da9b2126214f019475a85dc04ef07aaecb7d89412e0cfd900c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "47",
+          "source": "ExcelOutput/RogueHandBookEvent.json#46",
+          "evidence_sha256": "e4e55bdad519d97fd4ca5699e66ec184f830f184a1a0b230530d8f06c5759fe2",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "48",
+          "source": "ExcelOutput/RogueHandBookEvent.json#47",
+          "evidence_sha256": "17e8dd30a7c512396cfefdce4c4889921e76b646a11680db1f142989191b35d1",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "49",
+          "source": "ExcelOutput/RogueHandBookEvent.json#48",
+          "evidence_sha256": "e5cefdb59118827ba29994cc6bcf6d17b0a372a112d56d804921f5832c1ff66c",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "50",
+          "source": "ExcelOutput/RogueHandBookEvent.json#49",
+          "evidence_sha256": "60f9885b08a7f3860384ac19a17b5ad989a8d48261f8840dd3cb4d2910b26808",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "6",
+          "source": "ExcelOutput/RogueHandBookEvent.json#5",
+          "evidence_sha256": "62b7f95fdd986b2d098bc04cacfddcd4baed15a489d158d07c5e04bf0ea6c859",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "51",
+          "source": "ExcelOutput/RogueHandBookEvent.json#50",
+          "evidence_sha256": "d9d4a61c4d74210f35d9a62ebd454b677c5dcdeb2651839b7eb83ccdd7b30645",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "52",
+          "source": "ExcelOutput/RogueHandBookEvent.json#51",
+          "evidence_sha256": "673f0d3d8fdc4c23b0b61b39f04b87a7e621922092abc52c3ad9f0ef8d46cf58",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "53",
+          "source": "ExcelOutput/RogueHandBookEvent.json#52",
+          "evidence_sha256": "10920db9c74bdd575ec6207204291b6eeb3dfb0f9d2aa575a233f6b2b304009d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "54",
+          "source": "ExcelOutput/RogueHandBookEvent.json#53",
+          "evidence_sha256": "02bd62497d68a1fef5a36eb69b039901ec231fd3ccda0060ca08fdbcf8bdfd63",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "55",
+          "source": "ExcelOutput/RogueHandBookEvent.json#54",
+          "evidence_sha256": "3b90fc9871e3ca719f5bd3f006bf347a32089c062944d2e52dc2875c83d08656",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "56",
+          "source": "ExcelOutput/RogueHandBookEvent.json#55",
+          "evidence_sha256": "3bd65dc95593f3e2170aa2979deca6ff919de0ba2486cfd83f1d7e0e0b6ae4a3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "57",
+          "source": "ExcelOutput/RogueHandBookEvent.json#56",
+          "evidence_sha256": "44862ae361f79ab883ea2d403f766cb902809d280e94e8af57e83558ba15e529",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "58",
+          "source": "ExcelOutput/RogueHandBookEvent.json#57",
+          "evidence_sha256": "2d62ed21f6fde4cf46aecd6bb19f7e8c5562f1dfc4b3c08eb049f0cf1964fe53",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "59",
+          "source": "ExcelOutput/RogueHandBookEvent.json#58",
+          "evidence_sha256": "448607e01a2087bac9b7213def8560ac48a8e0c1499109fd32f5cd411b8877dc",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "60",
+          "source": "ExcelOutput/RogueHandBookEvent.json#59",
+          "evidence_sha256": "bf9740d444573c8e904514e27324d08762a5fac9d7ffec9e421ec51d7cb1fed7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "7",
+          "source": "ExcelOutput/RogueHandBookEvent.json#6",
+          "evidence_sha256": "75af2df0f2988fbb2ba930431ea26f32f1f05d0c1e4c53c76d246a3d4906d816",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "61",
+          "source": "ExcelOutput/RogueHandBookEvent.json#60",
+          "evidence_sha256": "28d3e51d87d21c47ad9ab0dea6528ef502d53bb8ed498199e01afccdfa1dc396",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "62",
+          "source": "ExcelOutput/RogueHandBookEvent.json#61",
+          "evidence_sha256": "dbb774e41e0ba885b2ab18ba7e954ce4757f412a94fb37b7c58bb0d0d73b794c",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "63",
+          "source": "ExcelOutput/RogueHandBookEvent.json#62",
+          "evidence_sha256": "423ac3e9b0fd71e448be41202552f7bff859a7c4a9d889643cfc9308b17b0713",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "64",
+          "source": "ExcelOutput/RogueHandBookEvent.json#63",
+          "evidence_sha256": "145337c57467357ec6794fb5ff4130db2765ffb860116a1cb9d280b6bb58e1cd",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "65",
+          "source": "ExcelOutput/RogueHandBookEvent.json#64",
+          "evidence_sha256": "a749932822e440276691ba388cbd6f4c360138aa143c67a50ca5f50201e5e6d3",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "66",
+          "source": "ExcelOutput/RogueHandBookEvent.json#65",
+          "evidence_sha256": "323e382993776e1f4e98a29e9b5c264a0d96905d12f83fbd20ee1e7ca12ae12b",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "67",
+          "source": "ExcelOutput/RogueHandBookEvent.json#66",
+          "evidence_sha256": "d7cbdd93036fa9928ae24c52632fe919cb00292f507b59d279840627113119de",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "68",
+          "source": "ExcelOutput/RogueHandBookEvent.json#67",
+          "evidence_sha256": "346c1473b53718d43a33f79a3ce4e6f6b6586c6971f440089005496902e46a44",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "69",
+          "source": "ExcelOutput/RogueHandBookEvent.json#68",
+          "evidence_sha256": "b6d613eb4c03c56d7605db4f917431e49aec611cf236eba80a75d137a7534c60",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "70",
+          "source": "ExcelOutput/RogueHandBookEvent.json#69",
+          "evidence_sha256": "8e32c2ef58397efb7d9d0db8dbd651178edfa06be298317dceddb7fb2add2814",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "8",
+          "source": "ExcelOutput/RogueHandBookEvent.json#7",
+          "evidence_sha256": "fd011412c5855fc58bbde6aaaa9bf912b08419df61f06383719ddd034e840bde",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "71",
+          "source": "ExcelOutput/RogueHandBookEvent.json#70",
+          "evidence_sha256": "7d2aaa4a4ff4cfac6f76a49dade480ead7c91d839dbd07337fcd4de3835af237",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "72",
+          "source": "ExcelOutput/RogueHandBookEvent.json#71",
+          "evidence_sha256": "fc3a5ac0f1ca6c093d89a28c3a98526114e899c716c710740a699d182fd867b8",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "73",
+          "source": "ExcelOutput/RogueHandBookEvent.json#72",
+          "evidence_sha256": "cc7ebc4f7abeee699b8e5024c213f89d5fcac0137b04b1bf963a40dee7ba70b0",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "74",
+          "source": "ExcelOutput/RogueHandBookEvent.json#73",
+          "evidence_sha256": "c05094d2b2885f0ebfb0f7a70b16d2471c05fad094b4e2e9792f2435717f4eb6",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "75",
+          "source": "ExcelOutput/RogueHandBookEvent.json#74",
+          "evidence_sha256": "b370c8ed06e9338f7f826586211c9ba19c01aa035bbd87edf01c73cbfb9000c0",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "76",
+          "source": "ExcelOutput/RogueHandBookEvent.json#75",
+          "evidence_sha256": "5cd2f6ce2c90b3d17833ddf31af506159906672573cb8225618e2e4e98b8f9b1",
+          "ownership": "SwarmDisaster"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "77",
+          "source": "ExcelOutput/RogueHandBookEvent.json#76",
+          "evidence_sha256": "dda9f06aa339402de863aa69b0ca1a0059f14bba3ae74c8579cbc5b9ba52c04d",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "78",
+          "source": "ExcelOutput/RogueHandBookEvent.json#77",
+          "evidence_sha256": "69a5c17eaee303c350ee32b9c7b277d441f0a2a08c07f0ce74126dc30b0232c7",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "9",
+          "source": "ExcelOutput/RogueHandBookEvent.json#8",
+          "evidence_sha256": "3817069bfb248f4e6c1a6bf3906fdce59b2ee83eff1392be4003b14c3e0fab35",
+          "ownership": "Shared"
+        },
+        {
+          "category_id": "occurrences",
+          "id": "10",
+          "source": "ExcelOutput/RogueHandBookEvent.json#9",
+          "evidence_sha256": "00d66b4f80970877e6fc206938169e31a4e71767337221a5f7c7502c674c504b",
+          "ownership": "Shared"
+        }
+      ]
+    }
+  ]
+}
