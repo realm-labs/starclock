@@ -16,6 +16,8 @@ node tools/swarm-disaster-reference/import-topology.mjs
 node tools/swarm-disaster-reference/verify-topology.mjs
 node tools/swarm-disaster-reference/import-domains.mjs
 node tools/swarm-disaster-reference/verify-domains.mjs
+node tools/swarm-disaster-reference/import-countdown.mjs
+node tools/swarm-disaster-reference/verify-countdown.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -30,3 +32,10 @@ decoded as an inferred rule. Domain replacement, copying, blanking and beacon
 generation are retained as typed consequences of the 13 released Audience Die
 face rows that change topology. Stable target ordering and empty-target no-op
 behavior remain labeled `ProjectPolicy`.
+
+`countdown-and-disarray.json` preserves all 19 common DLC constants, the
+released movement/transition text and the three published Disruption bands.
+The initial value, cross-plane carry and same-boundary ordering are isolated
+replaceable policies. `boss-decay-levels.json` retains all 42 frozen manifest
+rows, but only the 15 rows whose released text names Swarm: True Sting are
+enabled for Swarm compilation; the other 27 shared-DLC rows fail closed.

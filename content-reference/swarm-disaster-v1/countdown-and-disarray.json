@@ -1,0 +1,412 @@
+[
+  {
+    "id": "swarm-disaster.countdown.v1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "CountdownPolicy",
+    "name_en": "Swarm Disaster Countdown and Planar Disarray",
+    "name_zh_cn": "寰宇蝗灾倒计时与位面紊乱",
+    "summary_en": "Movement consumes Countdown; a move from zero enters Planar Disarray, whose capped tier schedule is preserved from the released ActionPoint introduction parameters.",
+    "summary_zh_cn": "移动会消耗倒计时；从零再次移动进入位面紊乱，其封顶分段增益按已发布 ActionPoint 说明参数保留。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "0",
+        "sha256": "02bb9df9144e2efdebe34b19511358d9f84879b10f895a00dc4fa6a7b427bb15",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "1",
+        "sha256": "9532510efbba90fd65af439c4dbb2d0d80d4f9f450048f7a4d51337f9a911e80",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "2",
+        "sha256": "ca3a0fe281e41233fd424404c5d49c7da832e014cd30666bdfe3f2634725fa7d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "3",
+        "sha256": "122eb969445ab8aa970f1c373884c131e822b7cba93c53ab735613410542e348",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "4",
+        "sha256": "314d3c045558a25b1af2f7963178a2335e367196e86402dc8398872afdccd6f4",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "5",
+        "sha256": "fef8a8d625ba460bce48be5808c33c17f4ae687dabb0c2eb76e2a53c1464e69e",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "6",
+        "sha256": "178edb0146af546b652049fdc6cf6fa0dee4c9eb8e6b8704cdf678b005cc2652",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "7",
+        "sha256": "8bc6e56295c8b8d81cbe77a4cfeb6c35df2f2295c66f18feda0c282474ff5291",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "8",
+        "sha256": "a0a714e9d6c8dadfd8601e519f4e560f9234b95086b872398eb308c2c3f581ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "9",
+        "sha256": "c2ffe4b0611a50110a522ec64cc9926db9dd3623eef42d6cf52702e019d50b36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "10",
+        "sha256": "3e47917357d182af21fc0ac0564c90f0e9fd75451f26d09261eb72d4301b5c54",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "11",
+        "sha256": "b9e92aee8a7aaff071539e04409a28e903b9f7c8793245511e62cbccffd36fe7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "12",
+        "sha256": "29c2e8e5afdda93639d66804e9cd381c02a4beea875403bbf9d2365968e5bfc0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "13",
+        "sha256": "fefa12a4353faec2d71d61342ce69601191c29a50fec002f70bf28d394de4abb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "14",
+        "sha256": "09c8da1add87a2caf5d53333d976bebd59b76b71018549c64c258eb811a5a179",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "15",
+        "sha256": "eecb674576e74cd6e1efab8e60deeea068eb0330663d2b0cc2930cb9a5d978ec",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "16",
+        "sha256": "81d86c62cecb2343cc402102efe6296d6acc5ebad389e31418fd83133e13087c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "17",
+        "sha256": "655dc47b7428cf28dde26f1a086fadd2919ac3447ca2a452db6842ff4aa6f231",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvaluecommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueCommon.json",
+        "locator": "18",
+        "sha256": "19b028167a95401383d8ba17bc2f891f41b48e224d680c2d15205cde48f18e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "4",
+        "sha256": "5cdd85f535d698083ef4b7aacb32485e483b9e5f854a019baf85727449ff6abc",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcconstvalueclient-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCConstValueClient.json",
+        "locator": "6",
+        "sha256": "9d8d78ef6326a614f4f7c3d704b168e8460bb25c8061c7eef4e5cfedb961dd2f",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapen-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11306203113396055939",
+        "sha256": "79485bd172d924f3867892a5794f95f321aa263f8a8ae3940e6b719780e4ef4c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.textmap-textmapchs-json.11306203113396055939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11306203113396055939",
+        "sha256": "1916e07dea4f2530480d828ea0afa887da675ff03a2d4c44d9c42c000c81dddf",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.public.hoyolab-swarm-progression-countdown",
+        "repository": "https://www.hoyolab.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://www.hoyolab.com/article/21882069",
+        "locator": "Planar Disarray & Countdown / Summary of the Game Mode",
+        "sha256": "b57e34fde8a6c5ba1f630752a57a669c8bd28bcd6849a9a753a76f6aa729cb31",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ApproximateFromReleasedText",
+        "note": "Released public guide cross-checks the transition and the one-choice-per-plane boss consequence shape.",
+        "replacement_condition": "Replace with an official released mechanic page or reproducible in-game observation if it disagrees."
+      },
+      {
+        "source_id": "source.goal09.project-policy.countdown-and-disarray",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "countdown-and-disarray",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Use initial Countdown 20, carry it across plane transitions, resolve accepted movement before the transition check, and apply same-boundary changes in stable operation-ID order.",
+        "replacement_condition": "Replace each policy field independently when released structured engine evidence or a reproducible observation establishes a different value or ordering."
+      }
+    ],
+    "tags": [
+      "countdown",
+      "planar-disarray",
+      "project-policy"
+    ],
+    "initial_value": "20",
+    "initial_value_quality": "ProjectPolicy",
+    "movement_delta": "-1",
+    "movement_delta_quality": "ExactReleasedText",
+    "carry_policy": "CarryAcrossPlaneTransitions",
+    "transition_boundary": "AcceptedMoveWhenPreMoveCountdownIsZero",
+    "transition_result": {
+      "countdown_value": "-1",
+      "disruption_level": "1"
+    },
+    "warning_threshold": "5",
+    "same_boundary_order": "StableOperationId",
+    "cap_policy": "Level21AndAboveRetainsLevel20Modifiers",
+    "disarray_tiers": [
+      {
+        "minimum_level": "1",
+        "maximum_level": "5",
+        "enemy_damage_dealt_per_level_percent": "5",
+        "enemy_damage_received_reduction_per_level_percent": "4",
+        "enemy_speed_per_level_percent": "0"
+      },
+      {
+        "minimum_level": "6",
+        "maximum_level": "10",
+        "enemy_damage_dealt_per_level_percent": "10",
+        "enemy_damage_received_reduction_per_level_percent": "4",
+        "enemy_speed_per_level_percent": "5"
+      },
+      {
+        "minimum_level": "11",
+        "maximum_level": "20",
+        "enemy_damage_dealt_per_level_percent": "20",
+        "enemy_damage_received_reduction_per_level_percent": "4",
+        "enemy_speed_per_level_percent": "10"
+      }
+    ],
+    "source_constant_bindings": [
+      {
+        "id": "RogueDLC_Activity_NormalFinish_MainMissionID",
+        "value": "8013106",
+        "source_locator": "9"
+      },
+      {
+        "id": "RogueDLC_Activity_Unlock_MainMissionID",
+        "value": "8013103",
+        "source_locator": "8"
+      },
+      {
+        "id": "RogueDLC_DiceSurface_AbandonReward",
+        "value": {
+          "IntValue": "10"
+        },
+        "source_locator": "1"
+      },
+      {
+        "id": "RogueDLC_Entrance_Locked_Round1_SubMissionID",
+        "value": "801310105",
+        "source_locator": "11"
+      },
+      {
+        "id": "RogueDLC_Entrance_Locked_Round2_SubMissionID",
+        "value": "801310204",
+        "source_locator": "13"
+      },
+      {
+        "id": "RogueDLC_Entrance_Locked_Round3_SubMissionID",
+        "value": "801310801",
+        "source_locator": "15"
+      },
+      {
+        "id": "RogueDLC_Entrance_Locked_Round4_SubMissionID",
+        "value": "801310604",
+        "source_locator": "17"
+      },
+      {
+        "id": "RogueDLC_Entrance_Unlock_MainMissionID",
+        "value": "8013104",
+        "source_locator": "10"
+      },
+      {
+        "id": "RogueDLC_Entrance_Unlock_Round1_SubMissionID",
+        "value": "801310107",
+        "source_locator": "12"
+      },
+      {
+        "id": "RogueDLC_Entrance_Unlock_Round2_SubMissionID",
+        "value": "801310205",
+        "source_locator": "14"
+      },
+      {
+        "id": "RogueDLC_Entrance_Unlock_Round3_SubMissionID",
+        "value": "801310501",
+        "source_locator": "16"
+      },
+      {
+        "id": "RogueDLC_Entrance_Unlock_Round4_SubMissionID",
+        "value": "801310605",
+        "source_locator": "18"
+      },
+      {
+        "id": "RogueDLC_GuideAeon",
+        "value": "6",
+        "source_locator": "7"
+      },
+      {
+        "id": "RogueDLC_GuideArea1",
+        "value": "101",
+        "source_locator": "4"
+      },
+      {
+        "id": "RogueDLC_GuideArea2",
+        "value": "102",
+        "source_locator": "5"
+      },
+      {
+        "id": "RogueDLC_GuideArea3",
+        "value": "103",
+        "source_locator": "6"
+      },
+      {
+        "id": "RogueDLC_Module",
+        "value": "6000302",
+        "source_locator": "2"
+      },
+      {
+        "id": "RogueDLC_Recover_ItemCost",
+        "value": {
+          "IntValue": "80"
+        },
+        "source_locator": "0"
+      },
+      {
+        "id": "RogueDLC_TimeLimited_Module",
+        "value": "6000302",
+        "source_locator": "3"
+      }
+    ]
+  }
+]
