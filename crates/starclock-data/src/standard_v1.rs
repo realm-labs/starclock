@@ -466,8 +466,8 @@ mod tests {
             ),
             (
                 SCENARIOS[5].0,
-                359,
-                "22bce5f61349e8f245cfff207651de44a08d5cb654dbda030e06f0c5640d19a8",
+                388,
+                "b9c6590b9095905efe22cebfde6b734d3b0a408116b6c1e7d5d40d518c839fce",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

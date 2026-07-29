@@ -1602,6 +1602,50 @@
             "String": "goal07.enemy.s16.trigger.silvermane-lieutenant-shield-reflect"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1144801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1145102
+          },
+          "id": {
+            "Integer": 1145103
+          },
+          "once_scope": {
+            "String": "Action"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1141041
+          },
+          "rule_id": {
+            "Integer": 1145101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s17.trigger.voidranger-eliminator-detonated"
+          }
+        }
       }
     ]
   }

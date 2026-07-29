@@ -221,6 +221,26 @@ PARTITION_CONFIG = {
         "source_record_id": 18,
         "evidence_record_id": 19,
     },
+    "G07-P5-M15-S17": {
+        "base": 1_140_000,
+        "variant": "enemy.thunderspawn.minion.variant.01",
+        "variants": [
+            "enemy.thunderspawn.minion.variant.01",
+            "enemy.trotter-of-abundance.minionlv2.02.variant.01",
+            "enemy.trotter-of-abundance.minionlv2.variant.01",
+            "enemy.trotter-of-destruction.minionlv2.02.variant.01",
+            "enemy.trotter-of-destruction.minionlv2.variant.01",
+            "enemy.trotter-of-preservation.minionlv2.03.variant.01",
+            "enemy.trotter-of-preservation.minionlv2.variant.01",
+            "enemy.vagrant.minionlv2.variant.01",
+            "enemy.voidranger-distorter.minionlv2.variant.01",
+            "enemy.voidranger-eliminator.minionlv2.variant.01",
+            "enemy.voidranger-reaver.minionlv2.variant.01",
+            "enemy.voidranger-trampler-bug.elite.variant.01",
+        ],
+        "source_record_id": 19,
+        "evidence_record_id": 20,
+    },
 }
 PARTITION = "G07-P5-M15-S01"
 VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
@@ -15824,6 +15844,199 @@ def enemy_specs_s16() -> list[dict[str, Any]]:
     ]
 
 
+def enemy_specs_s17() -> list[dict[str, Any]]:
+    common_trotter_abilities = [
+        ("scared", "Scared", "惊慌", None, None, None, "actor", True, "scared"),
+        ("run", "Run", "逃跑", None, None, None, "actor", True, "run"),
+        ("escaped", "Escaped", "逃之夭夭", None, None, None, "actor", True, "escape"),
+    ]
+    return [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.thunderspawn.minion",
+            "name": "Thunderspawn",
+            "zh": "雷之造物",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Physical", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Lightning", "0.4"), ("Quantum", "0.2")],
+            "debuff_resistances": [("STAT_DOT_Electric", "1")],
+            "abilities": [
+                ("thunderflash", "Thunderflash", "雷闪", "800104001", "2.5", "Lightning", "primary", True, "shock"),
+            ],
+            "cycle": ["thunderflash"],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.trotter-of-abundance.minionlv2.02",
+            "name": "Trotter of Abundance 02",
+            "zh": "丰饶扑满02",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Lightning", "Physical", "Quantum"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Wind", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("cure-you", "C—Cure You", "治、治愈你", "800207104", None, None, "actor", False, "abundance-transfer"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "cure-you",
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.trotter-of-abundance.minionlv2",
+            "name": "Trotter of Abundance",
+            "zh": "丰饶扑满",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Lightning", "Physical", "Quantum"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Wind", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("cure-you", "C—Cure You", "治、治愈你", "800207004", None, None, "actor", False, "abundance-transfer"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "cure-you",
+        },
+        {
+            "key": VARIANT_KEYS[3],
+            "template": "enemy.trotter-of-destruction.minionlv2.02",
+            "name": "Trotter of Destruction 02",
+            "zh": "毁灭扑满02",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Quantum", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("taking-revenge", "Taking Revenge", "有仇必报", "800206104", None, None, "actor", False, "destruction-revenge"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "taking-revenge",
+        },
+        {
+            "key": VARIANT_KEYS[4],
+            "template": "enemy.trotter-of-destruction.minionlv2",
+            "name": "Trotter of Destruction",
+            "zh": "毁灭扑满",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Quantum", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("taking-revenge", "Taking Revenge", "有仇必报", "800206004", None, None, "actor", False, "destruction-revenge"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "taking-revenge",
+        },
+        {
+            "key": VARIANT_KEYS[5],
+            "template": "enemy.trotter-of-preservation.minionlv2.03",
+            "name": "Trotter of Preservation 03",
+            "zh": "存护扑满03",
+            "rank": "Normal",
+            "toughness": "30",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("protect", "Protect", "保护", "800208204", None, None, "actor", False, "preservation-barrier"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "protect",
+        },
+        {
+            "key": VARIANT_KEYS[6],
+            "template": "enemy.trotter-of-preservation.minionlv2",
+            "name": "Trotter of Preservation",
+            "zh": "存护扑满",
+            "rank": "Normal",
+            "toughness": "30",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": common_trotter_abilities + [
+                ("protect", "Protect", "保护", "800208004", None, None, "actor", False, "preservation-barrier"),
+            ],
+            "cycle": ["scared", "run", "escaped"],
+            "entry": "protect",
+        },
+        {
+            "key": VARIANT_KEYS[7],
+            "template": "enemy.vagrant.minionlv2",
+            "name": "Vagrant",
+            "zh": "流浪者",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Fire", "Ice", "Imaginary"],
+            "resistances": [("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("shovel-attack", "Shovel Attack", "铲击", "100202001", "2.5", "Physical", "primary", True, None),
+                ("inspire", "Inspire", "鼓舞", "100202002", None, None, "random-ally", True, "inspire"),
+            ],
+            "cycle": ["inspire", "shovel-attack"],
+        },
+        {
+            "key": VARIANT_KEYS[8],
+            "template": "enemy.voidranger-distorter.minionlv2",
+            "name": "Voidranger: Distorter",
+            "zh": "虚卒·篡改者",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Imaginary", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("nihilitys-command", "Nihility's Command", "虚无号令", "801202001", None, None, "primary", True, "nihility-command"),
+                ("shadowless-void-strike", "Shadowless Void Strike", "无影虚空击", "801202002", "5", "Quantum", "primary", True, None),
+            ],
+            "cycle": ["nihilitys-command", "shadowless-void-strike"],
+        },
+        {
+            "key": VARIANT_KEYS[9],
+            "template": "enemy.voidranger-eliminator.minionlv2",
+            "name": "Voidranger: Eliminator",
+            "zh": "虚卒·抹消者",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Fire", "Ice", "Quantum"],
+            "resistances": [("Imaginary", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("void-cannon", "Void Cannon", "虚数炮", "801203001", "4", "Imaginary", "primary", True, "detonated"),
+                ("thermal-barrier", "Thermal Barrier", "热障", "801203002", None, None, "actor", True, "thermal-barrier"),
+            ],
+            "cycle": ["void-cannon", "thermal-barrier"],
+        },
+        {
+            "key": VARIANT_KEYS[10],
+            "template": "enemy.voidranger-reaver.minionlv2",
+            "name": "Voidranger: Reaver",
+            "zh": "虚卒·掠夺者",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Lightning", "Physical"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("hunting-blade", "Hunting Blade", "猎刃", "801201001", "2.5", "Imaginary", "primary", True, None),
+                ("vortex-leap", "Vortex Leap", "涡流跃袭", "801201002", "1.5", "Imaginary", "blast", True, None),
+            ],
+            "cycle": ["hunting-blade", "vortex-leap"],
+        },
+        {
+            "key": VARIANT_KEYS[11],
+            "template": "enemy.voidranger-trampler-bug.elite",
+            "name": "Voidranger: Trampler (Bug)",
+            "zh": "虚卒·践踏者（错误）",
+            "rank": "Elite",
+            "toughness": "420",
+            "weaknesses": ["Imaginary", "Physical", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("unreal-projection", "Unreal Projection", "虚妄投影", "801301101", "3", "Quantum", "primary", True, None),
+                ("rule-of-force", "Rule of Force", "强权判定", "801301102", "4", "Quantum", "primary", True, None),
+                ("war-trample", "War Trample", "战争践踏", "801301103", "3", "Quantum", "blast", True, None),
+                ("spiral-arrow", "Spiral Arrow", "螺旋箭", "801301104", None, None, "primary", True, "spiral-arrow"),
+                ("end-of-bow", "End of Bow", "强弩末矢", "801301105", "8", "Quantum", "primary", True, "entanglement"),
+            ],
+            "cycle": ["spiral-arrow", "end-of-bow", "unreal-projection", "rule-of-force", "war-trample"],
+        },
+    ]
+
+
 def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
@@ -15834,7 +16047,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         raise ValueError("S12 numeric anchor variants changed")
 
     enemy_specs = (
-        enemy_specs_s16()
+        enemy_specs_s17()
+        if PARTITION == "G07-P5-M15-S17"
+        else enemy_specs_s16()
         if PARTITION == "G07-P5-M15-S16"
         else enemy_specs_s15()
         if PARTITION == "G07-P5-M15-S15"
@@ -16163,6 +16378,15 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             else BASE + 21 + index
             for index in range(len(enemy_specs))
         ]
+    elif PARTITION == "G07-P5-M15-S17":
+        variant_row_ids = [
+            110 if index == 10 else BASE + 1 + index
+            for index in range(len(enemy_specs))
+        ]
+        template_row_ids = [
+            10_016 if index == 10 else BASE + 21 + index
+            for index in range(len(enemy_specs))
+        ]
     else:
         variant_row_ids = [BASE + 1 + index for index in range(len(enemy_specs))]
         template_row_ids = [BASE + 21 + index for index in range(len(enemy_specs))]
@@ -16179,10 +16403,29 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         "all-allies": BASE + 407,
         "adjacent-allies": BASE + 408,
         "blast": BASE + 409,
+        "random-ally": BASE + 410,
     }
     if PARTITION == "G07-P5-M15-S12":
         selectors.pop("blast")
+    if PARTITION != "G07-P5-M15-S17":
+        selectors.pop("random-ally")
     effects = (
+        {
+            "shock": BASE + 5_001,
+            "scared": BASE + 5_002,
+            "run": BASE + 5_003,
+            "abundance-transfer": BASE + 5_004,
+            "destruction-revenge": BASE + 5_005,
+            "preservation-barrier": BASE + 5_006,
+            "inspire": BASE + 5_007,
+            "nihility-command": BASE + 5_008,
+            "detonated": BASE + 5_009,
+            "overloaded": BASE + 5_010,
+            "spiral-arrow": BASE + 5_011,
+            "entanglement": BASE + 5_012,
+        }
+        if PARTITION == "G07-P5-M15-S17"
+        else
         {
             "faded-rage": BASE + 5_001,
             "disembodied-shell": BASE + 5_002,
@@ -16311,6 +16554,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             3,
             "Fault",
         ),
+        "random-ally": ("Actor", "SameSide", "RngUniform", 1, 1, "NoOp"),
     }
     for key, id_ in selectors.items():
         origin, side, choice, minimum, maximum, empty = selector_metadata[key]
@@ -16333,7 +16577,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             empty=empty,
             choice=choice,
         )
-        if key == "random":
+        if key in {"random", "random-ally"}:
             row["rng_purpose_key"] = "behavior-choice"
         add("Selector", row)
 
@@ -16399,6 +16643,8 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         if PARTITION == "G07-P5-M15-S14"
         else {"0.2"}
         if PARTITION == "G07-P5-M15-S15"
+        else {"0.1", "0.3", "0.4", "0.55", "0.75", "0.8"}
+        if PARTITION == "G07-P5-M15-S17"
         else set()
     )
     ratios = {
@@ -16411,6 +16657,16 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     }
     integer_two = expression(
         "integer-two", "Integer", json_cell("IntegerLiteral", value=2)
+    )
+    integer_three = (
+        expression("integer-three", "Integer", json_cell("IntegerLiteral", value=3))
+        if PARTITION == "G07-P5-M15-S17"
+        else None
+    )
+    integer_thirty = (
+        expression("integer-thirty", "Integer", json_cell("IntegerLiteral", value=30))
+        if PARTITION == "G07-P5-M15-S17"
+        else None
     )
     damage_amounts = {
         value: expression(
@@ -16459,6 +16715,22 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     )
 
     effect_metadata = (
+        {
+            "shock": ("Thunderflash Shock", "雷闪触电", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.8"], "Lightning"),
+            "scared": ("Scared", "惊慌", "NeutralState", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "run": ("Run", "逃跑", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "abundance-transfer": ("C—Cure You", "治、治愈你", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "destruction-revenge": ("Taking Revenge", "有仇必报", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "preservation-barrier": ("Protect", "保护", "Buff", "NonDispellable", 30, None, "Permanent", "RefreshAndAddStacks", None, None),
+            "inspire": ("Inspire", "鼓舞", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "nihility-command": ("Nihility's Command", "虚无号令", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "detonated": ("Detonated", "引爆", "Debuff", "DispellableDebuff", 3, None, "Permanent", "RefreshAndAddStacks", None, None),
+            "overloaded": ("Overloaded", "过载", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "spiral-arrow": ("Spiral Arrow Lock", "螺旋箭锁定", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "entanglement": ("Entanglement", "纠缠", "Control", "CleanseableControl", 1, integer_two, "TargetTurnStart", "Refresh", None, None),
+        }
+        if PARTITION == "G07-P5-M15-S17"
+        else
         {
             "faded-rage": ("Faded Rage", "褪去之怒", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
             "disembodied-shell": ("Disembodied Shell", "癔症身壳", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
@@ -16580,6 +16852,22 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             },
         )
     effect_tags = (
+        {
+            "shock": ["shock"],
+            "scared": ["scared", "prepare"],
+            "run": ["run", "prevents-toughness-reduction"],
+            "abundance-transfer": ["cure-you", "damage-transfer"],
+            "destruction-revenge": ["taking-revenge", "additional-damage"],
+            "preservation-barrier": ["protect", "shared-hit-nullification"],
+            "inspire": ["inspire", "attack-up", "action-advance"],
+            "nihility-command": ["nihility-command", "lock-on-target", "vulnerability"],
+            "detonated": ["detonated", "additional-damage"],
+            "overloaded": ["overloaded"],
+            "spiral-arrow": ["spiral-arrow", "lock-on-target"],
+            "entanglement": ["entanglement", "blocks-normal-action"],
+        }
+        if PARTITION == "G07-P5-M15-S17"
+        else
         {
             "faded-rage": ["faded-rage", "enhanced-action"],
             "disembodied-shell": ["disembodied-shell", "damage-reduction"],
@@ -16705,7 +16993,8 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             )
         return id_
 
-    linked_units = [BASE + 351, BASE + 352]
+    is_s17 = PARTITION == "G07-P5-M15-S17"
+    linked_units = [] if is_s17 else [BASE + 351, BASE + 352]
     linked_ability = BASE + 381
     is_s13 = PARTITION == "G07-P5-M15-S13"
     is_s14 = PARTITION == "G07-P5-M15-S14"
@@ -16958,6 +17247,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                     )
             effect_key = (
                 {
+                    "shock": "shock",
+                    "scared": "scared",
+                    "run": "run",
+                    "abundance-transfer": "abundance-transfer",
+                    "destruction-revenge": "destruction-revenge",
+                    "preservation-barrier": "preservation-barrier",
+                    "inspire": "inspire",
+                    "nihility-command": "nihility-command",
+                    "detonated": "detonated",
+                    "spiral-arrow": "spiral-arrow",
+                    "entanglement": "entanglement",
+                }
+                if is_s17
+                else
+                {
                     "faded-rage": "faded-rage",
                     "disembodied-shell": "disembodied-shell",
                     "mirror-cognition": "mirror-cognition",
@@ -17039,6 +17343,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             ).get(mechanic)
             if effect_key is not None:
                 chance = {
+                    "shock": "1",
+                    "detonated": "0.75",
+                    "entanglement": "1",
                     "imprison-50": "1",
                     "imprison-60": "1",
                     "reverberation-70": "0.7",
@@ -17052,7 +17359,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                                 "ApplyEffect",
                                 effect_id=effects[effect_key],
                                 stacks_expression_id=(
-                                    integer_two
+                                    integer_thirty
+                                    if mechanic == "preservation-barrier"
+                                    else integer_three
+                                    if mechanic == "detonated"
+                                    else integer_two
                                     if mechanic == "wind-shear"
                                     else None
                                 ),
@@ -17104,6 +17415,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                                     "shield-reflect",
                                     "storm-cyclone",
                                     "subduing-prana",
+                                    "scared",
+                                    "run",
+                                    "abundance-transfer",
+                                    "destruction-revenge",
+                                    "preservation-barrier",
                                 }
                                 else target_selector
                             ),
@@ -17130,6 +17446,74 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                             json_cell(
                                 "DelayAction",
                                 amount_expression_id=ratios[delay_ratio],
+                            ),
+                            target_selector,
+                        )
+                    )
+                )
+            if mechanic == "inspire":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-advance",
+                            json_cell(
+                                "AdvanceAction",
+                                amount_expression_id=ratios["1"],
+                            ),
+                            target_selector,
+                            "NoOp",
+                        )
+                    )
+                )
+            if mechanic == "escape":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-depart",
+                            json_cell("ChangePresence", presence="Departed"),
+                            selectors["actor"],
+                        )
+                    )
+                )
+            if mechanic == "detonated":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-overloaded",
+                            json_cell(
+                                "ApplyEffect",
+                                effect_id=effects["overloaded"],
+                                stacks_expression_id=None,
+                                chance_policy="Guaranteed",
+                                base_chance_expression_id=None,
+                                rng_purpose_key=None,
+                            ),
+                            selectors["actor"],
+                        )
+                    )
+                )
+            if mechanic == "thermal-barrier":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-clear-overloaded",
+                            json_cell(
+                                "RemoveEffect",
+                                effect_id=effects["overloaded"],
+                            ),
+                            selectors["actor"],
+                            "NoOp",
+                        )
+                    )
+                )
+            if mechanic == "entanglement":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-delay",
+                            json_cell(
+                                "DelayAction",
+                                amount_expression_id=ratios["0.5"],
                             ),
                             target_selector,
                         )
@@ -17244,7 +17628,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             )
 
     defeat_effect = (
-        effects["shield-reflect"]
+        effects["detonated"]
+        if is_s17
+        else effects["shield-reflect"]
         if is_s16
         else effects["rebirth"]
         if is_s15
@@ -17255,7 +17641,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else effects["rebound"]
     )
     defeat_slug = (
-        "silvermane-lieutenant-shield-reflect"
+        "voidranger-eliminator-detonated"
+        if is_s17
+        else "silvermane-lieutenant-shield-reflect"
         if is_s16
         else "mara-struck-soldier-rebirth"
         if is_s15
@@ -17266,7 +17654,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "golden-hound-rebound"
     )
     defeat_name = (
-        "Silvermane Lieutenant Shield Reflect Rule"
+        "Voidranger Eliminator Detonated Rule"
+        if is_s17
+        else "Silvermane Lieutenant Shield Reflect Rule"
         if is_s16
         else "Mara-Struck Soldier Rebirth Rule"
         if is_s15
@@ -17277,7 +17667,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "Golden Hound Rebound Rule"
     )
     defeat_name_zh = (
-        "银鬃尉官盾反规则"
+        "虚卒抹消者引爆规则"
+        if is_s17
+        else "银鬃尉官盾反规则"
         if is_s16
         else "魔阴身士卒复起规则"
         if is_s15
@@ -17288,7 +17680,10 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         else "娄金嗥吠规则"
     )
     defeat_summary = (
-        "Counters damage received while Shield Reflect is active with a "
+        "Deals 40% of the applier's ATK as additional Imaginary damage after "
+        "the marked target is attacked."
+        if is_s17
+        else "Counters damage received while Shield Reflect is active with a "
         "600% Physical attack."
         if is_s16
         else "Returns the Mara-Struck Soldier to the battle with 50% maximum HP "
@@ -17322,6 +17717,23 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         ],
     )
     defeat_steps = (
+        [
+            op_step(
+                new_operation(
+                    f"{defeat_slug}-additional-damage",
+                    json_cell(
+                        "Damage",
+                        amount_expression_id=damage_amounts["0.4"],
+                        damage_class="Additional",
+                        element="Imaginary",
+                        can_crit=False,
+                    ),
+                    selectors["owner"],
+                )
+            )
+        ]
+        if is_s17
+        else
         [
             op_step(
                 new_operation(
@@ -17424,7 +17836,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "id": rebound_filter,
             "stable_key": (
                 f"goal07.enemy.s12.filter.{defeat_slug}-defeated"
-                if is_s13 or is_s14 or is_s15 or is_s16
+                if is_s13 or is_s14 or is_s15 or is_s16 or is_s17
                 else "goal07.enemy.s12.filter.golden-hound-defeated"
             ),
             "target_selector_id": selectors["owner"],
@@ -17440,13 +17852,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "sequence": 1,
             "event": (
                 json_cell("Damage", point="Applied")
-                if is_s16
+                if is_s16 or is_s17
                 else json_cell("Unit", point="Defeated")
             ),
-            "phase": "AfterEvent" if is_s16 else "AfterDefeatSettlement",
+            "phase": "AfterEvent" if is_s16 or is_s17 else "AfterDefeatSettlement",
             "filter_id": rebound_filter,
             "condition_id": condition_always,
-            "once_scope": "Event" if is_s16 else "Battle",
+            "once_scope": "Action" if is_s17 else "Event" if is_s16 else "Battle",
             "priority": 0,
             "program_id": rebound_program,
         },
@@ -17658,13 +18070,19 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "replacement_priority": 1,
                 "ai_graph_id": graph,
                 "entry_program_id": (
-                    rebound_entry
+                    ability_programs[
+                        ability_ids[(enemy_index, spec["entry"])]
+                    ]
+                    if is_s17 and spec.get("entry") is not None
+                    else rebound_entry
                     if enemy_index
                     == (
                         7
                         if is_s15 or is_s16
                         else 6
                         if is_s14
+                        else 99
+                        if is_s17
                         else 0
                     )
                     else None
@@ -17741,9 +18159,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "mechanism_quality": "ExactStructured",
             },
         )
-    if is_s13 or is_s14 or is_s15 or is_s16:
+    if is_s13 or is_s14 or is_s15 or is_s16 or is_s17:
         batch = (
-            "s16"
+            "s17"
+            if is_s17
+            else "s16"
             if is_s16
             else "s15"
             if is_s15
@@ -17788,6 +18208,8 @@ def owns_partition_identity(value: Any) -> bool:
     ) or (
         PARTITION == "G07-P5-M15-S15"
         and id_ in {106, 107, 108, 10_012, 10_013, 10_014}
+    ) or (
+        PARTITION == "G07-P5-M15-S17" and id_ in {110, 10_016}
     )
 
 
@@ -17801,6 +18223,8 @@ def owns_partition_variant(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S14" and id_ in {102, 103, 104}
     ) or (
         PARTITION == "G07-P5-M15-S15" and id_ in {106, 107, 108}
+    ) or (
+        PARTITION == "G07-P5-M15-S17" and id_ == 110
     )
 
 
@@ -17814,6 +18238,8 @@ def owns_partition_template(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S14" and id_ in {10_008, 10_009, 10_010}
     ) or (
         PARTITION == "G07-P5-M15-S15" and id_ in {10_012, 10_013, 10_014}
+    ) or (
+        PARTITION == "G07-P5-M15-S17" and id_ == 10_016
     )
 
 
@@ -17926,6 +18352,7 @@ def main() -> None:
         "G07-P5-M15-S14": owned_rows_ordinary,
         "G07-P5-M15-S15": owned_rows_ordinary,
         "G07-P5-M15-S16": owned_rows_ordinary,
+        "G07-P5-M15-S17": owned_rows_ordinary,
     }[PARTITION]()
     golden_path = (
         ROOT

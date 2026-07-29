@@ -4626,53 +4626,6 @@
             "String": "4.4"
           },
           "id": {
-            "Integer": 110
-          },
-          "name_en": {
-            "String": "Voidranger: Reaver Variant"
-          },
-          "name_zh_cn": {
-            "String": "虚卒•掠夺者变体"
-          },
-          "release_state": {
-            "String": "Released"
-          },
-          "source_record_ids": {
-            "List": [
-              {
-                "Integer": 1
-              }
-            ]
-          },
-          "stable_key": {
-            "String": "enemy.voidranger-reaver.minionlv2.variant.01"
-          },
-          "summary_en": {
-            "String": "Frozen Standard enemy-variant identity. Executable Standard-v1 rows and seeded golden evidence are present."
-          },
-          "summary_zh_cn": {
-            "String": "已冻结的标准模式敌人变体身份。 已具备标准模式第一版可执行数据与种子黄金证据。"
-          }
-        }
-      },
-      {
-        "values": {
-          "content_kind": {
-            "String": "EnemyVariant"
-          },
-          "coverage_state": {
-            "String": "GoldenVerified"
-          },
-          "enabled": {
-            "Bool": true
-          },
-          "game_version_introduced": {
-            "String": "unresolved"
-          },
-          "game_version_snapshot": {
-            "String": "4.4"
-          },
-          "id": {
             "Integer": 111
           },
           "name_en": {
@@ -12965,53 +12918,6 @@
           },
           "stable_key": {
             "String": "enemy.sableclaw-wolftrooper.minionlv2"
-          },
-          "summary_en": {
-            "String": "Prepared Version 4.4 enemy template used by the frozen Standard-v1 manifest."
-          },
-          "summary_zh_cn": {
-            "String": "版本4.4准备数据中的敌人模板，用于已冻结的标准模式第一版清单。"
-          }
-        }
-      },
-      {
-        "values": {
-          "content_kind": {
-            "String": "Enemy"
-          },
-          "coverage_state": {
-            "String": "DataReady"
-          },
-          "enabled": {
-            "Bool": true
-          },
-          "game_version_introduced": {
-            "String": "unresolved"
-          },
-          "game_version_snapshot": {
-            "String": "4.4"
-          },
-          "id": {
-            "Integer": 10016
-          },
-          "name_en": {
-            "String": "Voidranger: Reaver"
-          },
-          "name_zh_cn": {
-            "String": "虚卒•掠夺者"
-          },
-          "release_state": {
-            "String": "Released"
-          },
-          "source_record_ids": {
-            "List": [
-              {
-                "Integer": 1
-              }
-            ]
-          },
-          "stable_key": {
-            "String": "enemy.voidranger-reaver.minionlv2"
           },
           "summary_en": {
             "String": "Prepared Version 4.4 enemy template used by the frozen Standard-v1 manifest."
@@ -307827,6 +307733,6575 @@
           },
           "summary_zh_cn": {
             "String": "Goal 07 S16 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140102
+          },
+          "name_en": {
+            "String": "Thunderflash"
+          },
+          "name_zh_cn": {
+            "String": "雷闪"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.thunderspawn.minion.ability.thunderflash"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800104001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140122
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140123
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140124
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140125
+          },
+          "name_en": {
+            "String": "C—Cure You"
+          },
+          "name_zh_cn": {
+            "String": "治、治愈你"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02.ability.cure-you"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800207104."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140142
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140143
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140144
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140145
+          },
+          "name_en": {
+            "String": "C—Cure You"
+          },
+          "name_zh_cn": {
+            "String": "治、治愈你"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.ability.cure-you"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800207004."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140162
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140163
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140164
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140165
+          },
+          "name_en": {
+            "String": "Taking Revenge"
+          },
+          "name_zh_cn": {
+            "String": "有仇必报"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02.ability.taking-revenge"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800206104."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140182
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140183
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140184
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140185
+          },
+          "name_en": {
+            "String": "Taking Revenge"
+          },
+          "name_zh_cn": {
+            "String": "有仇必报"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.ability.taking-revenge"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800206004."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140202
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140203
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140204
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140205
+          },
+          "name_en": {
+            "String": "Protect"
+          },
+          "name_zh_cn": {
+            "String": "保护"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03.ability.protect"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800208204."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140222
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.ability.scared"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140223
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.ability.run"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140224
+          },
+          "name_en": {
+            "String": "Escaped"
+          },
+          "name_zh_cn": {
+            "String": "逃之夭夭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.ability.escaped"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill None."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140225
+          },
+          "name_en": {
+            "String": "Protect"
+          },
+          "name_zh_cn": {
+            "String": "保护"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.ability.protect"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800208004."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140242
+          },
+          "name_en": {
+            "String": "Shovel Attack"
+          },
+          "name_zh_cn": {
+            "String": "铲击"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.vagrant.minionlv2.ability.shovel-attack"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 100202001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140243
+          },
+          "name_en": {
+            "String": "Inspire"
+          },
+          "name_zh_cn": {
+            "String": "鼓舞"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.vagrant.minionlv2.ability.inspire"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 100202002."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140262
+          },
+          "name_en": {
+            "String": "Nihility's Command"
+          },
+          "name_zh_cn": {
+            "String": "虚无号令"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-distorter.minionlv2.ability.nihilitys-command"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801202001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140263
+          },
+          "name_en": {
+            "String": "Shadowless Void Strike"
+          },
+          "name_zh_cn": {
+            "String": "无影虚空击"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-distorter.minionlv2.ability.shadowless-void-strike"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801202002."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140282
+          },
+          "name_en": {
+            "String": "Void Cannon"
+          },
+          "name_zh_cn": {
+            "String": "虚数炮"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-eliminator.minionlv2.ability.void-cannon"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801203001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140283
+          },
+          "name_en": {
+            "String": "Thermal Barrier"
+          },
+          "name_zh_cn": {
+            "String": "热障"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-eliminator.minionlv2.ability.thermal-barrier"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801203002."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140302
+          },
+          "name_en": {
+            "String": "Hunting Blade"
+          },
+          "name_zh_cn": {
+            "String": "猎刃"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-reaver.minionlv2.ability.hunting-blade"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801201001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140303
+          },
+          "name_en": {
+            "String": "Vortex Leap"
+          },
+          "name_zh_cn": {
+            "String": "涡流跃袭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-reaver.minionlv2.ability.vortex-leap"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801201002."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140322
+          },
+          "name_en": {
+            "String": "Unreal Projection"
+          },
+          "name_zh_cn": {
+            "String": "虚妄投影"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.ability.unreal-projection"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301101."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140323
+          },
+          "name_en": {
+            "String": "Rule of Force"
+          },
+          "name_zh_cn": {
+            "String": "强权判定"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.ability.rule-of-force"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301102."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140324
+          },
+          "name_en": {
+            "String": "War Trample"
+          },
+          "name_zh_cn": {
+            "String": "战争践踏"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.ability.war-trample"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301103."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140325
+          },
+          "name_en": {
+            "String": "Spiral Arrow"
+          },
+          "name_zh_cn": {
+            "String": "螺旋箭"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.ability.spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301104."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140326
+          },
+          "name_en": {
+            "String": "End of Bow"
+          },
+          "name_zh_cn": {
+            "String": "强弩末矢"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.ability.end-of-bow"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301105."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140381
+          },
+          "name_en": {
+            "String": "Candle Flame"
+          },
+          "name_zh_cn": {
+            "String": "烛焰"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.goal07.s17.illumination-dragonfish.ability.candle-flame"
+          },
+          "summary_en": {
+            "String": "Executable linked-unit attack used by Aurumaton Gatekeeper."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140041
+          },
+          "name_en": {
+            "String": "Thunderspawn AI"
+          },
+          "name_zh_cn": {
+            "String": "雷之造物AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.1"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140042
+          },
+          "name_en": {
+            "String": "Trotter of Abundance 02 AI"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满02AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.2"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140043
+          },
+          "name_en": {
+            "String": "Trotter of Abundance AI"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.3"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140044
+          },
+          "name_en": {
+            "String": "Trotter of Destruction 02 AI"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满02AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.4"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140045
+          },
+          "name_en": {
+            "String": "Trotter of Destruction AI"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.5"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140046
+          },
+          "name_en": {
+            "String": "Trotter of Preservation 03 AI"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满03AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.6"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140047
+          },
+          "name_en": {
+            "String": "Trotter of Preservation AI"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.7"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140048
+          },
+          "name_en": {
+            "String": "Vagrant AI"
+          },
+          "name_zh_cn": {
+            "String": "流浪者AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.8"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140049
+          },
+          "name_en": {
+            "String": "Voidranger: Distorter AI"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·篡改者AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.9"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140050
+          },
+          "name_en": {
+            "String": "Voidranger: Eliminator AI"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·抹消者AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.10"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140051
+          },
+          "name_en": {
+            "String": "Voidranger: Reaver AI"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·掠夺者AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.11"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140052
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler (Bug) AI"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者（错误）AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s17.12"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145001
+          },
+          "name_en": {
+            "String": "Thunderflash Shock"
+          },
+          "name_zh_cn": {
+            "String": "雷闪触电"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.shock"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145002
+          },
+          "name_en": {
+            "String": "Scared"
+          },
+          "name_zh_cn": {
+            "String": "惊慌"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.scared"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145003
+          },
+          "name_en": {
+            "String": "Run"
+          },
+          "name_zh_cn": {
+            "String": "逃跑"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.run"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145004
+          },
+          "name_en": {
+            "String": "C—Cure You"
+          },
+          "name_zh_cn": {
+            "String": "治、治愈你"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.abundance-transfer"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145005
+          },
+          "name_en": {
+            "String": "Taking Revenge"
+          },
+          "name_zh_cn": {
+            "String": "有仇必报"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.destruction-revenge"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145006
+          },
+          "name_en": {
+            "String": "Protect"
+          },
+          "name_zh_cn": {
+            "String": "保护"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.preservation-barrier"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145007
+          },
+          "name_en": {
+            "String": "Inspire"
+          },
+          "name_zh_cn": {
+            "String": "鼓舞"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.inspire"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145008
+          },
+          "name_en": {
+            "String": "Nihility's Command"
+          },
+          "name_zh_cn": {
+            "String": "虚无号令"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.nihility-command"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145009
+          },
+          "name_en": {
+            "String": "Detonated"
+          },
+          "name_zh_cn": {
+            "String": "引爆"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.detonated"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145010
+          },
+          "name_en": {
+            "String": "Overloaded"
+          },
+          "name_zh_cn": {
+            "String": "过载"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.overloaded"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145011
+          },
+          "name_en": {
+            "String": "Spiral Arrow Lock"
+          },
+          "name_zh_cn": {
+            "String": "螺旋箭锁定"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145012
+          },
+          "name_en": {
+            "String": "Entanglement"
+          },
+          "name_zh_cn": {
+            "String": "纠缠"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s17.entanglement"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 10016
+          },
+          "name_en": {
+            "String": "Voidranger: Reaver Template"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·掠夺者模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-reaver.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140021
+          },
+          "name_en": {
+            "String": "Thunderspawn Template"
+          },
+          "name_zh_cn": {
+            "String": "雷之造物模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.thunderspawn.minion"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140022
+          },
+          "name_en": {
+            "String": "Trotter of Abundance 02 Template"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满02模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140023
+          },
+          "name_en": {
+            "String": "Trotter of Abundance Template"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140024
+          },
+          "name_en": {
+            "String": "Trotter of Destruction 02 Template"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满02模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140025
+          },
+          "name_en": {
+            "String": "Trotter of Destruction Template"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140026
+          },
+          "name_en": {
+            "String": "Trotter of Preservation 03 Template"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满03模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140027
+          },
+          "name_en": {
+            "String": "Trotter of Preservation Template"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140028
+          },
+          "name_en": {
+            "String": "Vagrant Template"
+          },
+          "name_zh_cn": {
+            "String": "流浪者模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.vagrant.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140029
+          },
+          "name_en": {
+            "String": "Voidranger: Distorter Template"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·篡改者模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-distorter.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140030
+          },
+          "name_en": {
+            "String": "Voidranger: Eliminator Template"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·抹消者模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-eliminator.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140032
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler (Bug) Template"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者（错误）模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 110
+          },
+          "name_en": {
+            "String": "Voidranger: Reaver"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·掠夺者"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-reaver.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140001
+          },
+          "name_en": {
+            "String": "Thunderspawn"
+          },
+          "name_zh_cn": {
+            "String": "雷之造物"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.thunderspawn.minion.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140002
+          },
+          "name_en": {
+            "String": "Trotter of Abundance 02"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满02"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.02.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140003
+          },
+          "name_en": {
+            "String": "Trotter of Abundance"
+          },
+          "name_zh_cn": {
+            "String": "丰饶扑满"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-abundance.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140004
+          },
+          "name_en": {
+            "String": "Trotter of Destruction 02"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满02"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.02.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140005
+          },
+          "name_en": {
+            "String": "Trotter of Destruction"
+          },
+          "name_zh_cn": {
+            "String": "毁灭扑满"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-destruction.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140006
+          },
+          "name_en": {
+            "String": "Trotter of Preservation 03"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满03"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.03.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140007
+          },
+          "name_en": {
+            "String": "Trotter of Preservation"
+          },
+          "name_zh_cn": {
+            "String": "存护扑满"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.trotter-of-preservation.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140008
+          },
+          "name_en": {
+            "String": "Vagrant"
+          },
+          "name_zh_cn": {
+            "String": "流浪者"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.vagrant.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140009
+          },
+          "name_en": {
+            "String": "Voidranger: Distorter"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·篡改者"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-distorter.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140010
+          },
+          "name_en": {
+            "String": "Voidranger: Eliminator"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·抹消者"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-eliminator.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140012
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler (Bug)"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者（错误）"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 19
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler-bug.elite.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141001
+          },
+          "name_en": {
+            "String": "S17 illumination-dragonfish-candle-flame Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 illumination-dragonfish-candle-flame程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.illumination-dragonfish-candle-flame"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141002
+          },
+          "name_en": {
+            "String": "S17 1-thunderflash Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 1-thunderflash程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.1-thunderflash"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141003
+          },
+          "name_en": {
+            "String": "S17 2-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 2-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.2-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141004
+          },
+          "name_en": {
+            "String": "S17 2-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 2-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.2-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141005
+          },
+          "name_en": {
+            "String": "S17 2-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 2-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.2-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141006
+          },
+          "name_en": {
+            "String": "S17 2-cure-you Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 2-cure-you程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.2-cure-you"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141007
+          },
+          "name_en": {
+            "String": "S17 3-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 3-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.3-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141008
+          },
+          "name_en": {
+            "String": "S17 3-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 3-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.3-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141009
+          },
+          "name_en": {
+            "String": "S17 3-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 3-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.3-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141010
+          },
+          "name_en": {
+            "String": "S17 3-cure-you Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 3-cure-you程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.3-cure-you"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141011
+          },
+          "name_en": {
+            "String": "S17 4-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 4-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.4-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141012
+          },
+          "name_en": {
+            "String": "S17 4-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 4-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.4-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141013
+          },
+          "name_en": {
+            "String": "S17 4-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 4-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.4-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141014
+          },
+          "name_en": {
+            "String": "S17 4-taking-revenge Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 4-taking-revenge程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.4-taking-revenge"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141015
+          },
+          "name_en": {
+            "String": "S17 5-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 5-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.5-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141016
+          },
+          "name_en": {
+            "String": "S17 5-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 5-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.5-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141017
+          },
+          "name_en": {
+            "String": "S17 5-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 5-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.5-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141018
+          },
+          "name_en": {
+            "String": "S17 5-taking-revenge Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 5-taking-revenge程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.5-taking-revenge"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141019
+          },
+          "name_en": {
+            "String": "S17 6-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 6-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.6-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141020
+          },
+          "name_en": {
+            "String": "S17 6-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 6-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.6-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141021
+          },
+          "name_en": {
+            "String": "S17 6-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 6-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.6-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141022
+          },
+          "name_en": {
+            "String": "S17 6-protect Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 6-protect程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.6-protect"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141023
+          },
+          "name_en": {
+            "String": "S17 7-scared Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 7-scared程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.7-scared"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141024
+          },
+          "name_en": {
+            "String": "S17 7-run Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 7-run程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.7-run"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141025
+          },
+          "name_en": {
+            "String": "S17 7-escaped Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 7-escaped程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.7-escaped"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141026
+          },
+          "name_en": {
+            "String": "S17 7-protect Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 7-protect程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.7-protect"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141027
+          },
+          "name_en": {
+            "String": "S17 8-shovel-attack Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 8-shovel-attack程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.8-shovel-attack"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141028
+          },
+          "name_en": {
+            "String": "S17 8-inspire Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 8-inspire程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.8-inspire"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141029
+          },
+          "name_en": {
+            "String": "S17 9-nihilitys-command Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 9-nihilitys-command程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.9-nihilitys-command"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141030
+          },
+          "name_en": {
+            "String": "S17 9-shadowless-void-strike Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 9-shadowless-void-strike程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.9-shadowless-void-strike"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141031
+          },
+          "name_en": {
+            "String": "S17 10-void-cannon Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 10-void-cannon程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.10-void-cannon"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141032
+          },
+          "name_en": {
+            "String": "S17 10-thermal-barrier Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 10-thermal-barrier程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.10-thermal-barrier"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141033
+          },
+          "name_en": {
+            "String": "S17 11-hunting-blade Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 11-hunting-blade程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.11-hunting-blade"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141034
+          },
+          "name_en": {
+            "String": "S17 11-vortex-leap Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 11-vortex-leap程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.11-vortex-leap"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141035
+          },
+          "name_en": {
+            "String": "S17 12-unreal-projection Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 12-unreal-projection程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.12-unreal-projection"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141036
+          },
+          "name_en": {
+            "String": "S17 12-rule-of-force Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 12-rule-of-force程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.12-rule-of-force"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141037
+          },
+          "name_en": {
+            "String": "S17 12-war-trample Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 12-war-trample程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.12-war-trample"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141038
+          },
+          "name_en": {
+            "String": "S17 12-spiral-arrow Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 12-spiral-arrow程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.12-spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141039
+          },
+          "name_en": {
+            "String": "S17 12-end-of-bow Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 12-end-of-bow程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.12-end-of-bow"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141040
+          },
+          "name_en": {
+            "String": "S17 voidranger-eliminator-detonated-entry Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 voidranger-eliminator-detonated-entry程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.voidranger-eliminator-detonated-entry"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1141041
+          },
+          "name_en": {
+            "String": "S17 voidranger-eliminator-detonated-trigger Program"
+          },
+          "name_zh_cn": {
+            "String": "S17 voidranger-eliminator-detonated-trigger程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s17.voidranger-eliminator-detonated-trigger"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Rule"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1145101
+          },
+          "name_en": {
+            "String": "Voidranger Eliminator Detonated Rule"
+          },
+          "name_zh_cn": {
+            "String": "虚卒抹消者引爆规则"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "rule.goal07.enemy-s17.voidranger-eliminator-detonated"
+          },
+          "summary_en": {
+            "String": "Deals 40% of the applier's ATK as additional Imaginary damage after the marked target is attacked."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140401
+          },
+          "name_en": {
+            "String": "S17 actor Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 actor选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.actor"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140402
+          },
+          "name_en": {
+            "String": "S17 owner Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 owner选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.owner"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140403
+          },
+          "name_en": {
+            "String": "S17 current-subject Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 current-subject选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.current-subject"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140404
+          },
+          "name_en": {
+            "String": "S17 primary Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 primary选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.primary"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140405
+          },
+          "name_en": {
+            "String": "S17 random Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 random选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.random"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140406
+          },
+          "name_en": {
+            "String": "S17 all-opposing Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 all-opposing选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.all-opposing"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140407
+          },
+          "name_en": {
+            "String": "S17 all-allies Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 all-allies选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.all-allies"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140408
+          },
+          "name_en": {
+            "String": "S17 adjacent-allies Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 adjacent-allies选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.adjacent-allies"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140409
+          },
+          "name_en": {
+            "String": "S17 blast Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 blast选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.blast"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1140410
+          },
+          "name_en": {
+            "String": "S17 random-ally Selector"
+          },
+          "name_zh_cn": {
+            "String": "S17 random-ally选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s17.random-ally"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S17 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
           }
         }
       }

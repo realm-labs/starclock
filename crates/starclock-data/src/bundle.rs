@@ -69,8 +69,8 @@ mod tests {
         let metadata = inspect(PRODUCTION_BUNDLE).expect("production bundle must load");
         assert_eq!(metadata.game_version, "4.4");
         assert_eq!(metadata.data_revision, "core-combat-v1-phase7-l11");
-        assert_eq!(metadata.identity_count, 6545);
-        assert_eq!(metadata.enabled_identity_count, 6545);
+        assert_eq!(metadata.identity_count, 6682);
+        assert_eq!(metadata.enabled_identity_count, 6682);
         assert_eq!(
             metadata.coverage_manifest_sha256,
             "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19"
