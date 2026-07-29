@@ -412,6 +412,78 @@
             "String": "goal07.enemy.s06.condition.adjacent-frozen"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1040561
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s07.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1040562
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1041103
+              },
+              "right_expression_id": {
+                "Integer": 1041105
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s07.condition.shielded"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1040563
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Equal"
+              },
+              "left_expression_id": {
+                "Integer": 1041103
+              },
+              "right_expression_id": {
+                "Integer": 1041105
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s07.condition.unshielded"
+          }
+        }
       }
     ]
   }

@@ -92,6 +92,23 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S07": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.gepard-complete.littleboss.variant.01",
+      "enemy.gepard-complete.littleboss",
+      "ai.goal07.gepard-complete.phase-1",
+      "ai.goal07.gepard-complete.phase-2",
+      "ai.goal07.gepard-complete.phase-3",
+      "unit.goal07.gepard-complete.phase-1-soldier",
+      "unit.goal07.gepard-complete.phase-1-cannoneer",
+      "unit.goal07.gepard-complete.phase-2-cannoneer-left",
+      "unit.goal07.gepard-complete.phase-2-cannoneer-right",
+      "unit.goal07.gepard-complete.phase-3-lieutenant-left",
+      "unit.goal07.gepard-complete.phase-3-lieutenant-right",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -179,6 +196,16 @@ if (partitionId === "G07-P5-M15-S06") {
     { path: "crates/starclock-mode-universe/tests/battle_materialization/cocolia_s06.rs" },
   );
 }
+if (partitionId === "G07-P5-M15-S07") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/gepard_s07.rs" },
+  );
+}
 const provenanceEvidence = [
   { path: "content-reference/v4.4/enemy-abilities.json" },
   { path: "content-reference/v4.4/enemy-templates.json" },
@@ -187,7 +214,7 @@ const provenanceEvidence = [
   evidence(numericAnchor),
   evidence(sourceReview),
 ];
-if (partitionId === "G07-P5-M15-S04") {
+if (partitionId === "G07-P5-M15-S04" || partitionId === "G07-P5-M15-S07") {
   provenanceEvidence.push(
     { path: "content-reference/standard-universe-v1/encounter-groups.json" },
   );
@@ -242,6 +269,16 @@ const ownedTables = [
   "SourceRecord",
   "ValueExpression",
 ];
+const encounterScope = {
+  "G07-P5-M15-S04": {
+    recordId: "universe.encounter-group.11901",
+    memberId: "universe.encounter-member.103",
+  },
+  "G07-P5-M15-S07": {
+    recordId: "universe.encounter-group.13901",
+    memberId: "universe.encounter-member.107",
+  },
+}[partitionId];
 
 const receipt = {
   schema_revision: "starclock.goal07-content-partition-receipt.v1",
@@ -260,9 +297,9 @@ const receipt = {
     sora_bundle: evidence("config/generated/config.sora"),
     sora_golden: evidence(golden),
   },
-  records: partitionId === "G07-P5-M15-S04" ? [
+  records: encounterScope ? [
     {
-      id: "universe.encounter-group.11901",
+      id: encounterScope.recordId,
       runtime_disposition: "Metadata",
       accuracy_disposition: "NotApplicable",
       workbook_evidence: [
@@ -293,9 +330,9 @@ const receipt = {
       execution_evidence: executionEvidence,
     },
   ],
-  encounter_members: partitionId === "G07-P5-M15-S04" ? [
+  encounter_members: encounterScope ? [
     {
-      id: "universe.encounter-member.103",
+      id: encounterScope.memberId,
       runtime_disposition: "ExecutableShared",
       accuracy_disposition: "ExactPublic",
       workbook_evidence: [

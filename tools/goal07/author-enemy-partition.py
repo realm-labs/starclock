@@ -2,8 +2,8 @@
 
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
-of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), and S06 owns
-Cocolia (Complete). Each
+of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
+Cocolia (Complete), and S07 owns Gepard (Complete). Each
 partition receives an isolated 10,000-ID range so authoring and verification
 never consume rows owned by another partition.
 """
@@ -65,6 +65,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.cocolia-complete.littleboss.variant.01",
         "source_record_id": 8,
         "evidence_record_id": 9,
+    },
+    "G07-P5-M15-S07": {
+        "base": 1_040_000,
+        "variant": "enemy.gepard-complete.littleboss.variant.01",
+        "source_record_id": 9,
+        "evidence_record_id": 10,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -7949,6 +7955,1557 @@ def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s07() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S07 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "fist": BASE + 101,
+        "smite": BASE + 102,
+        "garrison": BASE + 103,
+        "frigid": BASE + 104,
+        "besiege": BASE + 105,
+        "frigid-rapid": BASE + 106,
+        "besiege-rapid": BASE + 107,
+        "counter": BASE + 108,
+        "smite-rapid": BASE + 112,
+        "besiege-end": BASE + 113,
+        "soldier-charge": BASE + 121,
+        "cannoneer-barrage": BASE + 122,
+        "lieutenant-pierce": BASE + 123,
+        "coordinated-strike": BASE + 124,
+    }
+    linked = {
+        "phase-1-soldier": BASE + 201,
+        "phase-1-cannoneer": BASE + 202,
+        "phase-2-cannoneer-left": BASE + 203,
+        "phase-2-cannoneer-right": BASE + 204,
+        "phase-3-lieutenant-left": BASE + 205,
+        "phase-3-lieutenant-right": BASE + 206,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "current-subject": BASE + 403,
+        "primary-target": BASE + 404,
+        "opposing-random": BASE + 405,
+        "opposing-all": BASE + 406,
+        "same-all": BASE + 407,
+        "actor-summons": BASE + 408,
+        "adjacent": BASE + 409,
+    }
+    effects = {
+        "frigid-escalation": BASE + 501,
+        "collective-shield": BASE + 502,
+        "counter": BASE + 503,
+        "lock-on": BASE + 504,
+        "def-down": BASE + 505,
+    }
+    modifiers = {
+        "frigid-escalation": BASE + 521,
+        "def-down": BASE + 522,
+    }
+    modifier_groups = {
+        "frigid-escalation": BASE + 531,
+        "def-down": BASE + 532,
+    }
+    rules = {"counter": BASE + 541}
+    filters = {"counter": BASE + 551}
+    conditions = {
+        "always": BASE + 561,
+        "shielded": BASE + 562,
+        "unshielded": BASE + 563,
+    }
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s07(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, stable_key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S07 来源绑定的杰帕德（完整）可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            identity_s07(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Gepard (Complete)",
+                "杰帕德（完整）",
+                "Exact materialization variant used by frozen World 3 bindings.",
+                "1|9",
+            ),
+            identity_s07(
+                template,
+                "enemy.gepard-complete.littleboss",
+                "Enemy",
+                "Gepard (Complete) Template",
+                "杰帕德（完整）模板",
+                "Version 4.4 boss template retained from source monster 1004022.",
+            ),
+        ]
+    )
+    for phase, graph in enumerate(graphs, start=1):
+        identities.append(
+            identity_s07(
+                graph,
+                f"ai.goal07.gepard-complete.phase-{phase}",
+                "AiGraph",
+                f"Gepard Complete Phase {phase} AI",
+                f"杰帕德完整形态{phase}阶段AI",
+                "Finite source-ordered boss action graph.",
+            )
+        )
+    ability_metadata = {
+        "fist": ("Fist of Conviction", "一意之拳", "300% Ice single-target strike."),
+        "smite": ("Smite of Frost", "霜之惩击", "350% Ice single-target strike."),
+        "garrison": (
+            "Garrison Aura Field",
+            "戍卫气场",
+            "Collective allied shield and Toughness protection.",
+        ),
+        "frigid": (
+            "Frigid Waterfall",
+            "极寒瀑流",
+            "380% Ice area strike with stacking 12% damage escalation.",
+        ),
+        "besiege": (
+            "Besiege",
+            "围攻",
+            "Locks one opponent and orders all surviving summons to strike.",
+        ),
+        "frigid-rapid": (
+            "Frigid Waterfall — Rapid",
+            "极寒瀑流·连动",
+            "Extra-action opener for the unshielded phase rotation.",
+        ),
+        "besiege-rapid": (
+            "Besiege — Rapid",
+            "围攻·连动",
+            "Extra-action opener for phase two and three.",
+        ),
+        "counter": (
+            "Tit for Tat",
+            "以牙还牙",
+            "One-turn, one-trigger Smite of Frost counter state.",
+        ),
+        "smite-rapid": (
+            "Smite of Frost — Rapid",
+            "霜之惩击·连动",
+            "Extra-action opener for the shielded phase rotation.",
+        ),
+        "besiege-end": (
+            "Besiege — Rotation End",
+            "围攻·轮转终段",
+            "No-extra-action Besiege at the end of the unshielded rotation.",
+        ),
+        "soldier-charge": (
+            "Tireless Charge",
+            "不倦冲锋",
+            "300% Physical strike with a resistible 50% DEF reduction.",
+        ),
+        "cannoneer-barrage": (
+            "Barrage",
+            "炮击",
+            "130% Physical primary and 100% adjacent damage.",
+        ),
+        "lieutenant-pierce": (
+            "Pierce",
+            "穿刺",
+            "420% Physical single-target strike.",
+        ),
+        "coordinated-strike": (
+            "Besiege Coordinated Strike",
+            "围攻协同打击",
+            "Forced 300% Physical strike shared by Gepard-owned summons.",
+        ),
+    }
+    for key, ability_id in abilities.items():
+        name_en, name_zh_cn, summary = ability_metadata[key]
+        identities.append(
+            identity_s07(
+                ability_id,
+                f"enemy.gepard-complete.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    linked_metadata = {
+        "phase-1-soldier": ("Silvermane Soldier", "银鬃近卫"),
+        "phase-1-cannoneer": ("Silvermane Cannoneer", "银鬃炮手"),
+        "phase-2-cannoneer-left": ("Silvermane Cannoneer", "银鬃炮手"),
+        "phase-2-cannoneer-right": ("Silvermane Cannoneer", "银鬃炮手"),
+        "phase-3-lieutenant-left": (
+            "Silvermane Lieutenant (Complete)",
+            "银鬃尉官（完整）",
+        ),
+        "phase-3-lieutenant-right": (
+            "Silvermane Lieutenant (Complete)",
+            "银鬃尉官（完整）",
+        ),
+    }
+    for key, linked_id in linked.items():
+        name_en, name_zh_cn = linked_metadata[key]
+        identities.append(
+            identity_s07(
+                linked_id,
+                f"unit.goal07.gepard-complete.{key}",
+                "CharacterForm",
+                name_en,
+                name_zh_cn,
+                "Owner-scaled targetable Gepard phase summon.",
+            )
+        )
+    for key, selector_id in selectors.items():
+        identities.append(
+            identity_s07(
+                selector_id,
+                f"selector.goal07.gepard-complete.{key}",
+                "Selector",
+                f"Gepard {key} Selector",
+                f"杰帕德{key}选择器",
+                "S07 battle selector.",
+            )
+        )
+    for key, effect_id in effects.items():
+        identities.append(
+            identity_s07(
+                effect_id,
+                f"effect.goal07.gepard-complete.{key}",
+                "Effect",
+                f"Gepard {key} Effect",
+                f"杰帕德{key}效果",
+                "Executable Gepard battle effect.",
+            )
+        )
+    for key, modifier_id in modifiers.items():
+        identities.append(
+            identity_s07(
+                modifier_id,
+                f"modifier.goal07.gepard-complete.{key}",
+                "Modifier",
+                f"Gepard {key} Modifier",
+                f"杰帕德{key}调整器",
+                "Effect-owned S07 stat modifier.",
+            )
+        )
+    identities.append(
+        identity_s07(
+            rules["counter"],
+            "rule.goal07.gepard-complete.tit-for-tat",
+            "Rule",
+            "Gepard Tit for Tat Counter",
+            "杰帕德以牙还牙反击",
+            "Damage-targeted, single-trigger queued Smite counter.",
+        )
+    )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add(
+        "Selector",
+        selector(selectors["current-subject"], "CurrentSubject", "AnySide"),
+    )
+    add(
+        "Selector",
+        selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"),
+    )
+    opposing_random = selector(
+        selectors["opposing-random"], "Actor", "OpposingSide", choice="RngUniform"
+    )
+    opposing_random["rng_purpose_key"] = "damage-target"
+    add("Selector", opposing_random)
+    add(
+        "Selector",
+        selector(
+            selectors["opposing-all"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["same-all"],
+            "Actor",
+            "SameSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["actor-summons"],
+            "Actor",
+            "SameSide",
+            presence="Linked",
+            minimum=0,
+            maximum=6,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["actor-summons"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "OwnedBy", owner_selector_id=selectors["actor"]
+            ),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["adjacent"],
+            "Actor",
+            "OpposingSide",
+            minimum=0,
+            maximum=2,
+            empty="NoOp",
+            choice="PrimaryPlusAdjacent",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["adjacent"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "Excludes", excluded_selector_id=selectors["primary-target"]
+            ),
+        },
+    )
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s07.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    actor_hp = expr(
+        "actor-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Hp",
+            formula_purpose="Shield",
+        ),
+    )
+    actor_shield = expr(
+        "actor-shield",
+        "Scalar",
+        json_cell(
+            "QueryShield",
+            subject_selector_id=selectors["actor"],
+            observation="Current",
+        ),
+    )
+    ratios: dict[str, int] = {}
+    for name, value in [
+        ("negative-half", "-0.5"),
+        ("zero", "0"),
+        ("twelve-percent", "0.12"),
+        ("two-fifths", "0.4"),
+        ("one", "1"),
+        ("one-point-three", "1.3"),
+        ("three", "3"),
+        ("three-point-five", "3.5"),
+        ("three-point-eight", "3.8"),
+        ("four-point-two", "4.2"),
+    ]:
+        ratios[name] = expr(
+            f"scalar-{name}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+    integer_one = expr("integer-one", "Integer", json_cell("IntegerLiteral", value=1))
+    escalation_stacks = expr(
+        "frigid-escalation-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["frigid-escalation"],
+        ),
+    )
+    escalation_scalar = expr(
+        "frigid-escalation-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=escalation_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    escalation_value = multiply(
+        "frigid-escalation-damage-boost",
+        escalation_scalar,
+        ratios["twelve-percent"],
+    )
+    damage = {
+        "fist": multiply("fist-damage", actor_atk, ratios["three"]),
+        "smite": multiply("smite-damage", actor_atk, ratios["three-point-five"]),
+        "frigid": multiply(
+            "frigid-waterfall-damage", actor_atk, ratios["three-point-eight"]
+        ),
+        "soldier": multiply(
+            "soldier-charge-damage", actor_atk, ratios["three"]
+        ),
+        "cannoneer-primary": multiply(
+            "cannoneer-primary-damage", actor_atk, ratios["one-point-three"]
+        ),
+        "cannoneer-adjacent": multiply(
+            "cannoneer-adjacent-damage", actor_atk, ratios["one"]
+        ),
+        "lieutenant": multiply(
+            "lieutenant-pierce-damage", actor_atk, ratios["four-point-two"]
+        ),
+        "coordinated": multiply(
+            "coordinated-strike-damage", actor_atk, ratios["three"]
+        ),
+    }
+    shield_amount = multiply(
+        "collective-shield-allied-slice", actor_hp, ratios["two-fifths"]
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s07.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["shielded"],
+            "stable_key": "goal07.enemy.s07.condition.shielded",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=actor_shield,
+                comparison="Greater",
+                right_expression_id=ratios["zero"],
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["unshielded"],
+            "stable_key": "goal07.enemy.s07.condition.unshielded",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=actor_shield,
+                comparison="Equal",
+                right_expression_id=ratios["zero"],
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s07.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def operation_step(operation_id: int) -> str:
+        return json_cell("Operation", operation_id=operation_id)
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            identity_s07(
+                id_,
+                f"program.goal07.gepard-complete.{name}",
+                "Program",
+                f"Gepard {name} Program",
+                f"杰帕德{name}程序",
+                "Ordered Rule IR program for the S07 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add("ProgramStep", {"program_id": id_, "sequence": sequence, "step": step})
+        return id_
+
+    def damage_op(
+        name: str,
+        amount: int,
+        target: int,
+        *,
+        element: str = "Ice",
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element=element,
+                can_crit=True,
+            ),
+            target,
+            empty,
+        )
+
+    def apply_effect_op(
+        name: str,
+        effect_id: int,
+        target: int,
+        *,
+        chance: int | None = None,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect_id,
+                stacks_expression_id=stacks,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+            empty,
+        )
+
+    def extra_turn_op(name: str) -> int:
+        return new_operation(
+            name,
+            json_cell("GrantExtraTurn", actor_selector_id=selectors["actor"]),
+        )
+
+    def queue_action_op(
+        name: str,
+        ability_id: int,
+        actor_selector_id: int,
+        target_selector_id: int,
+        boundary: str,
+        *,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "QueueAction",
+                ability_id=ability_id,
+                actor_selector_id=actor_selector_id,
+                priority=100,
+                forced_use=True,
+                reaction_boundary=boundary,
+                owner_policy="Actor",
+                payment_policy="Suppressed",
+                payment_resource_key=None,
+            ),
+            target_selector_id,
+            empty,
+        )
+
+    def summon_op(name: str, linked_id: int) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Summon",
+                unit_definition_identity_id=linked_id,
+                owner_selector_id=selectors["actor"],
+            ),
+        )
+
+    def besiege_steps(prefix: str, grant_extra: bool) -> list[str]:
+        steps = [
+            operation_step(
+                apply_effect_op(
+                    f"{prefix}-lock-on",
+                    effects["lock-on"],
+                    selectors["primary-target"],
+                )
+            ),
+            operation_step(
+                queue_action_op(
+                    f"{prefix}-coordinated-strikes",
+                    abilities["coordinated-strike"],
+                    selectors["actor-summons"],
+                    selectors["primary-target"],
+                    "AfterAction",
+                    empty="NoOp",
+                )
+            ),
+        ]
+        if grant_extra:
+            steps.append(operation_step(extra_turn_op(f"{prefix}-extra-turn")))
+        return steps
+
+    ability_programs: dict[int, int] = {}
+    ability_programs[abilities["fist"]] = make_program(
+        "fist-of-conviction",
+        [
+            operation_step(
+                damage_op(
+                    "fist-of-conviction-damage",
+                    damage["fist"],
+                    selectors["primary-target"],
+                )
+            )
+        ],
+    )
+    ability_programs[abilities["smite"]] = make_program(
+        "smite-of-frost",
+        [
+            operation_step(
+                damage_op(
+                    "smite-of-frost-damage",
+                    damage["smite"],
+                    selectors["primary-target"],
+                )
+            )
+        ],
+    )
+    ability_programs[abilities["smite-rapid"]] = make_program(
+        "smite-of-frost-rapid",
+        [
+            operation_step(
+                damage_op(
+                    "smite-of-frost-rapid-damage",
+                    damage["smite"],
+                    selectors["primary-target"],
+                )
+            ),
+            operation_step(extra_turn_op("smite-of-frost-rapid-extra-turn")),
+        ],
+    )
+    frigid_steps = [
+        operation_step(
+            damage_op(
+                "frigid-waterfall-damage",
+                damage["frigid"],
+                selectors["opposing-all"],
+            )
+        ),
+        operation_step(
+            apply_effect_op(
+                "frigid-waterfall-escalation",
+                effects["frigid-escalation"],
+                selectors["actor"],
+                stacks=integer_one,
+            )
+        ),
+    ]
+    ability_programs[abilities["frigid"]] = make_program(
+        "frigid-waterfall", frigid_steps
+    )
+    ability_programs[abilities["frigid-rapid"]] = make_program(
+        "frigid-waterfall-rapid",
+        [
+            operation_step(
+                damage_op(
+                    "frigid-waterfall-rapid-damage",
+                    damage["frigid"],
+                    selectors["opposing-all"],
+                )
+            ),
+            operation_step(
+                apply_effect_op(
+                    "frigid-waterfall-rapid-escalation",
+                    effects["frigid-escalation"],
+                    selectors["actor"],
+                    stacks=integer_one,
+                )
+            ),
+            operation_step(extra_turn_op("frigid-waterfall-rapid-extra-turn")),
+        ],
+    )
+    ability_programs[abilities["garrison"]] = make_program(
+        "garrison-aura-field",
+        [
+            operation_step(
+                new_operation(
+                    "garrison-aura-field-shield",
+                    json_cell(
+                        "Shield",
+                        amount_expression_id=shield_amount,
+                        effect_id=effects["collective-shield"],
+                    ),
+                    selectors["same-all"],
+                )
+            ),
+            operation_step(extra_turn_op("garrison-aura-field-extra-turn")),
+        ],
+    )
+    ability_programs[abilities["besiege"]] = make_program(
+        "besiege", besiege_steps("besiege", False)
+    )
+    ability_programs[abilities["besiege-rapid"]] = make_program(
+        "besiege-rapid", besiege_steps("besiege-rapid", True)
+    )
+    ability_programs[abilities["besiege-end"]] = make_program(
+        "besiege-rotation-end", besiege_steps("besiege-rotation-end", False)
+    )
+    ability_programs[abilities["counter"]] = make_program(
+        "tit-for-tat",
+        [
+            operation_step(
+                apply_effect_op(
+                    "tit-for-tat-counter",
+                    effects["counter"],
+                    selectors["actor"],
+                )
+            )
+        ],
+    )
+    ability_programs[abilities["soldier-charge"]] = make_program(
+        "tireless-charge",
+        [
+            operation_step(
+                damage_op(
+                    "tireless-charge-damage",
+                    damage["soldier"],
+                    selectors["primary-target"],
+                    element="Physical",
+                )
+            ),
+            operation_step(
+                apply_effect_op(
+                    "tireless-charge-def-down",
+                    effects["def-down"],
+                    selectors["primary-target"],
+                    chance=ratios["one"],
+                )
+            ),
+        ],
+    )
+    ability_programs[abilities["cannoneer-barrage"]] = make_program(
+        "cannoneer-barrage",
+        [
+            operation_step(
+                damage_op(
+                    "cannoneer-barrage-primary",
+                    damage["cannoneer-primary"],
+                    selectors["primary-target"],
+                    element="Physical",
+                )
+            ),
+            operation_step(
+                damage_op(
+                    "cannoneer-barrage-adjacent",
+                    damage["cannoneer-adjacent"],
+                    selectors["adjacent"],
+                    element="Physical",
+                    empty="NoOp",
+                )
+            ),
+        ],
+    )
+    ability_programs[abilities["lieutenant-pierce"]] = make_program(
+        "lieutenant-pierce",
+        [
+            operation_step(
+                damage_op(
+                    "lieutenant-pierce-damage",
+                    damage["lieutenant"],
+                    selectors["primary-target"],
+                    element="Physical",
+                )
+            )
+        ],
+    )
+    ability_programs[abilities["coordinated-strike"]] = make_program(
+        "besiege-coordinated-strike",
+        [
+            operation_step(
+                damage_op(
+                    "besiege-coordinated-strike-damage",
+                    damage["coordinated"],
+                    selectors["primary-target"],
+                    element="Physical",
+                )
+            )
+        ],
+    )
+    phase_entry_programs = [
+        make_program(
+            "phase-1-support",
+            [
+                operation_step(
+                    summon_op(
+                        "phase-1-summon-soldier", linked["phase-1-soldier"]
+                    )
+                ),
+                operation_step(
+                    summon_op(
+                        "phase-1-summon-cannoneer", linked["phase-1-cannoneer"]
+                    )
+                ),
+            ],
+        ),
+        make_program(
+            "phase-2-support",
+            [
+                operation_step(
+                    summon_op(
+                        "phase-2-summon-cannoneer-left",
+                        linked["phase-2-cannoneer-left"],
+                    )
+                ),
+                operation_step(
+                    summon_op(
+                        "phase-2-summon-cannoneer-right",
+                        linked["phase-2-cannoneer-right"],
+                    )
+                ),
+            ],
+        ),
+        make_program(
+            "phase-3-support",
+            [
+                operation_step(
+                    summon_op(
+                        "phase-3-summon-lieutenant-left",
+                        linked["phase-3-lieutenant-left"],
+                    )
+                ),
+                operation_step(
+                    summon_op(
+                        "phase-3-summon-lieutenant-right",
+                        linked["phase-3-lieutenant-right"],
+                    )
+                ),
+            ],
+        ),
+    ]
+    counter_program = make_program(
+        "tit-for-tat-counter",
+        [
+            operation_step(
+                queue_action_op(
+                    "tit-for-tat-queue-smite",
+                    abilities["smite"],
+                    selectors["owner"],
+                    selectors["actor"],
+                    "AfterHit",
+                )
+            ),
+            operation_step(
+                new_operation(
+                    "tit-for-tat-consume-counter",
+                    json_cell("RemoveEffect", effect_id=effects["counter"]),
+                    selectors["owner"],
+                    "NoOp",
+                )
+            ),
+        ],
+    )
+
+    target_patterns = {
+        "fist": "SingleTarget",
+        "smite": "SingleTarget",
+        "garrison": "None",
+        "frigid": "Aoe",
+        "besiege": "SingleTarget",
+        "frigid-rapid": "Aoe",
+        "besiege-rapid": "SingleTarget",
+        "counter": "None",
+        "smite-rapid": "SingleTarget",
+        "besiege-end": "SingleTarget",
+        "soldier-charge": "SingleTarget",
+        "cannoneer-barrage": "Blast",
+        "lieutenant-pierce": "SingleTarget",
+        "coordinated-strike": "SingleTarget",
+    }
+    linked_ability_keys = {
+        "soldier-charge",
+        "cannoneer-barrage",
+        "lieutenant-pierce",
+        "coordinated-strike",
+    }
+    for key, ability_id in abilities.items():
+        is_linked = key in linked_ability_keys
+        add(
+            "Ability",
+            {
+                "id": ability_id,
+                "kind": "Summon" if is_linked else "Skill",
+                "target_pattern": target_patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": (
+                    2_053
+                    if key == "smite"
+                    else 5 if target_patterns[key] != "None" else 4
+                ),
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability_id,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[ability_id],
+            },
+        )
+        if not is_linked:
+            add(
+                "EnemyAbility",
+                {
+                    "id": ability_id,
+                    "telegraph": "None",
+                    "cooldown_actions": 1,
+                    "initial_cooldown_actions": 0,
+                    "charge_actions": 0,
+                    "ai_tag": key,
+                },
+            )
+
+    effect_definitions = {
+        "frigid-escalation": (
+            "Buff",
+            "NonDispellable",
+            100,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "collective-shield": (
+            "Shield",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+        "counter": (
+            "NeutralState",
+            "NonDispellable",
+            1,
+            integer_one,
+            "TargetTurnEnd",
+            "Refresh",
+        ),
+        "lock-on": (
+            "Mark",
+            "NonDispellable",
+            1,
+            integer_one,
+            "TargetTurnEnd",
+            "Refresh",
+        ),
+        "def-down": (
+            "Debuff",
+            "DispellableDebuff",
+            1,
+            integer_one,
+            "TargetTurnEnd",
+            "Refresh",
+        ),
+    }
+    for key, effect_id in effects.items():
+        category, dispel, limit, duration, clock, policy = effect_definitions[key]
+        add(
+            "Effect",
+            {
+                "id": effect_id,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": "None",
+                "stack_policy": policy,
+                "magnitude_comparator_expression_id": (
+                    escalation_value if key == "frigid-escalation" else None
+                ),
+                "snapshot_policy": (
+                    "RecomputeOnStackChange"
+                    if key == "frigid-escalation"
+                    else "OnApplication"
+                ),
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for key, tags in {
+        "frigid-escalation": ["frigid-waterfall-escalation"],
+        "collective-shield": [
+            "collective-shield",
+            "prevents-toughness-reduction",
+        ],
+        "counter": ["counter", "single-trigger"],
+        "lock-on": ["lock-on", "besiege-target"],
+        "def-down": ["def-down"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {"effect_id": effects[key], "sequence": sequence, "tag": tag},
+            )
+    for key, group_id in modifier_groups.items():
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": group_id,
+                "stable_key": f"goal07.enemy.s07.{key}",
+                "aggregation": "Sum",
+            },
+        )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifiers["frigid-escalation"],
+            "source_effect_id": effects["frigid-escalation"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Atk",
+            "formula_stage": "DamageBoost",
+            "formula_purpose": "OrdinaryDamage",
+            "value_expression_id": escalation_value,
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_groups["frigid-escalation"],
+            "priority": 0,
+            "cap_formula_stage": "DamageBoost",
+            "snapshot_policy": "Dynamic",
+            "duration_scope": "Turn",
+        },
+    )
+    add(
+        "ModifierDefinition",
+        {
+            "id": modifiers["def-down"],
+            "source_effect_id": effects["def-down"],
+            "owner_selector_id": selectors["owner"],
+            "subject_selector_id": selectors["owner"],
+            "stat": "Def",
+            "formula_stage": "PercentOfBase",
+            "formula_purpose": "Stat",
+            "value_expression_id": ratios["negative-half"],
+            "value_domain": "Ratio",
+            "stacking_group_id": modifier_groups["def-down"],
+            "priority": 0,
+            "cap_formula_stage": "PercentOfBase",
+            "snapshot_policy": "OnApplication",
+            "duration_scope": "Turn",
+        },
+    )
+    for sequence, key in enumerate(
+        ["frigid-escalation", "def-down"], start=1
+    ):
+        add(
+            "EffectModifierBinding",
+            {
+                "effect_id": effects[key],
+                "sequence": 1,
+                "modifier_id": modifiers[key],
+            },
+        )
+
+    add(
+        "RuleDefinition",
+        {
+            "id": rules["counter"],
+            "domain": "Battle",
+            "source_definition_identity_id": effects["counter"],
+            "source_class": "Effect",
+            "source_digest_sha256": sha256_text("goal07-s07-tit-for-tat-v1"),
+        },
+    )
+    add(
+        "EventFilter",
+        {
+            "id": filters["counter"],
+            "stable_key": "goal07.enemy.s07.filter.tit-for-tat",
+            "target_selector_id": selectors["owner"],
+            "damage_class": "Ordinary",
+            "cause_ancestry": "Any",
+        },
+    )
+    add(
+        "RuleTrigger",
+        {
+            "id": BASE + 571,
+            "stable_key": "goal07.enemy.s07.trigger.tit-for-tat",
+            "rule_id": rules["counter"],
+            "sequence": 1,
+            "event": json_cell("Damage", point="Applied"),
+            "phase": "AfterEvent",
+            "filter_id": filters["counter"],
+            "condition_id": conditions["always"],
+            "once_scope": "Turn",
+            "priority": 100,
+            "program_id": counter_program,
+        },
+    )
+    add(
+        "EffectRuleBinding",
+        {
+            "effect_id": effects["counter"],
+            "sequence": 1,
+            "rule_id": rules["counter"],
+        },
+    )
+
+    phase_sequences = [
+        [
+            abilities["besiege"],
+            abilities["frigid"],
+            abilities["counter"],
+            abilities["fist"],
+        ],
+        [
+            abilities["besiege-rapid"],
+            abilities["frigid"],
+            abilities["garrison"],
+            abilities["frigid"],
+            abilities["smite-rapid"],
+            abilities["frigid"],
+            abilities["frigid-rapid"],
+            abilities["counter"],
+            abilities["smite-rapid"],
+            abilities["besiege-end"],
+        ],
+        [
+            abilities["besiege-rapid"],
+            abilities["frigid"],
+            abilities["garrison"],
+            abilities["frigid"],
+            abilities["smite-rapid"],
+            abilities["frigid"],
+            abilities["frigid-rapid"],
+            abilities["counter"],
+            abilities["smite-rapid"],
+            abilities["besiege-end"],
+        ],
+    ]
+    target_selectors = {
+        abilities["fist"]: selectors["opposing-random"],
+        abilities["smite"]: selectors["opposing-random"],
+        abilities["garrison"]: selectors["actor"],
+        abilities["frigid"]: selectors["opposing-all"],
+        abilities["besiege"]: selectors["opposing-random"],
+        abilities["frigid-rapid"]: selectors["opposing-all"],
+        abilities["besiege-rapid"]: selectors["opposing-random"],
+        abilities["counter"]: selectors["actor"],
+        abilities["smite-rapid"]: selectors["opposing-random"],
+        abilities["besiege-end"]: selectors["opposing-random"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence)))
+        next_state += len(sequence)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_id) in enumerate(zip(state_ids, sequence)):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s07.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["fist"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s07.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": target_selectors[ability_id],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["fist"],
+                },
+            )
+            next_candidate += 1
+            transitions: list[tuple[int, int]] = []
+            if phase_index > 0 and offset == 5:
+                transitions = [
+                    (state_ids[4], conditions["shielded"]),
+                    (state_ids[6], conditions["unshielded"]),
+                ]
+            elif phase_index > 0 and offset == 9:
+                transitions = [(state_ids[2], conditions["always"])]
+            else:
+                transitions = [
+                    (state_ids[(offset + 1) % len(state_ids)], conditions["always"])
+                ]
+            for sequence_index, (target_state, condition_id) in enumerate(
+                transitions, start=1
+            ):
+                add(
+                    "AiTransition",
+                    {
+                        "id": next_transition,
+                        "stable_key": (
+                            f"goal07.enemy.s07.ai.phase-{phase_index + 1}."
+                            f"transition-{offset + 1}-{sequence_index}"
+                        ),
+                        "state_id": state_id,
+                        "sequence": sequence_index,
+                        "target_state_id": target_state,
+                        "condition_id": condition_id,
+                        "priority": 1 if sequence_index == 1 else 0,
+                        "timing": "AfterAction",
+                    },
+                )
+                next_transition += 1
+
+    linked_specs = {
+        "phase-1-soldier": (
+            1,
+            "0.307692",
+            "0.923077",
+            "83",
+            abilities["soldier-charge"],
+        ),
+        "phase-1-cannoneer": (
+            5,
+            "0.323077",
+            "1.333333",
+            "100",
+            abilities["cannoneer-barrage"],
+        ),
+        "phase-2-cannoneer-left": (
+            1,
+            "0.323077",
+            "1.333333",
+            "100",
+            abilities["cannoneer-barrage"],
+        ),
+        "phase-2-cannoneer-right": (
+            5,
+            "0.323077",
+            "1.333333",
+            "100",
+            abilities["cannoneer-barrage"],
+        ),
+        "phase-3-lieutenant-left": (
+            1,
+            "0.692308",
+            "1.333333",
+            "144",
+            abilities["lieutenant-pierce"],
+        ),
+        "phase-3-lieutenant-right": (
+            5,
+            "0.692308",
+            "1.333333",
+            "144",
+            abilities["lieutenant-pierce"],
+        ),
+    }
+    for key, linked_id in linked.items():
+        formation, hp_ratio, atk_ratio, spd, action_ability = linked_specs[key]
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": linked_id,
+                "source_definition_identity_id": linked_id,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": f"{action_ability}|{abilities['coordinated-strike']}",
+                "action_ability_id": action_ability,
+                "formation_index": formation,
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": hp_ratio,
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": atk_ratio,
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": spd,
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s07-linked-{key}-v1"
+                ),
+            },
+        )
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(
+        ["Imaginary", "Lightning", "Physical"], start=1
+    ):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element, value in [
+        ("Fire", "0.2"),
+        ("Ice", "0.4"),
+        ("Quantum", "0.2"),
+        ("Wind", "0.2"),
+    ]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": value},
+        )
+    for category in [
+        "STAT_CTRL_Confine",
+        "STAT_CTRL_Frozen",
+        "STAT_CTRL_Entangle",
+    ]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.75",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "100",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(
+        [
+            abilities["fist"],
+            abilities["smite"],
+            abilities["garrison"],
+            abilities["frigid"],
+            abilities["besiege"],
+            abilities["frigid-rapid"],
+            abilities["besiege-rapid"],
+            abilities["counter"],
+            abilities["smite-rapid"],
+            abilities["besiege-end"],
+        ],
+        start=1,
+    ):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": ability_id,
+            },
+        )
+    for sequence, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s07.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": sequence,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "entry_program_id": phase_entry_programs[sequence - 1],
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.gepard-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public per-level values are committed with retained "
+                "structured AI and ability source hashes."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s07.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S07.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s07.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s07.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -8047,6 +9604,7 @@ def main() -> None:
         "G07-P5-M15-S04": owned_rows_s04,
         "G07-P5-M15-S05": owned_rows_s05,
         "G07-P5-M15-S06": owned_rows_s06,
+        "G07-P5-M15-S07": owned_rows_s07,
     }[PARTITION]()
     golden_path = (
         ROOT

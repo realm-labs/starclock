@@ -75063,6 +75063,104 @@
             "Integer": 1031105
           }
         }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "DamageBoost"
+          },
+          "duration_scope": {
+            "String": "Turn"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "OrdinaryDamage"
+          },
+          "formula_stage": {
+            "String": "DamageBoost"
+          },
+          "id": {
+            "Integer": 1040521
+          },
+          "owner_selector_id": {
+            "Integer": 1040402
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "Dynamic"
+          },
+          "source_effect_id": {
+            "Integer": 1040501
+          },
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 1040531
+          },
+          "stat": {
+            "String": "Atk"
+          },
+          "subject_selector_id": {
+            "Integer": 1040402
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 1041117
+          }
+        }
+      },
+      {
+        "values": {
+          "cap_expression_id": "Null",
+          "cap_formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "duration_scope": {
+            "String": "Turn"
+          },
+          "floor_expression_id": "Null",
+          "formula_purpose": {
+            "String": "Stat"
+          },
+          "formula_stage": {
+            "String": "PercentOfBase"
+          },
+          "id": {
+            "Integer": 1040522
+          },
+          "owner_selector_id": {
+            "Integer": 1040402
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "snapshot_policy": {
+            "String": "OnApplication"
+          },
+          "source_effect_id": {
+            "Integer": 1040505
+          },
+          "source_rule_id": "Null",
+          "stacking_group_id": {
+            "Integer": 1040532
+          },
+          "stat": {
+            "String": "Def"
+          },
+          "subject_selector_id": {
+            "Integer": 1040402
+          },
+          "value_domain": {
+            "String": "Ratio"
+          },
+          "value_expression_id": {
+            "Integer": 1041104
+          }
+        }
       }
     ]
   }

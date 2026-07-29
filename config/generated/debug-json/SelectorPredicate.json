@@ -805,6 +805,46 @@
             "Integer": 1
           }
         }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "excluded_selector_id": {
+                "Integer": 1040404
+              },
+              "type": {
+                "String": "Excludes"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 1040409
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1040401
+              },
+              "type": {
+                "String": "OwnedBy"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 1040408
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
       }
     ]
   }

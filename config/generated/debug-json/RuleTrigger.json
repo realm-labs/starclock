@@ -473,6 +473,50 @@
             "String": "goal07.enemy.s06.trigger.freeze-removed"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1040561
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1040551
+          },
+          "id": {
+            "Integer": 1040571
+          },
+          "once_scope": {
+            "String": "Turn"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 100
+          },
+          "program_id": {
+            "Integer": 1040318
+          },
+          "rule_id": {
+            "Integer": 1040541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s07.trigger.tit-for-tat"
+          }
+        }
       }
     ]
   }

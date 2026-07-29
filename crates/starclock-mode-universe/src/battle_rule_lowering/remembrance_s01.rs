@@ -51,8 +51,8 @@ pub(super) fn lower(
         }
         output.push(rule);
     }
-    if support_pending && !output.is_empty() {
-        return Err(BattleRuleLoweringError::InvalidDefinition);
+    if support_pending && let Some(rule) = output.first_mut() {
+        add_reticence_freeze(rule)?;
     }
     Ok(output)
 }
@@ -464,26 +464,7 @@ fn add_shared_support(
     rule: &mut ExecutableBattleRule,
     removal_bonus: i64,
 ) -> Result<(), BattleRuleLoweringError> {
-    let freeze = EffectRuntimeDefinition::new(
-        EffectCategory::Control,
-        DispelCategory::CleanseableControl,
-        1,
-        Some(1),
-        DurationClock::TargetTurnStart,
-        EffectTickPhase::None,
-        EffectStackPolicy::Refresh,
-    )
-    .and_then(|runtime| {
-        runtime.with_control(vec![
-            ControlledAction::NormalAction,
-            ControlledAction::Ultimate,
-            ControlledAction::FollowUp,
-            ControlledAction::Counter,
-            ControlledAction::SummonAction,
-        ])
-    })
-    .map(|runtime| runtime.with_specific_resistance(StatKind::FreezeResistance))
-    .ok_or(BattleRuleLoweringError::InvalidDefinition)?;
+    let freeze = freeze_runtime()?;
     let dissociation = EffectRuntimeDefinition::new(
         EffectCategory::Mark,
         DispelCategory::DispellableDebuff,
@@ -583,6 +564,39 @@ fn add_shared_support(
     )
     .with_runtime(BattleRuleDefinition::new(source, slots, triggers, None));
     Ok(())
+}
+
+fn add_reticence_freeze(rule: &mut ExecutableBattleRule) -> Result<(), BattleRuleLoweringError> {
+    let mut effects = rule.effects.to_vec();
+    effects.push(
+        EffectDefinition::new(FREEZE, Vec::new(), Vec::new()).with_runtime(freeze_runtime()?),
+    );
+    effects.sort_unstable_by_key(EffectDefinition::id);
+    rule.effects = effects.into_boxed_slice();
+    Ok(())
+}
+
+fn freeze_runtime() -> Result<EffectRuntimeDefinition, BattleRuleLoweringError> {
+    EffectRuntimeDefinition::new(
+        EffectCategory::Control,
+        DispelCategory::CleanseableControl,
+        1,
+        Some(1),
+        DurationClock::TargetTurnStart,
+        EffectTickPhase::None,
+        EffectStackPolicy::Refresh,
+    )
+    .and_then(|runtime| {
+        runtime.with_control(vec![
+            ControlledAction::NormalAction,
+            ControlledAction::Ultimate,
+            ControlledAction::FollowUp,
+            ControlledAction::Counter,
+            ControlledAction::SummonAction,
+        ])
+    })
+    .map(|runtime| runtime.with_specific_resistance(StatKind::FreezeResistance))
+    .ok_or(BattleRuleLoweringError::InvalidDefinition)
 }
 
 fn apply_effect_program(
