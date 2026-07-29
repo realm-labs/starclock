@@ -8,12 +8,12 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G10-P0-B2` |
+| Next unblocked batch | `G10-P0-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Planning cache audit | 2026-07-29: both caches clean at pinned commits; commit readability and connectivity checked; execution must reproduce in `G10-P0-B1` |
-| Existing focused inventory | 32 hashed `RogueMagic*` tables plus known configuration entry points; denominator not yet frozen |
+| Focused inventory | 2,684 pinned files: 2,675 `turnbasedgamedata` and 9 `StarRailRes`; content denominator not yet frozen |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Remote | `origin` |
@@ -26,7 +26,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 32-row `RogueMagic` seed, Goal 08/09 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; focused inventory generation remains. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 2,684-file focused inventory, Goal 08/09 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; row denominator and normalized authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Alignments, Scepters, Components, Decision Components, synthesis/upgrades, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -37,7 +37,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G10-P0-B1` | `Complete` | This row's containing commit | Froze foundation `270d016b…9407`, Goal 03 commit/tree and bundle digests, the Version 4.4 revisions, 32 inherited `RogueMagic` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. The Goal 08 local-only checkpoint is `2f7b3ccf…fc5d` (7,913 obligations: 7,199 Gold-owned and 714 shared); the required remote-backed Goal 09 checkpoint is `1f9019a2…5ae2` (2,882 source records). `pwsh -File tools/content-reference/fetch-sources.ps1 -CacheRoot .cache/content-reference` could not run because `pwsh` is absent; the isolated POSIX fetcher reproduced clean detached caches repeatedly and the focused verifier, `git diff --check` and quick repository gate pass. `node tools/repository-check/run.mjs --full --with-source-cache` reaches the immutable Goal 06 contract before repeating its known `Cargo.lock baseline differs` failure. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B2 starts. |
-| `G10-P0-B2` | `Pending` | — | Generate the focused `RogueMagic`, shared Rogue, configuration, TextMap, StageConfig, enemy/wave and ability inventory. |
+| `G10-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`20fad854…baa5`, 1,036,464 bytes): all 2,646 Goal 03 source files, plus 29 focused mode/StageConfig/TextMap entries and nine bilingual StarRailRes indexes. The 2,684-file closure contains 32 `RogueMagic` tables, 16 direct ability files, 14 Scepter battle events, three service graphs, six mechanical maze graphs and 57 Rogue260 NPC graphs; 141 named other-mode files remain fail-closed exclusion evidence. Raw Git blob hashing removes checkout-EOL variance; file families grant no content ownership. Foundation/inventory verifiers, `git diff --check` and the quick repository gate pass; the full source-cache gate repeats the immutable Goal 06 `Cargo.lock baseline differs` boundary. Publication contract: `remote=origin`; `branch=codex/goal10-unknowable-domain-reference`; push command `git push origin HEAD:refs/heads/codex/goal10-unknowable-domain-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal10-unknowable-domain-reference`, requiring identical full commit IDs before P0-B3 starts. |
 | `G10-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership, shared reachability and named-mode exclusions. |
 | `G10-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G10-P1-B1` | `Pending` | — | Import entry, areas, difficulties, layers, rooms, stage flow, finish and carry/reset rules. |
@@ -112,12 +112,14 @@ ranges.
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
 | 2026-07-29 | Treat the Goal 08 local commit as an optional informational checkpoint and the Goal 09 remote commit as a required ancestor checkpoint. | Goal 08 has no configured remote ref yet, while Goal 09 continues to advance in parallel; neither condition should fabricate membership or block an independently reproducible Goal 10 foundation. |
 | 2026-07-29 | Add an isolated POSIX source fetcher and keep repository-pinned Sora 0.3.0 authoritative. | This host lacks `pwsh`, and its global `sora` is 0.2.0; neither host limitation changes the frozen sources or Phase 3 tool contract. |
+| 2026-07-29 | Define the focused file closure as all Goal 03 source paths plus exact Unknowable configuration/Stage/TextMap additions and nine public bilingual indexes. | The inherited superset preserves every shared source and ability candidate while 29 explicit additions close mode-specific battle-event, service, maze, StageConfig and localization entry points without using prefixes as ownership proof. |
+| 2026-07-29 | Hash source inventory records from raw Git blobs, not checkout files. | This makes generation byte-stable across checkout EOL policies while retaining exact revision/path provenance. |
 
 ## Research cases
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G10-R01` | `Open` | Which shared Rogue tables, configuration programs, TextMap rows, StageConfig rows, enemy/wave records and transitive ability files complete the `RogueMagic` seed inventory? | P0-B2 | Replace the open case when the generated inventory closes every enabled selector/reference and double generation is byte-identical. |
+| `G10-R01` | `Resolved` | Which shared Rogue tables, configuration programs, TextMap rows, StageConfig rows, enemy/wave records and transitive ability files complete the `RogueMagic` seed inventory? | P0-B2 | `source-inventory.json` freezes all 2,646 inherited Goal 03 source files, 29 exact focused additions and nine public index files; raw-blob regeneration is byte-identical and the inventory verifier closes every documented family. |
 | `G10-R02` | `Open` | What exact selectors separate Unknowable-owned, shared, evidence-only and Standard/Gold/Swarm/Divergent rows? | P0-B3 | Replace with a frozen exact-once ownership manifest whose rows carry selector/reference evidence and fail-closed exclusions. |
 | `G10-R03` | `Open` | What is the exact area/layer/room ordering, carry/reset behavior and finish boundary for every released stage and difficulty? | P1-B1 | Replace with structured stage-flow facts plus fixtures for entry, transition, reset and terminal boundaries. |
 | `G10-R04` | `Open` | How do Alignment selection, eligibility and candidate pools constrain Scepters, Components and battle contributions? | P1-B2 | Replace with source-backed bindings and one semantic fixture per Alignment and selection boundary. |
