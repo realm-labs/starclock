@@ -126,8 +126,11 @@ for (const changedPath of changed)
 const status = text("docs/goals/09-swarm-disaster-reference-data-status.md");
 assert((status.match(/^\| `G09-P[0-4]-B\d+` \|/gmu) ?? []).length
   === policy.fixed_batches, "Goal 09 fixed batch ledger drift");
-assert(status.includes("| State | `InProgress` |"), "Goal 09 is not active");
-assert(/\| `G09-P0-B1` \| `(?:InProgress|Complete)` \|/u.test(status),
+assert(
+  /\| State \| `(?:InProgress|Complete)` \|/u.test(status),
+  "Goal 09 has an invalid lifecycle state",
+);
+assert(/\| `G09-P0-B1` \| `Complete` \|/u.test(status),
   "G09-P0-B1 has not started");
 for (const document of policy.documents)
   assert(fileExists(document), `Goal 09 document is missing ${document}`);

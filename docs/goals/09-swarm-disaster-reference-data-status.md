@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `swarm-disaster-reference-v1` |
-| State | `InProgress` |
-| Active phase | Phase 4 — Review and freeze |
+| State | `Complete` |
+| Active phase | Phase 4 — Complete |
 | Active batch | None |
-| Next unblocked batch | `G09-P4-B4` |
+| Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -27,7 +27,7 @@
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, countdown/Disarray, Audience Dice, Communing Device/Trail, Pathstrider, eight Paths, 32 Resonances/Formations, eight boosts, 16 Interplays and bonuses `101`–`106` are DataReady. |
 | Phase 2 — Content and encounters | `Complete` | Shared pools, mode content, services, abstract Adventure outcomes and complete 81-series encounters are DataReady. All 6,963 obligations resolve through the canonical 64-file pack with 23 rule/fixture families, 31 nonblocking gaps and 609 exact Goal 08 receipts. |
 | Phase 3 — Sora and Excel | `Complete` | Four deterministic no-overwrite `openpyxl==3.1.5` workbooks author 33,380 rows across 64 primary tables plus one research-gap child table. Pinned Sora production/debug exports regenerate byte-identically, all 65 generated readers load the 9,430,277-byte bundle, and every sheet plus every schema column passes Artifact Tool visual review. |
-| Phase 4 — Review and freeze | `InProgress` | Release audit, semantic execution, exact Goal 08 reconciliation and integration acceptance are complete. The 64-file pack, four workbooks, 65-table Sora export and all isolated readers regenerate without drift in the source-cache worktree and a staged-tree clean checkout. Final Candidate identity and release evidence remain. |
+| Phase 4 — Review and freeze | `Complete` | Release audit, semantic execution, exact Goal 08 reconciliation, dependency review, source-cache regeneration and final staged-tree clean-checkout acceptance pass. Candidate identity and release evidence are frozen without enabling runtime loading. |
 
 ## Batch ledger
 
@@ -61,7 +61,7 @@
 | `G09-P4-B1` | `Complete` | This row's containing commit | Added a deterministic release audit over all 64 normalized files: 27,820 globally unique records, 19,617 complete bilingual/common-envelope rows, 6,963 exact-once manifest obligations, 8,139 source rows and 32,546 provenance occurrences. It resolves 72,635 local, 3,979 inherited Standard and 1,070 Goal 01 enemy-reference occurrences; 650 local boundary IDs and 96 inherited formula/pool/unlock locators are accepted only through explicit field-scoped contracts. The audit found and corrected six stale Profile aliases from `swarm-disaster.bonus.*` to the real `swarm-disaster.trailblaze-bonus.*` rows in the owning topology generator and verifier. Regeneration produces pack digest `9321ff69…e7ca`, workbook semantic digest `1052b475…748be`, 9,430,091-byte bundle `11041fe7…43b4` and debug tree `9e1f3eef…3d8e`; full Sora double export/load passes. All 65 sheets rerender, with the two changed contact sheets manually rechecked and zero defects. The audit also proves 45 Gold finish conditions, 51 Gold unlocks, 42 unresolved finish conditions, 44 unresolved unlocks and 27 unproven Boss Decay rows remain fail closed; no Gold topology/encounter, Erudition, Unknowable or divergent row is admitted. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P4-B2 starts. |
 | `G09-P4-B2` | `Complete` | This row's containing commit | Added a closed semantic-review executor over all 23 exact-once mechanic families, rules and fixtures. It resolves 76 selected-record occurrences, executes 85 ordered operations against the frozen must-cover facts, evaluates 108 expected facts, proves 20 `ProjectPolicy` and three `ExactStructured` fixture quality floors, and byte-compares all rule/fixture rows with the Sora debug export while preserving `ReferenceOnly`/no-handler disposition. Expanded each of the 31 nonblocking boundaries with two rejected alternatives, rationale, one of two field-confidence labels, 47 total affected-fixture bindings and its existing concrete replacement condition; the five boundaries without a direct selected-record link now use explicit frozen-family mappings. All 5,560 affected-record child bindings match Sora exact-order export. Regeneration produces pack `82f3ffc4…b2d8`, schema lock `6c97a1d1…6307`, workbook semantic digest `63c7d1ed…5a92`, 9,440,844-byte bundle `385727a8…9362`, debug tree `3695ad14…bf19` and semantic evidence `cc01075d…8c6c`. The expanded `ResearchGap` sheet and updated pack-index contact sheet rerender without defects. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P4-B3 starts. |
 | `G09-P4-B3` | `Complete` | This row's containing commit | Added deterministic integration and staged-tree clean-checkout runners plus a dependency/isolation audit. All 609 Goal 08 overlaps match the committed checkpoint by category, row locator and evidence digest: 604 are `Shared→Shared`, while five mode-owned Occurrence facts are explicit `SwarmDisaster→GoldAndGears` ownership pairs with zero factual conflict. The standalone binary reader retains only direct `serde`/`zstd` dependencies and 19 checksum/license-closed registry packages. The audit proves all 18 protected roots are untouched; immutable Goal 03 evidence and branch-start Standard staging (`1c67b59a…66bf`) and production (`875936da…53b`) bundles are preserved. The 46-command source-cache acceptance regenerates the 2,882-file inventory, 6,963-obligation manifest, 64-file pack, four workbooks, 65-table/33,380-row Sora export and every reader without drift. A staged-tree archive repeats the artifact, dependency and reader gates with a fresh build target and no inherited source cache. The quick gate passes; the repository-wide full source-cache gate still stops only at the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P4-B4 starts. |
-| `G09-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
+| `G09-P4-B4` | `Complete` | This row's containing commit | Froze the Version 4.4 Candidate release evidence, final counters and authoring/runtime boundary. The release contains 2,882 pinned source files, 6,963/6,963 `DataReady` obligations in 42 categories, 27,820 normalized records, 19,617 bilingual rows, 8,139 provenance rows, 23 semantic families, 85 ordered review operations, 108 expected facts, 31 nonblocking replacement boundaries and 609 conflict-free Goal 08 receipts. Four `openpyxl==3.1.5` workbooks export 33,380 rows through 65 pinned-Sora tables; the Candidate bundle is 9,440,844 bytes at `385727a8…9362`, and all generated readers load it. Final source-cache, dependency, workbook/Sora drift, visual, release, quick and staged-tree clean-checkout gates pass. `ForbiddenReferenceOnly` remains enforced: no runtime lowering, JSON/Excel runtime path or Standard/Gold/production mutation is included. The repository-wide full gate still stops only at the pre-existing Goal 06 `Cargo.lock baseline differs` historical boundary. This containing commit is pushed to `origin/codex/goal09-swarm-disaster-reference` and the remote ref is verified equal to local `HEAD`. |
 
 ## Frozen counters
 
@@ -191,18 +191,18 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 - [x] Goal 03 evidence and current Standard/Gold/production bundle identities
       remain unchanged.
 - [x] Coverage reports 100% `DataReady` and no blocking research row.
-- [ ] Every completed batch commit is reachable from the recorded remote
+- [x] Every completed batch commit is reachable from the recorded remote
       branch.
-- [ ] Clean-checkout acceptance passes and `G09-P4-B4` is committed.
+- [x] Clean-checkout acceptance passes and `G09-P4-B4` is committed.
 
 ## Completion record
 
 | Field | Value |
 |---|---|
-| Final state | Pending |
-| Completion commit | — |
-| Swarm Disaster reference bundle | — |
-| Workbook semantic digest | — |
+| Final state | `Complete`; Candidate reference release only |
+| Completion commit | This row's containing commit (`G09-P4-B4`) |
+| Swarm Disaster reference bundle | `385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362` |
+| Workbook semantic digest | `63c7d1ede0b08b3205545316e94840105b270d23fcd338d9cd288068c2b75a92` |
 | Coverage | 6,963/6,963 frozen source obligations `DataReady`; 31 remaining evidence boundaries are nonblocking and explicitly replaceable. |
-| Release evidence | — |
+| Release evidence | [Goal 09 release evidence](../../evidence/swarm-disaster-reference-v1/release-evidence.json) |
 | Remaining required work | Swarm Disaster runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |

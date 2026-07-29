@@ -26,6 +26,8 @@ const evidencePath = path.join(
 );
 const evidenceRelative =
   "evidence/swarm-disaster-reference-v1/integration-acceptance.json";
+const releaseEvidenceRelative =
+  "evidence/swarm-disaster-reference-v1/release-evidence.json";
 const foundation = json("policy/goal09-foundation.json");
 const baseCommit = "7a382e6f42d452dc065c9922c218d0fa016e6607";
 const allowedExactPaths = new Set([
@@ -49,7 +51,8 @@ assert(
 const changedPaths = uniqueSorted([
   ...lines(captureGit(["diff", "--name-only", baseCommit])),
   ...lines(captureGit(["ls-files", "--others", "--exclude-standard"])),
-]).filter((changed) => changed !== evidenceRelative);
+]).filter((changed) =>
+  changed !== evidenceRelative && changed !== releaseEvidenceRelative);
 for (const changed of changedPaths)
   assert(
     foundation.parallel_boundary.owned_roots.some((prefix) =>

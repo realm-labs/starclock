@@ -158,3 +158,24 @@ All 609 facts shared with the committed Goal 08 checkpoint match by source
 path, row locator/stable identity and evidence digest. `pack-index.json`
 binds every non-index normalized file to its byte length, row count and
 SHA-256; the canonical pack digest is recorded on every index row.
+
+## Candidate reference release
+
+Goal 09 freezes this directory as a complete Version 4.4 Candidate reference
+pack: 6,963/6,963 obligations are `DataReady`, 23 mechanic families have
+reference-only rules and semantic fixtures, and all 31 remaining evidence
+boundaries are nonblocking and replaceable. The isolated workbooks export
+33,380 rows through 65 Sora tables, and every generated reader loads the
+committed binary bundle.
+
+The runtime disposition remains `ForbiddenReferenceOnly`. This release does
+not add Swarm Disaster lowering, controllers, CLI/API exposure or seeded runs,
+and neither normalized JSON nor Excel is a runtime input.
+
+Reproduce the source-backed and isolated staged-tree gates with:
+
+```text
+node tools/swarm-disaster-reference/run-acceptance.mjs --with-source-cache
+node tools/swarm-disaster-reference/run-clean-checkout.mjs
+node tools/swarm-disaster-reference/verify-release.mjs
+```

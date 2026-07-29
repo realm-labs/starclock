@@ -60,3 +60,11 @@ The local ignored source cache may be reproduced through
 `tools/content-reference/fetch-sources.ps1`. A worktree may also point its
 ignored cache paths at an existing detached, clean checkout of the exact
 pinned revisions.
+
+The completed Candidate release closes all 6,963 obligations as `DataReady`.
+It does not authorize runtime loading. Reproduce the complete source-backed
+acceptance with:
+
+```text
+node tools/swarm-disaster-reference/run-acceptance.mjs --with-source-cache
+```

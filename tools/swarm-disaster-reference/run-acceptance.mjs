@@ -59,6 +59,7 @@ const artifactCommands = [
   ["node", "tools/swarm-disaster-reference/verify-visual-review.mjs", root],
   ["node", "tools/swarm-disaster-reference/verify-sora-release.mjs", root],
   ["node", "tools/swarm-disaster-reference/audit-integration.mjs", root],
+  ["node", "tools/swarm-disaster-reference/verify-release.mjs", root],
   ["node", "tools/dependency-policy/verify.mjs"],
   ["node", "tools/workspace/verify-dependencies.mjs"],
   ["git", "diff", "--check"],
