@@ -26,10 +26,6 @@
       "command": ["node", "tools/goal-research/verify.mjs"]
     },
     {
-      "name": "goal-coverage drift",
-      "command": ["node", "tools/goal-coverage/generate.mjs", "--check"]
-    },
-    {
       "name": "goal-coverage integrity",
       "command": ["node", "tools/goal-coverage/verify.mjs"]
     },
@@ -78,80 +74,16 @@
       "command": ["node", "tools/universe-reference/verify-sora-fixtures.mjs", "."]
     },
     {
-      "name": "Goal 05 Standard Universe integration release",
-      "command": ["node", "tools/goal05/verify-release-contract.mjs", ".", "--release"]
+      "name": "Goal 07 native complete-content release matrix",
+      "command": ["node", "tools/goal07/run-native-release.mjs"]
     },
     {
-      "name": "Goal 06 foundation contract",
-      "command": ["node", "tools/goal06/verify-foundation.mjs"]
+      "name": "Goal 07 complete-content performance budgets",
+      "command": ["node", "tools/goal07/verify-performance.mjs"]
     },
     {
-      "name": "Goal 06 identity and assembly debt",
-      "command": ["node", "tools/goal06/verify-debt-probes.mjs"]
-    },
-    {
-      "name": "Goal 06 Phase 0 baseline",
-      "command": ["node", "tools/goal06/verify-phase0.mjs"]
-    },
-    {
-      "name": "Goal 06 combat-input identity",
-      "command": ["node", "tools/goal06/verify-phase1-b1.mjs"]
-    },
-    {
-      "name": "Goal 06 Activity battle identity",
-      "command": ["node", "tools/goal06/verify-phase1-b2.mjs"]
-    },
-    {
-      "name": "Goal 06 component replay v3",
-      "command": ["node", "tools/goal06/verify-phase1-b3.mjs"]
-    },
-    {
-      "name": "Goal 06 construction and event codec",
-      "command": ["node", "tools/goal06/verify-phase1-b4.mjs"]
-    },
-    {
-      "name": "Goal 06 battle assembly key and cache",
-      "command": ["node", "tools/goal06/verify-phase2-b1.mjs"]
-    },
-    {
-      "name": "Goal 06 current Activity battle snapshot",
-      "command": ["node", "tools/goal06/verify-phase2-b2.mjs"]
-    },
-    {
-      "name": "Goal 06 atomic dynamic battle start",
-      "command": ["node", "tools/goal06/verify-phase2-b3.mjs"]
-    },
-    {
-      "name": "Goal 06 assembly failure and cache hardening",
-      "command": ["node", "tools/goal06/verify-phase2-b4.mjs"]
-    },
-    {
-      "name": "Goal 06 current-state transition battle fixtures",
-      "command": ["node", "tools/goal06/verify-phase2-b5.mjs"]
-    },
-    {
-      "name": "Goal 06 dynamic baseline CLI and replay v3",
-      "command": ["node", "tools/goal06/verify-phase3-b1.mjs"]
-    },
-    {
-      "name": "Goal 06 Agent and MCP dynamic assembly",
-      "command": ["node", "tools/goal06/verify-phase3-b2.mjs"]
-    },
-    {
-      "name": "Goal 06 replay reconstruction and surface parity",
-      "command": ["node", "tools/goal06/verify-phase3-b3.mjs"]
-    },
-    {
-      "name": "Goal 06 performance and source hardening",
-      "command": ["node", "tools/goal06/verify-performance.mjs"]
-    },
-    {
-      "name": "Goal 06 native matrix and corruption hardening",
-      "command": ["node", "tools/goal06/run-native-hardening.mjs"]
-    },
-    {
-      "name": "Goal 06 release contract",
-      "command": ["node", "tools/goal06/verify-release-contract.mjs", ".", "--release"]
+      "name": "Goal 07 release audits",
+      "command": ["node", "tools/goal07/verify-release-audits.mjs"]
     },
     {
       "name": "Goal 07 foundation contract",

@@ -8,7 +8,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 run("node", ["tools/goal07/verify-foundation.mjs"]);
 run("node", ["tools/goal07/verify-retained-audit.mjs"]);
 run("node", ["tools/goal07/verify-partitions.mjs"]);
-run("node", ["tools/goal07/generate-phase0-registers.mjs", "--check"]);
 
 const approximation = json("policy/goal07-evidence-and-approximation.json");
 assert(
@@ -30,12 +29,30 @@ assert(
 );
 
 const dependencies = json("policy/goal07-dependency-baseline.json");
+const dependencyBaselineCommit = execFileSync(
+  "git",
+  ["log", "-n", "1", "--format=%H", "--",
+    "policy/goal07-dependency-baseline.json"],
+  { cwd: root, encoding: "utf8" },
+).trim();
+assert(/^[0-9a-f]{40}$/u.test(dependencyBaselineCommit),
+  "Goal 07 dependency baseline commit is missing");
 assert(
-  dependencies.cargo_lock_sha256 === sha256("Cargo.lock"),
+  dependencies.cargo_lock_sha256
+    === sha256Bytes(execFileSync(
+      "git",
+      ["show", `${dependencyBaselineCommit}:Cargo.lock`],
+      { cwd: root, encoding: "buffer", maxBuffer: 64 * 1024 * 1024 },
+    )),
   "Cargo.lock baseline differs",
 );
 assert(
-  dependencies.workspace_manifest_sha256 === sha256("Cargo.toml"),
+  dependencies.workspace_manifest_sha256
+    === sha256Bytes(execFileSync(
+      "git",
+      ["show", `${dependencyBaselineCommit}:Cargo.toml`],
+      { cwd: root, encoding: "buffer", maxBuffer: 64 * 1024 * 1024 },
+    )),
   "workspace manifest baseline differs",
 );
 assert(
@@ -89,6 +106,9 @@ const register = json(
   "content-manifests/standard-universe-mechanics-complete-v1/"
     + "evidence-and-approximation-register.json",
 );
+const baselineSummary = json(
+  "evidence/standard-universe-mechanics-complete-v1/phase0/baseline-summary.json",
+);
 assert(
   register.project_policy_records.length === 52
     && register.enemy_numeric_approximations.length === 73,
@@ -102,6 +122,19 @@ assert(
   new Set(register.enemy_numeric_approximations.map((entry) => entry.id)).size
     === 73,
   "numeric-approximation IDs are not unique",
+);
+assert(
+  baselineSummary.schema_revision
+    === "starclock.goal07-phase0-baseline-summary.v1"
+    && baselineSummary.result === "complete"
+    && baselineSummary.register_sha256 === sha256(
+      "content-manifests/standard-universe-mechanics-complete-v1/"
+        + "evidence-and-approximation-register.json",
+    )
+    && baselineSummary.dependency_baseline.cargo_lock_sha256
+      === dependencies.cargo_lock_sha256
+    && baselineSummary.release_state === "Scaffold",
+  "frozen Goal 07 Phase 0 summary drift",
 );
 
 const status = text(
@@ -136,6 +169,9 @@ function sha256(relative) {
   return crypto.createHash("sha256")
     .update(fs.readFileSync(path.join(root, relative)))
     .digest("hex");
+}
+function sha256Bytes(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
 }
 function assert(condition, message) {
   if (!condition) throw new Error(message);

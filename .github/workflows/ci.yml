@@ -56,6 +56,8 @@ jobs:
         run: node tools/goal05/run-native-hardening.mjs --run
       - name: Execute Goal 06 dynamic-assembly hardening vectors natively
         run: node tools/goal06/run-native-hardening.mjs . --run
+      - name: Execute Goal 07 complete-content release vectors natively
+        run: node tools/goal07/run-native-release.mjs . --run
       - name: Record native execution evidence
         run: node tools/ci/write-evidence.mjs --profile "${{ matrix.profile }}" --output ".ci-evidence/${{ matrix.profile }}.json"
       - name: Retain native evidence
