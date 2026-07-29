@@ -24,6 +24,8 @@ node tools/swarm-disaster-reference/import-dice-faces.mjs
 node tools/swarm-disaster-reference/verify-dice-faces.mjs
 node tools/swarm-disaster-reference/import-communing.mjs
 node tools/swarm-disaster-reference/verify-communing.mjs
+node tools/swarm-disaster-reference/import-communing-trail.mjs
+node tools/swarm-disaster-reference/verify-communing-trail.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -62,3 +64,10 @@ objectives, seven capped dimensions and 55 exact point increments. Branch
 choices increment a separate Aeon-choice counter because their source rows do
 not publish permanent point changes. Cabinet outgoing unlocks are inverted
 into prerequisites, and persistence/clamp timing is labeled `ProjectPolicy`.
+
+The Communing Trail partition preserves all 63 released nodes, their exact
+dimension thresholds and one typed gameplay effect per node. The released
+table does not publish graph edges, so the 56 within-dimension predecessor
+relations are derived from stable threshold and talent-ID order and labeled
+`ProjectPolicy`. Effect-domain classification keeps five activity-only effects
+out of `BattleSpec`; two mixed effects project only their battle contribution.
