@@ -7,8 +7,8 @@
 | Goal ID | `anomaly-arbitration-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
-| Active batch | None |
-| Next unblocked batch | `G13-P0-B2` after `G13-P0-B1` is pushed and remotely verified |
+| Active batch | None; `G13-P0-B2` complete pending this commit's publication |
+| Next unblocked batch | `G13-P0-B3` after remote verification |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -16,7 +16,7 @@
 | Source-cache reproduction | `G13-P0-B1`: both fixed caches materialized twice in an isolated `/tmp` target from the clean connected fixed-commit cache; exact detached HEAD, tree, origin, cleanliness, connectivity and 21 required file receipts verified |
 | Starting source oracle | 6 `ChallengePeak*` tables, direct ChallengePeak battle-event ability, indirect gameplay/config closure, CHS/EN TextMaps, StageConfig and transitive shared target/MazeBuff/enemy sources |
 | Active-period hypothesis | Group `8`, aliases `801`–`804` and stages `30508011`, `30508012`, `30508013`, `30508021`, `30508022`; not a denominator until `G13-P0-B3` proves the selector chain |
-| Focused inventory | Pending `G13-P0-B2` |
+| Focused inventory | 2,745 files: 2,646 inherited Goal 03 files plus 90 focused turnbasedgamedata additions and 9 StarRailRes indexes; SHA-256 `86ec49eef98c3912fa886abd6706eee691106c9b644639d6d55bf4d23a4d2583` |
 | Content manifest | Denominators pending `G13-P0-B3` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -31,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, 21 hashed source entries, Goal 07–12 committed checkpoints, Candidate-only scope, Sora authority and six isolated roots are frozen; focused inventory generation remains. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Foundation and a deterministic 2,745-file inventory are frozen, including all Goal 03 candidates, six dedicated tables, shared tables, bilingual text/index inputs, 27-enemy closure and 74 mechanical config programs; row selectors and schema contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting Knight records/uniqueness, King protection/Plight, clocks, Arbitral Quadrant, stars and settlement. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, targets, traits, battle events, stages, waves, enemies and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -42,7 +42,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G13-P0-B1` | `Complete` | This row's containing commit | Froze foundation `c85e2cd8…e93d`, Goal 03 commit/tree and preserved bundle digests, two Version 4.4 source revisions/trees, 6 dedicated tables, 18 turnbasedgamedata plus 3 StarRailRes file receipts, 25 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and 6 isolated roots. Checkpoints: Goal 07 remote-merged `4f466df7…0931`; Goal 08 local-only `43b989c4…8d90` (7,913: 7,199/714); Goal 09 remote-backed `9bd2ad28…09c` (6,963: 6,305/658); Goal 10 remote-backed `ce2f6b20…5683` (5,377: 5,243/134); Goal 11 remote-backed inventory `f202c1bd…1779` with no ownership manifest; Goal 12 remote-backed foundation `74cb56a2…159d` with no source/ownership manifest. A bounded fresh GitLab partial clone made no progress and was terminated; no network success is claimed. The isolated copy-on-write reproducer and verifier passed twice/idempotently. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify `git rev-parse HEAD` against `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference`, requiring identical full commit IDs before P0-B2. |
-| `G13-P0-B2` | `Pending` | — | Inventory dedicated/shared tables, indirect config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
+| `G13-P0-B2` | `Complete` | This row's containing commit | Froze 2,745 uniquely sorted file receipts at `86ec49ee…2583`: all 2,646 Goal 03 files, 90 turnbasedgamedata additions and 9 StarRailRes indexes. Closure includes 6 `ChallengePeak` tables, 8 shared table seeds, 5 planning Stage rows, 12 direct and 27 recursively reachable enemy IDs, 26 templates, 74 mechanical config/ability/AI files, 2 reward exclusion locators and 11 bilingual text/index files. Checked-out bytes must reproduce their pinned Git blob OIDs; a clean fixed-revision alternate may supply objects missing from a partial clone without lazy fetch or cache mutation. Double generation was byte-identical. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify `git rev-parse HEAD` against `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference`, requiring identical full commit IDs before P0-B3. |
 | `G13-P0-B3` | `Pending` | — | Freeze active-period selectors, exact obligations/counts, ownership, reachability, proven-empty pools and exclusions. |
 | `G13-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G13-P1-B1` | `Pending` | — | Import profile, active period, entry/eligibility, stages, legal order and terminal outcomes. |
@@ -89,6 +89,9 @@ foundation evidence before any data mutation.
 | `node tools/repository-check/run.mjs --full --with-source-cache` | Supplemental full gate did not reach Goal 13 or generated-drift checks: existing `tools/goal06/verify-phase0.mjs` rejected the current additive repository `Cargo.lock` as differing from its historical baseline. Goal 13 changes neither file. |
 | `node tools/repository-check/verify-generated-drift.mjs --with-source-cache` | Supplemental generated gate passed eight existing pack/manifest/provenance/coverage checks, then stopped because repository-pinned Sora 0.3.0 is not installed; host `sora 0.2.0` is explicitly non-authoritative and Phase 3 owns resolution. |
 | `node tools/goal-provenance/generate.mjs --check`; Standard Universe inventory/manifest/bootstrap checks | Direct cache substitutes exposed existing checkout-EOL/current-tree drift: Black Swan source hash mismatch, Standard inventory drift, manifest pass, and `occurrence-choices.json` drift. These historical/shared artifacts are protected; Goal 13 instead verifies exact Git commits/trees and its 21 required blobs. |
+| `node tools/anomaly-arbitration-reference/inventory.mjs --source-cache .cache/content-reference --fallback-source-cache /Users/mikai/.codex/worktrees/7c74/starclock/.cache/content-reference` (twice) | Passed; both clean caches resolve to the pinned revisions, lazy fetch remained disabled, every read byte stream matched its pinned Git blob OID and both outputs had SHA-256 `86ec49eef98c3912fa886abd6706eee691106c9b644639d6d55bf4d23a4d2583`. |
+| `node tools/anomaly-arbitration-reference/verify-inventory.mjs --source-cache .cache/content-reference --fallback-source-cache /Users/mikai/.codex/worktrees/7c74/starclock/.cache/content-reference` | Passed; exact 2,745-file denominator, Goal 03 receipts, focused family counts, required seed paths, exclusion locators and planning-only selector state verified. |
+| P0-B2 `git diff --check`; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed; 25 batch IDs agree, 634 local links across 303 Markdown files resolve, no Rust scope was selected and two generated/release inputs remain deferred to the documented full boundary. |
 
 ## Frozen counters
 
@@ -131,12 +134,14 @@ generated selector-closure proof.
 | 2026-07-29 | Exclude presentation and account rewards while retaining mechanical locators. | Keeps the pack implementation-ready and within the project content boundary. |
 | 2026-07-29 | Finish at Candidate-quality reference data without a Released runtime claim. | Runtime lowering, shared primitive changes and seeded full runs require a later goal. |
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
+| 2026-07-29 | Define P0-B2 as a file closure that inherits all 2,646 Goal 03 receipts and adds only focused ChallengePeak, shared-table, encounter, mechanical-config, bilingual and exclusion inputs. | Shared Rogue pools still need explicit zero/nonzero reachability proof, while unrelated challenge tables, layout/editor metadata, animation and audio are outside this mechanical source inventory. |
+| 2026-07-29 | Permit a second clean cache at the identical fixed revision as a read-only Git object alternate, with lazy fetch disabled and every byte stream checked against the pinned tree OID. | The caches are partial sparse clones with complementary materialized blobs; the OID check preserves raw-Git identity without mutating another Goal's cache or claiming unavailable network access. |
 
 ## Research cases
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G13-R01` | `Open` | Which direct and transitive table, gameplay/config, TextMap, StageConfig, enemy/wave and ability files complete the focused inventory? | P0-B2 | Replace when generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
+| `G13-R01` | `Resolved` | Which direct and transitive table, gameplay/config, TextMap, StageConfig, enemy/wave and ability files complete the focused inventory? | P0-B2 | Reopen only if P0-B3 admits a row whose explicit reference escapes the 2,745-file inventory; replacement requires updating the generated closure and another byte-identical double generation. |
 | `G13-R02` | `Open` | Which released selector proves the active Version 4.4 period and separates it from seven historical groups and other challenge families? | P0-B3 | Replace with an exact-once manifest whose rows carry active-period selector/reference evidence and fail-closed exclusions. |
 | `G13-R03` | `Open` | What are the exact participant, character, Light Cone and Relic identity scopes and the atomic invalidation order when a recorded Knight loadout changes? | P1-B2 | Replace with source-backed slot/uniqueness/reset programs and accepted/rejected/replacement fixtures. |
 | `G13-R04` | `Open` | How do three Knight-clear states compose King protection, when is protection removed, and what does direct Plight victory project into current and best records? | P1-B3 | Replace with exact transition programs or field-level policies carrying alternatives and lifecycle fixtures. |
