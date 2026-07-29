@@ -1,0 +1,135 @@
+[
+  {
+    "id": "unknowable-domain.loadout-transition.insert",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "LoadoutTransitionRule",
+    "name_en": "Insert Component Policy",
+    "name_zh_cn": "插入组件策略",
+    "summary_en": "Insert validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result.",
+    "summary_zh_cn": "插入会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "loadout-transition-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic authoring policy for a transition whose released table does not publish rejection mutation, replacement order, or no-legal-candidate behavior.",
+        "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering."
+      }
+    ],
+    "tags": [
+      "insert",
+      "loadout",
+      "project-policy"
+    ],
+    "source_id": "loadout-transition-policy-v1:insert",
+    "operation": "Insert",
+    "eligibility": [
+      "SlotTypeEqualsComponentType",
+      "ComponentRangeCompatibleWithScepter",
+      "TargetSlotIsEmpty"
+    ],
+    "replacement_order": [],
+    "rejected_mutation": "PreserveAuthoritativeState",
+    "no_legal_candidate": "ReturnNoLegalCandidateWithoutMutation",
+    "policy_id": "loadout-transition-policy-v1"
+  },
+  {
+    "id": "unknowable-domain.loadout-transition.remove",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "LoadoutTransitionRule",
+    "name_en": "Remove Component Policy",
+    "name_zh_cn": "移除组件策略",
+    "summary_en": "Remove validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result.",
+    "summary_zh_cn": "移除会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "loadout-transition-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic authoring policy for a transition whose released table does not publish rejection mutation, replacement order, or no-legal-candidate behavior.",
+        "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering."
+      }
+    ],
+    "tags": [
+      "loadout",
+      "project-policy",
+      "remove"
+    ],
+    "source_id": "loadout-transition-policy-v1:remove",
+    "operation": "Remove",
+    "eligibility": [
+      "TargetSlotIsOccupied",
+      "TargetComponentIsNotLocked"
+    ],
+    "replacement_order": [],
+    "rejected_mutation": "PreserveAuthoritativeState",
+    "no_legal_candidate": "ReturnNoLegalCandidateWithoutMutation",
+    "policy_id": "loadout-transition-policy-v1"
+  },
+  {
+    "id": "unknowable-domain.loadout-transition.replace",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "LoadoutTransitionRule",
+    "name_en": "Replace Component Policy",
+    "name_zh_cn": "替换组件策略",
+    "summary_en": "Replace validates typed slot/range and locked-Component constraints; rejection preserves state and a missing legal candidate returns an explicit result.",
+    "summary_zh_cn": "替换会校验槽位类型、范围与锁定组件约束；拒绝时保持状态，无合法候选时返回显式结果。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+        "repository": "starclock",
+        "revision": "starclock.unknowable-domain-normalized-schema.v1",
+        "path": "content-manifests/unknowable-domain-v1/normalized-schema.json",
+        "locator": "loadout-transition-policy-v1",
+        "sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Reference-only deterministic authoring policy for a transition whose released table does not publish rejection mutation, replacement order, or no-legal-candidate behavior.",
+        "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering."
+      }
+    ],
+    "tags": [
+      "loadout",
+      "project-policy",
+      "replace"
+    ],
+    "source_id": "loadout-transition-policy-v1:replace",
+    "operation": "Replace",
+    "eligibility": [
+      "SlotTypeEqualsComponentType",
+      "ComponentRangeCompatibleWithScepter",
+      "ExistingComponentIsNotLocked"
+    ],
+    "replacement_order": [
+      "TargetSlotOnly"
+    ],
+    "rejected_mutation": "PreserveAuthoritativeState",
+    "no_legal_candidate": "ReturnNoLegalCandidateWithoutMutation",
+    "policy_id": "loadout-transition-policy-v1"
+  }
+]
