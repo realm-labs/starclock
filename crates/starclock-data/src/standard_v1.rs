@@ -17,7 +17,10 @@ use starclock_combat::{
             TargetInvalidationPolicy, TargetPattern, TargetRelation, UnitTargetSelector,
         },
         builder::CombatCatalogBuilder,
-        definition::{AbilityDefinition, ProgramDefinition, SelectorDefinition, UnitDefinition},
+        definition::{
+            AbilityDefinition, EnemyDefinition, ProgramDefinition, SelectorDefinition,
+            UnitDefinition,
+        },
     },
     rng::derive::StreamPath,
 };
@@ -230,6 +233,24 @@ fn combat_catalog(data: &SimulationCatalog) -> Result<Arc<CombatCatalog>, &'stat
             .ok_or("frozen Standard-v1 enemy is missing")?;
         abilities.extend(enemy.abilities().iter().copied());
     }
+    let fixture_graphs = (13_001..=13_017)
+        .map(|raw| {
+            data.ai_graph(starclock_combat::AiGraphId::new(raw).expect("frozen graph ID"))
+                .ok_or("frozen Standard-v1 AI graph is missing")
+                .cloned()
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    for graph in &fixture_graphs {
+        for state in graph.states() {
+            abilities.insert(state.mandatory_fallback());
+            abilities.extend(
+                state
+                    .candidates()
+                    .iter()
+                    .map(|candidate| candidate.ability()),
+            );
+        }
+    }
     for ability in abilities {
         builder.add_ability(
             AbilityDefinition::new(
@@ -241,23 +262,60 @@ fn combat_catalog(data: &SimulationCatalog) -> Result<Arc<CombatCatalog>, &'stat
             .with_action(action(1)),
         );
     }
-    for raw in 13_001..=13_017 {
-        builder.add_ai_graph(
-            data.ai_graph(starclock_combat::AiGraphId::new(raw).expect("frozen graph ID"))
-                .ok_or("frozen Standard-v1 AI graph is missing")?
-                .clone(),
-        );
+    for graph in fixture_graphs {
+        builder.add_ai_graph(graph);
     }
     for raw in 95..=111 {
         let enemy = data
             .enemy(EnemyDefinitionId::new(raw).expect("frozen enemy ID"))
             .ok_or("frozen Standard-v1 enemy is missing")?;
+        let fixture_graph =
+            starclock_combat::AiGraphId::new(13_001 + raw - 95).expect("frozen graph ID");
+        let graph = data
+            .ai_graph(fixture_graph)
+            .ok_or("frozen Standard-v1 AI graph is missing")?;
+        let mut fixture_abilities = enemy.abilities().to_vec();
+        for state in graph.states() {
+            fixture_abilities.push(state.mandatory_fallback());
+            fixture_abilities.extend(
+                state
+                    .candidates()
+                    .iter()
+                    .map(|candidate| candidate.ability()),
+            );
+        }
+        fixture_abilities.sort_unstable();
+        fixture_abilities.dedup();
         builder.add_unit(UnitDefinition::new(
             UnitDefinitionId::new(raw).expect("frozen unit ID"),
-            enemy.abilities().to_vec(),
+            fixture_abilities.clone(),
             vec![],
         ));
-        builder.add_enemy(enemy.clone());
+        builder.add_enemy(
+            EnemyDefinition::new(enemy.id(), enemy.unit(), fixture_abilities)
+                .with_orchestration(
+                    fixture_graph,
+                    enemy
+                        .phases()
+                        .iter()
+                        .map(|phase| {
+                            starclock_combat::catalog::encounter::EnemyPhaseDefinition::new(
+                                phase.id(),
+                                phase.sequence(),
+                                phase.entry_condition().clone(),
+                                phase.exit_condition().clone(),
+                                phase.replacement_priority(),
+                                fixture_graph,
+                                phase.targetable(),
+                                phase.transition(),
+                                None,
+                                phase.carry(),
+                            )
+                        })
+                        .collect(),
+                )
+                .expect("frozen fixture orchestration"),
+        );
     }
     for raw in 89..=94 {
         builder.add_encounter(
@@ -393,8 +451,8 @@ mod tests {
             ),
             (
                 SCENARIOS[2].0,
-                50,
-                "49561416dd657bf1ab1defd15c17ca6de16a787e4efe91f7b0e1538d3a397cbf",
+                65,
+                "3dfeddcc52dfcb68c98c8b4b10589f98a4d79a410e6c525523ab3880c5a0c949",
             ),
             (
                 SCENARIOS[3].0,
@@ -408,8 +466,8 @@ mod tests {
             ),
             (
                 SCENARIOS[5].0,
-                182,
-                "ba9597a7b64e2837ec6e2f48db2f6986ac6796a2e084283d9e7167d0542b750b",
+                211,
+                "817af7d124a75c7148a849975d4010594c64a338b6de844b9cf69a74a2bc568e",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

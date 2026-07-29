@@ -1382,6 +1382,50 @@
             "String": "goal07.enemy.s10.trigger.cruelty"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1094801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1095102
+          },
+          "id": {
+            "Integer": 1095103
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterDefeatSettlement"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1091037
+          },
+          "rule_id": {
+            "Integer": 1095101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s12.trigger.golden-hound-rebound"
+          }
+        }
       }
     ]
   }

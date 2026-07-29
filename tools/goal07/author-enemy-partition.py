@@ -4,10 +4,11 @@ S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
 of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
 Cocolia (Complete), S07 owns Gepard (Complete), S08 owns Ice Out of Space,
-S09 owns Memory Zone Meme "Something Unto Death" (Complete), and S10 owns
-Stellaron Hunter: Kafka (Complete), and S11 owns Svarog (Complete). Each
-partition receives an isolated 10,000-ID range so authoring and verification
-never consume rows owned by another partition.
+S09 owns Memory Zone Meme "Something Unto Death" (Complete), S10 owns
+Stellaron Hunter: Kafka (Complete), S11 owns Svarog (Complete), and S12 owns
+the first frozen ordinary-enemy batch. Each partition receives an isolated
+10,000-ID range so authoring and verification never consume rows owned by
+another partition.
 """
 
 from __future__ import annotations
@@ -101,9 +102,30 @@ PARTITION_CONFIG = {
         "source_record_id": 13,
         "evidence_record_id": 14,
     },
+    "G07-P5-M15-S12": {
+        "base": 1_090_000,
+        "variant": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+        "variants": [
+            "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+            "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+            "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+            "enemy.abundance-sprite-wooden-lupus.minionlv2.variant.01",
+            "enemy.antibaryon.minion.variant.01",
+            "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+            "enemy.aurumaton-gatekeeper.elite.variant.01",
+            "enemy.aurumaton-spectral-envoy.elite.variant.01",
+            "enemy.automaton-beetle.minionlv2.variant.01",
+            "enemy.automaton-direwolf.elite.variant.01",
+            "enemy.automaton-grizzly.elite.variant.01",
+            "enemy.automaton-hound.minionlv2.variant.01",
+        ],
+        "source_record_id": 14,
+        "evidence_record_id": 15,
+    },
 }
 PARTITION = "G07-P5-M15-S01"
 VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
+VARIANT_KEYS = [VARIANT_KEY]
 BASE = PARTITION_CONFIG[PARTITION]["base"]
 SOURCE_RECORD_ID = PARTITION_CONFIG[PARTITION]["source_record_id"]
 EVIDENCE_RECORD_ID = PARTITION_CONFIG[PARTITION]["evidence_record_id"]
@@ -14734,42 +14756,1238 @@ def owned_rows_s11() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != VARIANT_KEYS:
+        raise ValueError("S12 frozen enemy assignment changed")
+    if [item["enemy_variant_id"] for item in anchor["variants"]] != VARIANT_KEYS:
+        raise ValueError("S12 numeric anchor variants changed")
+
+    enemy_specs = [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.abundance-sprite-golden-hound.minionlv2",
+            "name": "Abundance Sprite: Golden Hound",
+            "zh": "丰饶灵兽·娄金",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Lightning", "Quantum"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("horn-gore", "Horn Gore", "角牴", "202204001", "2.5", "Wind", "primary", True, None),
+                ("rebound-roar", "Rebound Roar", "嗥吠", "202204002", None, None, "actor", False, "rebound"),
+            ],
+            "cycle": ["horn-gore"],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.abundance-sprite-malefic-ape-bug.elite",
+            "name": "Abundance Sprite: Malefic Ape (Bug)",
+            "zh": "丰饶灵兽·长右（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Ice", "Wind"],
+            "resistances": [
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("wrathful-roar", "Wrathful Roar", "怒啸", "202302102", None, None, "random", True, "monitor"),
+                ("simian-strike", "Simian Strike", "猱击", "202302101", "3", "Quantum", "primary", True, None),
+                ("simian-howl", "Simian Howl", "猿啼", "202302104", "2.5", "Quantum", "all-opposing", True, None),
+            ],
+            "cycle": ["wrathful-roar", "simian-strike", "simian-strike", "simian-howl"],
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.abundance-sprite-malefic-ape.elite",
+            "name": "Abundance Sprite: Malefic Ape",
+            "zh": "丰饶灵兽·长右",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Ice", "Wind"],
+            "resistances": [
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("wrathful-roar", "Wrathful Roar", "怒啸", "202302004", None, None, "random", True, "monitor"),
+                ("simian-strike", "Simian Strike", "猱击", "202302001", "4.75", "Quantum", "primary", True, None),
+                ("fiery-majesty", "Fiery Majesty", "奋威", "202302003", None, None, "actor", True, "fiery"),
+            ],
+            "cycle": ["wrathful-roar", "simian-strike", "fiery-majesty", "simian-strike"],
+        },
+        {
+            "key": VARIANT_KEYS[3],
+            "template": "enemy.abundance-sprite-wooden-lupus.minionlv2",
+            "name": "Abundance Sprite: Wooden Lupus",
+            "zh": "丰饶灵兽·奎木",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Fire", "Imaginary", "Wind"],
+            "resistances": [
+                ("Ice", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("rallying-howl", "Rallying Howl", "啸聚", "202205002", None, None, "actor", True, "rally"),
+                ("wolf-predation", "Wolf Predation", "狼吞", "202205001", "2", "Lightning", "primary", True, "bleed"),
+            ],
+            "cycle": ["rallying-howl", "wolf-predation"],
+        },
+        {
+            "key": VARIANT_KEYS[4],
+            "template": "enemy.antibaryon.minion",
+            "name": "Antibaryon",
+            "zh": "反重子",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Physical", "Quantum"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("obliterate", "Obliterate", "湮灭", "801102001", "2.5", "Imaginary", "primary", True, None),
+            ],
+            "cycle": ["obliterate"],
+        },
+        {
+            "key": VARIANT_KEYS[5],
+            "template": "enemy.aurumaton-gatekeeper-bug.elite",
+            "name": "Aurumaton Gatekeeper (Bug)",
+            "zh": "金人司阍（错误）",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Lightning", "Quantum", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.4"),
+                ("Physical", "0.2"),
+            ],
+            "abilities": [
+                ("penal-code", "Penal Code", "惩戒律", "201301101", None, None, "actor", True, "sanction-bug"),
+                ("dread", "Dread", "惩戒", "201301102", "3", "Imaginary", "all-opposing", True, "weaken"),
+                ("track-down", "Track Down", "追缉", "201301104", "6", "Imaginary", "primary", True, "imprison-60"),
+            ],
+            "cycle": ["penal-code", "dread", "track-down"],
+        },
+        {
+            "key": VARIANT_KEYS[6],
+            "template": "enemy.aurumaton-gatekeeper.elite",
+            "name": "Aurumaton Gatekeeper",
+            "zh": "金人司阍",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Lightning", "Quantum", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.4"),
+                ("Physical", "0.2"),
+            ],
+            "abilities": [
+                ("dread", "Dread", "惩戒", "201301002", "1.5", "Imaginary", "all-opposing", True, "weaken"),
+                ("farewell-etiquette", "Farewell Etiquette", "大逆不道", "201301001", None, None, "actor", True, "sanction"),
+                ("restraint", "Restraint", "拘束", "201301003", "3", "Imaginary", "primary", True, None),
+                ("enchainment", "Enchainment", "锁禁", "201301004", "5", "Imaginary", "primary", True, "imprison-50"),
+            ],
+            "cycle": ["dread", "dread", "dread", "farewell-etiquette", "restraint", "enchainment"],
+        },
+        {
+            "key": VARIANT_KEYS[7],
+            "template": "enemy.aurumaton-spectral-envoy.elite",
+            "name": "Aurumaton Spectral Envoy",
+            "zh": "金人勾魂使",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Imaginary", "Lightning", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("adjudicate", "Adjudicate", "判罚", "201302001", "3", "Physical", "primary", True, None),
+                ("subdue", "Subdue", "镇魂", "201302002", "3.6", "Physical", "primary", True, "reverberation-70"),
+                ("revert-yin-and-yang", "Revert Yin and Yang", "倒转阴阳", "201302003", "3", "Physical", "all-opposing", True, "reverberation-35"),
+                ("heavens-fall", "Heaven's Fall", "天坠", "201302004", "4", "Physical", "primary", True, None),
+            ],
+            "cycle": ["adjudicate", "subdue", "revert-yin-and-yang", "heavens-fall"],
+        },
+        {
+            "key": VARIANT_KEYS[8],
+            "template": "enemy.automaton-beetle.minionlv2",
+            "name": "Automaton Beetle",
+            "zh": "自动机兵·甲虫",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Imaginary", "Lightning", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("unstable-forcefield", "Unstable Forcefield", "不稳定力场", "101203001", "3", "Physical", "primary", True, "bleed"),
+            ],
+            "cycle": ["unstable-forcefield"],
+        },
+        {
+            "key": VARIANT_KEYS[9],
+            "template": "enemy.automaton-direwolf.elite",
+            "name": "Automaton Direwolf",
+            "zh": "自动机兵·齿狼",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Ice", "Imaginary", "Lightning"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("lock-on-target", "Lock On Target", "目标锁定", "101302002", None, None, "primary", True, "lock"),
+                ("felling-order", "Felling Order", "砍伐指令", "101302001", "0.5", "Physical", "primary", True, "bleed"),
+                ("disintegration-order", "Disintegration Order", "解体指令", "101302003", "2.5", "Physical", "primary", True, None),
+                ("dismantle", "Dismantle", "解体拆除", "101302004", "2.5", "Physical", "primary", True, None),
+            ],
+            "cycle": ["lock-on-target", "felling-order", "disintegration-order", "dismantle"],
+        },
+        {
+            "key": VARIANT_KEYS[10],
+            "template": "enemy.automaton-grizzly.elite",
+            "name": "Automaton Grizzly",
+            "zh": "自动机兵·灰熊",
+            "rank": "Elite",
+            "toughness": "420",
+            "weaknesses": ["Fire", "Ice", "Lightning"],
+            "resistances": [
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("destruction-order", "Destruction Order", "破坏指令", "101301009", "3", "Physical", "primary", True, None),
+                ("detonation-order", "Detonation Order", "爆裂指令", "101301001", None, None, "actor", True, "rally"),
+                ("enrage-order", "Enrage Order", "愤怒指令", "101301002", None, None, "all-opposing", True, "weaken"),
+                ("overcombust-order", "Overcombust Order", "过载指令", "101301003", None, None, "actor", True, "overcombust"),
+                ("purge-order", "Purge Order", "剿灭指令", "101301004", "4", "Physical", "all-opposing", True, None),
+            ],
+            "cycle": ["destruction-order", "detonation-order", "enrage-order", "overcombust-order", "purge-order"],
+        },
+        {
+            "key": VARIANT_KEYS[11],
+            "template": "enemy.automaton-hound.minionlv2",
+            "name": "Automaton Hound",
+            "zh": "自动机兵·战犬",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Lightning", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("vertical-strike", "Vertical Strike", "垂直打击", "101201001", "2.5", "Physical", "primary", True, None),
+                ("self-healing-module", "Self-Healing Module", "自愈模块", "101201002", None, None, "all-allies", True, "heal"),
+            ],
+            "cycle": ["vertical-strike", "self-healing-module"],
+        },
+    ]
+    variant_row_ids = [
+        95 if index == 0 else 96 if index == 6 else BASE + 1 + index
+        for index in range(len(enemy_specs))
+    ]
+    template_row_ids = [
+        10_001 if index == 0 else 10_002 if index == 6 else BASE + 21 + index
+        for index in range(len(enemy_specs))
+    ]
+
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "current-subject": BASE + 403,
+        "primary": BASE + 404,
+        "random": BASE + 405,
+        "all-opposing": BASE + 406,
+        "all-allies": BASE + 407,
+        "adjacent-allies": BASE + 408,
+    }
+    effects = {
+        "rebound": BASE + 5_001,
+        "monitor": BASE + 5_002,
+        "fiery": BASE + 5_003,
+        "rally": BASE + 5_004,
+        "bleed": BASE + 5_005,
+        "weaken": BASE + 5_006,
+        "sanction": BASE + 5_007,
+        "sanction-bug": BASE + 5_008,
+        "imprisonment": BASE + 5_009,
+        "reverberation": BASE + 5_010,
+        "lock": BASE + 5_011,
+        "overcombust": BASE + 5_012,
+    }
+    condition_always = BASE + 4_801
+    next_program = BASE + 1_001
+    next_operation = BASE + 2_001
+    next_expression = BASE + 3_001
+    next_state = BASE + 4_101
+    next_candidate = BASE + 4_301
+    next_transition = BASE + 4_501
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def ident(
+        id_: int,
+        key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S12 来源绑定的普通敌人批次可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    selector_metadata = {
+        "actor": ("Actor", "SameSide", "First", 1, 1, "Fault"),
+        "owner": ("Owner", "SameSide", "First", 1, 1, "Fault"),
+        "current-subject": ("CurrentSubject", "AnySide", "First", 1, 1, "Fault"),
+        "primary": ("PrimaryTarget", "OpposingSide", "First", 1, 1, "Fault"),
+        "random": ("Actor", "OpposingSide", "RngUniform", 1, 1, "Fault"),
+        "all-opposing": ("Actor", "OpposingSide", "All", 1, 8, "Fault"),
+        "all-allies": ("Actor", "SameSide", "All", 1, 8, "Fault"),
+        "adjacent-allies": (
+            "CurrentSubject",
+            "SameSide",
+            "PrimaryPlusAdjacent",
+            0,
+            2,
+            "NoOp",
+        ),
+    }
+    for key, id_ in selectors.items():
+        origin, side, choice, minimum, maximum, empty = selector_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"selector.goal07.enemy-s12.{key}",
+                "Selector",
+                f"S12 {key} Selector",
+                f"S12 {key}选择器",
+                "Shared selector for the S12 ordinary-enemy batch.",
+            )
+        )
+        row = selector(
+            id_,
+            origin,
+            side,
+            minimum=minimum,
+            maximum=maximum,
+            empty=empty,
+            choice=choice,
+        )
+        if key == "random":
+            row["rng_purpose_key"] = "behavior-choice"
+        add("Selector", row)
+
+    def expression(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s12.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    actor_atk = expression(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratio_values = {
+        value
+        for spec in enemy_specs
+        for _, _, _, _, value, _, _, _, _ in spec["abilities"]
+        if value is not None
+    } | {"0.25", "0.35", "0.5", "0.6", "0.7", "1"}
+    ratios = {
+        value: expression(
+            f"ratio-{value.replace('.', '-')}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+        for value in sorted(ratio_values, key=float)
+    }
+    integer_two = expression(
+        "integer-two", "Integer", json_cell("IntegerLiteral", value=2)
+    )
+    damage_amounts = {
+        value: expression(
+            f"atk-times-{value.replace('.', '-')}",
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=actor_atk,
+                right_expression_id=ratios[value],
+                rounding="NearestTiesAway",
+            ),
+        )
+        for value in sorted(ratio_values, key=float)
+    }
+
+    add(
+        "ConditionExpression",
+        {
+            "id": condition_always,
+            "stable_key": "goal07.enemy.s12.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+
+    effect_metadata = {
+        "rebound": ("Rebound Roar", "嗥吠", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+        "monitor": ("Monitor", "监视", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+        "fiery": ("Fiery Majesty", "奋威", "Buff", "DispellableBuff", 3, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+        "rally": ("Rallying Howl", "啸聚", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+        "bleed": ("Machine Bleed", "机械裂伤", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Physical"),
+        "weaken": ("Weaken", "虚弱", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+        "sanction": ("Sanction Mode", "惩戒模式", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+        "sanction-bug": ("Sanction Mode: Punisher", "惩戒模式·惩罚者", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+        "imprisonment": ("Imprisonment", "禁锢", "Control", "CleanseableControl", 1, integer_two, "TargetTurnStart", "Refresh", None, None),
+        "reverberation": ("Reverberation", "震荡", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+        "lock": ("Direwolf Lock", "齿狼锁定", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+        "overcombust": ("Overcombust", "过载", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+    }
+    for key, id_ in effects.items():
+        (
+            name_en,
+            name_zh_cn,
+            category,
+            dispel,
+            limit,
+            duration,
+            clock,
+            policy,
+            magnitude,
+            dot_element,
+        ) = effect_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"effect.goal07.enemy-s12.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                "Shared executable status for the S12 ordinary-enemy batch.",
+            )
+        )
+        add(
+            "Effect",
+            {
+                "id": id_,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": "TurnStart" if category == "Dot" else "None",
+                "stack_policy": policy,
+                "magnitude_comparator_expression_id": magnitude,
+                "dot_element": dot_element,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    effect_tags = {
+        "rebound": ["rebound-roar"],
+        "monitor": ["monitor"],
+        "fiery": ["damage-up"],
+        "rally": ["rallying-howl"],
+        "bleed": ["bleed"],
+        "weaken": ["weaken"],
+        "sanction": ["sanction-mode", "toughness-protected"],
+        "sanction-bug": ["sanction-mode", "toughness-protected"],
+        "imprisonment": ["imprisonment", "blocks-normal-action"],
+        "reverberation": ["reverberation"],
+        "lock": ["lock-on-target"],
+        "overcombust": ["overcombust"],
+    }
+    for key, tags in effect_tags.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {"effect_id": effects[key], "sequence": sequence, "tag": tag},
+            )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s12.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def op_step(id_: int) -> str:
+        return json_cell("Operation", operation_id=id_)
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            ident(
+                id_,
+                f"program.goal07.enemy-s12.{name}",
+                "Program",
+                f"S12 {name} Program",
+                f"S12 {name}程序",
+                "Ordered Rule IR program for the S12 ordinary-enemy batch.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": step},
+            )
+        return id_
+
+    dragonfish_units = [BASE + 351, BASE + 352]
+    dragonfish_ability = BASE + 381
+    identities.append(
+        ident(
+            dragonfish_ability,
+            "enemy.goal07.s12.illumination-dragonfish.ability.candle-flame",
+            "Ability",
+            "Candle Flame",
+            "烛焰",
+            "Executable linked-unit attack used by Aurumaton Gatekeeper.",
+        )
+    )
+    dragonfish_program = make_program(
+        "illumination-dragonfish-candle-flame",
+        [
+            op_step(
+                new_operation(
+                    "illumination-dragonfish-candle-flame-damage",
+                    json_cell(
+                        "Damage",
+                        amount_expression_id=damage_amounts["1"],
+                        damage_class="Ordinary",
+                        element="Fire",
+                        can_crit=True,
+                    ),
+                    selectors["primary"],
+                )
+            )
+        ],
+    )
+    add(
+        "Ability",
+        {
+            "id": dragonfish_ability,
+            "kind": "Summon",
+            "target_pattern": "SingleTarget",
+            "retarget_policy": "CancelRemaining",
+            "level_cap": 1,
+            "cooldown_actions": 1,
+            "semantic_tags_mask": 5,
+        },
+    )
+    add(
+        "AbilityPhase",
+        {
+            "ability_id": dragonfish_ability,
+            "sequence": 1,
+            "kind": "Resolved",
+            "program_identity_id": dragonfish_program,
+        },
+    )
+    for index, unit_id in enumerate(dragonfish_units, start=1):
+        identities.append(
+            ident(
+                unit_id,
+                f"unit.goal07.s12.aurumaton-gatekeeper.illumination-dragonfish-{index}",
+                "CharacterForm",
+                f"Illumination Dragonfish {index}",
+                f"入魔机巧·灯昼龙鱼{index}",
+                "Formation-linked Gatekeeper sanction summon.",
+            )
+        )
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": unit_id,
+                "source_definition_identity_id": unit_id,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": str(dragonfish_ability),
+                "action_ability_id": dragonfish_ability,
+                "formation_index": 2 if index == 1 else 4,
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": "0.2",
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": "0.5",
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": "120",
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s12-illumination-dragonfish-{index}-v1"
+                ),
+            },
+        )
+
+    ability_ids: dict[tuple[int, str], int] = {}
+    ability_programs: dict[int, int] = {}
+    ability_targets: dict[int, int] = {}
+    for enemy_index, spec in enumerate(enemy_specs):
+        for ability_index, ability in enumerate(spec["abilities"], start=1):
+            key, name_en, name_zh_cn, source_skill, ratio, element, target, active, mechanic = ability
+            ability_id = BASE + 101 + enemy_index * 20 + ability_index
+            ability_ids[(enemy_index, key)] = ability_id
+            identities.append(
+                ident(
+                    ability_id,
+                    f"{spec['template']}.ability.{key}",
+                    "Ability",
+                    name_en,
+                    name_zh_cn,
+                    f"Executable transcription of source skill {source_skill}.",
+                )
+            )
+            target_selector = selectors[target]
+            ability_targets[ability_id] = target_selector
+            steps: list[str] = []
+            if ratio is not None:
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-damage",
+                            json_cell(
+                                "Damage",
+                                amount_expression_id=damage_amounts[ratio],
+                                damage_class="Ordinary",
+                                element=element,
+                                can_crit=True,
+                            ),
+                            target_selector,
+                        )
+                    )
+                )
+            effect_key = {
+                "monitor": "monitor",
+                "fiery": "fiery",
+                "rally": "rally",
+                "bleed": "bleed",
+                "weaken": "weaken",
+                "sanction": "sanction",
+                "sanction-bug": "sanction-bug",
+                "imprison-50": "imprisonment",
+                "imprison-60": "imprisonment",
+                "reverberation-70": "reverberation",
+                "reverberation-35": "reverberation",
+                "lock": "lock",
+                "overcombust": "overcombust",
+            }.get(mechanic)
+            if effect_key is not None:
+                chance = {
+                    "imprison-50": "1",
+                    "imprison-60": "1",
+                    "reverberation-70": "0.7",
+                    "reverberation-35": "0.35",
+                }.get(mechanic)
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-effect",
+                            json_cell(
+                                "ApplyEffect",
+                                effect_id=effects[effect_key],
+                                stacks_expression_id=None,
+                                chance_policy=(
+                                    "Resistible"
+                                    if chance is not None
+                                    else "Guaranteed"
+                                ),
+                                base_chance_expression_id=(
+                                    ratios[chance] if chance is not None else None
+                                ),
+                                rng_purpose_key=(
+                                    "effect-application"
+                                    if chance is not None
+                                    else None
+                                ),
+                            ),
+                            target_selector,
+                        )
+                    )
+                )
+            if mechanic in {"imprison-50", "imprison-60"}:
+                delay_ratio = "0.5" if mechanic == "imprison-50" else "0.6"
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-delay",
+                            json_cell(
+                                "DelayAction",
+                                amount_expression_id=ratios[delay_ratio],
+                            ),
+                            target_selector,
+                        )
+                    )
+                )
+            if mechanic == "heal":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-heal",
+                            json_cell(
+                                "Heal",
+                                amount_expression_id=damage_amounts["0.25"],
+                            ),
+                            target_selector,
+                        )
+                    )
+                )
+            if mechanic == "sanction":
+                for unit_id in dragonfish_units:
+                    steps.append(
+                        op_step(
+                            new_operation(
+                                f"{enemy_index + 1}-{key}-summon-{unit_id}",
+                                json_cell(
+                                    "Summon",
+                                    unit_definition_identity_id=unit_id,
+                                    owner_selector_id=selectors["actor"],
+                                ),
+                            )
+                        )
+                    )
+            program = make_program(f"{enemy_index + 1}-{key}", steps)
+            ability_programs[ability_id] = program
+            target_pattern = (
+                "Aoe"
+                if target in {"all-opposing", "all-allies"}
+                else "None"
+                if target == "actor"
+                else "SingleTarget"
+            )
+            add(
+                "Ability",
+                {
+                    "id": ability_id,
+                    "kind": "Passive" if not active else "Skill",
+                    "target_pattern": target_pattern,
+                    "retarget_policy": "CancelRemaining",
+                    "level_cap": 1,
+                    "cooldown_actions": 1,
+                    "semantic_tags_mask": 5 if ratio is not None else 4,
+                },
+            )
+            add(
+                "AbilityPhase",
+                {
+                    "ability_id": ability_id,
+                    "sequence": 1,
+                    "kind": "Resolved",
+                    "program_identity_id": program,
+                },
+            )
+            add(
+                "EnemyAbility",
+                {
+                    "id": ability_id,
+                    "telegraph": "None",
+                    "cooldown_actions": 1,
+                    "initial_cooldown_actions": 0,
+                    "charge_actions": 0,
+                    "ai_tag": f"s12-{enemy_index + 1}-{key}",
+                },
+            )
+
+    rebound_entry = make_program(
+        "golden-hound-rebound-entry",
+        [
+            op_step(
+                new_operation(
+                    "golden-hound-rebound-entry",
+                    json_cell(
+                        "ApplyEffect",
+                        effect_id=effects["rebound"],
+                        stacks_expression_id=None,
+                        chance_policy="Guaranteed",
+                        base_chance_expression_id=None,
+                        rng_purpose_key=None,
+                    ),
+                    selectors["actor"],
+                )
+            )
+        ],
+    )
+    rebound_program = make_program(
+        "golden-hound-rebound-trigger",
+        [
+            op_step(
+                new_operation(
+                    "golden-hound-rebound-advance-adjacent-allies",
+                    json_cell(
+                        "AdvanceAction",
+                        amount_expression_id=ratios["1"],
+                    ),
+                    selectors["adjacent-allies"],
+                    "NoOp",
+                )
+            )
+        ],
+    )
+    rebound_rule = BASE + 5_101
+    rebound_filter = BASE + 5_102
+    rebound_trigger = BASE + 5_103
+    identities.append(
+        ident(
+            rebound_rule,
+            "rule.goal07.enemy-s12.golden-hound-rebound",
+            "Rule",
+            "Golden Hound Rebound Rule",
+            "娄金嗥吠规则",
+            "Advances adjacent living allies after the Golden Hound is defeated.",
+        )
+    )
+    add(
+        "RuleDefinition",
+        {
+            "id": rebound_rule,
+            "domain": "Battle",
+            "source_definition_identity_id": effects["rebound"],
+            "source_class": "Effect",
+            "source_digest_sha256": sha256_text(
+                "goal07-s12-golden-hound-rebound-v1"
+            ),
+        },
+    )
+    add(
+        "EventFilter",
+        {
+            "id": rebound_filter,
+            "stable_key": "goal07.enemy.s12.filter.golden-hound-defeated",
+            "target_selector_id": selectors["owner"],
+            "cause_ancestry": "Any",
+        },
+    )
+    add(
+        "RuleTrigger",
+        {
+            "id": rebound_trigger,
+            "stable_key": "goal07.enemy.s12.trigger.golden-hound-rebound",
+            "rule_id": rebound_rule,
+            "sequence": 1,
+            "event": json_cell("Unit", point="Defeated"),
+            "phase": "AfterDefeatSettlement",
+            "filter_id": rebound_filter,
+            "condition_id": condition_always,
+            "once_scope": "Battle",
+            "priority": 0,
+            "program_id": rebound_program,
+        },
+    )
+    add(
+        "EffectRuleBinding",
+        {
+            "effect_id": effects["rebound"],
+            "sequence": 1,
+            "rule_id": rebound_rule,
+        },
+    )
+
+    anchor_by_variant = {
+        item["enemy_variant_id"]: item for item in anchor["variants"]
+    }
+    for enemy_index, spec in enumerate(enemy_specs):
+        variant = variant_row_ids[enemy_index]
+        template = template_row_ids[enemy_index]
+        graph = BASE + 41 + enemy_index
+        identities.extend(
+            [
+                ident(
+                    variant,
+                    spec["key"],
+                    "EnemyVariant",
+                    spec["name"],
+                    spec["zh"],
+                    "Production materialization variant for frozen Standard Universe bindings.",
+                    f"1|{SOURCE_RECORD_ID}",
+                ),
+                ident(
+                    template,
+                    spec["template"],
+                    "Enemy",
+                    f"{spec['name']} Template",
+                    f"{spec['zh']}模板",
+                    "Version 4.4 source-bound enemy template.",
+                ),
+                ident(
+                    graph,
+                    f"ai.goal07.enemy-s12.{enemy_index + 1}",
+                    "AiGraph",
+                    f"{spec['name']} AI",
+                    f"{spec['zh']}AI",
+                    "Finite source-ordered ordinary-enemy action graph.",
+                ),
+            ]
+        )
+        active_ability_ids = [
+            ability_ids[(enemy_index, key)] for key in spec["cycle"]
+        ]
+        state_ids = list(range(next_state, next_state + len(active_ability_ids)))
+        next_state += len(active_ability_ids)
+        add(
+            "AiGraph",
+            {
+                "id": graph,
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_id) in enumerate(
+            zip(state_ids, active_ability_ids)
+        ):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s12.ai.{enemy_index + 1}.step-{offset + 1}"
+                    ),
+                    "graph_id": graph,
+                    "mandatory_fallback_ability_id": active_ability_ids[0],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s12.ai.{enemy_index + 1}."
+                        f"candidate-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": condition_always,
+                    "target_selector_id": ability_targets[ability_id],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": active_ability_ids[0],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s12.ai.{enemy_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[
+                        (offset + 1) % len(state_ids)
+                    ],
+                    "condition_id": condition_always,
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+        add(
+            "EnemyTemplate",
+            {
+                "id": template,
+                "rank": spec["rank"],
+                "base_aggro_decimal": "100",
+                "default_ai_graph_id": graph,
+            },
+        )
+        add(
+            "EnemyVariant",
+            {
+                "id": variant,
+                "template_id": template,
+                "ai_graph_id": graph,
+                "mechanically_distinct_key": spec["key"],
+            },
+        )
+        for level in anchor_by_variant[spec["key"]]["levels"]:
+            add(
+                "EnemyStat",
+                {
+                    "variant_id": variant,
+                    "level": level["authored_level"],
+                    "difficulty_key": "standard-universe-v1",
+                    "hp_decimal": level["base_hp"],
+                    "atk_decimal": level["base_atk"],
+                    "def_decimal": level["base_def"],
+                    "spd_decimal": level["base_spd"],
+                    "effect_hit_rate_decimal": level["effect_hit_rate"],
+                    "effect_resistance_decimal": level["effect_resistance"],
+                    "crit_damage_decimal": "0.2",
+                },
+            )
+        for sequence, weakness in enumerate(spec["weaknesses"], start=1):
+            add(
+                "EnemyWeakness",
+                {
+                    "variant_id": variant,
+                    "sequence": sequence,
+                    "element": weakness,
+                },
+            )
+        for element, value in spec["resistances"]:
+            add(
+                "EnemyResistance",
+                {
+                    "variant_id": variant,
+                    "element": element,
+                    "value_decimal": value,
+                },
+            )
+        add(
+            "EnemyToughnessLayer",
+            {
+                "variant_id": variant,
+                "sequence": 1,
+                "layer_key": "ordinary",
+                "kind": "Ordinary",
+                "maximum_decimal": spec["toughness"],
+                "recovery_ratio_decimal": "1",
+                "active_at_start": True,
+            },
+        )
+        for sequence, ability in enumerate(spec["abilities"], start=1):
+            add(
+                "EnemyVariantAbility",
+                {
+                    "variant_id": variant,
+                    "sequence": sequence,
+                    "ability_id": ability_ids[(enemy_index, ability[0])],
+                },
+            )
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 4_001 + enemy_index,
+                "stable_key": f"goal07.enemy.s12.phase-{enemy_index + 1}",
+                "variant_id": variant,
+                "sequence": 1,
+                "entry_condition_id": condition_always,
+                "exit_condition_id": condition_always,
+                "replacement_priority": 1,
+                "ai_graph_id": graph,
+                "entry_program_id": rebound_entry if enemy_index == 0 else None,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.goal07.enemy-s12.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Per-variant exact or approved derived level values and "
+                "version 4.4 mechanics are committed as Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s12.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed per-variant numeric anchors for Goal 07 S12.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s12.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    for enemy_index, spec in enumerate(enemy_specs):
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": variant_row_ids[enemy_index],
+                "sequence": 2,
+                "fact_key": f"goal07.s12.public-level-stats:{spec['key']}",
+                "source_record_id": SOURCE_RECORD_ID,
+                "evidence_record_id": EVIDENCE_RECORD_ID,
+                "quality": (
+                    "ExactStructured"
+                    if anchor_by_variant[spec["key"]]["accuracy_disposition"]
+                    == "ExactPublic"
+                    else "ApproximateFromReleasedText"
+                ),
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row,
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            )
+        )
+    return rows
+
+
+def owns_partition_range(value: Any) -> bool:
+    return BASE <= int(value) < BASE + 10_000
+
+
+def owns_partition_identity(value: Any) -> bool:
+    id_ = int(value)
+    return owns_partition_range(id_) or (
+        PARTITION == "G07-P5-M15-S12" and id_ in {95, 96, 10_001, 10_002}
+    )
+
+
+def owns_partition_variant(value: Any) -> bool:
+    id_ = int(value)
+    return owns_partition_range(id_) or (
+        PARTITION == "G07-P5-M15-S12" and id_ in {95, 96}
+    )
+
+
+def owns_partition_template(value: Any) -> bool:
+    id_ = int(value)
+    return owns_partition_range(id_) or (
+        PARTITION == "G07-P5-M15-S12" and id_ in {10_001, 10_002}
+    )
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
-    "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
-    "AiCandidate": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "AiGraph": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "AiState": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "AiTransition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "ConditionExpression": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "ContentEvidenceBinding": lambda row: BASE <= int(row["content_id"]) < BASE + 10_000,
-    "ContentIdentity": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "Effect": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "EffectModifierBinding": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
-    "EffectRuleBinding": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
-    "EffectTag": lambda row: BASE <= int(row["effect_id"]) < BASE + 10_000,
-    "EnemyAbility": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "EnemyDebuffResistance": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EnemyPhase": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "EnemyResistance": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EnemyStat": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EnemyTemplate": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "EnemyToughnessLayer": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EnemyVariant": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "EnemyVariantAbility": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EnemyWeakness": lambda row: BASE <= int(row["variant_id"]) < BASE + 10_000,
-    "EventFilter": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "LinkedUnitDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "ModifierDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "ModifierStackingGroup": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "Operation": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "Program": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "ProgramStep": lambda row: BASE <= int(row["program_id"]) < BASE + 10_000,
-    "RuleDefinition": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "RuleTrigger": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "Selector": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
-    "SelectorPredicate": lambda row: BASE <= int(row["selector_id"]) < BASE + 10_000,
-    "ValueExpression": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
+    "Ability": lambda row: owns_partition_range(row["id"]),
+    "AbilityPhase": lambda row: owns_partition_range(row["ability_id"]),
+    "AiCandidate": lambda row: owns_partition_range(row["id"]),
+    "AiGraph": lambda row: owns_partition_range(row["id"]),
+    "AiState": lambda row: owns_partition_range(row["id"]),
+    "AiTransition": lambda row: owns_partition_range(row["id"]),
+    "ConditionExpression": lambda row: owns_partition_range(row["id"]),
+    "ContentEvidenceBinding": lambda row: owns_partition_identity(row["content_id"]),
+    "ContentIdentity": lambda row: owns_partition_identity(row["id"]),
+    "Effect": lambda row: owns_partition_range(row["id"]),
+    "EffectModifierBinding": lambda row: owns_partition_range(row["effect_id"]),
+    "EffectRuleBinding": lambda row: owns_partition_range(row["effect_id"]),
+    "EffectTag": lambda row: owns_partition_range(row["effect_id"]),
+    "EnemyAbility": lambda row: owns_partition_range(row["id"]),
+    "EnemyDebuffResistance": lambda row: owns_partition_variant(row["variant_id"]),
+    "EnemyPhase": lambda row: owns_partition_range(row["id"]),
+    "EnemyResistance": lambda row: owns_partition_variant(row["variant_id"]),
+    "EnemyStat": lambda row: owns_partition_variant(row["variant_id"]),
+    "EnemyTemplate": lambda row: owns_partition_template(row["id"]),
+    "EnemyToughnessLayer": lambda row: owns_partition_variant(row["variant_id"]),
+    "EnemyVariant": lambda row: owns_partition_variant(row["id"]),
+    "EnemyVariantAbility": lambda row: owns_partition_variant(row["variant_id"]),
+    "EnemyWeakness": lambda row: owns_partition_variant(row["variant_id"]),
+    "EventFilter": lambda row: owns_partition_range(row["id"]),
+    "LinkedUnitDefinition": lambda row: owns_partition_range(row["id"]),
+    "ModifierDefinition": lambda row: owns_partition_range(row["id"]),
+    "ModifierStackingGroup": lambda row: owns_partition_range(row["id"]),
+    "Operation": lambda row: owns_partition_range(row["id"]),
+    "Program": lambda row: owns_partition_range(row["id"]),
+    "ProgramStep": lambda row: owns_partition_range(row["program_id"]),
+    "RuleDefinition": lambda row: owns_partition_range(row["id"]),
+    "RuleTrigger": lambda row: owns_partition_range(row["id"]),
+    "Selector": lambda row: owns_partition_range(row["id"]),
+    "SelectorPredicate": lambda row: owns_partition_range(row["selector_id"]),
+    "ValueExpression": lambda row: owns_partition_range(row["id"]),
     "SourceRecord": lambda row: int(row["id"]) == SOURCE_RECORD_ID,
     "EvidenceRecord": lambda row: int(row["id"]) == EVIDENCE_RECORD_ID,
 }
@@ -14803,13 +16021,13 @@ def build_golden(expected: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
     return {
         "schema_revision": "starclock.goal07-enemy-partition-golden.v1",
         "partition_id": PARTITION,
-        "enemy_variant_ids": [VARIANT_KEY],
+        "enemy_variant_ids": VARIANT_KEYS,
         "tables": tables,
     }
 
 
 def main() -> None:
-    global BASE, EVIDENCE_RECORD_ID, PARTITION, SOURCE_RECORD_ID, VARIANT_KEY
+    global BASE, EVIDENCE_RECORD_ID, PARTITION, SOURCE_RECORD_ID, VARIANT_KEY, VARIANT_KEYS
     parser = argparse.ArgumentParser()
     parser.add_argument("--partition", required=True)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -14823,6 +16041,7 @@ def main() -> None:
     partition_config = PARTITION_CONFIG[PARTITION]
     BASE = partition_config["base"]
     VARIANT_KEY = partition_config["variant"]
+    VARIANT_KEYS = partition_config.get("variants", [VARIANT_KEY])
     SOURCE_RECORD_ID = partition_config["source_record_id"]
     EVIDENCE_RECORD_ID = partition_config["evidence_record_id"]
     expected = {
@@ -14837,6 +16056,7 @@ def main() -> None:
         "G07-P5-M15-S09": owned_rows_s09,
         "G07-P5-M15-S10": owned_rows_s10,
         "G07-P5-M15-S11": owned_rows_s11,
+        "G07-P5-M15-S12": owned_rows_s12,
     }[PARTITION]()
     golden_path = (
         ROOT

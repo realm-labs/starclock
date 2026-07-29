@@ -162,6 +162,49 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S12": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+      "enemy.abundance-sprite-golden-hound.minionlv2",
+      "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+      "enemy.abundance-sprite-malefic-ape-bug.elite",
+      "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+      "enemy.abundance-sprite-malefic-ape.elite",
+      "enemy.abundance-sprite-wooden-lupus.minionlv2.variant.01",
+      "enemy.abundance-sprite-wooden-lupus.minionlv2",
+      "enemy.antibaryon.minion.variant.01",
+      "enemy.antibaryon.minion",
+      "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+      "enemy.aurumaton-gatekeeper-bug.elite",
+      "enemy.aurumaton-gatekeeper.elite.variant.01",
+      "enemy.aurumaton-gatekeeper.elite",
+      "enemy.aurumaton-spectral-envoy.elite.variant.01",
+      "enemy.aurumaton-spectral-envoy.elite",
+      "enemy.automaton-beetle.minionlv2.variant.01",
+      "enemy.automaton-beetle.minionlv2",
+      "enemy.automaton-direwolf.elite.variant.01",
+      "enemy.automaton-direwolf.elite",
+      "enemy.automaton-grizzly.elite.variant.01",
+      "enemy.automaton-grizzly.elite",
+      "enemy.automaton-hound.minionlv2.variant.01",
+      "enemy.automaton-hound.minionlv2",
+      "ai.goal07.enemy-s12.1",
+      "ai.goal07.enemy-s12.2",
+      "ai.goal07.enemy-s12.3",
+      "ai.goal07.enemy-s12.4",
+      "ai.goal07.enemy-s12.5",
+      "ai.goal07.enemy-s12.6",
+      "ai.goal07.enemy-s12.7",
+      "ai.goal07.enemy-s12.8",
+      "ai.goal07.enemy-s12.9",
+      "ai.goal07.enemy-s12.10",
+      "ai.goal07.enemy-s12.11",
+      "ai.goal07.enemy-s12.12",
+      "unit.goal07.s12.aurumaton-gatekeeper.illumination-dragonfish-1",
+      "unit.goal07.s12.aurumaton-gatekeeper.illumination-dragonfish-2",
+    ],
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -174,14 +217,17 @@ const audit = json(
 );
 const partition = manifest.partitions.find(({ id }) => id === partitionId);
 assert(partition, `${partitionId}: partition is absent from the frozen manifest`);
-const planned = audit.enemy_variants.find(
-  ({ id }) => id === partition.enemy_variant_ids[0],
-);
-assert(planned, `${partitionId}: enemy variant is absent from the retained audit`);
+const plannedVariants = partition.enemy_variant_ids.map((id) => {
+  const planned = audit.enemy_variants.find((entry) => entry.id === id);
+  assert(planned, `${partitionId}: enemy variant ${id} is absent from the retained audit`);
+  return planned;
+});
+const planned = plannedVariants[0];
 
 const golden = `${goalRoot}/goldens/${partitionId}.json`;
 const sourceReview = `${goalRoot}/source-reviews/${partitionId}.json`;
 const numericAnchor = `${goalRoot}/sources/${partitionId}-numeric-anchors.json`;
+const sourceReviewDocument = json(sourceReview);
 const executionEvidence = [
   { path: "config/schema/enemy.toml" },
   { path: "config/schema/expression.toml" },
@@ -304,6 +350,13 @@ if (partitionId === "G07-P5-M15-S11") {
     { path: "crates/starclock-mode-universe/tests/battle_materialization/svarog_s11.rs" },
   );
 }
+if (partitionId === "G07-P5-M15-S12") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/standard_v1.rs" },
+    { path: "crates/starclock-mode-universe/src/catalog.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs" },
+  );
+}
 const provenanceEvidence = [
   { path: "content-reference/v4.4/enemy-abilities.json" },
   { path: "content-reference/v4.4/enemy-templates.json" },
@@ -316,6 +369,7 @@ if (
   partitionId === "G07-P5-M15-S04"
   || partitionId === "G07-P5-M15-S07"
   || partitionId === "G07-P5-M15-S08"
+  || partitionId === "G07-P5-M15-S12"
 ) {
   provenanceEvidence.push(
     { path: "content-reference/standard-universe-v1/encounter-groups.json" },
@@ -385,6 +439,17 @@ const encounterScope = {
     memberId: "universe.encounter-member.108",
   },
 }[partitionId];
+const universeWorkbookEvidence = [
+  { path: "config/data/Universe.xlsx" },
+  { path: "config/data/UniverseBindings.xlsx" },
+];
+const encounterGroupEvidence = [
+  { path: "content-reference/standard-universe-v1/encounter-groups.json" },
+];
+const s12 = partitionId === "G07-P5-M15-S12";
+const s12VariantReviews = new Map(
+  (sourceReviewDocument.variants ?? []).map((entry) => [entry.enemy_variant_id, entry]),
+);
 
 const receipt = {
   schema_revision: "starclock.goal07-content-partition-receipt.v1",
@@ -403,23 +468,65 @@ const receipt = {
     sora_bundle: evidence("config/generated/config.sora"),
     sora_golden: evidence(golden),
   },
-  records: encounterScope ? [
+  records: s12 ? partition.record_ids.map((id) => {
+    const entry = audit.records.find((candidate) => candidate.id === id);
+    assert(entry, `${partitionId}: record ${id} is absent from the retained audit`);
+    return {
+      id,
+      runtime_disposition: entry.intended_runtime_disposition,
+      accuracy_disposition: entry.intended_accuracy_disposition,
+      workbook_evidence: universeWorkbookEvidence,
+      provenance_evidence: encounterGroupEvidence,
+    };
+  }) : encounterScope ? [
     {
       id: encounterScope.recordId,
       runtime_disposition: "Metadata",
       accuracy_disposition: "NotApplicable",
-      workbook_evidence: [
-        { path: "config/data/Universe.xlsx" },
-        { path: "config/data/UniverseBindings.xlsx" },
-      ],
-      provenance_evidence: [
-        { path: "content-reference/standard-universe-v1/encounter-groups.json" },
-      ],
+      workbook_evidence: universeWorkbookEvidence,
+      provenance_evidence: encounterGroupEvidence,
     },
   ] : [],
   rules: [],
-  fixtures: [],
-  enemy_variants: [
+  fixtures: s12 ? partition.fixture_ids.map((id) => {
+    const entry = audit.fixtures.find((candidate) => candidate.id === id);
+    assert(entry, `${partitionId}: fixture ${id} is absent from the retained audit`);
+    return {
+      id,
+      runtime_disposition: entry.intended_runtime_disposition,
+      accuracy_disposition: entry.intended_accuracy_disposition,
+      workbook_evidence: universeWorkbookEvidence,
+      provenance_evidence: encounterGroupEvidence,
+      execution_kind: "RustTest",
+      test_path:
+        "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs",
+      test_marker:
+        "ordinary_enemy_batch_s12_materializes_all_frozen_variants_and_level_rows",
+    };
+  }) : [],
+  enemy_variants: s12 ? plannedVariants.map((entry, index) => {
+    const review = s12VariantReviews.get(entry.id);
+    assert(review, `${partitionId}: source review for ${entry.id} is absent`);
+    return {
+      id: entry.id,
+      runtime_disposition: entry.intended_runtime_disposition,
+      accuracy_disposition: entry.intended_accuracy_disposition,
+      workbook_evidence: workbookEvidence,
+      provenance_evidence: provenanceEvidence,
+      implementation_kind: "SharedRuleIrAndEnemyLifecycle",
+      definition_keys: [
+        entry.id,
+        entry.id.replace(".variant.01", ""),
+        `ai.goal07.enemy-s12.${index + 1}`,
+      ],
+      numeric_policy_id: review.numeric_policy_id,
+      numeric_review: {
+        path: sourceReview,
+        status: "ApprovedPerVariantInputs",
+      },
+      execution_evidence: executionEvidence,
+    };
+  }) : [
     {
       id: planned.id,
       runtime_disposition: planned.intended_runtime_disposition,
@@ -436,15 +543,25 @@ const receipt = {
       execution_evidence: executionEvidence,
     },
   ],
-  encounter_members: encounterScope ? [
+  encounter_members: s12 ? partition.encounter_member_ids.map((id) => {
+    const entry = audit.encounter_members.find((candidate) => candidate.id === id);
+    assert(entry, `${partitionId}: encounter member ${id} is absent from retained audit`);
+    return {
+      id,
+      runtime_disposition: entry.intended_runtime_disposition,
+      accuracy_disposition: entry.intended_accuracy_disposition,
+      workbook_evidence: universeWorkbookEvidence,
+      provenance_evidence: [
+        ...encounterGroupEvidence,
+        { path: "content-reference/v4.4/enemy-variants.json" },
+      ],
+    };
+  }) : encounterScope ? [
     {
       id: encounterScope.memberId,
       runtime_disposition: "ExecutableShared",
       accuracy_disposition: "ExactPublic",
-      workbook_evidence: [
-        { path: "config/data/Universe.xlsx" },
-        { path: "config/data/UniverseBindings.xlsx" },
-      ],
+      workbook_evidence: universeWorkbookEvidence,
       provenance_evidence: [
         { path: "content-reference/standard-universe-v1/encounter-groups.json" },
         { path: "content-reference/v4.4/enemy-variants.json" },

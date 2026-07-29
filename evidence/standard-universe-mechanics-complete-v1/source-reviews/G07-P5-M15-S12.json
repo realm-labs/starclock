@@ -1,0 +1,259 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v2",
+  "partition_id": "G07-P5-M15-S12",
+  "reviewed_on": "2026-07-29",
+  "mechanism_target": "ExactPublic",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "numeric_policy_ids": [
+    "goal07-exact-public-per-level-v1",
+    "goal07-normalized-template-level-curve-v1"
+  ],
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.abundance-sprite-golden-hound.minionlv2.variant.01",
+      "source_monster_id": "2022040",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "authored_levels": [
+        47,
+        51,
+        52,
+        54,
+        57
+      ],
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Abundance_Sprite%3A_Golden_Hound",
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.abundance-sprite-malefic-ape-bug.elite.variant.01",
+      "source_monster_id": "2023021",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        47,
+        53,
+        69,
+        78,
+        87
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.abundance-sprite-malefic-ape.elite.variant.01",
+      "source_monster_id": "2023020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        50,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.abundance-sprite-wooden-lupus.minionlv2.variant.01",
+      "source_monster_id": "2022050",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        47,
+        51,
+        52,
+        54,
+        57
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.antibaryon.minion.variant.01",
+      "source_monster_id": "8011020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        7,
+        21,
+        22,
+        24,
+        25,
+        51,
+        54
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.aurumaton-gatekeeper-bug.elite.variant.01",
+      "source_monster_id": "2013011",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        53,
+        69,
+        78,
+        87
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.aurumaton-gatekeeper.elite.variant.01",
+      "source_monster_id": "2013010",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "authored_levels": [
+        49,
+        50,
+        66,
+        75,
+        84
+      ],
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Aurumaton_Gatekeeper",
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.aurumaton-spectral-envoy.elite.variant.01",
+      "source_monster_id": "2013020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        50,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.automaton-beetle.minionlv2.variant.01",
+      "source_monster_id": "1012030",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        31,
+        34,
+        37,
+        54
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.automaton-direwolf.elite.variant.01",
+      "source_monster_id": "1013020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        29,
+        44,
+        61,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.automaton-grizzly.elite.variant.01",
+      "source_monster_id": "1013010",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        36,
+        61,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    },
+    {
+      "enemy_variant_id": "enemy.automaton-hound.minionlv2.variant.01",
+      "source_monster_id": "1012010",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        31,
+        32,
+        44,
+        51,
+        57
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "numeric_evidence_sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8"
+    }
+  ],
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source skill identifiers, target hints, elements, ratios, operation tags"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "rank, base HP, base SPD, toughness, effect resistance, retained AI sequence"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "weaknesses, resistances, debuff resistances, summon references"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "all frozen Standard Universe elite difficulty levels"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/encounter-groups.json",
+      "sha256": "f5aab75d59678aab90f146b8d11881450e9b682a329c20477d52d2f2d4d23001",
+      "facts": [
+        "37 frozen encounter groups, 47 members, hard level group 2"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S12-numeric-anchors.json",
+      "sha256": "30e9da848659c264b4cd88dbefb5184f6cef8dbcfb0da28b96366c8ff23dc2d8",
+      "facts": [
+        "exact-public Golden Hound and Aurumaton Gatekeeper rows",
+        "approved normalized template curve for ten inherited approximate variants"
+      ]
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "All twelve frozen variants materialize through production EnemyDefinition, EnemyStat, EnemyPhase, EnemyAbility and AI graph rows.",
+    "Every frozen encounter and difficulty level has a corresponding authored EnemyStat row.",
+    "Damage ratios, elements, target patterns, weaknesses, resistances and toughness are transcribed from the committed version 4.4 extraction.",
+    "Golden Hound retains its killing-blow ally action-advance talent through phase-entry effect and shared Rule IR.",
+    "Aurumaton Gatekeeper retains Dread, Restraint and Enchainment, including Weaken and Imprisonment effects and a source-ordered sanction action cycle.",
+    "The ten inherited approximate variants use the named normalized template curve while preserving executable source-ordered mechanics.",
+    "No native handler is introduced."
+  ]
+}
