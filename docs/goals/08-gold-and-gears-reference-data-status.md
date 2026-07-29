@@ -7,7 +7,7 @@
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
-| Active batch | `G08-P1-B4` |
+| Active batch | `G08-P1-B5` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -22,7 +22,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 7,906 obligations, 51 normalized files, four workbook families and 18 fixture families are machine-frozen. |
-| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants and all 124 Custom Dice definition/selected-Path obligations are DataReady; Dice faces and later unique systems remain. |
+| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants, Custom Dice definitions and all 96 slot/face/filter-tag obligations are DataReady; Knowledge and later unique systems remain. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -38,8 +38,8 @@
 | `G08-P1-B1` | `Complete` | This row's containing commit | Generated and rechecked 14 normalized files with 10,044 rows (`518e26d4…7c4b`): four profile/entry rows, eight areas, 16 difficulty segments, eight planes, 115 boards, 1,313 columns, 2,502 nodes, 3,407 explicitly `ProjectPolicy` edges, 332 map events, 1,091 block-create rules, 1,224 rooms, 12 domains, six beacons and six resolved MonsterConfig boss identities. Every row is bilingual, DataReady, ownership-scoped and carries ordered provenance; all cross-references and exact-once manifest obligations close. Focused and quick gates pass; the deferred full gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B2` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 55 rows (`68debc2b…22dd`, 191,063 bytes): 13 inclusive area Cognition ranges, 20 mechanical Secret conditions and all 22 common constants. Exact thresholds, global-default bounds, three-layer forward Secret graph, predecessor frontier, source trigger hashes and constant encodings close exactly once against the manifest; excluded story prose is absent. Released text separately supports evaluation after the current-plane boss, while adjustment, global/area clamp, carry, reset and deterministic tie ordering remain a named, replaceable `cognition-lifecycle-v1` `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B3` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 124 rows (`c12fe379…20398`, 214,583 bytes): four bilingual categories, 12 complete Custom Dice definitions and the exact 12×9 matrix of 108 selected-Path boost bindings. Each dice definition retains its initial/passive/Path-trigger templates and canonical source parameters, unlock ID, presentation locators, default six-face loadout, six suggested faces and full recommendation list. All referenced face IDs resolve against the frozen 80-face table; every inherited Goal 03 Path stable ID resolves, typed boost stat and source-ratio/percent formatting are explicit, and the manifest closes exactly once. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
-| `G08-P1-B4` | `InProgress` | — | Importing slots, faces, tags, loadouts, rerolls, cheats and face effects. |
-| `G08-P1-B5` | `Pending` | — | Import Knowledge and deterministic graph/movement/countdown interactions. |
+| `G08-P1-B4` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 96 rows (`77051119…ef356`, 318,069 bytes): six rarity-constrained slots, all 80 bilingual mechanical face templates and ten released filter tags. Face parameters, activation stages, branch eligibility, slot eligibility, unlock/display locators and internal mechanical codes close exactly once; all 12 prior default six-face loadouts satisfy base rarity, slot and branch constraints. Three faces explicitly specify no effect when no legal Curio target exists; all other no-target behavior remains `Unspecified`. Data Inflation's released per-plane cheat, post-move reroll and non-expiring General Buff wording is preserved and checked. Because released numeric filter tags and mechanical string codes have no explicit join, their semantic one-to-one mapping is a named replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
+| `G08-P1-B5` | `InProgress` | — | Importing Knowledge and deterministic graph/movement/countdown interactions. |
 | `G08-P1-B6` | `Pending` | — | Import the mechanically relevant Neural Network graph, costs and effects. |
 | `G08-P1-B7` | `Pending` | — | Import Stats/Auxiliary Conundrum levels, composition and combat changes. |
 | `G08-P1-B8` | `Pending` | — | Import bonuses `201`–`205`, Path/Resonance additions and Resonance Extrapolations. |
@@ -72,7 +72,7 @@ Do not estimate denominators from Wiki page counts.
 | Planes/map nodes/edges/rooms/domains | 6,612 | 6,612 | 6,612 | All exact parent obligations are DataReady; 3,407 derived edges remain explicitly ProjectPolicy and are audited outside the source denominator. |
 | Cognition/Intra-Cognition/Secret conditions | 55 | 55 | 55 | Thirteen area ranges, 20 mechanical Secret conditions and 22 common constants are DataReady; story prose remains excluded and lifecycle ordering is explicitly ProjectPolicy. |
 | Custom Dice/categories/passives | 124 | 124 | 124 | Four categories, 12 dice and all 108 dice/selected-Path value bindings are DataReady. |
-| Dice slots/faces/tags/loadouts | 96 | 0 | 0 | Six slots, 80 faces and ten face tags; six-face loadout validation belongs to B4. |
+| Dice slots/faces/tags/loadouts | 96 | 96 | 96 | Six slots, all 80 faces and ten filter tags are DataReady; all 12 default six-face loadouts validate. |
 | Knowledge rules | 15 | 0 | 0 | Fifteen released dice faces carry the structured `Mark`/Knowledge binding. |
 | Neural Network nodes/effects | 40 | 0 | 0 | All 40 source nodes are obligations; downstream classification excludes reward-only fields. |
 | Conundrum definitions/levels | 12 | 0 | 0 | Six Attribute and six Additional difficulty definitions. |
@@ -100,6 +100,7 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Treat `RogueDLC*` as a shared framework and grant Gold reachability only through `ChessRogueNous`, transitive references or inherited shared stable IDs. | Gold and Gears uses shared DLC area, difficulty, layer and chessboard tables; a prefix-only Swarm classification is incorrect. |
 | 2026-07-29 | Use `forward-nearest-column-within-one-row-v1` only as a named `ProjectPolicy` for chessboard edges. | Released configs expose coordinates but no explicit edge list; the policy is deterministic, fail-closed and replaceable when exact engine evidence is available. |
 | 2026-07-29 | Keep Cognition thresholds exact while labeling adjustment, clamp, carry, reset and tie ordering as `cognition-lifecycle-v1` `ProjectPolicy`. | Structured rows prove ranges and the Secret graph, and released text supports the plane-boss evaluation boundary, but the complete engine operation order is not released. |
+| 2026-07-29 | Join numeric face filter tags to mechanical string codes through a replaceable semantic `ProjectPolicy`. | The two released tables expose matching concepts but no explicit numeric-to-code relation; keeping both raw identities plus a labeled join avoids silently treating inference as exact. |
 
 ## Research cases
 
@@ -107,7 +108,7 @@ Do not estimate denominators from Wiki page counts.
 |---|---|---|---|
 | `G08-R01` | `Closed` | File closure is 2,649 pinned Dimbreath inputs plus nine bilingual StarRailRes indexes; row-level shared reachability remains deliberately assigned to `G08-R02`/P0-B3. | P0-B2 |
 | `G08-R02` | `Closed` | The 7,906-record manifest grants reachability only through `RogueNous`, explicit `ChessRogueNous`, transitive references or inherited Goal 03 stable IDs; all other rows fail closed. | P0-B3 |
-| `G08-R03` | `Open` | What are the exact dice-face target ordering, duration, reroll/cheat and no-legal-target semantics? | P1-B4 |
+| `G08-R03` | `PartiallyBound` | All face templates, parameters, eligibility, activation stages and Data Inflation reroll/cheat wording are exact; three Curio faces explicitly no-op without legal targets. Generic multi-target ordering, duration application order and remaining no-legal-target behavior still require pinned engine evidence. | P1-B4 / P4-B2 |
 | `G08-R04` | `PolicyBound` | Plane-boss evaluation is publicly supported; adjustment, global/area clamp, carry, reset, frontier and tie ordering use replaceable `cognition-lifecycle-v1` until pinned engine evidence proves the exact sequence. | P1-B2 / P4-B2 |
 | `G08-R05` | `Open` | How are Knowledge placement, propagation, countdown recovery and graph mutation ordered when multiple effects coincide? | P1-B5 |
 | `G08-R06` | `Open` | What are the exact Conundrum level modifiers, stacking/composition rules, caps and Berserk timing changes? | P1-B7 |

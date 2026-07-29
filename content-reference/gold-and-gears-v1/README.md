@@ -26,6 +26,13 @@ node tools/gold-and-gears-reference/import-dice-definitions.mjs
 node tools/gold-and-gears-reference/verify-dice-definitions.mjs
 ```
 
+Phase 1 Dice slot, face and filter-tag files regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-dice-faces.mjs
+node tools/gold-and-gears-reference/verify-dice-faces.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
