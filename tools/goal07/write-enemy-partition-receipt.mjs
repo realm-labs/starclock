@@ -109,6 +109,15 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S08": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.ice-out-of-space.elite.variant.01",
+      "enemy.ice-out-of-space.elite",
+      "ai.goal07.ice-out-of-space.phase-1",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -206,6 +215,17 @@ if (partitionId === "G07-P5-M15-S07") {
     { path: "crates/starclock-mode-universe/tests/battle_materialization/gepard_s07.rs" },
   );
 }
+if (partitionId === "G07-P5-M15-S08") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-combat/src/resolver/toughness.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/ice_out_of_space_s08.rs" },
+  );
+}
 const provenanceEvidence = [
   { path: "content-reference/v4.4/enemy-abilities.json" },
   { path: "content-reference/v4.4/enemy-templates.json" },
@@ -214,7 +234,11 @@ const provenanceEvidence = [
   evidence(numericAnchor),
   evidence(sourceReview),
 ];
-if (partitionId === "G07-P5-M15-S04" || partitionId === "G07-P5-M15-S07") {
+if (
+  partitionId === "G07-P5-M15-S04"
+  || partitionId === "G07-P5-M15-S07"
+  || partitionId === "G07-P5-M15-S08"
+) {
   provenanceEvidence.push(
     { path: "content-reference/standard-universe-v1/encounter-groups.json" },
   );
@@ -277,6 +301,10 @@ const encounterScope = {
   "G07-P5-M15-S07": {
     recordId: "universe.encounter-group.13901",
     memberId: "universe.encounter-member.107",
+  },
+  "G07-P5-M15-S08": {
+    recordId: "universe.encounter-group.19001",
+    memberId: "universe.encounter-member.108",
   },
 }[partitionId];
 

@@ -517,6 +517,47 @@
             "String": "goal07.enemy.s07.trigger.tit-for-tat"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1050542
+          },
+          "id": {
+            "Integer": 1050543
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1050305
+          },
+          "rule_id": {
+            "Integer": 1050541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.trigger.weakness-break-reset"
+          }
+        }
       }
     ]
   }

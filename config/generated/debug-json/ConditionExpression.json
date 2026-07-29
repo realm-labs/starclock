@@ -484,6 +484,52 @@
             "String": "goal07.enemy.s07.condition.unshielded"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1050551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1050552
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1051108
+              },
+              "right_expression_id": {
+                "Integer": 1051107
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.condition.reset"
+          }
+        }
       }
     ]
   }

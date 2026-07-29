@@ -3,7 +3,8 @@
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
 of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
-Cocolia (Complete), and S07 owns Gepard (Complete). Each
+Cocolia (Complete), S07 owns Gepard (Complete), and S08 owns Ice Out of
+Space. Each
 partition receives an isolated 10,000-ID range so authoring and verification
 never consume rows owned by another partition.
 """
@@ -71,6 +72,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.gepard-complete.littleboss.variant.01",
         "source_record_id": 9,
         "evidence_record_id": 10,
+    },
+    "G07-P5-M15-S08": {
+        "base": 1_050_000,
+        "variant": "enemy.ice-out-of-space.elite.variant.01",
+        "source_record_id": 10,
+        "evidence_record_id": 11,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -9506,6 +9513,712 @@ def owned_rows_s07() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s08() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S08 frozen enemy assignment changed")
+
+    variant, template, graph = BASE + 1, BASE + 2, BASE + 10
+    abilities = {
+        "lament": BASE + 101,
+        "absorption": BASE + 102,
+        "rain": BASE + 103,
+        "enhanced-lament": BASE + 104,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "primary": BASE + 403,
+        "all-opposing": BASE + 404,
+        "frozen-primary": BASE + 405,
+    }
+    effects = {
+        "freeze": BASE + 501,
+        "freezing-point": BASE + 502,
+        "reset": BASE + 503,
+    }
+    conditions = {"always": BASE + 551, "reset": BASE + 552}
+    reset_rule, reset_filter, reset_trigger = BASE + 541, BASE + 542, BASE + 543
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program, next_operation, next_expression = BASE + 301, BASE + 1_001, BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def ident(
+        id_: int,
+        key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S08 来源绑定的外宇宙之冰可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            ident(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Ice Out of Space",
+                "外宇宙之冰",
+                "Exact materialization variant used by frozen universe bindings.",
+                "1|10",
+            ),
+            ident(
+                template,
+                "enemy.ice-out-of-space.elite",
+                "Enemy",
+                "Ice Out of Space Template",
+                "外宇宙之冰模板",
+                "Version 4.4 elite template retained from source monster 8003010.",
+            ),
+            ident(
+                graph,
+                "ai.goal07.ice-out-of-space.phase-1",
+                "AiGraph",
+                "Ice Out of Space AI",
+                "外宇宙之冰AI",
+                "Source-ordered setup, enhanced attack and break-reset graph.",
+            ),
+        ]
+    )
+    ability_metadata = {
+        "lament": ("Chilling Lament", "叹息之寒", "800301001"),
+        "absorption": ("Frosty Absorption", "汲取霜晶", "800301002"),
+        "rain": ("Everwinter Rain", "永冬之雨", "800301003"),
+        "enhanced-lament": ("Chilling Lament (Enhanced)", "叹息之寒·强化", "800301004"),
+    }
+    for key, id_ in abilities.items():
+        name_en, name_zh_cn, source = ability_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"enemy.ice-out-of-space.elite.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill {source}.",
+            )
+        )
+    for key, id_ in selectors.items():
+        identities.append(
+            ident(
+                id_,
+                f"selector.goal07.ice-out-of-space.{key}",
+                "Selector",
+                f"Ice Out of Space {key} Selector",
+                f"外宇宙之冰{key}选择器",
+                "S08 battle selector.",
+            )
+        )
+    for key, id_, name_en, name_zh_cn, summary in [
+        ("freeze", effects["freeze"], "Ice Out of Space Freeze", "外宇宙之冰冻结", "One-turn control with delayed Ice damage."),
+        ("freezing-point", effects["freezing-point"], "Freezing Point", "冰点", "Enhanced mode removed only by Weakness Break."),
+        ("reset", effects["reset"], "Freezing Point Reset", "冰点重置", "Internal AI reset marker."),
+    ]:
+        identities.append(
+            ident(
+                id_,
+                f"effect.goal07.ice-out-of-space.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    identities.append(
+        ident(
+            reset_rule,
+            "rule.goal07.ice-out-of-space.weakness-break-reset",
+            "Rule",
+            "Ice Out of Space Weakness Break Reset",
+            "外宇宙之冰弱点击破重置",
+            "WeaknessBroken removes Freezing Point and restarts setup.",
+        )
+    )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["primary"], "PrimaryTarget", "OpposingSide"))
+    add(
+        "Selector",
+        selector(
+            selectors["all-opposing"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["frozen-primary"],
+            "PrimaryTarget",
+            "OpposingSide",
+            minimum=0,
+            maximum=1,
+            empty="NoOp",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["frozen-primary"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["freeze"]),
+        },
+    )
+
+    def expression(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s08.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def product(name: str, left: int, right: int) -> int:
+        return expression(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expression(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratios = {
+        "two-point-five": expression("ratio-2-5", "Scalar", json_cell("ScalarLiteral", value_decimal="2.5")),
+        "two": expression("ratio-2", "Scalar", json_cell("ScalarLiteral", value_decimal="2")),
+        "one": expression("ratio-1", "Scalar", json_cell("ScalarLiteral", value_decimal="1")),
+        "six-tenths": expression("ratio-0-6", "Scalar", json_cell("ScalarLiteral", value_decimal="0.6")),
+    }
+    integer_one = expression("integer-one", "Integer", json_cell("IntegerLiteral", value=1))
+    integer_zero = expression("integer-zero", "Integer", json_cell("IntegerLiteral", value=0))
+    reset_stacks = expression(
+        "reset-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["actor"],
+            effect_id=effects["reset"],
+        ),
+    )
+    damage = {
+        "lament": product("lament-damage", actor_atk, ratios["two-point-five"]),
+        "extra": product("lament-extra-damage", actor_atk, ratios["one"]),
+        "rain": product("rain-damage", actor_atk, ratios["two"]),
+        "freeze": product("freeze-delayed-damage", actor_atk, ratios["one"]),
+    }
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s08.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["reset"],
+            "stable_key": "goal07.enemy.s08.condition.reset",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=reset_stacks,
+                comparison="Greater",
+                right_expression_id=integer_zero,
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s08.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def op_step(id_: int) -> str:
+        return json_cell("Operation", operation_id=id_)
+
+    def damage_op(name: str, amount: int, target: int, empty: str = "Fault") -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Ice",
+                can_crit=True,
+            ),
+            target,
+            empty,
+        )
+
+    def apply_op(
+        name: str,
+        effect: int,
+        target: int,
+        chance: int | None = None,
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=None,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+        )
+
+    def remove_op(name: str, effect: int, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell("RemoveEffect", effect_id=effect),
+            target,
+            "NoOp",
+        )
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            ident(
+                id_,
+                f"program.goal07.ice-out-of-space.{name}",
+                "Program",
+                f"Ice Out of Space {name} Program",
+                f"外宇宙之冰{name}程序",
+                "Ordered Rule IR program for the S08 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add("ProgramStep", {"program_id": id_, "sequence": sequence, "step": step})
+        return id_
+
+    ability_programs = {
+        abilities["lament"]: make_program(
+            "lament",
+            [op_step(damage_op("lament-damage", damage["lament"], selectors["primary"]))],
+        ),
+        abilities["absorption"]: make_program(
+            "absorption",
+            [
+                op_step(apply_op("absorption-freezing-point", effects["freezing-point"], selectors["actor"])),
+                op_step(remove_op("absorption-clear-reset", effects["reset"], selectors["actor"])),
+            ],
+        ),
+        abilities["rain"]: make_program(
+            "rain",
+            [
+                op_step(damage_op("rain-damage", damage["rain"], selectors["all-opposing"])),
+                op_step(apply_op("rain-freeze", effects["freeze"], selectors["all-opposing"], ratios["six-tenths"])),
+            ],
+        ),
+        abilities["enhanced-lament"]: make_program(
+            "enhanced-lament",
+            [
+                op_step(damage_op("enhanced-lament-damage", damage["lament"], selectors["primary"])),
+                op_step(damage_op("enhanced-lament-frozen-extra", damage["extra"], selectors["frozen-primary"], "NoOp")),
+            ],
+        ),
+    }
+    reset_program = make_program(
+        "weakness-break-reset",
+        [
+            op_step(remove_op("weakness-break-clear-freezing-point", effects["freezing-point"], selectors["owner"])),
+            op_step(apply_op("weakness-break-mark-reset", effects["reset"], selectors["owner"])),
+        ],
+    )
+
+    patterns = {
+        "lament": "SingleTarget",
+        "absorption": "None",
+        "rain": "Aoe",
+        "enhanced-lament": "SingleTarget",
+    }
+    for key, id_ in abilities.items():
+        add(
+            "Ability",
+            {
+                "id": id_,
+                "kind": "Skill",
+                "target_pattern": patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": 5 if patterns[key] != "None" else 4,
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": id_,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[id_],
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": id_,
+                "telegraph": "None",
+                "cooldown_actions": 1,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 0,
+                "ai_tag": key,
+            },
+        )
+
+    effect_rows = {
+        "freeze": ("Control", "CleanseableControl", 1, integer_one, "TargetTurnStart", "TurnStart", "Refresh", damage["freeze"], "Ice"),
+        "freezing-point": ("NeutralState", "NonDispellable", 1, None, "Permanent", "None", "Replace", None, None),
+        "reset": ("NeutralState", "NonDispellable", 1, None, "Permanent", "None", "Replace", None, None),
+    }
+    for key, id_ in effects.items():
+        category, dispel, limit, duration, clock, tick, policy, magnitude, dot = effect_rows[key]
+        add(
+            "Effect",
+            {
+                "id": id_,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": tick,
+                "stack_policy": policy,
+                "magnitude_comparator_expression_id": magnitude,
+                "dot_element": dot,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for key, tags in {
+        "freeze": ["freeze", "blocks-normal-action"],
+        "freezing-point": ["freezing-point", "remove-on-weakness-break"],
+        "reset": ["internal-ai-reset"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add("EffectTag", {"effect_id": effects[key], "sequence": sequence, "tag": tag})
+
+    add(
+        "RuleDefinition",
+        {
+            "id": reset_rule,
+            "domain": "Battle",
+            "source_definition_identity_id": effects["freezing-point"],
+            "source_class": "Effect",
+            "source_digest_sha256": sha256_text("goal07-s08-freezing-point-break-reset-v1"),
+        },
+    )
+    add(
+        "EventFilter",
+        {
+            "id": reset_filter,
+            "stable_key": "goal07.enemy.s08.filter.weakness-break-owner",
+            "target_selector_id": selectors["owner"],
+            "cause_ancestry": "Any",
+        },
+    )
+    add(
+        "RuleTrigger",
+        {
+            "id": reset_trigger,
+            "stable_key": "goal07.enemy.s08.trigger.weakness-break-reset",
+            "rule_id": reset_rule,
+            "sequence": 1,
+            "event": json_cell("WeaknessBroken"),
+            "phase": "AfterEvent",
+            "filter_id": reset_filter,
+            "condition_id": conditions["always"],
+            "once_scope": "Event",
+            "priority": 0,
+            "program_id": reset_program,
+        },
+    )
+    add(
+        "EffectRuleBinding",
+        {"effect_id": effects["freezing-point"], "sequence": 1, "rule_id": reset_rule},
+    )
+
+    states = {
+        "initial-lament": BASE + 701,
+        "initial-absorption": BASE + 702,
+        "rain": BASE + 703,
+        "enhanced-lament": BASE + 704,
+        "reset-absorption": BASE + 705,
+    }
+    add(
+        "AiGraph",
+        {"id": graph, "initial_state_id": states["initial-lament"], "automatic_transition_budget": 8},
+    )
+    state_abilities = {
+        "initial-lament": abilities["lament"],
+        "initial-absorption": abilities["absorption"],
+        "rain": abilities["rain"],
+        "enhanced-lament": abilities["enhanced-lament"],
+        "reset-absorption": abilities["absorption"],
+    }
+    targets = {
+        abilities["lament"]: selectors["primary"],
+        abilities["absorption"]: selectors["actor"],
+        abilities["rain"]: selectors["all-opposing"],
+        abilities["enhanced-lament"]: selectors["primary"],
+    }
+    next_candidate = BASE + 801
+    for name, state_id in states.items():
+        add(
+            "AiState",
+            {
+                "id": state_id,
+                "stable_key": f"goal07.enemy.s08.ai.{name}",
+                "graph_id": graph,
+                "mandatory_fallback_ability_id": abilities["lament"],
+                "turn_counter_reset": name == "initial-lament",
+            },
+        )
+        sequence = 1
+        if name in {"rain", "enhanced-lament"}:
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": f"goal07.enemy.s08.ai.{name}.reset-lament",
+                    "state_id": state_id,
+                    "sequence": sequence,
+                    "ability_id": abilities["lament"],
+                    "condition_id": conditions["reset"],
+                    "target_selector_id": selectors["primary"],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["lament"],
+                },
+            )
+            next_candidate += 1
+            sequence += 1
+        ability_id = state_abilities[name]
+        add(
+            "AiCandidate",
+            {
+                "id": next_candidate,
+                "stable_key": f"goal07.enemy.s08.ai.{name}.main",
+                "state_id": state_id,
+                "sequence": sequence,
+                "ability_id": ability_id,
+                "condition_id": conditions["always"],
+                "target_selector_id": targets[ability_id],
+                "priority": 10,
+                "selection": "FirstLegal",
+                "no_target_fallback": "UseFallbackAbility",
+                "fallback_ability_id": abilities["lament"],
+            },
+        )
+        next_candidate += 1
+    normal_transitions = {
+        "initial-lament": "initial-absorption",
+        "initial-absorption": "rain",
+        "rain": "enhanced-lament",
+        "enhanced-lament": "rain",
+        "reset-absorption": "rain",
+    }
+    next_transition = BASE + 901
+    for name, target in normal_transitions.items():
+        sequence = 1
+        if name in {"rain", "enhanced-lament"}:
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": f"goal07.enemy.s08.ai.{name}.to-reset-absorption",
+                    "state_id": states[name],
+                    "sequence": sequence,
+                    "target_state_id": states["reset-absorption"],
+                    "condition_id": conditions["reset"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+            sequence += 1
+        add(
+            "AiTransition",
+            {
+                "id": next_transition,
+                "stable_key": f"goal07.enemy.s08.ai.{name}.normal-transition",
+                "state_id": states[name],
+                "sequence": sequence,
+                "target_state_id": states[target],
+                "condition_id": conditions["always"],
+                "priority": 10,
+                "timing": "AfterAction",
+            },
+        )
+        next_transition += 1
+
+    add("EnemyTemplate", {"id": template, "rank": "Elite", "base_aggro_decimal": "100", "default_ai_graph_id": graph})
+    add("EnemyVariant", {"id": variant, "template_id": template, "ai_graph_id": graph, "mechanically_distinct_key": VARIANT_KEY})
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Fire", "Wind", "Quantum"], start=1):
+        add("EnemyWeakness", {"variant_id": variant, "sequence": sequence, "element": weakness})
+    for element, value in [("Ice", "0.4"), ("Physical", "0.2"), ("Lightning", "0.2"), ("Imaginary", "0.2")]:
+        add("EnemyResistance", {"variant_id": variant, "element": element, "value_decimal": value})
+    add("EnemyDebuffResistance", {"variant_id": variant, "category_key": "STAT_CTRL_Frozen", "value_decimal": "1"})
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "300",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(abilities.values(), start=1):
+        add("EnemyVariantAbility", {"variant_id": variant, "sequence": sequence, "ability_id": ability_id})
+    add(
+        "EnemyPhase",
+        {
+            "id": BASE + 601,
+            "stable_key": "goal07.enemy.s08.phase-1",
+            "variant_id": variant,
+            "sequence": 1,
+            "entry_condition_id": conditions["always"],
+            "exit_condition_id": conditions["always"],
+            "replacement_priority": 1,
+            "ai_graph_id": graph,
+            "targetable": True,
+            "transition_model": "TransformSameUnit",
+            "hp_carry": "Reset",
+            "action_gauge_carry": "Reset",
+            "effect_carry": "Clear",
+            "toughness_carry": "Reset",
+            "summon_carry": "Clear",
+        },
+    )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.ice-out-of-space.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": "Exact public per-level values and mechanics are committed as Goal 07 evidence.",
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s08.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S08.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s08.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s08.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(key=lambda row: json.dumps(row, ensure_ascii=False, sort_keys=True, default=str))
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -9605,6 +10318,7 @@ def main() -> None:
         "G07-P5-M15-S05": owned_rows_s05,
         "G07-P5-M15-S06": owned_rows_s06,
         "G07-P5-M15-S07": owned_rows_s07,
+        "G07-P5-M15-S08": owned_rows_s08,
     }[PARTITION]()
     golden_path = (
         ROOT

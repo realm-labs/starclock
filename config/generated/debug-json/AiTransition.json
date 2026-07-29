@@ -2801,6 +2801,202 @@
             "String": "AfterAction"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "id": {
+            "Integer": 1050901
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.initial-lament.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1050701
+          },
+          "target_state_id": {
+            "Integer": 1050702
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "id": {
+            "Integer": 1050902
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.initial-absorption.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1050702
+          },
+          "target_state_id": {
+            "Integer": 1050703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "id": {
+            "Integer": 1050904
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.rain.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1050703
+          },
+          "target_state_id": {
+            "Integer": 1050704
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "id": {
+            "Integer": 1050906
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.enhanced-lament.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1050704
+          },
+          "target_state_id": {
+            "Integer": 1050703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050551
+          },
+          "id": {
+            "Integer": 1050907
+          },
+          "priority": {
+            "Integer": 10
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.reset-absorption.normal-transition"
+          },
+          "state_id": {
+            "Integer": 1050705
+          },
+          "target_state_id": {
+            "Integer": 1050703
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050552
+          },
+          "id": {
+            "Integer": 1050903
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.rain.to-reset-absorption"
+          },
+          "state_id": {
+            "Integer": 1050703
+          },
+          "target_state_id": {
+            "Integer": 1050705
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1050552
+          },
+          "id": {
+            "Integer": 1050905
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s08.ai.enhanced-lament.to-reset-absorption"
+          },
+          "state_id": {
+            "Integer": 1050704
+          },
+          "target_state_id": {
+            "Integer": 1050705
+          },
+          "timing": {
+            "String": "AfterAction"
+          }
+        }
       }
     ]
   }
