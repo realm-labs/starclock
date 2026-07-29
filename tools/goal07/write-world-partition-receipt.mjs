@@ -15,7 +15,11 @@ assert(args.every((value, offset) =>
   value === "--partition" || value === "--write" || offset === index + 1),
 "unsupported argument");
 const partitionId = args[index + 1];
-assert(["G07-P5-M15-S19", "G07-P5-M15-S20"].includes(partitionId),
+assert([
+  "G07-P5-M15-S19",
+  "G07-P5-M15-S20",
+  "G07-P5-M15-S21",
+].includes(partitionId),
   `${partitionId}: world receipt profile is not implemented`);
 
 const manifest = json(
@@ -44,6 +48,8 @@ const provenanceEvidence = domainPartition
       { path: "content-reference/standard-universe-v1/review-fixtures.json" },
       { path: "content-reference/standard-universe-v1/sources.json" },
     ];
+const encounterTestPath =
+  `crates/starclock-mode-universe/tests/encounter_selection_${partitionId.slice(-3).toLowerCase()}.rs`;
 const executionEvidence = domainPartition
   ? [
       { path: "crates/starclock-mode-universe/src/definition.rs" },
@@ -55,7 +61,7 @@ const executionEvidence = domainPartition
       { path: "crates/starclock-mode-universe/src/encounter.rs" },
       { path: "crates/starclock-mode-universe/src/encounter_lowering.rs" },
       { path: "crates/starclock-mode-universe/src/encounter_content_runtime.rs" },
-      { path: "crates/starclock-mode-universe/tests/encounter_selection_s20.rs" },
+      { path: encounterTestPath },
     ];
 const authoringWorkbooks = domainPartition
   ? [
@@ -92,7 +98,7 @@ const authoringWorkbooks = domainPartition
     ];
 const focusedTest = domainPartition
   ? "cargo test -p starclock-mode-universe --test domain_runtime --all-features"
-  : "cargo test -p starclock-mode-universe --test encounter_selection_s20 --all-features";
+  : `cargo test -p starclock-mode-universe --test encounter_selection_${partitionId.slice(-3).toLowerCase()} --all-features`;
 
 const receipt = {
   schema_revision: "starclock.goal07-content-partition-receipt.v1",
@@ -118,9 +124,8 @@ const receipt = {
   fixtures: partition.fixture_ids.map((id) => ({
     ...disposition(fixtures.get(id), ["UniverseEvidence.xlsx"]),
     execution_kind: "RustTest",
-    test_path: "crates/starclock-mode-universe/tests/encounter_selection_s20.rs",
-    test_marker:
-      "goal07_p5_m15_s20_selects_condition_before_group_or_difficulty_resolution",
+    test_path: encounterTestPath,
+    test_marker: fixtureMarker(id),
   })),
   enemy_variants: [],
   encounter_members: [],
@@ -166,6 +171,18 @@ function disposition(planned, workbooks) {
     provenance_evidence: provenanceEvidence,
     execution_evidence: executionEvidence,
   };
+}
+function fixtureMarker(id) {
+  if (id ===
+    "universe.fixture.encounter-selection.selectconditionkeythenresolvegroupordifficultybinding")
+    return "goal07_p5_m15_s20_selects_condition_before_group_or_difficulty_resolution";
+  if (id ===
+    "universe.fixture.encounter-selection.selectexactconditionkeythenweightedstableorder")
+    return "goal07_p5_m15_s21_selects_exact_condition_key_in_stable_weighted_order";
+  if (id ===
+    "universe.fixture.encounter-selection.resolveworlddifficultybosselitebinding")
+    return "goal07_p5_m15_s21_resolves_world_difficulty_boss_binding";
+  throw new Error(`${id}: encounter-selection fixture marker is not implemented`);
 }
 function evidence(relative) {
   return {
