@@ -1,0 +1,115 @@
+[
+  {
+    "id": "divergent-universe.astronomical-mode.practice",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseStarPioneerPractice",
+    "name_en": "Practice Mode",
+    "name_zh_cn": "演练模式",
+    "summary_en": "Practice Mode has 2 entry rule(s) and 2 progression rule(s).",
+    "summary_zh_cn": "演练模式 具有 2 条进入规则和 2 条进度规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8721319055470494228",
+        "sha256": "124b9c8cd8e68fbaba8a0ff7a558289f7ad13da59d5d35b67f4de3c857b38546",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8721319055470494228",
+        "sha256": "dbcad8ef48e20f016d1270c342010c19fe1bdeb0cb5d142dd4e9a67aeb521558",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "practice"
+    ],
+    "mode_kind": "Practice",
+    "entry_rules": [
+      "UnlockAfterOrdinaryDifficulty5",
+      "ChooseAnyProtocolUpToCurrentDivisionMaximum"
+    ],
+    "available_content": [
+      "UnlockedThresholdProtocolsWithinDivisionCap"
+    ],
+    "reset_rules": [
+      "DoesNotChangeAstronomicalDivision",
+      "DoesNotChangeCognoculi"
+    ],
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.astronomical-mode.star-pioneer",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseStarPioneerPractice",
+    "name_en": "Star-Pioneer Mode",
+    "name_zh_cn": "开拓模式",
+    "summary_en": "Star-Pioneer Mode has 3 entry rule(s) and 4 progression rule(s).",
+    "summary_zh_cn": "开拓模式 具有 3 条进入规则和 4 条进度规则。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.textmap-textmapen-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8721319055470494228",
+        "sha256": "124b9c8cd8e68fbaba8a0ff7a558289f7ad13da59d5d35b67f4de3c857b38546",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal11.textmap-textmapchs-json.8721319055470494228",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8721319055470494228",
+        "sha256": "dbcad8ef48e20f016d1270c342010c19fe1bdeb0cb5d142dd4e9a67aeb521558",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactOfficialText",
+        "mechanism_quality": "PolicyBound"
+      }
+    ],
+    "tags": [
+      "astronomical-division",
+      "star-pioneer"
+    ],
+    "mode_kind": "StarPioneer",
+    "entry_rules": [
+      "UnlockAfterOrdinaryDifficulty5",
+      "ProtocolLevelEqualsCurrentAstronomicalDivision",
+      "DifficultyCannotBeLowered"
+    ],
+    "available_content": [
+      "CurrentDivisionThresholdProtocol"
+    ],
+    "reset_rules": [
+      "SuccessfulFinalizationLightsCognoculi",
+      "UnsuccessfulFinalizationMayExtinguishCognoculi",
+      "AstronomicalDivisionNeverDecreases",
+      "DivisionRetentionHintsApply"
+    ],
+    "runtime_lowered": false
+  }
+]
