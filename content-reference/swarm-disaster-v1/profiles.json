@@ -1,0 +1,157 @@
+[
+  {
+    "id": "swarm-disaster.entry.activity.101",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Swarm Disaster",
+    "name_zh_cn": "寰宇蝗灾",
+    "summary_en": "Resident activity 101 selects ChessRogue and unlock 50018.",
+    "summary_zh_cn": "常驻活动 101 选择 ChessRogue，解锁条件为 50018。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-rogueactivityresidentconfig-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueActivityResidentConfig.json",
+        "locator": "1",
+        "sha256": "80ab8f16f10c116de29e63fd3051686b35567bb9fd272ffa54d552ea699b24b7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "activity-entry"
+    ],
+    "entry_kind": "ResidentActivity",
+    "source_id": "101",
+    "sub_mode": "ChessRogue",
+    "unlock_id": "50018"
+  },
+  {
+    "id": "swarm-disaster.entry.entrance.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Swarm Disaster",
+    "name_zh_cn": "寰宇蝗灾",
+    "summary_en": "DLC entrance 1 selects ChessRogue; reward item IDs remain presentation-only locators.",
+    "summary_zh_cn": "DLC 入口 1 选择 ChessRogue；奖励物品 ID 仅保留为展示定位信息。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcentrance-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCEntrance.json",
+        "locator": "0",
+        "sha256": "679fd618588d3415399796a91ae0c87899241889656485e44fbaf435f9fe0893",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "dlc-entrance"
+    ],
+    "entry_kind": "DlcEntrance",
+    "source_id": "1",
+    "sub_mode": "ChessRogue",
+    "reward_item_ids": [
+      "1",
+      "236",
+      "241",
+      "101",
+      "235",
+      "213",
+      "233",
+      "300041",
+      "2"
+    ]
+  },
+  {
+    "id": "swarm-disaster.entry.title.chessrogue",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "EntryPoint",
+    "name_en": "Swarm Disaster",
+    "name_zh_cn": "寰宇蝗灾",
+    "summary_en": "Common mode-title row binds the Swarm Disaster display identity.",
+    "summary_zh_cn": "通用模式标题行绑定寰宇蝗灾的展示身份。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguecommonmodetitle-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueCommonModeTitle.json",
+        "locator": "1",
+        "sha256": "ee50d6c32ae1a14b5344a71bc848d0ba4c5b14828a8a3f721c60b0cf350d81c6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "mode-title"
+    ],
+    "entry_kind": "ModeTitle",
+    "source_id": "ChessRogue",
+    "sub_mode": "ChessRogue"
+  },
+  {
+    "id": "swarm-disaster.profile.v1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmProfile",
+    "name_en": "Simulated Universe: Swarm Disaster",
+    "name_zh_cn": "模拟宇宙：寰宇蝗灾",
+    "summary_en": "Version 4.4 reference profile for the permanent ChessRogue activity; runtime lowering is intentionally absent.",
+    "summary_zh_cn": "4.4 版本常驻 ChessRogue 玩法资料档案；本目标明确不包含运行时降级。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.project-policy.profile",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "profile",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "One isolated Swarm Disaster reference profile binds the released ChessRogue rows.",
+        "replacement_condition": "Replace only if a later released profile registry provides a stronger stable identity."
+      }
+    ],
+    "tags": [
+      "candidate-reference",
+      "chess-rogue"
+    ],
+    "sub_mode": "ChessRogue",
+    "game_version": "4.4",
+    "runtime_enabled": false,
+    "entry_refs": [
+      "swarm-disaster.entry.activity.101",
+      "swarm-disaster.entry.entrance.1",
+      "swarm-disaster.entry.title.chessrogue"
+    ],
+    "formal_difficulty_ids": [
+      "swarm-disaster.area.201",
+      "swarm-disaster.area.202",
+      "swarm-disaster.area.203",
+      "swarm-disaster.area.204",
+      "swarm-disaster.area.205"
+    ],
+    "bonus_ids": [
+      "swarm-disaster.bonus.101",
+      "swarm-disaster.bonus.102",
+      "swarm-disaster.bonus.103",
+      "swarm-disaster.bonus.104",
+      "swarm-disaster.bonus.105",
+      "swarm-disaster.bonus.106"
+    ]
+  }
+]

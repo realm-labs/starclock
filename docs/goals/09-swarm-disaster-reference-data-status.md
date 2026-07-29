@@ -6,9 +6,9 @@
 |---|---|
 | Goal ID | `swarm-disaster-reference-v1` |
 | State | `InProgress` |
-| Active phase | None |
+| Active phase | Phase 1 — Unique mode systems |
 | Active batch | None |
-| Next unblocked batch | `G09-P1-B1` |
+| Next unblocked batch | `G09-P1-B2` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -24,7 +24,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot, commit-backed Goal 08 checkpoint, Candidate-only scope, six isolated roots, 2,882-file source closure, 6,963-obligation denominator, 64 normalized file families, four workbooks, reconciliation receipts and 23 fixture families are machine-frozen. |
-| Phase 1 — Unique mode systems | `Pending` | Awaiting topology, domains/beacons, countdown/Planar Disarray, Audience Dice, Communing Device/Trail, Pathstrider and Resonance Interplay data. |
+| Phase 1 — Unique mode systems | `InProgress` | Entry, difficulty, plane, board, column, node, event and creation-rule obligations are DataReady; derived policy edges and terminal bindings are complete, while domain/beacon consequences and later unique systems remain. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -37,7 +37,7 @@
 | `G09-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`fe52861f…207dc`, 1,128,842 bytes): all 2,646 Goal 03 source paths plus 224 DLC topology configs, StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes indexes. The 2,882-file closure contains 32 `RogueDLC` tables, six direct Swarm ability files, 109 non-`MapRepo160` topology candidates, 115 Gold topology exclusions and 2,404 shared mechanic/level candidates; raw Git blob hashing removes checkout-EOL variance. Focused and quick gates pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B3 starts. |
 | `G09-P0-B3` | `Complete` | This row's containing commit | Generated and rechecked `content-manifest.json` (`e466cae0…b8850`, 2,954,695 bytes): 6,963 exact obligations in 42 categories, split into 6,305 Swarm-owned and 658 shared records. Only explicit `ChessRogue`, referenced non-`MapRepo160` topology or inherited Path/pool proofs grant reachability. The manifest excludes all 115 Gold topology files, Erudition, Gold copies, 8 unreferenced Swarm topology configs and 93 story/account rows while retaining evidence locators. Released boards expose no edge list, so B4 must name a replaceable `ProjectPolicy` edge contract instead of labeling inferred edges exact. Focused and quick gates pass; the full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B4 starts. |
 | `G09-P0-B4` | `Complete` | This row's containing commit | Froze 64 normalized file families (`8da9ec44…b215`), the four-workbook Excel/openpyxl/Sora contract (`f815e169…a52b`) and 23 non-shrinking semantic fixture families (`864f8fd4…d690`). Common rows require bilingual mechanical text, explicit ownership/coverage/evidence and ordered source refs; canonical decimals are strings and bytes are UTF-8/LF/two-space JSON. Shared `RogueDLC` reconciliation uses source path, row locator and evidence digest against Goal 08 commit `457d05f0…f5ecd`; conflicts fail closed. Missing released chessboard edges use replaceable `forward-nearest-column-within-one-row-v1` `ProjectPolicy`. Focused and quick gates pass; the phase-boundary full gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B1 starts. |
-| `G09-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology and terminal rules. |
+| `G09-P1-B1` | `Complete` | This row's containing commit | Generated and rechecked 10 normalized files with 7,398 rows (`30bfaf69…fcd5d`, 14,755,556 bytes): four profile/entry rows, eight areas, 20 difficulty segments, 11 planes, 101 boards, 1,109 columns, 1,991 nodes, 2,593 explicitly `ProjectPolicy` edges, 349 map events and 1,212 block-create rules. Every source obligation is bilingual, DataReady, ownership-scoped and carries ordered provenance; start/end nodes, references, canonical weights and exact-once manifest closure validate. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B2 starts. |
 | `G09-P1-B2` | `Pending` | — | Import rooms, domains, beacons, replacements and boss-choice consequences. |
 | `G09-P1-B3` | `Pending` | — | Import countdown, Planar Disarray, boss-decay levels, caps, timing and combat changes. |
 | `G09-P1-B4` | `Pending` | — | Import Paths, Audience Dice definitions, initial/passive effects and unlocks. |
@@ -70,9 +70,9 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/entries/bonuses | 10 | 0 | 0 | One profile, three entry rows and Swarm Disaster Trailblaze Bonus IDs `101`–`106`. |
-| Difficulties/unlocks | 25 | 0 | 0 | Five Formal difficulty rows and 20 directly referenced difficulty segments. |
-| Planes/map nodes/edges/rooms/domains | 5,655 | 0 | 0 | Exact source obligations include three guide areas, 11 layer rows, 101 boards, 1,109 columns, 1,991 nodes, 349 events, 1,212 creation rules, 861 rooms, 12 domains, four beacons and two boss identities; inferred edges remain outside the source denominator. |
+| Profiles/entries/bonuses | 10 | 4 | 4 | Profile and three entry rows are DataReady; Swarm Disaster Trailblaze Bonus IDs `101`–`106` remain P1-B9. |
+| Difficulties/unlocks | 25 | 25 | 25 | All five Formal difficulty rows and 20 directly referenced difficulty segments are DataReady. |
+| Planes/map nodes/edges/rooms/domains | 5,655 | 4,776 | 4,776 | Three guide areas, 11 layer rows, 101 boards, 1,109 columns, 1,991 nodes, 349 events and 1,212 creation rules are DataReady; 2,593 derived policy edges remain outside the source denominator, while rooms/domains/beacons/boss choices remain P1-B2. |
 | Countdown/Planar Disarray/decay | 61 | 0 | 0 | Nineteen common constants and all 42 Boss Decay/Disarray definitions. |
 | Paths/Audience Dice | 16 | 0 | 0 | Eight Path definitions and eight Path-specific Audience Dice. |
 | Dice faces/rarities/roll controls | 45 | 0 | 0 | All 42 faces and three rarity rows; roll/reroll/cheat policies expand as normalized child rows. |
@@ -110,6 +110,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Use `forward-nearest-column-within-one-row-v1` as the replaceable topology-edge `ProjectPolicy`. | It derives a stable forward graph from released coordinates, fails closed for unknown domains and is explicitly replaced when a released edge relation or verified engine builder becomes available. |
 | 2026-07-29 | Freeze 64 normalized file families across four isolated workbooks. | Separate topology, progression, content and evidence workbooks keep Sora tables reviewable while preserving the repository's Excel-only production authoring boundary. |
 | 2026-07-29 | Require Goal 08 reconciliation receipts keyed by source path, row locator and evidence SHA-256. | A shared table name is insufficient identity; exact locators detect matching facts and divergent representations without editing the parallel goal's artifacts. |
+| 2026-07-29 | Materialize 2,593 forward topology edges only as derived `ProjectPolicy` rows. | Exact boards, coordinates, events and creation weights remain separately preserved, so later verified edge evidence can replace the graph without rewriting released facts. |
 
 ## Research cases
 
@@ -117,7 +118,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 |---|---|---|---|
 | `G09-R01` | `Closed` | The focused closure is 2,873 pinned Dimbreath files plus nine bilingual StarRailRes indexes: it includes all Goal 03 paths, 224 DLC configs, StageConfig, TextMaps, 32 `RogueDLC` tables and six direct Swarm ability files. Row-level reachability remains deliberately assigned to `G09-R02`/P0-B3. | P0-B2 |
 | `G09-R02` | `Closed` | The 6,963-record manifest grants reachability only through `ChessRogue`, referenced non-`MapRepo160` configuration or the eight inherited shared Paths; Goal 08 commit `457d05f0…f5ecd`, all 115 Gold topology files, Erudition and Gold copies are fail-closed exclusions. | P0-B3 |
-| `G09-R03` | `PolicyBound` | Released nodes, coordinates, events and creation rules remain exact. Because no edge list is released, edges use replaceable `forward-nearest-column-within-one-row-v1`; generation weights and replacement semantics still require row-level binding in P1-B1/B2. | P0-B4 / P1-B1–B2 |
+| `G09-R03` | `PartiallyBound` | All 101 boards, 1,991 nodes, 349 events, 1,212 creation rules and their weights are exact; 2,593 edges use replaceable `forward-nearest-column-within-one-row-v1`. Domain replacement/copy/blanking consequences remain P1-B2. | P0-B4 / P1-B1–B2 |
 | `G09-R04` | `Open` | At which operation boundaries is countdown adjusted, clamped/carried and converted into each Planar Disarray/decay level? | P1-B3 |
 | `G09-R05` | `Open` | What are the exact Audience Die face target ordering, duration, roll/reroll/cheat and no-legal-target semantics? | P1-B4–B5 |
 | `G09-R06` | `Open` | How are Communing Device choices, cabinet/dimension points, eligibility and simultaneous unlocks ordered and carried? | P1-B6 |
@@ -158,6 +159,6 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Completion commit | — |
 | Swarm Disaster reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | Denominators pending `G09-P0-B3` |
+| Coverage | 4,805/6,963 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
 | Release evidence | — |
 | Remaining required work | Swarm Disaster runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |
