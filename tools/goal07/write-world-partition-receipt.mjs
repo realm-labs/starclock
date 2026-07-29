@@ -25,6 +25,7 @@ assert([
   "G07-P5-M15-S25",
   "G07-P5-M15-S26",
   "G07-P5-M15-S27",
+  "G07-P5-M15-S28",
 ].includes(partitionId),
   `${partitionId}: world receipt profile is not implemented`);
 
