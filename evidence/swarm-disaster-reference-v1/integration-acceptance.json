@@ -1,0 +1,226 @@
+{
+  "schema_revision": "starclock.swarm-disaster-integration-acceptance.v1",
+  "goal_id": "swarm-disaster-reference-v1",
+  "snapshot": "Version 4.4",
+  "result": "pass",
+  "isolation": {
+    "base_commit": "7a382e6f42d452dc065c9922c218d0fa016e6607",
+    "changed_paths": 283,
+    "owned_roots": 6,
+    "protected_roots": 18,
+    "protected_changes": 0,
+    "runtime_lowering": false
+  },
+  "reconciliation": {
+    "goal08_commit": "457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd",
+    "goal08_tree": "4540243ba89d8961eb26d0d1834b450be507485e",
+    "goal08_manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+    "matching_receipts": 609,
+    "conflicts": 0,
+    "category_pairs": {
+      "adventure_outcomes->adventure_outcomes": 6,
+      "blessing_levels->blessing_levels": 288,
+      "blessings->blessings": 144,
+      "curios->curios": 64,
+      "occurrences->occurrences": 52,
+      "paths->paths": 8,
+      "resonances->resonances": 32,
+      "shared_services->shared_services": 15
+    },
+    "ownership_pairs": {
+      "Shared->Shared": 604,
+      "SwarmDisaster->GoldAndGears": 5
+    }
+  },
+  "artifacts": {
+    "normalized_pack_sha256": "82f3ffc444a1cdcd8bcba5a946bee3a3c8d58527b93a1c9d77f285697401b2d8",
+    "schema_lock_sha256": "6c97a1d1b5b588fb6206c237070124b09a7c47651f93e59f8d2c6c45a2736307",
+    "workbook_sha256": {
+      "SwarmDisaster.xlsx": "5ff7930c38c7cf2193eb03c4ed78aa06a7aded299f81b4cc67118e172f2f70bc",
+      "SwarmDisasterProgression.xlsx": "67f581afda4bd14ad8ba75f20e7f1bf9ceb7b329e3b766bf450557ae2d6a85fc",
+      "SwarmDisasterContent.xlsx": "2f302c6683517a77ec9e8a81693fe22b170c473117c2439fc608b24ffdb0feff",
+      "SwarmDisasterEvidence.xlsx": "6559d1896b342f4a5564f01b8e33a7f0495f33157c616ee329d1fe3d2b8c3e0f"
+    },
+    "bundle_bytes": 9440844,
+    "bundle_sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362",
+    "debug_tables": 65,
+    "debug_rows": 33380,
+    "debug_tree_sha256": "9ecb4ffd41b45aadb11745171f24fc7a0eb5de9a914afc1f87041bdaa9e54a8d"
+  },
+  "preserved": {
+    "goal03_release_policy_sha256": "7b3cf717aef891af5a6c1538f6b2850ac690364b320269145eaae5ce2bbcc02d",
+    "goal03_release_evidence_sha256": "e72c8037afeb261b8b598ceaba97dd7c3e6588c253bcae8333162175e2b1ba75",
+    "goal03_recorded_standard_staging_bundle_sha256": "0d94d25bf93392fb65cca1d2879a36170f70262d3dab5a92d5b634fab19f3b04",
+    "goal03_recorded_production_bundle_sha256": "abd84f70461675337092d12377db53f08b4562114fa90aa0b37ad869e9270440",
+    "standard_staging_bundle_sha256": "1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf",
+    "production_bundle_sha256": "875936da8c01593585389563fcb3d0c4334bdb14d85a3e7ffb9fb0dcc018953b"
+  },
+  "dependencies": {
+    "scope": "standalone generated-reader acceptance only",
+    "manifest_sha256": "56dbc78ef1cd1a8bf990db6e4d1544bf908ab799972e324f600c0fe7943e59d6",
+    "lockfile_sha256": "a20618b2aacd083111154b2539cb9f30f103c2501bbfffdd6bf584f700f8416c",
+    "direct_packages": [
+      "serde",
+      "zstd"
+    ],
+    "registry_packages": 19,
+    "packages": [
+      {
+        "name": "cc",
+        "version": "1.4.0",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "5add81bb678e6cb321aff7fa0dc7689ad82b112dbc032cea19f91d6b8e3582b9"
+      },
+      {
+        "name": "cfg-if",
+        "version": "1.0.4",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
+      },
+      {
+        "name": "find-msvc-tools",
+        "version": "0.1.9",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "5baebc0774151f905a1a2cc41989300b1e6fbb29aff0ceffa1064fdd3088d582"
+      },
+      {
+        "name": "getrandom",
+        "version": "0.4.3",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+      },
+      {
+        "name": "jobserver",
+        "version": "0.1.35",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "1c00acbd29eabad4a2392fa0e921c874934dbbf4194312ad20f04a0ed67a3cb3"
+      },
+      {
+        "name": "libc",
+        "version": "0.2.189",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2"
+      },
+      {
+        "name": "pkg-config",
+        "version": "0.3.33",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "19f132c84eca552bf34cab8ec81f1c1dcc229b811638f9d283dceabe58c5569e"
+      },
+      {
+        "name": "proc-macro2",
+        "version": "1.0.107",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
+      },
+      {
+        "name": "quote",
+        "version": "1.0.47",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001"
+      },
+      {
+        "name": "r-efi",
+        "version": "6.0.0",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+        "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+      },
+      {
+        "name": "serde",
+        "version": "1.0.228",
+        "relationship": "Direct",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e"
+      },
+      {
+        "name": "serde_core",
+        "version": "1.0.228",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad"
+      },
+      {
+        "name": "serde_derive",
+        "version": "1.0.228",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79"
+      },
+      {
+        "name": "shlex",
+        "version": "2.0.1",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
+      },
+      {
+        "name": "syn",
+        "version": "2.0.119",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+      },
+      {
+        "name": "unicode-ident",
+        "version": "1.0.24",
+        "relationship": "Transitive",
+        "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+        "checksum": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+      },
+      {
+        "name": "zstd",
+        "version": "0.13.3",
+        "relationship": "Direct",
+        "license": "MIT",
+        "checksum": "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a"
+      },
+      {
+        "name": "zstd-safe",
+        "version": "7.2.4",
+        "relationship": "Transitive",
+        "license": "MIT OR Apache-2.0",
+        "checksum": "8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d"
+      },
+      {
+        "name": "zstd-sys",
+        "version": "2.0.16+zstd.1.5.7",
+        "relationship": "Transitive",
+        "license": "MIT/Apache-2.0",
+        "checksum": "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748"
+      }
+    ],
+    "deterministic_impact": "Tooling only; no dependency or Swarm row enters a runtime crate.",
+    "rejected_alternatives": [
+      "Loading the Candidate bundle through starclock-data would cross the runtime boundary.",
+      "Reading debug JSON would not prove the binary bundle or generated readers."
+    ]
+  },
+  "acceptance": {
+    "source_cache_command": "node tools/swarm-disaster-reference/run-acceptance.mjs --with-source-cache",
+    "clean_checkout_command": "node tools/swarm-disaster-reference/run-clean-checkout.mjs",
+    "clean_checkout_inherited_build_cache": false,
+    "clean_checkout_inherited_source_cache": false,
+    "clean_checkout_tool_seed": "checksum-bound Sora 0.3.0",
+    "clean_checkout_authoring_runtime": "openpyxl==3.1.5"
+  },
+  "checks": {
+    "goal08_overlap_exact_once": true,
+    "goal08_conflicts": 0,
+    "protected_paths_unchanged": true,
+    "standard_staging_bundle_unchanged": true,
+    "production_bundle_unchanged": true,
+    "isolated_loader_dependencies_locked": true,
+    "isolated_sora_denominator_closed": true,
+    "runtime_loading_forbidden": true
+  }
+}
