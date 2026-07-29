@@ -1,0 +1,296 @@
+{
+  "schema_revision": "starclock.unknowable-domain-fixture-contract.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "bound_content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+  "fixture_role": "normalized semantic review; no runtime executability claim",
+  "minimum_cases_per_family": 1,
+  "required_fields": [
+    "id",
+    "family_id",
+    "name_en",
+    "name_zh_cn",
+    "source_record_ids",
+    "preconditions",
+    "input",
+    "ordered_operations",
+    "expected_facts",
+    "evidence_refs",
+    "evidence_quality"
+  ],
+  "field_contracts": {
+    "id": "globally unique stable string",
+    "family_id": "one of required_families",
+    "source_record_ids": "nonempty sorted stable-ID list closing manifest obligations",
+    "preconditions": "typed canonical facts only",
+    "input": "typed offered outcome or deterministic selection input; never simulated Adventure actions",
+    "ordered_operations": "nonempty ordered operation/fallback trace with canonical decimal strings",
+    "expected_facts": "nonempty typed assertions; no presentation prose",
+    "evidence_refs": "nonempty ordered references resolving in sources.json",
+    "evidence_quality": "one normalized evidence label"
+  },
+  "determinism": {
+    "random_selection": "explicit seed plus ordered candidate stable IDs",
+    "ties": "stable ID ascending unless released authored order is exact",
+    "no_legal_target": "explicit expected fallback; never silent no-op",
+    "operation_order": "asserted as part of expected_facts",
+    "decimal_values": "canonical decimal strings",
+    "external_outcomes": "record the offered abstract Adventure result and eligibility only"
+  },
+  "approximation": {
+    "allowed_labels": [
+      "ApproximateFromReleasedText",
+      "ProjectPolicy"
+    ],
+    "required_fields": [
+      "note",
+      "replacement_condition"
+    ],
+    "exact_claim_forbidden": true
+  },
+  "required_families": [
+    {
+      "id": "profile-entry-and-finish",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry eligibility",
+        "initial resources",
+        "finish and terminal boundary"
+      ]
+    },
+    {
+      "id": "area-layer-room-transition",
+      "minimum_cases": 1,
+      "must_cover": [
+        "ordered transition",
+        "carry",
+        "reset",
+        "illegal transition"
+      ]
+    },
+    {
+      "id": "difficulty-composition",
+      "minimum_cases": 1,
+      "must_cover": [
+        "difficulty parameters",
+        "drop binding",
+        "difficulty application boundary"
+      ]
+    },
+    {
+      "id": "alignment-selection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "four Alignments",
+        "eligibility",
+        "offered pool",
+        "no legal selection"
+      ]
+    },
+    {
+      "id": "scepter-activation",
+      "minimum_cases": 1,
+      "must_cover": [
+        "trigger",
+        "targeting",
+        "ordered operations",
+        "single activation"
+      ]
+    },
+    {
+      "id": "scepter-charge-and-speed",
+      "minimum_cases": 1,
+      "must_cover": [
+        "gain",
+        "spend",
+        "action ordering",
+        "cap and teardown"
+      ]
+    },
+    {
+      "id": "component-slot-legality",
+      "minimum_cases": 1,
+      "must_cover": [
+        "shape",
+        "range",
+        "slot type",
+        "rejected insertion"
+      ]
+    },
+    {
+      "id": "component-insertion-removal-replacement",
+      "minimum_cases": 1,
+      "must_cover": [
+        "insert",
+        "remove",
+        "replace",
+        "locked Component"
+      ]
+    },
+    {
+      "id": "decision-component-choice",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligibility",
+        "candidate order",
+        "scope",
+        "fallback"
+      ]
+    },
+    {
+      "id": "component-synthesis",
+      "minimum_cases": 1,
+      "must_cover": [
+        "input count",
+        "consumption",
+        "output pool",
+        "no legal output"
+      ]
+    },
+    {
+      "id": "component-upgrade",
+      "minimum_cases": 1,
+      "must_cover": [
+        "level transition",
+        "cost",
+        "cap",
+        "ordering"
+      ]
+    },
+    {
+      "id": "component-reforge",
+      "minimum_cases": 1,
+      "must_cover": [
+        "candidate set",
+        "cost",
+        "replacement",
+        "empty candidate"
+      ]
+    },
+    {
+      "id": "workbench-offer-and-cost",
+      "minimum_cases": 1,
+      "must_cover": [
+        "eligibility",
+        "price",
+        "offer ordering",
+        "refresh lifecycle"
+      ]
+    },
+    {
+      "id": "gamble-offer-and-outcome",
+      "minimum_cases": 1,
+      "must_cover": [
+        "weighted candidate set",
+        "seed",
+        "outcome",
+        "failure"
+      ]
+    },
+    {
+      "id": "talent-and-unlock",
+      "minimum_cases": 1,
+      "must_cover": [
+        "prerequisite",
+        "cost",
+        "unlock consequence",
+        "evaluation boundary"
+      ]
+    },
+    {
+      "id": "layer-and-difficulty-effect",
+      "minimum_cases": 1,
+      "must_cover": [
+        "entry trigger",
+        "cross-battle state",
+        "battle projection",
+        "teardown"
+      ]
+    },
+    {
+      "id": "curio-lifecycle",
+      "minimum_cases": 1,
+      "must_cover": [
+        "mode state",
+        "charges",
+        "repair",
+        "replacement"
+      ]
+    },
+    {
+      "id": "occurrence-choice",
+      "minimum_cases": 1,
+      "must_cover": [
+        "variant",
+        "condition",
+        "cost",
+        "ordered outcome"
+      ]
+    },
+    {
+      "id": "service-and-adventure",
+      "minimum_cases": 1,
+      "must_cover": [
+        "service eligibility",
+        "price or tier",
+        "offered abstract outcome"
+      ]
+    },
+    {
+      "id": "encounter-selection",
+      "minimum_cases": 1,
+      "must_cover": [
+        "room parent",
+        "candidate order",
+        "wave",
+        "enemy slots"
+      ]
+    },
+    {
+      "id": "wave-and-boss-binding",
+      "minimum_cases": 1,
+      "must_cover": [
+        "StageConfig row",
+        "wave order",
+        "boss alternative",
+        "difficulty"
+      ]
+    },
+    {
+      "id": "cross-battle-carry-reset",
+      "minimum_cases": 1,
+      "must_cover": [
+        "state slot",
+        "carry boundary",
+        "reset boundary",
+        "finish cleanup"
+      ]
+    },
+    {
+      "id": "simultaneous-trigger-order",
+      "minimum_cases": 1,
+      "must_cover": [
+        "trigger phase",
+        "priority",
+        "stable tie key",
+        "expected facts"
+      ]
+    },
+    {
+      "id": "no-legal-candidate-fallback",
+      "minimum_cases": 1,
+      "must_cover": [
+        "empty set",
+        "explicit fallback",
+        "no hidden RNG draw",
+        "review fact"
+      ]
+    }
+  ],
+  "coverage_rule": {
+    "family_coverage": "every required family has at least minimum_cases",
+    "source_coverage": "every distinct mechanic rule references at least one fixture",
+    "manifest_coverage": "every source obligation reaches DataReady or an explicit nonblocking approximation with replacement condition",
+    "reconciliation_coverage": "every overlapping Goal 08/09 locator has a non-conflicting receipt",
+    "blocking_gap": "no fixture can satisfy a Blocked manifest obligation"
+  }
+}

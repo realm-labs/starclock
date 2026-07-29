@@ -39,6 +39,23 @@ Blessing selector or RogueMagic-to-Blessing reference exists at this snapshot,
 so the reachable Blessing denominator is frozen fail-closed at zero instead of
 being inferred from shared names or generic availability.
 
+Phase 0 contracts are generated and verified by:
+
+```text
+node tools/unknowable-domain-reference/contracts.mjs
+node tools/unknowable-domain-reference/contracts.mjs --check
+node tools/unknowable-domain-reference/verify-contracts.mjs
+```
+
+`normalized-schema.json` maps every manifest category into 65 normalized file
+families and freezes the bilingual/evidence envelope, canonical decimals,
+encoding, stable references, ordered children and Goal 08/09 reconciliation
+receipt. `authoring-contract.json` assigns every family exactly once across
+`UnknowableDomain.xlsx`, `UnknowableDomainBindings.xlsx` and
+`UnknowableDomainReview.xlsx`, with isolated Sora/openpyxl paths.
+`fixture-contract.json` freezes 24 non-shrinking semantic review families
+without claiming runtime executability.
+
 The ignored source cache is reproduced through
 `tools/unknowable-domain-reference/fetch-sources.sh`. Both repositories must be
 clean, detached and at the exact revisions frozen in `foundation.json`.
