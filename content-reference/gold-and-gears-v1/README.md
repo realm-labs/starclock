@@ -86,6 +86,13 @@ node tools/gold-and-gears-reference/import-occurrences.mjs
 node tools/gold-and-gears-reference/verify-occurrences.mjs
 ```
 
+Shared currencies/services and abstract Adventure reward tiers regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-services.mjs
+node tools/gold-and-gears-reference/verify-services.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

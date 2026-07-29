@@ -1,0 +1,1097 @@
+[
+  {
+    "id": "universe.service.shop.100011",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Blessing Shop 100011",
+    "name_zh_cn": "祝福商店100011",
+    "summary_en": "Gold and Gears reuses the released Blessing Shop 100011 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的祝福商店100011服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.6",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "6",
+        "sha256": "e0d8b7c55f73ca1bb38e48cbee9e2ffbd15674dea96f145dc72231e590d33c41",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "blessingshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "100011"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.100011",
+    "inherited_offer_pool_id": "universe.pool.shop.100011",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.100011"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "rarity": "1",
+          "unit_cost": "100",
+          "base_stock": "3"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "200",
+          "base_stock": "2"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "300",
+          "base_stock": "1"
+        }
+      ],
+      "stock_modifier_id": "gold-gears.neural-network.1201",
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-100011"
+  },
+  {
+    "id": "universe.service.shop.101010",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Blessing Shop 101010",
+    "name_zh_cn": "祝福商店101010",
+    "summary_en": "Gold and Gears reuses the released Blessing Shop 101010 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的祝福商店101010服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.8",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "8",
+        "sha256": "5cc739571223fbe43e890a73bf0e2503e48199bc102e32128cf360483cda6105",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "blessingshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "101010"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101010",
+    "inherited_offer_pool_id": "universe.pool.shop.101010",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.101010"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "rarity": "1",
+          "unit_cost": "100",
+          "base_stock": "3"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "200",
+          "base_stock": "2"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "300",
+          "base_stock": "1"
+        }
+      ],
+      "stock_modifier_id": "gold-gears.neural-network.1201",
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-101010"
+  },
+  {
+    "id": "universe.service.shop.101011",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Blessing Shop 101011",
+    "name_zh_cn": "祝福商店101011",
+    "summary_en": "Gold and Gears reuses the released Blessing Shop 101011 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的祝福商店101011服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.9",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "9",
+        "sha256": "27ca6f3fa0d8b540bc1c50d93db63c0e065c780982bbfad93e51fec18cb39259",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "blessingshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "101011"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101011",
+    "inherited_offer_pool_id": "universe.pool.shop.101011",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.101011"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "rarity": "1",
+          "unit_cost": "100",
+          "base_stock": "3"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "200",
+          "base_stock": "2"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "300",
+          "base_stock": "1"
+        }
+      ],
+      "stock_modifier_id": "gold-gears.neural-network.1201",
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-101011"
+  },
+  {
+    "id": "universe.service.shop.101012",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Blessing Shop 101012",
+    "name_zh_cn": "祝福商店101012",
+    "summary_en": "Gold and Gears reuses the released Blessing Shop 101012 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的祝福商店101012服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.10",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "10",
+        "sha256": "f559f53a239a68ddf77c41d96e6fb86aeacfff7c3dd06ff1140e12aa8f1ec120",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "blessingshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "101012"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101012",
+    "inherited_offer_pool_id": "universe.pool.shop.101012",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.101012"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "rarity": "1",
+          "unit_cost": "100",
+          "base_stock": "3"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "200",
+          "base_stock": "2"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "300",
+          "base_stock": "1"
+        }
+      ],
+      "stock_modifier_id": "gold-gears.neural-network.1201",
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-101012"
+  },
+  {
+    "id": "universe.service.shop.102011",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Blessing Shop 102011",
+    "name_zh_cn": "祝福商店102011",
+    "summary_en": "Gold and Gears reuses the released Blessing Shop 102011 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的祝福商店102011服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.13",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "13",
+        "sha256": "06316ee74475c7cc85c4c791e49d44400e13337f0d576ead444af4b77529eb74",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "blessingshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "102011"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "BlessingShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.102011",
+    "inherited_offer_pool_id": "universe.pool.shop.102011",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.102011"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "rarity": "1",
+          "unit_cost": "100",
+          "base_stock": "3"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "200",
+          "base_stock": "2"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "300",
+          "base_stock": "1"
+        }
+      ],
+      "stock_modifier_id": "gold-gears.neural-network.1201",
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-102011"
+  },
+  {
+    "id": "universe.service.shop.100021",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Curio Shop 100021",
+    "name_zh_cn": "奇物商店100021",
+    "summary_en": "Gold and Gears reuses the released Curio Shop 100021 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的奇物商店100021服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.7",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "7",
+        "sha256": "8c75476a459a35c7a4b00688190e6d97ee940beee940d25ecb20a32357017612",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "curioshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "100021"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.100021",
+    "inherited_offer_pool_id": "universe.pool.shop.100021",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.100021"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "slot": "1",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "2",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "3",
+          "unit_cost": "300"
+        }
+      ],
+      "resolved_offer_pool_id": "gold-gears.curio-pool.normal"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-100021"
+  },
+  {
+    "id": "universe.service.shop.101020",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Curio Shop 101020",
+    "name_zh_cn": "奇物商店101020",
+    "summary_en": "Gold and Gears reuses the released Curio Shop 101020 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的奇物商店101020服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.11",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "11",
+        "sha256": "322abcc9f8ab57f4ae884ef5844618889a5b12a64a9f1d4a6179fddc0a4e4339",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "curioshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "101020"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101020",
+    "inherited_offer_pool_id": "universe.pool.shop.101020",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.101020"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "slot": "1",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "2",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "3",
+          "unit_cost": "300"
+        }
+      ],
+      "resolved_offer_pool_id": "gold-gears.curio-pool.normal"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-101020"
+  },
+  {
+    "id": "universe.service.shop.101021",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Curio Shop 101021",
+    "name_zh_cn": "奇物商店101021",
+    "summary_en": "Gold and Gears reuses the released Curio Shop 101021 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的奇物商店101021服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.12",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "12",
+        "sha256": "4657ac54dad75563feaae728900a681fc87f178b765e5247d8789c19fa063c36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "curioshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "101021"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.101021",
+    "inherited_offer_pool_id": "universe.pool.shop.101021",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.101021"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "slot": "1",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "2",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "3",
+          "unit_cost": "300"
+        }
+      ],
+      "resolved_offer_pool_id": "gold-gears.curio-pool.normal"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-101021"
+  },
+  {
+    "id": "universe.service.shop.102021",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Curio Shop 102021",
+    "name_zh_cn": "奇物商店102021",
+    "summary_en": "Gold and Gears reuses the released Curio Shop 102021 service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的奇物商店102021服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.14",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "14",
+        "sha256": "41ad6e7fad7bbb6973890972247cdbf98919f54a1088ec88cad96046953684db",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "curioshop",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "102021"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "CurioShop",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.shop.102021",
+    "inherited_offer_pool_id": "universe.pool.shop.102021",
+    "inherited_rule_ids": [
+      "universe.rule.service.shop.102021"
+    ],
+    "parameters": [],
+    "gold_gears_offer_rule": {
+      "inventory": [
+        {
+          "slot": "1",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "2",
+          "unit_cost": "150"
+        },
+        {
+          "slot": "3",
+          "unit_cost": "300"
+        }
+      ],
+      "resolved_offer_pool_id": "gold-gears.curio-pool.normal"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-shop-102021"
+  },
+  {
+    "id": "universe.currency.cosmic-fragments",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Cosmic Fragments",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Gold and Gears reuses the released Cosmic Fragments service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的宇宙碎片服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "0",
+        "sha256": "adebf99f9f6ecf08b856bb0814a090996fb23fc25225fda978141e9f77c8eae5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "currency",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "31"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "Currency",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "",
+    "inherited_offer_pool_id": "",
+    "inherited_rule_ids": [
+      "universe.rule.currency.cosmic-fragments"
+    ],
+    "parameters": [
+      {
+        "key": "initial_amount",
+        "value": "50"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "initial_amount": "50",
+      "scope": "Activity"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-currency-cosmic-fragments"
+  },
+  {
+    "id": "universe.service.downloader",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Downloader",
+    "name_zh_cn": "下载装置",
+    "summary_en": "Gold and Gears reuses the released Downloader service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的下载装置服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.3",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "3",
+        "sha256": "50ab53499b40c016ad6c3cd8eaa257ee27c64c557cb48b0a19b7f5705a920f3a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "downloader",
+      "service",
+      "shared"
+    ],
+    "source_ids": [],
+    "source_mode_owner": "Standard",
+    "service_kind": "Downloader",
+    "currency_id": "",
+    "price_formula_id": "universe.service.downloader.price",
+    "inherited_offer_pool_id": "",
+    "inherited_rule_ids": [
+      "universe.rule.service.downloader"
+    ],
+    "parameters": [
+      {
+        "key": "characters_per_device",
+        "value": "1"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "characters_per_device": "1",
+      "unit_cost": "0"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-downloader"
+  },
+  {
+    "id": "universe.service.enhance-blessing",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Enhance Blessing",
+    "name_zh_cn": "强化祝福",
+    "summary_en": "Gold and Gears reuses the released Enhance Blessing service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的强化祝福服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.5",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "5",
+        "sha256": "5281acc6304f53ceffe790aa8fe7e11d231bd3ad79dda6e4ddc29dc90de09387",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "enhanceblessing",
+      "service",
+      "shared"
+    ],
+    "source_ids": [],
+    "source_mode_owner": "Standard",
+    "service_kind": "EnhanceBlessing",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.service.enhance-blessing.price",
+    "inherited_offer_pool_id": "",
+    "inherited_rule_ids": [
+      "universe.rule.service.enhance-blessing"
+    ],
+    "parameters": [
+      {
+        "key": "max_enhancements",
+        "value": "1"
+      },
+      {
+        "key": "rarity_1_cost",
+        "value": "100"
+      },
+      {
+        "key": "rarity_2_cost",
+        "value": "130"
+      },
+      {
+        "key": "rarity_3_cost",
+        "value": "160"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "rarity_costs": [
+        {
+          "rarity": "1",
+          "unit_cost": "100"
+        },
+        {
+          "rarity": "2",
+          "unit_cost": "130"
+        },
+        {
+          "rarity": "3",
+          "unit_cost": "160"
+        }
+      ],
+      "maximum_enhancements_per_blessing": "1"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-enhance-blessing"
+  },
+  {
+    "id": "universe.service.reset-blessing-choice",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Reset Blessing Choice",
+    "name_zh_cn": "重置祝福选择",
+    "summary_en": "Gold and Gears reuses the released Reset Blessing Choice service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的重置祝福选择服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.1",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "1",
+        "sha256": "7cb577f0ebb16cb87e6f8f5e44edd7c016103b85e3efedb3f109256aa97b4cc1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "resetblessing",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "Roll_Buff_Cost"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "ResetBlessing",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.reset-blessing",
+    "inherited_offer_pool_id": "universe.pool.blessings.standard",
+    "inherited_rule_ids": [
+      "universe.rule.service.reset-blessing"
+    ],
+    "parameters": [
+      {
+        "key": "source_cost_schedule",
+        "value": "[31:30],[31:50],[31:100]"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "resolved_offer_pool_id": "gold-gears.blessing-pool.all",
+      "source_cost_schedule": "[31:30],[31:50],[31:100]"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-reset-blessing-choice"
+  },
+  {
+    "id": "universe.service.respite-offers",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Respite Offers",
+    "name_zh_cn": "休整区交易",
+    "summary_en": "Gold and Gears reuses the released Respite Offers service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的休整区交易服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.4",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "4",
+        "sha256": "b9c77c3cc75f2ec38909cb8eb0e45a7066d6fee8acd075352b0031b8aa76f54c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      }
+    ],
+    "tags": [
+      "respiteoffers",
+      "service",
+      "shared"
+    ],
+    "source_ids": [],
+    "source_mode_owner": "Standard",
+    "service_kind": "RespiteOffers",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.service.respite-offers.price",
+    "inherited_offer_pool_id": "",
+    "inherited_rule_ids": [
+      "universe.rule.service.respite-offers"
+    ],
+    "parameters": [
+      {
+        "key": "one_star_blessing_cost",
+        "value": "80"
+      },
+      {
+        "key": "curio_cost",
+        "value": "120"
+      },
+      {
+        "key": "two_random_enhancements_cost",
+        "value": "180"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "one_star_blessing_cost": "80",
+      "curio_cost": "120",
+      "two_random_enhancements_cost": "180"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-respite-offers"
+  },
+  {
+    "id": "universe.service.reviver",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "Service",
+    "name_en": "Reviver",
+    "name_zh_cn": "复活装置",
+    "summary_en": "Gold and Gears reuses the released Reviver service with mode-local offer pools and exact prices.",
+    "summary_zh_cn": "黄金与机械复用已发布的复活装置服务，并绑定模式内商品池与精确价格。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.inherited.content-reference-standard-universe-v1-services-json.2",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "2",
+        "sha256": "bb8628dd86c0f765e27896dfe6ff3ff337e9e01b51fed182c8ceb1f20c912e6b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.exceloutput-roguenousconstvaluecommon-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueNousConstValueCommon.json",
+        "locator": "5",
+        "sha256": "01f25085e105f7eb9c55fb04797efd001ed3b6ba8fb5a8ff60a19b9cfd8ff8bb",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      }
+    ],
+    "tags": [
+      "reviver",
+      "service",
+      "shared"
+    ],
+    "source_ids": [
+      "Rogue_Recover_ItemCost",
+      "Rogue_Recover_Percent"
+    ],
+    "source_mode_owner": "Standard",
+    "service_kind": "Reviver",
+    "currency_id": "universe.currency.cosmic-fragments",
+    "price_formula_id": "universe.price.reviver",
+    "inherited_offer_pool_id": "",
+    "inherited_rule_ids": [
+      "universe.rule.service.reviver"
+    ],
+    "parameters": [
+      {
+        "key": "cost",
+        "value": "80"
+      },
+      {
+        "key": "restored_hp_percent",
+        "value": "100"
+      }
+    ],
+    "gold_gears_offer_rule": {
+      "unit_cost": "80",
+      "restored_hp_percent": "100"
+    },
+    "selection_policy": {
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "rule_contribution_id": "gold-gears.rule.service.universe-service-reviver"
+  }
+]

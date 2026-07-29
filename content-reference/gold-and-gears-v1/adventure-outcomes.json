@@ -1,0 +1,978 @@
+[
+  {
+    "id": "gold-gears.adventure-outcome.1210601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Trotter Catch — Room 1210601",
+    "name_zh_cn": "扑满捕捉挑战·房间1210601",
+    "summary_en": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "1",
+        "sha256": "349dbe0189b019b2032f182cad8df1f7070a3bc1e615c0acc077d922591e0929",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "162",
+        "sha256": "0d40de5c7c34b2ba42de0b3f14c6369a90efca8981900b367c7ca99d7cac533d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguecapturemonster",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "1210601",
+    "room_id": "gold-gears.room.1210601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "objective_metric": "Points",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "2000"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "3600"
+      }
+    ],
+    "maximum_value": "4400",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.1210601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.2110601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Trotter Catch — Room 2110601",
+    "name_zh_cn": "扑满捕捉挑战·房间2110601",
+    "summary_en": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "2",
+        "sha256": "b0691bfdd1fc1206f0d917039c2f4fe555f68a4347f343f7418e43dabc514cf2",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.620",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "620",
+        "sha256": "7643b2b767ddba0c6ee1d0ecbbeb203c9aab824cf33e2aa4971aecc137671a73",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguecapturemonster",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "2110601",
+    "room_id": "gold-gears.room.2110601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "objective_metric": "Points",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "2000"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "3600"
+      }
+    ],
+    "maximum_value": "4400",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.2110601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.2320601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Trotter Catch — Room 2320601",
+    "name_zh_cn": "扑满捕捉挑战·房间2320601",
+    "summary_en": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "0",
+        "sha256": "a6af97a8ba3d5a2409de3f7051923fd5a186147b01fc7a3d181a6aae3fb4bff3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.1004",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "1004",
+        "sha256": "c694f63e9ddf17e48bff660abcea57e77dcf7cfaaf7550ab2c72c1e730da67a9",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguecapturemonster",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "2320601",
+    "room_id": "gold-gears.room.2320601",
+    "adventure_type": "RogueCaptureMonster",
+    "parameter_group_id": "2001",
+    "objective_metric": "Points",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "2000"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "3600"
+      }
+    ],
+    "maximum_value": "4400",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.2320601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.1210602",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 1210602",
+    "name_zh_cn": "破坏物挑战·房间1210602",
+    "summary_en": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "4",
+        "sha256": "48136511af14769af7f64e4a388cc95f3aeffed1fdf2af17aa023c61f0e1265d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.163",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "163",
+        "sha256": "ee66de1995da2f01d4013820d0d5c117bbafbc0e1b0e52903c1c2c0959396f7a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguedestroyprop",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "1210602",
+    "room_id": "gold-gears.room.1210602",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1002",
+    "objective_metric": "DestroyedObjects",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "15"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "30"
+      }
+    ],
+    "maximum_value": "30",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.1210602"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.1310601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 1310601",
+    "name_zh_cn": "破坏物挑战·房间1310601",
+    "summary_en": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "5",
+        "sha256": "b02ed7122d1ca0af376351999e1faf0670b35485068c13e9ef2057053c12093c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.420",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "420",
+        "sha256": "56dda75edc6b54c5547de629e37cb09aa9ae159eaf7ec66abdeadbccd3d7efa6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguedestroyprop",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "1310601",
+    "room_id": "gold-gears.room.1310601",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1003",
+    "objective_metric": "DestroyedObjects",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "15"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "30"
+      }
+    ],
+    "maximum_value": "30",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.1310601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.2000601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Barrel Breaker Challenge — Room 2000601",
+    "name_zh_cn": "破坏物挑战·房间2000601",
+    "summary_en": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "3",
+        "sha256": "637632cd238057b5b494651cf35d21efcf0130486842e21cda9d7c05ca96a40d",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.528",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "528",
+        "sha256": "8ed4b742d00b4b0d1acd943167c5be76fc863cf0b241bb760b7e52e5398d7312",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "roguedestroyprop",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "2000601",
+    "room_id": "gold-gears.room.2000601",
+    "adventure_type": "RogueDestroyProp",
+    "parameter_group_id": "1001",
+    "objective_metric": "DestroyedObjects",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "15"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "30"
+      }
+    ],
+    "maximum_value": "30",
+    "time_limit_seconds": "30",
+    "technique_rule": "Allowed",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.2000601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.2210601",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Avoiding the Beams Challenge — Room 2210601",
+    "name_zh_cn": "躲避光束挑战·房间2210601",
+    "summary_en": "Avoiding the Beams Challenge uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "躲避光束挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "7",
+        "sha256": "8894aa3ae9030a01f195ebcf7ab4e1da67d94fa65f2b593ca010b00237f983f6",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.841",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "841",
+        "sha256": "dcba3f8384b9568f3c6f4e86b6da08288d1aaac800c843921f4bd6c79f840368",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "rogueescapelaser",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "2210601",
+    "room_id": "gold-gears.room.2210601",
+    "adventure_type": "RogueEscapeLaser",
+    "parameter_group_id": "4001",
+    "objective_metric": "EvadedCycles",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "4"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "6"
+      }
+    ],
+    "maximum_value": "6",
+    "time_limit_seconds": "",
+    "technique_rule": "Disabled",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.2210601"
+  },
+  {
+    "id": "gold-gears.adventure-outcome.2110602",
+    "schema_revision": "starclock.gold-and-gears-row.v1",
+    "kind": "AdventureOutcome",
+    "name_en": "Lucky Compass Challenge — Room 2110602",
+    "name_zh_cn": "幸运罗盘挑战·房间2110602",
+    "summary_en": "Lucky Compass Challenge uses two exact objective thresholds and three cumulative reward tiers.",
+    "summary_zh_cn": "幸运罗盘挑战使用两个精确目标阈值和三个累积奖励层级。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal08.exceloutput-roguedlcadventureroom-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCAdventureRoom.json",
+        "locator": "6",
+        "sha256": "7a4c1e4e0dfd1e28b8ff153beb9ff8ac49269a4894e65d591b44f435c20578ca",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.621",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/gold-and-gears-v1/rooms.json",
+        "locator": "621",
+        "sha256": "95882b9623540d8cd3f0a815b8c13a6979b16b12fd9adca445744bbddae25320",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal08.public.gold-gears-shops-and-adventure-rewards",
+        "repository": "https://honkai-star-rail.fandom.com",
+        "revision": "accessed-2026-07-29",
+        "path": "https://honkai-star-rail.fandom.com/wiki/Simulated_Universe/Worlds",
+        "locator": "Expansion Module Transaction and Adventure domains",
+        "sha256": "a2b75e32a92a4a8e7577ac73666e06c1d6abcc6da57da212badb4f5d2b196960",
+        "access_date": "2026-07-29",
+        "evidence_quality": "ExactPublicText"
+      },
+      {
+        "source_id": "source.goal08.project-policy.adventure-reward-selection",
+        "repository": "starclock",
+        "revision": "starclock.gold-and-gears-normalized-schema.v1",
+        "path": "content-manifests/gold-and-gears-v1/normalized-schema.json",
+        "locator": "adventure-reward-selection",
+        "sha256": "c0820f140732a04e7ac713b10249cac429da71588a31d6869323e6bf7b20f1fd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Released text proves all objective thresholds and cumulative reward tiers, but not the fragment value selection inside 100-150 or complete candidate ordering for Blessing and Curio offers. Use the seeded Activity stream over stable source identity; an unresolved pool fails closed.",
+        "replacement_condition": "Replace when pinned released reward tables or engine code expose exact fragment selection and candidate ordering."
+      }
+    ],
+    "tags": [
+      "adventure",
+      "rogueturntable",
+      "shared"
+    ],
+    "mechanism_quality": "ExactStructured",
+    "quality_overrides": [
+      {
+        "field": "reward_selection_policy",
+        "evidence_quality": "ProjectPolicy",
+        "policy_id": "adventure-reward-selection-v1",
+        "replacement_condition": "Replace when pinned reward tables expose fragment and candidate selection."
+      }
+    ],
+    "source_id": "2110602",
+    "room_id": "gold-gears.room.2110602",
+    "adventure_type": "RogueTurntable",
+    "parameter_group_id": "3001",
+    "objective_metric": "AlignedHands",
+    "objective_thresholds": [
+      {
+        "objective": 1,
+        "minimum_value": "2"
+      },
+      {
+        "objective": 2,
+        "minimum_value": "3"
+      }
+    ],
+    "maximum_value": "3",
+    "time_limit_seconds": "",
+    "technique_rule": "NotApplicable",
+    "rewards_are_cumulative": true,
+    "reward_tiers": [
+      {
+        "tier": 1,
+        "minimum_objectives": 0,
+        "operation": "AddCosmicFragments",
+        "minimum_value": "100",
+        "maximum_value": "150"
+      },
+      {
+        "tier": 2,
+        "minimum_objectives": 1,
+        "operation": "OfferBlessingChoice",
+        "rarity": "2",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.blessing-pool.rarity.2"
+      },
+      {
+        "tier": 3,
+        "minimum_objectives": 2,
+        "operation": "OfferCurioChoice",
+        "selected_count": "1",
+        "offer_pool_id": "gold-gears.curio-pool.normal"
+      }
+    ],
+    "reward_selection_policy": {
+      "policy_id": "adventure-reward-selection-v1",
+      "fragment_range_selection": "seeded-integer-inclusive",
+      "candidate_order": "stable-source-id",
+      "randomness": "seeded-activity-stream",
+      "unresolved_pool_behavior": "FailClosed"
+    },
+    "downloader_service_id": "universe.service.downloader",
+    "rule_contribution_id": "gold-gears.rule.adventure-outcome.2110602"
+  }
+]
