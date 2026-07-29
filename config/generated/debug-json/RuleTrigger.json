@@ -1426,6 +1426,50 @@
             "String": "goal07.enemy.s12.trigger.golden-hound-rebound"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1104801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1105102
+          },
+          "id": {
+            "Integer": 1105103
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterDefeatSettlement"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1101040
+          },
+          "rule_id": {
+            "Integer": 1105101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.trigger.automaton-spider-chains"
+          }
+        }
       }
     ]
   }

@@ -6,7 +6,8 @@ of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
 Cocolia (Complete), S07 owns Gepard (Complete), S08 owns Ice Out of Space,
 S09 owns Memory Zone Meme "Something Unto Death" (Complete), S10 owns
 Stellaron Hunter: Kafka (Complete), S11 owns Svarog (Complete), and S12 owns
-the first frozen ordinary-enemy batch. Each partition receives an isolated
+the first frozen ordinary-enemy batch. S13 owns the second frozen
+ordinary-enemy batch. Each partition receives an isolated
 10,000-ID range so authoring and verification never consume rows owned by
 another partition.
 """
@@ -121,6 +122,41 @@ PARTITION_CONFIG = {
         ],
         "source_record_id": 14,
         "evidence_record_id": 15,
+    },
+    "G07-P5-M15-S13": {
+        "base": 1_100_000,
+        "variant": "enemy.automaton-spider.minionlv2.variant.01",
+        "variants": [
+            "enemy.automaton-spider.minionlv2.variant.01",
+            "enemy.baryon.minion.variant.01",
+            "enemy.cloud-knights-patroller.minionlv2.variant.01",
+            "enemy.decaying-shadow.elite.variant.01",
+            (
+                "enemy.disciples-of-sanctus-medicus-ballistarius."
+                "minionlv2.variant.01"
+            ),
+            (
+                "enemy.disciples-of-sanctus-medicus-internal-alchemist."
+                "minionlv2.variant.01"
+            ),
+            (
+                "enemy.disciples-of-sanctus-medicus-shape-shifter-bug."
+                "elite.variant.01"
+            ),
+            (
+                "enemy.disciples-of-sanctus-medicus-shape-shifter."
+                "elite.variant.01"
+            ),
+            (
+                "enemy.dreamjolt-troupes-beyond-overcooked-bug."
+                "elite.variant.01"
+            ),
+            "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+            "enemy.dreamjolt-troupes-birdskull.minion.variant.01",
+            "enemy.dreamjolt-troupes-bubble-hound.minionlv2.variant.01",
+        ],
+        "source_record_id": 15,
+        "evidence_record_id": 16,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -14756,7 +14792,289 @@ def owned_rows_s11() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
-def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
+def enemy_specs_s13() -> list[dict[str, Any]]:
+    return [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.automaton-spider.minionlv2",
+            "name": "Automaton Spider",
+            "zh": "自动机兵•蜘蛛",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Lightning", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("ram", "Ram", "冲撞", "101202001", "2", "Physical", "primary", True, None),
+                ("timed-module", "Timed Module", "定时模块", "101202002", None, None, "actor", True, "timed"),
+                (
+                    "self-exploding-module",
+                    "Self-Exploding Module",
+                    "自爆模块",
+                    "101202003",
+                    "5",
+                    "Fire",
+                    "blast",
+                    True,
+                    "self-explode",
+                ),
+                (
+                    "chains-of-destruction",
+                    "Chains of Destruction",
+                    "毁灭连锁",
+                    "101202004",
+                    None,
+                    None,
+                    "actor",
+                    False,
+                    "chains",
+                ),
+            ],
+            "cycle": ["ram", "timed-module", "self-exploding-module"],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.baryon.minion",
+            "name": "Baryon",
+            "zh": "重子",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Ice", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("obliterate", "Obliterate", "湮灭", "801101001", "2.5", "Quantum", "primary", True, None),
+            ],
+            "cycle": ["obliterate"],
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.cloud-knights-patroller.minionlv2",
+            "name": "Cloud Knights Patroller",
+            "zh": "云骑巡防士卒",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Fire", "Imaginary", "Wind"],
+            "resistances": [
+                ("Ice", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("cloud-edge", "Cloud Edge", "云刃", "200201001", "2.5", "Wind", "primary", True, "cloud-edge"),
+                ("patrol-sweep", "Patrol Sweep", "巡防扫击", "200201004", "3.5", "Physical", "primary", True, None),
+            ],
+            "cycle": ["cloud-edge", "patrol-sweep"],
+        },
+        {
+            "key": VARIANT_KEYS[3],
+            "template": "enemy.decaying-shadow.elite",
+            "name": "Decaying Shadow",
+            "zh": "蚕食者之影",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Fire", "Lightning", "Wind"],
+            "resistances": [
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("gilded-spikes", "Fleeting Gilded Spikes", "流年金刺", "800304002", "3", "Imaginary", "primary", True, None),
+                ("binding", "Binding of the Golden Age", "黄金年代的绸缪", "800304004", None, None, "actor", True, "binding"),
+                ("punishment", "Fleeting Punishment", "流年谴罚", "800304003", "5", "Imaginary", "primary", True, None),
+                ("liberation", "Liberation of the Golden Age", "黄金年代的解放", "800304005", "2.25", "Imaginary", "all-opposing", True, "liberation"),
+            ],
+            "cycle": ["gilded-spikes", "binding", "punishment", "liberation"],
+        },
+        {
+            "key": VARIANT_KEYS[4],
+            "template": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2",
+            "name": "Disciples of Sanctus Medicus: Ballistarius",
+            "zh": "「药王秘传」器元士",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Physical", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Lightning", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("mounted-crossbow", "Mounted Crossbow", "犀弩", "202206001", None, "Lightning", "random", True, "bounce-6"),
+            ],
+            "cycle": ["mounted-crossbow"],
+        },
+        {
+            "key": VARIANT_KEYS[5],
+            "template": "enemy.disciples-of-sanctus-medicus-internal-alchemist.minionlv2",
+            "name": "Disciples of Sanctus Medicus: Internal Alchemist",
+            "zh": "「药王秘传」内丹士",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Imaginary", "Physical"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Lightning", "0.4"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("seeding-core", "Seeding Core", "种丹", "202202001", None, None, "primary", True, "seed-core"),
+                ("thundering-reign", "Thundering Reign", "役雷", "202202002", "2.5", "Lightning", "primary", True, None),
+                ("core-rupture", "Core Rupture", "丹毁", "202202003", "4.5", "Lightning", "blast", False, "core-rupture"),
+            ],
+            "cycle": ["seeding-core", "thundering-reign"],
+        },
+        {
+            "key": VARIANT_KEYS[6],
+            "template": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite",
+            "name": "Disciples of Sanctus Medicus: Shape Shifter (Bug)",
+            "zh": "「药王秘传」炼形者（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Ice", "Imaginary", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("thunder-shock", "Thunder-Shock", "震击", "202301101", "3.5", "Lightning", "primary", True, "drain-03"),
+                ("punishing-bolts", "Punishing Bolts", "霆罚", "202301102", "3", "Lightning", "primary", True, "drain-03"),
+                ("sympathicus", "Sympathicus", "交感", "202301105", None, None, "actor", True, "mara-summon"),
+                ("thudding-calamity", "Thudding Calamity", "劫雷", "202301103", "4.5", "Lightning", "primary", True, "drain-03"),
+            ],
+            "cycle": ["sympathicus", "thunder-shock", "punishing-bolts", "thudding-calamity"],
+        },
+        {
+            "key": VARIANT_KEYS[7],
+            "template": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite",
+            "name": "Disciples of Sanctus Medicus: Shape Shifter",
+            "zh": "「药王秘传」炼形者",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Ice", "Imaginary", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Lightning", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("thunder-shock", "Thunder-Shock", "震击", "202301001", "3.5", "Lightning", "primary", True, "drain-025"),
+                ("punishing-bolts", "Punishing Bolts", "霆罚", "202301002", "3", "Lightning", "primary", True, "drain-025"),
+                ("mara-summon", "Mara-Summon", "召遣", "202301004", None, None, "actor", True, "mara-summon"),
+                ("thudding-calamity", "Thudding Calamity", "劫雷", "202301003", "5", "Lightning", "primary", True, "drain-025"),
+            ],
+            "cycle": ["mara-summon", "thunder-shock", "punishing-bolts", "thudding-calamity"],
+        },
+        {
+            "key": VARIANT_KEYS[8],
+            "template": "enemy.dreamjolt-troupes-beyond-overcooked-bug.elite",
+            "name": "Dreamjolt Troupe's Beyond Overcooked (Bug)",
+            "zh": "惊梦剧团的十七分熟（错误）",
+            "rank": "Elite",
+            "toughness": "720",
+            "weaknesses": ["Fire", "Lightning", "Wind"],
+            "resistances": [
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("ladle-swirl", "Ladle Swirl", "大力颠勺", "300301201", "3.8", "Fire", "primary", True, None),
+                ("tornado-toss", "Tornado Toss", "旋风翻锅", "300301202", "3", "Fire", "primary", True, None),
+                ("stove-detonation", "Stove Detonation", "引爆炉灶", "300301203", None, None, "actor", True, "stove"),
+                ("flaming-stir-fry", "Flaming Stir-Fry", "烈焰爆炒", "300301204", "5.8", "Fire", "all-opposing", True, None),
+                ("kitchen-mishap", "Kitchen Mishap", "厨房事故", "300301205", "12", "Fire", "all-allies", True, None),
+            ],
+            "cycle": ["ladle-swirl", "tornado-toss", "stove-detonation", "flaming-stir-fry", "kitchen-mishap"],
+        },
+        {
+            "key": VARIANT_KEYS[9],
+            "template": "enemy.dreamjolt-troupes-beyond-overcooked.elite",
+            "name": "Dreamjolt Troupe's Beyond Overcooked",
+            "zh": "惊梦剧团的十七分熟",
+            "rank": "Elite",
+            "toughness": "480",
+            "weaknesses": ["Fire", "Lightning", "Wind"],
+            "resistances": [
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("ladle-swirl", "Ladle Swirl", "大力颠勺", "300301001", "3.2", "Fire", "primary", True, None),
+                ("tornado-toss", "Tornado Toss", "旋风翻锅", "300301002", "2.8", "Fire", "primary", True, None),
+                ("ignite-stove", "Ignite Stove", "点燃炉灶", "300301003", None, None, "actor", True, "stove"),
+                ("flaming-stir-fry", "Flaming Stir-Fry", "烈焰爆炒", "300301004", "6.2", "Fire", "all-opposing", True, None),
+                ("kitchen-mishap", "Kitchen Mishap", "厨房事故", "300301005", "6", "Fire", "all-allies", True, None),
+            ],
+            "cycle": ["ladle-swirl", "tornado-toss", "ignite-stove", "flaming-stir-fry", "kitchen-mishap"],
+        },
+        {
+            "key": VARIANT_KEYS[10],
+            "template": "enemy.dreamjolt-troupes-birdskull.minion",
+            "name": "Dreamjolt Troupe's Birdskull",
+            "zh": "惊梦剧团的舞鸫假面",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Imaginary", "Lightning"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Physical", "0.2"),
+                ("Quantum", "0.2"),
+                ("Wind", "0.2"),
+            ],
+            "abilities": [
+                ("dance-invite", "Dance Invite", "邀舞", "300102001", "2.5", "Physical", "primary", True, "bleed"),
+            ],
+            "cycle": ["dance-invite"],
+        },
+        {
+            "key": VARIANT_KEYS[11],
+            "template": "enemy.dreamjolt-troupes-bubble-hound.minionlv2",
+            "name": "Dreamjolt Troupe's Bubble Hound",
+            "zh": "惊梦剧团的气泡锂犬",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Lightning", "Physical", "Wind"],
+            "resistances": [
+                ("Fire", "0.2"),
+                ("Ice", "0.2"),
+                ("Imaginary", "0.2"),
+                ("Quantum", "0.2"),
+            ],
+            "abilities": [
+                ("drink-invite", "Drink Invite", "邀饮", "300203001", "2.5", "Physical", "primary", True, None),
+                ("libation-of-sweetness", "Libation of Sweetness", "泼洒甜蜜", "300203002", None, None, "actor", True, "sweetness"),
+                ("hearty-revelry", "Hearty Revelry", "酣畅", "300203003", None, None, "actor", False, "sweetness"),
+            ],
+            "cycle": ["drink-invite", "libation-of-sweetness"],
+        },
+    ]
+
+
+def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
     assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
@@ -14765,7 +15083,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
     if [item["enemy_variant_id"] for item in anchor["variants"]] != VARIANT_KEYS:
         raise ValueError("S12 numeric anchor variants changed")
 
-    enemy_specs = [
+    enemy_specs = enemy_specs_s13() if PARTITION == "G07-P5-M15-S13" else [
         {
             "key": VARIANT_KEYS[0],
             "template": "enemy.abundance-sprite-golden-hound.minionlv2",
@@ -15019,14 +15337,33 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
             "cycle": ["vertical-strike", "self-healing-module"],
         },
     ]
-    variant_row_ids = [
-        95 if index == 0 else 96 if index == 6 else BASE + 1 + index
-        for index in range(len(enemy_specs))
-    ]
-    template_row_ids = [
-        10_001 if index == 0 else 10_002 if index == 6 else BASE + 21 + index
-        for index in range(len(enemy_specs))
-    ]
+    if PARTITION == "G07-P5-M15-S12":
+        variant_row_ids = [
+            95 if index == 0 else 96 if index == 6 else BASE + 1 + index
+            for index in range(len(enemy_specs))
+        ]
+        template_row_ids = [
+            10_001 if index == 0 else 10_002 if index == 6 else BASE + 21 + index
+            for index in range(len(enemy_specs))
+        ]
+    elif PARTITION == "G07-P5-M15-S13":
+        variant_row_ids = [
+            97 if index == 0 else 99 if index == 4 else 100 if index == 7 else BASE + 1 + index
+            for index in range(len(enemy_specs))
+        ]
+        template_row_ids = [
+            10_003
+            if index == 0
+            else 10_005
+            if index == 4
+            else 10_006
+            if index == 7
+            else BASE + 21 + index
+            for index in range(len(enemy_specs))
+        ]
+    else:
+        variant_row_ids = [BASE + 1 + index for index in range(len(enemy_specs))]
+        template_row_ids = [BASE + 21 + index for index in range(len(enemy_specs))]
 
     rows: dict[str, list[dict[str, Any]]] = {}
     identities: list[dict[str, Any]] = []
@@ -15039,21 +15376,37 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         "all-opposing": BASE + 406,
         "all-allies": BASE + 407,
         "adjacent-allies": BASE + 408,
+        "blast": BASE + 409,
     }
-    effects = {
-        "rebound": BASE + 5_001,
-        "monitor": BASE + 5_002,
-        "fiery": BASE + 5_003,
-        "rally": BASE + 5_004,
-        "bleed": BASE + 5_005,
-        "weaken": BASE + 5_006,
-        "sanction": BASE + 5_007,
-        "sanction-bug": BASE + 5_008,
-        "imprisonment": BASE + 5_009,
-        "reverberation": BASE + 5_010,
-        "lock": BASE + 5_011,
-        "overcombust": BASE + 5_012,
-    }
+    effects = (
+        {
+            "chains": BASE + 5_001,
+            "timed": BASE + 5_002,
+            "cloud-edge": BASE + 5_003,
+            "binding": BASE + 5_004,
+            "seed-core": BASE + 5_005,
+            "draining": BASE + 5_006,
+            "stove": BASE + 5_007,
+            "bleed": BASE + 5_008,
+            "sweetness": BASE + 5_009,
+            "rebirth": BASE + 5_010,
+        }
+        if PARTITION == "G07-P5-M15-S13"
+        else {
+            "rebound": BASE + 5_001,
+            "monitor": BASE + 5_002,
+            "fiery": BASE + 5_003,
+            "rally": BASE + 5_004,
+            "bleed": BASE + 5_005,
+            "weaken": BASE + 5_006,
+            "sanction": BASE + 5_007,
+            "sanction-bug": BASE + 5_008,
+            "imprisonment": BASE + 5_009,
+            "reverberation": BASE + 5_010,
+            "lock": BASE + 5_011,
+            "overcombust": BASE + 5_012,
+        }
+    )
     condition_always = BASE + 4_801
     next_program = BASE + 1_001
     next_operation = BASE + 2_001
@@ -15075,7 +15428,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         sources: str = "1",
     ) -> dict[str, Any]:
         row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
-        row["summary_zh_cn"] = "Goal 07 S12 来源绑定的普通敌人批次可执行定义。"
+        row["summary_zh_cn"] = f"Goal 07 {PARTITION[-3:]} 来源绑定的普通敌人批次可执行定义。"
         row["game_version_introduced"] = "1.0"
         return row
 
@@ -15094,6 +15447,14 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
             0,
             2,
             "NoOp",
+        ),
+        "blast": (
+            "PrimaryTarget",
+            "OpposingSide",
+            "PrimaryPlusAdjacent",
+            1,
+            3,
+            "Fault",
         ),
     }
     for key, id_ in selectors.items():
@@ -15146,12 +15507,34 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
             formula_purpose="OrdinaryDamage",
         ),
     )
+    actor_maximum_hp = expression(
+        "actor-maximum-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Hp",
+            formula_purpose="Stat",
+        ),
+    )
     ratio_values = {
         value
         for spec in enemy_specs
         for _, _, _, _, value, _, _, _, _ in spec["abilities"]
         if value is not None
-    } | {"0.25", "0.35", "0.5", "0.6", "0.7", "1"}
+    } | {
+        "0.025",
+        "0.03",
+        "0.075",
+        "0.1",
+        "0.25",
+        "0.35",
+        "0.5",
+        "0.6",
+        "0.7",
+        "1",
+        "1.2",
+    }
     ratios = {
         value: expression(
             f"ratio-{value.replace('.', '-')}",
@@ -15177,6 +15560,20 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         )
         for value in sorted(ratio_values, key=float)
     }
+    maximum_hp_amounts = {
+        value: expression(
+            f"maximum-hp-times-{value.replace('.', '-')}",
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=actor_maximum_hp,
+                right_expression_id=ratios[value],
+                rounding="NearestTiesAway",
+            ),
+        )
+        for value in ("0.025", "0.03", "0.1", "1.2")
+    }
 
     add(
         "ConditionExpression",
@@ -15187,20 +15584,35 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         },
     )
 
-    effect_metadata = {
-        "rebound": ("Rebound Roar", "嗥吠", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
-        "monitor": ("Monitor", "监视", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
-        "fiery": ("Fiery Majesty", "奋威", "Buff", "DispellableBuff", 3, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
-        "rally": ("Rallying Howl", "啸聚", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
-        "bleed": ("Machine Bleed", "机械裂伤", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Physical"),
-        "weaken": ("Weaken", "虚弱", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
-        "sanction": ("Sanction Mode", "惩戒模式", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
-        "sanction-bug": ("Sanction Mode: Punisher", "惩戒模式·惩罚者", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
-        "imprisonment": ("Imprisonment", "禁锢", "Control", "CleanseableControl", 1, integer_two, "TargetTurnStart", "Refresh", None, None),
-        "reverberation": ("Reverberation", "震荡", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
-        "lock": ("Direwolf Lock", "齿狼锁定", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
-        "overcombust": ("Overcombust", "过载", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
-    }
+    effect_metadata = (
+        {
+            "chains": ("Chains of Destruction", "毁灭连锁", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "timed": ("Timed Module", "定时模块", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "cloud-edge": ("Cloud Edge", "云刃", "Buff", "DispellableBuff", 2, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+            "binding": ("Binding of the Golden Age", "黄金年代的绸缪", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "seed-core": ("Seeding Core", "种丹", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "draining": ("Vigor Draining", "采气", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "stove": ("Inferno Stove", "猛火炉灶", "Buff", "NonDispellable", 6, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+            "bleed": ("Dreamjolt Bleed", "惊梦裂伤", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Physical"),
+            "sweetness": ("Libation of Sweetness", "泼洒甜蜜", "Buff", "DispellableBuff", 4, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+            "rebirth": ("Rebirth", "复生", "Buff", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+        }
+        if PARTITION == "G07-P5-M15-S13"
+        else {
+            "rebound": ("Rebound Roar", "嗥吠", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "monitor": ("Monitor", "监视", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "fiery": ("Fiery Majesty", "奋威", "Buff", "DispellableBuff", 3, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+            "rally": ("Rallying Howl", "啸聚", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "bleed": ("Machine Bleed", "机械裂伤", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.5"], "Physical"),
+            "weaken": ("Weaken", "虚弱", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "sanction": ("Sanction Mode", "惩戒模式", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "sanction-bug": ("Sanction Mode: Punisher", "惩戒模式·惩罚者", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "imprisonment": ("Imprisonment", "禁锢", "Control", "CleanseableControl", 1, integer_two, "TargetTurnStart", "Refresh", None, None),
+            "reverberation": ("Reverberation", "震荡", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "lock": ("Direwolf Lock", "齿狼锁定", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "overcombust": ("Overcombust", "过载", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+        }
+    )
     for key, id_ in effects.items():
         (
             name_en,
@@ -15242,20 +15654,35 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                 "application_priority": 0,
             },
         )
-    effect_tags = {
-        "rebound": ["rebound-roar"],
-        "monitor": ["monitor"],
-        "fiery": ["damage-up"],
-        "rally": ["rallying-howl"],
-        "bleed": ["bleed"],
-        "weaken": ["weaken"],
-        "sanction": ["sanction-mode", "toughness-protected"],
-        "sanction-bug": ["sanction-mode", "toughness-protected"],
-        "imprisonment": ["imprisonment", "blocks-normal-action"],
-        "reverberation": ["reverberation"],
-        "lock": ["lock-on-target"],
-        "overcombust": ["overcombust"],
-    }
+    effect_tags = (
+        {
+            "chains": ["chains-of-destruction"],
+            "timed": ["timed-module"],
+            "cloud-edge": ["damage-up"],
+            "binding": ["golden-age-binding"],
+            "seed-core": ["seeding-core"],
+            "draining": ["vigor-draining"],
+            "stove": ["inferno-stove"],
+            "bleed": ["bleed"],
+            "sweetness": ["sweetness"],
+            "rebirth": ["rebirth"],
+        }
+        if PARTITION == "G07-P5-M15-S13"
+        else {
+            "rebound": ["rebound-roar"],
+            "monitor": ["monitor"],
+            "fiery": ["damage-up"],
+            "rally": ["rallying-howl"],
+            "bleed": ["bleed"],
+            "weaken": ["weaken"],
+            "sanction": ["sanction-mode", "toughness-protected"],
+            "sanction-bug": ["sanction-mode", "toughness-protected"],
+            "imprisonment": ["imprisonment", "blocks-normal-action"],
+            "reverberation": ["reverberation"],
+            "lock": ["lock-on-target"],
+            "overcombust": ["overcombust"],
+        }
+    )
     for key, tags in effect_tags.items():
         for sequence, tag in enumerate(tags, start=1):
             add(
@@ -15302,29 +15729,41 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
             )
         return id_
 
-    dragonfish_units = [BASE + 351, BASE + 352]
-    dragonfish_ability = BASE + 381
+    linked_units = [BASE + 351, BASE + 352]
+    linked_ability = BASE + 381
+    is_s13 = PARTITION == "G07-P5-M15-S13"
+    linked_slug = "mara-struck-soldier" if is_s13 else "illumination-dragonfish"
+    linked_name = "Mara-Struck Soldier" if is_s13 else "Illumination Dragonfish"
+    linked_name_zh = "魔阴身士卒" if is_s13 else "入魔机巧·灯昼龙鱼"
+    linked_skill = "Thunder Strike" if is_s13 else "Candle Flame"
+    linked_skill_zh = "雷霆突刺" if is_s13 else "烛焰"
+    linked_element = "Lightning" if is_s13 else "Fire"
+    linked_summary = (
+        "Formation-linked Mara-Struck Soldier summoned by Shape Shifter."
+        if is_s13
+        else "Formation-linked Gatekeeper sanction summon."
+    )
     identities.append(
         ident(
-            dragonfish_ability,
-            "enemy.goal07.s12.illumination-dragonfish.ability.candle-flame",
+            linked_ability,
+            f"enemy.goal07.s12.{linked_slug}.ability.basic-attack",
             "Ability",
-            "Candle Flame",
-            "烛焰",
-            "Executable linked-unit attack used by Aurumaton Gatekeeper.",
+            linked_skill,
+            linked_skill_zh,
+            f"Executable linked-unit attack used by {linked_name}.",
         )
     )
-    dragonfish_program = make_program(
-        "illumination-dragonfish-candle-flame",
+    linked_program = make_program(
+        f"{linked_slug}-basic-attack",
         [
             op_step(
                 new_operation(
-                    "illumination-dragonfish-candle-flame-damage",
+                    f"{linked_slug}-basic-attack-damage",
                     json_cell(
                         "Damage",
                         amount_expression_id=damage_amounts["1"],
                         damage_class="Ordinary",
-                        element="Fire",
+                        element=linked_element,
                         can_crit=True,
                     ),
                     selectors["primary"],
@@ -15335,7 +15774,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
     add(
         "Ability",
         {
-            "id": dragonfish_ability,
+            "id": linked_ability,
             "kind": "Summon",
             "target_pattern": "SingleTarget",
             "retarget_policy": "CancelRemaining",
@@ -15347,21 +15786,21 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
     add(
         "AbilityPhase",
         {
-            "ability_id": dragonfish_ability,
+            "ability_id": linked_ability,
             "sequence": 1,
             "kind": "Resolved",
-            "program_identity_id": dragonfish_program,
+            "program_identity_id": linked_program,
         },
     )
-    for index, unit_id in enumerate(dragonfish_units, start=1):
+    for index, unit_id in enumerate(linked_units, start=1):
         identities.append(
             ident(
                 unit_id,
-                f"unit.goal07.s12.aurumaton-gatekeeper.illumination-dragonfish-{index}",
+                f"unit.goal07.s12.{linked_slug}-{index}",
                 "CharacterForm",
-                f"Illumination Dragonfish {index}",
-                f"入魔机巧·灯昼龙鱼{index}",
-                "Formation-linked Gatekeeper sanction summon.",
+                f"{linked_name} {index}",
+                f"{linked_name_zh}{index}",
+                linked_summary,
             )
         )
         add(
@@ -15371,8 +15810,8 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                 "source_definition_identity_id": unit_id,
                 "kind": "Summon",
                 "presence": "Present",
-                "ability_ids": str(dragonfish_ability),
-                "action_ability_id": dragonfish_ability,
+                "ability_ids": str(linked_ability),
+                "action_ability_id": linked_ability,
                 "formation_index": 2 if index == 1 else 4,
                 "initial_gauge_decimal": "10000",
                 "hp_owner_ratio_decimal": "0.2",
@@ -15387,7 +15826,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                 "owner_departure_policy": "Depart",
                 "wave_policy": "Depart",
                 "combatant_digest_sha256": sha256_text(
-                    f"goal07-s12-illumination-dragonfish-{index}-v1"
+                    f"goal07-s12-{linked_slug}-{index}-v1"
                 ),
             },
         )
@@ -15429,21 +15868,52 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                         )
                     )
                 )
-            effect_key = {
-                "monitor": "monitor",
-                "fiery": "fiery",
-                "rally": "rally",
-                "bleed": "bleed",
-                "weaken": "weaken",
-                "sanction": "sanction",
-                "sanction-bug": "sanction-bug",
-                "imprison-50": "imprisonment",
-                "imprison-60": "imprisonment",
-                "reverberation-70": "reverberation",
-                "reverberation-35": "reverberation",
-                "lock": "lock",
-                "overcombust": "overcombust",
-            }.get(mechanic)
+            if mechanic == "bounce-6":
+                for hit in range(1, 7):
+                    steps.append(
+                        op_step(
+                            new_operation(
+                                f"{enemy_index + 1}-{key}-bounce-{hit}",
+                                json_cell(
+                                    "Damage",
+                                    amount_expression_id=damage_amounts["1"],
+                                    damage_class="Ordinary",
+                                    element=element,
+                                    can_crit=True,
+                                ),
+                                target_selector,
+                            )
+                        )
+                    )
+            effect_key = (
+                {
+                    "chains": "chains",
+                    "timed": "timed",
+                    "cloud-edge": "cloud-edge",
+                    "binding": "binding",
+                    "seed-core": "seed-core",
+                    "mara-summon": "draining",
+                    "stove": "stove",
+                    "bleed": "bleed",
+                    "sweetness": "sweetness",
+                }
+                if is_s13
+                else {
+                    "monitor": "monitor",
+                    "fiery": "fiery",
+                    "rally": "rally",
+                    "bleed": "bleed",
+                    "weaken": "weaken",
+                    "sanction": "sanction",
+                    "sanction-bug": "sanction-bug",
+                    "imprison-50": "imprisonment",
+                    "imprison-60": "imprisonment",
+                    "reverberation-70": "reverberation",
+                    "reverberation-35": "reverberation",
+                    "lock": "lock",
+                    "overcombust": "overcombust",
+                }
+            ).get(mechanic)
             if effect_key is not None:
                 chance = {
                     "imprison-50": "1",
@@ -15473,7 +15943,20 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                                     else None
                                 ),
                             ),
-                            target_selector,
+                            (
+                                selectors["actor"]
+                                if mechanic
+                                in {
+                                    "chains",
+                                    "timed",
+                                    "cloud-edge",
+                                    "binding",
+                                    "mara-summon",
+                                    "stove",
+                                    "sweetness",
+                                }
+                                else target_selector
+                            ),
                         )
                     )
                 )
@@ -15504,8 +15987,38 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                         )
                     )
                 )
-            if mechanic == "sanction":
-                for unit_id in dragonfish_units:
+            if mechanic in {"drain-025", "drain-03"}:
+                heal_ratio = "0.025" if mechanic == "drain-025" else "0.03"
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-vigor-drain",
+                            json_cell(
+                                "Heal",
+                                amount_expression_id=maximum_hp_amounts[heal_ratio],
+                            ),
+                            selectors["actor"],
+                        )
+                    )
+                )
+            if mechanic == "mara-summon":
+                steps.append(
+                    op_step(
+                        new_operation(
+                            f"{enemy_index + 1}-{key}-hp-cost",
+                            json_cell(
+                                "Damage",
+                                amount_expression_id=maximum_hp_amounts["0.1"],
+                                damage_class="Ordinary",
+                                element="Physical",
+                                can_crit=False,
+                            ),
+                            selectors["actor"],
+                        )
+                    )
+                )
+            if mechanic in {"sanction", "mara-summon"}:
+                for unit_id in linked_units:
                     steps.append(
                         op_step(
                             new_operation(
@@ -15523,6 +16036,8 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
             target_pattern = (
                 "Aoe"
                 if target in {"all-opposing", "all-allies"}
+                else "Blast"
+                if target == "blast"
                 else "None"
                 if target == "actor"
                 else "SingleTarget"
@@ -15560,15 +16075,25 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                 },
             )
 
+    defeat_effect = effects["chains"] if is_s13 else effects["rebound"]
+    defeat_slug = "automaton-spider-chains" if is_s13 else "golden-hound-rebound"
+    defeat_name = "Automaton Spider Chains Rule" if is_s13 else "Golden Hound Rebound Rule"
+    defeat_name_zh = "自动机兵蜘蛛毁灭连锁规则" if is_s13 else "娄金嗥吠规则"
+    defeat_summary = (
+        "Deals 120% of the Automaton Spider's maximum HP as Fire damage "
+        "to adjacent same-side units after it is defeated."
+        if is_s13
+        else "Advances adjacent living allies after the Golden Hound is defeated."
+    )
     rebound_entry = make_program(
-        "golden-hound-rebound-entry",
+        f"{defeat_slug}-entry",
         [
             op_step(
                 new_operation(
-                    "golden-hound-rebound-entry",
+                    f"{defeat_slug}-entry",
                     json_cell(
                         "ApplyEffect",
-                        effect_id=effects["rebound"],
+                        effect_id=defeat_effect,
                         stacks_expression_id=None,
                         chance_policy="Guaranteed",
                         base_chance_expression_id=None,
@@ -15580,14 +16105,24 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         ],
     )
     rebound_program = make_program(
-        "golden-hound-rebound-trigger",
+        f"{defeat_slug}-trigger",
         [
             op_step(
                 new_operation(
-                    "golden-hound-rebound-advance-adjacent-allies",
-                    json_cell(
-                        "AdvanceAction",
-                        amount_expression_id=ratios["1"],
+                    f"{defeat_slug}-adjacent-allies",
+                    (
+                        json_cell(
+                            "Damage",
+                            amount_expression_id=maximum_hp_amounts["1.2"],
+                            damage_class="Ordinary",
+                            element="Fire",
+                            can_crit=False,
+                        )
+                        if is_s13
+                        else json_cell(
+                            "AdvanceAction",
+                            amount_expression_id=ratios["1"],
+                        )
                     ),
                     selectors["adjacent-allies"],
                     "NoOp",
@@ -15601,11 +16136,11 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
     identities.append(
         ident(
             rebound_rule,
-            "rule.goal07.enemy-s12.golden-hound-rebound",
+            f"rule.goal07.enemy-s12.{defeat_slug}",
             "Rule",
-            "Golden Hound Rebound Rule",
-            "娄金嗥吠规则",
-            "Advances adjacent living allies after the Golden Hound is defeated.",
+            defeat_name,
+            defeat_name_zh,
+            defeat_summary,
         )
     )
     add(
@@ -15613,10 +16148,10 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         {
             "id": rebound_rule,
             "domain": "Battle",
-            "source_definition_identity_id": effects["rebound"],
+            "source_definition_identity_id": defeat_effect,
             "source_class": "Effect",
             "source_digest_sha256": sha256_text(
-                "goal07-s12-golden-hound-rebound-v1"
+                f"goal07-s12-{defeat_slug}-v1"
             ),
         },
     )
@@ -15624,7 +16159,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         "EventFilter",
         {
             "id": rebound_filter,
-            "stable_key": "goal07.enemy.s12.filter.golden-hound-defeated",
+            "stable_key": f"goal07.enemy.s12.filter.{defeat_slug}-defeated",
             "target_selector_id": selectors["owner"],
             "cause_ancestry": "Any",
         },
@@ -15633,7 +16168,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
         "RuleTrigger",
         {
             "id": rebound_trigger,
-            "stable_key": "goal07.enemy.s12.trigger.golden-hound-rebound",
+            "stable_key": f"goal07.enemy.s12.trigger.{defeat_slug}",
             "rule_id": rebound_rule,
             "sequence": 1,
             "event": json_cell("Unit", point="Defeated"),
@@ -15648,7 +16183,7 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
     add(
         "EffectRuleBinding",
         {
-            "effect_id": effects["rebound"],
+            "effect_id": defeat_effect,
             "sequence": 1,
             "rule_id": rebound_rule,
         },
@@ -15915,6 +16450,12 @@ def owned_rows_s12() -> dict[str, list[dict[str, Any]]]:
                 "mechanism_quality": "ExactStructured",
             },
         )
+    if is_s13:
+        for table_rows in rows.values():
+            for row in table_rows:
+                for field, value in row.items():
+                    if isinstance(value, str):
+                        row[field] = value.replace("s12", "s13").replace("S12", "S13")
     for table_rows in rows.values():
         table_rows.sort(
             key=lambda row: json.dumps(
@@ -15935,6 +16476,9 @@ def owns_partition_identity(value: Any) -> bool:
     id_ = int(value)
     return owns_partition_range(id_) or (
         PARTITION == "G07-P5-M15-S12" and id_ in {95, 96, 10_001, 10_002}
+    ) or (
+        PARTITION == "G07-P5-M15-S13"
+        and id_ in {97, 99, 100, 10_003, 10_005, 10_006}
     )
 
 
@@ -15942,6 +16486,8 @@ def owns_partition_variant(value: Any) -> bool:
     id_ = int(value)
     return owns_partition_range(id_) or (
         PARTITION == "G07-P5-M15-S12" and id_ in {95, 96}
+    ) or (
+        PARTITION == "G07-P5-M15-S13" and id_ in {97, 99, 100}
     )
 
 
@@ -15949,6 +16495,8 @@ def owns_partition_template(value: Any) -> bool:
     id_ = int(value)
     return owns_partition_range(id_) or (
         PARTITION == "G07-P5-M15-S12" and id_ in {10_001, 10_002}
+    ) or (
+        PARTITION == "G07-P5-M15-S13" and id_ in {10_003, 10_005, 10_006}
     )
 
 
@@ -16056,7 +16604,8 @@ def main() -> None:
         "G07-P5-M15-S09": owned_rows_s09,
         "G07-P5-M15-S10": owned_rows_s10,
         "G07-P5-M15-S11": owned_rows_s11,
-        "G07-P5-M15-S12": owned_rows_s12,
+        "G07-P5-M15-S12": owned_rows_ordinary,
+        "G07-P5-M15-S13": owned_rows_ordinary,
     }[PARTITION]()
     golden_path = (
         ROOT

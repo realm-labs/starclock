@@ -44478,6 +44478,1590 @@
             "String": "goal07.enemy.s12.expression.atk-times-6"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103001
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "OrdinaryDamage"
+              },
+              "stat": {
+                "String": "Atk"
+              },
+              "subject_selector_id": {
+                "Integer": 1100401
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.actor-atk"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103002
+          },
+          "node": {
+            "Object": {
+              "formula_purpose": {
+                "String": "Stat"
+              },
+              "stat": {
+                "String": "Hp"
+              },
+              "subject_selector_id": {
+                "Integer": 1100401
+              },
+              "type": {
+                "String": "QueryStat"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.actor-maximum-hp"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103003
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.025"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-025"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103004
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.03"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-03"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103005
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.075"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-075"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103006
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103007
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.25"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103008
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.35"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-35"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103009
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103010
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.6"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-6"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103011
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "0.7"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-0-7"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103012
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103013
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "1.2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-1-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103014
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103015
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2.25"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-2-25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103016
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-2-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103017
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "2.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-2-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103018
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103019
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3.2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-3-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103020
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-3-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103021
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "3.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-3-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103022
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "4.5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-4-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103023
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "5"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103024
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "5.8"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-5-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103025
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "6"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-6"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103026
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "6.2"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-6-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103027
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "ScalarLiteral"
+              },
+              "value_decimal": {
+                "String": "12"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.ratio-12"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103028
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "IntegerLiteral"
+              },
+              "value": {
+                "Integer": 2
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Integer"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.integer-two"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103029
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103003
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-025"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103030
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103004
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-03"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103031
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103005
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-075"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103032
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103006
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103033
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103007
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103034
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103008
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-35"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103035
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103009
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103036
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103010
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-6"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103037
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103011
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-0-7"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103038
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103012
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103039
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103013
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-1-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103040
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103014
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103041
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103015
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-2-25"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103042
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103016
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-2-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103043
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103017
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-2-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103044
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103018
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103045
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103019
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-3-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103046
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103020
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-3-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103047
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103021
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-3-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103048
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103022
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-4-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103049
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103023
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103050
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103024
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-5-8"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103051
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103025
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-6"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103052
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103026
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-6-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103053
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103001
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103027
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.atk-times-12"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103054
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103002
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103003
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.maximum-hp-times-0-025"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103055
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103002
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103004
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.maximum-hp-times-0-03"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103056
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103002
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103006
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.maximum-hp-times-0-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1103057
+          },
+          "node": {
+            "Object": {
+              "left_expression_id": {
+                "Integer": 1103002
+              },
+              "operator": {
+                "String": "CheckedMultiply"
+              },
+              "right_expression_id": {
+                "Integer": 1103013
+              },
+              "rounding": {
+                "String": "NearestTiesAway"
+              },
+              "type": {
+                "String": "CheckedBinary"
+              }
+            }
+          },
+          "result_kind": {
+            "String": "Scalar"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s13.expression.maximum-hp-times-1-2"
+          }
+        }
       }
     ]
   }

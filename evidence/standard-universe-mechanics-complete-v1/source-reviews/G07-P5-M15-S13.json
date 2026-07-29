@@ -1,0 +1,250 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v2",
+  "partition_id": "G07-P5-M15-S13",
+  "reviewed_on": "2026-07-29",
+  "mechanism_target": "ExactPublic",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "numeric_policy_ids": [
+    "goal07-exact-public-per-level-v1",
+    "goal07-normalized-template-level-curve-v1"
+  ],
+  "variants": [
+    {
+      "enemy_variant_id": "enemy.automaton-spider.minionlv2.variant.01",
+      "source_monster_id": "1012020",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "authored_levels": [
+        31,
+        32,
+        34,
+        37,
+        51,
+        54
+      ],
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Automaton_Spider",
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.baryon.minion.variant.01",
+      "source_monster_id": "8011010",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        7,
+        21,
+        22,
+        24,
+        25,
+        51
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.cloud-knights-patroller.minionlv2.variant.01",
+      "source_monster_id": "2002010",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        51,
+        52,
+        54
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.decaying-shadow.elite.variant.01",
+      "source_monster_id": "8003040",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        36,
+        49,
+        50,
+        61,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-ballistarius.minionlv2.variant.01",
+      "source_monster_id": "2022060",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "authored_levels": [
+        54,
+        55,
+        57
+      ],
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Disciples_of_Sanctus_Medicus%3A_Ballistarius",
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-internal-alchemist.minionlv2.variant.01",
+      "source_monster_id": "2022020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        54,
+        57
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter-bug.elite.variant.01",
+      "source_monster_id": "2023011",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        53,
+        69,
+        78,
+        87
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.disciples-of-sanctus-medicus-shape-shifter.elite.variant.01",
+      "source_monster_id": "2023010",
+      "accuracy_disposition": "ExactPublic",
+      "numeric_policy_id": "goal07-exact-public-per-level-v1",
+      "authored_levels": [
+        44,
+        66,
+        75,
+        84
+      ],
+      "public_url": "https://honkai-star-rail.fandom.com/wiki/Disciples_of_Sanctus_Medicus%3A_Shape_Shifter",
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked-bug.elite.variant.01",
+      "source_monster_id": "3003012",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        47
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-beyond-overcooked.elite.variant.01",
+      "source_monster_id": "3003010",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        44,
+        50,
+        66,
+        75,
+        84
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-birdskull.minion.variant.01",
+      "source_monster_id": "3001020",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        51,
+        54,
+        57
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    },
+    {
+      "enemy_variant_id": "enemy.dreamjolt-troupes-bubble-hound.minionlv2.variant.01",
+      "source_monster_id": "3002030",
+      "accuracy_disposition": "ApprovedNumericApproximation",
+      "numeric_policy_id": "goal07-normalized-template-level-curve-v1",
+      "authored_levels": [
+        51,
+        54,
+        55,
+        57
+      ],
+      "public_url": null,
+      "numeric_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "numeric_evidence_sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60"
+    }
+  ],
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source skill identifiers, target hints, elements, ratios, operation tags"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "rank, base HP, base SPD, toughness, effect resistance, retained AI sequence"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "weaknesses, resistances, debuff resistances and summon references"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "all frozen Standard Universe elite difficulty levels"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/encounter-groups.json",
+      "sha256": "f5aab75d59678aab90f146b8d11881450e9b682a329c20477d52d2f2d4d23001",
+      "facts": [
+        "11 frozen encounter groups, 43 members and hard level group 2"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S13-numeric-anchors.json",
+      "sha256": "b8ac0544918a16ec2aa1fdeb44710d56d34c440f6e7d7670a5ad5378b2980d60",
+      "facts": [
+        "exact-public Automaton Spider, Ballistarius and Shape Shifter rows",
+        "approved normalized template curve for nine inherited approximate variants"
+      ]
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "All twelve frozen variants materialize through production EnemyDefinition, EnemyStat, EnemyPhase, EnemyAbility and AI graph rows.",
+    "Every frozen encounter and difficulty level has a corresponding authored EnemyStat row.",
+    "Damage ratios, elements, target patterns, weaknesses, resistances and toughness are transcribed from the committed version 4.4 extraction.",
+    "Automaton Spider retains Timed Module, Self-Exploding Module and its killing-blow Chains of Destruction damage.",
+    "Ballistarius retains six-hit random-target Mounted Crossbow.",
+    "Shape Shifter retains its HP-consuming two-unit summon and Vigor Draining healing boundary.",
+    "Decaying Shadow retains the Binding and Liberation sequence; Beyond Overcooked variants retain stove charge, ignition/detonation and party damage.",
+    "The nine inherited approximate variants use the named normalized template curve while preserving executable source-ordered mechanics.",
+    "No native handler is introduced."
+  ]
+}

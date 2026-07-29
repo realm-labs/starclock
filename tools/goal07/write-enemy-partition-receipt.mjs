@@ -205,6 +205,10 @@ const partitionConfig = {
       "unit.goal07.s12.aurumaton-gatekeeper.illumination-dragonfish-2",
     ],
   },
+  "G07-P5-M15-S13": {
+    completedOn: "2026-07-29",
+    definitionKeys: [],
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -350,11 +354,14 @@ if (partitionId === "G07-P5-M15-S11") {
     { path: "crates/starclock-mode-universe/tests/battle_materialization/svarog_s11.rs" },
   );
 }
-if (partitionId === "G07-P5-M15-S12") {
+if (partitionId === "G07-P5-M15-S12" || partitionId === "G07-P5-M15-S13") {
   executionEvidence.push(
     { path: "crates/starclock-data/src/standard_v1.rs" },
     { path: "crates/starclock-mode-universe/src/catalog.rs" },
-    { path: "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs" },
+    {
+      path:
+        `crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_${partitionId.slice(-3).toLowerCase()}.rs`,
+    },
   );
 }
 const provenanceEvidence = [
@@ -370,6 +377,7 @@ if (
   || partitionId === "G07-P5-M15-S07"
   || partitionId === "G07-P5-M15-S08"
   || partitionId === "G07-P5-M15-S12"
+  || partitionId === "G07-P5-M15-S13"
 ) {
   provenanceEvidence.push(
     { path: "content-reference/standard-universe-v1/encounter-groups.json" },
@@ -446,8 +454,10 @@ const universeWorkbookEvidence = [
 const encounterGroupEvidence = [
   { path: "content-reference/standard-universe-v1/encounter-groups.json" },
 ];
-const s12 = partitionId === "G07-P5-M15-S12";
-const s12VariantReviews = new Map(
+const ordinaryBatch =
+  partitionId === "G07-P5-M15-S12" || partitionId === "G07-P5-M15-S13";
+const ordinaryBatchSlug = partitionId.slice(-3).toLowerCase();
+const ordinaryVariantReviews = new Map(
   (sourceReviewDocument.variants ?? []).map((entry) => [entry.enemy_variant_id, entry]),
 );
 
@@ -468,7 +478,7 @@ const receipt = {
     sora_bundle: evidence("config/generated/config.sora"),
     sora_golden: evidence(golden),
   },
-  records: s12 ? partition.record_ids.map((id) => {
+  records: ordinaryBatch ? partition.record_ids.map((id) => {
     const entry = audit.records.find((candidate) => candidate.id === id);
     assert(entry, `${partitionId}: record ${id} is absent from the retained audit`);
     return {
@@ -488,7 +498,7 @@ const receipt = {
     },
   ] : [],
   rules: [],
-  fixtures: s12 ? partition.fixture_ids.map((id) => {
+  fixtures: ordinaryBatch ? partition.fixture_ids.map((id) => {
     const entry = audit.fixtures.find((candidate) => candidate.id === id);
     assert(entry, `${partitionId}: fixture ${id} is absent from the retained audit`);
     return {
@@ -499,13 +509,13 @@ const receipt = {
       provenance_evidence: encounterGroupEvidence,
       execution_kind: "RustTest",
       test_path:
-        "crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_s12.rs",
+        `crates/starclock-mode-universe/tests/battle_materialization/ordinary_enemies_${ordinaryBatchSlug}.rs`,
       test_marker:
-        "ordinary_enemy_batch_s12_materializes_all_frozen_variants_and_level_rows",
+        `ordinary_enemy_batch_${ordinaryBatchSlug}_materializes_all_frozen_variants_and_level_rows`,
     };
   }) : [],
-  enemy_variants: s12 ? plannedVariants.map((entry, index) => {
-    const review = s12VariantReviews.get(entry.id);
+  enemy_variants: ordinaryBatch ? plannedVariants.map((entry, index) => {
+    const review = ordinaryVariantReviews.get(entry.id);
     assert(review, `${partitionId}: source review for ${entry.id} is absent`);
     return {
       id: entry.id,
@@ -517,7 +527,7 @@ const receipt = {
       definition_keys: [
         entry.id,
         entry.id.replace(".variant.01", ""),
-        `ai.goal07.enemy-s12.${index + 1}`,
+        `ai.goal07.enemy-${ordinaryBatchSlug}.${index + 1}`,
       ],
       numeric_policy_id: review.numeric_policy_id,
       numeric_review: {
@@ -543,7 +553,7 @@ const receipt = {
       execution_evidence: executionEvidence,
     },
   ],
-  encounter_members: s12 ? partition.encounter_member_ids.map((id) => {
+  encounter_members: ordinaryBatch ? partition.encounter_member_ids.map((id) => {
     const entry = audit.encounter_members.find((candidate) => candidate.id === id);
     assert(entry, `${partitionId}: encounter member ${id} is absent from retained audit`);
     return {

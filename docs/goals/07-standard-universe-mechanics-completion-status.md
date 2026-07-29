@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S13` |
-| Next unblocked batch | `G07-P5-M15-S13` |
+| Active batch | `G07-P5-M15-S14` |
+| Next unblocked batch | `G07-P5-M15-S14` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -287,7 +287,7 @@ living character's current HP before granting two random one-star Blessings.
 All 31 records and the assigned restoration fixture have terminal
 dispositions. The complete 321-choice Occurrence runtime now has zero
 deferred operations, with no native handler or numeric approximation.
-Enemy partitions S01–S12 are complete. `G07-P5-M15-S13` is active.
+Enemy partitions S01–S13 are complete. `G07-P5-M15-S14` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
 model. The first 68 completed partitions use scoped Excel/Sora semantic
