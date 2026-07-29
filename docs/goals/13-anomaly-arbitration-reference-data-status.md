@@ -5,14 +5,15 @@
 | Field | Value |
 |---|---|
 | Goal ID | `anomaly-arbitration-reference-v1` |
-| State | `Ready` |
-| Active phase | Not started |
-| Active batch | — |
-| Next unblocked batch | `G13-P0-B1` |
+| State | `InProgress` |
+| Active phase | Phase 0 — Scope, sources and contracts |
+| Active batch | None |
+| Next unblocked batch | `G13-P0-B2` after `G13-P0-B1` is pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
 | Planning cache audit | 2026-07-29: both caches clean/detached at pinned commits; origins, commit/blob readability and connectivity verified; execution must reproduce in `G13-P0-B1` |
+| Source-cache reproduction | `G13-P0-B1`: both fixed caches materialized twice in an isolated `/tmp` target from the clean connected fixed-commit cache; exact detached HEAD, tree, origin, cleanliness, connectivity and 21 required file receipts verified |
 | Starting source oracle | 6 `ChallengePeak*` tables, direct ChallengePeak battle-event ability, indirect gameplay/config closure, CHS/EN TextMaps, StageConfig and transitive shared target/MazeBuff/enemy sources |
 | Active-period hypothesis | Group `8`, aliases `801`–`804` and stages `30508011`, `30508012`, `30508013`, `30508021`, `30508022`; not a denominator until `G13-P0-B3` proves the selector chain |
 | Focused inventory | Pending `G13-P0-B2` |
@@ -30,7 +31,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Awaiting execution-owned cache reproduction, focused inventory, active-period manifest and authoring contracts. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, 21 hashed source entries, Goal 07–12 committed checkpoints, Candidate-only scope, Sora authority and six isolated roots are frozen; focused inventory generation remains. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting Knight records/uniqueness, King protection/Plight, clocks, Arbitral Quadrant, stars and settlement. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool zero/nonzero proofs, targets, traits, battle events, stages, waves, enemies and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
@@ -40,7 +41,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G13-P0-B1` | `Pending` | — | Reproduce caches, verify Goal 03 and concurrent Goal boundaries, freeze scope and prove isolation. |
+| `G13-P0-B1` | `Complete` | This row's containing commit | Froze foundation `c85e2cd8…e93d`, Goal 03 commit/tree and preserved bundle digests, two Version 4.4 source revisions/trees, 6 dedicated tables, 18 turnbasedgamedata plus 3 StarRailRes file receipts, 25 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and 6 isolated roots. Checkpoints: Goal 07 remote-merged `4f466df7…0931`; Goal 08 local-only `43b989c4…8d90` (7,913: 7,199/714); Goal 09 remote-backed `9bd2ad28…09c` (6,963: 6,305/658); Goal 10 remote-backed `ce2f6b20…5683` (5,377: 5,243/134); Goal 11 remote-backed inventory `f202c1bd…1779` with no ownership manifest; Goal 12 remote-backed foundation `74cb56a2…159d` with no source/ownership manifest. A bounded fresh GitLab partial clone made no progress and was terminated; no network success is claimed. The isolated copy-on-write reproducer and verifier passed twice/idempotently. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify `git rev-parse HEAD` against `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference`, requiring identical full commit IDs before P0-B2. |
 | `G13-P0-B2` | `Pending` | — | Inventory dedicated/shared tables, indirect config/ability programs, TextMaps, StageConfig, enemies and exclusions. |
 | `G13-P0-B3` | `Pending` | — | Freeze active-period selectors, exact obligations/counts, ownership, reachability, proven-empty pools and exclusions. |
 | `G13-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
@@ -77,6 +78,18 @@ and remote-resolution result are reported in the setup handoff.
 `G13-P0-B1` records the full setup commit and remote verification as immutable
 foundation evidence before any data mutation.
 
+## Current batch verification
+
+| Command | Result |
+|---|---|
+| `tools/anomaly-arbitration-reference/fetch-sources.sh /tmp/starclock-g13-fetch-test.cffiAe /Users/mikai/CLionProjects/starclock/.cache/content-reference` (twice) | Passed; first isolated materialization and second idempotent run both left exact clean/detached revisions with canonical origins and connected Git objects. |
+| `node tools/anomaly-arbitration-reference/verify-foundation.mjs --source-cache /tmp/starclock-g13-fetch-test.cffiAe` (twice) | Passed; Goal 03, 21 source receipts, Goal 07–12 committed checkpoints, branch/worktree isolation and 25-batch contract verified. |
+| `git diff --check`; plan/status batch-set script; repository-wide local Markdown target script | Passed; 25 batch IDs agree and 634 local links across 301 tracked Markdown files resolve. |
+| `node tools/repository-check/run.mjs` under Node 24.15.0 | Passed in 3.0 seconds; no Rust scope selected and two generated/release inputs were deferred. |
+| `node tools/repository-check/run.mjs --full --with-source-cache` | Supplemental full gate did not reach Goal 13 or generated-drift checks: existing `tools/goal06/verify-phase0.mjs` rejected the current additive repository `Cargo.lock` as differing from its historical baseline. Goal 13 changes neither file. |
+| `node tools/repository-check/verify-generated-drift.mjs --with-source-cache` | Supplemental generated gate passed eight existing pack/manifest/provenance/coverage checks, then stopped because repository-pinned Sora 0.3.0 is not installed; host `sora 0.2.0` is explicitly non-authoritative and Phase 3 owns resolution. |
+| `node tools/goal-provenance/generate.mjs --check`; Standard Universe inventory/manifest/bootstrap checks | Direct cache substitutes exposed existing checkout-EOL/current-tree drift: Black Swan source hash mismatch, Standard inventory drift, manifest pass, and `occurrence-choices.json` drift. These historical/shared artifacts are protected; Goal 13 instead verifies exact Git commits/trees and its 21 required blobs. |
+
 ## Frozen counters
 
 Populate required counts only from the generated manifest in `G13-P0-B3`.
@@ -109,6 +122,8 @@ generated selector-closure proof.
 | 2026-07-29 | Base the branch on `b0cd3cb9…`, the committed Goal 11 setup package. | The base includes Goal 01–11 indexing while excluding all concurrent worktree changes; Goal 12 remains independently owned. |
 | 2026-07-29 | Inherit the pinned Version 4.4 source and identity revisions used by Goals 03 and 08–12. | Shared identity, row ownership and membership comparisons require one reproducible historical boundary. |
 | 2026-07-29 | Require `G13-P0-B1` to reproduce both caches even though the planning audit found them clean and readable. | Planning-time availability is not a substitute for batch-owned reproducibility evidence. |
+| 2026-07-29 | Accept isolated copy-on-write cache materialization after a bounded fresh GitLab partial clone made no progress. | The clean connected seed has the exact commit trees and required blobs, the clone retains canonical origins, and two reproducer/verifier runs prove idempotence without mutating the shared sparse cache; no fresh-network success is claimed. |
+| 2026-07-29 | Freeze only committed Goal 07–12 blobs as P0 reconciliation checkpoints. | Concurrent worktrees changed during the audit; their uncommitted files remain protected and non-authoritative. Goal 08 is informational until remotely backed/merged, and Goal 11/12 ownership manifests must be adopted later if they become available. |
 | 2026-07-29 | Treat the six `ChallengePeak*` tables and candidate group/stage IDs only as an inventory seed. | Historical periods, rewards and mechanics share the tables; prefix and ID range do not prove active Version 4.4 membership. |
 | 2026-07-29 | Require indirect gameplay/config discovery rather than assume no config exists because `Config/Gameplays` has no direct ChallengePeak path. | StageConfig, BattleEventConfig, MazeBuff and the shared ChallengePeak ability program carry transitive mechanics. |
 | 2026-07-29 | Audit Blessing, Curio, Occurrence, service and currency families even when the expected result is empty. | Completeness requires a generated zero proof; absence cannot be inferred from this being a challenge mode. |
