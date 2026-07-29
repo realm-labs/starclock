@@ -1,0 +1,55 @@
+{
+  "schema_revision": "starclock.goal07-world-partition-golden.v1",
+  "partition_id": "G07-P5-M15-S22",
+  "lane": "encounter-selection",
+  "record_ids": [
+    "universe.encounter-pool.room.300232",
+    "universe.encounter-pool.room.300233",
+    "universe.encounter-pool.room.300241",
+    "universe.encounter-pool.room.300242",
+    "universe.encounter-pool.room.300243",
+    "universe.encounter-pool.room.300611",
+    "universe.encounter-pool.room.300612",
+    "universe.encounter-pool.room.300713",
+    "universe.encounter-pool.room.301",
+    "universe.encounter-pool.room.302",
+    "universe.encounter-pool.room.304",
+    "universe.encounter-pool.room.307",
+    "universe.encounter-pool.room.400111",
+    "universe.encounter-pool.room.400112",
+    "universe.encounter-pool.room.400121",
+    "universe.encounter-pool.room.400122",
+    "universe.encounter-pool.room.400131",
+    "universe.encounter-pool.room.400132",
+    "universe.encounter-pool.room.400142",
+    "universe.encounter-pool.room.400211",
+    "universe.encounter-pool.room.400212",
+    "universe.encounter-pool.room.400221",
+    "universe.encounter-pool.room.400222",
+    "universe.encounter-pool.room.400231",
+    "universe.encounter-pool.room.400232",
+    "universe.encounter-pool.room.400611",
+    "universe.encounter-pool.room.400612",
+    "universe.encounter-pool.room.501"
+  ],
+  "rule_ids": [],
+  "fixture_ids": [],
+  "tables": {
+    "UniverseEncounterPool": {
+      "rows": 28,
+      "semantic_sha256": "c13d4baae31d97b5e0aace13d1f109f21d8f614ebf68d37faef525aa25a4f19c"
+    },
+    "UniverseEncounterPoolGroup": {
+      "rows": 53,
+      "semantic_sha256": "a22602262654dbc8b577ba293b4ced461757981d87a3e9f6922ca920b7e543a0"
+    },
+    "UniverseEncounterPoolFixed": {
+      "rows": 14,
+      "semantic_sha256": "28e3a17ed92b8c1e148153eddd6d18e1ae2464e7b29ad195bb4271f6155dedfa"
+    },
+    "UniverseReviewFixture": {
+      "rows": 0,
+      "semantic_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

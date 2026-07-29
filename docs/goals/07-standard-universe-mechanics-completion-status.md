@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S22` |
-| Next unblocked batch | `G07-P5-M15-S22` |
+| Active batch | `G07-P5-M15-S23` |
+| Next unblocked batch | `G07-P5-M15-S23` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -304,10 +304,14 @@ fail closed. Encounter-selection S21 is complete: another 32 pools retain 60
 ordered weighted bindings and two fixed bindings. Its two production fixtures
 prove exact-condition weighted stable order and World-difficulty Boss
 resolution against the selected difficulty's authored enemy binding.
-`G07-P5-M15-S22` is active.
+Encounter-selection S22 is complete: its final 28 pools retain 53 weighted
+bindings and 14 fixed bindings. Together S20–S22 exactly close all 92
+encounter pools, with contiguous identities, 174 weighted bindings, 36 fixed
+bindings and a closed 59/4/29 split across the three selection policies.
+`G07-P5-M15-S23` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 89 completed partitions use scoped Excel/Sora semantic
+model. The first 90 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
