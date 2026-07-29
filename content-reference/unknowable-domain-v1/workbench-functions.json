@@ -1,0 +1,192 @@
+[
+  {
+    "id": "unknowable-domain.workbench-function.10",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "WorkbenchFunction",
+    "name_en": "Scepter Modification",
+    "name_zh_cn": "权杖改装",
+    "summary_en": "Scepter Modification is the released MagicScepterLevelUp function; exact price, candidate pool, refresh and service lifecycle are not published.",
+    "summary_zh_cn": "权杖改装是已发布的 MagicScepterLevelUp 功能；精确价格、候选池、刷新与服务生命周期未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "4",
+        "sha256": "fa46fb2863dfab67ce0308c1da97d6f98ceded1be93713a056dca5823c25ef85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "magicscepterlevelup",
+      "service",
+      "workbench-function"
+    ],
+    "source_id": "10",
+    "function_type": "MagicScepterLevelUp",
+    "currency_id": "cosmic-fragments",
+    "price": "Unspecified",
+    "description_en": "Consume Cosmic Fragments to improve Scepters' Calculation Power comprehensively",
+    "description_zh_cn": "消耗宇宙碎片全面提升权杖算能",
+    "offer_policy_id": "unknowable-domain.service-offer.workbench-function.10"
+  },
+  {
+    "id": "unknowable-domain.workbench-function.6",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "WorkbenchFunction",
+    "name_en": "Scepter Store",
+    "name_zh_cn": "权杖商店",
+    "summary_en": "Scepter Store is the released MagicScepterShop function; exact price, candidate pool, refresh and service lifecycle are not published.",
+    "summary_zh_cn": "权杖商店是已发布的 MagicScepterShop 功能；精确价格、候选池、刷新与服务生命周期未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "0",
+        "sha256": "fed8ce78801deea3c52d876a67626f1b1c16e4240e1cc27f4a0aee80cc29f2a2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "magicsceptershop",
+      "service",
+      "workbench-function"
+    ],
+    "source_id": "6",
+    "function_type": "MagicScepterShop",
+    "currency_id": "cosmic-fragments",
+    "price": "Unspecified",
+    "description_en": "Consume Cosmic Fragments to purchase Scepters",
+    "description_zh_cn": "消耗宇宙碎片兑换权杖",
+    "offer_policy_id": "unknowable-domain.service-offer.workbench-function.6"
+  },
+  {
+    "id": "unknowable-domain.workbench-function.7",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "WorkbenchFunction",
+    "name_en": "Component Store",
+    "name_zh_cn": "组件商店",
+    "summary_en": "Component Store is the released MagicUnitShop function; exact price, candidate pool, refresh and service lifecycle are not published.",
+    "summary_zh_cn": "组件商店是已发布的 MagicUnitShop 功能；精确价格、候选池、刷新与服务生命周期未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "1",
+        "sha256": "32cd47205d1753dbec883e090c5ff2bb0c0c2bc9aacb2665ddd95ee198fb0322",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "magicunitshop",
+      "service",
+      "workbench-function"
+    ],
+    "source_id": "7",
+    "function_type": "MagicUnitShop",
+    "currency_id": "cosmic-fragments",
+    "price": "Unspecified",
+    "description_en": "Consume Cosmic Fragments to purchase Components",
+    "description_zh_cn": "消耗宇宙碎片兑换组件",
+    "offer_policy_id": "unknowable-domain.service-offer.workbench-function.7"
+  },
+  {
+    "id": "unknowable-domain.workbench-function.8",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "WorkbenchFunction",
+    "name_en": "Component Synthesis",
+    "name_zh_cn": "组件合成",
+    "summary_en": "Component Synthesis is the released MagicUnitCompose function; exact price, candidate pool, refresh and service lifecycle are not published.",
+    "summary_zh_cn": "组件合成是已发布的 MagicUnitCompose 功能；精确价格、候选池、刷新与服务生命周期未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "2",
+        "sha256": "c736777dcabec036c7c9178efe2b7c6d403f80a1f70cdf5a04e23930ea3cf87e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "magicunitcompose",
+      "service",
+      "workbench-function"
+    ],
+    "source_id": "8",
+    "function_type": "MagicUnitCompose",
+    "currency_id": "Unspecified",
+    "price": "Unspecified",
+    "description_en": "Synthesize Components into new Components",
+    "description_zh_cn": "将组件合成为全新组件",
+    "offer_policy_id": "unknowable-domain.service-offer.workbench-function.8"
+  },
+  {
+    "id": "unknowable-domain.workbench-function.9",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "WorkbenchFunction",
+    "name_en": "Overwrite Component",
+    "name_zh_cn": "组件覆写",
+    "summary_en": "Overwrite Component is the released MagicUnitReforge function; exact price, candidate pool, refresh and service lifecycle are not published.",
+    "summary_zh_cn": "组件覆写是已发布的 MagicUnitReforge 功能；精确价格、候选池、刷新与服务生命周期未发布。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicworkbenchfunc-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicWorkbenchFunc.json",
+        "locator": "3",
+        "sha256": "fb521acd35668b3462f2e064b7c1d9d9ec653f6dd05014e5f3271de354ae13f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "magicunitreforge",
+      "service",
+      "workbench-function"
+    ],
+    "source_id": "9",
+    "function_type": "MagicUnitReforge",
+    "currency_id": "Unspecified",
+    "price": "Unspecified",
+    "description_en": "Overwrite Components into other Components",
+    "description_zh_cn": "将组件覆写为其他组件",
+    "offer_policy_id": "unknowable-domain.service-offer.workbench-function.9"
+  }
+]
