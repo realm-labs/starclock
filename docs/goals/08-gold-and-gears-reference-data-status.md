@@ -6,8 +6,8 @@
 |---|---|
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 1 — Unique mode systems |
-| Active batch | `G08-P1-B8` |
+| Active phase | Phase 2 — Content and encounters |
+| Active batch | `G08-P2-B1` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -22,8 +22,8 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 51 normalized files, four workbook families and 18 fixture families are machine-frozen; P1-B5 amended the manifest from 7,906 to 7,913 after correcting the Knowledge tag discriminator. |
-| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes and all 12 Conundrum levels are DataReady; Path/Resonance systems remain. |
-| Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
+| Phase 1 — Unique mode systems | `Complete` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes, all 12 Conundrum levels and all 108 Path/Resonance obligations are DataReady. |
+| Phase 2 — Content and encounters | `InProgress` | Importing reachable shared Blessing, enhanced-level, Path and Resonance pool membership; Curios, Occurrences, services, Adventure outcomes and encounters remain. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
@@ -42,8 +42,8 @@
 | `G08-P1-B5` | `Complete` | This row's containing commit | Corrected the frozen Knowledge discriminator after bilingual face semantics proved `SpecialType`—not `Mark`—is the internal Knowledge code. Regenerated and rechecked the manifest at 7,913 obligations (`88885b40…6085`, 3,335,090 bytes; 7,199 Gold-owned plus 714 shared), corrected the numeric filter-tag join, and generated 22 Knowledge bindings (`c8d2ac4e…ac957`, 146,354 bytes). Every exact effect template is typed as placement, propagation, query, consumption, preservation, movement override, collapse protection or reward. Dice 301 countdown recovery, 302 collapse prevention and 303 collapse reward are preserved with direct row provenance as active-dice-specific exact interactions. Candidate enumeration, seeded selection, empty-set no-op and simultaneous movement/mutation/collapse/reward ordering remain named replaceable `ProjectPolicy`. Focused manifest, contract, face and Knowledge verifiers plus the quick gate pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B6` | `Complete` | This row's containing commit | Generated and rechecked `neural-network.json` with all 40 released nodes (`dec13b52…b313e`, 111,580 bytes): three roots, one terminal, 53 exact prerequisite edges and 31,250 total Neural Impulses. Thirty nodes contribute exact battle stat ratios, nine contribute run decisions/resources/services/dice behavior and Reboot Plane contributes a declared Activity-to-battle entry effect. All nodes are mechanically relevant; none is collection/account reward-only. Exact costs, bilingual names/tags, description hashes, parameter vectors, Trailblaze Bonus `204`/`205` links and 40 rule-contribution identities are preserved. Released rows prove the three slot rarity upgrades but not which equal Blue slot belongs to node `301` versus `2001`, and they do not define the reroll empty-candidate case; both details use named replaceable `ProjectPolicy` records. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
 | `G08-P1-B7` | `Complete` | This row's containing commit | Generated and rechecked `conundrum-levels.json` with all 12 released definitions (`ebf7b894…d2f2`, 49,044 bytes): six Stats levels, six cumulative Auxiliary levels, independent track caps of six and a summed total cap of 12 after clearing Formal Difficulty V. Stats composition deterministically replaces the prior same-tag stat tier while retaining Berserk and Toughness/action-response contributions; Auxiliary composition includes every prior level. Exact bilingual text, tags, source parameters, resource deltas, Formation count, Path-Blessing count delta and deferred Curio/encounter bindings are preserved. Released sources do not publish numeric stat/Toughness/action-advance ratios or Berserk cycle/stack values, so those fields use one named replaceable `ProjectPolicy` and fail closed at battle compilation instead of inventing parity. Focused and quick gates pass. |
-| `G08-P1-B8` | `InProgress` | — | Importing bonuses `201`–`205`, Path/Resonance additions and Resonance Extrapolations. |
-| `G08-P2-B1` | `Pending` | — | Freeze reachable shared and mode-owned Blessing/Path/Resonance pools. |
+| `G08-P1-B8` | `Complete` | This row's containing commit | Generated and rechecked six normalized files with 113 rows (429,528 bytes; SHA-256: paths `572af86a…299f`, Resonances `94cedded…f81a`, boosts `b2107dc1…15f8`, Extrapolations `b2a1213b…6a49`, Interplays `4fd0cccb…9159`, bonuses `08820529…48ff`): nine shared Paths, 36 shared Resonances/Formations, nine exact Path boosts, 36 Third Plane Extrapolation bindings, 18 exact two-Path Interplays and bonuses `201`–`205`. The source ability programs correct four prior dice boost labels to Effect Hit Rate, DoT, CRIT DMG and all DMG without changing the frozen 108-row denominator. Released rows prove group membership, buff parameters, 3+3 Interplay thresholds and Path-boost conversion; generic Extrapolation selection, scheduling and target-polarity lowering remain a named replaceable fail-closed policy. All focused verifiers and the quick gate pass. The Phase 1 full gate again stops only at the frozen Goal 06 `Cargo.lock baseline differs` historical boundary. |
+| `G08-P2-B1` | `InProgress` | — | Freezing reachable shared and mode-owned Blessing/Path/Resonance pools. |
 | `G08-P2-B2` | `Pending` | — | Import Curios, copies, states, charges, repair and replacement. |
 | `G08-P2-B3` | `Pending` | — | Import Occurrences, variants, choices, conditions, costs and outcomes. |
 | `G08-P2-B4` | `Pending` | — | Import currencies, services, beacons and abstract Adventure outcomes. |
@@ -67,7 +67,7 @@ Do not estimate denominators from Wiki page counts.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/entries/bonuses | 9 | 4 | 4 | Profile and three entry rows are DataReady; Gold and Gears Trailblaze Bonus IDs `201`–`205` remain P1-B8. |
+| Profiles/entries/bonuses | 9 | 9 | 9 | Profile, three entry rows and Gold and Gears Trailblaze Bonus IDs `201`–`205` are DataReady. |
 | Difficulties/Conundrum unlock | 33 | 33 | 33 | Five Formal difficulties, 16 referenced difficulty segments and all 12 Conundrum definitions are DataReady. |
 | Planes/map nodes/edges/rooms/domains | 6,612 | 6,612 | 6,612 | All exact parent obligations are DataReady; 3,407 derived edges remain explicitly ProjectPolicy and are audited outside the source denominator. |
 | Cognition/Intra-Cognition/Secret conditions | 55 | 55 | 55 | Thirteen area ranges, 20 mechanical Secret conditions and 22 common constants are DataReady; story prose remains excluded and lifecycle ordering is explicitly ProjectPolicy. |
@@ -76,7 +76,7 @@ Do not estimate denominators from Wiki page counts.
 | Knowledge rules | 22 | 22 | 22 | Twenty-two released `SpecialType` faces are the exact Knowledge set; typed rules are DataReady and target/simultaneous ordering remains explicitly ProjectPolicy. |
 | Neural Network nodes/effects | 40 | 40 | 40 | All 40 source nodes are DataReady: 30 Battle, nine Activity and one ActivityAndBattle contribution; none is reward-only. |
 | Conundrum definitions/levels | 12 | 12 | 12 | Six Stats and six Auxiliary levels close exactly once; caps/composition are exact and unpublished combat numerics are fail-closed policy fields. |
-| Paths/boosts/Resonance Extrapolations | 108 | 0 | 0 | Nine shared Paths, 36 shared Resonances/Formations, nine Path boosts, 36 Extrapolation buffs and 18 Interplays. |
+| Paths/boosts/Resonance Extrapolations | 108 | 108 | 108 | Nine shared Paths, 36 shared Resonances/Formations, nine exact Path boosts, 36 policy-bounded Extrapolation bindings and 18 exact Interplays are DataReady. |
 | Blessings/enhanced levels | 486 | 0 | 0 | All 162 Goal 03 stable Blessing IDs and both authored levels are reachable shared content. |
 | Curios/states | 160 | 0 | 0 | Eighty reachable handbook identities and exactly one 3000-series Gold mode copy each; 61 shared identities and 19 mode-owned. |
 | Occurrences/variants/choices | 127 | 0 | 0 | Sixty-two reachable handbook identities and 65 distinct 300000-series Gold variants; choice expansion remains child rows. |
@@ -104,6 +104,8 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Amend the Knowledge denominator from 15 `Mark` faces to 22 `SpecialType` faces and preserve the original P0-B3 hash as historical evidence. | Bilingual effect templates show `Mark` is the Beacon concept while `SpecialType` contains Knowledge placement, propagation, consumption and movement rules; correctness requires a current-manifest amendment rather than perpetuating the frozen misclassification. |
 | 2026-07-29 | Bind Neural Network slot upgrades by released rarity capability plus stable slot order, and fail closed for an impossible reroll candidate set. | Released rows prove one Purple-to-Golden and two Blue-to-Purple upgrades but do not distinguish the two Blue targets; reroll text excludes the previous result without specifying the empty set. Both mappings remain field-level `ProjectPolicy` with engine-evidence replacement conditions. |
 | 2026-07-29 | Preserve exact Conundrum composition while failing closed for unpublished combat numerics. | Released data and public text prove two six-level tracks, a summed cap of 12, same-tag Stats replacement, cumulative Auxiliary effects and semantic combat changes, but not enemy-stat/Toughness/action-advance ratios or Berserk cycle and stack values. |
+| 2026-07-29 | Correct four selected-Path boost labels from their released `StageAbility` target properties. | The earlier import mislabeled Aeon IDs `2`, `3`, `5` and `6`; the pinned ability programs bind them to Effect Hit Rate, DoT, CRIT DMG and all DMG. The correction preserves all 108 frozen identities and adds explicit per-Aeon verifier assertions. |
+| 2026-07-29 | Reuse shared Path/Resonance identities and fail closed for unpublished generic Extrapolation controller behavior. | Released rows prove the nine Path groups, one Resonance plus three Formations per Path, Path-boost scaling, 18 Interplays and the Third Plane boss boundary. Candidate enumeration, formation selection, action-gauge/tie order and generic player-to-enemy polarity lowering are not fully exposed by the pinned structured rows. |
 
 ## Research cases
 
@@ -115,7 +117,7 @@ Do not estimate denominators from Wiki page counts.
 | `G08-R04` | `PolicyBound` | Plane-boss evaluation is publicly supported; adjustment, global/area clamp, carry, reset, frontier and tie ordering use replaceable `cognition-lifecycle-v1` until pinned engine evidence proves the exact sequence. | P1-B2 / P4-B2 |
 | `G08-R05` | `PolicyBound` | Exact face templates and active-dice-specific countdown/collapse interactions are typed; canonical target enumeration, seeded selection, empty-set behavior and simultaneous movement/Knowledge/collapse/reward order use replaceable `knowledge-*-v1` policies until pinned engine evidence is available. | P1-B5 / P4-B2 |
 | `G08-R06` | `PolicyBound` | Track composition, independent caps of six, summed cap of 12 and all released semantic effects are bound. Numeric enemy-stat/Toughness/action-advance ratios and Berserk cycle/stack values remain a named fail-closed `conundrum-unreleased-numeric-bindings-v1` policy until pinned released engine data or reproducible Version 4.4 observations replace them. | P1-B7 / P4-B2 |
-| `G08-R07` | `Open` | How do Path boosts and Resonance Extrapolation select, scale, charge and act in the final boss battle? | P1-B8 |
+| `G08-R07` | `PolicyBound` | Path-boost targets and percent-to-ratio conversion, all group memberships, shared Resonance parameters, 3+3 Interplay thresholds and the Third Plane boss scope are exact. Extrapolation candidate enumeration, seeded formation selection, action-gauge/tie order and generic target-polarity lowering use `resonance-extrapolation-controller-v1`; unresolved action/polarity lowering fails closed until pinned engine evidence replaces the policy. | P1-B8 / P4-B2 |
 | `G08-R08` | `Open` | Which Blessings, Curios, Occurrences, services and mode-specific copies are actually reachable in the Version 4.4 Gold and Gears pools? | P2-B1–B4 |
 | `G08-R09` | `Open` | Which map-generation, room-selection, occurrence and reward weights are released, observed or require explicit project policy? | P1-B1 / P2-B3–B4 |
 | `G08-R10` | `Closed` | All 40 nodes are mechanically relevant: 30 contribute battle ratios, nine change run decisions/resources/services/dice behavior and Reboot Plane projects an entry effect into eligible battles. No node is reward-only. The two unpublished slot/reroll details are field-level replaceable policies rather than unresolved blockers. | P1-B6 |
@@ -148,6 +150,6 @@ Do not estimate denominators from Wiki page counts.
 | Completion commit | — |
 | Gold and Gears reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | 6,986/7,913 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
+| Coverage | 7,099/7,913 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
 | Release evidence | — |
 | Remaining required work | Gold and Gears runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |

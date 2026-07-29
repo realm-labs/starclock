@@ -55,6 +55,14 @@ node tools/gold-and-gears-reference/import-conundrum.mjs
 node tools/gold-and-gears-reference/verify-conundrum.mjs
 ```
 
+Phase 1 Path, shared Resonance, Path Boost, Resonance Extrapolation,
+Resonance Interplay and Trailblaze Bonus rows regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-paths.mjs
+node tools/gold-and-gears-reference/verify-paths.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
@@ -68,3 +76,7 @@ use named replaceable policies rather than claiming an unpublished engine
 mapping. Conundrum track composition, caps and released semantic effects are
 exact; unpublished enemy-stat ratios, Berserk timing/stack values, Toughness
 ratio and action-advance amount remain one named fail-closed numeric policy.
+Shared Path/Resonance identities remain unchanged. Released BattleEvent groups,
+Interplay thresholds and Path Boost properties are exact; the unpublished
+generic Extrapolation selection/action/polarity controller is a named
+fail-closed policy.

@@ -10,11 +10,11 @@ const decimalPattern =
   /^(0|-?(?:[1-9][0-9]*(?:\.[0-9]*[1-9])?|0\.[0-9]*[1-9]))$/u;
 const typedStats = new Set([
   "ShieldGain",
-  "EffectResistance",
   "EffectHitRate",
+  "DamageOverTime",
   "OutgoingHealing",
-  "Speed",
-  "Attack",
+  "CriticalDamage",
+  "DamageDealt",
   "FollowUpAttackDamage",
   "BasicAttackDamage",
   "UltimateDamage",
@@ -138,6 +138,17 @@ const inheritedPathBySource = new Map(standardPaths.map((row) => [
 assert(inheritedPathBySource.size === 9, "inherited Path closure drift");
 const values = data.get("dice-path-values.json");
 const matrix = new Set();
+const expectedBoostStat = new Map(Object.entries({
+  1: "ShieldGain",
+  2: "EffectHitRate",
+  3: "DamageOverTime",
+  4: "OutgoingHealing",
+  5: "CriticalDamage",
+  6: "DamageDealt",
+  7: "FollowUpAttackDamage",
+  8: "BasicAttackDamage",
+  9: "UltimateDamage",
+}));
 for (const value of values) {
   assert(diceIds.has(value.dice_id), `${value.id} dice ref does not resolve`);
   assert(inheritedPathBySource.get(value.path_source_id) === value.path_id,
@@ -150,7 +161,9 @@ for (const value of values) {
     && value.boost_value_unit === "SourceRatioFormattedAsPercent"
     && value.parameters.every((parameter) => decimalPattern.test(parameter)),
   `${value.id} parameter shape drift`);
-  assert(typedStats.has(value.boost_stat), `${value.id} boost stat drift`);
+  assert(typedStats.has(value.boost_stat)
+    && expectedBoostStat.get(value.path_source_id) === value.boost_stat,
+  `${value.id} boost stat drift`);
   assert(/^[0-9]+$/u.test(value.effect_text_hash),
     `${value.id} effect text hash drift`);
   matrix.add(`${value.dice_source_id}:${value.path_source_id}`);

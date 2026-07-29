@@ -161,11 +161,11 @@ for (const pathRow of standardPaths) {
 }
 const boostStatByAeonId = new Map(Object.entries({
   1: "ShieldGain",
-  2: "EffectResistance",
-  3: "EffectHitRate",
+  2: "EffectHitRate",
+  3: "DamageOverTime",
   4: "OutgoingHealing",
-  5: "Speed",
-  6: "Attack",
+  5: "CriticalDamage",
+  6: "DamageDealt",
   7: "FollowUpAttackDamage",
   8: "BasicAttackDamage",
   9: "UltimateDamage",
