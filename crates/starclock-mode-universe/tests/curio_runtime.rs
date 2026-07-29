@@ -190,6 +190,80 @@ fn acquisition_is_unique_and_charge_exhaustion_repairs_error_code() {
 }
 
 #[test]
+fn hundred_curio_charge_cycles_stay_bounded_and_reject_stale_consumption() {
+    const CYCLES: u32 = 100;
+
+    let runtime = CurioRuntimeCatalog::compile(&catalog()).expect("Curio runtime");
+    let repairing = runtime
+        .definitions()
+        .iter()
+        .find(|definition| {
+            definition
+                .states()
+                .iter()
+                .any(|state| state.kind() == CurioStateKind::Repairing)
+        })
+        .expect("repairing Curio");
+    let fixed = repairing
+        .states()
+        .iter()
+        .find(|state| state.kind() == CurioStateKind::Fixed)
+        .expect("fixed state");
+    let bindings = bindings();
+    let definition = state_definition(bindings);
+    let graph = graph();
+
+    for _cycle in 0..CYCLES {
+        let mut state = ActivityTransactionState::new(definition.clone(), node(1));
+        acquire(
+            &runtime,
+            repairing,
+            bindings,
+            &definition,
+            &graph,
+            &mut state,
+            1,
+        );
+        for (sequence, expected) in [(3, 3), (4, 2), (5, 1)] {
+            let operations = runtime
+                .consume_charge_operations(repairing.curio(), expected, bindings)
+                .expect("consume charge");
+            let program = operation_program(sequence, operations.into_vec());
+            program.validate_against(&definition, &graph).unwrap();
+            commit_program(&mut state, &program, u64::from(sequence), &graph);
+        }
+        assert_counter(
+            &state,
+            bindings.state_slot,
+            repairing.curio().get(),
+            fixed.id().get(),
+        );
+        assert_counter(&state, bindings.charge_slot, repairing.curio().get(), 0);
+
+        let stale = operation_program(
+            6,
+            runtime
+                .consume_charge_operations(repairing.curio(), 1, bindings)
+                .expect("typed stale command")
+                .into_vec(),
+        );
+        assert!(matches!(
+            state.apply_program(&stale, cause(6, 6), &graph),
+            ActivityTransactionOutcome::Rejected(
+                ActivityTransactionRejection::ConditionNotSatisfied
+            )
+        ));
+        assert_counter(
+            &state,
+            bindings.state_slot,
+            repairing.curio().get(),
+            fixed.id().get(),
+        );
+        assert_counter(&state, bindings.charge_slot, repairing.curio().get(), 0);
+    }
+}
+
+#[test]
 fn immediate_repair_replacement_and_teardown_are_atomic_and_scoped() {
     let runtime = CurioRuntimeCatalog::compile(&catalog()).expect("Curio runtime");
     let repairing = runtime
