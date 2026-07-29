@@ -42,6 +42,8 @@ node tools/swarm-disaster-reference/import-encounters.mjs
 node tools/swarm-disaster-reference/verify-encounters.mjs
 node tools/swarm-disaster-reference/finalize-pack.mjs
 node tools/swarm-disaster-reference/verify-pack.mjs
+node tools/swarm-disaster-reference/generate-sora-schema.mjs .
+node tools/swarm-disaster-reference/verify-sora-schema.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
