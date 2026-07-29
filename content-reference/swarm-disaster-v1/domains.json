@@ -1,0 +1,662 @@
+[
+  {
+    "id": "swarm-disaster.domain.adventure",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Adventure",
+    "name_zh_cn": "冒险",
+    "summary_en": "Adventure is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Adventure 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_2.json",
+        "locator": "RogueChestGridItemMap/202",
+        "sha256": "963df37fd1ad88fd7e22c0079a81313f71de2731757af90959171104fff250e7",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Adventure",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Adventure",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.empty",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Blank",
+    "name_zh_cn": "空白",
+    "summary_en": "Empty is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Empty 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-level1-03-json.roguechestgriditemmap-403",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_03.json",
+        "locator": "RogueChestGridItemMap/403",
+        "sha256": "30f25af8f7a1ccc57d57b3b9282b5fd0f068eefbf71d141b9a23712b959a898c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Empty",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Empty",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.event",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Occurrence",
+    "name_zh_cn": "事件",
+    "summary_en": "Event is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Event 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-101",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/101",
+        "sha256": "53046f5301b373f84e368dc4cf00d09e89677c805f70487aa1e424e77809d334",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Event",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Event",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.monsterboss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Boss",
+    "name_zh_cn": "首领",
+    "summary_en": "MonsterBoss is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "MonsterBoss 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-204",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/204",
+        "sha256": "32e90d4ce0acfe50a66bdd90882949630a5874b8383bdb93b75a257993770e31",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "MonsterBoss",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "MonsterBoss",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.monsterelite",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Elite",
+    "name_zh_cn": "精英",
+    "summary_en": "MonsterElite is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "MonsterElite 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-102",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/102",
+        "sha256": "4f66369c4db831258af501e8ba86dcde44aeb7a00a9c27cd127ceaed5b2e8534",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "MonsterElite",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "MonsterElite",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.monsternormal",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Combat",
+    "name_zh_cn": "战斗",
+    "summary_en": "MonsterNormal is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "MonsterNormal 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-1-json.roguechestgriditemmap-201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+        "locator": "RogueChestGridItemMap/201",
+        "sha256": "76de3b78fafe47b8c94b3dfdd2d920d1d6c9e4bfe380973b7f5bdcad36a03e63",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "MonsterNormal",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "MonsterNormal",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.monsterswarm",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Combat: Swarm",
+    "name_zh_cn": "战斗•虫群",
+    "summary_en": "MonsterSwarm is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "MonsterSwarm 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-maprepo-customlevel-roguedlc-map-level1-endgame-json.roguechestgriditemmap-204",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo/CustomLevel/RogueDLC_Map_Level1_EndGame.json",
+        "locator": "RogueChestGridItemMap/204",
+        "sha256": "1406102133b8907783aaa8f73c3bf51c4c77cbc86fdec65bbf7422e74a7c78b1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "MonsterSwarm",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "MonsterSwarm",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.monsterswarmboss",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Boss: Swarm",
+    "name_zh_cn": "首领•虫群",
+    "summary_en": "MonsterSwarmBoss is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "MonsterSwarmBoss 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-3-json.roguechestgriditemmap-204",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_3.json",
+        "locator": "RogueChestGridItemMap/204",
+        "sha256": "cc41383f814ae01de799c082318e4b32c8c4c7239fce2bbaf01ce5d26cd7276a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "MonsterSwarmBoss",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "MonsterSwarmBoss",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.respite",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Respite",
+    "name_zh_cn": "休整",
+    "summary_en": "Respite is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Respite 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-2-json.roguechestgriditemmap-201",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_2.json",
+        "locator": "RogueChestGridItemMap/201",
+        "sha256": "467edfe2e912c0c017eca7b3c3b16d1f92a6dbe9d9bf387e52a39763148b5fb0",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Respite",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Respite",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.reward",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Reward",
+    "name_zh_cn": "奖励",
+    "summary_en": "Reward is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Reward 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial1-3-json.roguechestgriditemmap-202",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_3.json",
+        "locator": "RogueChestGridItemMap/202",
+        "sha256": "4896a469a51512c166462675a4259fee48f86396df853596d14a68e89101b546",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Reward",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Reward",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.swarmevent",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Occurrence: Swarm",
+    "name_zh_cn": "事件•虫群",
+    "summary_en": "SwarmEvent is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "SwarmEvent 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-maprepo-level1-roguedlc-map-level1-type1-01-json.roguechestgriditemmap-302",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_01.json",
+        "locator": "RogueChestGridItemMap/302",
+        "sha256": "17e2bc2c5bc02ba4b0b38e8901ddccc8c83491917624d84ad44db267d76ec182",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "SwarmEvent",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "SwarmEvent",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  },
+  {
+    "id": "swarm-disaster.domain.trade",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmDomain",
+    "name_en": "Transaction",
+    "name_zh_cn": "交易",
+    "summary_en": "Trade is reachable from an authored ChessRogue node or block-creation rule.",
+    "summary_zh_cn": "Trade 可由已发布的 ChessRogue 节点或区块创建规则到达。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.roguechestgriditemmap-200",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueChestGridItemMap/200",
+        "sha256": "86ee780b00579bdd97c254f0f2bb0de76b666108878f168dd6f69c7f3d7319cd",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.domains",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "domains",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Domain selection consumes only authored node candidates or block-creation weights. Topology mutations operate on stable node-ID ordering, and an empty legal set is a deterministic no-op.",
+        "replacement_condition": "Replace individual selection or replacement clauses when released engine behavior supplies a stronger exact rule."
+      }
+    ],
+    "tags": [
+      "Trade",
+      "domain",
+      "project-policy"
+    ],
+    "source_id": "Trade",
+    "selection_policy": {
+      "candidate_source": "AuthoredNodeCandidatesOrBlockCreationWeights",
+      "candidate_order": "StableNodeId",
+      "weighted_sampling": "IntegerWeight",
+      "no_legal_target": "NoOp"
+    },
+    "replacement_policy": {
+      "trigger_source": "TypedTopologyConsequence",
+      "mutation_order": "StableNodeId",
+      "preserve_terminal_nodes": true,
+      "preserve_unmentioned_metadata": true,
+      "no_legal_target": "NoOp"
+    }
+  }
+]
