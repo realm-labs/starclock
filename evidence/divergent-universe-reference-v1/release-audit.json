@@ -1,0 +1,90 @@
+{
+  "schema_revision": "starclock.divergent-universe-release-audit.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "audited_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "content_manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+    "normalized_schema_sha256": "5d5da89646c8df7b1ccce865a8ce50efae129b6017b63994bdd44f0679c62a90",
+    "sora_schema_lock_sha256": "f41b3c968bb6e16c88f750aed19386dda24bff368cdf18c294107482c07fd74e"
+  },
+  "exact_once": {
+    "manifest_categories": 50,
+    "manifest_obligations": 6215,
+    "coverage_rows": 6215,
+    "coverage_data_bindings": 21424,
+    "data_ready_obligations": 6215,
+    "coverage_percent": "100",
+    "duplicate_obligations": 0,
+    "blocking_gaps": 0
+  },
+  "normalized": {
+    "files": 80,
+    "common_rows": 26985,
+    "source_rows": 7620,
+    "mechanic_rules": 669,
+    "semantic_fixture_families": 25,
+    "semantic_review_fixtures": 25,
+    "research_gaps": 25,
+    "reconciliation_receipts": 0,
+    "ownership": {
+      "DivergentUniverse": 23992,
+      "Excluded": 16,
+      "OtherMode": 57,
+      "Shared": 2920
+    },
+    "coverage_state": {
+      "Cataloged": 2925,
+      "DataReady": 22108,
+      "Excluded": 73,
+      "Researched": 1879
+    },
+    "evidence_quality": {
+      "ApproximateFromReleasedText": 1,
+      "ExactOfficialText": 8,
+      "ExactPublicText": 476,
+      "ExactStructured": 21358,
+      "ProjectPolicy": 5142
+    }
+  },
+  "references": {
+    "source_ref_bindings": 95109,
+    "referenced_source_rows": 7620,
+    "typed_sora_fields": 132,
+    "typed_sora_bindings": 111485,
+    "rule_owner_and_fixture_bindings": 1338,
+    "family_input_bindings": 68,
+    "fixture_input_bindings": 68,
+    "fixture_evidence_bindings": 174,
+    "research_gap_affected_bindings": 68,
+    "unresolved": 0
+  },
+  "bilingual": {
+    "rows_checked": 26985,
+    "missing_english_or_chinese_fields": 0,
+    "chinese_fields_without_han_text": 0
+  },
+  "ownership_and_boundary": {
+    "enabled_module": "6002201",
+    "enabled_main_tournament": 3,
+    "enabled_sub_tournament": 1,
+    "runtime_enabled": false,
+    "manifest_ownership": {
+      "DivergentUniverse": 4507,
+      "Shared": 1,
+      "SharedCandidate": 1707
+    },
+    "normalized_ownership": {
+      "DivergentUniverse": 23992,
+      "Excluded": 16,
+      "OtherMode": 57,
+      "Shared": 2920
+    },
+    "other_mode_rows": 57,
+    "excluded_rows": 16,
+    "promoted_other_mode_or_excluded_rows": 0,
+    "runtime_lowered_rules": 0,
+    "runtime_executable_fixtures": 0,
+    "runtime_claims": 0
+  }
+}

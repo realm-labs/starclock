@@ -32,6 +32,17 @@ run([
   "--out",
   path.join(target, "templates"),
 ]);
+execFileSync(process.env.STARCLOCK_PYTHON ?? "python3", [
+  path.join(
+    root,
+    "tools/divergent-universe-reference/normalize_xlsx_archives.py",
+  ),
+  ...[
+    "DivergentUniverse.xlsx",
+    "DivergentUniverseBindings.xlsx",
+    "DivergentUniverseReview.xlsx",
+  ].map((file) => path.join(target, "templates", file)),
+], { cwd: root, stdio: "inherit" });
 run([
   "--serial",
   "gen",

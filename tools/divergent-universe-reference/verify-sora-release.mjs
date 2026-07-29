@@ -154,6 +154,16 @@ function build(label) {
     "--project",
     path.join(projectRoot, "project.toml"),
   ]);
+  run(python, [
+    "tools/divergent-universe-reference/normalize_xlsx_archives.py",
+    ...workbooks.map((file) => path.join(
+      buildRoot,
+      "config",
+      "divergent-universe-generated",
+      "templates",
+      file,
+    )),
+  ]);
   return {
     data,
     generated: path.join(
@@ -238,15 +248,15 @@ function assertSameGenerated(first, second, committed = false) {
       assert(
         fs.statSync(path.join(first, relative)).size > 1_000 &&
           fs.statSync(path.join(second, relative)).size > 1_000,
-        `${relative} template is missing`,
+        `${committed ? "committed" : "double-build"}/${relative} is empty`,
       );
-    } else {
-      assertSame(
-        path.join(first, relative),
-        path.join(second, relative),
-        `${committed ? "committed" : "double-build"}/${relative}`,
-      );
+      continue;
     }
+    assertSame(
+      path.join(first, relative),
+      path.join(second, relative),
+      `${committed ? "committed" : "double-build"}/${relative}`,
+    );
   }
 }
 

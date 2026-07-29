@@ -223,7 +223,7 @@ const constants = (await context.table("RogueTournConstCommon"))
         id: `divergent-universe.constant.${slug(name)}`,
         kind: "DivergentUniverseCommonConstant",
         nameEn: name,
-        nameZh: name,
+        nameZh: `差分宇宙常量 ${name}`,
         summaryEn: excluded
           ? `${name} is retained as reward, account, presentation or test exclusion evidence.`
           : `${name} provides a canonical ${constantKind(entry.row.Value)} value to ${consumers.length} normalized subsystem family/families.`,
@@ -338,7 +338,7 @@ const roomMarks = (await context.table("RogueTournRoomMark"))
     const nameEn = context.text(entry.row.OPLOPGILKKH, "en")
       || `${roomType} ${mark}`;
     const nameZh = context.text(entry.row.OPLOPGILKKH, "zh_cn")
-      || `${roomType} ${mark}`;
+      || `${roomType} ${mark} 房间标记`;
     return {
       ...context.envelope({
         id: `divergent-universe.room-mark.${entry.locator}`,
