@@ -7,8 +7,8 @@
 | Goal ID | `currency-wars-reference-v1` |
 | State | `InProgress` |
 | Current phase | Phase 0 — Scope, sources and contracts (`InProgress`) |
-| Current batch | None; `G12-P0-B1` awaits publication of this ledger row |
-| Next unblocked batch | `G12-P0-B2`, only after the `G12-P0-B1` commit is pushed and remotely resolved |
+| Current batch | None; `G12-P0-B2` awaits publication of this ledger row |
+| Next unblocked batch | `G12-P0-B3`, only after the `G12-P0-B2` commit is pushed and remotely resolved |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -16,7 +16,7 @@
 | Execution cache reproduction | `G12-P0-B1`: fresh partial clones in a `mktemp` directory; exact detached commits, clean status, origins, commit readability, connectivity, 11 Persona/64 Tourn canonical digest and required entry hashes verified; the fetcher passed a second idempotent run |
 | Goal package publication | `origin/codex/goal12-currency-wars-reference@e3c7b7a18bcad2e3c8305b4512f007f4e39fa19b`; setup push `git push -u origin codex/goal12-currency-wars-reference`; local and remote refs resolved identically |
 | Starting source oracle | `Tourn3` / MainTourn `3` / ActivityModule `6002201`; 11 `RoguePersona*` tables; all 64 shared `RogueTourn*` tables; 4 direct `_S3` ability programs; CHS/EN TextMaps, StageConfig and transitive config/shared-source closure |
-| Focused inventory | Entry boundary frozen by `G12-P0-B1`; transitive inventory pending `G12-P0-B2` |
+| Focused inventory | 2,685 files: 2,676 `turnbasedgamedata` and 9 `StarRailRes`; 2,646 inherited Goal 03 paths plus 30 focused additions; SHA-256 `379183f9c9dc9d3de3de2c39f3db81282e7e901e0c78725e44baa793540d7358` |
 | Content manifest | Denominators pending `G12-P0-B3` |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
@@ -26,13 +26,13 @@
 | Parallel condition | Separate branch/worktree and isolated Goal 12 artifacts while Goals 07 through 11 are active |
 | Ownership checkpoints | Goal 08 `d7031b83…9bcc` (committed local only), Goal 09 `77e83ed2…61e3` and Goal 10 `3064e550…b115` (remote-backed), Goal 11 `b0cd3cb9…643` (remote-backed setup only; no committed ownership manifest) |
 | Publication policy | Push each completed batch commit and verify the remote branch commit before starting the next batch |
-| Blocking condition | None after `G12-P0-B1` publication |
+| Blocking condition | None after `G12-P0-B2` publication |
 
 ## Phase ledger
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | `G12-P0-B1` reproduced both pinned caches in a fresh temporary directory and froze Goal 03, source, parallel and artifact boundaries. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Foundation and a deterministic 2,685-file source closure are frozen. The inventory audits all 8,777 Persona/Tourn source rows and conservatively identifies 541 direct `Tourn3`/module rows without granting ownership. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting flow, Squad HP/action value, economy, roster/shop/star, positioning/Empowerment, Bonds, build/equipment, Persona and rank data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, events, services, enemies, waves and bosses. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -43,7 +43,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G12-P0-B1` | `Complete` | This row's containing commit | Froze the remotely verified setup commit, immutable Goal 03 snapshot, exact Version 4.4 source revisions/trees, 11 Persona and 64 Tourn seed files, required routing/TextMap/Stage/S3 ability hashes, `Tourn3` selectors, Goal 08/09/10 committed ownership checkpoints, Goal 11 setup-only boundary, Candidate-only scope, Excel/openpyxl/Sora authority, 29 batches and six isolated roots. The fresh-cache fetcher passed a second idempotent run; `verify-foundation.mjs`, batch-set equality, 634 local Markdown links, `git diff --check` and the quick repository gate pass. Publication contract: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; commit is this row's containing commit; push command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; verification command `git rev-parse HEAD && git ls-remote --exit-code origin refs/heads/codex/goal12-currency-wars-reference`, with identical full commit IDs required before `G12-P0-B2` starts. |
-| `G12-P0-B2` | `Pending` | — | Inventory 11 Persona tables, all 64 Tourn tables through `Tourn3`, config/ability programs, TextMaps, StageConfig, shared build/Rogue/enemy closure and exclusions. |
+| `G12-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`379183f9…d7358`, 1,058,478 bytes): all 2,646 Goal 03 paths, 30 focused Dimbreath additions and nine bilingual StarRailRes indexes. The closure contains all 11 Persona and 64 Tourn tables, audits their 8,777 top-level rows, conservatively marks 541 direct `Tourn3`/module rows, retains four S3 ability/layout pairs, 22 Tourn Maze graphs, three Tourn service graphs, both S3/Tourn1 Adventure modifiers, six shared build tables, StageConfig and complete EN/CHS TextMaps. It records 114 named other-mode exclusions, but no file family, row index, prefix, suffix or module number grants content ownership. Byte-identical regeneration, foundation/inventory verifiers, syntax checks, batch-set equality, 634 local Markdown links, `git diff --check` and the quick repository gate pass. Publication contract: `remote=origin`; `branch=codex/goal12-currency-wars-reference`; commit is this row's containing commit; push command `git push origin HEAD:refs/heads/codex/goal12-currency-wars-reference`; verification command `git rev-parse HEAD && git ls-remote --exit-code origin refs/heads/codex/goal12-currency-wars-reference`, with identical full commit IDs required before `G12-P0-B3` starts. |
 | `G12-P0-B3` | `Pending` | — | Freeze enabled selectors, exact row obligations/counts, ownership, reachability and named exclusions. |
 | `G12-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G12-P1-B1` | `Pending` | — | Import Gambit modes, difficulties/ranks, Planes, Nodes, rooms, Domain composition, flow, finish and carry/reset. |
@@ -126,12 +126,14 @@ modules, names or ID ranges.
 | 2026-07-29 | Require every completed batch commit to be pushed and remotely verified before the next batch begins. | Prevents unpublished local progress from becoming the effective resumable source of truth. |
 | 2026-07-29 | Freeze Goal 08/09/10 ownership manifests at exact committed checkpoints and Goal 11 at its remotely published setup because it has no committed ownership manifest yet. | Concurrent worktrees were active and dirty; only committed blobs are immutable reconciliation inputs, and Goal 11's uncommitted foundation work must remain untouched until publication. |
 | 2026-07-29 | Reproduce source caches in a fresh temporary directory and compare required Git blob hashes against the main cache read-only. | Proves the pinned remote objects and focused entry bytes can be reconstructed without reconfiguring or sharing another Goal's mutable checkout. |
+| 2026-07-29 | Retain all 22 Tourn Maze graphs, three Tourn service graphs and the Tourn1 modifier in the B2 source closure, even though only the S3 base graph/modifier is directly mode-named. | Currency Wars and Divergent Universe share the Tourn framework; broad candidate retention prevents a transitive reference from disappearing, while B3 still fails closed on row ownership. |
+| 2026-07-29 | Record conservative direct-selector indexes for every Persona/Tourn source table but defer final reachability and denominators to B3. | Direct `Tourn3`, MainTourn 3 or module 6002201 values are auditable discovery facts; indirect joins and shared pools still require explicit closure. |
 
 ## Research cases
 
 | ID | State | Question | Owner | Replacement condition |
 |---|---|---|---|---|
-| `G12-R01` | `Open` | Which direct and transitive configuration, TextMap, StageConfig, enemy/wave, shared build/Rogue and ability files complete the 11 Persona/64 Tourn table seed inventory? | P0-B2 | Replace when the generated inventory closes every enabled selector/reference and byte-identical double generation passes. |
+| `G12-R01` | `Resolved` | Which direct and transitive configuration, TextMap, StageConfig, enemy/wave, shared build/Rogue and ability files complete the 11 Persona/64 Tourn table seed inventory? | P0-B2 | Reopen if the B3 exact row/reference closure identifies a pinned source path absent from the 2,685-file inventory; otherwise the byte-identical generated inventory is the source boundary. |
 | `G12-R02` | `Open` | Which `Tourn3` selectors separate Currency Wars-owned, shared, evidence-only, Divergent Universe and other-module rows? | P0-B3 | Replace with a frozen exact-once ownership manifest whose rows carry selector/reference evidence and fail-closed exclusions. |
 | `G12-R03` | `Open` | What are the exact Standard/Overclock entry, difficulty/rank, three-Plane, Node/room, transition, finish and carry/reset boundaries? | P1-B1 / P1-B9 | Replace with structured flow facts and entry/transition/reset/terminal fixtures. |
 | `G12-R04` | `Open` | How are Squad HP, action-value timeout, battle victory/defeat and run termination ordered and projected? | P1-B2 | Replace with source-backed state/projection rows and fixtures for victory, timeout, HP loss and zero-HP termination. |

@@ -32,6 +32,10 @@ git -C "${turn_target}" sparse-checkout set --no-cone \
   '/ExcelOutput/StageConfig.json' \
   '/TextMap/TextMapEN.json' \
   '/TextMap/TextMapCHS.json' \
+  '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_S3.json' \
+  '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_Tourn1.json' \
+  '/Config/Level/GroupTemplateGraph/03_Rogue/RogueTourn230/*.json' \
+  '/Config/Level/Maze/MazeRogue/RogueTourn/*.json' \
   '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json' \
   '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.layout.json' \
   '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json' \
