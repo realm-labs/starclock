@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G08-P0-B3` |
+| Next unblocked batch | `G08-P0-B4` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Existing focused inventory | 21 hashed `RogueNous*` tables; denominator not yet frozen |
@@ -21,7 +21,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; isolated execution boundary frozen; 2,658-file Gold and Gears source/evidence inventory generated without unclassified files. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot and source revisions verified; isolated boundary frozen; 2,882 source files and 7,906 exact source/inherited obligations in 42 categories are machine-verified. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, Cognition, Custom Dice, Knowledge, Neural Network, Conundrum and Resonance Extrapolation data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -33,7 +33,7 @@
 |---|---|---|---|
 | `G08-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 21 `RogueNous` seed rows, 28 batches, Candidate-only scope, Excel/openpyxl/Sora authority and six isolated artifact roots. The full source-cache gate reaches the historical Goal 06 contract before failing `Cargo.lock baseline differs`; Goal 03's current-tree verifier likewise reports evolved Universe row counts, so neither immutable historical evidence was rewritten. |
 | `G08-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`4ac50e59…55301`, 1,037,146 bytes): all 2,646 Goal 03 source paths plus StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes index files. The 2,658-file closure contains 21 `RogueNous` tables, two direct Nous ability files, 52 shared structured candidates, 2,410 shared mechanic/level candidates and 161 fail-closed other-mode/presentation exclusions; raw Git blob hashing removes checkout-EOL variance. Focused verification and the quick gate pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure recorded by B1. |
-| `G08-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership and shared reachability. |
+| `G08-P0-B3` | `Complete` | This row's containing commit | Corrected `RogueDLC*` from a Swarm-only assumption to a shared framework, added 224 pinned DLC topology configs, and regenerated the 2,882-file inventory (`39ab554c…cece`). Froze `content-manifest.json` (`3c754399…01d0`, 3,332,426 bytes): 7,906 exact obligations in 42 categories, split into 7,192 Gold-owned and 714 shared records, plus 58 excluded story/account rows. Explicit `ChessRogueNous` selectors, references or inherited Goal 03 stable IDs are the only reachability grants. Released boards contain no edge list, so B4 must name a ProjectPolicy edge contract rather than label inferred edges exact. Focused and quick gates pass; the full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook and fixture contracts. |
 | `G08-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology, rooms, domains, beacons and boss choices. |
 | `G08-P1-B2` | `Pending` | — | Import Cognition/Intra-Cognition, Secret thresholds and lifecycle rules. |
@@ -67,23 +67,23 @@ Do not estimate denominators from Wiki page counts.
 
 | Category | Required | Accounted | DataReady | Notes |
 |---|---:|---:|---:|---|
-| Profiles/entries/bonuses | TBD | 0 | 0 | Must include Gold and Gears Trailblaze Bonus IDs `201`–`205`. |
-| Difficulties/Conundrum unlock | TBD | 0 | 0 | Five base difficulties are the public boundary; exact source rows remain to be frozen. |
-| Planes/map nodes/edges/rooms/domains | TBD | 0 | 0 | Includes generated topology rules, beacons, blank/replacement behavior and boss choices. |
-| Cognition/Intra-Cognition/Secret conditions | TBD | 0 | 0 | Story prose and collection rewards remain excluded. |
-| Custom Dice/categories/passives | TBD | 0 | 0 | Includes initial effects, selected-Path boosts and unlocks. |
-| Dice slots/faces/tags/loadouts | TBD | 0 | 0 | Six equipped faces per loadout; exact slot/color constraints are manifest facts. |
-| Knowledge rules | TBD | 0 | 0 | Includes placement, propagation, consumption, movement and countdown interaction. |
-| Neural Network nodes/effects | TBD | 0 | 0 | Only mechanically relevant account-progression input is enabled. |
-| Conundrum definitions/levels | TBD | 0 | 0 | Stats and Auxiliary composition, modifiers, caps and Berserk changes. |
-| Paths/boosts/Resonance Extrapolations | TBD | 0 | 0 | Distinguish shared Path content from mode-owned boss behavior. |
-| Blessings/enhanced levels | TBD | 0 | 0 | Shared reachability and mode-specific copies require explicit proof. |
-| Curios/states | TBD | 0 | 0 | Include mode copies and complete lifecycle behavior. |
-| Occurrences/variants/choices | TBD | 0 | 0 | Presentation prose is excluded; mechanical graph and outcomes are included. |
-| Services/beacons/Adventure outcomes | TBD | 0 | 0 | Adventure input is an abstract offered result, not simulated action gameplay. |
-| Encounter groups/waves/enemy slots | TBD | 0 | 0 | Must resolve exact released enemy identities and boss alternatives. |
-| Mechanic rules | TBD | 0 | 0 | Reference contributions only; no runtime executability claim. |
-| Semantic fixtures | TBD | 0 | 0 | Cover every distinct unique mechanic, lifecycle and selection policy. |
+| Profiles/entries/bonuses | 9 | 0 | 0 | One profile, three entry rows and Gold and Gears Trailblaze Bonus IDs `201`–`205`. |
+| Difficulties/Conundrum unlock | 33 | 0 | 0 | Five Formal difficulties, 16 referenced difficulty segments and 12 Conundrum definitions. |
+| Planes/map nodes/edges/rooms/domains | 6,612 | 0 | 0 | Exact source obligations include guide areas, planes, 115 boards, 1,313 columns, 2,502 nodes, 332 events, 1,091 creation rules, 1,224 rooms, 12 domains, six beacons and six boss choices; B4 owns inferred edge policy. |
+| Cognition/Intra-Cognition/Secret conditions | 55 | 0 | 0 | Thirteen area ranges, 20 mechanical Secret conditions and 22 common constants; story prose remains excluded. |
+| Custom Dice/categories/passives | 124 | 0 | 0 | Four categories, 12 dice and all 108 dice/selected-Path value bindings. |
+| Dice slots/faces/tags/loadouts | 96 | 0 | 0 | Six slots, 80 faces and ten face tags; six-face loadout validation belongs to B4. |
+| Knowledge rules | 15 | 0 | 0 | Fifteen released dice faces carry the structured `Mark`/Knowledge binding. |
+| Neural Network nodes/effects | 40 | 0 | 0 | All 40 source nodes are obligations; downstream classification excludes reward-only fields. |
+| Conundrum definitions/levels | 12 | 0 | 0 | Six Attribute and six Additional difficulty definitions. |
+| Paths/boosts/Resonance Extrapolations | 108 | 0 | 0 | Nine shared Paths, 36 shared Resonances/Formations, nine Path boosts, 36 Extrapolation buffs and 18 Interplays. |
+| Blessings/enhanced levels | 486 | 0 | 0 | All 162 Goal 03 stable Blessing IDs and both authored levels are reachable shared content. |
+| Curios/states | 160 | 0 | 0 | Eighty reachable handbook identities and exactly one 3000-series Gold mode copy each; 61 shared identities and 19 mode-owned. |
+| Occurrences/variants/choices | 127 | 0 | 0 | Sixty-two reachable handbook identities and 65 distinct 300000-series Gold variants; choice expansion remains child rows. |
+| Services/beacons/Adventure outcomes | 34 | 0 | 0 | Fifteen shared services, six beacons, eight abstract Adventure definitions and five entry bonuses. |
+| Encounter groups/waves/enemy slots | 1,230 | 0 | 0 | Frozen parent obligations are 1,224 Gold room bindings and six displayed boss identities; P2-B5 expands waves/slots without shrinking parents. |
+| Mechanic rules | 18 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
+| Semantic fixtures | 18 | 0 | 0 | Non-shrinking minimum fixture families; B4 freezes fixture shape and later batches may add cases. |
 
 ## Decisions
 
@@ -103,7 +103,7 @@ Do not estimate denominators from Wiki page counts.
 | ID | State | Question | Owner |
 |---|---|---|---|
 | `G08-R01` | `Closed` | File closure is 2,649 pinned Dimbreath inputs plus nine bilingual StarRailRes indexes; row-level shared reachability remains deliberately assigned to `G08-R02`/P0-B3. | P0-B2 |
-| `G08-R02` | `Open` | What exact IDs and ownership rules separate Gold and Gears-owned, shared, evidence-only and other-mode rows? | P0-B3 |
+| `G08-R02` | `Closed` | The 7,906-record manifest grants reachability only through `RogueNous`, explicit `ChessRogueNous`, transitive references or inherited Goal 03 stable IDs; all other rows fail closed. | P0-B3 |
 | `G08-R03` | `Open` | What are the exact dice-face target ordering, duration, reroll/cheat and no-legal-target semantics? | P1-B4 |
 | `G08-R04` | `Open` | At which operation boundaries are Cognition values adjusted, clamped, carried and evaluated for Secrets? | P1-B2 |
 | `G08-R05` | `Open` | How are Knowledge placement, propagation, countdown recovery and graph mutation ordered when multiple effects coincide? | P1-B5 |

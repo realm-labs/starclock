@@ -59,7 +59,7 @@ const presentationTables = new Set([
   "RogueTalkNameConfig.json",
 ]);
 const otherModePrefix =
-  /^(ActivityRogue|RogueDLC|RogueEndless|RogueMagic|RoguePersona|RogueTourn)/u;
+  /^(ActivityRogue|RogueEndless|RogueMagic|RoguePersona|RogueTourn)/u;
 const starRailResPaths = new Set([
   "info.json",
   ...["cn", "en"].flatMap((locale) =>
@@ -79,6 +79,7 @@ function selected(sourceId, relativePath) {
   if (sourceId === "starrailres") return starRailResPaths.has(relativePath);
   if (relativePath === "ExcelOutput/StageConfig.json") return true;
   if (/^TextMap\/TextMap(?:EN|CHS)\.json$/u.test(relativePath)) return true;
+  if (/^Config\/Gameplays\/RogueDLC\/.*\.json$/u.test(relativePath)) return true;
   if (relativePath.startsWith("ExcelOutput/")) {
     const name = path.posix.basename(relativePath);
     return (
@@ -111,6 +112,13 @@ function classify(sourceId, relativePath) {
     return {
       family: "encounter_stage_evidence",
       selected_by: "complete pinned StageConfig for encounter-wave closure",
+    };
+  }
+  if (relativePath.startsWith("Config/Gameplays/RogueDLC/")) {
+    return {
+      family: "shared_dlc_topology_candidate",
+      selected_by:
+        "shared DLC chessboard configuration requiring ChessRogueNous reachability review",
     };
   }
   if (relativePath.startsWith("Config/ConfigAbility/")) {
@@ -244,6 +252,8 @@ const payload = {
       "shared Rogue dialogue graph requiring occurrence reachability proof",
     shared_level_graph_candidate:
       "shared Rogue level graph requiring room/NPC reachability proof",
+    shared_dlc_topology_candidate:
+      "shared DLC chessboard configuration requiring Gold and Gears reachability proof",
     encounter_stage_evidence: "complete StageConfig retained for exact wave closure",
     localized_text_evidence: "complete bilingual TextMap retained for hash resolution",
     public_index_cross_check: "released-resource bilingual index used for identity review",
@@ -264,6 +274,7 @@ const payload = {
       count("shared_mechanic_evidence_candidate")
       + count("shared_occurrence_graph_candidate")
       + count("shared_level_graph_candidate"),
+    topology_config_candidates: count("shared_dlc_topology_candidate"),
     unclassified_selected_files: 0,
   },
   counts,

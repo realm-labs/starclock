@@ -11,7 +11,36 @@ node tools/gold-and-gears-reference/inventory.mjs
 node tools/gold-and-gears-reference/inventory.mjs --check
 ```
 
+`content-manifest.json` freezes the row-level denominator, ownership and
+reachability boundary:
+
+```text
+node tools/gold-and-gears-reference/manifest.mjs
+node tools/gold-and-gears-reference/verify-manifest.mjs
+```
+
+The manifest treats `RogueDLC*` as a shared framework, not as a Swarm-only
+prefix. A row enters Gold and Gears only through an explicit
+`ChessRogueNous` selector, a reference from such a row, a `RogueNous` source,
+or an inherited Goal 03 shared-pool stable ID. Everything else fails closed.
+
+Its 7,906 records are exact source/inherited obligations. Normalization may
+expand one obligation into child rows, but may not omit it. The released
+chessboard files expose coordinates, events and creation rules without an
+explicit edge list, so edges remain a named ProjectPolicy contract for B4
+rather than fabricated `ExactStructured` records. Encounter expansion follows
+the same rule: all 1,224 Gold room bindings and six displayed boss identities
+are frozen now; P2-B5 must attach every derived StageConfig wave/enemy slot to
+one of those parent obligations.
+
 The inventory hashes raw Git blob bytes at the two pinned revisions, avoiding
 checkout-specific newline drift. Its file families are research inputs, not
 content-row ownership or reachability decisions. Those exact row-level
 decisions are frozen separately by `G08-P0-B3`.
+
+Goal 08 requires the shared DLC chessboard configurations in addition to the
+Goal 03 sparse cache. On POSIX systems, prepare the complete pinned cache with:
+
+```text
+tools/gold-and-gears-reference/fetch-sources.sh
+```

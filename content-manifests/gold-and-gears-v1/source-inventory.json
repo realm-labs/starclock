@@ -32,6 +32,7 @@
     "shared_mechanic_evidence_candidate": "shared Rogue ability program requiring row-level reachability proof",
     "shared_occurrence_graph_candidate": "shared Rogue dialogue graph requiring occurrence reachability proof",
     "shared_level_graph_candidate": "shared Rogue level graph requiring room/NPC reachability proof",
+    "shared_dlc_topology_candidate": "shared DLC chessboard configuration requiring Gold and Gears reachability proof",
     "encounter_stage_evidence": "complete StageConfig retained for exact wave closure",
     "localized_text_evidence": "complete bilingual TextMap retained for hash resolution",
     "public_index_cross_check": "released-resource bilingual index used for identity review",
@@ -44,12 +45,13 @@
     "structured_and_exclusion_files": 235,
     "text_and_public_index_files": 11,
     "mechanic_and_level_candidates": 2410,
+    "topology_config_candidates": 224,
     "unclassified_selected_files": 0
   },
   "counts": {
-    "total": 2658,
+    "total": 2882,
     "by_repository": {
-      "turnbasedgamedata": 2649,
+      "turnbasedgamedata": 2873,
       "starrailres": 9
     },
     "by_family": {
@@ -58,13 +60,14 @@
       "gold_and_gears_mechanic_evidence": 2,
       "gold_and_gears_structured": 15,
       "localized_text_evidence": 2,
-      "other_mode_exclusion_evidence": 144,
+      "other_mode_exclusion_evidence": 112,
       "presentation_account_exclusion_evidence": 17,
       "public_index_cross_check": 9,
+      "shared_dlc_topology_candidate": 224,
       "shared_level_graph_candidate": 464,
       "shared_mechanic_evidence_candidate": 136,
       "shared_occurrence_graph_candidate": 1810,
-      "shared_structured_candidate": 52
+      "shared_structured_candidate": 84
     }
   },
   "records": [
@@ -1243,6 +1246,1798 @@
       "bytes": 6798,
       "family": "shared_mechanic_evidence_candidate",
       "selected_by": "shared Rogue ability program requiring row-level reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/CustomLevel/RogueDLC_Map_Level1_EndGame.json",
+      "sha256": "f99b61fbe47f28a56e6fe915aa43d275af11e936ef921444b8b699afe7ea94a0",
+      "bytes": 5032,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/CustomLevel/RogueDLC_Map_Level2_EndGame.json",
+      "sha256": "55ec809756f099fa10a37dc97ae0afbdc9bec5235ab5b1c95ca3fceed1c919dc",
+      "bytes": 6435,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/CustomLevel/RogueDLC_Map_Level3_EndGame.json",
+      "sha256": "856223ac265d997c564b29246f0368db57f1a8a87914bdcc825d2129a8dd0648",
+      "bytes": 3822,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_01.json",
+      "sha256": "6cb5f9f64ba9c2d418cb61ae07beb2f0364ab08728617ef6118eff709ffff764",
+      "bytes": 6325,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_02.json",
+      "sha256": "fc3b2b3b47717ecd6b3561d2bb65757d0f10ae64498f4da4b347e275baec6469",
+      "bytes": 6293,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_03.json",
+      "sha256": "894958abe635b2798f975fccb6edfefb5270e3904ee89c47c2b90a87b4eaeedc",
+      "bytes": 6239,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_04.json",
+      "sha256": "958237a2579ea2620a098b6e357589806d82d7ecb3a8c007673b7891cbc8e023",
+      "bytes": 6301,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type1_05.json",
+      "sha256": "55492ec0a6fbe9c6d758feb086dcd507eeea4b5a23525d2be4659934375107e5",
+      "bytes": 6251,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type2_01.json",
+      "sha256": "88f81a655880ce478a4a10bb385fbbe1c22ad7e4eab8ce1e0f612b2bb1516768",
+      "bytes": 6340,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type2_02.json",
+      "sha256": "b35df1c7270c0f15b08cb24e498d41f6fa0038de8c01a7112482b8740b076017",
+      "bytes": 6354,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type2_03.json",
+      "sha256": "1a0efa5bdf42deee6b3dcb95d54163ef500bd5acb6f41534b6ae80635cbecb3d",
+      "bytes": 6231,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type2_04.json",
+      "sha256": "ae394e740a0c59835d1f32d6ad6e3598eae53d692ef3e8823f5c564067300add",
+      "bytes": 6333,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type2_05.json",
+      "sha256": "f26aec852d481fed2f1be8f0dd23b76ade6fc03c22f3219a23a78df30da716dc",
+      "bytes": 6318,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type3_01.json",
+      "sha256": "6174b373d138b46b37cc196adc8d2aeb7df82feb41a420cbf59d4c615e08f870",
+      "bytes": 6396,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type3_02.json",
+      "sha256": "50efd720ef71f48a5554b2840cbad93a1ec7dd5e61cbf12533b9330e7b8ac3de",
+      "bytes": 6164,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type3_03.json",
+      "sha256": "6afdb0f68cbfcd80c91211c0a2505de46c988305686dc9fe78169e25ce26f82e",
+      "bytes": 6158,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type3_04.json",
+      "sha256": "0068204f24bac98621e39de9ad7d06a5e97a4f2a9eb066a838f4972b283544d2",
+      "bytes": 6158,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type3_05.json",
+      "sha256": "f07af300ccc87d2deabf7a0b4769d42f112cb2a259de80a711df45f03747b1de",
+      "bytes": 6164,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type4_01.json",
+      "sha256": "6a111afa3622750df791f77368ad661f9106b87102348374bc3ba946036d9bc4",
+      "bytes": 6417,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type4_02.json",
+      "sha256": "becb1bacb230158f4b339ebaf95c8678b98ecba5d7dce898b8f895e1c41f942a",
+      "bytes": 6172,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type4_03.json",
+      "sha256": "b78a318509aa4f18dd63467b9cde62e11d52ab3a12a960a1d625cdf03a3d30a7",
+      "bytes": 6172,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type4_04.json",
+      "sha256": "c951cf173b102c82fb1f2ef23b5c547889dc8ed401c4e8aa4cca7e56b426322a",
+      "bytes": 6172,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type4_05.json",
+      "sha256": "8040c8b3b6e9a375837118d84c65c9c48f89816b6a0e6d6c1ec540ac4cbfdd03",
+      "bytes": 6172,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type5_01.json",
+      "sha256": "80c467fac73f38a7051ebeaec8e5205d768932a0cd2ff6567675802ebf4a3dfb",
+      "bytes": 6114,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type5_02.json",
+      "sha256": "cbd32793c33cf44378ff4fbcfa3656f03c7d52698522aa0d8df709b249353681",
+      "bytes": 6264,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type5_03.json",
+      "sha256": "5ed15f416253914c552e0285c7637a3981c87a36e2b6955c011182300f88637a",
+      "bytes": 6264,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type5_04.json",
+      "sha256": "9c35e1b2673b3ba7316fce32d4bdd0ff9399ef026fa366e6b82429ca893e082a",
+      "bytes": 6264,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type5_05.json",
+      "sha256": "6e5800dcd198d3309d0a78ca8a69b9080819de5eab12600e5dcfe2f224746b6b",
+      "bytes": 6585,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type6_01.json",
+      "sha256": "bd098ee189f3b0fcbac98f99a93e2d657ec17e263a24779c6bb27dac73432735",
+      "bytes": 6050,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type6_02.json",
+      "sha256": "77ab8a775818c0f40b30177445d148eeacd7cdc14dd8e43800c4f8091d290970",
+      "bytes": 6050,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type6_03.json",
+      "sha256": "df2dda16a273700cb88f18208e637b70fe0971f7c88423aafdbaa22fc6419017",
+      "bytes": 6020,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type6_04.json",
+      "sha256": "1aa043081f4d8ffc10f6e82f1fc6f93d4f744e3ef80fba50038097129a9c22d6",
+      "bytes": 6050,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level1/RogueDLC_Map_Level1_Type6_05.json",
+      "sha256": "1204b01d1b592998cde58c1b382ff0faed415148dcc85eafa49b57e19e14de78",
+      "bytes": 6341,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type10_01.json",
+      "sha256": "4f0b4a3fc4ad7afa779f0c51fac13fd9f2bd86ced1b4d49603c732cc5f4ac4f4",
+      "bytes": 8771,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type10_02.json",
+      "sha256": "ca00b65b5681924cc230837e257f44b8bd5ac9728bf009308b25b3a67b0afab4",
+      "bytes": 8770,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type10_03.json",
+      "sha256": "65318cbad975178fe16bd068ee1ed15687dded5529e5575185f5b0aaf8e00ef3",
+      "bytes": 8592,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type10_04.json",
+      "sha256": "44b61afeaf90bae2e2c062dbdef263f223da37e857bde7d25a51bcd8f4a7ae84",
+      "bytes": 8731,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type10_05.json",
+      "sha256": "54aa17ec6b12f9e33cf5d18a66b8380a341566ca21a9c29f86501fa178a3859b",
+      "bytes": 8705,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type1_01.json",
+      "sha256": "24bf64f429e7f48e5710f7600a03ccd228209bcbed01dd7ba9ba43947b4d6220",
+      "bytes": 8632,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type1_02.json",
+      "sha256": "8bed947ac8dc474e60fd46273577f0f09982d61bf643431e8d6d7e509db6e913",
+      "bytes": 8572,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type1_03.json",
+      "sha256": "f5408760b38bf665445452434bc248a6291947c2ec7c9174d987d67421e7fdf7",
+      "bytes": 8546,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type1_04.json",
+      "sha256": "ce12eb5341f3b65adc52c03f18bc635a2fa81c542f1533c6e02af92effbc37aa",
+      "bytes": 8488,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type1_05.json",
+      "sha256": "971d264e873686f08b1ba970bc1ae3b4660c926b6e6ce1b6a295e73d48668a34",
+      "bytes": 8488,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type2_01.json",
+      "sha256": "123da64e72ca5becb36139da6a15f6a1c0c45d152508f3ad5c4c7633336289cc",
+      "bytes": 8614,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type2_02.json",
+      "sha256": "f382fe63089cb2316fa9d8366f6b0aaf8a13d7103da4f72848ad33ae096b82ce",
+      "bytes": 8420,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type2_03.json",
+      "sha256": "1b3d205a763af16169414409232a4f4bf1d9bc2ee4a70d12cf5da6a36fbf54df",
+      "bytes": 8660,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type2_04.json",
+      "sha256": "29b20e3b0051a50d4dcc22f2f065bdbf15b14c5fb1d8844e5a82c546b8be27ec",
+      "bytes": 8840,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type2_05.json",
+      "sha256": "4868137ce40a9588afefa984d51a48bad9274c47e780d78388ba0fe0dec2e7e7",
+      "bytes": 8616,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type3_01.json",
+      "sha256": "b51b3a9cf0a186dd5af691e61fe130f808b98742fb90bc4c0dbeb1df8018b15f",
+      "bytes": 8873,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type3_02.json",
+      "sha256": "d710015c99a7cf60b946feceabf2ff637d2cfe28c5e3e37d44e7cf318e1b2e48",
+      "bytes": 9020,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type3_03.json",
+      "sha256": "440cef4166d4af0d7ed3e0aacef449338541e857fead883a08a4c18597aad3b0",
+      "bytes": 8901,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type3_04.json",
+      "sha256": "2bb45a09f0930f84de12956e88899bf17ab600e8972eadc9f45626bb66ea8884",
+      "bytes": 9008,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type3_05.json",
+      "sha256": "d1c8841ae1c212f86d6e2bea96684ec000ca44e46e73be780c8ef931c1c52b5d",
+      "bytes": 9215,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type4_01.json",
+      "sha256": "392631ebec3653e923a9eb513a6853467e383bf158678954c173ec6216978564",
+      "bytes": 8848,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type4_02.json",
+      "sha256": "fab0cddccf4bfe235461d79c67790f8daf5f28fd0c35c3fa1a73977b1b5b29a0",
+      "bytes": 8848,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type4_03.json",
+      "sha256": "11decd87ceb88bd4b08a48a25b8ff148b6c78c11886619b85f142cd74f3422a7",
+      "bytes": 8893,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type4_04.json",
+      "sha256": "93f2cd7f5da462fd2199ff761caf3162fec67469c45eceeeb6a1596475ca82b9",
+      "bytes": 8848,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type4_05.json",
+      "sha256": "6d759af39c5849125c743aecdf920577fc88b298c14d50deea86696e98bd23cd",
+      "bytes": 8992,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type5_01.json",
+      "sha256": "180215d39011e0c9c8d154c2890457584763be11e283fe6d1f3dfe497a3f356a",
+      "bytes": 8630,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type5_02.json",
+      "sha256": "e262bcfbb7fc1c7fe789b8c47d353bdcf75848e2d1e1c32a6f141115fcc41241",
+      "bytes": 8630,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type5_03.json",
+      "sha256": "aeb6bae2535defdbe864fc8213fa4d22ef8c789994ce6f14404cf1a37bb1a19b",
+      "bytes": 8630,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type5_04.json",
+      "sha256": "00ace2b060d04b4f89f43e32675c9a8dfd15a6384f6721894a62d3ed4dfcdad6",
+      "bytes": 8630,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type5_05.json",
+      "sha256": "09760fa705efbff8b89fbc1463bd977f499ed1dd780e1bd55e3484f7476f4221",
+      "bytes": 8677,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type6_01.json",
+      "sha256": "3201cf1631dd2545c5567c168f565ad303121c324a98bda832d5a70d265e7c31",
+      "bytes": 8883,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type6_02.json",
+      "sha256": "5c5b136fa57e3eca3801e5cf6777c710f4dabcd22da30590afc93c64102047cd",
+      "bytes": 8791,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type6_03.json",
+      "sha256": "3d7bea2a8d62a57935b91bdcb561fd7f2c21ebabdd8cf3d8f7645a544bd9d4c4",
+      "bytes": 8784,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type6_04.json",
+      "sha256": "e04999d57e195ac564b13810a6d9c3dfe02436d91968d23aca877fcb827ea554",
+      "bytes": 8779,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type6_05.json",
+      "sha256": "d76c0333025355fc77f0bb6518ee6579842e7793e369c7dec6971c9e54be26b6",
+      "bytes": 9467,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type7_01.json",
+      "sha256": "16384eb4a4b4c7ce15ebae23b4b8b451aca677cf79c814beb36706799be8dd5c",
+      "bytes": 8357,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type7_02.json",
+      "sha256": "ef92d3552938d5168eb480552d4983db158966cc9409b0cba1f4e82a63699668",
+      "bytes": 8386,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type7_03.json",
+      "sha256": "a7458f33ef2f9ef1fdd8233cc214742c60eecdfd5bc3c711e3b098176d5b5d62",
+      "bytes": 8400,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type7_04.json",
+      "sha256": "8433fd65b86fba3c39c8b5e81499ddf8eb94d7088092474870007f3c3759a82b",
+      "bytes": 8435,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type7_05.json",
+      "sha256": "589b05d3249985ee4531c043ab13497c7da63f66e06aa221ecb0f6feac6d628b",
+      "bytes": 8365,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type8_01.json",
+      "sha256": "f2d7403b0158532dc6ec51022b3c5c4e4c1a2f29d5aa32c7ccd516a9f68322c4",
+      "bytes": 8362,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type8_02.json",
+      "sha256": "be286d75a114c30cde5eeda1fc16db49b67e066f5ac92f048c26f962e40fbf12",
+      "bytes": 8368,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type8_03.json",
+      "sha256": "6f40af6b6cac9f2216f17567b81fe9a0c2c5150cdadca4707a1cc297cbeadaa9",
+      "bytes": 8362,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type8_04.json",
+      "sha256": "315cdc3b0246dfa74200d233e6022feebe309d80d784331cda30e382742522fa",
+      "bytes": 8646,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type8_05.json",
+      "sha256": "aae53d904308c018d1c0d1c0b41472254cd1a51a33ac10ec39405f93107c543d",
+      "bytes": 8368,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type9_01.json",
+      "sha256": "dfcaf615e8391077e5df49fa4c72540fdb06ba60111adc448c249ac933ee5a49",
+      "bytes": 8352,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type9_02.json",
+      "sha256": "cfa62516057093b60265c2baed46fd82e68f50fd1e0df2b4469158b443789b5c",
+      "bytes": 8352,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type9_03.json",
+      "sha256": "182f812179a519317b61f65ea6a835ddabe85f0544d9702bb2c266acd68de8be",
+      "bytes": 8358,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type9_04.json",
+      "sha256": "496785c5620e00e3b6f647130c1fb2584e887d817079a6cedf1c28caf5b571ef",
+      "bytes": 8358,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo/Level2/RogueDLC_Map_Level2_Type9_05.json",
+      "sha256": "d51233b9aec979ca0d933e9a3699a26cde98dfb8c0383edb91ba1c109c9fabe0",
+      "bytes": 8358,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel1_Type1_01.json",
+      "sha256": "ec1805446848bf11e59bff923798e24646229a1ce92d0d83f400b1f780a35bc6",
+      "bytes": 4298,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_CustomLevel2_Type1_01.json",
+      "sha256": "428ae5da2a2774a38a2b5096fa43c38e1f1c76ba266c9b16fc0c6d7f32f440d3",
+      "bytes": 6882,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial1_Type1_01.json",
+      "sha256": "33c53916f92b59f690661981b563c6960b7315936960e299bd9183274d23a73a",
+      "bytes": 3772,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Custom/RogueNous_Tutorial2_Type1_01.json",
+      "sha256": "1c356a95136275968f47f24f70d8a2ea4c6058c2ee0e20767a916d73e615317b",
+      "bytes": 3816,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_01.json",
+      "sha256": "3bca63f7a83ef30fc4fffe95937f9f617eedea41dfba1646ca7a804254b844f6",
+      "bytes": 6257,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_02.json",
+      "sha256": "e0512487cc55fddb9961360218042db10e391695a29184214878b2799ccb4ccb",
+      "bytes": 6110,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_03.json",
+      "sha256": "1077162a3dbf8b684087056a2d140c01c570e56c9960b9f149eebc4d2b6a9d4c",
+      "bytes": 6324,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_04.json",
+      "sha256": "5f7507ad994de045043fb14f4e9c912354613b99f5d361ff5015d25cb9250d77",
+      "bytes": 6101,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_05.json",
+      "sha256": "165a54062139ea12ad6aa703a99256d6436135f9b00c150d2ca31b7479c48e1b",
+      "bytes": 6437,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type1_06.json",
+      "sha256": "733a8bfcdce88bb16425adc975ed78451e6fe8bac27771c4814da867797cab07",
+      "bytes": 6137,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type21_01.json",
+      "sha256": "517fecd580f992fc359830b0353e5bbe1d744321ff900bb236630e6cb8086320",
+      "bytes": 8180,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type21_02.json",
+      "sha256": "370bacd3978cd644d92f629beef9e08d17fb445ddf2df7d2091f60cfcb6363a7",
+      "bytes": 8394,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type21_03.json",
+      "sha256": "32f111f5524b773f3fc1afa84f424ae1984f5cde963c6a039bc6ca4c963c1e3e",
+      "bytes": 8222,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type22_01.json",
+      "sha256": "2b9c2d491aa09183d86b5cff2247844c618817ef8d0aa3708156b91548204010",
+      "bytes": 8798,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type22_02.json",
+      "sha256": "ceaefba82bd012b52301678ed4b230c42e7d72b7bb7249ac600b61b6feb1bb94",
+      "bytes": 8772,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type22_03.json",
+      "sha256": "e9db2685a7cc5db183e3675870cbf57fa890cff5321dc1a878a422d2712d813c",
+      "bytes": 8879,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type23_01.json",
+      "sha256": "48081e86ef70359b0b197b53e2c2af830f4521f0fae029b00f1fb475e5ad6eda",
+      "bytes": 8277,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type23_02.json",
+      "sha256": "fb22ae9823c03b3fba23f66082abf761f207db7126d9d58f9e68247d252df36a",
+      "bytes": 8312,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type23_03.json",
+      "sha256": "bc9f5f917d7b652b29f0543b83cffcf5249191958d3c89ef5827096500a7e0cf",
+      "bytes": 8357,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type24_01.json",
+      "sha256": "d66f90b778701b0806d3e588357c3c666d8541b57ef51f7c7a5d2e799c27567e",
+      "bytes": 8218,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type24_02.json",
+      "sha256": "a327eb06dc10617f37522a5b114258b09d6c21424e8ecc3a7b368f2de0357511",
+      "bytes": 8219,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type24_03.json",
+      "sha256": "02d269d0abb773f34affbd539251ca3a6c777746089f4698a5403b983da075a8",
+      "bytes": 8219,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type25_01.json",
+      "sha256": "37773e50e07e26f7f7c39891e8dc0f81201593c93220d2af1068ccd21a271e5e",
+      "bytes": 8449,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type25_02.json",
+      "sha256": "fedb5b2a80f6c9e32b67a91df4441dd0ff38e207a01f6d2a49527b0c5d564ebe",
+      "bytes": 8510,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type25_03.json",
+      "sha256": "4445d6220b57916feb3a5ca5177e263b26ae2944dcb6c22f2c52487034d0d1e6",
+      "bytes": 8465,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_01.json",
+      "sha256": "f7d50e0f3b12f309dbe4d7e2822c012b7f1b2b941e5a439ac0a8579a71ab20f0",
+      "bytes": 6015,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_02.json",
+      "sha256": "4502fd10a8cdaa792864f8c9333ba880d0c29c147c986175b98763df54516963",
+      "bytes": 5864,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_03.json",
+      "sha256": "44f4a3c06c41f4f2895f411b963d087a5f741f33b7421223f30d1edf028f792e",
+      "bytes": 6049,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_04.json",
+      "sha256": "92acf7acf3052802fdbf6ae0e16d42fa6a6ab48dc656026047867e544ef7a0bb",
+      "bytes": 5918,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_05.json",
+      "sha256": "9761d2be33ecdcd343bb9b3bf8176440ef3698bbf9ea6cca7c8bc1d7976dc706",
+      "bytes": 5994,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type2_06.json",
+      "sha256": "5602214ccbc1f57116dcbe83ccd68942b190efcdb7266add9bd7b91ec52c51ed",
+      "bytes": 5864,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_01.json",
+      "sha256": "33deeeaa043b7d6fd5fcf867603d12b9c9f6ab558f06e983913c1438765c08f5",
+      "bytes": 6595,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_02.json",
+      "sha256": "dc88bd7a11ddbd1617f622f91f3181bf9ca8ef09350d4d13977f8fde552ed98e",
+      "bytes": 6395,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_03.json",
+      "sha256": "3f3e748e38fa44783ebf4285710ef816f67fff3b660d1f1dda1013092318736b",
+      "bytes": 6530,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_04.json",
+      "sha256": "da47aebfd3ff72d483b970b3662ee05db21aa7ea0c46f55261cf2436a649367a",
+      "bytes": 6624,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_05.json",
+      "sha256": "cdb6628e87ef33b4681cf77491916ce9e80558956640bbd5af593d7855be2ea2",
+      "bytes": 6561,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type3_06.json",
+      "sha256": "1759dac18e8ee920361d2ecff04cc477448b367f1756a24a68bd57c31d1da80e",
+      "bytes": 6367,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_01.json",
+      "sha256": "6694f35184f8b78c535b334cfcb5ed4d810ca6f2d9d1ddfaba6a564b782d7ae5",
+      "bytes": 6481,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_02.json",
+      "sha256": "aa12af4b1638cd1d17fff1bb1f52298f915522c0b39aa5b31e7edf289160811a",
+      "bytes": 6273,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_03.json",
+      "sha256": "2adc9e9f9c12b8d640a9b7e15552b37778d2eb12fb59b38a38519a8872db490b",
+      "bytes": 6445,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_04.json",
+      "sha256": "dd2f46ab84806e32f8d1d107a0ebc75cb9b835b8b959e15a63cd5bea8bed69cd",
+      "bytes": 6367,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_05.json",
+      "sha256": "abd3b03329f69ee8f5f938b50f7adf89e86a04157ace226d54fc1e5733a84e06",
+      "bytes": 6491,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type4_06.json",
+      "sha256": "c42f719ab66127c03b97028936be52277d799321c49ad49af94318c8c448f81b",
+      "bytes": 6273,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_01.json",
+      "sha256": "207e85ff050ef78285fbcc61af866f8a17837f5f669c44412a85bd869b005703",
+      "bytes": 6114,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_02.json",
+      "sha256": "c445cea39238363d9509898125862a18fa25f0e425d6fb8d4ee271d0ea56d915",
+      "bytes": 5929,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_03.json",
+      "sha256": "1e5a7ad2aeb414e6bb8848596983cb050ff2bf87bb9b9e111adc07417edea3d7",
+      "bytes": 6177,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_04.json",
+      "sha256": "f5ad1c69850a0db3f68bd323184f98fcc0dbab39f9afafc16f7af30b6fc09a43",
+      "bytes": 5953,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_05.json",
+      "sha256": "25140116c6ec26b2bb0f11a98da689a11e3e7a284eebb748ef9df4ce670e4eb5",
+      "bytes": 6132,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level1/RogueNous_Level1_Type5_06.json",
+      "sha256": "dec4bc0a9c3766899f115a30aa58e9e502076546b65fa2d385b386979a071d45",
+      "bytes": 5929,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type10_01.json",
+      "sha256": "545e4bce9459c61054498062eaaaf980e3c98f3c472634daa9ef507d0f8daef6",
+      "bytes": 8209,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type10_02.json",
+      "sha256": "646b64d69411c8aeeae98c1eddfbd23079500336d2fde407fcf6d84d633fe432",
+      "bytes": 8288,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type10_03.json",
+      "sha256": "5d2961510f27f9f8b8c107079ae6bd443d11bf963aff45f6e86b690df930c545",
+      "bytes": 8222,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type10_04.json",
+      "sha256": "fcea4eabf26d6afc82f7de488514eaf58d1cf1f77be64c5cddfe1cc4ac700eb5",
+      "bytes": 8236,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type10_05.json",
+      "sha256": "ef36c8c928144fcef8538e2414819c27604b08696af792c66d796af04858247b",
+      "bytes": 8304,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type1_01.json",
+      "sha256": "642c67ba19f9d089682c4674606e7595162b6e7c34780821e0b1e5bd83889744",
+      "bytes": 8080,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type1_02.json",
+      "sha256": "db0126bb31da6c4184f77b77a38a3f49bc7814ad94fbc233131625daebf08c82",
+      "bytes": 8332,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type1_03.json",
+      "sha256": "388cac28a69bdad7ebf496f3fc940c5053b548c856420199310c2443dd5487c9",
+      "bytes": 8171,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type1_04.json",
+      "sha256": "ccf89e40e45b33d50f11f769ede6e43419d3cf589e9d4947349e2fa910267dbf",
+      "bytes": 8175,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type1_05.json",
+      "sha256": "574a95c76a43ba318f414c14ac838ec44d06113533ff94f79deeaa0221c1b70c",
+      "bytes": 8154,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type2_01.json",
+      "sha256": "880a6aff9365d8dca92347ce2fef2e1c304449dd44d0442a1dfe1b073bd643ba",
+      "bytes": 8668,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type2_02.json",
+      "sha256": "a4b4ff7f267e63bb33822aedeca5cc4d0b3d2201bfdc16f1bf5c45dfdd2ed9d1",
+      "bytes": 8642,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type2_03.json",
+      "sha256": "937f19ded76e854f1d17e9d3d065d37658b720e7e496779732cdcaf810df43e1",
+      "bytes": 8646,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type2_04.json",
+      "sha256": "70b0115f84c5ef16ddd01fa284e4621b1d6a586f235bd17ed93a96540ebc5250",
+      "bytes": 8726,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type2_05.json",
+      "sha256": "f6c9d1559e9094636ccefb13e937efc9414f007add27c7446b2ab049bdba039f",
+      "bytes": 8667,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type3_01.json",
+      "sha256": "02bcce919c0cc5a1c217c8a9b82f482567f319539118e9f0ad87eb9ea97eecfc",
+      "bytes": 8181,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type3_02.json",
+      "sha256": "2365a856240c18c79ab952ef6d89fc657a3646526b2a0a1e86e04de8c95b549f",
+      "bytes": 8227,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type3_03.json",
+      "sha256": "5e7cb1bcf8b213c04fd768189d9ed7e934e34a189b62e7d22892c4f8ec532863",
+      "bytes": 8227,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type3_04.json",
+      "sha256": "2aecd6b3df40437bb210a4e693d8a714ca66789679a09f7f2c4a9767cee8eb0f",
+      "bytes": 8227,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type3_05.json",
+      "sha256": "bd585d2734012243e1e67e725eb8de738121557ec869e6933d59e50925cbea5e",
+      "bytes": 8227,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type4_01.json",
+      "sha256": "70138a291ee68c46ca61e83858fca98e13f5acff7c3b182c568ccc76ab8f94e5",
+      "bytes": 8058,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type4_02.json",
+      "sha256": "18af2bac4a34cc2c5874475df26ad4bacc3b04e0923e2ff5ee31b52699f49371",
+      "bytes": 8089,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type4_03.json",
+      "sha256": "cb4a9348e98fe0710bbc171237a79f6918494668ea878af04541ec4679d76fd8",
+      "bytes": 8089,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type4_04.json",
+      "sha256": "8bbd6d08223db1aef6d11f0f60b2f76dbc8374207273606488e0e9c1fb8e14e4",
+      "bytes": 8089,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type4_05.json",
+      "sha256": "04f51369275dbfa6a7d6352f7be8f45c0770457259134e529a0acdcbefa69e29",
+      "bytes": 8089,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type5_01.json",
+      "sha256": "66cdb191832981987ee9f24cdfab73ca9171bfc109710ed2554a603a3011df14",
+      "bytes": 8376,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type5_02.json",
+      "sha256": "547bb36d174e62daac5e499f797f8c9c130ed39e9b02d59d8b1b087449201ce2",
+      "bytes": 8429,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type5_03.json",
+      "sha256": "cc429b47633594685dbbeb13ffe43243c0ea82286aee3cc8afbe3d289eda9b3f",
+      "bytes": 8467,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type5_04.json",
+      "sha256": "464a7ae3fa75a8118bb4e1fd67b16a0d36daa36598bb6104b63fe50fae7ca8d3",
+      "bytes": 8426,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type5_05.json",
+      "sha256": "dd096b67fc3ec61c38b59f7a3dabd9b06648f6cb1faf2cdcc0d08c162f234807",
+      "bytes": 8446,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type6_01.json",
+      "sha256": "99192797e494fb77b1d700e05bc9670fc6eddc34878dc7097528019a39f760cf",
+      "bytes": 8693,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type6_02.json",
+      "sha256": "08107fadf56c2e50f225894c63c60203a55fed118e61938cec596329ac769679",
+      "bytes": 8608,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type6_03.json",
+      "sha256": "f253dbfc8503b98714de46a50e1691ccb5bfb54bb86874df9a45048163c3d18f",
+      "bytes": 8619,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type6_04.json",
+      "sha256": "77a33a69efc1c5b65ed0bad1220e72467f68ea234d278accf884f815f15ef6d2",
+      "bytes": 8641,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type6_05.json",
+      "sha256": "bb9f08557342f5aa593e485575734aae5cb6987dc20793c3b56d6be4c8be1a25",
+      "bytes": 8619,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type7_01.json",
+      "sha256": "9c7a1aa9a8c4659d4457bb5024acf72e1e9fa1a05bab2539f45ea1f033d8839d",
+      "bytes": 8477,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type7_02.json",
+      "sha256": "79e54a9fd9b2984ead35035dbebbe76342d9fd04442f7e5d2ed880d8c939af4e",
+      "bytes": 8523,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type7_03.json",
+      "sha256": "d54bcb7406da59d206868acce6d52ec7d67fb874986f58417584689c01037f79",
+      "bytes": 8512,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type7_04.json",
+      "sha256": "86b6d562e66d33d379972e776e7dc45190007fec54255d11a2f5538fd607b5cc",
+      "bytes": 8456,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type7_05.json",
+      "sha256": "4b61a286bbdbf528b44111c84a68d98e87b0ecec34d4bf7b7925efebfb455320",
+      "bytes": 8463,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type8_01.json",
+      "sha256": "51ed5487f243d6aa93e58521cd4d45a7709736ab57234651fa0363fcb53ecb70",
+      "bytes": 8299,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type8_02.json",
+      "sha256": "705ed9c0e247ae5752b628766c6eecf801b5b6d5e921eb640251fba8797c03a7",
+      "bytes": 8348,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type8_03.json",
+      "sha256": "5cd0782474c0102f0235902c52a7ce08fb907589c6de0aa3be788f2b22d2f13e",
+      "bytes": 8454,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type8_04.json",
+      "sha256": "2eac22645da5c11c6b08574a0ad8b12bc6dd1e7ae662afe2caf1c3aca4398833",
+      "bytes": 8250,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type8_05.json",
+      "sha256": "0a48fb4aa2acaccf48a610a2e7b02783de0835a7680483084ef4d8555198a39a",
+      "bytes": 8403,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type9_01.json",
+      "sha256": "c16442f2ce8c7da519fb42609a03ed233ab7879fc4ad55e778aa72fb30bb636d",
+      "bytes": 8061,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type9_02.json",
+      "sha256": "5f949929f5dcefd7de8d31dc418650ee5b6b4518b780a66c4258c2356040cd2d",
+      "bytes": 8086,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type9_03.json",
+      "sha256": "0b796b8ee102feba2cb5775548ee932400445c55416624d731e429e50023d64a",
+      "bytes": 8125,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type9_04.json",
+      "sha256": "2f977deb58f9e4e5293a29f85f50bf84e5530d9481b3316d55dfe2a184604acd",
+      "bytes": 8086,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level2/RogueNous_Level2_Type9_05.json",
+      "sha256": "6338c2f29bf208ae1e95e6ff84ed82fe7e8c1a311d505aece278749e5dddf149",
+      "bytes": 8155,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type1_01.json",
+      "sha256": "6e8750b43859da867df5687e3cd992e3048b4727518ea12ea08500cdc7b88d15",
+      "bytes": 4730,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type26_01.json",
+      "sha256": "bd8fdbf32aaf876866ebba816ef4edb71c231c938bc1a78f2aa7b80effa8ca22",
+      "bytes": 8200,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type26_02.json",
+      "sha256": "35967e884a88ed046929e6a7e82c126866f800fd57bf5b0e615b2fc1fd79c8db",
+      "bytes": 8216,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type26_03.json",
+      "sha256": "4b047b2919e1678835caff6d45a1f7b9b76ebe34f4dfe487ee9635f14a09a3f8",
+      "bytes": 8190,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type27_01.json",
+      "sha256": "5bc57f1282a9f57329a00875646b59a204977809cc2bc6d74132949402449d69",
+      "bytes": 7941,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type27_02.json",
+      "sha256": "be756a584c51b90c5d148ea9fdf4feb48447dece35aebf22a48a47a5b8139b6e",
+      "bytes": 8041,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type27_03.json",
+      "sha256": "df8910cd84519781ab0af4b17f547f760c994cc9d26e3c2375f0be0fa7950a0a",
+      "bytes": 7942,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type28_01.json",
+      "sha256": "c2290796a5c384b41914e440507d1735a1cd457d1a4a5aa01c994c4b939b8816",
+      "bytes": 7883,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type28_02.json",
+      "sha256": "15bc8cd75e44fab6e5162abcbceb377368a95ceecd0d39242386353fdfc8e08f",
+      "bytes": 7893,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type28_03.json",
+      "sha256": "b04e12c5a037e6bad977765959541277ce3aaf3c5ce3576f5324bf5cf81f5ec2",
+      "bytes": 7922,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type29_01.json",
+      "sha256": "cde81d4f942d28b9f1d8f3c1587dbee927dd92b9aa1de691d9c2d47e53f9be3d",
+      "bytes": 7805,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type29_02.json",
+      "sha256": "5d6111a3a922f1bd465d7a764cf759ec34096eb9bd7e4aa793b8aa25daf4a2e7",
+      "bytes": 7806,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type29_03.json",
+      "sha256": "3f36dd2041380794c900b8e8245ae051b081160e95c8fc31b08c175be3d8e5e6",
+      "bytes": 7875,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type30_01.json",
+      "sha256": "7076ee4a8ba6e23dd1044df8e673a0f385f67dea777c5be9c0fe87fc73bafad1",
+      "bytes": 7943,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type30_02.json",
+      "sha256": "6bdb3621e20086da9cce85d21288e064512958757abb57722e82f2a643c7395f",
+      "bytes": 7938,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/MapRepo160/Level3/RogueNous_Level3_Type30_03.json",
+      "sha256": "42f31d91135e7eba58047f0b5cbaf7c7fcf6d53c428e30cccfad9f6bced3621d",
+      "bytes": 7944,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_01.json",
+      "sha256": "ccd3a5e32672e6aac9b8a9f96c9ddf99e22ad27f1d043a592266c4993df122eb",
+      "bytes": 6495,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_02.json",
+      "sha256": "d5efc31dc579ae0df81e39e84f4bec037875be702de565882593515447610fb4",
+      "bytes": 6324,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_03.json",
+      "sha256": "cb6b0cd154bf5d864ff2e82df98d327c774d8d3122d834d7a9f8f286325c940f",
+      "bytes": 6307,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_04.json",
+      "sha256": "c0ab22a910594c98596173b78987554202e9337262337fb16e81a14b0c7a55cb",
+      "bytes": 6292,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level1_05.json",
+      "sha256": "2376060dc8b2925a0e1f7e2246537d278e00c41aba6fe66bda91cb3cf16c8f82",
+      "bytes": 6278,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level2_01.json",
+      "sha256": "af91b525ce7e98b468ba79fa73522a42227c3707f3dabeff2838ba43396fc3d6",
+      "bytes": 8305,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level2_02.json",
+      "sha256": "7ba7e56c90ab33cf60176ff3a81951e21e3675fdef0e98acaf4e8206a2656726",
+      "bytes": 8329,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level2_03.json",
+      "sha256": "8128e3b0a8b652790509ae5d410d5a342ca2fd2c31290bc3df596407fd22289d",
+      "bytes": 8303,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level2_04.json",
+      "sha256": "9dba16374292c4f5ae7d3baa92422f4febcb433cb322031cfe00ca58d1eae690",
+      "bytes": 8235,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level2_05.json",
+      "sha256": "52552dd39e8831603365ca0a937cf29bd694f0e51c97a706a14c9e75fafc235b",
+      "bytes": 7891,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Level3_01.json",
+      "sha256": "39984aa9db7d5f5de6d70e6db96b5bfc81e52c84551a80e5f7e3e69943f0a9b1",
+      "bytes": 5042,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_1.json",
+      "sha256": "df71d894bcccb2da97346f76d554f3fa5275eea87ebaaa2437c2e17bb6c75948",
+      "bytes": 3543,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_2.json",
+      "sha256": "4de4cf859caf4f2697ed1466fc0ae6604954d97461daebb9fe9a63d984851439",
+      "bytes": 3227,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_3.json",
+      "sha256": "93806f7001025bd460cfb88a0bd5bee98df56bce350056b42795ad9693ee7d57",
+      "bytes": 3292,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_4.json",
+      "sha256": "0c8e751589ab3aa055dae2f66a470c8ddceec2e5cb704b6f54844e07043406ad",
+      "bytes": 3448,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_5.json",
+      "sha256": "4c12c06dfb2d50f4dc68b2130a0dad24a638b4d0f496dd3d54d3daf6eccfee13",
+      "bytes": 3102,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map1_6.json",
+      "sha256": "ebc24a6dac65a735f251c50098762a0582cb55836a67d1b039e32c77f4593791",
+      "bytes": 7671,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map2_1.json",
+      "sha256": "d32028f4de2f78dbb14363a40041c85f27528ef45a283591cbd904831b670f8a",
+      "bytes": 3460,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map2_2.json",
+      "sha256": "7250e2542b38b73747e065624cd3be2af3284fa67d1312b1813fbefd8a30038b",
+      "bytes": 3374,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Map2_3.json",
+      "sha256": "2b72e7c95df88beaba5b798c89454b5d58ab7194931ac9367c1114cf96ebf5b0",
+      "bytes": 3419,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_1.json",
+      "sha256": "b761125ba282b97ec38e822db66a7757f9d6b988f90c8bc19542f3c0dacd8933",
+      "bytes": 3555,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_2.json",
+      "sha256": "14e5e8be8fee9526635683f3ec078ae80b17a67a154a9b7e17c4f26bfb6887c5",
+      "bytes": 3715,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial1_3.json",
+      "sha256": "13001e75002d61eb6bd0d101541f6aa1c14fde7e90715494dc90a3eb0fc2cb31",
+      "bytes": 3358,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_1.json",
+      "sha256": "d79e6f00dcf9af0fd00a46d8f10a97b364f955d5d971444f2d866e24864651f2",
+      "bytes": 3495,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+      "sha256": "0636d9c8327b8880cddcc0f9ba938ed2c350c6b1c3c2811a820230376094724f",
+      "bytes": 5209,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
+    },
+    {
+      "repository": "turnbasedgamedata",
+      "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_3.json",
+      "sha256": "db04033e093a3c95f1ed65d1ba5bb6f143caf40c3550100a9a08dc539e9652dc",
+      "bytes": 3944,
+      "family": "shared_dlc_topology_candidate",
+      "selected_by": "shared DLC chessboard configuration requiring ChessRogueNous reachability review"
     },
     {
       "repository": "turnbasedgamedata",
@@ -19649,256 +21444,256 @@
       "path": "ExcelOutput/RogueDLCAdventureRoom.json",
       "sha256": "76180e07457c73f1a96aba70e19ce22ca08c9b49f3b721682156af36bc55ef31",
       "bytes": 793,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeon.json",
       "sha256": "f79375f9ac3b4d02e2dbb8716813d33f26f859782d257dfd6125e9f7427ee6f0",
       "bytes": 6488,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonCabinet.json",
       "sha256": "be72eea6004ce97a2df82477eae689571470fd6b7687bc6f508ced4cb99835af",
       "bytes": 19394,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonCross.json",
       "sha256": "c8da8a4a442a073bcb1ef595798a9491d49ba61487a711bb7fff0840d89b2505",
       "bytes": 1858,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonDice.json",
       "sha256": "4c26dc21e3d329e5d5147dbe6fe4af8cc0e6c066cc249b60244daac58df54962",
       "bytes": 6148,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonDiceSurface.json",
       "sha256": "b681addb4890fcb66c53ceac824b1b2bcb0ee3d8955c6d461f14dbc30860e8c9",
       "bytes": 23761,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonDimension.json",
       "sha256": "adb3c4830456b3a16d0dc555d58fc4615251dca79f78c925dac48fbb0d5d8d1e",
       "bytes": 2115,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCAeonTalent.json",
       "sha256": "5375542f5343451ea0fb1107bc237a9c067e0c136b2c1bbf15db638efda58841",
       "bytes": 25969,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCArea.json",
       "sha256": "a0c16a1c8b0054b1cbf7c862d8fe3a02f4b7ea5bc0c3606ad72f11ddb7b1d1fd",
       "bytes": 12643,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCBlockIntro.json",
       "sha256": "5732a4324dc86dab6d67d762e9c9f427576f985ea6aaf12941fb92fa8b5459f0",
       "bytes": 7155,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCBlockType.json",
       "sha256": "cb25e0397c4cdd06becfd5b11a3c71c769b9cd03cf054d5dbd0380cf483f9e7f",
       "bytes": 5036,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCBossDecay.json",
       "sha256": "d819f065bb80ef7b873d442fc1334f4631feb1ea7100a54b9263f4847fa8f8f7",
       "bytes": 18468,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCChessBoard.json",
       "sha256": "b7d7f10145db696fec823155631a978c8e1438fe7e33afaf34b21848111ffdbf",
       "bytes": 42067,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCChessBoardAnimation.json",
       "sha256": "fea9183a7147b4e9896a1fb6ef20ceae1911e5869573d9c56c413c4e2b80b9c0",
       "bytes": 9947,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCChessBoardEvent.json",
       "sha256": "ea8ef0cf9081e473d52b3e815b900a7259e58dfe9925b991c716ef384b4e145f",
       "bytes": 26952,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCConstValueClient.json",
       "sha256": "5f6e39838375357ef54f1f484534a2ce69fe618aae3430ad4540b12ad3618993",
       "bytes": 2357,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCConstValueCommon.json",
       "sha256": "8d504373e71bed783c20bf06776dab373cbb49ab67917e8e629e27593e446850",
       "bytes": 2324,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCDiceSurfaceRarity.json",
       "sha256": "2482072ba350867eb0769fba42e22c0c93aa7ec0bca3752abed294890912e077",
       "bytes": 510,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCDifficulty.json",
       "sha256": "c6ef1204a042b866d01e3308e73d05bae062a54cf39f67d8c8f6b118a373d539",
       "bytes": 5325,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCEndGameReward.json",
       "sha256": "c0d9863961fb70c53713829b1ee5135fd91f6f2f27448d59308159e0beac26ac",
       "bytes": 734,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCEntrance.json",
       "sha256": "8925bb341532fc224fb932070b857ad80bce9c36bd83995020f58cd20da3d8e7",
       "bytes": 1373,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCFinishWay.json",
       "sha256": "d25e7df510ae2f312691a716e876672e63e736a754ae460b1496db924d7bb16f",
       "bytes": 22409,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCJoyHelp.json",
       "sha256": "eea3e2a55197645447e3416cf68e0e27c1207954d8d3afef5129a2559d0fc79f",
       "bytes": 1680,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCLayer.json",
       "sha256": "93bc10fbf96c3749c7e8dbfd0025a39078dfef1335019ae42e3242d9cfd7421e",
       "bytes": 4787,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCMainStory.json",
       "sha256": "4f43cd0dcc448c7636117fd3a0fed09258feda3fa5ef34bc21b0e02a5176d2a6",
       "bytes": 4526,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCMainStoryBranch.json",
       "sha256": "8e064225d5bc5a59153163b2bfdac9a5d4bdeb3db7e5553bfb034b7bdbaf28f4",
       "bytes": 2437,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCMainStoryReward.json",
       "sha256": "5a266e5f378c51ceb3f55f020094d2206e8070451b499f3cbf76acb5a789fb62",
       "bytes": 1346,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCMarkType.json",
       "sha256": "6bb6a11322e488608d4b1366d17445f8135dee2dc3d7ff34125ec6927e1f3ae4",
       "bytes": 1448,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCRoom.json",
       "sha256": "53662480bcfed6a12eb31720f1987c779b0873481d52bcdd73c0dbce9aad1a86",
       "bytes": 96862,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCSubStory.json",
       "sha256": "7f43e071163af37494a1fefe066c5a00165875f5e2c2f23a0a3e604029d2e42e",
       "bytes": 15866,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCSubStoryGroup.json",
       "sha256": "8b163d8e67ae2357a9a97439058a43bfbb02e1edba813d12a9516deaa0ce99b5",
       "bytes": 2742,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",
       "path": "ExcelOutput/RogueDLCUnlock.json",
       "sha256": "cbd90ca3bcc56f76426c86c7b42aa629dc171ab38c4922bbcf5d2c8446e9e260",
       "bytes": 10312,
-      "family": "other_mode_exclusion_evidence",
-      "selected_by": "explicit non-Gold universe family retained to prove ownership exclusion"
+      "family": "shared_structured_candidate",
+      "selected_by": "generic Rogue table requiring Gold and Gears reachability review"
     },
     {
       "repository": "turnbasedgamedata",

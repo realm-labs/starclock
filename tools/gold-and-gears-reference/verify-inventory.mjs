@@ -55,11 +55,19 @@ assert([...inheritedPaths].every((sourcePath) => dimbreathPaths.has(sourcePath))
 const dimbreathAdditions = [...dimbreathPaths]
   .filter((sourcePath) => !inheritedPaths.has(sourcePath))
   .sort(compare);
-assert(JSON.stringify(dimbreathAdditions) === JSON.stringify([
+const fixedDimbreathAdditions = [
   "ExcelOutput/StageConfig.json",
   "TextMap/TextMapCHS.json",
   "TextMap/TextMapEN.json",
-]), "Goal 08 Dimbreath inventory additions drift");
+];
+const topologyAdditions = dimbreathAdditions.filter((sourcePath) =>
+  sourcePath.startsWith("Config/Gameplays/RogueDLC/"));
+assert(topologyAdditions.length === 224,
+  "Goal 08 shared DLC topology source closure drift");
+assert(JSON.stringify(dimbreathAdditions.filter((sourcePath) =>
+  !sourcePath.startsWith("Config/Gameplays/RogueDLC/")))
+  === JSON.stringify(fixedDimbreathAdditions),
+"Goal 08 fixed Dimbreath inventory additions drift");
 
 const nous = records.filter(({ path: sourcePath }) =>
   /^ExcelOutput\/RogueNous[^/]*\.json$/u.test(sourcePath));
@@ -74,9 +82,11 @@ assert(directMechanics.length === 2
 "direct Gold and Gears mechanic closure drift");
 assert(inventory.closure.mechanic_and_level_candidates === 2410,
   "shared mechanic/level candidate closure drift");
+assert(inventory.closure.topology_config_candidates === 224,
+  "shared DLC topology candidate closure drift");
 assert(inventory.closure.unclassified_selected_files === 0,
   "source inventory contains unclassified files");
-assert(inventory.counts.by_repository.turnbasedgamedata === 2649
+assert(inventory.counts.by_repository.turnbasedgamedata === 2873
   && inventory.counts.by_repository.starrailres === 9,
 "source repository count drift");
 
@@ -90,8 +100,8 @@ assert(inventory.selection_contract.denominator_rule.includes("no content-row de
   "source inventory improperly claims a content denominator");
 
 console.log(
-  "Gold and Gears source inventory verified (2,658 files; Goal 03 2,646-file " +
-  "closure plus StageConfig/TextMaps and 9 bilingual public-index files).",
+  "Gold and Gears source inventory verified (2,882 files; Goal 03 2,646-file " +
+  "closure plus 224 DLC topology configs, StageConfig/TextMaps and 9 indexes).",
 );
 
 function json(relative) {
