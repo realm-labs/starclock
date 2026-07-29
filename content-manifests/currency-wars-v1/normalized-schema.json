@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.currency-wars-normalized-schema.v1",
   "goal_id": "currency-wars-reference-v1",
-  "bound_content_manifest_sha256": "4910cd6e2affcee156f3fed3591139e6ed730ca24346c686e42cb3ad062eba3b",
+  "bound_content_manifest_sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
   "common_envelope": {
     "required_fields": [
       "id",
@@ -191,8 +191,8 @@
         "records": 6215,
         "required_now": true,
         "remote_ancestor": "origin/codex/goal11-divergent-universe-reference",
-        "state": "ConflictPendingMergeCoordination",
-        "replacement_condition": "A merge-stage ownership decision publishes non-overlapping mode selectors or an explicit shared/module-version split and both manifests regenerate from that decision."
+        "state": "ResolvedDistinctSelector",
+        "replacement_condition": "Reopen only if a GridFight-originating typed reference reaches a row claimed exclusively by Goal 11."
       }
     ],
     "join_key": [
@@ -227,9 +227,7 @@
       "record_kind": "CurrencyWarsProfiles",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "profiles",
-        "entry_points",
-        "enabled_modules"
+        "profiles_gambit_entries_finish"
       ],
       "ordering_keys": [
         "id"
@@ -247,7 +245,7 @@
       "record_kind": "CurrencyWarsGambitModes",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "gambit_modes"
+        "profiles_gambit_entries_finish"
       ],
       "ordering_keys": [
         "id"
@@ -264,7 +262,7 @@
       "record_kind": "CurrencyWarsModules",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "enabled_modules"
+        "profiles_gambit_entries_finish"
       ],
       "ordering_keys": [
         "id"
@@ -281,7 +279,7 @@
       "record_kind": "CurrencyWarsEntries",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "entry_points"
+        "profiles_gambit_entries_finish"
       ],
       "ordering_keys": [
         "id"
@@ -298,7 +296,7 @@
       "record_kind": "CurrencyWarsFinishConditions",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "finish_conditions"
+        "profiles_gambit_entries_finish"
       ],
       "ordering_keys": [
         "id"
@@ -314,7 +312,7 @@
       "record_kind": "CurrencyWarsAreaGroups",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "area_groups"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -330,7 +328,7 @@
       "record_kind": "CurrencyWarsAreas",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "areas"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -347,7 +345,7 @@
       "record_kind": "CurrencyWarsDifficulties",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "difficulties"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -363,7 +361,7 @@
       "record_kind": "CurrencyWarsLayers",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "layers"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -379,7 +377,7 @@
       "record_kind": "CurrencyWarsRooms",
       "phase": "P1-B1",
       "manifest_category_inputs": [
-        "room_reuse_candidates"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -441,7 +439,7 @@
       "record_kind": "CurrencyWarsSquadHpRules",
       "phase": "P1-B2",
       "manifest_category_inputs": [
-        "squad_hp_action_value_envelopes"
+        "squad_hp_action_value_projections"
       ],
       "ordering_keys": [
         "id"
@@ -503,7 +501,7 @@
       "record_kind": "CurrencyWarsRosterAvatars",
       "phase": "P1-B3",
       "manifest_category_inputs": [
-        "roster_avatars"
+        "roster_cost_shop_team_size_economy"
       ],
       "ordering_keys": [
         "id"
@@ -520,7 +518,7 @@
       "record_kind": "CurrencyWarsEconomyRules",
       "phase": "P1-B3",
       "manifest_category_inputs": [
-        "economy_shop_envelopes"
+        "roster_cost_shop_team_size_economy"
       ],
       "ordering_keys": [
         "id"
@@ -582,7 +580,7 @@
       "record_kind": "CurrencyWarsRoleMappings",
       "phase": "P1-B4",
       "manifest_category_inputs": [
-        "role_mappings"
+        "positions_character_empowerments"
       ],
       "ordering_keys": [
         "id"
@@ -598,7 +596,7 @@
       "record_kind": "CurrencyWarsPositions",
       "phase": "P1-B4",
       "manifest_category_inputs": [
-        "position_empowerment_envelopes"
+        "positions_character_empowerments"
       ],
       "ordering_keys": [
         "id"
@@ -647,7 +645,7 @@
       "record_kind": "CurrencyWarsBonds",
       "phase": "P1-B5",
       "manifest_category_inputs": [
-        "bond_envelopes"
+        "bonds_members_levels"
       ],
       "ordering_keys": [
         "id"
@@ -695,7 +693,7 @@
       "record_kind": "CurrencyWarsStarStates",
       "phase": "P1-B6",
       "manifest_category_inputs": [
-        "star_upgrade_envelopes"
+        "star_states_copy_combinations"
       ],
       "ordering_keys": [
         "id"
@@ -742,7 +740,7 @@
       "record_kind": "CurrencyWarsBuildReferenceAvatars",
       "phase": "P1-B7",
       "manifest_category_inputs": [
-        "build_reference_avatars"
+        "build_mappings_equipment_conversions"
       ],
       "ordering_keys": [
         "id"
@@ -759,7 +757,7 @@
       "record_kind": "CurrencyWarsBuildSourceFiles",
       "phase": "P1-B7",
       "manifest_category_inputs": [
-        "build_source_files"
+        "build_mappings_equipment_conversions"
       ],
       "ordering_keys": [
         "id"
@@ -837,7 +835,7 @@
       "record_kind": "CurrencyWarsPersonaConstantsClient",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_const_client"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -853,7 +851,7 @@
       "record_kind": "CurrencyWarsPersonaConstantsCommon",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_const_common"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -869,7 +867,7 @@
       "record_kind": "CurrencyWarsPersonaLayerRooms",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_layer_room"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -886,7 +884,7 @@
       "record_kind": "CurrencyWarsPersonaRoomAttributes",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_room_attribute"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -902,7 +900,7 @@
       "record_kind": "CurrencyWarsPersonaRoomCompositionTypes",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_room_comp_type"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -918,7 +916,7 @@
       "record_kind": "CurrencyWarsPersonaRoomCompositions",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_room_composition"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -934,7 +932,7 @@
       "record_kind": "CurrencyWarsPersonaRoomPresets",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_room_preset"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -950,7 +948,7 @@
       "record_kind": "CurrencyWarsPersonaStyles",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_style"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -966,7 +964,7 @@
       "record_kind": "CurrencyWarsPersonaStyleGifts",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_style_gift"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -983,7 +981,7 @@
       "record_kind": "CurrencyWarsPersonaTalents",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_talent"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -1000,7 +998,7 @@
       "record_kind": "CurrencyWarsPersonaTalentGroups",
       "phase": "P1-B8",
       "manifest_category_inputs": [
-        "persona_talent_group"
+        "investment_environment_strategy_persona"
       ],
       "ordering_keys": [
         "id"
@@ -1045,7 +1043,7 @@
       "record_kind": "CurrencyWarsRankGambitProgression",
       "phase": "P1-B9",
       "manifest_category_inputs": [
-        "rank_gambit_progression_envelopes"
+        "planes_difficulties_ranks_nodes_rooms"
       ],
       "ordering_keys": [
         "id"
@@ -1091,7 +1089,7 @@
       "record_kind": "CurrencyWarsBlessingPaths",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "blessing_paths"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1107,7 +1105,7 @@
       "record_kind": "CurrencyWarsBlessings",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "blessings"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1124,7 +1122,7 @@
       "record_kind": "CurrencyWarsBlessingLevels",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "blessing_levels"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1141,7 +1139,7 @@
       "record_kind": "CurrencyWarsBlessingGroups",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "blessing_groups"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1157,7 +1155,7 @@
       "record_kind": "CurrencyWarsFormulas",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "formulas"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1174,7 +1172,7 @@
       "record_kind": "CurrencyWarsFormulaDisplays",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "formula_displays"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1190,7 +1188,7 @@
       "record_kind": "CurrencyWarsFormulaRandomizers",
       "phase": "P2-B1",
       "manifest_category_inputs": [
-        "formula_randomizers"
+        "blessings_levels_formulas"
       ],
       "ordering_keys": [
         "id"
@@ -1236,7 +1234,7 @@
       "record_kind": "CurrencyWarsCurios",
       "phase": "P2-B2",
       "manifest_category_inputs": [
-        "curios"
+        "curios_miracles_hex_states"
       ],
       "ordering_keys": [
         "id"
@@ -1252,7 +1250,7 @@
       "record_kind": "CurrencyWarsCurioStates",
       "phase": "P2-B2",
       "manifest_category_inputs": [
-        "curio_states"
+        "curios_miracles_hex_states"
       ],
       "ordering_keys": [
         "id"
@@ -1269,7 +1267,7 @@
       "record_kind": "CurrencyWarsCurioGroups",
       "phase": "P2-B2",
       "manifest_category_inputs": [
-        "curio_groups"
+        "curios_miracles_hex_states"
       ],
       "ordering_keys": [
         "id"
@@ -1302,7 +1300,7 @@
       "record_kind": "CurrencyWarsHexStates",
       "phase": "P2-B2",
       "manifest_category_inputs": [
-        "hex_states"
+        "curios_miracles_hex_states"
       ],
       "ordering_keys": [
         "id"
@@ -1320,7 +1318,7 @@
       "record_kind": "CurrencyWarsHexEligibility",
       "phase": "P2-B2",
       "manifest_category_inputs": [
-        "hex_eligibility"
+        "curios_miracles_hex_states"
       ],
       "ordering_keys": [
         "id"
@@ -1337,7 +1335,7 @@
       "record_kind": "CurrencyWarsOccurrences",
       "phase": "P2-B3",
       "manifest_category_inputs": [
-        "occurrences"
+        "events_variants_choices"
       ],
       "ordering_keys": [
         "id"
@@ -1353,7 +1351,7 @@
       "record_kind": "CurrencyWarsOccurrenceVariants",
       "phase": "P2-B3",
       "manifest_category_inputs": [
-        "occurrence_service_variants"
+        "events_variants_choices"
       ],
       "ordering_keys": [
         "id"
@@ -1386,7 +1384,7 @@
       "record_kind": "CurrencyWarsWorkbenches",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "workbenches"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1402,7 +1400,7 @@
       "record_kind": "CurrencyWarsWorkbenchFunctions",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "workbench_functions"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1419,7 +1417,7 @@
       "record_kind": "CurrencyWarsGambleGroups",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "gamble_groups"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1435,7 +1433,7 @@
       "record_kind": "CurrencyWarsGambleUnits",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "gamble_units"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1451,7 +1449,7 @@
       "record_kind": "CurrencyWarsCurseChests",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "curse_chests"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1467,7 +1465,7 @@
       "record_kind": "CurrencyWarsAdventureOutcomes",
       "phase": "P2-B4",
       "manifest_category_inputs": [
-        "adventure_outcomes"
+        "currencies_shops_services"
       ],
       "ordering_keys": [
         "id"
@@ -1528,7 +1526,7 @@
       "record_kind": "CurrencyWarsEncounterSourceObligations",
       "phase": "P2-B5",
       "manifest_category_inputs": [
-        "encounter_source_obligations"
+        "encounter_groups_waves_enemy_slots"
       ],
       "ordering_keys": [
         "id"
@@ -1605,7 +1603,7 @@
       "record_kind": "CurrencyWarsMechanicSourceFiles",
       "phase": "P2-B6",
       "manifest_category_inputs": [
-        "mechanic_source_files"
+        "mechanic_rules"
       ],
       "ordering_keys": [
         "id"
@@ -1686,7 +1684,7 @@
       "record_kind": "CurrencyWarsSemanticFixtureFamilies",
       "phase": "P2-B6",
       "manifest_category_inputs": [
-        "semantic_fixture_families"
+        "semantic_fixtures"
       ],
       "ordering_keys": [
         "id"

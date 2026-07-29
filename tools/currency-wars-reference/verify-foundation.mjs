@@ -9,6 +9,9 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sourceCache = sourceCacheArgument(process.argv.slice(2));
 const policy = json("content-manifests/currency-wars-v1/foundation.json");
+const correction = json(
+  "content-manifests/currency-wars-v1/source-correction.json",
+);
 
 assert(policy.schema_revision === "starclock.currency-wars-foundation.v1",
   "unsupported Goal 12 foundation revision");
@@ -133,7 +136,8 @@ for (const row of tournRows) {
 
 verifySelectors(turnRepository,
   policy.source_snapshot.repositories[0].revision,
-  policy.source_entry_contract.selectors);
+  policy.source_entry_contract.selectors,
+  correction);
 for (const checkpoint of policy.ownership_checkpoints)
   verifyOwnershipCheckpoint(checkpoint);
 verifyGoal11Checkpoint(policy.goal11_checkpoint);
@@ -179,7 +183,8 @@ for (const changedPath of changed) {
 
 const status = text("docs/goals/12-currency-wars-reference-data-status.md");
 assert((status.match(/^\| `G12-P[0-4]-B\d+` \|/gmu) ?? []).length
-  === policy.fixed_batches, "Goal 12 fixed batch ledger drift");
+  === policy.fixed_batches + correction.execution_batch_additions.length,
+"Goal 12 corrected batch ledger drift");
 assert(status.includes("| State | `InProgress` |"), "Goal 12 is not active");
 assert(/\| `G12-P0-B1` \| `(?:InProgress|Complete)` \|/u.test(status),
   "G12-P0-B1 has not started");
@@ -194,9 +199,9 @@ assert(policy.authoring_contract.authoritative_format === "xlsx"
 "Goal 12 authoring contract drift");
 
 console.log(
-  "Goal 12 foundation verified (Goal 03 snapshot; 11 Persona and 64 Tourn " +
-  "seed files; Goal 08/09/10 committed ownership checkpoints; Goal 11 " +
-  "setup boundary; 29 batches; isolated Candidate lane).",
+  "Goal 12 foundation verified (Goal 03 snapshot; authoritative GridFight " +
+  "correction over historical Persona/Tourn seeds; Goal 08/09/10 committed " +
+  "ownership checkpoints; Goal 11 boundary; 31 batches; isolated Candidate lane).",
 );
 
 function sourceCacheArgument(values) {
@@ -213,7 +218,7 @@ function verifyGitEntry(repository, revision, entry) {
   assert(bytes.length === entry.bytes, `source byte count drift ${entry.path}`);
   assert(hashBytes(bytes) === entry.sha256, `source hash drift ${entry.path}`);
 }
-function verifySelectors(repository, revision, selectors) {
+function verifySelectors(repository, revision, selectors, sourceCorrection) {
   const resident = gitJson(repository, revision,
     "ExcelOutput/RogueActivityResidentConfig.json");
   assert(resident.some((row) => row.ActivityID === selectors.activity_id
@@ -228,7 +233,16 @@ function verifySelectors(repository, revision, selectors) {
   const areaGroups = gitJson(repository, revision,
     "ExcelOutput/RogueTournAreaGroupByTourn.json");
   assert(areaGroups.some((row) => Object.values(row).includes(selectors.tourn_mode)),
-    "Currency Wars Tourn3 selector drift");
+    "historical Tourn3 selector receipt drift");
+  const guideTabs = gitJson(repository, revision, "ExcelOutput/GuideRogueTab.json");
+  const guideData = gitJson(repository, revision, "ExcelOutput/GuideRogueData.json");
+  const authoritative = sourceCorrection.authoritative_selector;
+  assert(guideTabs.some((row) => row.ID === authoritative.guide_tab_id
+    && row.GuideType === authoritative.guide_type),
+  "Currency Wars GridFight guide-tab selector drift");
+  assert(guideData.some((row) => row.ID === authoritative.guide_data_id
+    && row.TabID === authoritative.guide_tab_id),
+  "Currency Wars GridFight guide-data selector drift");
 }
 function verifyOwnershipCheckpoint(checkpoint) {
   runGit(root, ["cat-file", "-e", `${checkpoint.commit}^{commit}`]);

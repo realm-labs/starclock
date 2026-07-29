@@ -18,6 +18,64 @@ const outputRoot = path.join(
   "content-manifests/currency-wars-v1",
 );
 
+const manifestCategoryAliases = new Map(Object.entries({
+  profiles: "profiles_gambit_entries_finish",
+  gambit_modes: "profiles_gambit_entries_finish",
+  entry_points: "profiles_gambit_entries_finish",
+  enabled_modules: "profiles_gambit_entries_finish",
+  finish_conditions: "profiles_gambit_entries_finish",
+  area_groups: "planes_difficulties_ranks_nodes_rooms",
+  areas: "planes_difficulties_ranks_nodes_rooms",
+  difficulties: "planes_difficulties_ranks_nodes_rooms",
+  layers: "planes_difficulties_ranks_nodes_rooms",
+  room_reuse_candidates: "planes_difficulties_ranks_nodes_rooms",
+  rank_gambit_progression_envelopes:
+    "planes_difficulties_ranks_nodes_rooms",
+  squad_hp_action_value_envelopes: "squad_hp_action_value_projections",
+  roster_avatars: "roster_cost_shop_team_size_economy",
+  economy_shop_envelopes: "roster_cost_shop_team_size_economy",
+  role_mappings: "positions_character_empowerments",
+  position_empowerment_envelopes: "positions_character_empowerments",
+  bond_envelopes: "bonds_members_levels",
+  star_upgrade_envelopes: "star_states_copy_combinations",
+  build_reference_avatars: "build_mappings_equipment_conversions",
+  build_source_files: "build_mappings_equipment_conversions",
+  persona_const_client: "investment_environment_strategy_persona",
+  persona_const_common: "investment_environment_strategy_persona",
+  persona_layer_room: "investment_environment_strategy_persona",
+  persona_room_attribute: "investment_environment_strategy_persona",
+  persona_room_comp_type: "investment_environment_strategy_persona",
+  persona_room_composition: "investment_environment_strategy_persona",
+  persona_room_preset: "investment_environment_strategy_persona",
+  persona_style: "investment_environment_strategy_persona",
+  persona_style_gift: "investment_environment_strategy_persona",
+  persona_talent: "investment_environment_strategy_persona",
+  persona_talent_group: "investment_environment_strategy_persona",
+  blessing_paths: "blessings_levels_formulas",
+  blessings: "blessings_levels_formulas",
+  blessing_levels: "blessings_levels_formulas",
+  blessing_groups: "blessings_levels_formulas",
+  formulas: "blessings_levels_formulas",
+  formula_displays: "blessings_levels_formulas",
+  formula_randomizers: "blessings_levels_formulas",
+  curios: "curios_miracles_hex_states",
+  curio_states: "curios_miracles_hex_states",
+  curio_groups: "curios_miracles_hex_states",
+  hex_states: "curios_miracles_hex_states",
+  hex_eligibility: "curios_miracles_hex_states",
+  occurrences: "events_variants_choices",
+  occurrence_service_variants: "events_variants_choices",
+  workbenches: "currencies_shops_services",
+  workbench_functions: "currencies_shops_services",
+  gamble_groups: "currencies_shops_services",
+  gamble_units: "currencies_shops_services",
+  curse_chests: "currencies_shops_services",
+  adventure_outcomes: "currencies_shops_services",
+  encounter_source_obligations: "encounter_groups_waves_enemy_slots",
+  mechanic_source_files: "mechanic_rules",
+  semantic_fixture_families: "semantic_fixtures",
+}));
+
 function valueAfter(flag) {
   const index = args.indexOf(flag);
   if (index < 0) return undefined;
@@ -31,7 +89,8 @@ function file(fileName, phase, manifestInputs, requiredDomainFields) {
     file: fileName,
     record_kind: `CurrencyWars${pascal(fileName.replace(/\.json$/u, ""))}`,
     phase,
-    manifest_category_inputs: manifestInputs,
+    manifest_category_inputs: [...new Set(manifestInputs.map((categoryId) =>
+      manifestCategoryAliases.get(categoryId) ?? categoryId))],
     ordering_keys: ["id"],
     required_domain_fields: requiredDomainFields,
   };
@@ -498,7 +557,7 @@ const authoringContract = {
     {
       file: "CurrencyWars.xlsx",
       purpose:
-        "entry, flow, Squad HP/action value, roster economy, positions, Empowerments, Bonds, stars, builds, Persona and rank progression",
+        "entry, flow, Squad HP/action value, roster economy, positions, Empowerments, Bonds, stars, builds, Augments and rank progression",
       normalized_files: mainWorkbookFiles,
     },
     {
@@ -579,8 +638,8 @@ const fixtureDetails = {
   "gambit-rank-and-enemy-affix": [
     "Gambit selection", "rank boundary", "enemy affix contribution",
   ],
-  "goal11-selector-conflict-reconciliation": [
-    "exact source locator", "incompatible ownership", "blocked merge outcome",
+  "goal11-selector-separation-reconciliation": [
+    "exact GridFight source locator", "distinct Tourn3 selector", "reopen condition",
   ],
   "gold-coin-refresh-experience-and-team-size": [
     "currency mutation", "refresh cost", "Experience and team-size transition",
@@ -588,8 +647,8 @@ const fixtureDetails = {
   "hex-eligibility-activation-and-teardown": [
     "eligibility", "activation", "replacement or teardown",
   ],
-  "investment-environment-strategy-and-persona": [
-    "Environment entry", "Strategy offer", "Persona activation lifecycle",
+  "investment-environment-strategy-and-augment": [
+    "Augment entry", "Projection or Portal offer", "activation lifecycle",
   ],
   "occurrence-choice-cost-and-outcome": [
     "choice condition", "cost", "ordered mechanical outcome",
@@ -628,7 +687,7 @@ const fixtureDetails = {
     "Plane transition", "Node choice", "room and Stage binding",
   ],
 };
-const fixtureIds = manifest.categories.semantic_fixture_families.records
+const fixtureIds = manifest.categories.semantic_fixtures.records
   .map(({ id }) => id);
 const fixtureContract = {
   schema_revision: "starclock.currency-wars-fixture-contract.v1",

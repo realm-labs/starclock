@@ -136,7 +136,7 @@ assert(
   "row source contract drift",
 );
 
-const manifestFixtures = manifest.categories.semantic_fixture_families.records
+const manifestFixtures = manifest.categories.semantic_fixtures.records
   .map(({ id }) => id).sort(compare);
 const contractFixtures = fixtures.required_families
   .map(({ id }) => id).sort(compare);

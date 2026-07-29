@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
@@ -69,14 +70,18 @@ const expectedAdditions = [
   "TextMap/TextMapCHS.json",
   "TextMap/TextMapEN.json",
 ];
+const gridFightAdditions = additions.filter((sourcePath) =>
+  /GridFight/iu.test(sourcePath));
 const graphAdditions = additions.filter((sourcePath) =>
   sourcePath.startsWith("Config/Level/GroupTemplateGraph/03_Rogue/RogueTourn230/")
     || sourcePath.startsWith("Config/Level/Maze/MazeRogue/RogueTourn/"));
 const fixedAdditions = additions.filter((sourcePath) =>
-  !graphAdditions.includes(sourcePath));
+  !graphAdditions.includes(sourcePath)
+    && !gridFightAdditions.includes(sourcePath));
 assert(JSON.stringify(fixedAdditions) === JSON.stringify(expectedAdditions)
   && graphAdditions.length === 25
-  && inventory.closure.turnbasedgamedata_additions === 30,
+  && gridFightAdditions.length === 1137
+  && inventory.closure.turnbasedgamedata_additions === 1167,
 "Goal 12 focused turnbasedgamedata additions drift");
 
 const audits = inventory.structured_table_audit;
@@ -105,13 +110,27 @@ assert(audits.reduce((sum, { direct_tourn3_rows: direct }) => sum + direct, 0)
   === inventory.closure.direct_tourn3_rows,
 "Currency Wars direct Tourn3 row count drift");
 
-const directAbilities = records.filter(({ family }) =>
-  family === "currency_wars_mechanic_evidence");
-assert(directAbilities.length === 8
-  && directAbilities.every(({ path: sourcePath }) =>
-    /^Config\/ConfigAbility\/Level\/Level_RogueBuff_Ability_(?:Ability|HEX|Miracle|Recipe)_S3(?:\.layout)?\.json$/u
-      .test(sourcePath)),
-"direct Currency Wars ability/layout closure drift");
+const gridFightRecords = records.filter(({ path: sourcePath }) =>
+  /GridFight/iu.test(sourcePath));
+assert(gridFightRecords.length === 1137
+  && inventory.closure.gridfight_files === 1137
+  && inventory.closure.gridfight_tables === 153
+  && inventory.closure.gridfight_config_files === 984,
+"direct Currency Wars GridFight file closure drift");
+assert(inventory.gridfight_table_audit.length === 153
+  && unique(inventory.gridfight_table_audit.map(({ path: sourcePath }) =>
+    sourcePath))
+  && inventory.gridfight_table_audit.reduce((sum, { rows }) =>
+    sum + rows, 0) === inventory.closure.gridfight_structured_rows,
+"Currency Wars GridFight table audit drift");
+const correctionBytes = fs.readFileSync(path.join(
+  root,
+  inventory.source_correction.path,
+));
+assert(crypto.createHash("sha256").update(correctionBytes).digest("hex")
+  === inventory.source_correction.sha256
+  && inventory.source_correction.guide_type === "GridFight",
+"Currency Wars source correction binding drift");
 const buildTables = records.filter(({ family }) =>
   family === "shared_build_mapping_candidate");
 assert(buildTables.length === 6
@@ -119,15 +138,14 @@ assert(buildTables.length === 6
     /^ExcelOutput\/RogueUpgradeAvatar(?:Const|Equipment|SubRelic|SubType|SubValue)?\.json$/u
       .test(sourcePath)),
 "shared build-table source closure drift");
-assert(inventory.closure.adventure_modifier_files === 1
-  && inventory.closure.tourn_maze_graph_files === 22
+assert(inventory.closure.tourn_maze_graph_files === 22
   && inventory.closure.tourn_service_graph_files === 3,
-"Currency Wars focused Adventure/Tourn graph closure drift");
+"superseded Tourn graph reconciliation closure drift");
 assert(inventory.closure.unclassified_selected_files === 0,
   "source inventory contains unclassified files");
-assert(inventory.counts.by_repository.turnbasedgamedata === 2676
+assert(inventory.counts.by_repository.turnbasedgamedata === 3813
   && inventory.counts.by_repository.starrailres === 9
-  && inventory.counts.total === 2685,
+  && inventory.counts.total === 3822,
 "source repository count drift");
 
 const exclusions = records.filter(({ family }) =>
@@ -144,10 +162,10 @@ assert(inventory.selection_contract.denominator_rule
 "source inventory improperly claims a content denominator");
 
 console.log(
-  "Currency Wars source inventory verified (2,685 files; Goal 03 2,646-file " +
-  "closure plus 30 focused entries and 9 indexes; 11 Persona and 64 Tourn " +
-  `tables; ${inventory.closure.direct_tourn3_rows} conservative direct ` +
-  "Tourn3 rows; 8 direct ability/layout files).",
+  "Currency Wars source inventory verified (3,822 files; Goal 03 2,646-file " +
+  "closure plus 1,137 GridFight paths, 30 reconciliation entries and 9 " +
+  `indexes; ${inventory.closure.gridfight_tables} GridFight tables and ` +
+  `${inventory.closure.gridfight_config_files} GridFight configs).`,
 );
 
 function requiredArgument(index) {

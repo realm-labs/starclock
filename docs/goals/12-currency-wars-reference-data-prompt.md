@@ -64,20 +64,31 @@ Before the first mutation:
 
 Execution loop:
 
+The exact batch set, in execution order, is:
+
+`G12-P0-B1`, `G12-P0-B2`, `G12-P0-B3`, `G12-P0-B4`, `G12-P0-B5`,
+`G12-P1-B1`, `G12-P1-B2`, `G12-P1-B10`, `G12-P1-B3`, `G12-P1-B4`,
+`G12-P1-B5`, `G12-P1-B6`, `G12-P1-B7`, `G12-P1-B8`, `G12-P1-B9`,
+`G12-P2-B1`, `G12-P2-B2`, `G12-P2-B3`, `G12-P2-B4`, `G12-P2-B5`,
+`G12-P2-B6`, `G12-P3-B1`, `G12-P3-B2`, `G12-P3-B3`, `G12-P3-B4`,
+`G12-P3-B5`, `G12-P3-B6`, `G12-P4-B1`, `G12-P4-B2`, `G12-P4-B3` and
+`G12-P4-B4`.
+
 1. Select the earliest unblocked Pending batch and mark only it InProgress.
 2. Implement its complete source inventory, normalized data, evidence, schema,
    workbook, verification and documentation responsibility.
 3. Use the pinned released source first. Record exact repository revisions,
    paths, row locators, URLs, access dates, hashes, confidence and notes.
-4. Start source discovery from the exact Tourn3/MainTourn 3/ActivityModule
-   6002201 selectors, all 11 RoguePersona tables, all 64 RogueTourn tables, the
-   four direct _S3 ability programs and their layout companions, CHS/EN
-   TextMaps, StageConfig and every transitively referenced shared build, Rogue,
-   enemy, wave, battle-event, maze, group-template and ability file.
+4. Use the `G12-P0-B5` correction: start source discovery from
+   `GuideRogueTab#2` / `GuideRogueData#5`, where Currency Wars is explicitly
+   `GuideType = GridFight`; retain all 153 `GridFight` tables, all 984
+   GridFight configuration paths, CHS/EN TextMaps, StageConfig and every
+   transitively referenced shared build, enemy, wave, battle-event, level and
+   ability file. Treat Tourn3/Persona/S3 as superseded Divergent Universe
+   evidence unless a GridFight-originating reference proves a shared row.
 5. Freeze completeness from generated manifests, never estimated Wiki totals
-   or raw table sizes. A Tourn3 label, RoguePersona/RogueTourn prefix, _S3
-   suffix, ID range, table name or matching display name is not membership
-   proof.
+   or raw table sizes. A GridFight/Tourn3 label, table prefix, version suffix,
+   ID range, table name or matching display name is not row membership proof.
 6. Classify every record as CurrencyWars, Shared, EvidenceOnly or excluded
    named-mode/module ownership. Reachability requires an explicit enabled
    Version 4.4 selector, transitive source reference or inherited stable-ID
@@ -137,8 +148,8 @@ Scope boundary:
   flow; difficulties/ranks and enemy affixes; Squad HP and action-value battle
   limits; roster/shop/Gold Coin/Experience/team-size economy; positions,
   Character Empowerments and Bonds; character costs and star combinations;
-  owned/trial build mapping, off-field conversions and equipment; Investment
-  Environments/Strategies and selector-reachable Persona mechanics; reachable
+  owned/trial build mapping, off-field conversions and equipment; GridFight
+  Augments, Projections, Portals, Talents and selector-reachable investment mechanics; reachable
   Blessings/Curios/events/services; and exact encounters, StageConfig waves,
   enemies and bosses;
 - exclude story prose, presentation, assets, audio, UI, account/collection/
@@ -147,7 +158,7 @@ Scope boundary:
 - retain excluded rows only as bounded provenance needed to prove ownership,
   an enabled selector, unlock, stage boundary or mechanical prerequisite.
 
-Do not mark the goal complete until G12-P0-B3 has frozen exact enabled-selector
+Do not mark the goal complete until the corrective G12-P0-B5 manifest has frozen exact enabled-selector
 denominators, every required row is DataReady, ownership and references close,
 shared facts reconcile with the inspected committed Goal 08/09/10/11
 revisions, all distinct mechanic families have semantic fixtures, isolated

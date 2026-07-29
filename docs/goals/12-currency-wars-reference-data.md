@@ -67,104 +67,56 @@ batch-owned release evidence.
 
 ### Currency Wars selectors
 
-The pinned structured cache exposes the following initial routing facts:
+The published `G12-P0-B1` through `G12-P1-B2` history began from a
+`TournRogue` / `Tourn3` hypothesis. `G12-P1-B3` source discovery found the
+stronger direct selector below and triggered the `G12-R01` replacement
+condition:
 
 ```text
-RogueActivityResidentConfig:
-  ActivityID = 105
-  SubMode = TournRogue
-  ActivityModuleID = 6002201
+GuideRogueTab:
+  ID = 1003
+  GuideType = GridFight
+  Name = Currency Wars / 货币战争
 
-RogueTournModule:
-  MainTournID = 3
-  SubTournID = 1
-  ActivityModuleID = 6002201
-
-RogueTournAreaGroupByTourn:
-  TournMode = Tourn3
+GuideRogueData:
+  ID = 301
+  TabID = 1003
+  Name = Currency Wars / 货币战争
 ```
 
-These exact rows are initial selectors, not a complete ownership oracle. Every
-enabled row still requires a selector, transitive reference or inherited
-stable-ID reachability proof.
+`GridFight` is the authoritative Version 4.4 source selector. The older
+`TournRogue` / `Tourn3` / module 6002201 rows identify Divergent Universe and
+remain only as immutable historical and exclusion evidence. `G12-P0-B5`
+regenerates the source inventory, manifest and contracts from this correction;
+`G12-P1-B10` replaces normalized flow rows imported under the superseded
+selector.
 
 ### Mode-focused tables
 
-The pinned cache contains these eleven focused `RoguePersona` tables:
+The pinned Git tree contains 153 `ExcelOutput/GridFight*.json` tables. They
+cover the direct flow, stage, route, node, difficulty, role, cost, shop,
+experience, team-size, star, position, Bond/Trait, equipment, Augment,
+Projection, event/service, enemy and settlement authoring surfaces. Every row
+is retained as an exact disposition obligation; a table prefix still does not
+prove that every season, tutorial, expired or presentation row is enabled.
 
-```text
-RoguePersonaConstClient.json
-RoguePersonaConstCommon.json
-RoguePersonaLayerRoom.json
-RoguePersonaRoomAttribute.json
-RoguePersonaRoomCompType.json
-RoguePersonaRoomComposition.json
-RoguePersonaRoomPreset.json
-RoguePersonaStyle.json
-RoguePersonaStyleGift.json
-RoguePersonaTalent.json
-RoguePersonaTalentGroup.json
-```
+The same tree contains 984 `Config` paths whose case-insensitive path contains
+`GridFight`, including character, battle-event, AI, ability, level and preload
+programs. The inventory retains every one of the 1,137 combined GridFight
+paths before applying row-level reachability.
 
-They are Currency Wars source candidates because their records are linked to
-the `Tourn3` module and its Plane/Domain mechanics. Their prefix, mask/style
-presentation, ID ranges and matching names are not sufficient proof that every
-row is enabled, mechanically relevant or Currency Wars-owned.
-
-### Shared Tourn framework
-
-Currency Wars reuses the `RogueTourn` framework also inspected by Divergent
-Universe work. The initial shared candidates include:
-
-- routing and flow: `RogueTournArea`, `RogueTournAreaGroup`,
-  `RogueTournAreaGroupByTourn`, `RogueTournDifficulty`,
-  `RogueTournDifficultyComp`, `RogueTournLayer`,
-  `RogueTournLayerRoom`, `RogueTournRoom`, `RogueTournRoomGroup`,
-  `RogueTournRoomMark`, `RogueTournFinishway` and `RogueTournNPC`;
-- roster and build mapping: `RogueTournAvatar`, `RogueTournRole`,
-  `RogueTournBuildRefAvatar`, `RogueTournBuff`, `RogueTournBuffGroup`,
-  `RogueTournBuffType` and `RogueTournUseBuffType`;
-- Blessing and rule composition: `RogueTournFormula`,
-  `RogueTournFormulaDisplay`, `RogueTournFormulaRandom`,
-  `RogueTournHex`, `RogueTournHexDisplay` and
-  `RogueTournHexAvatarBaseType`;
-- Curios and services: `RogueTournMiracle`,
-  `RogueTournMiracleDisplay`, `RogueTournMiracleGroup`,
-  `RogueTournHandbookMiracle`, `RogueTournWorkbench`,
-  `RogueTournWorkbenchFunc`, `RogueTournGambleGroup`,
-  `RogueTournGambleUnit`, `RogueTournAdventureRoom` and
-  `RogueTournCurseChest`;
-- progression and evidence locators: `RogueTournDivision`,
-  `RogueTournDivisionEffect`, `RogueTournPermanentTalent`,
-  `RogueTournUnlock`, `RogueTournCollection`,
-  `RogueTournCollectionConfig`, `RogueTournExhibition`,
-  `RogueTournExhibitionConfig`, `RogueTournWeeklyChallenge`,
-  `RogueTournWeeklyDisplay`, `RogueTournContentDisplay`,
-  `RogueTournMiscDisplay` and `RogueTournRecordShowcase`.
-
-`G12-P0-B2` inventories all sixty-four `RogueTourn*` tables, not only the
-families named above, and explicitly accounts for every row selected or
-excluded by `Tourn3`. A `RogueTourn` prefix, a `Tourn3`-adjacent ID, a shared
-table or a display relationship is never enough to grant ownership or pool
-membership.
+All eleven `RoguePersona` and sixty-four `RogueTourn` tables remain available
+only as Divergent Universe/exclusion reconciliation evidence. They cannot
+contribute Currency Wars content without an explicit reference originating in
+the GridFight closure.
 
 ### Configuration, TextMap, Stage and ability seeds
 
-The initial direct Version 4.4 ability-program seeds are:
-
-```text
-Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json
-Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json
-Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json
-Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json
-```
-
-Their `.layout.json` companions are evidence inputs, not independent mechanic
-rows. File suffix `_S3` is a discovery hint, not ownership evidence.
-`G12-P0-B2` must follow enabled `Tourn3` areas, rooms, roster entries, MazeBuff
-bindings, StageAbility keys, formulas, Hexes, Miracles, NPCs, services, enemies
-and encounters to every transitively referenced configuration and ability
-program.
+The direct Version 4.4 program seeds are the complete 984-file GridFight
+configuration closure. Layout companions are evidence inputs, not independent
+mechanic rows. Version directories such as `3.5`, `4.0`, `4.2` and `4.4`
+describe content additions inside the released 4.4 snapshot; they are not by
+themselves release or ownership selectors.
 
 The focused inventory must also include:
 
@@ -172,11 +124,11 @@ The focused inventory must also include:
 - applicable bilingual `StarRailRes` simulated Blessing, Curio, event and item
   indexes;
 - concrete `ExcelOutput/StageConfig.json` rows selected through enabled
-  `Tourn3` area/layer/room/group/NPC relationships;
+  GridFight stage, route, node, formation-wave and monster relationships;
 - `RogueUpgradeAvatar`, `RogueUpgradeAvatarConst`,
   `RogueUpgradeAvatarEquipment`, `RogueUpgradeAvatarSubRelic`,
   `RogueUpgradeAvatarSubType` and `RogueUpgradeAvatarSubValue` only when an
-  explicit Currency Wars mapping proves reachability;
+  explicit GridFight role/build mapping proves reachability;
 - reachable `AvatarConfig`, skill/Trace/Eidolon, Light Cone, relic,
   `RogueMazeBuff`, `RogueBuff`, `RogueMiracle`, occurrence, shop,
   `RogueMonster`, `RogueMonsterGroup`, wave, monster skill/status and enemy
@@ -220,8 +172,8 @@ Completeness is defined by frozen manifests for:
     equipment slots, equipment eligibility, replacement and lifecycle;
 13. automatic Technique use, reduced defeat-energy gain, lethal-damage rescue,
     battle countdown reduction and every other Currency Wars battle override;
-14. Investment Environments, Investment Strategies, `RoguePersona` styles,
-    gifts, talents, room attributes/compositions and their offered/activated
+14. Investment Environments, Investment Strategies and their GridFight
+    Augment/Projection/Talent/equipment equivalents, offers and activated
     lifecycle where the manifest proves reachability;
 15. Currency Wars-owned and reachable shared Blessings, enhanced levels,
     formula/Equation-like combinations, Curios/Miracles/Hex states, events,
@@ -236,7 +188,7 @@ Completeness is defined by frozen manifests for:
     field-level confidence and approximation replacement conditions.
 
 A category may close at zero only when the generated manifest proves that the
-released `Tourn3` selector and its complete transitive closure make no such
+released GridFight selector and its complete transitive closure make no such
 record reachable. Raw shared-table presence cannot force membership, and an
 unresolved join cannot be treated as an empty pool.
 
@@ -252,7 +204,7 @@ distinct Currency Wars-owned record.
 - changes to `starclock-activity`, `starclock-combat`, `starclock-build` or
   shared runtime semantics;
 - Standard Simulated Universe, Gold and Gears, Swarm Disaster, Unknowable
-  Domain, Divergent Universe, historical temporary modes and non-`Tourn3`
+  Domain, Divergent Universe, historical temporary modes and non-GridFight
   modules except as explicit ownership/exclusion evidence;
 - story dialogue, cutscenes, presentation sequences, assets, audio and UI;
 - Stellar Jade, passes, achievements, collections, weekly points, rank rewards,
@@ -400,6 +352,7 @@ belong to a later goal after the relevant reference packs are frozen.
 | `G12-P0-B2` | Generate a focused source inventory covering all 11 `RoguePersona` tables, every `Tourn3`-selected row across all 64 `RogueTourn` tables, direct/transitive config and ability programs, CHS/EN TextMaps, StageConfig rows, shared build/Rogue/enemy data and named exclusions. |
 | `G12-P0-B3` | Freeze exact per-category manifest IDs/counts, enabled Version 4.4 selectors, ownership, shared reachability and the Currency Wars versus Divergent/other-mode/module exclusion boundary. |
 | `G12-P0-B4` | Freeze normalized schemas, canonical encoding, evidence/quality fields, workbook/table families, reconciliation receipts and semantic review-fixture contracts. |
+| `G12-P0-B5` | Correct the authoritative selector to `GuideType = GridFight`, retain all 1,137 GridFight table/config paths, regenerate manifests/contracts and preserve the published Tourn3 hypothesis as immutable historical exclusion evidence. |
 
 ### Phase 1 — Unique mode systems
 
@@ -407,6 +360,7 @@ belong to a later goal after the relevant reference packs are frozen.
 |---|---|
 | `G12-P1-B1` | Import profile, Standard/Overclock entry, difficulties/ranks, three Planes, Nodes, rooms, Domain compositions, legal flow, finish and carry/reset rules. |
 | `G12-P1-B2` | Import Squad HP, action-value battle limits, timeout/victory projection, loss/recovery, run-failure and same-boundary ordering. |
+| `G12-P1-B10` | Replace the superseded Tourn3/Persona flow import with exact GridFight stage, route, node, difficulty and transition closure before any later Phase 1 import resumes. |
 | `G12-P1-B3` | Import the recruitable roster, cost tiers, shop offers, purchase/sale, Gold Coins, refreshes, team Experience, team-size levels, bench/field caps and candidate rules. |
 | `G12-P1-B4` | Import positioning, Character Empowerment, automatic Techniques, defeat-energy scaling, lethal rescue/countdown behavior and battle-visible overrides. |
 | `G12-P1-B5` | Import every Bond, member set, activation threshold, level, recomputation boundary and run/battle contribution. |
@@ -477,8 +431,8 @@ belong to a later goal after the relevant reference packs are frozen.
 
 - both pinned source caches and the focused
   table/config/TextMap/Stage/ability inventory regenerate byte-identically;
-- concrete category manifests provide 100% exact-once accounting for enabled
-  Version 4.4 `Tourn3` selectors;
+- concrete category manifests provide 100% exact-once accounting for the
+  released Version 4.4 `GuideType = GridFight` selector and its closure;
 - every enabled record has bilingual names/summaries and resolvable
   provenance;
 - every numeric vector, pool membership, unlock and relationship is exact or

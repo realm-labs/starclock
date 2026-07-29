@@ -24,6 +24,12 @@ const standardInventory = JSON.parse(await readFile(path.join(
   "standard-universe-v1",
   "source-inventory.json",
 ), "utf8"));
+const sourceCorrection = JSON.parse(await readFile(path.join(
+  root,
+  "content-manifests",
+  "currency-wars-v1",
+  "source-correction.json",
+), "utf8"));
 const inheritedPaths = new Set(standardInventory.records.map(
   ({ path: sourcePath }) => sourcePath,
 ));
@@ -116,6 +122,8 @@ function git(source, gitArgs, encoding = "utf8") {
 }
 function additionalModeEntry(relativePath) {
   return (
+    /^ExcelOutput\/GuideRogue(?:Data|Tab)\.json$/u.test(relativePath) ||
+    /GridFight/iu.test(relativePath) ||
     relativePath === "ExcelOutput/StageConfig.json" ||
     /^TextMap\/TextMap(?:EN|CHS)\.json$/u.test(relativePath) ||
     /^Config\/ConfigAdventureModifier\/AdventureModifier_Rogue_(?:S3|Tourn1)\.json$/u
@@ -143,6 +151,27 @@ function classify(sourceId, relativePath) {
       selected_by: "complete pinned EN/CHS TextMap for referenced hash closure",
     };
   }
+  if (/^ExcelOutput\/GuideRogue(?:Data|Tab)\.json$/u.test(relativePath)) {
+    return {
+      family: "currency_wars_identity_selector",
+      selected_by:
+        "released GuideType GridFight and Currency Wars guide-entry selector",
+    };
+  }
+  if (/^ExcelOutput\/GridFight.*\.json$/u.test(relativePath)) {
+    return {
+      family: "currency_wars_gridfight_table",
+      selected_by:
+        "direct GridFight table under the released Currency Wars GuideType selector",
+    };
+  }
+  if (relativePath.startsWith("Config/") && /GridFight/iu.test(relativePath)) {
+    return {
+      family: "currency_wars_gridfight_config",
+      selected_by:
+        "direct GridFight configuration under the released Currency Wars GuideType selector",
+    };
+  }
   if (relativePath === "ExcelOutput/StageConfig.json") {
     return {
       family: "encounter_stage_evidence",
@@ -152,8 +181,9 @@ function classify(sourceId, relativePath) {
   if (relativePath
     === "Config/ConfigAdventureModifier/AdventureModifier_Rogue_S3.json") {
     return {
-      family: "currency_wars_adventure_modifier_evidence",
-      selected_by: "Currency Wars S3-named Adventure outcome modifier",
+      family: "divergent_universe_mechanic_boundary_evidence",
+      selected_by:
+        "superseded Tourn S3 Adventure modifier retained as Divergent Universe boundary evidence",
     };
   }
   if (relativePath
@@ -166,15 +196,17 @@ function classify(sourceId, relativePath) {
   if (/^Config\/Level\/GroupTemplateGraph\/03_Rogue\/RogueTourn230\//u
     .test(relativePath)) {
     return {
-      family: "tourn_service_graph_candidate",
-      selected_by: "shared Tourn service graph requiring explicit Tourn3 reference proof",
+      family: "divergent_universe_service_boundary_evidence",
+      selected_by:
+        "Tourn service graph retained only for Divergent Universe boundary reconciliation",
     };
   }
   if (/^Config\/Level\/Maze\/MazeRogue\/RogueTourn\//u.test(relativePath)) {
     if (relativePath.endsWith("/RogueTournS3_Group_Base.json")) {
       return {
-        family: "currency_wars_maze_graph_candidate",
-        selected_by: "Currency Wars S3-named Tourn base group graph",
+        family: "divergent_universe_mechanic_boundary_evidence",
+        selected_by:
+          "superseded Tourn S3 graph retained as Divergent Universe boundary evidence",
       };
     }
     if (relativePath.endsWith("/RogueTournS2_Group_BaseElite.json")) {
@@ -185,19 +217,22 @@ function classify(sourceId, relativePath) {
     }
     if (relativePath.includes("_Adv")) {
       return {
-        family: "tourn_adventure_graph_candidate",
-        selected_by: "shared Tourn Adventure graph requiring explicit Tourn3 reference proof",
+        family: "divergent_universe_adventure_boundary_evidence",
+        selected_by:
+          "Tourn Adventure graph retained only for Divergent Universe boundary reconciliation",
       };
     }
     return {
-      family: "tourn_maze_graph_candidate",
-      selected_by: "shared Tourn door, boss, monster or room graph requiring Tourn3 proof",
+      family: "divergent_universe_maze_boundary_evidence",
+      selected_by:
+        "Tourn maze graph retained only for Divergent Universe boundary reconciliation",
     };
   }
   if (directS3Ability.test(relativePath)) {
     return {
-      family: "currency_wars_mechanic_evidence",
-      selected_by: "Currency Wars direct released S3 ability/layout program",
+      family: "divergent_universe_mechanic_boundary_evidence",
+      selected_by:
+        "superseded Tourn S3 ability retained as Divergent Universe boundary evidence",
     };
   }
   if (relativePath.startsWith("Config/ConfigAbility/")) {
@@ -233,8 +268,9 @@ function classify(sourceId, relativePath) {
   if (/^Config\/Level\/Rogue\/RogueDialogue\/RogueEventTourn/u
     .test(relativePath)) {
     return {
-      family: "tourn_occurrence_graph_candidate",
-      selected_by: "Tourn framework occurrence graph requiring Tourn3 row-reference proof",
+      family: "divergent_universe_occurrence_boundary_evidence",
+      selected_by:
+        "Tourn occurrence graph retained only for Divergent Universe boundary reconciliation",
     };
   }
   if (/^Config\/Level\/Rogue\/RogueNPC\//u.test(relativePath)) {
@@ -256,12 +292,14 @@ function classify(sourceId, relativePath) {
   if (/^RoguePersona.*\.json$/u.test(name)) {
     return personaPresentationTables.has(name)
       ? {
-        family: "currency_wars_presentation_locator",
-        selected_by: "Persona client table retained only for names and mechanical locators",
+        family: "divergent_universe_presentation_boundary_evidence",
+        selected_by:
+          "Persona client table retained only for Divergent Universe boundary reconciliation",
       }
       : {
-        family: "currency_wars_structured_candidate",
-        selected_by: "Persona table requiring explicit Tourn3 reference and lifecycle review",
+        family: "divergent_universe_structured_boundary_evidence",
+        selected_by:
+          "Persona table retained only for Divergent Universe boundary reconciliation",
       };
   }
   if (/^RogueTourn.*\.json$/u.test(name)) {
@@ -273,12 +311,14 @@ function classify(sourceId, relativePath) {
     }
     return tournPresentationTables.has(name)
       ? {
-        family: "tourn_presentation_account_locator",
-        selected_by: "shared Tourn display, handbook or account table retained as a locator",
+        family: "divergent_universe_presentation_boundary_evidence",
+        selected_by:
+          "Tourn presentation/account table retained only for Divergent Universe boundary reconciliation",
       }
       : {
-        family: "tourn_shared_structured_candidate",
-        selected_by: "shared Tourn table requiring explicit Tourn3 selector/reference proof",
+        family: "divergent_universe_structured_boundary_evidence",
+        selected_by:
+          "Tourn table retained only for Divergent Universe boundary reconciliation",
       };
   }
   if (buildTables.test(name)) {
@@ -320,7 +360,8 @@ function classify(sourceId, relativePath) {
   if (/^(Avatar|Equipment|Relic|Monster|Stage|Rogue)/u.test(name)) {
     return {
       family: "shared_structured_candidate",
-      selected_by: "shared build, Rogue or enemy table requiring Tourn3 reachability proof",
+      selected_by:
+        "shared build, Rogue or enemy table requiring GridFight-originating reachability proof",
     };
   }
   return {
@@ -368,6 +409,7 @@ if (standardInventory.records.length !== 2646)
 
 const records = [];
 const audits = [];
+const gridFightAudits = [];
 for (const source of sources) {
   const revision = git(source, ["rev-parse", "HEAD"]).trim();
   if (revision !== source.revision)
@@ -391,11 +433,20 @@ for (const source of sources) {
     if (source.id === "turnbasedgamedata"
       && /^ExcelOutput\/Rogue(?:Persona|Tourn)[^/]*\.json$/u.test(relativePath))
       audits.push(tableAudit(source, relativePath));
+    if (source.id === "turnbasedgamedata"
+      && /^ExcelOutput\/GridFight.*\.json$/u.test(relativePath)) {
+      const audit = tableAudit(source, relativePath);
+      gridFightAudits.push({
+        path: audit.path,
+        rows: audit.rows,
+      });
+    }
   }
 }
 records.sort((left, right) =>
   compareText(`${left.repository}/${left.path}`, `${right.repository}/${right.path}`));
 audits.sort((left, right) => compareText(left.path, right.path));
+gridFightAudits.sort((left, right) => compareText(left.path, right.path));
 
 const families = [...new Set(records.map(({ family }) => family))].sort(compareText);
 const counts = {
@@ -429,47 +480,41 @@ const payload = {
     inherited:
       "all 2,646 Goal 03 source files remain available for shared-ID, build, enemy, ability and reachability closure",
     structured:
-      "all 11 RoguePersona and 64 RogueTourn tables are retained; only explicit Tourn3 selectors/references may later grant row membership",
+      "all 153 GridFight tables are direct Currency Wars sources; all 11 RoguePersona and 64 RogueTourn tables remain only for superseded-selector and other-mode reconciliation",
     text:
       "complete pinned English and Simplified Chinese TextMaps plus bilingual StarRailRes simulated-universe indexes",
     mechanics:
-      "all inherited Rogue ability/level/dialogue files plus four direct S3 ability/layout pairs and focused S3 Adventure/maze entries",
+      "all 984 GridFight config paths are direct Currency Wars sources; inherited Rogue/Tourn programs remain only as shared or other-mode evidence",
     encounters:
       "complete StageConfig and inherited monster/enemy definitions retained for later row-level wave closure",
     row_audit:
-      "all 75 Persona/Tourn source tables record top-level row counts and conservative direct Tourn3/module selector indexes",
+      "all 153 GridFight tables record top-level row counts; the 75 Persona/Tourn tables retain their historical selector audit only for exclusion reconciliation",
     denominator_rule:
-      "file closure and selector audit only; no content-row denominator, ownership or reachability is implied before G12-P0-B3",
+      "file closure and selector audit only; no content-row denominator, ownership or reachability is implied before corrective G12-P0-B5",
   },
   classification_policy: {
-    currency_wars_structured_candidate:
-      "Persona table requiring explicit Tourn3 reference and lifecycle proof",
-    currency_wars_presentation_locator:
-      "Persona client source retained only for bilingual or mechanical locators",
-    currency_wars_mechanic_evidence:
-      "Currency Wars direct released S3 ability/layout program",
-    currency_wars_adventure_modifier_evidence:
-      "Currency Wars S3-named Adventure modifier retained as abstract outcome evidence",
-    currency_wars_maze_graph_candidate:
-      "Currency Wars S3-named base group graph",
-    tourn_service_graph_candidate:
-      "shared Tourn service graph requiring explicit Tourn3 reference proof",
-    tourn_adventure_graph_candidate:
-      "shared Tourn Adventure graph requiring explicit Tourn3 reference proof",
-    tourn_maze_graph_candidate:
-      "shared Tourn door, boss, monster or room graph requiring Tourn3 proof",
-    tourn_shared_structured_candidate:
-      "shared Tourn table requiring explicit Tourn3 selector/reference proof",
-    tourn_presentation_account_locator:
-      "shared Tourn display, handbook or account source retained only as a locator",
+    currency_wars_identity_selector:
+      "released GuideType GridFight and Currency Wars guide-entry selector",
+    currency_wars_gridfight_table:
+      "direct GridFight structured table selected by released Currency Wars identity",
+    currency_wars_gridfight_config:
+      "direct GridFight config selected by released Currency Wars identity",
+    divergent_universe_structured_boundary_evidence:
+      "Persona/Tourn structured table retained only for Divergent Universe boundary reconciliation",
+    divergent_universe_presentation_boundary_evidence:
+      "Persona/Tourn presentation source retained only for Divergent Universe boundary reconciliation",
+    divergent_universe_service_boundary_evidence:
+      "Tourn service graph retained only for Divergent Universe boundary reconciliation",
+    divergent_universe_adventure_boundary_evidence:
+      "Tourn Adventure graph retained only for Divergent Universe boundary reconciliation",
+    divergent_universe_occurrence_boundary_evidence:
+      "Tourn occurrence graph retained only for Divergent Universe boundary reconciliation",
     tourn_test_exclusion_evidence:
       "Tourn test table retained to prove fail-closed exclusion",
-    tourn_occurrence_graph_candidate:
-      "Tourn occurrence graph requiring Tourn3 row-reference proof",
     shared_build_mapping_candidate:
       "shared build table requiring explicit Currency Wars avatar mapping proof",
     shared_structured_candidate:
-      "shared build, Rogue or enemy table requiring Tourn3 reachability proof",
+      "shared build, Rogue or enemy table requiring GridFight-originating reachability proof",
     shared_mechanic_evidence_candidate:
       "shared Rogue ability requiring row-level reachability proof",
     shared_occurrence_graph_candidate:
@@ -516,11 +561,16 @@ const payload = {
     audited_structured_rows: audits.reduce((sum, { rows }) => sum + rows, 0),
     direct_tourn3_rows: audits.reduce((sum, row) =>
       sum + row.direct_tourn3_rows, 0),
-    direct_ability_and_layout_files: count("currency_wars_mechanic_evidence"),
-    adventure_modifier_files: count("currency_wars_adventure_modifier_evidence"),
+    gridfight_files: records.filter(({ path: sourcePath }) =>
+      /GridFight/iu.test(sourcePath)).length,
+    gridfight_tables: count("currency_wars_gridfight_table"),
+    gridfight_config_files: count("currency_wars_gridfight_config"),
+    gridfight_structured_rows:
+      gridFightAudits.reduce((sum, { rows }) => sum + rows, 0),
     tourn_maze_graph_files: records.filter(({ path: sourcePath }) =>
       sourcePath.startsWith("Config/Level/Maze/MazeRogue/RogueTourn/")).length,
-    tourn_service_graph_files: count("tourn_service_graph_candidate"),
+    tourn_service_graph_files:
+      count("divergent_universe_service_boundary_evidence"),
     shared_build_tables: count("shared_build_mapping_candidate"),
     named_other_mode_exclusion_files: records.filter(({ family }) =>
       family.includes("_exclusion_evidence")
@@ -531,22 +581,36 @@ const payload = {
     unclassified_selected_files: 0,
   },
   structured_table_audit: audits,
+  gridfight_table_audit: gridFightAudits,
+  source_correction: {
+    path: "content-manifests/currency-wars-v1/source-correction.json",
+    sha256: createHash("sha256")
+      .update(await readFile(path.join(
+        root,
+        "content-manifests",
+        "currency-wars-v1",
+        "source-correction.json",
+      )))
+      .digest("hex"),
+    guide_type: sourceCorrection.authoritative_selector.guide_type,
+  },
   counts,
   records,
 };
 
 if (payload.closure.persona_tables !== 11 || payload.closure.tourn_tables !== 64)
   throw new Error("Persona/Tourn source table closure drift");
-if (payload.closure.turnbasedgamedata_additions !== 30)
+if (payload.closure.turnbasedgamedata_additions !== 1167)
   throw new Error(
     `turnbasedgamedata addition closure drift: ${payload.closure.turnbasedgamedata_additions}`,
   );
-if (payload.closure.direct_ability_and_layout_files !== 8)
-  throw new Error("Currency Wars direct S3 ability/layout closure drift");
-if (payload.closure.adventure_modifier_files !== 1
-  || payload.closure.tourn_maze_graph_files !== 22
+if (payload.closure.gridfight_files !== 1137
+  || payload.closure.gridfight_tables !== 153
+  || payload.closure.gridfight_config_files !== 984)
+  throw new Error("Currency Wars GridFight source closure drift");
+if (payload.closure.tourn_maze_graph_files !== 22
   || payload.closure.tourn_service_graph_files !== 3)
-  throw new Error("Currency Wars focused Adventure/Tourn graph closure drift");
+  throw new Error("superseded Tourn graph reconciliation closure drift");
 if (payload.closure.shared_build_tables !== 6)
   throw new Error("Currency Wars shared build-table closure drift");
 if (counts.by_repository.starrailres !== starRailResPaths.size)
@@ -563,8 +627,7 @@ if (check) {
 }
 console.log(
   `Currency Wars source inventory ${check ? "verified" : "generated"}: ` +
-  `${records.length} files (${payload.closure.persona_tables} Persona; ` +
-  `${payload.closure.tourn_tables} Tourn; ` +
-  `${payload.closure.direct_tourn3_rows} direct Tourn3 rows; ` +
-  `${payload.closure.direct_ability_and_layout_files} direct ability/layout).`,
+  `${records.length} files (${payload.closure.gridfight_tables} GridFight ` +
+  `tables, ${payload.closure.gridfight_config_files} GridFight configs and ` +
+  `${payload.closure.gridfight_structured_rows} GridFight rows).`,
 );

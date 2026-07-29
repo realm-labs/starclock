@@ -1,7 +1,7 @@
 {
   "schema_revision": "starclock.currency-wars-fixture-contract.v1",
   "goal_id": "currency-wars-reference-v1",
-  "bound_content_manifest_sha256": "4910cd6e2affcee156f3fed3591139e6ed730ca24346c686e42cb3ad062eba3b",
+  "bound_content_manifest_sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
   "fixture_role": "reference semantics only; fixtures do not claim runtime lowering or playability",
   "required_fields": [
     "id",
@@ -135,12 +135,12 @@
       ]
     },
     {
-      "id": "goal11-selector-conflict-reconciliation",
+      "id": "goal11-selector-separation-reconciliation",
       "minimum_cases": 1,
       "must_cover": [
-        "exact source locator",
-        "incompatible ownership",
-        "blocked merge outcome"
+        "exact GridFight source locator",
+        "distinct Tourn3 selector",
+        "reopen condition"
       ]
     },
     {
@@ -162,12 +162,12 @@
       ]
     },
     {
-      "id": "investment-environment-strategy-and-persona",
+      "id": "investment-environment-strategy-and-augment",
       "minimum_cases": 1,
       "must_cover": [
-        "Environment entry",
-        "Strategy offer",
-        "Persona activation lifecycle"
+        "Augment entry",
+        "Projection or Portal offer",
+        "activation lifecycle"
       ]
     },
     {

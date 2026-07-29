@@ -24,26 +24,32 @@ if [[ "$(git -C "${turn_target}" config --bool core.sparseCheckout || true)" == 
 fi
 git -C "${turn_target}" fetch origin "${turn_revision}" --depth 1
 git -C "${turn_target}" sparse-checkout init --no-cone
-git -C "${turn_target}" sparse-checkout set --no-cone \
-  '/README.md' \
-  '/ExcelOutput/RogueActivityResidentConfig.json' \
-  '/ExcelOutput/RoguePersona*.json' \
-  '/ExcelOutput/RogueTourn*.json' \
-  '/ExcelOutput/StageConfig.json' \
-  '/TextMap/TextMapEN.json' \
-  '/TextMap/TextMapCHS.json' \
-  '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_S3.json' \
-  '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_Tourn1.json' \
-  '/Config/Level/GroupTemplateGraph/03_Rogue/RogueTourn230/*.json' \
-  '/Config/Level/Maze/MazeRogue/RogueTourn/*.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.layout.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.layout.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json' \
-  '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.layout.json'
+{
+  printf '%s\n' \
+    '/README.md' \
+    '/ExcelOutput/GuideRogueData.json' \
+    '/ExcelOutput/GuideRogueTab.json' \
+    '/ExcelOutput/RogueActivityResidentConfig.json' \
+    '/ExcelOutput/RoguePersona*.json' \
+    '/ExcelOutput/RogueTourn*.json' \
+    '/ExcelOutput/StageConfig.json' \
+    '/TextMap/TextMapEN.json' \
+    '/TextMap/TextMapCHS.json' \
+    '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_S3.json' \
+    '/Config/ConfigAdventureModifier/AdventureModifier_Rogue_Tourn1.json' \
+    '/Config/Level/GroupTemplateGraph/03_Rogue/RogueTourn230/*.json' \
+    '/Config/Level/Maze/MazeRogue/RogueTourn/*.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Ability_S3.layout.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_HEX_S3.layout.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Miracle_S3.layout.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.json' \
+    '/Config/ConfigAbility/Level/Level_RogueBuff_Ability_Recipe_S3.layout.json'
+  git -C "${turn_target}" ls-tree -r --name-only "${turn_revision}" |
+    awk 'BEGIN { IGNORECASE=1 } /GridFight/ { print "/" $0 }'
+} | git -C "${turn_target}" sparse-checkout set --no-cone --stdin
 git -C "${turn_target}" checkout --detach "${turn_revision}"
 
 if [[ ! -d "${res_target}/.git" ]]; then
