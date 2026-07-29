@@ -974,6 +974,227 @@
             "String": "goal07.enemy.s10.condition.primary-shocked"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080552
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1080407
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.restrained-target-exists"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080553
+          },
+          "node": {
+            "Object": {
+              "condition_ids": {
+                "List": [
+                  {
+                    "Integer": 1080558
+                  },
+                  {
+                    "Integer": 1080559
+                  }
+                ]
+              },
+              "type": {
+                "String": "Any"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.arm-overload-ready"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080554
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080505
+              },
+              "selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.arm-overloaded"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080555
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080506
+              },
+              "selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.beetle-role"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080556
+          },
+          "node": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080507
+              },
+              "selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "EffectExists"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.hound-role"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080557
+          },
+          "node": {
+            "Object": {
+              "condition_ids": {
+                "List": [
+                  {
+                    "Integer": 1080555
+                  },
+                  {
+                    "Integer": 1080556
+                  }
+                ]
+              },
+              "type": {
+                "String": "Any"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.support-role-assigned"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080558
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "GreaterOrEqual"
+              },
+              "left_expression_id": {
+                "Integer": 1081117
+              },
+              "right_expression_id": {
+                "Integer": 1081115
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.arm-turn-overload-ready"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1080559
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Less"
+              },
+              "left_expression_id": {
+                "Integer": 1081102
+              },
+              "right_expression_id": {
+                "Integer": 1081118
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.condition.arm-hp-overload-ready"
+          }
+        }
       }
     ]
   }

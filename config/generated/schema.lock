@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_production_config",
-  "fingerprint": "ed77624de394f75b",
+  "fingerprint": "f3119e6abcc42ec6",
   "schema": {
     "package": "starclock_production_config",
     "enums": [
@@ -3522,6 +3522,37 @@
                 "name": "observation",
                 "ty": {
                   "Enum": "ShieldObservation"
+                },
+                "scope": {
+                  "values": [
+                    "all"
+                  ]
+                },
+                "key": false,
+                "comment": null,
+                "default": null,
+                "range": null,
+                "length": null,
+                "parser": null,
+                "derived_from": null
+              }
+            ]
+          },
+          {
+            "name": "QueryHp",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "fields": [
+              {
+                "name": "subject_selector_id",
+                "ty": {
+                  "Ref": {
+                    "table": "Selector",
+                    "field": "id"
+                  }
                 },
                 "scope": {
                   "values": [

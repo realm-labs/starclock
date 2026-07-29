@@ -41,8 +41,8 @@ if (bless) {
     sora_cli_version: toolPolicy.version,
     reference_pack_sha256: "0dca8ae581b4fa1e9fe8ce0c9e67ac6eb72c251deacbd4831751ce685e45ef5a",
     goal_manifest_sha256: "e2188c7844d678253c98d569db017dbad7101541cf502aba4c2eb80c0435bf19",
-    identity_count: 5649,
-    enabled_identity_count: 5649,
+    identity_count: 5865,
+    enabled_identity_count: 5865,
     table_count: 82,
     output_digest: outputDigest,
     files: stable,
@@ -103,26 +103,26 @@ function verifyGeneratedOutput(directory) {
   assert(schema.package === "starclock_production_config" && schema.tables.length === 82, "production schema lock differs");
   const debug = path.join(directory, "debug-json");
   const counts = new Map(schema.tables.map((table) => [table.name, rows(debug, table.name).length]));
-  assert(counts.get("SourceRecord") === 12 && counts.get("EvidenceRecord") === 13, "production provenance counts differ");
-  assert(counts.get("ContentIdentity") === 5798 && counts.get("ContentEvidenceBinding") === 6091 && counts.get("ConfigManifest") === 1, "production identity counts differ");
+  assert(counts.get("SourceRecord") === 13 && counts.get("EvidenceRecord") === 14, "production provenance counts differ");
+  assert(counts.get("ContentIdentity") === 5865 && counts.get("ContentEvidenceBinding") === 6159 && counts.get("ConfigManifest") === 1, "production identity counts differ");
   for (const [name, expected] of Object.entries({
-    Ability: 746, AbilityLevelParameter: 17606, AbilityResourceDelta: 513,
-    AiGraph: 42, EnemyTemplate: 27, EnemyVariant: 27, Encounter: 6,
+    Ability: 762, AbilityLevelParameter: 17606, AbilityResourceDelta: 513,
+    AiGraph: 45, EnemyTemplate: 28, EnemyVariant: 28, Encounter: 6,
     StandardProfile: 1, StandardScenario: 6, HitPlan: 354,
     Character: 88, CharacterStat: 7568, CharacterResource: 46,
     CharacterAbilityBinding: 583, TraceNode: 1618, TracePatch: 894, Eidolon: 528, EidolonPatch: 412,
-    Effect: 61, EffectGrantedAbility: 3, EffectModifierBinding: 18, ModifierDefinition: 1573,
-    ModifierStackingGroup: 42, ModifierFilter: 151,
-    CountdownDefinition: 1, LinkedUnitDefinition: 26,
-    Operation: 367, Program: 156, ProgramStep: 405, RuleDefinition: 190, RuleSourceTag: 0, Selector: 178,
-    StateSlot: 3, ValueExpression: 1820, LightCone: 165, LightConeStat: 14190,
+    Effect: 68, EffectGrantedAbility: 3, EffectModifierBinding: 20, ModifierDefinition: 1575,
+    ModifierStackingGroup: 44, ModifierFilter: 151,
+    CountdownDefinition: 1, LinkedUnitDefinition: 33,
+    Operation: 406, Program: 176, ProgramStep: 450, RuleDefinition: 190, RuleSourceTag: 0, Selector: 186,
+    StateSlot: 3, ValueExpression: 1847, LightCone: 165, LightConeStat: 14190,
     LightConeSuperimposition: 2665,
   })) assert(counts.get(name) === expected, `${name} production count differs`);
   const identities = rows(debug, "ContentIdentity");
   assert(identities.every((row) => value(row, "release_state") === "Released"), "production identities must be released");
-  assert(identities.filter((row) => value(row, "enabled") === true).length === 5798, "production enabled identity count differs");
+  assert(identities.filter((row) => value(row, "enabled") === true).length === 5865, "production enabled identity count differs");
   const coverage = Object.groupBy(identities, (row) => value(row, "coverage_state"));
-  assert((coverage.GoldenVerified?.length ?? 0) === 803 && (coverage.DataReady?.length ?? 0) === 4995, "released content coverage states differ");
+  assert((coverage.GoldenVerified?.length ?? 0) === 870 && (coverage.DataReady?.length ?? 0) === 4995, "released content coverage states differ");
   const rust = walk(path.join(directory, "rust")).filter((file) => file.endsWith(".rs")).map((file) => fs.readFileSync(file, "utf8")).join("\n");
   assert(!rust.includes("serde_json") && !rust.includes("json-debug"), "generated runtime reader gained a JSON path");
   const boundary = fs.readFileSync(path.join(root, "crates/starclock-data/src/bundle.rs"), "utf8");

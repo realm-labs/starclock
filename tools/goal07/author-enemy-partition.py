@@ -5,9 +5,9 @@ S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
 Cocolia (Complete), S07 owns Gepard (Complete), S08 owns Ice Out of Space,
 S09 owns Memory Zone Meme "Something Unto Death" (Complete), and S10 owns
-Stellaron Hunter: Kafka (Complete). Each partition receives an isolated
-10,000-ID range so authoring and verification never consume rows owned by
-another partition.
+Stellaron Hunter: Kafka (Complete), and S11 owns Svarog (Complete). Each
+partition receives an isolated 10,000-ID range so authoring and verification
+never consume rows owned by another partition.
 """
 
 from __future__ import annotations
@@ -94,6 +94,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.stellaron-hunter-kafka-complete.littleboss.variant.01",
         "source_record_id": 12,
         "evidence_record_id": 13,
+    },
+    "G07-P5-M15-S11": {
+        "base": 1_080_000,
+        "variant": "enemy.svarog-complete.littleboss.variant.01",
+        "source_record_id": 13,
+        "evidence_record_id": 14,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -13102,6 +13108,1632 @@ def owned_rows_s10() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s11() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S11 frozen enemy assignment changed")
+
+    variant, template = BASE + 1, BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "banishing": BASE + 101,
+        "burning": BASE + 102,
+        "bombardment": BASE + 103,
+        "power": BASE + 104,
+        "emergency": BASE + 105,
+        "tactical": BASE + 106,
+        "boost": BASE + 107,
+        "support-cycle": BASE + 120,
+        "beetle-strike": BASE + 121,
+        "hound-strike": BASE + 122,
+        "direwolf-strike": BASE + 123,
+        "arm-cycle": BASE + 124,
+        "oppressive": BASE + 125,
+        "disabling": BASE + 126,
+        "overload": BASE + 127,
+        "controlled": BASE + 128,
+    }
+    linked = {
+        "phase-1-support-1": BASE + 201,
+        "phase-1-support-2": BASE + 202,
+        "phase-1-support-3": BASE + 203,
+        "phase-1-support-4": BASE + 204,
+        "phase-2-direwolf-left": BASE + 205,
+        "phase-2-direwolf-right": BASE + 206,
+        "phase-3-arm": BASE + 207,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "primary": BASE + 403,
+        "random-opponent": BASE + 404,
+        "all-opposing": BASE + 405,
+        "same-all": BASE + 406,
+        "restrained": BASE + 407,
+        "actor-summons": BASE + 408,
+    }
+    effects = {
+        "def-down": BASE + 501,
+        "power-amplification": BASE + 502,
+        "restrain": BASE + 503,
+        "arm-turns": BASE + 504,
+        "overload": BASE + 505,
+        "beetle-role": BASE + 506,
+        "hound-role": BASE + 507,
+    }
+    modifiers = {
+        "def-down": BASE + 521,
+        "power-amplification": BASE + 522,
+    }
+    modifier_groups = {
+        "def-down": BASE + 531,
+        "power-amplification": BASE + 532,
+    }
+    conditions = {
+        "always": BASE + 551,
+        "restrained": BASE + 552,
+        "arm-ready": BASE + 553,
+        "overloaded": BASE + 554,
+        "beetle-role": BASE + 555,
+        "hound-role": BASE + 556,
+        "support-role-assigned": BASE + 557,
+        "arm-turn-ready": BASE + 558,
+        "arm-hp-low": BASE + 559,
+    }
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def ident(
+        id_: int,
+        key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S11 来源绑定的史瓦罗（完整）可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            ident(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Svarog (Complete)",
+                "史瓦罗（完整）",
+                "Exact three-phase World 4 boss materialization.",
+                "1|13",
+            ),
+            ident(
+                template,
+                "enemy.svarog-complete.littleboss",
+                "Enemy",
+                "Svarog (Complete) Template",
+                "史瓦罗（完整）模板",
+                "Version 4.4 boss template retained from source monster 1014011.",
+            ),
+        ]
+    )
+    for phase, graph in enumerate(graphs, start=1):
+        identities.append(
+            ident(
+                graph,
+                f"ai.goal07.svarog-complete.phase-{phase}",
+                "AiGraph",
+                f"Svarog Complete Phase {phase} AI",
+                f"史瓦罗完整形态第{phase}阶段AI",
+                "Finite phase rotation with explicit support deployment.",
+            )
+        )
+    ability_metadata = {
+        "banishing": ("Banishing Punch", "驱逐拳击", "101401101"),
+        "burning": ("Burning Beam", "延烧光束", "101401102"),
+        "bombardment": ("Oversaturated Bombardment", "过饱和轰炸", "101401104"),
+        "power": ("Power Amplification", "输出增幅", "101401112"),
+        "emergency": ("Emergency Support", "应急支援", "101401113"),
+        "tactical": ("Tactical Support", "战术支援", "101401114"),
+        "boost": ("Boost Deployment", "增效部署", "101401107"),
+        "support-cycle": (
+            "Emergency Support Random Action",
+            "应急支援随机行动",
+            "derived-101203001-or-101201101",
+        ),
+        "beetle-strike": ("Unstable Forcefield", "不稳定力场", "101203001"),
+        "hound-strike": ("Vertical Strike", "垂直打击", "101201101"),
+        "direwolf-strike": ("Disintegration Order", "解体指令", "101302003"),
+        "arm-cycle": (
+            "Auxiliary Robot Arm Action Cycle",
+            "辅助机械臂行动循环",
+            "derived-101204104-through-101204107",
+        ),
+        "oppressive": ("Oppressive Embrace", "巨掌之间", "101204104"),
+        "disabling": ("Disabling Field", "压制力场", "101204105"),
+        "overload": ("Overload Warning", "过载警告", "101204107"),
+        "controlled": ("Controlled Blasting", "控场起爆", "101204106"),
+    }
+    for key, id_ in abilities.items():
+        name_en, name_zh_cn, source = ability_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"enemy.svarog-complete.littleboss.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill {source}.",
+            )
+        )
+    linked_metadata = {
+        "phase-1-support-1": ("Random Automaton Support", "随机自动机兵支援"),
+        "phase-1-support-2": ("Random Automaton Support", "随机自动机兵支援"),
+        "phase-1-support-3": ("Random Automaton Support", "随机自动机兵支援"),
+        "phase-1-support-4": ("Random Automaton Support", "随机自动机兵支援"),
+        "phase-2-direwolf-left": ("Automaton Direwolf", "自动机兵「齿狼」"),
+        "phase-2-direwolf-right": ("Automaton Direwolf", "自动机兵「齿狼」"),
+        "phase-3-arm": ("Auxiliary Robot Arm Unit", "辅助机械臂单元"),
+    }
+    for key, id_ in linked.items():
+        name_en, name_zh_cn = linked_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"unit.goal07.svarog-complete.{key}",
+                "CharacterForm",
+                name_en,
+                name_zh_cn,
+                "Owner-scaled targetable support deployed by Svarog.",
+            )
+        )
+    for key, id_ in selectors.items():
+        identities.append(
+            ident(
+                id_,
+                f"selector.goal07.svarog-complete.{key}",
+                "Selector",
+                f"Svarog Complete {key} Selector",
+                f"史瓦罗完整形态{key}选择器",
+                "S11 battle selector.",
+            )
+        )
+    effect_metadata = {
+        "def-down": (
+            "Bombardment DEF Reduction",
+            "轰炸防御降低",
+            "Stackable three-turn 20% DEF reduction.",
+        ),
+        "power-amplification": (
+            "Power Amplification",
+            "输出增幅",
+            "Permanent stackable 15% allied damage increase.",
+        ),
+        "restrain": (
+            "Restrained",
+            "拘束",
+            "Blocks ordinary actions while the controlling arm remains.",
+        ),
+        "arm-turns": (
+            "Auxiliary Arm Turn Clock",
+            "辅助机械臂行动计数",
+            "Counts three linked-unit turns before overload.",
+        ),
+        "overload": (
+            "Auxiliary Arm Overload",
+            "辅助机械臂过载",
+            "Queues Controlled Blasting for the arm's next action.",
+        ),
+        "beetle-role": (
+            "Emergency Support Beetle Role",
+            "应急支援甲虫职责",
+            "Randomly fixes one support slot as an Automaton Beetle.",
+        ),
+        "hound-role": (
+            "Emergency Support Hound Role",
+            "应急支援战犬职责",
+            "Randomly fixes one support slot as an Automaton Hound.",
+        ),
+    }
+    for key, id_ in effects.items():
+        name_en, name_zh_cn, summary = effect_metadata[key]
+        identities.append(
+            ident(
+                id_,
+                f"effect.goal07.svarog-complete.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    for key, id_ in modifiers.items():
+        identities.append(
+            ident(
+                id_,
+                f"modifier.goal07.svarog-complete.{key}",
+                "Modifier",
+                f"Svarog Complete {key} Modifier",
+                f"史瓦罗完整形态{key}调整器",
+                "Effect-owned S11 stat modifier.",
+            )
+        )
+    for key, id_ in modifier_groups.items():
+        identities.append(
+            ident(
+                id_,
+                f"modifier-group.goal07.svarog-complete.{key}",
+                "Modifier",
+                f"Svarog Complete {key} Stacking",
+                f"史瓦罗完整形态{key}叠加组",
+                "Additive S11 modifier stacking group.",
+            )
+        )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["primary"], "PrimaryTarget", "OpposingSide"))
+    random_opponent = selector(
+        selectors["random-opponent"],
+        "Actor",
+        "OpposingSide",
+        choice="RngUniform",
+    )
+    random_opponent["rng_purpose_key"] = "damage-target"
+    add("Selector", random_opponent)
+    add(
+        "Selector",
+        selector(
+            selectors["all-opposing"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["same-all"],
+            "Actor",
+            "SameSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["restrained"],
+            "Actor",
+            "OpposingSide",
+            minimum=0,
+            maximum=1,
+            empty="NoOp",
+            choice="First",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["restrained"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["restrain"]),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["actor-summons"],
+            "Actor",
+            "SameSide",
+            presence="Linked",
+            minimum=0,
+            maximum=8,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["actor-summons"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "OwnedBy",
+                owner_selector_id=selectors["actor"],
+            ),
+        },
+    )
+
+    def expression(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s11.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def product(name: str, left: int, right: int) -> int:
+        return expression(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expression(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    actor_hp = expression(
+        "actor-current-hp",
+        "Scalar",
+        json_cell(
+            "QueryHp",
+            subject_selector_id=selectors["actor"],
+        ),
+    )
+    actor_maximum_hp = expression(
+        "actor-maximum-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Hp",
+            formula_purpose="Stat",
+        ),
+    )
+    primary_hp = expression(
+        "primary-maximum-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["primary"],
+            stat="Hp",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    restrained_hp = expression(
+        "restrained-maximum-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["restrained"],
+            stat="Hp",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratios = {}
+    for key, value in [
+        ("negative-point-two", "-0.2"),
+        ("point-one-five", "0.15"),
+        ("point-two", "0.2"),
+        ("point-five", "0.5"),
+        ("one", "1"),
+        ("two-point-five", "2.5"),
+        ("three", "3"),
+        ("fifteen", "15"),
+    ]:
+        ratios[key] = expression(
+            f"ratio-{key}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+    integers = {}
+    for key, value in [("one", 1), ("two", 2), ("three", 3)]:
+        integers[key] = expression(
+            f"integer-{key}",
+            "Integer",
+            json_cell("IntegerLiteral", value=value),
+        )
+    arm_turn_stacks = expression(
+        "arm-turn-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["actor"],
+            effect_id=effects["arm-turns"],
+        ),
+    )
+    arm_half_hp = product(
+        "arm-half-maximum-hp",
+        actor_maximum_hp,
+        ratios["point-five"],
+    )
+    damage = {
+        "banishing": product("banishing-damage", actor_atk, ratios["three"]),
+        "burning": product("burning-damage", actor_atk, ratios["three"]),
+        "bombardment": product(
+            "bombardment-hit-damage",
+            actor_atk,
+            ratios["point-one-five"],
+        ),
+        "beetle": product("beetle-damage", actor_atk, ratios["three"]),
+        "hound": product("hound-damage", actor_atk, ratios["two-point-five"]),
+        "direwolf": product(
+            "direwolf-damage",
+            actor_atk,
+            ratios["two-point-five"],
+        ),
+        "controlled": product(
+            "controlled-blasting-damage",
+            actor_atk,
+            ratios["fifteen"],
+        ),
+        "oppressive": product(
+            "oppressive-embrace-damage",
+            primary_hp,
+            ratios["point-five"],
+        ),
+        "disabling": product(
+            "disabling-field-damage",
+            restrained_hp,
+            ratios["point-five"],
+        ),
+    }
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s11.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["restrained"],
+            "stable_key": "goal07.enemy.s11.condition.restrained-target-exists",
+            "node": json_cell(
+                "SelectorCardinality",
+                selector_id=selectors["restrained"],
+                minimum_count=1,
+                maximum_count=1,
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["arm-turn-ready"],
+            "stable_key": "goal07.enemy.s11.condition.arm-turn-overload-ready",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=arm_turn_stacks,
+                comparison="GreaterOrEqual",
+                right_expression_id=integers["two"],
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["arm-hp-low"],
+            "stable_key": "goal07.enemy.s11.condition.arm-hp-overload-ready",
+            "node": json_cell(
+                "Compare",
+                left_expression_id=actor_hp,
+                comparison="Less",
+                right_expression_id=arm_half_hp,
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["arm-ready"],
+            "stable_key": "goal07.enemy.s11.condition.arm-overload-ready",
+            "node": json_cell(
+                "Any",
+                condition_ids=[
+                    conditions["arm-turn-ready"],
+                    conditions["arm-hp-low"],
+                ],
+            ),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["overloaded"],
+            "stable_key": "goal07.enemy.s11.condition.arm-overloaded",
+            "node": json_cell(
+                "EffectExists",
+                selector_id=selectors["actor"],
+                effect_id=effects["overload"],
+            ),
+        },
+    )
+    for key in ["beetle-role", "hound-role"]:
+        add(
+            "ConditionExpression",
+            {
+                "id": conditions[key],
+                "stable_key": f"goal07.enemy.s11.condition.{key}",
+                "node": json_cell(
+                    "EffectExists",
+                    selector_id=selectors["actor"],
+                    effect_id=effects[key],
+                ),
+            },
+        )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["support-role-assigned"],
+            "stable_key": "goal07.enemy.s11.condition.support-role-assigned",
+            "node": json_cell(
+                "Any",
+                condition_ids=[
+                    conditions["beetle-role"],
+                    conditions["hound-role"],
+                ],
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s11.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def op_step(id_: int) -> str:
+        return json_cell("Operation", operation_id=id_)
+
+    def damage_op(
+        name: str,
+        amount: int,
+        target: int,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element="Physical",
+                can_crit=True,
+            ),
+            target,
+            empty,
+        )
+
+    def apply_op(
+        name: str,
+        effect: int,
+        target: int,
+        chance: int | None = None,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect,
+                stacks_expression_id=stacks,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+            empty,
+        )
+
+    def remove_op(name: str, effect: int, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell("RemoveEffect", effect_id=effect),
+            target,
+            "NoOp",
+        )
+
+    def summon_op(name: str, linked_id: int) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Summon",
+                unit_definition_identity_id=linked_id,
+                owner_selector_id=selectors["actor"],
+            ),
+        )
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            ident(
+                id_,
+                f"program.goal07.svarog-complete.{name}",
+                "Program",
+                f"Svarog Complete {name} Program",
+                f"史瓦罗完整形态{name}程序",
+                "Ordered shared Rule IR program for the S11 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": step},
+            )
+        return id_
+
+    oppressive_program = make_program(
+        "oppressive-embrace",
+        [
+            op_step(
+                damage_op(
+                    "oppressive-embrace-damage",
+                    damage["oppressive"],
+                    selectors["primary"],
+                )
+            ),
+            op_step(
+                apply_op(
+                    "oppressive-embrace-restrain",
+                    effects["restrain"],
+                    selectors["primary"],
+                )
+            ),
+            op_step(
+                apply_op(
+                    "oppressive-embrace-turn-count",
+                    effects["arm-turns"],
+                    selectors["actor"],
+                    stacks=integers["one"],
+                )
+            ),
+        ],
+    )
+    disabling_program = make_program(
+        "disabling-field",
+        [
+            op_step(
+                damage_op(
+                    "disabling-field-damage",
+                    damage["disabling"],
+                    selectors["restrained"],
+                    "NoOp",
+                )
+            ),
+            op_step(
+                apply_op(
+                    "disabling-field-turn-count",
+                    effects["arm-turns"],
+                    selectors["actor"],
+                    stacks=integers["one"],
+                )
+            ),
+        ],
+    )
+    overload_program = make_program(
+        "overload-warning",
+        [
+            op_step(
+                remove_op(
+                    "overload-release-restrained",
+                    effects["restrain"],
+                    selectors["all-opposing"],
+                )
+            ),
+            op_step(
+                apply_op(
+                    "overload-marker",
+                    effects["overload"],
+                    selectors["actor"],
+                )
+            ),
+            op_step(
+                remove_op(
+                    "overload-clear-turn-count",
+                    effects["arm-turns"],
+                    selectors["actor"],
+                )
+            ),
+            op_step(
+                new_operation(
+                    "overload-advance-svarog",
+                    json_cell(
+                        "AdvanceAction",
+                        amount_expression_id=ratios["one"],
+                    ),
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    controlled_program = make_program(
+        "controlled-blasting",
+        [
+            op_step(
+                damage_op(
+                    "controlled-blasting-damage",
+                    damage["controlled"],
+                    selectors["primary"],
+                )
+            ),
+            op_step(
+                new_operation(
+                    "controlled-blasting-despawn-arm",
+                    json_cell("Despawn"),
+                    selectors["actor"],
+                )
+            ),
+        ],
+    )
+    ordinary_arm_program = make_program(
+        "auxiliary-arm-ordinary-choice",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["restrained"],
+                then_program_id=disabling_program,
+                else_program_id=oppressive_program,
+            )
+        ],
+    )
+    ready_arm_program = make_program(
+        "auxiliary-arm-overload-choice",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["arm-ready"],
+                then_program_id=overload_program,
+                else_program_id=ordinary_arm_program,
+            )
+        ],
+    )
+    arm_cycle_program = make_program(
+        "auxiliary-arm-cycle",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["overloaded"],
+                then_program_id=controlled_program,
+                else_program_id=ready_arm_program,
+            )
+        ],
+    )
+    beetle_program = make_program(
+        "unstable-forcefield",
+        [
+            op_step(
+                damage_op(
+                    "unstable-forcefield-damage",
+                    damage["beetle"],
+                    selectors["primary"],
+                )
+            )
+        ],
+    )
+    hound_program = make_program(
+        "vertical-strike",
+        [
+            op_step(
+                damage_op(
+                    "vertical-strike-damage",
+                    damage["hound"],
+                    selectors["primary"],
+                )
+            )
+        ],
+    )
+    assigned_support_program = make_program(
+        "emergency-support-assigned-action",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["beetle-role"],
+                then_program_id=beetle_program,
+                else_program_id=hound_program,
+            )
+        ],
+    )
+    random_support_role = new_operation(
+        "emergency-support-random-role",
+        json_cell(
+            "ApplyRandomEffect",
+            effect_ids=[
+                effects["beetle-role"],
+                effects["hound-role"],
+            ],
+            stacks_expression_id=integers["one"],
+            choice_rng_purpose_key="behavior-choice",
+            chance_policy="Guaranteed",
+            base_chance_expression_id=None,
+            chance_rng_purpose_key=None,
+        ),
+        selectors["actor"],
+    )
+    choose_support_program = make_program(
+        "emergency-support-choose-role",
+        [
+            op_step(random_support_role),
+            json_cell(
+                "If",
+                condition_id=conditions["beetle-role"],
+                then_program_id=beetle_program,
+                else_program_id=hound_program,
+            ),
+        ],
+    )
+    support_cycle_program = make_program(
+        "emergency-support-action-cycle",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["support-role-assigned"],
+                then_program_id=assigned_support_program,
+                else_program_id=choose_support_program,
+            )
+        ],
+    )
+
+    ability_programs = {
+        abilities["banishing"]: make_program(
+            "banishing-punch",
+            [
+                op_step(
+                    damage_op(
+                        "banishing-punch-damage",
+                        damage["banishing"],
+                        selectors["primary"],
+                    )
+                )
+            ],
+        ),
+        abilities["burning"]: make_program(
+            "burning-beam",
+            [
+                op_step(
+                    damage_op(
+                        "burning-beam-damage",
+                        damage["burning"],
+                        selectors["primary"],
+                    )
+                ),
+                op_step(
+                    new_operation(
+                        "burning-beam-delay",
+                        json_cell(
+                            "DelayAction",
+                            amount_expression_id=ratios["point-five"],
+                        ),
+                        selectors["primary"],
+                    )
+                ),
+            ],
+        ),
+        abilities["power"]: make_program(
+            "power-amplification",
+            [
+                op_step(
+                    apply_op(
+                        "power-amplification-allies",
+                        effects["power-amplification"],
+                        selectors["same-all"],
+                        stacks=integers["one"],
+                    )
+                )
+            ],
+        ),
+        abilities["emergency"]: make_program(
+            "emergency-support",
+            [
+                op_step(
+                    summon_op(
+                        f"emergency-support-{key}",
+                        linked[key],
+                    )
+                )
+                for key in [
+                    "phase-1-support-1",
+                    "phase-1-support-2",
+                    "phase-1-support-3",
+                    "phase-1-support-4",
+                ]
+            ],
+        ),
+        abilities["tactical"]: make_program(
+            "tactical-support",
+            [
+                op_step(
+                    summon_op(
+                        f"tactical-support-{key}",
+                        linked[key],
+                    )
+                )
+                for key in [
+                    "phase-2-direwolf-left",
+                    "phase-2-direwolf-right",
+                ]
+            ],
+        ),
+        abilities["boost"]: make_program(
+            "boost-deployment",
+            [
+                op_step(
+                    summon_op(
+                        "boost-deployment-auxiliary-arm",
+                        linked["phase-3-arm"],
+                    )
+                )
+            ],
+        ),
+        abilities["support-cycle"]: support_cycle_program,
+        abilities["beetle-strike"]: beetle_program,
+        abilities["hound-strike"]: hound_program,
+        abilities["direwolf-strike"]: make_program(
+            "disintegration-order",
+            [
+                op_step(
+                    damage_op(
+                        "disintegration-order-damage",
+                        damage["direwolf"],
+                        selectors["primary"],
+                    )
+                )
+            ],
+        ),
+        abilities["arm-cycle"]: arm_cycle_program,
+        abilities["oppressive"]: oppressive_program,
+        abilities["disabling"]: disabling_program,
+        abilities["overload"]: overload_program,
+        abilities["controlled"]: controlled_program,
+    }
+    bombardment_steps = [
+        op_step(
+            damage_op(
+                f"oversaturated-bombardment-hit-{hit}",
+                damage["bombardment"],
+                selectors["all-opposing"],
+            )
+        )
+        for hit in range(1, 13)
+    ]
+    bombardment_steps.append(
+        op_step(
+            apply_op(
+                "oversaturated-bombardment-def-down",
+                effects["def-down"],
+                selectors["all-opposing"],
+                chance=ratios["one"],
+                stacks=integers["one"],
+            )
+        )
+    )
+    ability_programs[abilities["bombardment"]] = make_program(
+        "oversaturated-bombardment",
+        bombardment_steps,
+    )
+
+    linked_ability_keys = {
+        "support-cycle",
+        "beetle-strike",
+        "hound-strike",
+        "direwolf-strike",
+        "arm-cycle",
+        "oppressive",
+        "disabling",
+        "overload",
+        "controlled",
+    }
+    target_patterns = {
+        "banishing": "SingleTarget",
+        "burning": "SingleTarget",
+        "bombardment": "Aoe",
+        "power": "None",
+        "emergency": "None",
+        "tactical": "None",
+        "boost": "None",
+        "support-cycle": "SingleTarget",
+        "beetle-strike": "SingleTarget",
+        "hound-strike": "SingleTarget",
+        "direwolf-strike": "SingleTarget",
+        "arm-cycle": "SingleTarget",
+        "oppressive": "SingleTarget",
+        "disabling": "SingleTarget",
+        "overload": "None",
+        "controlled": "SingleTarget",
+    }
+    for key, id_ in abilities.items():
+        linked_ability = key in linked_ability_keys
+        add(
+            "Ability",
+            {
+                "id": id_,
+                "kind": "Summon" if linked_ability else "Skill",
+                "target_pattern": target_patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": (
+                    5 if target_patterns[key] != "None" else 4
+                ),
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": id_,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[id_],
+            },
+        )
+        if not linked_ability:
+            add(
+                "EnemyAbility",
+                {
+                    "id": id_,
+                    "telegraph": (
+                        "Charge" if key == "bombardment" else "None"
+                    ),
+                    "cooldown_actions": 1,
+                    "initial_cooldown_actions": 0,
+                    "charge_actions": 0,
+                    "ai_tag": key,
+                },
+            )
+
+    effect_rows = {
+        "def-down": (
+            "Debuff",
+            "DispellableDebuff",
+            100,
+            integers["three"],
+            "TargetTurnEnd",
+            "RefreshAndAddStacks",
+        ),
+        "power-amplification": (
+            "Buff",
+            "NonDispellable",
+            100,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "restrain": (
+            "Control",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+        "arm-turns": (
+            "NeutralState",
+            "NonDispellable",
+            3,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "overload": (
+            "NeutralState",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+        "beetle-role": (
+            "NeutralState",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+        "hound-role": (
+            "NeutralState",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+    }
+    for key, id_ in effects.items():
+        category, dispel, limit, duration, clock, policy = effect_rows[key]
+        add(
+            "Effect",
+            {
+                "id": id_,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": "None",
+                "stack_policy": policy,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    effect_tags = {
+        "def-down": ["def-down", "oversaturated-bombardment"],
+        "power-amplification": ["power-amplification", "stackable-damage-boost"],
+        "restrain": ["restrained", "blocks-normal-action", "remove-with-applier"],
+        "arm-turns": ["auxiliary-arm-turn-clock"],
+        "overload": ["overload-warning", "controlled-blasting-next-action"],
+        "beetle-role": ["emergency-support-role", "automaton-beetle"],
+        "hound-role": ["emergency-support-role", "automaton-hound"],
+    }
+    for key, tags in effect_tags.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {"effect_id": effects[key], "sequence": sequence, "tag": tag},
+            )
+    for key, id_ in modifier_groups.items():
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s11.modifier-group.{key}",
+                "aggregation": "Sum",
+                "comparator_expression_id": None,
+            },
+        )
+    modifier_specs = {
+        "def-down": (
+            "Def",
+            "PercentOfBase",
+            "Stat",
+            ratios["negative-point-two"],
+            "OnApplication",
+        ),
+        "power-amplification": (
+            "Atk",
+            "DamageBoost",
+            "OrdinaryDamage",
+            ratios["point-one-five"],
+            "Dynamic",
+        ),
+    }
+    for key, id_ in modifiers.items():
+        stat, stage, purpose, value, snapshot = modifier_specs[key]
+        add(
+            "ModifierDefinition",
+            {
+                "id": id_,
+                "source_effect_id": effects[key],
+                "owner_selector_id": selectors["owner"],
+                "subject_selector_id": selectors["owner"],
+                "stat": stat,
+                "formula_stage": stage,
+                "formula_purpose": purpose,
+                "value_expression_id": value,
+                "value_domain": "Ratio",
+                "stacking_group_id": modifier_groups[key],
+                "priority": 0,
+                "cap_formula_stage": stage,
+                "snapshot_policy": snapshot,
+                "duration_scope": "Turn",
+            },
+        )
+        add(
+            "EffectModifierBinding",
+            {
+                "effect_id": effects[key],
+                "sequence": 1,
+                "modifier_id": id_,
+            },
+        )
+
+    phase_sequences = [
+        ["emergency", "banishing", "burning", "power"],
+        ["tactical", "bombardment", "banishing", "burning", "power"],
+        ["boost", "bombardment", "banishing", "burning"],
+    ]
+    target_selectors = {
+        "emergency": selectors["actor"],
+        "banishing": selectors["random-opponent"],
+        "burning": selectors["random-opponent"],
+        "power": selectors["actor"],
+        "tactical": selectors["actor"],
+        "bombardment": selectors["all-opposing"],
+        "boost": selectors["actor"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence_keys in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence_keys)))
+        next_state += len(sequence_keys)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_key) in enumerate(
+            zip(state_ids, sequence_keys)
+        ):
+            ability_id = abilities[ability_key]
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s11.ai.phase-{phase_index + 1}."
+                        f"step-{offset + 1}-{ability_key}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["banishing"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s11.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}-{ability_key}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": target_selectors[ability_key],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["banishing"],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s11.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[
+                        (offset + 1) % len(state_ids)
+                    ],
+                    "condition_id": conditions["always"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    linked_specs = {
+        "phase-1-support-1": (
+            1,
+            "0.093333",
+            "1",
+            "100",
+            abilities["support-cycle"],
+        ),
+        "phase-1-support-2": (
+            2,
+            "0.093333",
+            "1",
+            "100",
+            abilities["support-cycle"],
+        ),
+        "phase-1-support-3": (
+            4,
+            "0.093333",
+            "1",
+            "100",
+            abilities["support-cycle"],
+        ),
+        "phase-1-support-4": (
+            5,
+            "0.093333",
+            "1",
+            "100",
+            abilities["support-cycle"],
+        ),
+        "phase-2-direwolf-left": (
+            1,
+            "0.266667",
+            "0.833333",
+            "144",
+            abilities["direwolf-strike"],
+        ),
+        "phase-2-direwolf-right": (
+            5,
+            "0.266667",
+            "0.833333",
+            "144",
+            abilities["direwolf-strike"],
+        ),
+        "phase-3-arm": (
+            5,
+            "0.233333",
+            "1",
+            "120",
+            abilities["arm-cycle"],
+        ),
+    }
+    for key, id_ in linked.items():
+        formation, hp_ratio, atk_ratio, spd, action_ability = linked_specs[key]
+        ability_ids = [action_ability]
+        if key.startswith("phase-1-support"):
+            ability_ids.extend(
+                [
+                    abilities["beetle-strike"],
+                    abilities["hound-strike"],
+                ]
+            )
+        elif key == "phase-3-arm":
+            ability_ids.extend(
+                [
+                    abilities["oppressive"],
+                    abilities["disabling"],
+                    abilities["overload"],
+                    abilities["controlled"],
+                ]
+            )
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": id_,
+                "source_definition_identity_id": id_,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": "|".join(str(value) for value in ability_ids),
+                "action_ability_id": action_ability,
+                "formation_index": formation,
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": hp_ratio,
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": atk_ratio,
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": spd,
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s11-linked-{key}-v1"
+                ),
+            },
+        )
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Fire", "Lightning", "Wind"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element in ["Ice", "Imaginary", "Physical", "Quantum"]:
+        add(
+            "EnemyResistance",
+            {
+                "variant_id": variant,
+                "element": element,
+                "value_decimal": "0.2",
+            },
+        )
+    for category in [
+        "STAT_CTRL_Confine",
+        "STAT_CTRL_Frozen",
+        "STAT_CTRL_Entangle",
+    ]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.75",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "360",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_key in enumerate(
+        [
+            "banishing",
+            "burning",
+            "bombardment",
+            "power",
+            "emergency",
+            "tactical",
+            "boost",
+        ],
+        start=1,
+    ):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": abilities[ability_key],
+            },
+        )
+    for phase, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + phase,
+                "stable_key": f"goal07.enemy.s11.phase-{phase}",
+                "variant_id": variant,
+                "sequence": phase,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": phase,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.svarog-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact World 4 levels and public Svarog mechanics are "
+                "committed as Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s11.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": (
+                "Committed exact public per-level numeric anchors for "
+                "Goal 07 S11."
+            ),
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s11.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s11.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row,
+                ensure_ascii=False,
+                sort_keys=True,
+                default=str,
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -13204,6 +14836,7 @@ def main() -> None:
         "G07-P5-M15-S08": owned_rows_s08,
         "G07-P5-M15-S09": owned_rows_s09,
         "G07-P5-M15-S10": owned_rows_s10,
+        "G07-P5-M15-S11": owned_rows_s11,
     }[PARTITION]()
     golden_path = (
         ROOT

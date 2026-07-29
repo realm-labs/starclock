@@ -1645,6 +1645,46 @@
             "Integer": 1
           }
         }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080503
+              },
+              "type": {
+                "String": "HasEffect"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 1080407
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "predicate": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "OwnedBy"
+              }
+            }
+          },
+          "selector_id": {
+            "Integer": 1080408
+          },
+          "sequence": {
+            "Integer": 1
+          }
+        }
       }
     ]
   }

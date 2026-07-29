@@ -223,6 +223,11 @@ pub(super) fn expression(
                 }
             },
         },
+        Node::QueryHp {
+            subject_selector_id,
+        } => ValueExpr::QueryHp {
+            subject: query_subject(config, *subject_selector_id)?,
+        },
         Node::QueryEffectStacks {
             subject_selector_id,
             effect_id,

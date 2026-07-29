@@ -591,6 +591,34 @@
             "String": "goal07.enemy.s10.modifier-group.griever"
           }
         }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1080531
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.modifier-group.def-down"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1080532
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.modifier-group.power-amplification"
+          }
+        }
       }
     ]
   }

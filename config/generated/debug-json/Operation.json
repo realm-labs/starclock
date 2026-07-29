@@ -15138,6 +15138,1660 @@
             "Integer": 1070410
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081001
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081126
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oppressive-embrace-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081002
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1080503
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oppressive-embrace-restrain"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081003
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1080504
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": {
+                "Integer": 1081114
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oppressive-embrace-turn-count"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081005
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1080504
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": {
+                "Integer": 1081114
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.disabling-field-turn-count"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081007
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1080505
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.overload-marker"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081009
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081110
+              },
+              "type": {
+                "String": "AdvanceAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.overload-advance-svarog"
+          },
+          "target_selector_id": {
+            "Integer": 1080402
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081010
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081125
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.controlled-blasting-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081011
+          },
+          "payload": {
+            "Object": {
+              "type": {
+                "String": "Despawn"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.controlled-blasting-despawn-arm"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081012
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081122
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.unstable-forcefield-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081013
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081123
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.vertical-strike-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081014
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "chance_rng_purpose_key": "Null",
+              "choice_rng_purpose_key": {
+                "String": "behavior-choice"
+              },
+              "effect_ids": {
+                "List": [
+                  {
+                    "Integer": 1080506
+                  },
+                  {
+                    "Integer": 1080507
+                  }
+                ]
+              },
+              "stacks_expression_id": {
+                "Integer": 1081114
+              },
+              "type": {
+                "String": "ApplyRandomEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.emergency-support-random-role"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081015
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081119
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.banishing-punch-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081016
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081120
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.burning-beam-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081017
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081109
+              },
+              "type": {
+                "String": "DelayAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.burning-beam-delay"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081018
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1080502
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": {
+                "Integer": 1081114
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.power-amplification-allies"
+          },
+          "target_selector_id": {
+            "Integer": 1080406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081019
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080201
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.emergency-support-phase-1-support-1"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081020
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080202
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.emergency-support-phase-1-support-2"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081021
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080203
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.emergency-support-phase-1-support-3"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081022
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080204
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.emergency-support-phase-1-support-4"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081023
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080205
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.tactical-support-phase-2-direwolf-left"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081024
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080206
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.tactical-support-phase-2-direwolf-right"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081025
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1080401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1080207
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.boost-deployment-auxiliary-arm"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081026
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081124
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.disintegration-order-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080403
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081027
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-1"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081028
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-2"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081029
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-3"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081030
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-4"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081031
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-5"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081032
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-6"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081033
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-7"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081034
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-8"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081035
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-9"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081036
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-10"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081037
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-11"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081038
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081121
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-hit-12"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081039
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": {
+                "Integer": 1081110
+              },
+              "chance_policy": {
+                "String": "Resistible"
+              },
+              "effect_id": {
+                "Integer": 1080501
+              },
+              "rng_purpose_key": {
+                "String": "effect-application"
+              },
+              "stacks_expression_id": {
+                "Integer": 1081114
+              },
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.oversaturated-bombardment-def-down"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "NoOp"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081004
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1081127
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.disabling-field-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1080407
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "NoOp"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081006
+          },
+          "payload": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080503
+              },
+              "type": {
+                "String": "RemoveEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.overload-release-restrained"
+          },
+          "target_selector_id": {
+            "Integer": 1080405
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "NoOp"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1081008
+          },
+          "payload": {
+            "Object": {
+              "effect_id": {
+                "Integer": 1080504
+              },
+              "type": {
+                "String": "RemoveEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s11.operation.overload-clear-turn-count"
+          },
+          "target_selector_id": {
+            "Integer": 1080401
+          }
+        }
       }
     ]
   }

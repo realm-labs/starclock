@@ -144,6 +144,24 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S11": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.svarog-complete.littleboss.variant.01",
+      "enemy.svarog-complete.littleboss",
+      "ai.goal07.svarog-complete.phase-1",
+      "ai.goal07.svarog-complete.phase-2",
+      "ai.goal07.svarog-complete.phase-3",
+      "unit.goal07.svarog-complete.phase-1-support-1",
+      "unit.goal07.svarog-complete.phase-1-support-2",
+      "unit.goal07.svarog-complete.phase-1-support-3",
+      "unit.goal07.svarog-complete.phase-1-support-4",
+      "unit.goal07.svarog-complete.phase-2-direwolf-left",
+      "unit.goal07.svarog-complete.phase-2-direwolf-right",
+      "unit.goal07.svarog-complete.phase-3-arm",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -272,6 +290,18 @@ if (partitionId === "G07-P5-M15-S10") {
     { path: "crates/starclock-combat/src/resolver/rule.rs" },
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization/stellaron_hunter_kafka_s10.rs" },
+  );
+}
+if (partitionId === "G07-P5-M15-S11") {
+  executionEvidence.push(
+    { path: "config/schema/expression.toml" },
+    { path: "crates/starclock-data/src/modifier_lower.rs" },
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/svarog_s11.rs" },
   );
 }
 const provenanceEvidence = [
