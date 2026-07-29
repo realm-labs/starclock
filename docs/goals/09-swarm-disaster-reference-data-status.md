@@ -8,7 +8,7 @@
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
 | Active batch | None |
-| Next unblocked batch | `G09-P1-B8` |
+| Next unblocked batch | `G09-P1-B9` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Focused inventory | 2,882 pinned files |
@@ -24,7 +24,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot, commit-backed Goal 08 checkpoint, Candidate-only scope, six isolated roots, 2,882-file source closure, 6,963-obligation denominator, 64 normalized file families, four workbooks, reconciliation receipts and 23 fixture families are machine-frozen. |
-| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, countdown/Disarray, Audience Dice, Communing choices/cabinets/dimensions and Communing Trail are DataReady; Pathstrider and Interplay systems remain. |
+| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, countdown/Disarray, Audience Dice, Communing choices/cabinets/dimensions, Communing Trail and Pathstrider are DataReady; Path/Resonance/Interplay systems remain. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership reconciliation, fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -44,7 +44,7 @@
 | `G09-P1-B5` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 91 rows (`c93ae538…22a7`, 184,229 bytes): all 42 released faces, three rarity rows, one typed target rule per face and four roll/reroll/cheat/abandon controls. Face activation stage, effect type, parameters, rarity, bilingual description and extra-effect locators remain exact; stable candidate ordering, empty-target no-op, typed charge consumption and rejection fallbacks are explicit replaceable `ProjectPolicy`. The released abandon reward `10` and skip-roll unlock locator are retained. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B6 starts. |
 | `G09-P1-B6` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 114 rows (`509ca670…ff94`, 280,200 bytes): 21 Aeon-aligned story choices, all 31 normal/hidden cabinets, seven dimensions and 55 exact ordered point adjustments. Branch choices increment a separate per-Aeon choice counter because the source row publishes no permanent point delta. `UnlockCabinetID` is retained as outgoing edges and deterministically inverted into prerequisites; dimensions cap at exact value `20`. Persistent carry, per-operation clamp and simultaneous ordering are replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B7 starts. |
 | `G09-P1-B7` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 182 rows (`0b4cd07a…a222`, 400,983 bytes): all 63 released Communing Trail nodes, 56 deterministic within-dimension predecessor edges and one typed effect per node. Exact dimension, threshold, effect ID, bilingual text and effect parameters remain source-backed. Because the source publishes no graph edges, predecessor derivation by threshold and stable talent ID is replaceable `ProjectPolicy`. Five activity-only effect families remain outside `BattleSpec`; two mixed families project only their battle contribution. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B8 starts. |
-| `G09-P1-B8` | `Pending` | — | Import Pathstrider objectives, finish/progress conditions, unlocks and mechanical chapter locators. |
+| `G09-P1-B8` | `Complete` | This row's containing commit | Generated and rechecked four normalized files with 256 rows (`7734d322…d1ad`, 653,098 bytes): 31 cabinet quest objectives, all 102 exact shared-DLC finish conditions, all 110 unlock rows and 13 mechanical chapter locators. Objective text parameters remain exact while `QuestID` evaluation is an external Activity completion policy. Released bilingual unlock text enables 15 Swarm rows, identifies and disables 51 Gold rows, and leaves 44 shared-framework rows fail closed; the corresponding finish-condition split is 15/45/42. Unlock evaluation timing, once-only flags and chapter locator-only consequences are replaceable `ProjectPolicy`; three declared bonuses retain no invented payload. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P1-B9 starts. |
 | `G09-P1-B9` | `Pending` | — | Import bonuses `101`–`106`, Path/Resonance additions, Propagation and Resonance Interplays. |
 | `G09-P2-B1` | `Pending` | — | Freeze reachable shared and Swarm-owned Blessing/Path/Resonance pools. |
 | `G09-P2-B2` | `Pending` | — | Import Curios, copies, states, charges, repair and replacement. |
@@ -78,7 +78,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Dice faces/rarities/roll controls | 45 | 45 | 45 | All 42 faces and three rarity rows are DataReady; 42 target and four control rows are derived typed children outside the source denominator. |
 | Communing Device/cabinets/dimensions | 59 | 59 | 59 | All 21 Aeon-aligned choices, 31 normal/hidden cabinets and seven dimensions are DataReady; 55 point adjustments are derived exact child rows. |
 | Communing Trail nodes/effects | 63 | 63 | 63 | All 63 released nodes and their exact gameplay-effect locators are DataReady; 56 derived predecessor edges are typed policy children outside the source denominator. |
-| Pathstrider objectives/unlocks | 225 | 0 | 0 | Includes 102 finish conditions, 110 unlock rows and 13 mechanical chapter locators; story prose and account rewards remain excluded. |
+| Pathstrider objectives/unlocks | 225 | 225 | 225 | All 102 finish conditions, 110 unlock rows and 13 mechanical chapter locators are DataReady; 31 cabinet quest-objective projections are typed children whose cabinet parents were counted in P1-B6. |
 | Paths/Resonances/Interplays | 64 | 0 | 0 | Eight shared Paths, 32 Resonances/Formations, eight Path boosts and 16 Interplays; Erudition is excluded. |
 | Blessings/enhanced levels | 432 | 0 | 0 | All 144 Blessings and both authored levels for the eight reachable Paths. |
 | Curios/states | 132 | 0 | 0 | Sixty-six type-130 identities and exactly one 1000-series Swarm copy each; 60 shared identities and six mode-owned. |
@@ -122,6 +122,9 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Invert `UnlockCabinetID` outgoing edges into cabinet prerequisites and clamp each ordered increment to the dimension maximum. | The graph avoids reversed-edge cycles; exact increments/maxima are preserved while persistence and operation timing remain replaceable policy. |
 | 2026-07-29 | Derive each Communing Trail prerequisite from the previous threshold and stable talent ID within one dimension. | `RogueDLCAeonTalent` publishes 63 dimension-scoped thresholds and effects but no edge relation; retaining the 56 edges as replaceable `ProjectPolicy` avoids presenting a plausible linear graph as released fact. |
 | 2026-07-29 | Classify five Communing Trail effect families as activity-only and two as mixed activity/battle contributions. | Inventory, countdown and progression mutations belong to Activity state; combat stat contributions cross only at `BattleSpec` creation, preserving the architecture ownership boundary. |
+| 2026-07-29 | Treat each Pathstrider cabinet `QuestID` as an external completion condition and preserve its exact description parameters. | The cabinet row publishes the quest locator and mechanical reward but not the quest evaluator; an accepted external Activity outcome avoids inventing hidden counter events or ordering. |
+| 2026-07-29 | Enable shared-DLC unlock rows only when released bilingual text explicitly names Swarm Disaster. | The same finish/unlock tables contain Gold and Gears rows. Explicit Gold rows are disabled and rows without a released mode proof fail closed until an exact Swarm consumer binds them. |
+| 2026-07-29 | Retain chapter rows as plane/dimension/threshold locators with no inferred bonus payload. | `RogueDLCMainStory` publishes three `IsBonusUnlock` flags and presentation toast types but no simulation payload in the retained mechanical fields; story and account rewards remain excluded. |
 
 ## Research cases
 
@@ -133,7 +136,7 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | `G09-R04` | `PolicyBound` | Released text binds `-1` after movement, transition on an accepted move from zero, levels `1–20`, and the level-20 cap; client parameters bind the three stat bands. Initial `20`, cross-plane carry and same-boundary ordering remain replaceable ProjectPolicy. | P1-B3 |
 | `G09-R05` | `PolicyBound` | All 42 face effects, parameters, activation stages and rarity bindings are exact. Stable candidate order, empty-target no-op, typed reroll/cheat charges and reject-without-mutation fallbacks remain replaceable ProjectPolicy. | P1-B4–B5 |
 | `G09-R06` | `PolicyBound` | Choice identity, cabinet outgoing edges, seven maxima and 55 point increments are exact. Branch eligibility uses released stage identity; persistent carry, per-operation clamp and simultaneous ordering remain replaceable ProjectPolicy. | P1-B6 |
-| `G09-R07` | `PartiallyBound` | All 63 Communing Trail thresholds and typed effects are bound. Five effect families are activity-only, two are mixed, and the remaining effects project into battle; 56 predecessor edges remain explicit `ProjectPolicy`. Pathstrider progress and unlock semantics remain P1-B8. | P1-B7–B8 |
+| `G09-R07` | `PolicyBound` | All 63 Communing Trail thresholds/effects and all 102 finish conditions, 110 unlock rows and 13 chapter locators are bound. Trail predecessors, external quest completion, unlock timing and locator-only chapter consequences remain explicit `ProjectPolicy`; shared DLC applicability fails closed without released Swarm text or an exact consumer. | P1-B7–B8 |
 | `G09-R08` | `Open` | How do Resonance Interplays unlock, select, scale, charge and act, including Propagation and final-boss contributions? | P1-B9 |
 | `G09-R09` | `Open` | Which Blessings, Curios, Occurrences, services and mode-specific copies are actually reachable in Version 4.4 Swarm pools? | P2-B1–B4 |
 | `G09-R10` | `Open` | Which room, occurrence, reward, dice and boss-choice weights are released, observed or require explicit project policy? | P1-B1–B6 / P2-B3–B5 |
@@ -170,6 +173,6 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | Completion commit | — |
 | Swarm Disaster reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | 5,928/6,963 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
+| Coverage | 6,153/6,963 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
 | Release evidence | — |
 | Remaining required work | Swarm Disaster runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |

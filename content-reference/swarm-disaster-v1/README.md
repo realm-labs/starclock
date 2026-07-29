@@ -26,6 +26,8 @@ node tools/swarm-disaster-reference/import-communing.mjs
 node tools/swarm-disaster-reference/verify-communing.mjs
 node tools/swarm-disaster-reference/import-communing-trail.mjs
 node tools/swarm-disaster-reference/verify-communing-trail.mjs
+node tools/swarm-disaster-reference/import-pathstrider.mjs
+node tools/swarm-disaster-reference/verify-pathstrider.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -71,3 +73,12 @@ table does not publish graph edges, so the 56 within-dimension predecessor
 relations are derived from stable threshold and talent-ID order and labeled
 `ProjectPolicy`. Effect-domain classification keeps five activity-only effects
 out of `BattleSpec`; two mixed effects project only their battle contribution.
+
+The Pathstrider partition preserves 31 cabinet quest objectives, all 102 shared
+DLC finish conditions, all 110 unlock rows and 13 mechanical chapter locators.
+Cabinet `QuestID` values remain external completion conditions with their exact
+description parameters. Shared DLC rows are enabled only when released text
+explicitly names Swarm Disaster: Gold and Gears rows are disabled and
+unresolved rows fail closed until an exact Swarm consumer binds them. Chapter
+rows retain only plane, Communing threshold and declared bonus status; no story
+or missing bonus payload is inferred.
