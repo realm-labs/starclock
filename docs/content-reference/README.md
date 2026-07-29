@@ -95,3 +95,20 @@ Goal 01 may improve a fact when an observation fixture or stronger public source
 proves a difference. It must preserve the old evidence, record the decision and
 update the pack/catalog digests. It may not silently replace a value because a
 different website is easier to transcribe.
+
+## Unknowable Domain Candidate reference
+
+Goal 10 freezes a separate Version 4.4 Unknowable Domain reference package
+under `content-reference/unknowable-domain-v1/`. Its 5,377 source obligations
+are fully `DataReady`; all unavailable weights, ordering, timing and fallback
+semantics remain explicit, nonblocking and replaceable. The three isolated
+authoring workbooks and Candidate Sora bundle are review artifacts only: no
+JSON/Excel runtime path, runtime lowering, handler registration or playable
+profile is released.
+
+The normalized Candidate pack digest is
+`f48f264fb55221e2494156c5ab7911719d703ec47f492c9c0e2d7fd2c8123b28`;
+the isolated Sora review bundle digest is
+`05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec`.
+Exact counts, evidence and the remaining runtime boundary are recorded in the
+[Goal 10 ledger](../goals/10-unknowable-domain-reference-data-status.md).

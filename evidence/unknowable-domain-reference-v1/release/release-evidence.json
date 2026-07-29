@@ -1,0 +1,118 @@
+{
+  "schema_revision": "starclock.unknowable-domain-reference-release.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "completed_on": "2026-07-29",
+  "result": "complete",
+  "delivery_state": "Candidate",
+  "policy_sha256": "7b607eed082aa9faafb69dbfa15e215b2fadf559a335700a8bea380022a57c6e",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "simulated-universe-unknowable-domain",
+    "profile_id": "unknowable-domain.profile.v1"
+  },
+  "source_revisions": {
+    "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+  },
+  "checkpoints": {
+    "sora_and_visual_qa": "b5d84f0d982c05e52108b2e7cc4b89957d7f0982",
+    "release_audit": "218bc1a1c7879dab8bb16372dacdd67fec2ec280",
+    "semantic_fixtures": "dfa9b5b9153657e6b46908a0d45b43007b3cd434",
+    "release_acceptance": "d79ac52bdc0c888b15a7165f780b0b52b2f555c6",
+    "release_batch": "G10-P4-B4"
+  },
+  "content": {
+    "source_inventory_files": 2684,
+    "manifest_categories": 43,
+    "source_obligations": 5377,
+    "data_ready": 5377,
+    "ownership": {
+      "Shared": 134,
+      "UnknowableDomain": 5243
+    },
+    "normalized_files": 65,
+    "pre_index_files": 64,
+    "mechanic_rules": 41,
+    "provenance_rows": 4473,
+    "semantic_fixture_families": 24,
+    "semantic_operations": 93,
+    "semantic_assertions": 93,
+    "research_gaps": 24,
+    "replacement_conditions_verified": 29,
+    "blocking_research_gaps": 0,
+    "reconciliation_receipts": 155
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "tables": 65,
+    "workbook_rows": 17149,
+    "workbook_semantic_sha256": "650e301dac0b1c6f3a0572e78586052c8b65cd06fc8c22bc80b7487d23e70c77",
+    "workbooks": {
+      "UnknowableDomain.xlsx": "88f16f61b5f8954d1c5e1b4950c115cbeef4588dfe5533dc4d562cf83e550cad",
+      "UnknowableDomainBindings.xlsx": "2d76d8ea8ebe5ecf5ba80900cdc020a244d71575d3e8d7dda2d732d88fe1bb6f",
+      "UnknowableDomainReview.xlsx": "de548443cb0dcf9c1c76993b9e860bd7f70da6f8c2e7c3ca5bd06a9a49437884"
+    }
+  },
+  "digests": {
+    "source_inventory_sha256": "20fad8542066895912cf24dfbc56d4a9cb37733c37fad5ce0898e7e3341dbaa5",
+    "content_manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+    "normalized_schema_sha256": "a81fc7e6579f901fe5ba6b8341065e54f1dc27a210313cd62ed3054e507b3052",
+    "normalized_pack_sha256": "f48f264fb55221e2494156c5ab7911719d703ec47f492c9c0e2d7fd2c8123b28",
+    "normalized_component_sha256": "4ead36892ea92087bf0cb555559862a6959378a1c7c6a9307c8b2b13b9cbec9d",
+    "pack_index_file_sha256": "c2d596d9994696ee20414f05d1a9f030814f0d3db355284d89d060da650a499b",
+    "schema_lock_sha256": "9d8bd8869bbe2b3aea3c3f2342866c4d1f028a5b866f7a177843cf7ff7edfc1a",
+    "candidate_bundle_sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec",
+    "debug_export_index_sha256": "f17f49dbe7dc0f42db9bd16faf2384567662b6a44cd3a884e12214b62c3709d4",
+    "debug_export_bytes_sha256": "339d8186a89dbb5c010f9b90d0ea84e120348d99d69589cfcc68657b38928f9b",
+    "reconciliation_checkpoints_sha256": "9588f6b8a5efe5fd3c05e71693b43720b3888f7eb5013421a817b917a7f3d9e3",
+    "release_audit_sha256": "5f8ac978c3f86e46e27fb73e70cdcab8c6cc0d0245eee3e886cc77315b428e4f",
+    "semantic_fixture_results_sha256": "1fd6c6d5fe73693619161dbc4d681e9f216a657bfbb5d9f7b8e6d262338449bf",
+    "release_acceptance_sha256": "2d02911c3bbcc007522e05dbccca3d28b1b0e2e6d3f00cb4113ef8e9bd2985bf",
+    "release_visual_review_sha256": "4566b03e4ee7b0d5ebb3e36c6fdf712d9690c3a789fc71b5df87f96b64108beb"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "b5d84f0d982c05e52108b2e7cc4b89957d7f0982",
+    "tracked_tree_digests": {
+      "goal03_reference": "9e53d3b0800870fc9ae0b2f4f3ba1614c090cae7788e426845c3c56c2f54bd01",
+      "production_configuration": "9dac8168443833eaea2c3a27bc89d4919eaddda3dc3cd824866ed895928f619e",
+      "standard_staging": "f70d47c3c85b90829d44ab5d44f636a71b7f669d859d70120816c1f32ad94b5c"
+    },
+    "goal03_release_evidence_preserved": true,
+    "standard_staging_preserved": true,
+    "production_configuration_preserved": true,
+    "foreign_goal_artifact_changes": 0
+  },
+  "reconciliation": {
+    "checkpoint_evidence_sha256": "9588f6b8a5efe5fd3c05e71693b43720b3888f7eb5013421a817b917a7f3d9e3",
+    "goal08_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+    "goal08_registration_commit": "2688624c34a564d87076cadb405c8da506efd373",
+    "goal08_source_transport": "LocalCommittedReleaseRegistration",
+    "goal09_commit": "b8da6744a63cd92554b45f8e780d79a1be131f50",
+    "goal09_remote_ref": "origin/codex/goal09-swarm-disaster-reference",
+    "goal09_source_transport": "RemoteBranch",
+    "receipts": 155,
+    "matched_shared": 143,
+    "divergent_representation": 12,
+    "conflicts": 0
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "standard_or_production_bundle_mutation": false
+  },
+  "acceptance": {
+    "focused_checks": "pass",
+    "dependency_and_workspace_checks": "pass",
+    "immutable_release_snapshots": "pass",
+    "clean_checkout": "pass",
+    "clean_checkout_staged_tree": "fa01efe774440861e5c7068f9098bd9370cfa31f",
+    "full_repository_command": "node tools/repository-check/run.mjs --full --with-source-cache",
+    "full_repository_external_boundary": "pre-existing Goal 06 Cargo.lock baseline differs after all preceding checks pass",
+    "full_repository_external_boundary_owner": "Goal06HistoricalReleaseContract"
+  }
+}

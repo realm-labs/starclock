@@ -56,8 +56,12 @@ const allowedGoal10Prefixes = [
   "config/unknowable-domain",
   "content-manifests/unknowable-domain-v1/",
   "content-reference/unknowable-domain-v1/",
+  "content-reference/README.md",
+  "docs/content-reference/README.md",
+  "docs/goals/README.md",
   "docs/goals/10-unknowable-domain-reference-data-status.md",
   "evidence/unknowable-domain-reference-v1/",
+  "policy/unknowable-domain-reference.json",
   "tools/unknowable-domain-reference/",
 ];
 

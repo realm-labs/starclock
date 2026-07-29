@@ -1,0 +1,65 @@
+{
+  "schema_revision": "starclock.unknowable-domain-reference-policy.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "state": "Candidate",
+  "snapshot": {
+    "game_version": "4.4",
+    "access_date": "2026-07-22",
+    "mode_family": "simulated-universe-unknowable-domain",
+    "profile_id": "unknowable-domain.profile.v1"
+  },
+  "structured_sources": [
+    {
+      "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+      "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "role": "released structured rows, relationships, values, stages, programs and text maps"
+    },
+    {
+      "repository": "https://github.com/Mar-7th/StarRailRes.git",
+      "revision": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "role": "bilingual identity and translation cross-check"
+    }
+  ],
+  "terminal_denominators": {
+    "source_inventory_files": 2684,
+    "manifest_categories": 43,
+    "source_obligations": 5377,
+    "normalized_files": 65,
+    "pre_index_files": 64,
+    "workbook_tables": 65,
+    "workbook_rows": 17149,
+    "mechanic_rules": 41,
+    "provenance_rows": 4473,
+    "semantic_fixture_families": 24,
+    "research_gaps": 24,
+    "blocking_research_gaps": 0,
+    "reconciliation_receipts": 155,
+    "project_policy_boundaries": 29
+  },
+  "ownership": {
+    "unknowable_domain_source_obligations": 5243,
+    "shared_source_obligations": 134,
+    "other_mode_rows_allowed": false
+  },
+  "workbook_authoring": {
+    "adapter": "python-openpyxl-3.1.5",
+    "schema_and_export_authority": "sora-cli-0.3.0",
+    "workbooks": [
+      "config/unknowable-domain/data/UnknowableDomain.xlsx",
+      "config/unknowable-domain/data/UnknowableDomainBindings.xlsx",
+      "config/unknowable-domain/data/UnknowableDomainReview.xlsx"
+    ],
+    "json_runtime_allowed": false,
+    "overwrite_designer_workbook": false
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "standard_or_production_bundle_mutation": false
+  },
+  "release_evidence": "evidence/unknowable-domain-reference-v1/release/release-evidence.json",
+  "clean_checkout_command": "node tools/release/run-clean-checkout.mjs"
+}
