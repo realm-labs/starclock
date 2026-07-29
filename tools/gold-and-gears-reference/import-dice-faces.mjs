@@ -137,6 +137,18 @@ outputs.set("dice-face-tags.json", ordered(tags, ["sort", "id"]));
 const slotIds = new Set(slots.map(({ source_id: id }) => id));
 const tagByCode = new Map(tags.map((tag) => [tag.mechanical_code, tag]));
 const noTargetNoEffectIds = new Set(["2058", "2070", "2071"]);
+const targetPolicy = await context.policyRef(
+  "dice-face-target-resolution",
+  "Released face text proves selectors and explicit no-effect wording for three " +
+    "Curio faces, but does not expose generic multi-target enumeration, equal-" +
+    "priority application order, duration ordering, or every empty selector " +
+    "case. Validate released selectors, order candidates by stable node/content " +
+    "identity, preserve authored operation order, and fail closed when an " +
+    "unpublished empty-set behavior would otherwise be required.",
+  "Replace individual targeting and ordering fields when pinned released " +
+    "engine evidence exposes candidate enumeration, tie order, duration order, " +
+    "or empty-set behavior.",
+);
 const faceEntries = await context.table("RogueNousDiceSurface");
 const faces = faceEntries.map((entry) => {
   const id = String(entry.row.SurfaceID);
@@ -160,7 +172,7 @@ const faces = faceEntries.map((entry) => {
       throw new Error(`face ${id} references unmapped tag code ${code}`);
   const noTargetBehavior = noTargetNoEffectIds.has(id)
     ? "NoEffect"
-    : "Unspecified";
+    : "FailClosed";
   if (noTargetBehavior === "NoEffect"
     && !description.en.includes("will not take effect when no"))
     throw new Error(`face ${id} lost released no-target wording`);
@@ -172,7 +184,7 @@ const faces = faceEntries.map((entry) => {
       nameZh: name.zh,
       summaryEn: description.en,
       summaryZh: description.zh,
-      sourceRefs: [context.sourceRef(entry), tagPolicy],
+      sourceRefs: [context.sourceRef(entry), tagPolicy, targetPolicy],
       tags: ["custom-dice", "dice-face"],
     }),
     source_id: id,
@@ -198,7 +210,18 @@ const faces = faceEntries.map((entry) => {
     universal_dice_eligibility: entry.row.BranchLimitaion.length === 12,
     no_legal_target_behavior: noTargetBehavior,
     no_legal_target_evidence_quality:
-      noTargetBehavior === "NoEffect" ? "ExactStructured" : "Unspecified",
+      noTargetBehavior === "NoEffect" ? "ExactStructured" : "ProjectPolicy",
+    target_resolution_policy: {
+      policy_id: "dice-face-target-resolution-v1",
+      selector_validation: "released-selector-exact",
+      candidate_order: "stable-node-or-content-id-ascending",
+      operation_order: "authored-effect-order",
+      equal_priority_order: "target-stable-id-ascending",
+      unpublished_empty_set_behavior: "FailClosed",
+      evidence_quality: "ProjectPolicy",
+      replacement_condition:
+        "Replace when pinned engine evidence exposes targeting and ordering.",
+    },
     icon_path: entry.row.Icon,
   };
 });

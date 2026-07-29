@@ -142,9 +142,16 @@ for (const face of faces) {
       && face.summary_en.includes("will not take effect when no"),
     `${face.id} no-target evidence drift`);
   } else
-    assert(face.no_legal_target_behavior === "Unspecified"
-      && face.no_legal_target_evidence_quality === "Unspecified",
-    `${face.id} unknown no-target policy drift`);
+    assert(face.no_legal_target_behavior === "FailClosed"
+      && face.no_legal_target_evidence_quality === "ProjectPolicy",
+    `${face.id} fail-closed no-target policy drift`);
+  assert(face.target_resolution_policy.policy_id
+    === "dice-face-target-resolution-v1"
+    && face.target_resolution_policy.candidate_order
+      === "stable-node-or-content-id-ascending"
+    && face.target_resolution_policy.unpublished_empty_set_behavior
+      === "FailClosed",
+  `${face.id} target-resolution policy drift`);
 }
 assert(JSON.stringify([...rarityCounts.entries()].sort((left, right) =>
   left[0] - right[0]))

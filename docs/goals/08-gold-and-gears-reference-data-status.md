@@ -6,8 +6,8 @@
 |---|---|
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 2 — Content and encounters |
-| Active batch | `G08-P2-B6` |
+| Active phase | Phase 3 — Sora and Excel |
+| Active batch | `G08-P3-B1` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -23,8 +23,8 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 51 normalized files, four workbook families and 18 fixture families are machine-frozen; P1-B5 amended the manifest from 7,906 to 7,913 after correcting the Knowledge tag discriminator. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes, all 12 Conundrum levels and all 108 Path/Resonance obligations are DataReady. |
-| Phase 2 — Content and encounters | `InProgress` | All content pools, services, Adventure outcomes, weighted encounter groups, exact StageConfig waves, enemy variants and boss alternatives are DataReady; generating rules, evidence, coverage, gaps, fixtures and the pack index next. |
-| Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
+| Phase 2 — Content and encounters | `Complete` | All 7,913 frozen obligations are DataReady. The 51-file normalized pack contains 1,224 reference-only mechanic rules, 9,082 source records, 42 complete coverage rows, 16 nonblocking policy boundaries, 18 semantic fixture families and a canonical pack index. |
+| Phase 3 — Sora and Excel | `InProgress` | Adding isolated topology, Cognition, dice, slot, face and Knowledge schemas/readers first, followed by the remaining workbooks and deterministic Sora/visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
 
 ## Batch ledger
@@ -48,8 +48,8 @@
 | `G08-P2-B3` | `Complete` | This row's containing commit | Generated and rechecked 62 reachable Occurrence identities (`3e6e92be…73f8`), 65 Gold mode variants (`53c81929…8cc4`) and 257 derived ordered choices (`615e5991…b8f7`), totaling 384 rows and 1,231,641 bytes. Ownership closes at 51 shared Goal 03 identities plus 11 Gold-owned identities; four source variants deliberately serve multiple handbook identities without duplication. Every NPC/option config, condition ID, special option, dynamic display mapping, label/result digest, printed percentage, numeric literal, cost target and outcome kind is preserved without presentation prose. Forty-three choices say random/chance without released weights; `occurrence-random-outcome-v1` uses the seeded Activity stream over stable source order and fails closed when an eligible pool is unresolved. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
 | `G08-P2-B4` | `Complete` | This row's containing commit | Generated and rechecked 15 shared services (`b6f80efa…68e1`) and eight Adventure outcomes (`148997d7…a5d1`), totaling 23 rows and 79,319 bytes. The service set closes one currency, Reset Blessing, Reviver, Downloader, Respite Offers, Enhance Blessing, five Blessing shops and four Curio shops while retaining inherited parameters and binding Gold-local offer pools. Exact inventories are three one-star Blessings at 100, two two-star at 200, one three-star at 300, plus three Curios at 150/150/300; Neural node `1201` modifies Blessing stock and the mode Reviver costs 80. All eight Adventure rooms close across four challenge types with exact 2000/3600 point, 15/30 object, 2/3 hand and 4/6 cycle thresholds and three cumulative reward tiers. Fragment value selection within 100–150 and Blessing/Curio candidate ordering use named seeded fail-closed policy. All focused verifiers, the quick repository gate and `git diff --check` pass. |
 | `G08-P2-B5` | `Complete` | This row's containing commit | Generated and rechecked 181 encounter groups (`fc0bcd67…df73`), 478 exact StageConfig waves (`3498131e…0499`) and 1,513 enemy slots (`8291d7e5…6810`), totaling 2,172 rows and 5,555,862 bytes. The pack contains all 179 groups whose complete membership resolves to the Gold 82-series stage namespace plus two exact shared guide-boss groups, 478 weighted group-member bindings, 375 distinct stages and 90 inherited Goal 01 enemy variants. First-plane alternatives close at 17 Bug elites, second-plane alternatives at six Complete bosses in two source sets, and final groups `223001`–`223003` bind True Sting, Argenti, and the Grizzly/Direwolf pair; all six displayed area boss choices resolve to concrete slots. Exact group membership, weights, waves, slots, stage abilities and variant IDs remain structured evidence. The unpublished static `RogueNousRoom`/domain/group join and effective area/plane difficulty selection are separate named fail-closed policies with replacement conditions. Focused verification and `git diff --check` pass. |
-| `G08-P2-B6` | `InProgress` | — | Generating mechanic rules, sources, coverage, research gaps, semantic fixtures and the canonical pack index. |
-| `G08-P3-B1` | `Pending` | — | Add isolated topology/Cognition/dice/Knowledge Sora tables. |
+| `G08-P2-B6` | `Complete` | This row's containing commit | Finalized and rechecked all 51 normalized files under canonical UTF-8/LF/two-space encoding. Generated 1,224 reference-only mechanic rules (`06077b77…461b`), 9,082 deduplicated source records (`d4df241d…52e9`), 42 exact coverage rows (`92be5b3f…2f48`), 16 nonblocking policy boundaries (`3fa2db9c…c8cb`), all 18 required semantic fixture families (`378f5ecc…9835`), the pack manifest (`568b6be9…3523`) and 50-entry file index (`f48bda12…42c1`). The aggregate pack digest is `99d6174b…a962`; 7,913/7,913 frozen source obligations are DataReady with no blocking gap. Every rule points to a required fixture, every mechanical/evidence row resolves through `sources.json`, and every approximation has a note, replacement condition and fail-closed boundary. This batch also closes prior deferred Auxiliary Conundrum links to the 12 second-plane boss groups and Negative Curio pool, and policy-resolves generic dice-face targeting while retaining three exact no-target no-op cases. All focused verifiers, the quick gate and `git diff --check` pass; the Phase 2 full gate again reaches Goal 06 and stops only at its frozen `Cargo.lock baseline differs` boundary. |
+| `G08-P3-B1` | `InProgress` | — | Adding isolated topology, Cognition, dice and Knowledge Sora tables with typed references. |
 | `G08-P3-B2` | `Pending` | — | Add Secret/Neural Network/Conundrum/Path/Resonance tables. |
 | `G08-P3-B3` | `Pending` | — | Add content, service, Adventure, encounter and mechanic binding tables. |
 | `G08-P3-B4` | `Pending` | — | Add evidence/coverage/fixture tables and isolated schemas/templates/readers. |
@@ -82,8 +82,8 @@ Do not estimate denominators from Wiki page counts.
 | Occurrences/variants/choices | 127 | 127 | 127 | Sixty-two reachable handbook identities and 65 distinct 300000-series Gold variants are DataReady; 257 choice rows are derived children outside the frozen denominator. |
 | Services/beacons/Adventure outcomes | 34 | 34 | 34 | Fifteen shared services, six beacons, eight Adventure outcomes and five Trailblaze Bonuses are DataReady. |
 | Encounter groups/waves/enemy slots | 1,230 | 1,230 | 1,230 | All 1,224 room and six displayed-boss parent obligations remain DataReady; 181 groups, 478 waves and 1,513 exact enemy slots are derived children outside the frozen denominator. |
-| Mechanic rules | 18 | 0 | 0 | Non-shrinking mechanic-family obligations; reference contributions only, with no runtime executability claim. |
-| Semantic fixtures | 18 | 0 | 0 | Non-shrinking minimum fixture families; B4 freezes fixture shape and later batches may add cases. |
+| Mechanic rules | 18 | 18 | 18 | All required families are covered by 1,224 reference-only rule contributions; no runtime executability is claimed. |
+| Semantic fixtures | 18 | 18 | 18 | Exactly one complete semantic review fixture closes each non-shrinking required family. |
 
 ## Decisions
 
@@ -115,6 +115,8 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Preserve the four released Adventure challenge types, exact thresholds and cumulative reward tiers while policy-binding reward selection details. | Released rows and public text prove objective thresholds and the three-tier reward structure, but not the fragment value selection inside 100–150 or complete Blessing/Curio candidate ordering. |
 | 2026-07-29 | Select the complete Gold 82-series encounter namespace plus the two exact shared guide-boss groups, then resolve every StageConfig slot through the inherited Goal 01 enemy registry. | All 179 Gold groups have members whose stages use the 82-series namespace; the two guide areas resolve through singleton shared groups `111011` and `123001`. This closes exact weights, waves, abilities and enemy variants without importing unrelated later-mode groups. |
 | 2026-07-29 | Keep static room/group selection and effective difficulty-level selection as two explicit fail-closed policies. | Released data freezes 1,224 Gold room layouts, exact group membership, five formal area schedules and every stage, but does not expose the engine join from a resolved combat domain and area/plane position to a group or effective level. |
+| 2026-07-29 | Represent every inherited and Gold-owned rule identity as a reference-only contribution linked to one required semantic fixture family. | This closes all 1,224 distinct rule identities and their evidence without implying runtime handlers, executable lowering or a playable profile. |
+| 2026-07-29 | Treat all 16 remaining evidence boundaries as nonblocking, named, replaceable and fail closed. | The source registry now exposes every policy note and replacement condition; generic dice-face targeting was added so no unpublished empty-set or equal-priority behavior remains silently `Unspecified`. |
 
 ## Research cases
 
@@ -122,7 +124,7 @@ Do not estimate denominators from Wiki page counts.
 |---|---|---|---|
 | `G08-R01` | `Closed` | File closure is 2,649 pinned Dimbreath inputs plus nine bilingual StarRailRes indexes; row-level shared reachability remains deliberately assigned to `G08-R02`/P0-B3. | P0-B2 |
 | `G08-R02` | `Closed` | The amended 7,913-record manifest grants reachability only through `RogueNous`, explicit `ChessRogueNous`, transitive references or inherited Goal 03 stable IDs; P1-B5 corrected seven net Knowledge obligations without broadening the source-file closure. | P0-B3 / P1-B5 |
-| `G08-R03` | `PartiallyBound` | All face templates, parameters, eligibility, activation stages and Data Inflation reroll/cheat wording are exact; three Curio faces explicitly no-op without legal targets. Generic multi-target ordering, duration application order and remaining no-legal-target behavior still require pinned engine evidence. | P1-B4 / P4-B2 |
+| `G08-R03` | `PolicyBound` | All face templates, parameters, eligibility, activation stages and Data Inflation reroll/cheat wording are exact; three Curio faces explicitly no-op without legal targets. Generic multi-target enumeration, equal-priority/duration order and all other empty selectors use `dice-face-target-resolution-v1` with stable identity order and fail-closed unresolved behavior. | P1-B4 / P2-B6 / P4-B2 |
 | `G08-R04` | `PolicyBound` | Plane-boss evaluation is publicly supported; adjustment, global/area clamp, carry, reset, frontier and tie ordering use replaceable `cognition-lifecycle-v1` until pinned engine evidence proves the exact sequence. | P1-B2 / P4-B2 |
 | `G08-R05` | `PolicyBound` | Exact face templates and active-dice-specific countdown/collapse interactions are typed; canonical target enumeration, seeded selection, empty-set behavior and simultaneous movement/Knowledge/collapse/reward order use replaceable `knowledge-*-v1` policies until pinned engine evidence is available. | P1-B5 / P4-B2 |
 | `G08-R06` | `PolicyBound` | Track composition, independent caps of six, summed cap of 12 and all released semantic effects are bound. Numeric enemy-stat/Toughness/action-advance ratios and Berserk cycle/stack values remain a named fail-closed `conundrum-unreleased-numeric-bindings-v1` policy until pinned released engine data or reproducible Version 4.4 observations replace them. | P1-B7 / P4-B2 |
@@ -134,15 +136,15 @@ Do not estimate denominators from Wiki page counts.
 
 ## Terminal checklist
 
-- [ ] Exact category manifests and denominators are frozen.
-- [ ] Focused source inventory and evidence closure regenerate deterministically.
-- [ ] Complete normalized pack and canonical pack index regenerate without drift.
-- [ ] All required rows have bilingual summaries and row-level provenance.
-- [ ] Ownership and shared reachability are explicit and fail closed.
-- [ ] All required mechanics are exact or explicitly approximate/policy-bound.
-- [ ] Cognition, dice, Knowledge, Neural Network, Conundrum and Resonance
+- [x] Exact category manifests and denominators are frozen.
+- [x] Focused source inventory and evidence closure regenerate deterministically.
+- [x] Complete normalized pack and canonical pack index regenerate without drift.
+- [x] All required rows have bilingual summaries and row-level provenance.
+- [x] Ownership and shared reachability are explicit and fail closed.
+- [x] All required mechanics are exact or explicitly approximate/policy-bound.
+- [x] Cognition, dice, Knowledge, Neural Network, Conundrum and Resonance
       Extrapolation have complete semantic fixtures.
-- [ ] Encounter identities, waves and boss bindings resolve.
+- [x] Encounter identities, waves and boss bindings resolve.
 - [ ] Isolated Sora schemas, templates and generated readers validate.
 - [ ] Complete `openpyxl` workbooks pass structural and visual QA.
 - [ ] Sora production/debug exports regenerate without drift and load through
@@ -160,6 +162,6 @@ Do not estimate denominators from Wiki page counts.
 | Completion commit | — |
 | Gold and Gears reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | 7,895/7,913 frozen source obligations `DataReady`; the remaining 18 obligations are semantic fixture families owned by P2-B6. |
+| Coverage | 7,913/7,913 frozen source obligations `DataReady`; 42 coverage categories report 100% and no blocking gap. |
 | Release evidence | — |
 | Remaining required work | Gold and Gears runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |

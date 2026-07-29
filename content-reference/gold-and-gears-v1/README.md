@@ -101,6 +101,15 @@ node tools/gold-and-gears-reference/import-encounters.mjs
 node tools/gold-and-gears-reference/verify-encounters.mjs
 ```
 
+The complete reference pack, rule contributions, source registry, coverage,
+research boundaries, semantic fixtures and canonical file index regenerate
+with:
+
+```text
+node tools/gold-and-gears-reference/finalize-pack.mjs
+node tools/gold-and-gears-reference/verify-pack.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

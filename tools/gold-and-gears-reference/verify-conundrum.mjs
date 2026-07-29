@@ -122,7 +122,10 @@ assert(JSON.stringify(bySource.get("102").replaces_level_ids)
 assert(bySource.get("201").effect_contributions[0].value === "1",
   "Auxiliary +1 Formation count drift");
 assert(bySource.get("202").effect_contributions[0].encounter_binding_state
-  === "DeferredToG08P2B5", "Auxiliary +2 encounter boundary drift");
+  === "DataReady"
+  && bySource.get("202").effect_contributions[0].encounter_group_ids.length
+    === 12,
+"Auxiliary +2 encounter binding drift");
 assert(bySource.get("203").effect_contributions[0].value === "20"
   && bySource.get("203").source_parameters[0].value === "20",
 "Auxiliary +3 cost drift");
@@ -135,7 +138,12 @@ assert(resourceChange.countdown_delta === "-1"
   && resourceChange.cosmic_fragment_delta === "-100",
 "Auxiliary +4 resource delta drift");
 assert(bySource.get("205").effect_contributions[0].pool_binding_state
-  === "DeferredToG08P2B2", "Auxiliary +5 Curio boundary drift");
+  === "DataReady"
+  && bySource.get("205").effect_contributions[0].selection_pool_id
+    === "gold-gears.curio-pool.negative"
+  && bySource.get("205").effect_contributions[0].unresolved_pool_behavior
+    === "FailClosed",
+"Auxiliary +5 Curio binding drift");
 assert(bySource.get("206").effect_contributions[0].value === "-1"
   && bySource.get("206").effect_contributions[0].minimum_effective_count === "0",
 "Auxiliary +6 blessing-count drift");
