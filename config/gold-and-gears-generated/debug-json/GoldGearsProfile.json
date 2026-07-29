@@ -1,0 +1,298 @@
+{
+  "table": {
+    "name": "GoldGearsProfile",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ResidentActivity"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "game_version": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Gold and Gears"
+          },
+          "name_zh_cn": {
+            "String": "黄金与机械"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-rogueactivityresidentconfig-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.entry.activity.102"
+          },
+          "sub_mode": {
+            "String": "ChessRogueNous"
+          },
+          "summary_en": {
+            "String": "Resident activity 102 selects ChessRogueNous and unlock 50019."
+          },
+          "summary_zh_cn": {
+            "String": "常驻活动 102 选择 ChessRogueNous，解锁条件为 50019。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "activity-entry"
+              }
+            ]
+          },
+          "unlock_id": {
+            "String": "50019"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "DlcEntrance"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "game_version": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Gold and Gears"
+          },
+          "name_zh_cn": {
+            "String": "黄金与机械"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "reward_item_ids": {
+            "List": [
+              {
+                "String": "1"
+              },
+              {
+                "String": "236"
+              },
+              {
+                "String": "241"
+              },
+              {
+                "String": "101"
+              },
+              {
+                "String": "235"
+              },
+              {
+                "String": "213"
+              },
+              {
+                "String": "223"
+              },
+              {
+                "String": "233"
+              },
+              {
+                "String": "2"
+              }
+            ]
+          },
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcentrance-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.entry.entrance.2"
+          },
+          "sub_mode": {
+            "String": "ChessRogueNous"
+          },
+          "summary_en": {
+            "String": "DLC entrance 2 selects ChessRogueNous; reward item IDs remain presentation-only locators."
+          },
+          "summary_zh_cn": {
+            "String": "DLC 入口 2 选择 ChessRogueNous；奖励物品 ID 仅保留为展示定位信息。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "dlc-entrance"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "ModeTitle"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "game_version": "Null",
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "EntryPoint"
+          },
+          "name_en": {
+            "String": "Gold and Gears"
+          },
+          "name_zh_cn": {
+            "String": "黄金与机械"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": "Null",
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "ChessRogueNous"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguecommonmodetitle-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.entry.title.chessroguenous"
+          },
+          "sub_mode": {
+            "String": "ChessRogueNous"
+          },
+          "summary_en": {
+            "String": "Common mode-title row binds the Gold and Gears display identity."
+          },
+          "summary_zh_cn": {
+            "String": "通用模式标题行绑定黄金与机械的展示身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mode-title"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": "Null",
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "game_version": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "Profile"
+          },
+          "name_en": {
+            "String": "Simulated Universe: Gold and Gears"
+          },
+          "name_zh_cn": {
+            "String": "模拟宇宙：黄金与机械"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "reward_item_ids": "Null",
+          "runtime_enabled": {
+            "Bool": false
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": "Null",
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.project-policy.profile"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.profile.v1"
+          },
+          "sub_mode": {
+            "String": "ChessRogueNous"
+          },
+          "summary_en": {
+            "String": "Version 4.4 reference profile for the permanent ChessRogueNous activity; runtime lowering is intentionally absent."
+          },
+          "summary_zh_cn": {
+            "String": "4.4 版本常驻 ChessRogueNous 玩法资料档案；本目标明确不包含运行时降级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "candidate-reference"
+              },
+              {
+                "String": "chess-rogue-nous"
+              }
+            ]
+          },
+          "unlock_id": "Null"
+        }
+      }
+    ]
+  }
+}

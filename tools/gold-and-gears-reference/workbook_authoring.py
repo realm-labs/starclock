@@ -245,6 +245,8 @@ def style_sheet(sheet: Any, table: dict[str, Any], rows: list[dict[str, Any]], e
             cell.fill = copy(fill)
             cell.border = copy(THIN_BORDER)
             cell.alignment = Alignment(vertical="top", wrap_text=True)
+        if any(len(str(cell.value or "")) > 500 for cell in row):
+            sheet.row_dimensions[row[0].row].height = 72
     sheet.freeze_panes = "A8"
     last_column = sheet.cell(row=3, column=maximum_column).column_letter
     sheet.auto_filter.ref = f"A3:{last_column}{maximum_row}"
@@ -404,6 +406,13 @@ def verify(
                 if width is None or not 10 <= width <= 60:
                     raise ValueError(f"{name}/{sheet_name}/{letter}: invalid width {width}")
             for row in sheet.iter_rows(min_row=8):
+                contains_long_value = any(
+                    len(str(cell.value or "")) > 500 for cell in row
+                )
+                if contains_long_value and sheet.row_dimensions[row[0].row].height != 72:
+                    raise ValueError(
+                        f"{name}/{sheet_name}/{row[0].row}: long-value row height is not capped"
+                    )
                 for cell in row:
                     if cell.data_type in (TYPE_FORMULA, TYPE_ERROR):
                         raise ValueError(
@@ -471,6 +480,11 @@ def semantic_digest(directory: Path) -> str:
                 )
                 for validation in sheet.data_validations.dataValidation
             )
+            row_heights = {
+                key: value.height
+                for key, value in sheet.row_dimensions.items()
+                if value.height is not None
+            }
             payload.append(
                 [
                     name,
@@ -479,6 +493,7 @@ def semantic_digest(directory: Path) -> str:
                     str(sheet.freeze_panes),
                     sheet.auto_filter.ref,
                     widths,
+                    row_heights,
                     validations,
                 ]
             )

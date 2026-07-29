@@ -6,8 +6,8 @@
 |---|---|
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
-| Active phase | Phase 3 — Sora and Excel |
-| Active batch | `G08-P3-B6` |
+| Active phase | Phase 4 — Review and freeze |
+| Active batch | `G08-P4-B1` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -24,8 +24,8 @@
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 51 normalized files, four workbook families and 18 fixture families are machine-frozen; P1-B5 amended the manifest from 7,906 to 7,913 after correcting the Knowledge tag discriminator. |
 | Phase 1 — Unique mode systems | `Complete` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations, all 40 Neural Network nodes, all 12 Conundrum levels and all 108 Path/Resonance obligations are DataReady. |
 | Phase 2 — Content and encounters | `Complete` | All 7,913 frozen obligations are DataReady. The 51-file normalized pack contains 1,224 reference-only mechanic rules, 9,082 source records, 42 complete coverage rows, 16 nonblocking policy boundaries, 18 semantic fixture families and a canonical pack index. |
-| Phase 3 — Sora and Excel | `InProgress` | All 51 normalized families now have isolated primary Sora tables across four populated workbooks, with one repeated-field child table for Excel-safe research-gap expansion. The committed schema lock, four templates and 57 generated Rust reader/runtime/enum modules reproduce without drift. Deterministic Sora export/load and complete visual QA remain. |
-| Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
+| Phase 3 — Sora and Excel | `Complete` | All 51 normalized families have isolated primary Sora tables across four populated workbooks, with one repeated-field child table for Excel-safe research-gap expansion. The schema lock, four templates, 57 generated Rust reader/runtime/enum modules, 5,108,198-byte production bundle and 52 debug exports reproduce without drift. Every generated reader loads its table and all 52 authored sheets pass structural and rendered visual QA. |
+| Phase 4 — Review and freeze | `InProgress` | Ownership, exact-once coverage, reference, provenance, bilingual and leak audit is active. |
 
 ## Batch ledger
 
@@ -54,8 +54,8 @@
 | `G08-P3-B3` | `Complete` | This row's containing commit | Added 12 `GoldAndGearsContent.xlsx` tables for Blessings/levels, Curios/states, Occurrences/variants/choices, services, Adventure outcomes and exact encounters, plus the `GoldGearsMechanicRule` binding table in the evidence workbook. The isolated project now exposes 45 primary tables. Same-workbook Blessing, Curio, Occurrence, service and encounter relationships use typed Sora references; cross-workbook and inherited identities remain stable keys without duplicating generic semantics. Deterministic generation produced content/evidence schema digests `cb77398b…8bc7` and `2d19103e…eb02`; pinned Sora 0.3.0 check/schema-lock validation, all Goal 08 focused verifiers, the quick gate and `git diff --check` pass. |
 | `G08-P3-B4` | `Complete` | This row's containing commit | Completed the evidence workbook with source, coverage, research-gap, review-fixture, manifest and pack-index tables, bringing the isolated schema to exactly 51 primary tables matching the frozen normalized families. Pinned Sora 0.3.0 generated schema lock `b714f73c…f61b`, four multi-sheet templates with exact 23/9/12/7 partitioning and 56 formatted Rust reader/runtime/enum modules. Direct lock and Rust regeneration are byte-identical; direct templates reproduce the four required workbook families and all expected sheets. Artifact-tool inspection and representative renders confirm the seven Sora metadata rows are legible and structurally intact. All Goal 08 focused verifiers, the quick gate and `git diff --check` pass. |
 | `G08-P3-B5` | `Complete` | This row's containing commit | Added deterministic no-overwrite `openpyxl==3.1.5` authoring and structural verification for four complete workbooks. The workbooks contain 29,140 rows across 51 frozen primary tables plus one `ResearchGapAffected` child table; the child expands 5,025 repeated file/record bindings because two source arrays exceed Excel's 32,767-character cell limit. This preserves exact data without truncation and uses a typed research-gap reference plus deterministic ordinal. Pre-fill validation also corrected the Beacon/BossChoice source shape, nullable fields and composite mechanism-quality transport before Sora smoke export. All metadata rows, row values/types, stable keys, typed references, canonical decimal text, sheet order, filters, frozen panes, widths, validation lists, wrapping, formulas/errors and overwrite refusal pass. Workbook semantic digest is `d0d50108…b4083`; artifact-tool value/error scans and representative renders pass for all four workbooks. |
-| `G08-P3-B6` | `InProgress` | — | Prove deterministic Sora export/load and visual review of every sheet. |
-| `G08-P4-B1` | `Pending` | — | Audit exact-once coverage, ownership, references, provenance and bilingual fields. |
+| `G08-P3-B6` | `Complete` | This row's containing commit | Added the pinned release verifier and an isolated generated-reader loader. Two clean `openpyxl==3.1.5` generations reproduce each other and the committed workbooks byte-for-byte; two Sora 0.3.0 binary/debug exports reproduce each other and the committed outputs byte-for-byte. The 5,108,198-byte `config.sora` has SHA-256 `7d2be4bd…02c`, the 52-file debug-export digest is `24f3e801…7007`, and every one of the 52 generated readers loads a nonempty table for 29,140 total rows. Artifact-tool 2.8.6 rendered rows 1–12 across every used column of all 52 sheets; visual inspection found no remaining defect after deterministic 72-point caps were added for rows containing values longer than 500 characters. Structural verification reports workbook semantic digest `de0c2513…b3af`; the four workbook SHA-256 values are `a289bd4d…30e7`, `1965aaa1…e61`, `1c9c4479…05a3` and `17d77d0d…a0bf`. |
+| `G08-P4-B1` | `InProgress` | — | Audit exact-once coverage, ownership, references, provenance and bilingual fields. |
 | `G08-P4-B2` | `Pending` | — | Execute all semantic fixtures and approximation replacement checks. |
 | `G08-P4-B3` | `Pending` | — | Run full regeneration, drift, reader, dependency and clean-checkout acceptance. |
 | `G08-P4-B4` | `Pending` | — | Freeze final documentation, evidence and Candidate reference-bundle identity. |
@@ -145,9 +145,9 @@ Do not estimate denominators from Wiki page counts.
 - [x] Cognition, dice, Knowledge, Neural Network, Conundrum and Resonance
       Extrapolation have complete semantic fixtures.
 - [x] Encounter identities, waves and boss bindings resolve.
-- [ ] Isolated Sora schemas, templates and generated readers validate.
-- [ ] Complete `openpyxl` workbooks pass structural and visual QA.
-- [ ] Sora production/debug exports regenerate without drift and load through
+- [x] Isolated Sora schemas, templates and generated readers validate.
+- [x] Complete `openpyxl` workbooks pass structural and visual QA.
+- [x] Sora production/debug exports regenerate without drift and load through
       isolated readers.
 - [ ] Goal 03 evidence and current Standard/production bundle identities remain
       unchanged.

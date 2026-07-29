@@ -1,0 +1,103 @@
+{
+  "schema_revision": "starclock-gold-and-gears-row-v1",
+  "reviewed_at": "2026-07-29",
+  "renderer": {
+    "name": "@oai/artifact-tool",
+    "version": "2.8.6",
+    "range_policy": "rows 1-12 across every used column"
+  },
+  "workbooks": [
+    {
+      "file": "GoldAndGears.xlsx",
+      "sheets": [
+        "Profile",
+        "Area",
+        "DifficultySegment",
+        "Plane",
+        "Chessboard",
+        "MapColumn",
+        "MapNode",
+        "MapEdge",
+        "MapEvent",
+        "BlockCreateRule",
+        "Room",
+        "Domain",
+        "Beacon",
+        "BossChoice",
+        "CognitionRange",
+        "ModeConstant",
+        "DiceCategory",
+        "DiceDefinition",
+        "DicePathValue",
+        "DiceSlot",
+        "DiceFace",
+        "DiceFaceTag",
+        "KnowledgeRule"
+      ]
+    },
+    {
+      "file": "GoldAndGearsProgression.xlsx",
+      "sheets": [
+        "Secret",
+        "NeuralNetwork",
+        "ConundrumLevel",
+        "Path",
+        "Resonance",
+        "PathBoost",
+        "ResonanceExtrapolation",
+        "ResonanceInterplay",
+        "TrailblazeBonus"
+      ]
+    },
+    {
+      "file": "GoldAndGearsContent.xlsx",
+      "sheets": [
+        "Blessing",
+        "BlessingLevel",
+        "Curio",
+        "CurioState",
+        "Occurrence",
+        "OccurrenceVariant",
+        "OccurrenceChoice",
+        "Service",
+        "AdventureOutcome",
+        "EncounterGroup",
+        "EncounterWave",
+        "EnemySlot"
+      ]
+    },
+    {
+      "file": "GoldAndGearsEvidence.xlsx",
+      "sheets": [
+        "MechanicRule",
+        "SourceRecord",
+        "Coverage",
+        "ResearchGap",
+        "ResearchGapAffected",
+        "ReviewFixture",
+        "Manifest",
+        "PackIndex"
+      ]
+    }
+  ],
+  "sheet_count": 52,
+  "render_manifest_sha256": "2f3930b3ca3e2bdd9c5f8d002a77dc94fa38ef3210e4b850c046781fcc1e18b3",
+  "contact_sheet_sha256": [
+    "affb398fd0ddf760a4cd65964b0c5fe7acd535a48f77e22403076bd8c746a753",
+    "cad71d31df41b96b9fa07266194a1c7797904f420afb911358de7f391ef9f171",
+    "0946ba8c699d97a456af013a7eb9cd14df217175dfee359f064533ec44c87dc9",
+    "41eaec6a6513d24641f83e4a732d884138de3c87a0a117840112980059aef373",
+    "09c903eebce194438bb6eaa306bd573cdb7004b793d9a5aff857cdd98f34fee1",
+    "8edb03961db4681b27eec838527e963a0d9efabd26a6f59abfd8b9eb32732e2b",
+    "99b53367382b6aedbee3cbaa2a1533ae959eeb18b1acb19ea4bf10e26023744d"
+  ],
+  "checks": {
+    "all_sheets_rendered": true,
+    "metadata_rows_present": true,
+    "headers_legible": true,
+    "data_rows_present": true,
+    "alternating_fill_present": true,
+    "long_value_rows_capped": true
+  },
+  "defects": []
+}

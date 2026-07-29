@@ -1,0 +1,2005 @@
+{
+  "table": {
+    "name": "GoldGearsResonanceInterplay",
+    "rows": [
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12324"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6332993493812805353"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 7
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Destined Death"
+          },
+          "name_text_hash": {
+            "String": "17742877751688143159"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：生即无生"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1232701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612327"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612327"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "e03f2cbc81073432c4659c21e4d3aefe72c1f92623867737f12c5e597e2c6d33"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "7409b6912f43b423930ede4b1cc287080421cb311d808fb6c881e73b68e3d84f"
+          },
+          "source_id": {
+            "String": "1232701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612327"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.35\"},{\"index\":2,\"value\":\"0.5\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.63"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.41"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.387"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1232701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12323"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "7969062278988967533"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 7
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Fleeting Samadhi"
+          },
+          "name_text_hash": {
+            "String": "6098285343688720370"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：般舟三昧"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1232601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612326"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612326"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "f59ef5d815cab410df559969aa8808bb58444ffff1452c3892f9c2090b10cf8e"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "30aa175912c8aee2785cd2447d7b9b53dcba2351e1a8633266188f0a64935061"
+          },
+          "source_id": {
+            "String": "1232601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612326"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.01\"},{\"index\":2,\"value\":\"1\"},{\"index\":3,\"value\":\"2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.62"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.40"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.386"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1232601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 9
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12524"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11570117069221937166"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 5
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Protostar"
+          },
+          "name_text_hash": {
+            "String": "12618825744655832461"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：恒星胚胎"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1252701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612527"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612527"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "6b1c908aa9b7c85717c2fac4c6423c6077aab0e85ef2957459e8a2e81fb6fb2e"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "fa9b70c7d8ba812a9f986514ccc22eeb123a28350ef76406ce37fbc731bda005"
+          },
+          "source_id": {
+            "String": "1252701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612527"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"2\"},{\"index\":2,\"value\":\"0.3\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.11"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.95"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.57"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.391"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1252701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 7
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12523"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "8232029284184519085"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 5
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Nuclear Implosion"
+          },
+          "name_text_hash": {
+            "String": "5712696363947213614"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：核区坍缩"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1252601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612526"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612526"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "6256336e678925f4620e98d5c6880c027b10c3b1525f6de8a47388b07b9e4b1e"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "9d09e21b8db097ecfb6e517ffb89e7947881d0db3bf6c23e35190375ceac992a"
+          },
+          "source_id": {
+            "String": "1252601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612526"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.10"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.94"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.56"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.390"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1252601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12624"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "13471699984165155030"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 3
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Pit and Pendulum"
+          },
+          "name_text_hash": {
+            "String": "9710275452083462994"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：深坑、钟摆"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1262701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612627"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612627"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "f4b146ba5cba632e83711117ed217018c2d1bad9676b35e73e239fba0899b88b"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "34c0e43271eed23e166b78620c3f2f394c312e8e0b4f1fd151c633f5a007c488"
+          },
+          "source_id": {
+            "String": "1262701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612627"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"20\"},{\"index\":2,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.13"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.111"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.65"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.393"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1262701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 4
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12623"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17071415757945924812"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 3
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Unending Night"
+          },
+          "name_text_hash": {
+            "String": "14288467461019423341"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：夜以继夜"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1262601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612626"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612626"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "0e71ced97b8dab5ca139994c1f41f26bec84bb91a3edd27ff9e1020c36c11bca"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "0f08fc51a139955a0fdfa65e5fcf8c82556700f7d49a38439caec3f75668c999"
+          },
+          "source_id": {
+            "String": "1262601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612626"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"1\"},{\"index\":3,\"value\":\"0.05\"},{\"index\":4,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.12"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.110"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.64"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.392"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1262601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 6
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12823"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "8456353637261935263"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 9
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Full Scan"
+          },
+          "name_text_hash": {
+            "String": "4831266710792699495"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：全盘扫描"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1282601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612826"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612826"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "a2a3e28296270d7b4ed5bdf34a2fe4fc0b42838d9fcf5236f91d8218cdf4e68f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "55957bbb7826823a9c20be42c03134c65f11a39d9f20954e36c95b25e0ef0b58"
+          },
+          "source_id": {
+            "String": "1282601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612826"
+          },
+          "source_parameters_json": {
+            "String": "[]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.16"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.140"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.78"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.396"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1282601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12824"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11974203030285089501"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 9
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Data Reinforcement"
+          },
+          "name_text_hash": {
+            "String": "3416461840839992256"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：数据加固"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1282701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612827"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612827"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "ac9d9ce146adf2d95da9e3a5562b552cee729ce6022124b5f5c14546f7305747"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "f57b5cbf1233096f459487061d6fc98f2e7b7cc4af5963d379a3472abeb0b670"
+          },
+          "source_id": {
+            "String": "1282701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612827"
+          },
+          "source_parameters_json": {
+            "String": "[]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.17"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.141"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.79"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.397"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1282701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 6
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12424"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6067593309717359725"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 4
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Waiting with Drawn Bow"
+          },
+          "name_text_hash": {
+            "String": "18175380902082568641"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：张弓以待"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1242701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612427"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612427"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "9937c23ef507248218b955a15f179707ad07903187171708c98ef098a06998a2"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "d5cf8a3a0d49426464c3fa165999570efa751250b72da88a73902ac5b4ab7044"
+          },
+          "source_id": {
+            "String": "1242701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612427"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"5\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.9"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.79"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.49"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.389"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1242701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12423"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "10431771284007876659"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 4
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Solemn Snare"
+          },
+          "name_text_hash": {
+            "String": "17570387624756081120"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：肃肃罝罗"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1242601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612426"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612426"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "13f7c30d11c135c9a50b3cdf0c12e2388187e4a3b512f2048d31fabfdcda3ac9"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "cf69d86d29a86fea9f17a41c6a476cde154539a94eac56b729b8d92029187f8e"
+          },
+          "source_id": {
+            "String": "1242601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612426"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.2\"},{\"index\":2,\"value\":\"8\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.78"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.48"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.388"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1242601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 8
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12224"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17631204078967016159"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 6
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Terror and Tremble"
+          },
+          "name_text_hash": {
+            "String": "15897806584656304810"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：恐惧与颤栗"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1222701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612227"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612227"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "8612aad482fb0580d854d5327dcb9bbc32a6363b4556270418f6e663f80cc51f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "acf976817031eae0054b122491ab98c9b46a853c9380a52242bc890c49539172"
+          },
+          "source_id": {
+            "String": "1222701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612227"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.06\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.47"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.33"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.385"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1222701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 3
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12223"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "12283511723748703754"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 6
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Reign of Keys"
+          },
+          "name_text_hash": {
+            "String": "7064616531129884437"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：钥匙的统治"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1222601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612226"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612226"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "efaf7e929e274fdeeaa06c43a54a727c8d2b005db5799a0047e76c7a93127022"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "c2acb5427792d5c5dfb879efcf85dee653ed92c86f8ac3047ae9845d330cec82"
+          },
+          "source_id": {
+            "String": "1222601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612226"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.3\"},{\"index\":2,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.4"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.46"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.32"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.384"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1222601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12023"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "15961499255598065932"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Reverse Quenching"
+          },
+          "name_text_hash": {
+            "String": "18444335687258826821"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：逆淬火"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1202601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612026"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612026"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "cd563c1332ac6bf982c73066019d8214e2949a8b45b33fedd1ad1485f2b49ccc"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1fb585f99d90e197998150aac92bc610b66f1bd4726844a237b87c587366ac49"
+          },
+          "source_id": {
+            "String": "1202601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612026"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"2\"},{\"index\":3,\"value\":\"0.2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.16"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.380"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1202601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 5
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12024"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "10332775524168208247"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 1
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Displaced Ascent"
+          },
+          "name_text_hash": {
+            "String": "15716788509586920167"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：位错攀移"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1202701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612027"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612027"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "68ac19a1927da37d73c3497c2f87caa756d32eabca337bd3c5a49cd5a39aa170"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "19930d6c3fe0e74a9abbe6dfbbc21e3c1d181455c0ff0104ead6736e362d873f"
+          },
+          "source_id": {
+            "String": "1202701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612027"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.08\"},{\"index\":2,\"value\":\"8\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.1"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.17"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.381"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1202701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 9
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12723"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "4513346319726767011"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 8
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Compounded Macrospore"
+          },
+          "name_text_hash": {
+            "String": "18042140327245269714"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：复大孢子"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1272601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612726"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612726"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "937796101aa3c7370f2c60bcfe586fa0e30ab81898a97cd159650d880720aaa6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "f734779b9e10af114f3b0fcac32a1abd8e431624c2ca4dcdb88cdef798cdff20"
+          },
+          "source_id": {
+            "String": "1272601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612726"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.5\"},{\"index\":2,\"value\":\"2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.14"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.126"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.72"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.394"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1272601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 7
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12724"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2141494527336861315"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 8
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Condensation Cavity"
+          },
+          "name_text_hash": {
+            "String": "14736807370965889857"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：冷凝腔体"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1272701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612727"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612727"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "184b4b0a9ea9f36ec0e9c687151d63189e5146f2ea5afe7df447f698757b5bf0"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "808fc44b49a32b70990ccdc3eab5815430a00c4a0220723e1d830660866eb810"
+          },
+          "source_id": {
+            "String": "1272701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612727"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"},{\"index\":2,\"value\":\"0.2\"},{\"index\":3,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.15"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.127"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.73"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.395"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1272701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 2
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12123"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11527513388624248919"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 2
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Roar and Rustle"
+          },
+          "name_text_hash": {
+            "String": "13348271080417795920"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：呼喊与细语"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1212601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612126"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612126"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "714c88fb37d7ea52fd16c3ef3100fc71aa0a75cbf7b16a6ffabee0658e26d333"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "0b87047d20921ba073bceafcf586de36399f47b418d14c99f6a2308a16024069"
+          },
+          "source_id": {
+            "String": "1212601"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612126"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.4\"},{\"index\":2,\"value\":\"2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.30"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.24"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.382"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1212601"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 1
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_group_id": {
+            "String": "12124"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "1891444481084123737"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "ResonanceInterplay"
+          },
+          "main_blessing_threshold": {
+            "Integer": 3
+          },
+          "main_path_id": {
+            "Integer": 2
+          },
+          "name_en": {
+            "String": "Resonance Interplay: Seemingly Mirrored"
+          },
+          "name_text_hash": {
+            "String": "15358006597865730367"
+          },
+          "name_zh_cn": {
+            "String": "回响交错：犹在镜中"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.resonance-interplay.1212701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_maze_buff_id": {
+            "String": "612127"
+          },
+          "source_binding_key": {
+            "String": "StageAbility_612127"
+          },
+          "source_binding_type": {
+            "String": "StageAbilityBeforeCharacterBorn"
+          },
+          "source_description_sha256_en": {
+            "String": "5bca80dea5e7198f34ed6b1ea85bfa1fd8ae35a450e8dec690e322f507bd3907"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "895ae5c456153fc89e2ccf81b28c0a9d107fac793d4bdaafa971e0421e987091"
+          },
+          "source_id": {
+            "String": "1212701"
+          },
+          "source_modifier_name": {
+            "String": "ADV_StageAbility_612127"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"},{\"index\":2,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenousaeoncross-json.3"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuffgroup-json.31"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebuff-json.25"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguemazebuff-json.383"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.resonance-interplay.1212701"
+          },
+          "sub_blessing_threshold": {
+            "Integer": 3
+          },
+          "sub_path_id": {
+            "Integer": 8
+          },
+          "summary_en": {
+            "String": "This Gold and Gears Resonance Interplay combines the selected main Path with its released secondary-Path threshold."
+          },
+          "summary_zh_cn": {
+            "String": "该黄金与机械回响交错将所选主命途与已发布的副命途阈值组合。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path-resonance"
+              },
+              {
+                "String": "resonance-interplay"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

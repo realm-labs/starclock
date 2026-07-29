@@ -1,0 +1,826 @@
+{
+  "table": {
+    "name": "GoldGearsPath",
+    "rows": [
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 120
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12005"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Preservation"
+          },
+          "name_zh_cn": {
+            "String": "存护"
+          },
+          "normal_battle_event_group": {
+            "String": "12004"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 7
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612021"
+              },
+              {
+                "String": "universe.resonance.612022"
+              },
+              {
+                "String": "universe.resonance.612023"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 28
+          },
+          "sort": {
+            "Integer": 1
+          },
+          "source_id": {
+            "String": "1"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.0"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.preservation"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Preservation Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的存护命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 121
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12105"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Remembrance"
+          },
+          "name_zh_cn": {
+            "String": "记忆"
+          },
+          "normal_battle_event_group": {
+            "String": "12104"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 9
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612121"
+              },
+              {
+                "String": "universe.resonance.612122"
+              },
+              {
+                "String": "universe.resonance.612123"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 36
+          },
+          "sort": {
+            "Integer": 2
+          },
+          "source_id": {
+            "String": "2"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.1"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.remembrance"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Remembrance Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的记忆命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 126
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12605"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Elation"
+          },
+          "name_zh_cn": {
+            "String": "欢愉"
+          },
+          "normal_battle_event_group": {
+            "String": "12604"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 3
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612621"
+              },
+              {
+                "String": "universe.resonance.612622"
+              },
+              {
+                "String": "universe.resonance.612623"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 12
+          },
+          "sort": {
+            "Integer": 3
+          },
+          "source_id": {
+            "String": "7"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.2"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.elation"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Elation Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的欢愉命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 124
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12405"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "The Hunt"
+          },
+          "name_zh_cn": {
+            "String": "巡猎"
+          },
+          "normal_battle_event_group": {
+            "String": "12404"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 5
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612421"
+              },
+              {
+                "String": "universe.resonance.612422"
+              },
+              {
+                "String": "universe.resonance.612423"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 20
+          },
+          "sort": {
+            "Integer": 4
+          },
+          "source_id": {
+            "String": "5"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.3"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.4"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.hunt"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released The Hunt Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的巡猎命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 125
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12505"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Destruction"
+          },
+          "name_zh_cn": {
+            "String": "毁灭"
+          },
+          "normal_battle_event_group": {
+            "String": "12504"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 2
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612521"
+              },
+              {
+                "String": "universe.resonance.612522"
+              },
+              {
+                "String": "universe.resonance.612523"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 8
+          },
+          "sort": {
+            "Integer": 5
+          },
+          "source_id": {
+            "String": "6"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.4"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.destruction"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Destruction Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的毁灭命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 122
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12205"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Nihility"
+          },
+          "name_zh_cn": {
+            "String": "虚无"
+          },
+          "normal_battle_event_group": {
+            "String": "12204"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 6
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612221"
+              },
+              {
+                "String": "universe.resonance.612222"
+              },
+              {
+                "String": "universe.resonance.612223"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 24
+          },
+          "sort": {
+            "Integer": 6
+          },
+          "source_id": {
+            "String": "3"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.5"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.nihility"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Nihility Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的虚无命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 123
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12305"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Abundance"
+          },
+          "name_zh_cn": {
+            "String": "丰饶"
+          },
+          "normal_battle_event_group": {
+            "String": "12304"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 1
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612321"
+              },
+              {
+                "String": "universe.resonance.612322"
+              },
+              {
+                "String": "universe.resonance.612323"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 4
+          },
+          "sort": {
+            "Integer": 7
+          },
+          "source_id": {
+            "String": "4"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.6"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.abundance"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Abundance Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的丰饶命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 127
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12705"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Propagation"
+          },
+          "name_zh_cn": {
+            "String": "繁育"
+          },
+          "normal_battle_event_group": {
+            "String": "12704"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 8
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612721"
+              },
+              {
+                "String": "universe.resonance.612722"
+              },
+              {
+                "String": "universe.resonance.612723"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 32
+          },
+          "sort": {
+            "Integer": 8
+          },
+          "source_id": {
+            "String": "8"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.7"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.propagation"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Propagation Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的繁育命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "buff_type": {
+            "Integer": 128
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "enhanced_battle_event_group": {
+            "String": "12805"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "Path"
+          },
+          "name_en": {
+            "String": "Erudition"
+          },
+          "name_zh_cn": {
+            "String": "智识"
+          },
+          "normal_battle_event_group": {
+            "String": "12804"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "path_boost_id": {
+            "Integer": 4
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "shared_formation_ids": {
+            "List": [
+              {
+                "String": "universe.resonance.612821"
+              },
+              {
+                "String": "universe.resonance.612822"
+              },
+              {
+                "String": "universe.resonance.612823"
+              }
+            ]
+          },
+          "shared_resonance_id": {
+            "Integer": 16
+          },
+          "sort": {
+            "Integer": 9
+          },
+          "source_id": {
+            "String": "9"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.inherited.content-reference-standard-universe-v1-paths-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousaeon-json.8"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "universe.path.erudition"
+          },
+          "summary_en": {
+            "String": "Gold and Gears reuses the released Erudition Path identity."
+          },
+          "summary_zh_cn": {
+            "String": "黄金与机械复用已发布的智识命途身份。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "path"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

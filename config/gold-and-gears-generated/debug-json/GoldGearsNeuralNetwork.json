@@ -1,0 +1,5020 @@
+{
+  "table": {
+    "name": "GoldGearsNeuralNetwork",
+    "rows": [
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"250\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2476122351637728858"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.attack_ratio\",\"unit\":\"Ratio\",\"value\":\"0.2\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13054281870394055602"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 1
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": "Null",
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.101"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "711fb898ea4078d325eb29babd9625a03fcbb2c5aaf1f3aba0b6e4cd3651bace"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "87e40701897deb7961b7700a8f622039d131f26dfb250c038bfe1ff464f64320"
+          },
+          "source_id": {
+            "String": "101"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.2\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.0"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.101"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party ATK."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍攻击力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "17872332580203135893"
+          },
+          "topological_index": {
+            "Integer": 1
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"250\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2866613591202300416"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "10886717286743884691"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 2
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": "Null",
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.102"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "102"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.1"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.102"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "7291574021856770420"
+          },
+          "topological_index": {
+            "Integer": 2
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"250\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "5344879506896001632"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.max_hp_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13344287799225343834"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 3
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": "Null",
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.103"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "ba1ea798863b3d520845eb949c09c10bb2ee73d0d5072436399df18796229438"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "3d5a8a5115f2f8efbd729bf2856d34f6aa994746f185a9906808a030749dfcea"
+          },
+          "source_id": {
+            "String": "103"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.2"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.103"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍生命上限提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "13590958706899258249"
+          },
+          "topological_index": {
+            "Integer": 3
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17810544763371543825"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"condition\":\"previous-challenge-first-plane-completed\",\"damage_basis\":\"TargetMaxHpRatio\",\"eligible_battle_limit\":\"4\",\"eligible_section\":\"FirstPlane\",\"excluded_battle_kind\":\"Boss\",\"mechanism_quality\":\"ExactStructured\",\"operation\":\"ApplyFixedEntryDamage\",\"scope\":\"ActivityAndBattle\",\"target\":\"all-enemies\",\"timing\":\"BattleEntry\",\"value\":\"0.99\"}]"
+          },
+          "effect_domain": {
+            "String": "ActivityAndBattle"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_text_hash": {
+            "String": "5109014837342543575"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 4
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Reboot Plane"
+          },
+          "name_zh_cn": {
+            "String": "位面再启动"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.301"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.101"
+              },
+              {
+                "String": "gold-gears.neural-network-node.102"
+              },
+              {
+                "String": "gold-gears.neural-network-node.103"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.201"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "176f3c9d11fbf8e7d63d2f35b4bb33f2b946c867ecbb4ca805754644a686fef8"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1aac67827417c04b393744ab7e9195ac8f15d1f1eeb2d4b46b91cf0ad45d29df"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"4\"},{\"index\":2,\"value\":\"0.99\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.3"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.201"
+          },
+          "summary_en": {
+            "String": "This node applies fixed entry damage in the first four eligible First Plane battles after a prior First Plane clear."
+          },
+          "summary_zh_cn": {
+            "String": "该节点在上次通过第一位面后，对本次第一位面前四场符合条件的战斗施加入场固定伤害。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "15462925861562372497"
+          },
+          "topological_index": {
+            "Integer": 4
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16526463210038540328"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"from_max_rarity\":1,\"mechanism_quality\":\"ExactStructured\",\"operation\":\"UpgradeDiceFaceSlot\",\"scope\":\"Activity\",\"target\":\"gold-gears.dice-slot.5\",\"target_policy\":{\"evidence_quality\":\"ProjectPolicy\",\"mapping_basis\":\"released-slot-capability-plus-stable-slot-order\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"},\"to_max_rarity\":2,\"unit\":\"Rarity\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "13524160058607322346"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 5
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Enhance Edit Dice Faces"
+          },
+          "name_zh_cn": {
+            "String": "强化骰面编辑"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.401"
+              },
+              {
+                "String": "gold-gears.neural-network-node.402"
+              },
+              {
+                "String": "gold-gears.neural-network-node.403"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.201"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"effect_contributions[0].target\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"}]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.301"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "bebfd015056d3082e1486019118c9044d6617c16cc9f3641dd5915b23276dfc5"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "37242dac02eed658fb53053fb9af66c754f509da00a8e16db9a8b5cf3af9c4c6"
+          },
+          "source_id": {
+            "String": "301"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.4"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdiceslot-json.4"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-slot-upgrade-target"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.301"
+          },
+          "summary_en": {
+            "String": "This node raises one released dice-face slot to its next rarity limit."
+          },
+          "summary_zh_cn": {
+            "String": "该节点将一个已发布骰面槽位提升到下一稀有度上限。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "4878884864496520365"
+          },
+          "topological_index": {
+            "Integer": 5
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"500\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "13140849118927779894"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.defense_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "18255315601307404924"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 6
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.501"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.301"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.401"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "5e8b88ec87626886fca64c226b47540cda9df3a95664ccf09c858491681ea8f7"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "2ba138151ae15f62902dd516d109b53ecf116f2fef2973333c108a510d379420"
+          },
+          "source_id": {
+            "String": "401"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.5"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.401"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party DEF."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍防御力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "1049952387472515054"
+          },
+          "topological_index": {
+            "Integer": 6
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"500\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6670674849724871101"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "11403468006349531138"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 7
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.501"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.301"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.402"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "402"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.6"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.402"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "5416592813253588091"
+          },
+          "topological_index": {
+            "Integer": 7
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"500\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "12203700286456115476"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.speed_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "1904044140720482789"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 8
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "SPD Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.501"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.301"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.403"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "c59cd654d2c498810374a8d6fad61e872ca60a610c0a64bbc0e7d291f085ab7f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "752c31611491f747ccf89bec748c43d43f0ac4dee43929681eeaff6955408ab1"
+          },
+          "source_id": {
+            "String": "403"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.7"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.403"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party SPD."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍速度提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "2795341715094226475"
+          },
+          "topological_index": {
+            "Integer": 8
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17009233738227671452"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"UnlockTrailblazeBonus\",\"scope\":\"Activity\",\"target\":\"gold-gears.trailblaze-bonus.205\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "5002035638475438184"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 9
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Unlock Trailblaze Blessing"
+          },
+          "name_zh_cn": {
+            "String": "解锁开拓祝福"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.601"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.401"
+              },
+              {
+                "String": "gold-gears.neural-network-node.402"
+              },
+              {
+                "String": "gold-gears.neural-network-node.403"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.501"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "708c19b6a28c196d66da41e4b63d5115a801cf6062053bbf84de35918d3f0164"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "b9a3c838f9372db427076087282f23b447366300114dda1cf286bec7bdb7bfe3"
+          },
+          "source_id": {
+            "String": "501"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"},{\"index\":2,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.8"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.501"
+          },
+          "summary_en": {
+            "String": "This node makes one additional Gold and Gears Trailblaze Bonus selectable."
+          },
+          "summary_zh_cn": {
+            "String": "该节点使一项额外的黄金与机械开拓祝福变为可选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "9235333806549990110"
+          },
+          "topological_index": {
+            "Integer": 9
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11191068830332399390"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"UnlockTrailblazeBonus\",\"scope\":\"Activity\",\"target\":\"gold-gears.trailblaze-bonus.204\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "6629863375341956344"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 10
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Unlock Trailblaze Blessing"
+          },
+          "name_zh_cn": {
+            "String": "解锁开拓祝福"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.701"
+              },
+              {
+                "String": "gold-gears.neural-network-node.702"
+              },
+              {
+                "String": "gold-gears.neural-network-node.703"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.501"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "f7335e21fb2ab0c42c3fa810ca5b49aca6620eb5469e245e46044d4d07f46796"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "18f20bff042859444638a5fc6ee11ff9a42a7ec5effc61b0576b899650fa41c0"
+          },
+          "source_id": {
+            "String": "601"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.9"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.15"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.601"
+          },
+          "summary_en": {
+            "String": "This node makes one additional Gold and Gears Trailblaze Bonus selectable."
+          },
+          "summary_zh_cn": {
+            "String": "该节点使一项额外的黄金与机械开拓祝福变为可选。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "4117649005088055602"
+          },
+          "topological_index": {
+            "Integer": 10
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "15605166646705867105"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.attack_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "6803300154135355995"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 11
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.601"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "711fb898ea4078d325eb29babd9625a03fcbb2c5aaf1f3aba0b6e4cd3651bace"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "87e40701897deb7961b7700a8f622039d131f26dfb250c038bfe1ff464f64320"
+          },
+          "source_id": {
+            "String": "701"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.10"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.701"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party ATK."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍攻击力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "4822320119369579173"
+          },
+          "topological_index": {
+            "Integer": 11
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17215414826297208728"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13854912951803285936"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 12
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.601"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.702"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "702"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.11"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.702"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "16309578259074348547"
+          },
+          "topological_index": {
+            "Integer": 12
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11530696263408008497"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.max_hp_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "12908165893393998853"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 13
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.601"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.703"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "ba1ea798863b3d520845eb949c09c10bb2ee73d0d5072436399df18796229438"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "3d5a8a5115f2f8efbd729bf2856d34f6aa994746f185a9906808a030749dfcea"
+          },
+          "source_id": {
+            "String": "703"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.12"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.703"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍生命上限提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "14066188930278932408"
+          },
+          "topological_index": {
+            "Integer": 13
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "9076429849037237017"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddInitialCountdown\",\"scope\":\"Activity\",\"target\":\"section.countdown.initial\",\"unit\":\"Count\",\"value\":\"1\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "13080047339527592094"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 14
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Initial Countdown Increase"
+          },
+          "name_zh_cn": {
+            "String": "初始倒计时增加"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.901"
+              },
+              {
+                "String": "gold-gears.neural-network-node.902"
+              },
+              {
+                "String": "gold-gears.neural-network-node.903"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.701"
+              },
+              {
+                "String": "gold-gears.neural-network-node.702"
+              },
+              {
+                "String": "gold-gears.neural-network-node.703"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.801"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "bcc7312c7814d6f9bc572be65d471e70be3e39488c45bfc073ef4ab08b5534a8"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "8811bc684a38608fa210a84d02029135927333f89f42cc2397861a4a743c076e"
+          },
+          "source_id": {
+            "String": "801"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.801"
+          },
+          "summary_en": {
+            "String": "This node increases the countdown granted at the start of a run."
+          },
+          "summary_zh_cn": {
+            "String": "该节点提高开局获得的倒计时。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "13550348321367530594"
+          },
+          "topological_index": {
+            "Integer": 14
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "13912038740797278348"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.effect_hit_rate_ratio\",\"unit\":\"Ratio\",\"value\":\"0.15\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13091638248351300931"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 15
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Effect Hit Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果命中强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.901"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "61743673f82e9d66890b7fe5cb7f82858b5071b1f6a993f2cc08cd99b873bf60"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "bac08d42f48463abaea301be7bc68207a00a97b041878cecc13d71fdf8cd0481"
+          },
+          "source_id": {
+            "String": "901"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.15\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.14"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.901"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party Effect Hit Rate."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍效果命中提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "4474020076238264415"
+          },
+          "topological_index": {
+            "Integer": 15
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "2394605755295208807"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "17465925149457822707"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 16
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.902"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "902"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.15"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.902"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "1620263364177145199"
+          },
+          "topological_index": {
+            "Integer": 16
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "15835041249281850701"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.effect_resistance_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "12742827053467286978"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 17
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Effect RES Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果抵抗强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.801"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.903"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "0a0f75c1073672e274046420fdb646bc11924a9622af1eb892c43c3107eea512"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "0e5955b693c775da489a1616b63094fbdc6f7464be6a945762af5a1e1cdcfb63"
+          },
+          "source_id": {
+            "String": "903"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.903"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party Effect RES."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍效果抵抗提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "6902479621962908386"
+          },
+          "topological_index": {
+            "Integer": 17
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17100297031367423783"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBlessingStoreOfferCount\",\"scope\":\"Activity\",\"target\":\"transaction.blessing-store.purchasable-blessings\",\"timing\":\"EnterTransactionDomain\",\"unit\":\"Count\",\"value\":\"3\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "6145133028067630470"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 18
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Store Boost"
+          },
+          "name_zh_cn": {
+            "String": "商店强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1101"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1102"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1103"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.901"
+              },
+              {
+                "String": "gold-gears.neural-network-node.902"
+              },
+              {
+                "String": "gold-gears.neural-network-node.903"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1001"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "40e0881bdcbb2397834a01a65f5367d5fd15d216d6336404cd981b2c1da86198"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "ca23c714015f678ef023416b62197b28eb35927a85b66822941240f239f64b96"
+          },
+          "source_id": {
+            "String": "1001"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"3\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.17"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1001"
+          },
+          "summary_en": {
+            "String": "This node expands the purchasable Blessing selection in Transaction Domains."
+          },
+          "summary_zh_cn": {
+            "String": "该节点扩大交易区域中可购买祝福的选项数量。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "17320276553330618090"
+          },
+          "topological_index": {
+            "Integer": 18
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "8837574237404756819"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.defense_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "12729910136920737177"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 19
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1101"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "5e8b88ec87626886fca64c226b47540cda9df3a95664ccf09c858491681ea8f7"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "2ba138151ae15f62902dd516d109b53ecf116f2fef2973333c108a510d379420"
+          },
+          "source_id": {
+            "String": "1101"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.18"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1101"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party DEF."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍防御力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "15418058025440190272"
+          },
+          "topological_index": {
+            "Integer": 19
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "10715851556848933995"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "651629461888362056"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 20
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1102"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1102"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.19"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1102"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "14220155771836077242"
+          },
+          "topological_index": {
+            "Integer": 20
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "412879632068374219"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.speed_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "6780191792406668272"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 21
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "SPD Boost"
+          },
+          "name_zh_cn": {
+            "String": "速度强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1001"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1103"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "c59cd654d2c498810374a8d6fad61e872ca60a610c0a64bbc0e7d291f085ab7f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "752c31611491f747ccf89bec748c43d43f0ac4dee43929681eeaff6955408ab1"
+          },
+          "source_id": {
+            "String": "1103"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.20"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1103"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party SPD."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍速度提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "11117039202480273299"
+          },
+          "topological_index": {
+            "Integer": 21
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1200\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "12161711834699799564"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddRerollAttempts\",\"scope\":\"Activity\",\"target\":\"dice.reroll-attempts\",\"timing\":\"EnterNextPlane\",\"unit\":\"Count\",\"value\":\"1\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "4549230800842069752"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 22
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Boost Reroll Attempts"
+          },
+          "name_zh_cn": {
+            "String": "强化重投次数"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1301"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1302"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1303"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1101"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1102"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1103"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1201"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "104e0d98eaa51022e7e87cb39ebf4e39c2be79867eac637fd5c3192f379853d6"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "5f5247c1ffdfc95be9ad560e79fbed4f2e9e2f7b675611f880a2a9ae052d7295"
+          },
+          "source_id": {
+            "String": "1201"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.21"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1201"
+          },
+          "summary_en": {
+            "String": "This node grants an additional dice reroll when entering each later plane."
+          },
+          "summary_zh_cn": {
+            "String": "该节点在进入后续每个位面时额外提供一次骰子重投。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "400899458637712598"
+          },
+          "topological_index": {
+            "Integer": 22
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "15188245305768868924"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.critical_rate_ratio\",\"unit\":\"Ratio\",\"value\":\"0.06\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "14465041286551582551"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 23
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1301"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "fd7f4ef3f5fef10ad0509a96911da4940af448246832b4f44cb5ce7e523bf9ee"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "31b798a74d65eb52be46005309dcc840744bbf743e9027ed0706419eebaea076"
+          },
+          "source_id": {
+            "String": "1301"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.06\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.22"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1301"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party CRIT Rate."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍暴击率提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "8783643346667251336"
+          },
+          "topological_index": {
+            "Integer": 23
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "1875018274984269047"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "9813285049576269471"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 24
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1302"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1302"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.23"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1302"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "1352861761316616091"
+          },
+          "topological_index": {
+            "Integer": 24
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"700\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "423445095712817750"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.critical_damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.12\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "6657035548695872548"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 25
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1201"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1303"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "ccff0caa64c40f715e5f5284fad76e82ee9cba8111b8f215372e168d89feaebb"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "41f22968cc3193d232828ac102ddfdbddb25e5412417bc149bb1f9db3e8ec458"
+          },
+          "source_id": {
+            "String": "1303"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.12\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.24"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1303"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party CRIT DMG."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍暴击伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "5860018355450361288"
+          },
+          "topological_index": {
+            "Integer": 25
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1200\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "17649991471011494035"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"from_max_rarity\":2,\"mechanism_quality\":\"ExactStructured\",\"operation\":\"UpgradeDiceFaceSlot\",\"scope\":\"Activity\",\"target\":\"gold-gears.dice-slot.3\",\"target_policy\":{\"evidence_quality\":\"ProjectPolicy\",\"mapping_basis\":\"released-slot-capability-plus-stable-slot-order\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"},\"to_max_rarity\":3,\"unit\":\"Rarity\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "16018236934166781236"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 26
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Enhance Edit Dice Faces"
+          },
+          "name_zh_cn": {
+            "String": "强化骰面编辑"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1501"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1502"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1503"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1301"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1302"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1303"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"effect_contributions[0].target\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"}]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1401"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "262e44b617f9816d127b8bc48cc8957f3e564f9adab504e524e9db4d3c4468af"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "171d016bdc9c09d5bdbcca4907a46932a15dfe4448ec2d83163f2fa8e2790051"
+          },
+          "source_id": {
+            "String": "1401"
+          },
+          "source_parameters_json": {
+            "String": "[]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.25"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdiceslot-json.2"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-slot-upgrade-target"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1401"
+          },
+          "summary_en": {
+            "String": "This node raises one released dice-face slot to its next rarity limit."
+          },
+          "summary_zh_cn": {
+            "String": "该节点将一个已发布骰面槽位提升到下一稀有度上限。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "17530883898591221915"
+          },
+          "topological_index": {
+            "Integer": 26
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16155150197846174952"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.attack_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "8964042823127470286"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 27
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1601"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1501"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "711fb898ea4078d325eb29babd9625a03fcbb2c5aaf1f3aba0b6e4cd3651bace"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "87e40701897deb7961b7700a8f622039d131f26dfb250c038bfe1ff464f64320"
+          },
+          "source_id": {
+            "String": "1501"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.26"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1501"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party ATK."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍攻击力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "96778486287559974"
+          },
+          "topological_index": {
+            "Integer": 27
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "9848959600137947122"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "15370169381632381219"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 28
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1602"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1502"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1502"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.27"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1502"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "6059769836879767048"
+          },
+          "topological_index": {
+            "Integer": 28
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16360973079099806539"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.max_hp_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "2458561871778108254"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 29
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1603"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1401"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1503"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "ba1ea798863b3d520845eb949c09c10bb2ee73d0d5072436399df18796229438"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "3d5a8a5115f2f8efbd729bf2856d34f6aa994746f185a9906808a030749dfcea"
+          },
+          "source_id": {
+            "String": "1503"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.28"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1503"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍生命上限提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "567191384448534866"
+          },
+          "topological_index": {
+            "Integer": 29
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6917452167395082459"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.damage_taken_reduction_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "940720935869552321"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 30
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1501"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "db02227828cd8adb79e7fd2674665095ea9f4bd4f830724a70e3894587932210"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "6d2c28e2557f4bef0a6f9a3a315ac35fcd947942d58cec2c3a8a908e2c9f8975"
+          },
+          "source_id": {
+            "String": "1601"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.29"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1601"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party damage mitigation."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍伤害减免提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "7840423964930759886"
+          },
+          "topological_index": {
+            "Integer": 30
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6486589192006077506"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "5617252148347318549"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 31
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1502"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1602"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1602"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.30"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1602"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "11238419715070777201"
+          },
+          "topological_index": {
+            "Integer": 31
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"800\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "9645429094639345294"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.damage_dealt_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "16994981811597500983"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 32
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1503"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1603"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "2b8de2bd901f73050390c15c7c2bb15cbd4343473635e998e519439c0dea1ed7"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "e4a8918a56a9c3a7d2f46e424337c859368ef62576a401b1953a10f823681507"
+          },
+          "source_id": {
+            "String": "1603"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.31"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1603"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party outgoing damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍造成的伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "15927597728455923800"
+          },
+          "topological_index": {
+            "Integer": 32
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1400\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "3851541925881387237"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"exclusion\":\"PreviousResult\",\"mechanism_quality\":\"ExactStructured\",\"operation\":\"ExcludePreviousRerollResult\",\"scope\":\"Activity\",\"selection_policy\":{\"candidate_order\":\"stable-dice-face-id-ascending\",\"draw_mode\":\"seeded-from-eligible-candidates\",\"empty_candidate_behavior\":\"KeepPreviousAndConsumeAttempt\",\"evidence_quality\":\"ProjectPolicy\",\"policy_id\":\"neural-network-reroll-empty-candidate-v1\",\"replacement_condition\":\"Replace when pinned engine evidence proves enumeration, draw consumption, or empty-candidate behavior.\"},\"target\":\"dice-face-result\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Unlock"
+          },
+          "effect_tag_text_hash": {
+            "String": "1572130950330440821"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制解锁"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 33
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Reroll Function Boost"
+          },
+          "name_zh_cn": {
+            "String": "强化重投功能"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1801"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1802"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1803"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1601"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1602"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1603"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"effect_contributions[0].selection_policy\",\"policy_id\":\"neural-network-reroll-empty-candidate-v1\",\"replacement_condition\":\"Replace when pinned engine evidence proves reroll enumeration, draw consumption, or empty-candidate behavior.\"}]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1701"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "44ec826771821e06f0e69deae1f996ac579e4b437a24c732b21d3eed463133ce"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "e8f1a68ef490aafb9c633a6ed37a729058d7b491f31f2b87bb12facd5539d58e"
+          },
+          "source_id": {
+            "String": "1701"
+          },
+          "source_parameters_json": {
+            "String": "[]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.32"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-reroll-empty-candidate"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1701"
+          },
+          "summary_en": {
+            "String": "This node prevents a reroll from returning the immediately previous dice face."
+          },
+          "summary_zh_cn": {
+            "String": "该节点阻止重投再次得到紧邻的上一次骰面结果。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "18387293623507445521"
+          },
+          "topological_index": {
+            "Integer": 33
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "5229906457712022165"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.attack_ratio\",\"unit\":\"Ratio\",\"value\":\"0.1\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "5564751438144111856"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 34
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1901"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1801"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "711fb898ea4078d325eb29babd9625a03fcbb2c5aaf1f3aba0b6e4cd3651bace"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "87e40701897deb7961b7700a8f622039d131f26dfb250c038bfe1ff464f64320"
+          },
+          "source_id": {
+            "String": "1801"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.1\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.33"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1801"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party ATK."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍攻击力提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "2813185278503233754"
+          },
+          "topological_index": {
+            "Integer": 34
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "26204525491962880"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "3377050052526402984"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 35
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1902"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1802"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1802"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.34"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1802"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "16801462519968314002"
+          },
+          "topological_index": {
+            "Integer": 35
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "8318221033510437896"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.max_hp_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13727036099690809051"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 36
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1903"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1701"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1803"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "ba1ea798863b3d520845eb949c09c10bb2ee73d0d5072436399df18796229438"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "3d5a8a5115f2f8efbd729bf2856d34f6aa994746f185a9906808a030749dfcea"
+          },
+          "source_id": {
+            "String": "1803"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.35"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1803"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party maximum HP."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍生命上限提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "10385481981656927556"
+          },
+          "topological_index": {
+            "Integer": 36
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "1985915032533009829"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.damage_taken_reduction_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "18445105784431355209"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 37
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DMG Mitigation Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害减免强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.2001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1801"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1901"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "db02227828cd8adb79e7fd2674665095ea9f4bd4f830724a70e3894587932210"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "6d2c28e2557f4bef0a6f9a3a315ac35fcd947942d58cec2c3a8a908e2c9f8975"
+          },
+          "source_id": {
+            "String": "1901"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.36"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1901"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party damage mitigation."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍伤害减免提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "5366003079026441336"
+          },
+          "topological_index": {
+            "Integer": 37
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "6142953503016904720"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"path-resonance.damage_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "13839535106803169865"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 38
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Path Resonance Boost"
+          },
+          "name_zh_cn": {
+            "String": "命途回响强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.2001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1802"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1902"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "83ffd1e30b7b1beb2e3f3f176098b8e76542a7c9d3d7cbba6a8985f69b63285a"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "49f902eeb42dbda1913ed0c596c47c8ee6f6f50713186d716c4ce6e845a8e8ec"
+          },
+          "source_id": {
+            "String": "1902"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.37"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1902"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to Path Resonance damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为命途回响伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "2618604009176467940"
+          },
+          "topological_index": {
+            "Integer": 38
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1000\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "4183496576746248767"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddBattleStatRatio\",\"scope\":\"Battle\",\"stacking\":\"AdditiveContribution\",\"target\":\"party.damage_dealt_ratio\",\"unit\":\"Ratio\",\"value\":\"0.05\"}]"
+          },
+          "effect_domain": {
+            "String": "Battle"
+          },
+          "effect_tag_en": {
+            "String": "Combat Ability Amplification"
+          },
+          "effect_tag_text_hash": {
+            "String": "1646810489138342995"
+          },
+          "effect_tag_zh_cn": {
+            "String": "战斗能力增幅"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 39
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "伤害强化"
+          },
+          "next_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.2001"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1803"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.1903"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "2b8de2bd901f73050390c15c7c2bb15cbd4343473635e998e519439c0dea1ed7"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "e4a8918a56a9c3a7d2f46e424337c859368ef62576a401b1953a10f823681507"
+          },
+          "source_id": {
+            "String": "1903"
+          },
+          "source_parameters_json": {
+            "String": "[{\"index\":1,\"value\":\"0.05\"}]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.38"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.1903"
+          },
+          "summary_en": {
+            "String": "This Neural Network node adds a persistent ratio increase to party outgoing damage."
+          },
+          "summary_zh_cn": {
+            "String": "该神经网络节点为队伍造成的伤害提供持续比例增幅。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "7325549269917143034"
+          },
+          "topological_index": {
+            "Integer": 39
+          }
+        }
+      },
+      {
+        "values": {
+          "costs_json": {
+            "String": "[{\"amount\":\"1600\",\"source_item_id\":\"281013\"}]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "11175728874632838141"
+          },
+          "disposition": {
+            "String": "MechanicallyRelevant"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"from_max_rarity\":1,\"mechanism_quality\":\"ExactStructured\",\"operation\":\"UpgradeDiceFaceSlot\",\"scope\":\"Activity\",\"target\":\"gold-gears.dice-slot.6\",\"target_policy\":{\"evidence_quality\":\"ProjectPolicy\",\"mapping_basis\":\"released-slot-capability-plus-stable-slot-order\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"},\"to_max_rarity\":2,\"unit\":\"Rarity\"}]"
+          },
+          "effect_domain": {
+            "String": "Activity"
+          },
+          "effect_tag_en": {
+            "String": "Additional Mechanism Boost"
+          },
+          "effect_tag_text_hash": {
+            "String": "9745656971056833639"
+          },
+          "effect_tag_zh_cn": {
+            "String": "附加机制强化"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "external_unlock_ids": "Null",
+          "id": {
+            "Integer": 40
+          },
+          "important": {
+            "Bool": false
+          },
+          "kind": {
+            "String": "NeuralNetworkNode"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Enhance Edit Dice Faces"
+          },
+          "name_zh_cn": {
+            "String": "强化骰面编辑"
+          },
+          "next_ids": "Null",
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "prerequisite_ids": {
+            "List": [
+              {
+                "String": "gold-gears.neural-network-node.1901"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1902"
+              },
+              {
+                "String": "gold-gears.neural-network-node.1903"
+              }
+            ]
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"effect_contributions[0].target\",\"policy_id\":\"neural-network-slot-upgrade-target-v1\",\"replacement_condition\":\"Replace when pinned engine evidence exposes the exact talent-to-slot link.\"}]"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.neural-network.2001"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "bebfd015056d3082e1486019118c9044d6617c16cc9f3641dd5915b23276dfc5"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "37242dac02eed658fb53053fb9af66c754f509da00a8e16db9a8b5cf3af9c4c6"
+          },
+          "source_id": {
+            "String": "2001"
+          },
+          "source_parameters_json": {
+            "String": "[]"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguenoustalent-json.39"
+              },
+              {
+                "String": "source.goal08.exceloutput-roguenousdiceslot-json.5"
+              },
+              {
+                "String": "source.goal08.project-policy.neural-network-slot-upgrade-target"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.neural-network-node.2001"
+          },
+          "summary_en": {
+            "String": "This node raises one released dice-face slot to its next rarity limit."
+          },
+          "summary_zh_cn": {
+            "String": "该节点将一个已发布骰面槽位提升到下一稀有度上限。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "mechanically-relevant"
+              },
+              {
+                "String": "neural-network"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "17479091930698356755"
+          },
+          "topological_index": {
+            "Integer": 40
+          }
+        }
+      }
+    ]
+  }
+}

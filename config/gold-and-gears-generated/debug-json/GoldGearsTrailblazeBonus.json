@@ -1,0 +1,397 @@
+{
+  "table": {
+    "name": "GoldGearsTrailblazeBonus",
+    "rows": [
+      {
+        "values": {
+          "bonus_event_id": {
+            "String": "3010"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "12463117809645893657"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddCosmicFragments\",\"scope\":\"Activity\",\"unit\":\"CosmicFragment\",\"value\":\"150\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Fragmented Universe"
+          },
+          "name_zh_cn": {
+            "String": "破碎宇宙"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.trailblaze-bonus.201"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "96187135ff857856646a689970f1edeb5855f4cb9ffc1436d677a3624833204f"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "33a64233de6f9e158f8e1c80fc707f860486489b88bec02c0b658976ac2b4177"
+          },
+          "source_id": {
+            "String": "201"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.12"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.trailblaze-bonus.201"
+          },
+          "summary_en": {
+            "String": "This selectable Trailblaze Bonus grants the released Fragmented Universe effect."
+          },
+          "summary_zh_cn": {
+            "String": "该可选开拓祝福提供已发布的破碎宇宙效果。"
+          },
+          "tag_text_hash": {
+            "String": "15408891951469890623"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "11340259321226999772"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_event_id": {
+            "String": "3020"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "5547132435524916631"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"choice_count\":\"1\",\"maximum_rarity\":\"2\",\"mechanism_quality\":\"ExactStructured\",\"minimum_rarity\":\"1\",\"operation\":\"OfferRandomBlessing\",\"pool_binding_state\":\"DeferredToG08P2B1\",\"scope\":\"Activity\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Blessing Universe"
+          },
+          "name_zh_cn": {
+            "String": "祝福宇宙"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.trailblaze-bonus.202"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "8f3041e1faf038132d25ae517d8a5307862f48294364458b42dbca453878e1cf"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "1c474525db613a182f6ed5356fb88e82c8e5e671b45c7d01e89138744ed28400"
+          },
+          "source_id": {
+            "String": "202"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.13"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.trailblaze-bonus.202"
+          },
+          "summary_en": {
+            "String": "This selectable Trailblaze Bonus grants the released Blessing Universe effect."
+          },
+          "summary_zh_cn": {
+            "String": "该可选开拓祝福提供已发布的祝福宇宙效果。"
+          },
+          "tag_text_hash": {
+            "String": "6921704205534929709"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "9387508153186094094"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_event_id": {
+            "String": "3030"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "16078356971685047286"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"choice_count\":\"1\",\"mechanism_quality\":\"ExactStructured\",\"operation\":\"OfferRandomCurio\",\"pool_binding_state\":\"DeferredToG08P2B2\",\"scope\":\"Activity\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Miracle Universe"
+          },
+          "name_zh_cn": {
+            "String": "神奇宇宙"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.trailblaze-bonus.203"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "22cd86c4bf18282c21aaee6a4e28884ca7c44797787927ef0b2f9e4334061f35"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "68d112bf1e466230bf8b5d632e6be6b815a14122ad35802fbc272bbc048fd530"
+          },
+          "source_id": {
+            "String": "203"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.14"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.trailblaze-bonus.203"
+          },
+          "summary_en": {
+            "String": "This selectable Trailblaze Bonus grants the released Miracle Universe effect."
+          },
+          "summary_zh_cn": {
+            "String": "该可选开拓祝福提供已发布的神奇宇宙效果。"
+          },
+          "tag_text_hash": {
+            "String": "8483272288496419289"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "7201648256849815075"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_event_id": {
+            "String": "3040"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "209000328659837597"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"mechanism_quality\":\"ExactStructured\",\"operation\":\"AddDiceCheatAttempts\",\"scope\":\"Activity\",\"unit\":\"Count\",\"value\":\"1\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Inorganic Universe"
+          },
+          "name_zh_cn": {
+            "String": "无机宇宙"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.trailblaze-bonus.204"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "04615b2378840dc25e259ca1ed201cc822b5c54663ac9ca885d8f3cb9dd4a684"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "dc146023eb17e9b815eafdf10706cabcea87d2568f773aaa3b4c7dad49c30885"
+          },
+          "source_id": {
+            "String": "204"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.15"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.trailblaze-bonus.204"
+          },
+          "summary_en": {
+            "String": "This selectable Trailblaze Bonus grants the released Inorganic Universe effect."
+          },
+          "summary_zh_cn": {
+            "String": "该可选开拓祝福提供已发布的无机宇宙效果。"
+          },
+          "tag_text_hash": {
+            "String": "5372985468598040327"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "2725493186881235547"
+          }
+        }
+      },
+      {
+        "values": {
+          "bonus_event_id": {
+            "String": "3050"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "description_text_hash": {
+            "String": "9064588664214508064"
+          },
+          "effect_contributions_json": {
+            "String": "[{\"grants\":[{\"category\":\"Negative\",\"count\":\"1\"},{\"category\":\"ErrorCode\",\"count\":\"1\"}],\"mechanism_quality\":\"ExactStructured\",\"operation\":\"GrantCuriosByCategory\",\"pool_binding_state\":\"DeferredToG08P2B2\",\"scope\":\"Activity\"}]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "TrailblazeBonus"
+          },
+          "name_en": {
+            "String": "Equilibrium Universe"
+          },
+          "name_zh_cn": {
+            "String": "均衡宇宙"
+          },
+          "ownership": {
+            "String": "GoldAndGears"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.trailblaze-bonus.205"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_description_sha256_en": {
+            "String": "d8452130be849c1b5358aa5301e1954ebaf1cb64c16ef5f4b63af01ac0c25ddc"
+          },
+          "source_description_sha256_zh_cn": {
+            "String": "ae7632f105f97af4ca84bb34aa19bffe6379e159a2567591edf7f3d8be015113"
+          },
+          "source_id": {
+            "String": "205"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguebonus-json.16"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.trailblaze-bonus.205"
+          },
+          "summary_en": {
+            "String": "This selectable Trailblaze Bonus grants the released Equilibrium Universe effect."
+          },
+          "summary_zh_cn": {
+            "String": "该可选开拓祝福提供已发布的均衡宇宙效果。"
+          },
+          "tag_text_hash": {
+            "String": "540524198340375176"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "trailblaze-bonus"
+              }
+            ]
+          },
+          "title_text_hash": {
+            "String": "7097375735468072356"
+          }
+        }
+      }
+    ]
+  }
+}

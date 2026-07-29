@@ -1,0 +1,971 @@
+{
+  "table": {
+    "name": "GoldGearsAdventureOutcome",
+    "rows": [
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "4400"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Trotter Catch — Room 1210601"
+          },
+          "name_zh_cn": {
+            "String": "扑满捕捉挑战·房间1210601"
+          },
+          "objective_metric": {
+            "String": "Points"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '2000'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '3600'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "2001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.1210601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.1210601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "1210601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.1"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.162"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.1210601"
+          },
+          "summary_en": {
+            "String": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguecapturemonster"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "4400"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Trotter Catch — Room 2110601"
+          },
+          "name_zh_cn": {
+            "String": "扑满捕捉挑战·房间2110601"
+          },
+          "objective_metric": {
+            "String": "Points"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '2000'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '3600'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "2001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.2110601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.2110601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2110601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.2"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.620"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.2110601"
+          },
+          "summary_en": {
+            "String": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguecapturemonster"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueCaptureMonster"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "4400"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Trotter Catch — Room 2320601"
+          },
+          "name_zh_cn": {
+            "String": "扑满捕捉挑战·房间2320601"
+          },
+          "objective_metric": {
+            "String": "Points"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '2000'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '3600'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "2001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.2320601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.2320601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2320601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.0"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.1004"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.2320601"
+          },
+          "summary_en": {
+            "String": "Trotter Catch uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "扑满捕捉挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguecapturemonster"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "30"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Barrel Breaker Challenge — Room 1210602"
+          },
+          "name_zh_cn": {
+            "String": "破坏物挑战·房间1210602"
+          },
+          "objective_metric": {
+            "String": "DestroyedObjects"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '15'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '30'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "1002"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.1210602"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.1210602"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "1210602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.4"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.163"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.1210602"
+          },
+          "summary_en": {
+            "String": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguedestroyprop"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "30"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Barrel Breaker Challenge — Room 1310601"
+          },
+          "name_zh_cn": {
+            "String": "破坏物挑战·房间1310601"
+          },
+          "objective_metric": {
+            "String": "DestroyedObjects"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '15'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '30'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "1003"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.1310601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.1310601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "1310601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.5"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.420"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.1310601"
+          },
+          "summary_en": {
+            "String": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguedestroyprop"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueDestroyProp"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "30"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Barrel Breaker Challenge — Room 2000601"
+          },
+          "name_zh_cn": {
+            "String": "破坏物挑战·房间2000601"
+          },
+          "objective_metric": {
+            "String": "DestroyedObjects"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '15'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '30'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "1001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.2000601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.2000601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2000601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.3"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.528"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.2000601"
+          },
+          "summary_en": {
+            "String": "Barrel Breaker Challenge uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "破坏物挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "roguedestroyprop"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Allowed"
+          },
+          "time_limit_seconds": {
+            "String": "30"
+          }
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueEscapeLaser"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "6"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Avoiding the Beams Challenge — Room 2210601"
+          },
+          "name_zh_cn": {
+            "String": "躲避光束挑战·房间2210601"
+          },
+          "objective_metric": {
+            "String": "EvadedCycles"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '4'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '6'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "4001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.2210601"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.2210601"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2210601"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.7"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.841"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.2210601"
+          },
+          "summary_en": {
+            "String": "Avoiding the Beams Challenge uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "躲避光束挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "rogueescapelaser"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "Disabled"
+          },
+          "time_limit_seconds": "Null"
+        }
+      },
+      {
+        "values": {
+          "adventure_type": {
+            "String": "RogueTurntable"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "downloader_service_id": {
+            "Integer": 11
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "AdventureOutcome"
+          },
+          "maximum_value": {
+            "String": "3"
+          },
+          "mechanism_quality": {
+            "String": "ExactStructured"
+          },
+          "name_en": {
+            "String": "Lucky Compass Challenge — Room 2110602"
+          },
+          "name_zh_cn": {
+            "String": "幸运罗盘挑战·房间2110602"
+          },
+          "objective_metric": {
+            "String": "AlignedHands"
+          },
+          "objective_thresholds": {
+            "List": [
+              {
+                "String": "{'objective': 1, 'minimum_value': '2'}"
+              },
+              {
+                "String": "{'objective': 2, 'minimum_value': '3'}"
+              }
+            ]
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "parameter_group_id": {
+            "String": "3001"
+          },
+          "quality_overrides_json": {
+            "String": "[{\"evidence_quality\":\"ProjectPolicy\",\"field\":\"reward_selection_policy\",\"policy_id\":\"adventure-reward-selection-v1\",\"replacement_condition\":\"Replace when pinned reward tables expose fragment and candidate selection.\"}]"
+          },
+          "reward_selection_policy_json": {
+            "String": "{\"candidate_order\":\"stable-source-id\",\"fragment_range_selection\":\"seeded-integer-inclusive\",\"policy_id\":\"adventure-reward-selection-v1\",\"randomness\":\"seeded-activity-stream\",\"unresolved_pool_behavior\":\"FailClosed\"}"
+          },
+          "reward_tiers_json": {
+            "String": "[{\"maximum_value\":\"150\",\"minimum_objectives\":0,\"minimum_value\":\"100\",\"operation\":\"AddCosmicFragments\",\"tier\":1},{\"minimum_objectives\":1,\"offer_pool_id\":\"gold-gears.blessing-pool.rarity.2\",\"operation\":\"OfferBlessingChoice\",\"rarity\":\"2\",\"selected_count\":\"1\",\"tier\":2},{\"minimum_objectives\":2,\"offer_pool_id\":\"gold-gears.curio-pool.normal\",\"operation\":\"OfferCurioChoice\",\"selected_count\":\"1\",\"tier\":3}]"
+          },
+          "rewards_are_cumulative": {
+            "Bool": true
+          },
+          "room_stable_key": {
+            "String": "gold-gears.room.2110602"
+          },
+          "rule_contribution_id": {
+            "String": "gold-gears.rule.adventure-outcome.2110602"
+          },
+          "schema_revision": {
+            "String": "starclock.gold-and-gears-row.v1"
+          },
+          "source_id": {
+            "String": "2110602"
+          },
+          "source_refs": {
+            "List": [
+              {
+                "String": "source.goal08.exceloutput-roguedlcadventureroom-json.6"
+              },
+              {
+                "String": "source.goal08.inherited.content-reference-gold-and-gears-v1-rooms-json.621"
+              },
+              {
+                "String": "source.goal08.public.gold-gears-shops-and-adventure-rewards"
+              },
+              {
+                "String": "source.goal08.project-policy.adventure-reward-selection"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "gold-gears.adventure-outcome.2110602"
+          },
+          "summary_en": {
+            "String": "Lucky Compass Challenge uses two exact objective thresholds and three cumulative reward tiers."
+          },
+          "summary_zh_cn": {
+            "String": "幸运罗盘挑战使用两个精确目标阈值和三个累积奖励层级。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "adventure"
+              },
+              {
+                "String": "rogueturntable"
+              },
+              {
+                "String": "shared"
+              }
+            ]
+          },
+          "technique_rule": {
+            "String": "NotApplicable"
+          },
+          "time_limit_seconds": "Null"
+        }
+      }
+    ]
+  }
+}
