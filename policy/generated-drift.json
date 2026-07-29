@@ -86,24 +86,8 @@
       "command": ["node", "tools/goal07/verify-release-audits.mjs"]
     },
     {
-      "name": "Goal 07 foundation contract",
-      "command": ["node", "tools/goal07/verify-foundation.mjs"]
-    },
-    {
-      "name": "Goal 07 retained mechanics audit",
-      "command": ["node", "tools/goal07/verify-retained-audit.mjs"]
-    },
-    {
-      "name": "Goal 07 content partition manifest",
-      "command": ["node", "tools/goal07/verify-partitions.mjs"]
-    },
-    {
-      "name": "Goal 07 Phase 0 evidence and release baseline",
-      "command": ["node", "tools/goal07/verify-phase0.mjs"]
-    },
-    {
-      "name": "Goal 07 trigger timing and cause runtime",
-      "command": ["node", "tools/goal07/verify-phase1-b1.mjs"]
+      "name": "Goal 07 released completion contract",
+      "command": ["node", "tools/goal07/verify-release-contract.mjs", ".", "--release"]
     },
     {
       "name": "Standard Universe bundle-loader dependency policy",
