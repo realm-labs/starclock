@@ -8,10 +8,10 @@
 | State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G09-P0-B2` |
+| Next unblocked batch | `G09-P0-B3` |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
-| Existing focused inventory | 32 hashed `RogueDLC*` tables; shared framework, denominator not yet frozen |
+| Focused inventory | 2,882 pinned files; content-row denominator not yet frozen |
 | Content lane | `Experimental`; target reference bundle `Candidate` |
 | Workbook adapter | Python `openpyxl`; Sora 0.3.0 remains authoritative |
 | Parallel condition | Separate branch/worktree and isolated Goal 09 artifacts while Goals 07 or 08 are active |
@@ -22,7 +22,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot, the 32-row shared-DLC seed, a commit-backed Goal 08 ownership checkpoint, Candidate-only scope and six isolated Goal 09 artifact roots are frozen; focused inventory, denominator and authoring contracts remain. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03 snapshot, a commit-backed Goal 08 ownership checkpoint, Candidate-only scope, six isolated artifact roots and the 2,882-file focused source closure are frozen; row-level denominator and authoring contracts remain. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting topology, domains/beacons, countdown/Planar Disarray, Audience Dice, Communing Device/Trail, Pathstrider and Resonance Interplay data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -33,7 +33,7 @@
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
 | `G09-P0-B1` | `Complete` | This row's containing commit | `verify-foundation.mjs`, immutable-snapshot verification and the quick repository gate pass. Froze Goal 03 commit/tree, Version 4.4 source revisions, 32 shared-framework `RogueDLC` seed rows, 29 batches, Candidate-only scope and six isolated artifact roots. The Goal 08 checkpoint is commit `457d05f0…f5ecd` with 7,913 manifest obligations (7,199 Gold-owned; 714 shared); its concurrent uncommitted P1-B8 work is excluded. The full source-cache gate reaches the immutable Goal 06 contract before repeating its known `Cargo.lock baseline differs` failure. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B2 starts. |
-| `G09-P0-B2` | `Pending` | — | Generate the focused released-source inventory and mechanic-evidence closure. |
+| `G09-P0-B2` | `Complete` | This row's containing commit | Generated and rechecked `source-inventory.json` (`fe52861f…207dc`, 1,128,842 bytes): all 2,646 Goal 03 source paths plus 224 DLC topology configs, StageConfig, EN/CHS TextMaps and nine bilingual StarRailRes indexes. The 2,882-file closure contains 32 `RogueDLC` tables, six direct Swarm ability files, 109 non-`MapRepo160` topology candidates, 115 Gold topology exclusions and 2,404 shared mechanic/level candidates; raw Git blob hashing removes checkout-EOL variance. Focused and quick gates pass; the requested full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` failure. The containing commit is published to `origin/codex/goal09-swarm-disaster-reference`; post-push remote-ref verification must equal local `HEAD` before P0-B3 starts. |
 | `G09-P0-B3` | `Pending` | — | Freeze concrete manifests, counts, ownership, shared reachability and Gold-mode exclusions. |
 | `G09-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
 | `G09-P1-B1` | `Pending` | — | Import entry, difficulties, planes, map topology and terminal rules. |
@@ -102,12 +102,13 @@ Do not estimate denominators from Wiki page counts or raw table sizes.
 | 2026-07-29 | Require every completed batch commit to be pushed before the next batch begins. | Keeps the resumable ledger and artifacts visible from other machines and prevents unpublished local progress from becoming the effective source of truth. |
 | 2026-07-29 | Pin Goal 08 ownership only at committed revision `457d05f0e3a7b6fe3abb7e8f142f96fa271f5ecd`. | The parallel worktree had P1-B8 changes in progress; using the committed manifest keeps Goal 09 reproducible and avoids treating another goal's unpublished rows as evidence. |
 | 2026-07-29 | Treat active Goal 08, Goal 09 and Goal 10 worktrees as safely parallel only through disjoint artifact roots. | Branch separation prevents history collisions, while the protected-root verifier prevents shared manifests, workbooks and generated outputs from being mutated accidentally. |
+| 2026-07-29 | Hash focused inventory files from raw Git blobs and retain all 224 DLC topology configs. | Git blob bytes avoid checkout-EOL drift; keeping 109 Swarm candidates and 115 `MapRepo160` Gold exclusions makes the shared-framework boundary auditable without treating either prefix as membership proof. |
 
 ## Research cases
 
 | ID | State | Question | Owner |
 |---|---|---|---|
-| `G09-R01` | `Open` | Which `ChessRogue` topology, shared Rogue, TextMap, StageConfig and ability files complete the thirty-two-table `RogueDLC` starting inventory? | P0-B2 |
+| `G09-R01` | `Closed` | The focused closure is 2,873 pinned Dimbreath files plus nine bilingual StarRailRes indexes: it includes all Goal 03 paths, 224 DLC configs, StageConfig, TextMaps, 32 `RogueDLC` tables and six direct Swarm ability files. Row-level reachability remains deliberately assigned to `G09-R02`/P0-B3. | P0-B2 |
 | `G09-R02` | `Open` | What exact selectors and ownership rules separate Swarm-owned, shared, Gold-owned, evidence-only and other-mode rows? | P0-B3 |
 | `G09-R03` | `Open` | Which map edges, generation weights, replacement rules and legal movement relationships are released versus inferred? | P1-B1–B2 |
 | `G09-R04` | `Open` | At which operation boundaries is countdown adjusted, clamped/carried and converted into each Planar Disarray/decay level? | P1-B3 |
