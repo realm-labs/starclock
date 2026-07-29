@@ -63,6 +63,13 @@ node tools/gold-and-gears-reference/import-paths.mjs
 node tools/gold-and-gears-reference/verify-paths.mjs
 ```
 
+The inherited shared Blessing pool and both authored levels regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-blessings.mjs
+node tools/gold-and-gears-reference/verify-blessings.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
