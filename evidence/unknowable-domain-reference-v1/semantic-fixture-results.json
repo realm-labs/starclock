@@ -1,0 +1,1659 @@
+{
+  "schema_revision": "starclock.unknowable-domain-semantic-fixture-results.v1",
+  "goal_id": "unknowable-domain-reference-v1",
+  "executed_at": "2026-07-29",
+  "result": "pass",
+  "inputs": {
+    "fixture_contract_sha256": "ff5e508bbff5774b029a48e127094da0db168e64313c33d32f4eaf5ac75e38d6",
+    "normalized_schema_sha256": "ee8e0d371e3ce8fa91fa9a308dc7968613b8edd29216f725f0c02c4b97de8d18",
+    "fixture_data_sha256": "cd79eb01bb8e5315aaa067bb8d811e297a713a49d352d5f0de0ce36aa268eaea",
+    "research_gap_data_sha256": "5521b0f1f1f98b9e3a207f906bc0f3bd1222bf97f8dabc72db9f33406dceadd1",
+    "mechanic_rule_data_sha256": "0726ced581949b46fafd49d0abb4ecdde9183cb52993bbe165a6c3afc32dc8b6"
+  },
+  "summary": {
+    "required_families": 24,
+    "executed_fixtures": 24,
+    "ordered_operations": 93,
+    "assertions": 93,
+    "source_record_bindings": 66,
+    "evidence_bindings": 126,
+    "mechanic_rules": 41,
+    "approximation_boundaries": 29,
+    "replacement_conditions_verified": 29,
+    "affected_policy_record_bindings": 191,
+    "policy_quality_rows": 178,
+    "research_gaps": 24,
+    "blocking_gaps": 0,
+    "runtime_executions": 0,
+    "failed_assertions": 0
+  },
+  "mechanic_rule_families": {
+    "area-layer-room-transition": 3,
+    "component-reforge": 1,
+    "encounter-selection": 1,
+    "scepter-activation": 14,
+    "scepter-charge-and-speed": 8,
+    "service-and-adventure": 2,
+    "simultaneous-trigger-order": 8,
+    "talent-and-unlock": 3,
+    "workbench-offer-and-cost": 1
+  },
+  "fixtures": [
+    {
+      "fixture_id": "unknowable-domain.review-fixture.alignment-selection",
+      "family_id": "alignment-selection",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 9,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "four Alignments",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "offered pool",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "no legal selection",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-alignment-selection"
+      ],
+      "trace_sha256": "b75637a133a7e04edb0d701822e8ee76c73fd37ada80d9e889fc530f74613aa1",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.area-layer-room-transition",
+      "family_id": "area-layer-room-transition",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 5,
+      "evidence_binding_count": 6,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "ordered transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "carry",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "reset",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "illegal transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+        "source.goal10.project-policy.stage-flow"
+      ],
+      "trace_sha256": "731442bbbf9cdf89fefc7fa23bc77e7c3db85c8aea514434b1a05abaf314dfb1",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.component-insertion-removal-replacement",
+      "family_id": "component-insertion-removal-replacement",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 4,
+      "evidence_binding_count": 3,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "insert",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "remove",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "replace",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "locked Component",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.loadout-transition-policy-v1",
+        "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement"
+      ],
+      "trace_sha256": "8c671a0788f8068b43eb454bc61d96a0db40af995c028813cc7cbf9892dc1e2c",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.component-reforge",
+      "family_id": "component-reforge",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 3,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "candidate set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "cost",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "replacement",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "empty candidate",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.component-transformation-policy-v1",
+        "source.goal10.project-policy.semantic-fixture-component-reforge"
+      ],
+      "trace_sha256": "27898e4418df21766278a4f0deb051278064a65528032cb03ad1fd8a469eca8a",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.component-slot-legality",
+      "family_id": "component-slot-legality",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 6,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "shape",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "range",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "slot type",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "rejected insertion",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-component-slot-legality"
+      ],
+      "trace_sha256": "7ed9047b10bf707a04fcf014ca2947f5098b8fdb56ca108c25d8fba41e87dc72",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.component-synthesis",
+      "family_id": "component-synthesis",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 1,
+      "evidence_binding_count": 3,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "input count",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "consumption",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "output pool",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "no legal output",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.component-transformation-policy-v1",
+        "source.goal10.project-policy.semantic-fixture-component-synthesis"
+      ],
+      "trace_sha256": "fad148f2e65f587e571101f04de7c58639e48d396e2b8c310dc2070e55775f4f",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.component-upgrade",
+      "family_id": "component-upgrade",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 3,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "level transition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "cost",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "cap",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "ordering",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.component-transformation-policy-v1",
+        "source.goal10.project-policy.semantic-fixture-component-upgrade"
+      ],
+      "trace_sha256": "dcaf5bf9434615cd45656f040cdba8b7650c6af5ce3b08fef2c3190baac07f34",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.cross-battle-carry-reset",
+      "family_id": "cross-battle-carry-reset",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 5,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "state slot",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "carry boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "reset boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "finish cleanup",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.profile",
+        "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+        "source.goal10.project-policy.stage-flow"
+      ],
+      "trace_sha256": "fe5c7c5badfa59ccd6993f4d6292cbe3ab0218accef43f35119ccc416df97e3a",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.curio-lifecycle",
+      "family_id": "curio-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 7,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "mode state",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "charges",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "repair",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "replacement",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-curio-lifecycle"
+      ],
+      "trace_sha256": "85230cb6576abc95727c53710a53d2925b01a093bb93a0af19751d893b059398",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.decision-component-choice",
+      "family_id": "decision-component-choice",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 2,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "candidate order",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "scope",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "fallback",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-decision-component-choice"
+      ],
+      "trace_sha256": "e015b1ee9c5ef86d17860c25601c99866435efc9b19aef260419d7171ec8022d",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.difficulty-composition",
+      "family_id": "difficulty-composition",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 3,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "difficulty parameters",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "drop binding",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "difficulty application boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-difficulty-composition"
+      ],
+      "trace_sha256": "e61371b1a63f8b6ac6000f4e4c66a851bc0b73788883811ea878ddfe44dda4a6",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.encounter-selection",
+      "family_id": "encounter-selection",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 7,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "room parent",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "candidate order",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "wave",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "enemy slots",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-encounter-selection"
+      ],
+      "trace_sha256": "f4ce7920948c2b26a13d50316f5ad07440e608f2161377fc075e6c6207e0ff9c",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.gamble-offer-and-outcome",
+      "family_id": "gamble-offer-and-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 4,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "weighted candidate set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "seed",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "outcome",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "failure",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+        "source.goal10.project-policy.service-offer-policy-v1"
+      ],
+      "trace_sha256": "67e65ee8dcd89af46e5dec811262b10aa6da34cb5603615806f9dc931cbb0aff",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.layer-and-difficulty-effect",
+      "family_id": "layer-and-difficulty-effect",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 4,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "entry trigger",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "cross-battle state",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "battle projection",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "teardown",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect"
+      ],
+      "trace_sha256": "04708f222f20f9f2c90d2f05040d86cd4d3288b3fcf367963b4fbb84c9ac31f2",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.no-legal-candidate-fallback",
+      "family_id": "no-legal-candidate-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 6,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "empty set",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "explicit fallback",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "no hidden RNG draw",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "review fact",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.component-transformation-policy-v1",
+        "source.goal10.project-policy.loadout-transition-policy-v1",
+        "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+        "source.goal10.project-policy.service-offer-policy-v1"
+      ],
+      "trace_sha256": "1e68f19e08fc4d1cd12a526ee856fe650414b0aeedaec255f3edf60b079ee5ea",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.occurrence-choice",
+      "family_id": "occurrence-choice",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 7,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "variant",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "condition",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "cost",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "ordered outcome",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-occurrence-choice"
+      ],
+      "trace_sha256": "c9590036ef41eaff6c5c1728d9ade4e74f5d480c207abf816b49225b91efe6cb",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.profile-entry-and-finish",
+      "family_id": "profile-entry-and-finish",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 4,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "entry eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "initial resources",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "finish and terminal boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.profile",
+        "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish"
+      ],
+      "trace_sha256": "8fd7b5505bb7d904be6c82f70bed634480c1068d899fe6c6cc15396672f81bc0",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.scepter-activation",
+      "family_id": "scepter-activation",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 5,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "trigger",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "targeting",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "ordered operations",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "single activation",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-scepter-activation"
+      ],
+      "trace_sha256": "524060c8718bd22dc59bc4bdba58cc38282431acf27ef71e67c321dd99ce3db9",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.scepter-charge-and-speed",
+      "family_id": "scepter-charge-and-speed",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 6,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "gain",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "spend",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "action ordering",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "cap and teardown",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed"
+      ],
+      "trace_sha256": "0b331a36ef88dffe832fc1985988bad32d355ce6659b581a675beb8d0a20dcc9",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.service-and-adventure",
+      "family_id": "service-and-adventure",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 13,
+      "operation_count": 3,
+      "assertion_count": 3,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "service eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "price or tier",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "offered abstract outcome",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-service-and-adventure"
+      ],
+      "trace_sha256": "423761fca8f5a669f9beea0ff1bdd5488652b7ad3915d0b37ff02e099e615e60",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.simultaneous-trigger-order",
+      "family_id": "simultaneous-trigger-order",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 6,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "trigger phase",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "priority",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "stable tie key",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "expected facts",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order"
+      ],
+      "trace_sha256": "c4cb43ddc0205f079b56962802582029576d0ca4b8835e949344124e8da67732",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.talent-and-unlock",
+      "family_id": "talent-and-unlock",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 2,
+      "evidence_binding_count": 4,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "prerequisite",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "cost",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "unlock consequence",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "evaluation boundary",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-talent-and-unlock"
+      ],
+      "trace_sha256": "dffd11d36278c4bae382e766fe5fbb9c66d99294423e0911c8454ae3bf3b18de",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.wave-and-boss-binding",
+      "family_id": "wave-and-boss-binding",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 5,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "StageConfig row",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "wave order",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "boss alternative",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "difficulty",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding"
+      ],
+      "trace_sha256": "fe48473da422e6e62329f9a77bb95787faaae2ebb65b9ea81d62b90ea17198a8",
+      "runtime_executable": false,
+      "result": "pass"
+    },
+    {
+      "fixture_id": "unknowable-domain.review-fixture.workbench-offer-and-cost",
+      "family_id": "workbench-offer-and-cost",
+      "evidence_quality": "ProjectPolicy",
+      "source_record_count": 3,
+      "evidence_binding_count": 5,
+      "operation_count": 4,
+      "assertion_count": 4,
+      "assertions": [
+        {
+          "ordinal": 1,
+          "fact": "eligibility",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 2,
+          "fact": "price",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 3,
+          "fact": "offer ordering",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+          "runtime_claim": false,
+          "result": "pass"
+        },
+        {
+          "ordinal": 4,
+          "fact": "refresh lifecycle",
+          "assertion": "ExactOrExplicitlyPolicyBound",
+          "disposition": "ExplicitlyPolicyBound",
+          "policy_source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+          "runtime_claim": false,
+          "result": "pass"
+        }
+      ],
+      "policy_source_ids": [
+        "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+        "source.goal10.project-policy.service-offer-policy-v1"
+      ],
+      "trace_sha256": "c685195ede35ded1b7bd21ae7aa4cbf567856f5aa4845169c31f8cb797381301",
+      "runtime_executable": false,
+      "result": "pass"
+    }
+  ],
+  "approximations": [
+    {
+      "policy_source_id": "source.goal10.project-policy.component-transformation-policy-v1",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 9,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-reforge",
+        "unknowable-domain.review-fixture.component-synthesis",
+        "unknowable-domain.review-fixture.component-upgrade",
+        "unknowable-domain.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "b53413c3ff9b0f00d20163856f8d6869f7998bf7cc473eb2a21a5dc5b9a4e73c",
+      "replacement_condition": "Replace field by field when a released transformation program or reproducible observation proves exact inputs, costs, pools, selection ordering, caps, mutation order, and failure behavior.",
+      "replacement_condition_sha256": "31ac77ecd5510c45882ad280a202d54ca8502761c678057bc81580b4043a7c68",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.loadout-transition-policy-v1",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 6,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-insertion-removal-replacement",
+        "unknowable-domain.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "f3f202b369ddeb12968b0385e31fd29a7c42e5875f6eefd4e7c6cc8c621fc6f9",
+      "replacement_condition": "Replace when a released loadout transition program or reproducible observation proves insertion, removal, replacement, rejection, and fallback ordering.",
+      "replacement_condition_sha256": "78c9f2c893074d618a6e364921a320d6d59890cf7c5a710cce7839dac6ae6b71",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.profile",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.cross-battle-carry-reset",
+        "unknowable-domain.review-fixture.profile-entry-and-finish"
+      ],
+      "note_sha256": "6266007c38aa7b68e26aa6a4baa2609cb521dcf2565977deba30b68beaad0a47",
+      "replacement_condition": "Replace only if a later released profile registry supplies a stronger stable identity.",
+      "replacement_condition_sha256": "5fad9b967848624bf445246667f38488778b076d41f32e179bb488b59165608b",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-alignment-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.alignment-selection"
+      ],
+      "note_sha256": "cf7853416b554ff820fca5713e4ef985446cbd5fdc1163b2b0196e89098c25ce",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves four Alignments, eligibility, offered pool, no legal selection.",
+      "replacement_condition_sha256": "04c5c1a5567e410f3cdee65325511fd359695774f79f27c0137e937979613ff6",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-area-layer-room-transition",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.area-layer-room-transition"
+      ],
+      "note_sha256": "08c9ceb964693d67fa55bed6a0edf7cfa2daa98a98175f5f47f0d55680a0f7e6",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves ordered transition, carry, reset, illegal transition.",
+      "replacement_condition_sha256": "b1e6ccb43ca00b975270ab7395a6a676e5acd8ff137e8e4cef9bfa90a03f4282",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-insertion-removal-replacement",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-insertion-removal-replacement"
+      ],
+      "note_sha256": "551419b5ea0c05206bc9c00e2b77b54366b1640389d7772e0d568f1c225b982b",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves insert, remove, replace, locked Component.",
+      "replacement_condition_sha256": "1899e74db3df14b251faf829f6c425be8b4266d24f5754baebe0ab7a9e929526",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-reforge",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-reforge"
+      ],
+      "note_sha256": "118150a18ad61e90f275b5fc6f62afe2c9257405087a0d6a82402e87a0d8b7e9",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves candidate set, cost, replacement, empty candidate.",
+      "replacement_condition_sha256": "110bfa611010916f55119727920cda7f981faf079e8c91a30795b01800c26ade",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-slot-legality",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-slot-legality"
+      ],
+      "note_sha256": "fd185b0547bab326190f63bce68f56d28fe9bd0d6a29ee86a3ac6e414bc54135",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves shape, range, slot type, rejected insertion.",
+      "replacement_condition_sha256": "0ce89745b408c6e623359fef3e8824ea607f44fbaac3c91297eac28e887d2b43",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-synthesis",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-synthesis"
+      ],
+      "note_sha256": "ff073d0f9d9301f27d68224c79f64ec504ec5bb8ca04030e9c06a1736cfbdf49",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves input count, consumption, output pool, no legal output.",
+      "replacement_condition_sha256": "4701ba383499a036d5da950860acb2a7c369fbc07db6243c71b08772392d5ce3",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-component-upgrade",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.component-upgrade"
+      ],
+      "note_sha256": "26d1b13928988e4ea9faf24147b47d201bed3ad4e036d62f041c2ae129309f88",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves level transition, cost, cap, ordering.",
+      "replacement_condition_sha256": "4dc0a4e61b56e9e6af3ba55ffb72a133ee925a959e190605f1cee20ef2a0c348",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-cross-battle-carry-reset",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.cross-battle-carry-reset"
+      ],
+      "note_sha256": "d343ad8a45496cd52365242ee5f455b9ad1cc3f80212ccc072e8467143eb50f5",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves state slot, carry boundary, reset boundary, finish cleanup.",
+      "replacement_condition_sha256": "400cf980f6971e6fef48cd163e313e2dbd8f00d43f83111fc759eeb6ae91662c",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-curio-lifecycle",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.curio-lifecycle"
+      ],
+      "note_sha256": "043c187c537e1ceb8fac64184afa385716af05af0828c520f7bdd1b8841e5bd4",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves mode state, charges, repair, replacement.",
+      "replacement_condition_sha256": "f1b137c8a1c9b683d0ed74f504072d5f0cec538ec19a2f2c185c31c4bb3c45a8",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-decision-component-choice",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.decision-component-choice"
+      ],
+      "note_sha256": "8a24df01c514b11387c7111a73abdec533439299b1e88ee5bc32de872a1dbec4",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, candidate order, scope, fallback.",
+      "replacement_condition_sha256": "cee2b64bb7aa1eb3f44aff6fdfcb9b0f27f745ab8881708e4023c32d35ac34c4",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-difficulty-composition",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.difficulty-composition"
+      ],
+      "note_sha256": "f69d1aa4bb6fc62230bd07b67c604c52bc18d509fe996c7d1a3b0a60159dc721",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves difficulty parameters, drop binding, difficulty application boundary.",
+      "replacement_condition_sha256": "7c5b1352d1241b4f20323e2e010d3b6b5857f68a8905678237e9226f0ff61966",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-encounter-selection",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.encounter-selection"
+      ],
+      "note_sha256": "f33b5de97e74e6dae248349f06c9f4c1cd4b70cec9abd30d3f3152498077b4c3",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves room parent, candidate order, wave, enemy slots.",
+      "replacement_condition_sha256": "2a5fe6efcd765993d669d0676a919959e081e68c2f1968845ec70b42d8d6e6e3",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-gamble-offer-and-outcome",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.gamble-offer-and-outcome"
+      ],
+      "note_sha256": "d7d652de36245a451b7c60be717f293d04afa4d50a2668011ee9a45eed0b20bf",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves weighted candidate set, seed, outcome, failure.",
+      "replacement_condition_sha256": "2202ab7da6341f425be1bd75d34a14515f808bf6466cf7502a92646c7f28a3c8",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-layer-and-difficulty-effect",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.layer-and-difficulty-effect"
+      ],
+      "note_sha256": "52ee07b9bd2a8058335412ce43f5870908a3106a3c508185840f66575125aeda",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry trigger, cross-battle state, battle projection, teardown.",
+      "replacement_condition_sha256": "18f1a62bbb23b2148f5673b8ea9ba08837228bd1e699073010436c4b3dbe89f3",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-no-legal-candidate-fallback",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.no-legal-candidate-fallback"
+      ],
+      "note_sha256": "314bd5fb24a0043117febbfd6bd66b0cce3f6687be021dd02c94235edcafd1e6",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves empty set, explicit fallback, no hidden RNG draw, review fact.",
+      "replacement_condition_sha256": "ac0cad2f7b9571dbea067ef09bcdd61dd5cbfcb98539495dd7237effbd1d6b13",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-occurrence-choice",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.occurrence-choice"
+      ],
+      "note_sha256": "8ce6e9cf0d3cf8e561931b865d698507fe628cae7d9e4ef89d65d349256d3665",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves variant, condition, cost, ordered outcome.",
+      "replacement_condition_sha256": "9f12b075ccc01128e5cdb4f79260263fdff4702dfda1134cd4484702600b0b29",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-profile-entry-and-finish",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.profile-entry-and-finish"
+      ],
+      "note_sha256": "d7f746cbd3805d800c808a3a188da9ee916cc391f15eb86604fbfae685e12965",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves entry eligibility, initial resources, finish and terminal boundary.",
+      "replacement_condition_sha256": "85ce92024e44a5d4bc7fa92caa1ff2431a3aa2c85541b5cabfe8cf9f4f72a533",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-activation",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.scepter-activation"
+      ],
+      "note_sha256": "5961bbb002a88232c0763d30206af91080e4eb41e673ab7e1fc1e8272425bc58",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger, targeting, ordered operations, single activation.",
+      "replacement_condition_sha256": "9edcde2dde1adac216f3920adca18062db33722662b90239a71ff7d874dd16a6",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-scepter-charge-and-speed",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.scepter-charge-and-speed"
+      ],
+      "note_sha256": "6e282e19a011f5fd98339ca1adcfb13fff2637cfa5a74322a7301393b126d12f",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves gain, spend, action ordering, cap and teardown.",
+      "replacement_condition_sha256": "583bb54915b4346fb193fd34522015ccd0010eb04cd6cc2848dce59f81b0af89",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-service-and-adventure",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.service-and-adventure"
+      ],
+      "note_sha256": "dbb513aec92763f99a86200fe9b8fffb1c2f9f3b4eb465b96c2a766c8eb65a3a",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves service eligibility, price or tier, offered abstract outcome.",
+      "replacement_condition_sha256": "036ed27389ba8654ec18667986c261ffc66c65a69accbc8f406562eac1110848",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-simultaneous-trigger-order",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.simultaneous-trigger-order"
+      ],
+      "note_sha256": "4a76a917bf829c6cb5a9c923a36a9d279999f14da2ca1e99d9132c9ae0a9fc58",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves trigger phase, priority, stable tie key, expected facts.",
+      "replacement_condition_sha256": "4ae8f81d4e2e0d42b85cb3b1465f39aad6ef029a5fe17c8096e9479bcb42206d",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-talent-and-unlock",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.talent-and-unlock"
+      ],
+      "note_sha256": "a9e739619b5849af0e0fe30d2edd416adf2e68c45312e8ceedf6b66cdd97bb00",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves prerequisite, cost, unlock consequence, evaluation boundary.",
+      "replacement_condition_sha256": "6d63379e683d6d75037de989a796ed168c493252f014cb8c1120eb6b1039f98b",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-wave-and-boss-binding",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.wave-and-boss-binding"
+      ],
+      "note_sha256": "2eea31ddfe046e189ecb4d46325d922c673fecd2d6867b9018dfac710e0e4ff3",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves StageConfig row, wave order, boss alternative, difficulty.",
+      "replacement_condition_sha256": "077899b5bc5b9367c9288f43915ea840bcf90156ab0573f6936fade5b638d5e1",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.semantic-fixture-workbench-offer-and-cost",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 4,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.workbench-offer-and-cost"
+      ],
+      "note_sha256": "0abaae995a2f0a6df1b67ea54894a7bdb76fb9470c5ab0d90ca8e5cbb07e312c",
+      "replacement_condition": "Replace the policy-bound assertions only when released structured data or a reproducible public observation proves eligibility, price, offer ordering, refresh lifecycle.",
+      "replacement_condition_sha256": "08dc1c5fcd7b4f53098c4afcbd1686f33a9f95dc09aa9f6443fb8e0db6fbfe41",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.service-offer-policy-v1",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 19,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.gamble-offer-and-outcome",
+        "unknowable-domain.review-fixture.no-legal-candidate-fallback",
+        "unknowable-domain.review-fixture.workbench-offer-and-cost"
+      ],
+      "note_sha256": "e1245541db3c22ec50d116975778d726d98e6df15bdfe80cad59fa30163904ba",
+      "replacement_condition": "Replace field by field when released service programs or reproducible observations prove exact candidates, weights, costs, ordering, refresh, eligibility, lifecycle, and failure behavior.",
+      "replacement_condition_sha256": "ab644aa369f23b8997eb46b9c3aa49fb256d24bf30ca53ad3295f33a06385803",
+      "result": "pass"
+    },
+    {
+      "policy_source_id": "source.goal10.project-policy.stage-flow",
+      "evidence_quality": "ProjectPolicy",
+      "affected_record_count": 57,
+      "fixture_ids": [
+        "unknowable-domain.review-fixture.area-layer-room-transition",
+        "unknowable-domain.review-fixture.cross-battle-carry-reset"
+      ],
+      "note_sha256": "5ea7c96d4f1aa6d2e14b4c1808a32a2abe19ca63f463906f90440c125d0137e9",
+      "replacement_condition": "Replace when released engine flow configuration or reproducible observations bind transitions, optional extra layers and carry/reset fields.",
+      "replacement_condition_sha256": "fbbfd3a37b0a6345696b3d1e5b8f4d57ff8d9cde3235819bb4e8a96b055c9b4c",
+      "result": "pass"
+    }
+  ]
+}
