@@ -1,0 +1,1489 @@
+[
+  {
+    "id": "swarm-disaster.service-rule.beacon.1",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Enhance Beacon Rule",
+    "name_zh_cn": "强化信标规则",
+    "summary_en": "Apply the released Enhance beacon contribution at domain entry.",
+    "summary_zh_cn": "进入区域时应用已发布的强化信标贡献。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "1",
+        "sha256": "e536c099711155e797462c152e7a68ce61982fc1c30bd18ff153edf26a58e77a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "beacon-rule",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.beacon.1",
+    "conditions": [
+      {
+        "kind": "NodeHasBeaconAtAcceptedDomainEntry",
+        "beacon_id": "swarm-disaster.beacon.1"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ApplyBeaconContribution",
+        "block_intro_id": "14",
+        "boundary": "TopologyMutationResolution"
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.beacon.2",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Trotter Beacon Rule",
+    "name_zh_cn": "祝福扑满信标规则",
+    "summary_en": "Apply the released Blessing Trotter beacon contribution at domain entry.",
+    "summary_zh_cn": "进入区域时应用已发布的祝福扑满信标贡献。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "2",
+        "sha256": "e91e5ca68270fc747add6afd3106f7d04f4e61368b191ad8df9cf010c7e24465",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "beacon-rule",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.beacon.2",
+    "conditions": [
+      {
+        "kind": "NodeHasBeaconAtAcceptedDomainEntry",
+        "beacon_id": "swarm-disaster.beacon.2"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ApplyBeaconContribution",
+        "block_intro_id": "17",
+        "boundary": "TopologyMutationResolution"
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.beacon.3",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Mutation Beacon Rule",
+    "name_zh_cn": "异化信标规则",
+    "summary_en": "Apply the released Mutation beacon contribution at domain entry.",
+    "summary_zh_cn": "进入区域时应用已发布的异化信标贡献。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "3",
+        "sha256": "ab1611e7c0585d64100c421741f1d3464636259d12e4f5a17efcfd7581747fb3",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "beacon-rule",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.beacon.3",
+    "conditions": [
+      {
+        "kind": "NodeHasBeaconAtAcceptedDomainEntry",
+        "beacon_id": "swarm-disaster.beacon.3"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ApplyBeaconContribution",
+        "block_intro_id": "15",
+        "boundary": "TopologyMutationResolution"
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.beacon.5",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Curio Trotter Beacon Rule",
+    "name_zh_cn": "奇物扑满信标规则",
+    "summary_en": "Apply the released Curio Trotter beacon contribution at domain entry.",
+    "summary_zh_cn": "进入区域时应用已发布的奇物扑满信标贡献。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.exceloutput-roguedlcmarktype-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueDLCMarkType.json",
+        "locator": "5",
+        "sha256": "4e3db998e0ba60216919c897cab3333133707876ccfe98e9e599b3df80517aea",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.config-gameplays-roguedlc-roguedlc-tutorial2-2-json.rogueblockcreategrouplist-1022104",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "Config/Gameplays/RogueDLC/RogueDLC_Tutorial2_2.json",
+        "locator": "RogueBlockCreateGroupList/1022104",
+        "sha256": "a8d7b423f85e85d8b21a8192f5d9203cd75738a0a20e345ae7766b4fde917264",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.beacons",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "beacons",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Beacon mutation is a typed topology operation. Domain copying and blanking do not implicitly copy or clear a beacon unless the originating effect explicitly requests that operation.",
+        "replacement_condition": "Replace per-effect behavior when released structured or reproducible evidence explicitly couples beacon state to domain copying or blanking."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "beacon-rule",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.beacon.5",
+    "conditions": [
+      {
+        "kind": "NodeHasBeaconAtAcceptedDomainEntry",
+        "beacon_id": "swarm-disaster.beacon.5"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ApplyBeaconContribution",
+        "block_intro_id": "18",
+        "boundary": "TopologyMutationResolution"
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-currency-cosmic-fragments",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Cosmic Fragments Rule",
+    "name_zh_cn": "宇宙碎片规则",
+    "summary_en": "Resolve Cosmic Fragments as one ordered Activity transaction.",
+    "summary_zh_cn": "将宇宙碎片解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "0",
+        "sha256": "adebf99f9f6ecf08b856bb0814a090996fb23fc25225fda978141e9f77c8eae5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-currency-cosmic-fragments",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "InitializeRunCurrency",
+        "inherited_rule_ids": [
+          "universe.rule.currency.cosmic-fragments"
+        ],
+        "parameters": [
+          {
+            "key": "initial_amount",
+            "value": "50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-downloader",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Downloader Rule",
+    "name_zh_cn": "下载装置规则",
+    "summary_en": "Resolve Downloader as one ordered Activity transaction.",
+    "summary_zh_cn": "将下载装置解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.3",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "3",
+        "sha256": "50ab53499b40c016ad6c3cd8eaa257ee27c64c557cb48b0a19b7f5705a920f3a",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-downloader",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "AddExternalCharacterParticipant",
+        "inherited_rule_ids": [
+          "universe.rule.service.downloader"
+        ],
+        "parameters": [
+          {
+            "key": "characters_per_device",
+            "value": "1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-enhance-blessing",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Enhance Blessing Rule",
+    "name_zh_cn": "强化祝福规则",
+    "summary_en": "Resolve Enhance Blessing as one ordered Activity transaction.",
+    "summary_zh_cn": "将强化祝福解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.5",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "5",
+        "sha256": "5281acc6304f53ceffe790aa8fe7e11d231bd3ad79dda6e4ddc29dc90de09387",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-enhance-blessing",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [
+      {
+        "order": 0,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "rarity_1_cost",
+        "value": "100"
+      },
+      {
+        "order": 1,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "rarity_2_cost",
+        "value": "130"
+      },
+      {
+        "order": 2,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "rarity_3_cost",
+        "value": "160"
+      }
+    ],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "EnhanceSelectedBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.enhance-blessing"
+        ],
+        "parameters": [
+          {
+            "key": "max_enhancements",
+            "value": "1"
+          },
+          {
+            "key": "rarity_1_cost",
+            "value": "100"
+          },
+          {
+            "key": "rarity_2_cost",
+            "value": "130"
+          },
+          {
+            "key": "rarity_3_cost",
+            "value": "160"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-reset-blessing-choice",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Reset Blessing Choice Rule",
+    "name_zh_cn": "重置祝福选择规则",
+    "summary_en": "Resolve Reset Blessing Choice as one ordered Activity transaction.",
+    "summary_zh_cn": "将重置祝福选择解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.1",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "1",
+        "sha256": "7cb577f0ebb16cb87e6f8f5e44edd7c016103b85e3efedb3f109256aa97b4cc1",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-reset-blessing-choice",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [
+      {
+        "order": 0,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "source_cost_schedule",
+        "value": "[31:30],[31:50],[31:100]"
+      }
+    ],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "RegenerateBlessingCandidates",
+        "inherited_rule_ids": [
+          "universe.rule.service.reset-blessing"
+        ],
+        "parameters": [
+          {
+            "key": "source_cost_schedule",
+            "value": "[31:30],[31:50],[31:100]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-respite-offers",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Respite Offers Rule",
+    "name_zh_cn": "休整区交易规则",
+    "summary_en": "Resolve Respite Offers as one ordered Activity transaction.",
+    "summary_zh_cn": "将休整区交易解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.4",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "4",
+        "sha256": "b9c77c3cc75f2ec38909cb8eb0e45a7066d6fee8acd075352b0031b8aa76f54c",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-respite-offers",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [
+      {
+        "order": 0,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "one_star_blessing_cost",
+        "value": "80"
+      },
+      {
+        "order": 1,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "curio_cost",
+        "value": "120"
+      },
+      {
+        "order": 2,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "two_random_enhancements_cost",
+        "value": "180"
+      }
+    ],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ResolveRespiteOffer",
+        "inherited_rule_ids": [
+          "universe.rule.service.respite-offers"
+        ],
+        "parameters": [
+          {
+            "key": "one_star_blessing_cost",
+            "value": "80"
+          },
+          {
+            "key": "curio_cost",
+            "value": "120"
+          },
+          {
+            "key": "two_random_enhancements_cost",
+            "value": "180"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-reviver",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Reviver Rule",
+    "name_zh_cn": "复活装置规则",
+    "summary_en": "Resolve Reviver as one ordered Activity transaction.",
+    "summary_zh_cn": "将复活装置解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.2",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "2",
+        "sha256": "bb8628dd86c0f765e27896dfe6ff3ff337e9e01b51fed182c8ceb1f20c912e6b",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-reviver",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [
+      {
+        "order": 0,
+        "resource_id": "universe.currency.cosmic-fragments",
+        "key": "cost",
+        "value": "80"
+      }
+    ],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "ReviveSelectedCharacter",
+        "inherited_rule_ids": [
+          "universe.rule.service.reviver"
+        ],
+        "parameters": [
+          {
+            "key": "cost",
+            "value": "80"
+          },
+          {
+            "key": "restored_hp_percent",
+            "value": "100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-100011",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Shop 100011 Rule",
+    "name_zh_cn": "祝福商店100011规则",
+    "summary_en": "Resolve Blessing Shop 100011 as one ordered Activity transaction.",
+    "summary_zh_cn": "将祝福商店100011解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.6",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "6",
+        "sha256": "e0d8b7c55f73ca1bb38e48cbee9e2ffbd15674dea96f145dc72231e590d33c41",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-100011",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.100011"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-100021",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Curio Shop 100021 Rule",
+    "name_zh_cn": "奇物商店100021规则",
+    "summary_en": "Resolve Curio Shop 100021 as one ordered Activity transaction.",
+    "summary_zh_cn": "将奇物商店100021解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.7",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "7",
+        "sha256": "8c75476a459a35c7a4b00688190e6d97ee940beee940d25ecb20a32357017612",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-100021",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseCurio",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.100021"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-101010",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Shop 101010 Rule",
+    "name_zh_cn": "祝福商店101010规则",
+    "summary_en": "Resolve Blessing Shop 101010 as one ordered Activity transaction.",
+    "summary_zh_cn": "将祝福商店101010解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.8",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "8",
+        "sha256": "5cc739571223fbe43e890a73bf0e2503e48199bc102e32128cf360483cda6105",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-101010",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.101010"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-101011",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Shop 101011 Rule",
+    "name_zh_cn": "祝福商店101011规则",
+    "summary_en": "Resolve Blessing Shop 101011 as one ordered Activity transaction.",
+    "summary_zh_cn": "将祝福商店101011解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.9",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "9",
+        "sha256": "27ca6f3fa0d8b540bc1c50d93db63c0e065c780982bbfad93e51fec18cb39259",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-101011",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.101011"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-101012",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Shop 101012 Rule",
+    "name_zh_cn": "祝福商店101012规则",
+    "summary_en": "Resolve Blessing Shop 101012 as one ordered Activity transaction.",
+    "summary_zh_cn": "将祝福商店101012解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.10",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "10",
+        "sha256": "f559f53a239a68ddf77c41d96e6fb86aeacfff7c3dd06ff1140e12aa8f1ec120",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-101012",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.101012"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-101020",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Curio Shop 101020 Rule",
+    "name_zh_cn": "奇物商店101020规则",
+    "summary_en": "Resolve Curio Shop 101020 as one ordered Activity transaction.",
+    "summary_zh_cn": "将奇物商店101020解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.11",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "11",
+        "sha256": "322abcc9f8ab57f4ae884ef5844618889a5b12a64a9f1d4a6179fddc0a4e4339",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-101020",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseCurio",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.101020"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-101021",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Curio Shop 101021 Rule",
+    "name_zh_cn": "奇物商店101021规则",
+    "summary_en": "Resolve Curio Shop 101021 as one ordered Activity transaction.",
+    "summary_zh_cn": "将奇物商店101021解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.12",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "12",
+        "sha256": "4657ac54dad75563feaae728900a681fc87f178b765e5247d8789c19fa063c36",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-101021",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseCurio",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.101021"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-102011",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Blessing Shop 102011 Rule",
+    "name_zh_cn": "祝福商店102011规则",
+    "summary_en": "Resolve Blessing Shop 102011 as one ordered Activity transaction.",
+    "summary_zh_cn": "将祝福商店102011解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.13",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "13",
+        "sha256": "06316ee74475c7cc85c4c791e49d44400e13337f0d576ead444af4b77529eb74",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-102011",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseBlessing",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.102011"
+        ],
+        "parameters": []
+      }
+    ]
+  },
+  {
+    "id": "swarm-disaster.service-rule.universe-service-shop-102021",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmServiceRule",
+    "name_en": "Curio Shop 102021 Rule",
+    "name_zh_cn": "奇物商店102021规则",
+    "summary_en": "Resolve Curio Shop 102021 as one ordered Activity transaction.",
+    "summary_zh_cn": "将奇物商店102021解析为一个有序活动事务。",
+    "ownership": "SwarmDisaster",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.14",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "14",
+        "sha256": "41ad6e7fad7bbb6973890972247cdbf98919f54a1088ec88cad96046953684db",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "activity-operation",
+      "project-policy",
+      "service-rule"
+    ],
+    "service_id": "swarm-disaster.service.universe-service-shop-102021",
+    "conditions": [
+      {
+        "kind": "ServiceAvailableAndCommandAccepted",
+        "unresolved_offer_behavior": "FailClosed"
+      }
+    ],
+    "costs": [],
+    "ordered_operations": [
+      {
+        "order": 0,
+        "operation": "PurchaseCurio",
+        "inherited_rule_ids": [
+          "universe.rule.service.shop.102021"
+        ],
+        "parameters": []
+      }
+    ]
+  }
+]

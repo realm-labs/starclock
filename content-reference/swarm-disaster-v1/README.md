@@ -36,6 +36,8 @@ node tools/swarm-disaster-reference/import-curios.mjs
 node tools/swarm-disaster-reference/verify-curios.mjs
 node tools/swarm-disaster-reference/import-occurrences.mjs
 node tools/swarm-disaster-reference/verify-occurrences.mjs
+node tools/swarm-disaster-reference/import-services.mjs
+node tools/swarm-disaster-reference/verify-services.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -122,3 +124,10 @@ dynamic displays, printed percentages and outcome text digests remain
 separate. Sixty choices name random behavior without released weights; they
 use labeled Activity RNG over stable source order and fail closed on unresolved
 candidate pools as replaceable `ProjectPolicy`.
+
+The service partition binds 15 shared services, run-scoped Cosmic Fragments,
+four existing beacon contributions and six Adventure rooms. Every service is
+an atomic Activity transaction with inherited parameters and fail-closed offer
+pools. Adventure minigames accept only validated external Tier1/Tier2/Tier3
+results and opaque reward payloads; movement, aiming, physics, timing input and
+unreleased threshold/reward tables are intentionally excluded.

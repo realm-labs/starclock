@@ -1,0 +1,51 @@
+[
+  {
+    "id": "swarm-disaster.currency.cosmic-fragments",
+    "schema_revision": "starclock.swarm-disaster-row.v1",
+    "kind": "SwarmCurrency",
+    "name_en": "Cosmic Fragments",
+    "name_zh_cn": "宇宙碎片",
+    "summary_en": "Run-scoped currency used by Swarm services, Occurrence costs and Trailblaze Bonuses.",
+    "summary_zh_cn": "寰宇蝗灾局内货币，用于服务、事件成本与开拓祝福。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal09.inherited.content-reference-standard-universe-v1-services-json.0",
+        "repository": "starclock",
+        "revision": "goal03-standard-universe-v1",
+        "path": "content-reference/standard-universe-v1/services.json",
+        "locator": "0",
+        "sha256": "adebf99f9f6ecf08b856bb0814a090996fb23fc25225fda978141e9f77c8eae5",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ExactStructured"
+      },
+      {
+        "source_id": "source.goal09.project-policy.service-transaction-boundary",
+        "repository": "starclock",
+        "revision": "starclock.swarm-disaster-normalized-schema.v1",
+        "path": "content-manifests/swarm-disaster-v1/normalized-schema.json",
+        "locator": "service-transaction-boundary",
+        "sha256": "8da9ec444bbf3def4652156b71e05253f5bd0ea52e5423cfdf49ed49c7a2b215",
+        "access_date": "2026-07-22",
+        "evidence_quality": "ProjectPolicy",
+        "note": "Execute each service purchase as an atomic accepted Activity transaction. Resolve candidates in stable identity order, debit exact inherited prices before ordered grant operations, and reject insufficient currency or unresolved offer pools without mutation.",
+        "replacement_condition": "Replace transaction order, offer construction or hidden shop weights when released Swarm service-controller evidence supplies them."
+      }
+    ],
+    "tags": [
+      "currency",
+      "run-scoped",
+      "shared"
+    ],
+    "resource_id": "universe.currency.cosmic-fragments",
+    "initial_value": "50",
+    "cap_policy": {
+      "maximum": "",
+      "overflow": "CheckedUnboundedDomainValue",
+      "scope": "ActivityRun",
+      "reset_boundary": "RunStart"
+    }
+  }
+]
