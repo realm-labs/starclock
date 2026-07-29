@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S19` |
-| Next unblocked batch | `G07-P5-M15-S19` |
+| Active batch | `G07-P5-M15-S20` |
+| Next unblocked batch | `G07-P5-M15-S20` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -291,10 +291,15 @@ Enemy partitions S01–S18 are complete. S17 and S18 close the final ordinary
 enemy proxies, including the three Trotter paths, Voidranger action cycles,
 Trampler lock and Entanglement, Windspawn Wind Shear and Wraith Warden's
 Physical strike. All 86 frozen enemy variants now materialize through exact
-production definitions. `G07-P5-M15-S19` is active.
+production definitions. Domain-graph S19 is complete: all nine Standard
+Universe domains retain their exact public source types, kinds, terminal
+flags, localized text and Activity decision bindings. Battle domains hand off
+through battle commands, ordinary external domains use run commands and
+Adventure uses the explicit external-outcome boundary. `G07-P5-M15-S20` is
+active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 86 completed partitions use scoped Excel/Sora semantic
+model. The first 87 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's
