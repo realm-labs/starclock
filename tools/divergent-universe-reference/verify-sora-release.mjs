@@ -80,8 +80,8 @@ try {
   }
   assert(
     schema.tables.length === 80 &&
-      rowCount === 26_985 &&
-      emptyCount === 3,
+      rowCount === 27_091 &&
+      emptyCount === 2,
     "Sora table/row/empty-table denominator differs",
   );
 
@@ -239,9 +239,14 @@ function assertSameGenerated(first, second, committed = false) {
     ),
   ].toSorted();
   const actual = listFiles(second).toSorted();
+  const requiredSet = new Set(required);
+  const actualSet = new Set(actual);
+  const missing = required.filter((relative) => !actualSet.has(relative));
+  const extra = actual.filter((relative) => !requiredSet.has(relative));
   assert(
     JSON.stringify(required) === JSON.stringify(actual),
-    `${committed ? "committed" : "double-build"} generated file set differs`,
+    `${committed ? "committed" : "double-build"} generated file set differs; ` +
+      `missing=${JSON.stringify(missing)} extra=${JSON.stringify(extra)}`,
   );
   for (const relative of required) {
     if (relative.startsWith(`templates${path.sep}`)) {

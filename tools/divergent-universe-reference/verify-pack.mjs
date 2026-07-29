@@ -67,10 +67,10 @@ for (const file of expectedFiles) {
     allRows.set(row.id, { file, row });
   }
 }
-assert(allRows.size === 26985, "global normalized row denominator drift");
+assert(allRows.size === 27091, "global normalized row denominator drift");
 
 const sources = reference("sources.json");
-assert(sources.length === 7620, "source registry denominator drift");
+assert(sources.length === 7624, "source registry denominator drift");
 const sourceIds = new Set(sources.map(({ source_id: id }) => id));
 assert(sourceIds.size === sources.length, "duplicate source registry ID");
 for (const file of expectedFiles)
@@ -183,8 +183,27 @@ for (const family of families) {
   );
 }
 
-assert(reference("reconciliation-receipts.json").length === 0,
-  "P4-B1 reconciliation receipts appeared early");
+const receipts = reference("reconciliation-receipts.json");
+assert(
+  receipts.length === 102 &&
+    receipts.every(
+      (receipt) =>
+        receipt.ownership === "Shared" &&
+        receipt.coverage_state === "DataReady" &&
+        receipt.outcome === "MatchedShared" &&
+        receipt.checkpoint_ownership === "SharedSourceEvidence" &&
+        receipt.goal11_ownership === "SharedSourceEvidence" &&
+        receipt.blocking === false,
+    ) &&
+    JSON.stringify(
+      Object.fromEntries(
+        Object.entries(
+          Object.groupBy(receipts, ({ checkpoint_goal: goal }) => goal),
+        ).map(([goal, rows]) => [goal, rows.length]),
+      ),
+    ) === '{"Goal08":53,"Goal09":45,"Goal10":4}',
+  "reconciliation receipt closure drift",
+);
 const summaryRows = reference("manifest.json");
 assert(summaryRows.length === 1, "reference manifest cardinality drift");
 const summary = summaryRows[0];
@@ -196,8 +215,9 @@ assert(
     && Object.keys(summary.record_counts).length === 80
     && summary.mechanic_source_count === 669
     && summary.mechanic_rule_count === 669
-    && summary.source_evidence_count === 7620
+    && summary.source_evidence_count === 7624
     && summary.semantic_fixture_family_count === 25
+    && summary.reconciliation_receipt_count === 102
     && summary.nonblocking_research_gap_count === 25
     && summary.blocking_research_gap_count === 0
     && summary.runtime_loading === "ForbiddenReferenceOnly"
@@ -210,7 +230,7 @@ assert(indexRows.length === 1, "pack index cardinality drift");
 const index = indexRows[0];
 assert(
   index.file_digests.length === 79
-    && index.stable_id_index.length === 26984
+    && index.stable_id_index.length === 27090
     && index.runtime_loading === "ForbiddenReferenceOnly",
   "pack index denominator/boundary drift",
 );
@@ -245,8 +265,8 @@ for (const phrase of [
 
 console.log(
   "Divergent Universe Phase 2 pack verified (6,215/6,215 DataReady " +
-  "dispositions; 669 mechanic sources/rules; 7,620 sources; 25 fixtures/" +
-  "gaps; 80 files; runtime forbidden).",
+  "dispositions; 669 mechanic sources/rules; 7,624 sources; 102 " +
+  "reconciliation receipts; 25 fixtures/gaps; 80 files; runtime forbidden).",
 );
 
 function valueAfter(flag) {

@@ -159,6 +159,7 @@
     "unknown_reference": "reject"
   },
   "reconciliation_policy": {
+    "checkpoint_proof_path": "evidence/divergent-universe-reference-v1/reconciliation-checkpoints.json",
     "checkpoints": [
       {
         "goal": "gold-and-gears-reference-v1",
@@ -198,6 +199,7 @@
       "Conflict"
     ],
     "conflict_behavior": "Blocked; record the conflict and wait for merge coordination without mutating another Goal",
+    "non_matching_digest_behavior": "Not a join; retain both evidence representations and report the same-locator diagnostic without overwriting either Goal",
     "required_receipt_fields": [
       "id",
       "source_path",
@@ -1458,7 +1460,7 @@
     {
       "file": "reconciliation-receipts.json",
       "record_kind": "DivergentUniverseReconciliationReceipts",
-      "phase": "P4-B1",
+      "phase": "P4-B3",
       "manifest_category_inputs": [],
       "ordering_keys": [
         "id"

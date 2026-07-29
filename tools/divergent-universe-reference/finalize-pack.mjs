@@ -32,18 +32,38 @@ const fixturePath =
   "content-manifests/divergent-universe-v1/fixture-contract.json";
 const authoringPath =
   "content-manifests/divergent-universe-v1/authoring-contract.json";
-const [manifest, inventory, schema, fixtureContract, authoringContract] =
+const reconciliationPath =
+  "evidence/divergent-universe-reference-v1/reconciliation-checkpoints.json";
+const [
+  manifest,
+  inventory,
+  schema,
+  fixtureContract,
+  authoringContract,
+  reconciliationEvidence,
+] =
   await Promise.all([
     localJson(manifestPath),
     localJson(inventoryPath),
     localJson(schemaPath),
     localJson(fixturePath),
     localJson(authoringPath),
+    localJson(reconciliationPath),
   ]);
 const manifestBytes = await fs.readFile(path.join(root, manifestPath));
 const inventoryBytes = await fs.readFile(path.join(root, inventoryPath));
 const schemaBytes = await fs.readFile(path.join(root, schemaPath));
 const fixtureBytes = await fs.readFile(path.join(root, fixturePath));
+const reconciliationBytes = await fs.readFile(
+  path.join(root, reconciliationPath),
+);
+if (
+  reconciliationEvidence.schema_revision !==
+    "starclock.divergent-universe-reconciliation-checkpoints.v1" ||
+  reconciliationEvidence.result !== "pass"
+) {
+  throw new Error("reconciliation checkpoint evidence envelope drift");
+}
 const finalFiles = new Set([
   "mechanic-source-files.json",
   "mechanic-rules.json",
@@ -358,9 +378,24 @@ coverage.sort((left, right) =>
   left.manifest_category.localeCompare(right.manifest_category)
     || left.manifest_record_id.localeCompare(right.manifest_record_id));
 outputs.set("coverage.json", coverage);
-outputs.set("reconciliation-receipts.json", []);
+const reconciliationRef = localRootRef(
+  "reconciliation-checkpoints",
+  reconciliationPath,
+  reconciliationBytes,
+  reconciliationEvidence.schema_revision,
+  "ReconciliationCheckpoint",
+);
+outputs.set("reconciliation-receipts.json", reconciliationReceipts(
+  reconciliationRef,
+));
 
-const rootRefs = [manifestRef, inventoryRef, schemaRef, fixtureRef];
+const rootRefs = [
+  manifestRef,
+  inventoryRef,
+  schemaRef,
+  fixtureRef,
+  reconciliationRef,
+];
 const sourceRows = sourceRegistry(uniqueRefs([
   ...collectSourceRefs(),
   ...rootRefs,
@@ -404,6 +439,8 @@ const manifestRow = {
   mechanic_rule_count: mechanicRules.length,
   source_evidence_count: sourceRows.length,
   semantic_fixture_family_count: semanticFamilies.length,
+  reconciliation_receipt_count:
+    outputs.get("reconciliation-receipts.json").length,
   nonblocking_research_gap_count: researchGaps.length,
   blocking_research_gap_count: 0,
   runtime_loading: "ForbiddenReferenceOnly",
@@ -428,6 +465,98 @@ console.log(
   `sources; ${coverage.length}/${manifest.counts.records} DataReady coverage; ` +
   `${semanticFamilies.length} fixtures/gaps; ${schema.files.length} files.`,
 );
+
+function reconciliationReceipts(evidenceRef) {
+  const localRefs = new Map(
+    collectSourceRefs().map((ref) => [
+      `${ref.path}\0${ref.locator}\0${ref.sha256}`,
+      ref,
+    ]),
+  );
+  const receipts = [];
+  for (const checkpoint of reconciliationEvidence.checkpoints) {
+    const checkpointRef = {
+      source_id:
+        `source.goal11.${checkpoint.goal.toLowerCase()}-reconciliation-checkpoint`,
+      repository: "starclock",
+      revision: checkpoint.commit,
+      path: checkpoint.sources_path,
+      locator: "root",
+      sha256: checkpoint.sources_sha256,
+      access_date: ACCESS_DATE,
+      game_version: GAME_VERSION,
+      evidence_quality: "ExactStructured",
+      mechanism_quality: "ReconciliationCheckpoint",
+    };
+    for (const match of checkpoint.exact_matches) {
+      const key =
+        `${match.source_path}\0${match.row_locator}\0${match.evidence_sha256}`;
+      const localRef = localRefs.get(key);
+      if (!localRef) {
+        throw new Error(
+          `${checkpoint.goal}: exact reconciliation source ${key} is missing`,
+        );
+      }
+      receipts.push({
+        ...context.envelope({
+          id:
+            `divergent-universe.reconciliation.` +
+            `${checkpoint.goal.toLowerCase()}.${slug(match.source_path)}.` +
+            `${slug(match.row_locator)}.${match.evidence_sha256.slice(0, 12)}`,
+          kind: "DivergentUniverseOwnershipReconciliationReceipt",
+          nameEn:
+            `${checkpoint.goal} Shared Source ${match.row_locator}`,
+          nameZh:
+            `${checkpoint.goal} 共享来源 ${match.row_locator}`,
+          summaryEn:
+            `Goal 11 and ${checkpoint.goal} use the exact same source path, ` +
+            "row locator and evidence digest; per-pack content ownership " +
+            "remains independent.",
+          summaryZh:
+            `Goal 11 与 ${checkpoint.goal} 使用完全相同的源路径、行定位和证据摘要；` +
+            "各资料包的内容归属仍独立记录。",
+          ownership: "Shared",
+          sourceRefs: [localRef, checkpointRef, evidenceRef],
+          tags: [
+            checkpoint.goal.toLowerCase(),
+            "matched",
+            "ownership-reconciliation",
+          ],
+        }),
+        source_id:
+          `${checkpoint.goal}:${match.source_path}:${match.row_locator}`,
+        source_path: match.source_path,
+        row_locator: match.row_locator,
+        evidence_sha256: match.evidence_sha256,
+        checkpoint: `${checkpoint.goal}@${checkpoint.commit}`,
+        checkpoint_goal: checkpoint.goal,
+        checkpoint_commit: checkpoint.commit,
+        checkpoint_source_id: match.checkpoint_source_id,
+        checkpoint_ownership: "SharedSourceEvidence",
+        goal11_source_id: match.goal11_source_id,
+        goal11_ownership: "SharedSourceEvidence",
+        outcome: "MatchedShared",
+        note:
+          "The factual source identity agrees exactly. Mode-specific rows " +
+          "that cite it retain their own independently proven reachability.",
+        blocking: false,
+      });
+    }
+  }
+  receipts.sort((left, right) =>
+    left.checkpoint_goal.localeCompare(right.checkpoint_goal) ||
+    left.source_path.localeCompare(right.source_path) ||
+    left.row_locator.localeCompare(right.row_locator) ||
+    left.id.localeCompare(right.id)
+  );
+  if (
+    receipts.length !==
+    reconciliationEvidence.summary.exact_shared_source_records
+  ) {
+    throw new Error("reconciliation receipt denominator drift");
+  }
+  return receipts;
+}
 
 async function localJson(relative) {
   return JSON.parse(await fs.readFile(path.join(root, relative), "utf8"));

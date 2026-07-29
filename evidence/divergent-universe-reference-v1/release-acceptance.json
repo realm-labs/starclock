@@ -1,0 +1,246 @@
+{
+  "schema_revision": "starclock.divergent-universe-release-acceptance.v1",
+  "goal_id": "divergent-universe-reference-v1",
+  "checked_at": "2026-07-29",
+  "result": "pass",
+  "source_cache": {
+    "inventory_files": 2684,
+    "revisions": {
+      "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93",
+      "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568"
+    },
+    "clean": true
+  },
+  "normalized_pack": {
+    "files": 80,
+    "pack_sha256": "74234f3f689db6ba897d13865e079a3404ab707d3ddd978d646390e7b50bad02",
+    "rows": 27091,
+    "coverage_rows": 6215,
+    "data_ready": 6215,
+    "semantic_fixtures": 25,
+    "nonblocking_research_gaps": 25
+  },
+  "reconciliation": {
+    "checkpoint_evidence_sha256": "9cf11007275b4e66c66da3e76ddfc7d2e0f1457cc84052f1669749f060e4cc5a",
+    "receipts": 102,
+    "goal08": 53,
+    "goal09": 45,
+    "goal10": 4,
+    "non_join_digest_representations": 181,
+    "conflicts": 0
+  },
+  "authoring": {
+    "workbooks": {
+      "DivergentUniverse.xlsx": {
+        "bytes": 986929,
+        "sha256": "02857d83207d7faeb11ee6d9586c0b2362380fd32d64ae06c477c7fe6aad20ec"
+      },
+      "DivergentUniverseBindings.xlsx": {
+        "bytes": 773911,
+        "sha256": "733b7ff60cf1b6556f69e7310cc6a96c3fff87ff9d55e7bd98f6fc22e91873ca"
+      },
+      "DivergentUniverseReview.xlsx": {
+        "bytes": 2749158,
+        "sha256": "aedcd5a249a38e607bdc22638bad9ebeb1ebd82e4ed6764b017d7a591fef1fc5"
+      }
+    },
+    "workbook_semantic_sha256": "b083e897f1938603dc69dec0c07090b4215d6af7a5c49a19448e23a07d7aba0d",
+    "tables": 80,
+    "rows": 27091,
+    "verified_empty_tables": 2,
+    "bundle": {
+      "bytes": 24736790,
+      "sha256": "3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf"
+    },
+    "debug_files": 80,
+    "debug_digest": "491bcffe6a0cc4a622160cd1fa448219984f1099163cf4ab72a8861e7a3bcd28",
+    "visual_review_sha256": "07c90b5dd3a8843ad8387f66e90521f29b56326ac4041374d2ad28050b9c48b3"
+  },
+  "protected_boundaries": {
+    "baseline_commit": "db5268bbe46e36739f51824967458e2987d61fc5",
+    "changed_paths": 347,
+    "protected_roots": 21,
+    "foreign_goal_artifact_changes": 0,
+    "goal03_standard_production": {
+      "standard_staging_sha256": "1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf",
+      "production_sha256": "875936da8c01593585389563fcb3d0c4334bdb14d85a3e7ffb9fb0dcc018953b"
+    },
+    "completed_mode_bundles": [
+      {
+        "goal": "Goal08",
+        "commit": "2688624c34a564d87076cadb405c8da506efd373",
+        "path": "config/gold-and-gears-generated/config.sora",
+        "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+      },
+      {
+        "goal": "Goal09",
+        "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "remote_ref": "origin/codex/goal09-swarm-disaster-reference",
+        "path": "config/swarm-disaster-generated/config.sora",
+        "sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362"
+      },
+      {
+        "goal": "Goal10",
+        "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "remote_ref": "origin/codex/goal10-unknowable-domain-reference",
+        "path": "config/unknowable-domain-generated/config.sora",
+        "sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec"
+      }
+    ]
+  },
+  "dependencies": {
+    "inputs": {
+      "cargo_lock_sha256": "7d518a413c182933a0f2d75b96094f40145ae2a82f8bd9dc34032d0b583a3aac",
+      "dependency_policy_sha256": "7fcac805af11fb4ebd8a3686082fdbf4244baca4aa8377aa581d359ffff5b507",
+      "release_snapshot_policy_sha256": "44181afbe9dfae408b72a7ffbc9f962c2bbc1e664c43e74b49fbc6e890512e4d",
+      "sora_toolchain_policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a"
+    },
+    "isolated_loader": {
+      "scope": "standalone generated-reader acceptance only",
+      "manifest_sha256": "982a6e1b15ee5f466aa5d951f0fce21e9c8de8272a8d93490bb1a02cc232805e",
+      "lockfile_sha256": "d28c25d316c1a3a67bc7b287a4a92f2722bb88b2f5b0fd4ad36d1ab1d78dddda",
+      "direct_packages": [
+        "serde",
+        "zstd"
+      ],
+      "registry_packages": 19,
+      "packages": [
+        {
+          "name": "cc",
+          "version": "1.4.0",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "5add81bb678e6cb321aff7fa0dc7689ad82b112dbc032cea19f91d6b8e3582b9"
+        },
+        {
+          "name": "cfg-if",
+          "version": "1.0.4",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
+        },
+        {
+          "name": "find-msvc-tools",
+          "version": "0.1.9",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "5baebc0774151f905a1a2cc41989300b1e6fbb29aff0ceffa1064fdd3088d582"
+        },
+        {
+          "name": "getrandom",
+          "version": "0.4.3",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+        },
+        {
+          "name": "jobserver",
+          "version": "0.1.35",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "1c00acbd29eabad4a2392fa0e921c874934dbbf4194312ad20f04a0ed67a3cb3"
+        },
+        {
+          "name": "libc",
+          "version": "0.2.189",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2"
+        },
+        {
+          "name": "pkg-config",
+          "version": "0.3.33",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "19f132c84eca552bf34cab8ec81f1c1dcc229b811638f9d283dceabe58c5569e"
+        },
+        {
+          "name": "proc-macro2",
+          "version": "1.0.107",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
+        },
+        {
+          "name": "quote",
+          "version": "1.0.47",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001"
+        },
+        {
+          "name": "r-efi",
+          "version": "6.0.0",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+          "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+        },
+        {
+          "name": "serde",
+          "version": "1.0.228",
+          "relationship": "Direct",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e"
+        },
+        {
+          "name": "serde_core",
+          "version": "1.0.228",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad"
+        },
+        {
+          "name": "serde_derive",
+          "version": "1.0.228",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "d540f220d3187173da220f885ab66608367b6574e925011a9353e4badda91d79"
+        },
+        {
+          "name": "shlex",
+          "version": "2.0.1",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
+        },
+        {
+          "name": "syn",
+          "version": "2.0.119",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+        },
+        {
+          "name": "unicode-ident",
+          "version": "1.0.24",
+          "relationship": "Transitive",
+          "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+          "checksum": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+        },
+        {
+          "name": "zstd",
+          "version": "0.13.3",
+          "relationship": "Direct",
+          "license": "MIT",
+          "checksum": "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a"
+        },
+        {
+          "name": "zstd-safe",
+          "version": "7.2.4",
+          "relationship": "Transitive",
+          "license": "MIT OR Apache-2.0",
+          "checksum": "8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d"
+        },
+        {
+          "name": "zstd-sys",
+          "version": "2.0.16+zstd.1.5.7",
+          "relationship": "Transitive",
+          "license": "MIT/Apache-2.0",
+          "checksum": "91e19ebc2adc8f83e43039e79776e3fda8ca919132d68a1fed6a5faca2683748"
+        }
+      ],
+      "runtime_dependency_changes": 0
+    }
+  },
+  "clean_checkout_command": "node tools/divergent-universe-reference/run-clean-checkout.mjs"
+}

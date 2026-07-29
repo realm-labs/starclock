@@ -24,6 +24,9 @@ const authoring = json(
 const fixtures = json(
   "content-manifests/divergent-universe-v1/fixture-contract.json",
 );
+const reconciliation = json(
+  "evidence/divergent-universe-reference-v1/reconciliation-checkpoints.json",
+);
 const manifestSha = digestBytes(fs.readFileSync(path.join(
   root,
   "content-manifests/divergent-universe-v1/content-manifest.json",
@@ -191,8 +194,23 @@ for (const checkpoint of checkpoints) {
 assert(
   schema.reconciliation_policy.join_key.join(",")
     === "source_path,row_locator,evidence_sha256"
-    && schema.reconciliation_policy.conflict_behavior.includes("Blocked"),
+    && schema.reconciliation_policy.conflict_behavior.includes("Blocked")
+    && schema.reconciliation_policy.checkpoint_proof_path
+      === "evidence/divergent-universe-reference-v1/reconciliation-checkpoints.json"
+    && schema.reconciliation_policy.non_matching_digest_behavior
+      .startsWith("Not a join"),
   "reconciliation join/conflict contract drift",
+);
+assert(
+  reconciliation.schema_revision
+    === "starclock.divergent-universe-reconciliation-checkpoints.v1"
+    && reconciliation.goal_id === "divergent-universe-reference-v1"
+    && reconciliation.result === "pass"
+    && reconciliation.checkpoints.length === 3
+    && reconciliation.summary.exact_shared_source_records === 102
+    && reconciliation.summary.same_locator_different_digest === 181
+    && reconciliation.summary.conflicts === 0,
+  "completed reconciliation checkpoint proof drift",
 );
 
 console.log(

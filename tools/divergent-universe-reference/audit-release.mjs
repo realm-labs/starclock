@@ -56,7 +56,7 @@ const commonFields = schema.common_envelope.required_fields;
 
 assert(schema.files.length === 80, "normalized file-family denominator differs");
 assert(sora.tables.length === 80, "Sora table denominator differs");
-assert(sources.length === 7_620, "source denominator differs");
+assert(sources.length === 7_624, "source denominator differs");
 const sourceById = uniqueMap(sources, ({ source_id: id }) => id, "source");
 for (const source of sources) {
   assert(source.game_version === "4.4", `${source.id}: game version differs`);
@@ -181,17 +181,17 @@ for (const { file } of schema.files) {
       (coverageStateCounts[row.coverage_state] ?? 0) + 1;
   }
 }
-assert(commonRows.length === 26_985, "normalized row denominator differs");
+assert(commonRows.length === 27_091, "normalized row denominator differs");
 assert(
   JSON.stringify(sortedObject(ownershipCounts)) === JSON.stringify({
-    DivergentUniverse: 23_992,
+    DivergentUniverse: 23_996,
     Excluded: 16,
     OtherMode: 57,
-    Shared: 2_920,
+    Shared: 3_022,
   }),
   "normalized ownership denominator differs",
 );
-assert(sourceReferenceCount === 95_109, "provenance denominator differs");
+assert(sourceReferenceCount === 95_420, "provenance denominator differs");
 for (const source of sources) {
   assert(referencedSources.has(source.source_id), `${source.id}: orphan source`);
 }
@@ -337,7 +337,32 @@ for (const gap of gaps) {
   }
 }
 assert(gaps.length === 25 && gapBindings === 68, "gap denominator differs");
-assert(receipts.length === 0, "P4-B1 expects reconciliation to remain pending");
+const receiptCounts = {};
+for (const receipt of receipts) {
+  assert(
+    receipt.ownership === "Shared" &&
+      receipt.coverage_state === "DataReady" &&
+      receipt.outcome === "MatchedShared" &&
+      receipt.checkpoint_ownership === "SharedSourceEvidence" &&
+      receipt.goal11_ownership === "SharedSourceEvidence" &&
+      receipt.blocking === false,
+    `${receipt.id}: reconciliation disposition differs`,
+  );
+  const source = sources.find(
+    (candidate) =>
+      candidate.path === receipt.source_path &&
+      candidate.locator === receipt.row_locator &&
+      candidate.sha256 === receipt.evidence_sha256,
+  );
+  assert(source, `${receipt.id}: exact source triple does not resolve`);
+  receiptCounts[receipt.checkpoint_goal] =
+    (receiptCounts[receipt.checkpoint_goal] ?? 0) + 1;
+}
+assert(
+  receipts.length === 102 &&
+    JSON.stringify(receiptCounts) === '{"Goal08":53,"Goal09":45,"Goal10":4}',
+  "reconciliation receipt denominator differs",
+);
 
 const profile = valuesByFile.get("profiles.json");
 const modules = valuesByFile.get("modules.json");
@@ -400,6 +425,7 @@ const report = {
     semantic_review_fixtures: fixtures.length,
     research_gaps: gaps.length,
     reconciliation_receipts: receipts.length,
+    reconciliation_by_checkpoint: receiptCounts,
     ownership: sortedObject(ownershipCounts),
     coverage_state: sortedObject(coverageStateCounts),
     evidence_quality: sortedObject(qualityCounts),

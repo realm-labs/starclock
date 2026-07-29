@@ -211,7 +211,7 @@ const files = [
     ["minimum_cases", "must_cover"]),
   file("review-fixtures.json", "P2-B6", [],
     ["family_id", "preconditions", "input", "ordered_operations", "expected_facts"]),
-  file("reconciliation-receipts.json", "P4-B1", [],
+  file("reconciliation-receipts.json", "P4-B3", [],
     ["source_path", "row_locator", "evidence_sha256", "checkpoint", "outcome"]),
   file("manifest.json", "P2-B6", [],
     ["content_manifest_sha256", "normalized_files", "record_counts"]),
@@ -353,6 +353,8 @@ const normalizedSchema = {
     unknown_reference: "reject",
   },
   reconciliation_policy: {
+    checkpoint_proof_path:
+      "evidence/divergent-universe-reference-v1/reconciliation-checkpoints.json",
     checkpoints: [
       checkpoint("G08", false),
       checkpoint("G09", true),
@@ -368,6 +370,9 @@ const normalizedSchema = {
     ],
     conflict_behavior:
       "Blocked; record the conflict and wait for merge coordination without mutating another Goal",
+    non_matching_digest_behavior:
+      "Not a join; retain both evidence representations and report the " +
+      "same-locator diagnostic without overwriting either Goal",
     required_receipt_fields: [
       "id",
       "source_path",
