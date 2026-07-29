@@ -41,10 +41,21 @@ node tools/gold-and-gears-reference/import-knowledge.mjs
 node tools/gold-and-gears-reference/verify-knowledge.mjs
 ```
 
+Phase 1 Neural Network graph, cost and effect rows regenerate with:
+
+```text
+node tools/gold-and-gears-reference/import-neural-network.mjs
+node tools/gold-and-gears-reference/verify-neural-network.mjs
+```
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but
 no explicit edge relation. Cognition ranges and Secret thresholds remain
 `ExactStructured`; their embedded adjustment/clamp/carry/reset order is a
 replaceable `ProjectPolicy`, with the released plane-boss evaluation boundary
-recorded separately as public evidence.
+recorded separately as public evidence. Neural Network rows preserve the
+released 40-node prerequisite graph, costs and contributions. The two
+indistinguishable Blue-slot upgrade targets and reroll empty-candidate behavior
+use named replaceable policies rather than claiming an unpublished engine
+mapping.

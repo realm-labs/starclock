@@ -7,7 +7,7 @@
 | Goal ID | `gold-and-gears-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 1 — Unique mode systems |
-| Active batch | `G08-P1-B6` |
+| Active batch | `G08-P1-B7` |
 | Next unblocked batch | None |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
@@ -22,7 +22,7 @@
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Goal 03 snapshot/source, isolated boundary, 2,882-file inventory, 51 normalized files, four workbook families and 18 fixture families are machine-frozen; P1-B5 amended the manifest from 7,906 to 7,913 after correcting the Knowledge tag discriminator. |
-| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags and all 22 corrected Knowledge obligations are DataReady; Neural Network and later unique systems remain. |
+| Phase 1 — Unique mode systems | `InProgress` | Entry, topology, Cognition/Secrets/constants, Custom Dice, slots/faces/filter tags, all 22 corrected Knowledge obligations and all 40 Neural Network nodes are DataReady; Conundrum and Path/Resonance systems remain. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting mode-pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, fixtures, regeneration, release evidence and clean-checkout acceptance. |
@@ -40,8 +40,8 @@
 | `G08-P1-B3` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 124 rows (`c12fe379…20398`, 214,583 bytes): four bilingual categories, 12 complete Custom Dice definitions and the exact 12×9 matrix of 108 selected-Path boost bindings. Each dice definition retains its initial/passive/Path-trigger templates and canonical source parameters, unlock ID, presentation locators, default six-face loadout, six suggested faces and full recommendation list. All referenced face IDs resolve against the frozen 80-face table; every inherited Goal 03 Path stable ID resolves, typed boost stat and source-ratio/percent formatting are explicit, and the manifest closes exactly once. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B4` | `Complete` | This row's containing commit | Generated and rechecked three normalized files with 96 rows (`77051119…ef356`, 318,069 bytes): six rarity-constrained slots, all 80 bilingual mechanical face templates and ten released filter tags. Face parameters, activation stages, branch eligibility, slot eligibility, unlock/display locators and internal mechanical codes close exactly once; all 12 prior default six-face loadouts satisfy base rarity, slot and branch constraints. Three faces explicitly specify no effect when no legal Curio target exists; all other no-target behavior remains `Unspecified`. Data Inflation's released per-plane cheat, post-move reroll and non-expiring General Buff wording is preserved and checked. Because released numeric filter tags and mechanical string codes have no explicit join, their semantic one-to-one mapping is a named replaceable `ProjectPolicy`. Focused and quick gates pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
 | `G08-P1-B5` | `Complete` | This row's containing commit | Corrected the frozen Knowledge discriminator after bilingual face semantics proved `SpecialType`—not `Mark`—is the internal Knowledge code. Regenerated and rechecked the manifest at 7,913 obligations (`88885b40…6085`, 3,335,090 bytes; 7,199 Gold-owned plus 714 shared), corrected the numeric filter-tag join, and generated 22 Knowledge bindings (`c8d2ac4e…ac957`, 146,354 bytes). Every exact effect template is typed as placement, propagation, query, consumption, preservation, movement override, collapse protection or reward. Dice 301 countdown recovery, 302 collapse prevention and 303 collapse reward are preserved with direct row provenance as active-dice-specific exact interactions. Candidate enumeration, seeded selection, empty-set no-op and simultaneous movement/mutation/collapse/reward ordering remain named replaceable `ProjectPolicy`. Focused manifest, contract, face and Knowledge verifiers plus the quick gate pass; the deferred full source-cache gate repeats the frozen Goal 06 `Cargo.lock baseline differs` boundary. |
-| `G08-P1-B6` | `InProgress` | — | Importing the mechanically relevant Neural Network graph, costs and effects. |
-| `G08-P1-B7` | `Pending` | — | Import Stats/Auxiliary Conundrum levels, composition and combat changes. |
+| `G08-P1-B6` | `Complete` | This row's containing commit | Generated and rechecked `neural-network.json` with all 40 released nodes (`dec13b52…b313e`, 111,580 bytes): three roots, one terminal, 53 exact prerequisite edges and 31,250 total Neural Impulses. Thirty nodes contribute exact battle stat ratios, nine contribute run decisions/resources/services/dice behavior and Reboot Plane contributes a declared Activity-to-battle entry effect. All nodes are mechanically relevant; none is collection/account reward-only. Exact costs, bilingual names/tags, description hashes, parameter vectors, Trailblaze Bonus `204`/`205` links and 40 rule-contribution identities are preserved. Released rows prove the three slot rarity upgrades but not which equal Blue slot belongs to node `301` versus `2001`, and they do not define the reroll empty-candidate case; both details use named replaceable `ProjectPolicy` records. All Goal 08 focused verifiers, the quick repository gate and `git diff --check` pass. |
+| `G08-P1-B7` | `InProgress` | — | Importing Stats/Auxiliary Conundrum levels, composition and combat changes. |
 | `G08-P1-B8` | `Pending` | — | Import bonuses `201`–`205`, Path/Resonance additions and Resonance Extrapolations. |
 | `G08-P2-B1` | `Pending` | — | Freeze reachable shared and mode-owned Blessing/Path/Resonance pools. |
 | `G08-P2-B2` | `Pending` | — | Import Curios, copies, states, charges, repair and replacement. |
@@ -74,7 +74,7 @@ Do not estimate denominators from Wiki page counts.
 | Custom Dice/categories/passives | 124 | 124 | 124 | Four categories, 12 dice and all 108 dice/selected-Path value bindings are DataReady. |
 | Dice slots/faces/tags/loadouts | 96 | 96 | 96 | Six slots, all 80 faces and ten filter tags are DataReady; all 12 default six-face loadouts validate. |
 | Knowledge rules | 22 | 22 | 22 | Twenty-two released `SpecialType` faces are the exact Knowledge set; typed rules are DataReady and target/simultaneous ordering remains explicitly ProjectPolicy. |
-| Neural Network nodes/effects | 40 | 0 | 0 | All 40 source nodes are obligations; downstream classification excludes reward-only fields. |
+| Neural Network nodes/effects | 40 | 40 | 40 | All 40 source nodes are DataReady: 30 Battle, nine Activity and one ActivityAndBattle contribution; none is reward-only. |
 | Conundrum definitions/levels | 12 | 0 | 0 | Six Attribute and six Additional difficulty definitions. |
 | Paths/boosts/Resonance Extrapolations | 108 | 0 | 0 | Nine shared Paths, 36 shared Resonances/Formations, nine Path boosts, 36 Extrapolation buffs and 18 Interplays. |
 | Blessings/enhanced levels | 486 | 0 | 0 | All 162 Goal 03 stable Blessing IDs and both authored levels are reachable shared content. |
@@ -102,6 +102,7 @@ Do not estimate denominators from Wiki page counts.
 | 2026-07-29 | Keep Cognition thresholds exact while labeling adjustment, clamp, carry, reset and tie ordering as `cognition-lifecycle-v1` `ProjectPolicy`. | Structured rows prove ranges and the Secret graph, and released text supports the plane-boss evaluation boundary, but the complete engine operation order is not released. |
 | 2026-07-29 | Join numeric face filter tags to mechanical string codes through a replaceable semantic `ProjectPolicy`. | The two released tables expose matching concepts but no explicit numeric-to-code relation; keeping both raw identities plus a labeled join avoids silently treating inference as exact. |
 | 2026-07-29 | Amend the Knowledge denominator from 15 `Mark` faces to 22 `SpecialType` faces and preserve the original P0-B3 hash as historical evidence. | Bilingual effect templates show `Mark` is the Beacon concept while `SpecialType` contains Knowledge placement, propagation, consumption and movement rules; correctness requires a current-manifest amendment rather than perpetuating the frozen misclassification. |
+| 2026-07-29 | Bind Neural Network slot upgrades by released rarity capability plus stable slot order, and fail closed for an impossible reroll candidate set. | Released rows prove one Purple-to-Golden and two Blue-to-Purple upgrades but do not distinguish the two Blue targets; reroll text excludes the previous result without specifying the empty set. Both mappings remain field-level `ProjectPolicy` with engine-evidence replacement conditions. |
 
 ## Research cases
 
@@ -116,7 +117,7 @@ Do not estimate denominators from Wiki page counts.
 | `G08-R07` | `Open` | How do Path boosts and Resonance Extrapolation select, scale, charge and act in the final boss battle? | P1-B8 |
 | `G08-R08` | `Open` | Which Blessings, Curios, Occurrences, services and mode-specific copies are actually reachable in the Version 4.4 Gold and Gears pools? | P2-B1–B4 |
 | `G08-R09` | `Open` | Which map-generation, room-selection, occurrence and reward weights are released, observed or require explicit project policy? | P1-B1 / P2-B3–B4 |
-| `G08-R10` | `Open` | Which Neural Network nodes affect a run or battle, and which are collection/account rewards outside the simulation boundary? | P1-B6 |
+| `G08-R10` | `Closed` | All 40 nodes are mechanically relevant: 30 contribute battle ratios, nine change run decisions/resources/services/dice behavior and Reboot Plane projects an entry effect into eligible battles. No node is reward-only. The two unpublished slot/reroll details are field-level replaceable policies rather than unresolved blockers. | P1-B6 |
 
 ## Terminal checklist
 
@@ -146,6 +147,6 @@ Do not estimate denominators from Wiki page counts.
 | Completion commit | — |
 | Gold and Gears reference bundle | — |
 | Workbook semantic digest | — |
-| Coverage | Denominators pending `G08-P0-B3` |
+| Coverage | 6,974/7,913 frozen source obligations `DataReady`; final generated coverage report remains P2-B6. |
 | Release evidence | — |
 | Remaining required work | Gold and Gears runtime lowering, integration, controller/API exposure and seeded full runs belong to a later goal. |
