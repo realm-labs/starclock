@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S30` |
-| Next unblocked batch | `G07-P5-M15-S30` |
+| Active batch | `G07-P5-M15-S31` |
+| Next unblocked batch | `G07-P5-M15-S31` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -324,10 +324,14 @@ contiguous nodes and 105 ordered edges under the same invariants.
 Topology-map S29 is complete: its final four maps retain 68 contiguous nodes
 and 84 ordered edges. Together S23–S29 close all 37 topology maps, 579 nodes
 and 707 edges under the single-entry, reachable-terminal, graph-local and
-bounded-acyclic invariants. `G07-P5-M15-S30` is active.
+bounded-acyclic invariants. Room-content S30 is complete: its first 32 rooms
+retain 114 ordered content bindings, split exactly into 31 encounter-group,
+39 fixed-content and 44 external-decision bindings. Every room retains one
+unique primary binding and every encounter binding resolves its exact authored
+group. `G07-P5-M15-S31` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 97 completed partitions use scoped Excel/Sora semantic
+model. The first 98 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

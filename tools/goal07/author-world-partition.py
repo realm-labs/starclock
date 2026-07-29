@@ -86,6 +86,10 @@ def sora_rows(table: str) -> list[dict[str, Any]]:
 
 def normalize(table: str, row: dict[str, Any]) -> dict[str, Any]:
     output = dict(row)
+    if table == "UniverseRoom" and isinstance(output.get("section_ids"), str):
+        output["section_ids"] = [
+            int(part) for part in output["section_ids"].split("|") if part
+        ]
     if table == "UniverseReviewFixture":
         for field in ("input_stable_keys", "provenance_ids"):
             if isinstance(output.get(field), str):
@@ -366,6 +370,100 @@ def build_map_partition(
     }
 
 
+def build_room_partition(
+    partition: dict[str, Any],
+    universe: Any,
+    bindings: Any,
+    evidence: Any,
+) -> dict[str, list[dict[str, Any]]]:
+    source_rooms = keyed(
+        json.loads((REFERENCE / "rooms.json").read_text(encoding="utf-8")),
+        "id",
+    )
+    source_domains = keyed(
+        json.loads((REFERENCE / "domains.json").read_text(encoding="utf-8")),
+        "id",
+    )
+    source_groups = json.loads(
+        (REFERENCE / "encounter-groups.json").read_text(encoding="utf-8")
+    )
+    group_key_by_source = {
+        str(row["source_ids"][0]): row["id"] for row in source_groups
+    }
+
+    domains = keyed(rows(universe["UniverseDomain"]), "stable_key")
+    rooms_by_key = keyed(rows(universe["UniverseRoom"]), "stable_key")
+    groups = keyed(rows(bindings["UniverseEncounterGroup"]), "stable_key")
+    selected_rooms = [rooms_by_key[key] for key in partition["record_ids"]]
+    room_ids = {int(row["id"]) for row in selected_rooms}
+    selected_content = [
+        row
+        for row in rows(universe["UniverseRoomContent"])
+        if int(row["room_id"]) in room_ids
+    ]
+    content_by_room: dict[int, list[dict[str, Any]]] = {}
+    for row in selected_content:
+        content_by_room.setdefault(int(row["room_id"]), []).append(row)
+
+    for authored in selected_rooms:
+        reference = source_rooms[authored["stable_key"]]
+        expected_room = {
+            "stable_key": reference["id"],
+            "domain_id": int(domains[reference["domain_id"]]["id"]),
+            "source_room_id": str(reference["source_ids"][0]),
+            "map_entrance": str(reference["map_entrance"]),
+            "source_group_id": str(reference["source_group_id"]),
+            "section_ids": "|".join(str(value) for value in reference["section_ids"]),
+        }
+        actual_room = {field: authored[field] for field in expected_room}
+        if actual_room != expected_room:
+            raise ValueError(
+                f"{reference['id']}: Excel room differs from public source"
+            )
+
+        room_id = int(authored["id"])
+        expected_content = []
+        external = (
+            source_domains[reference["domain_id"]]["decision_policy"]
+            == "ExternalCommand"
+        )
+        for sequence, content in enumerate(reference["content_map"], start=1):
+            source_content_id = str(content["content_source_id"])
+            group_key = group_key_by_source.get(source_content_id)
+            expected_content.append(
+                {
+                    "room_id": room_id,
+                    "sequence": sequence,
+                    "condition_key": str(content["group_id"]),
+                    "source_content_id": source_content_id,
+                    "kind": (
+                        "EncounterGroup"
+                        if group_key
+                        else "ExternalDecision"
+                        if external
+                        else "FixedContent"
+                    ),
+                    "encounter_group_id": (
+                        int(groups[group_key]["id"]) if group_key else None
+                    ),
+                }
+            )
+        authored_content = sorted(
+            content_by_room.get(room_id, []),
+            key=lambda row: int(row["sequence"]),
+        )
+        if authored_content != expected_content:
+            raise ValueError(
+                f"{reference['id']}: Excel room content differs from public source"
+            )
+
+    check_audits(partition, evidence)
+    return {
+        "UniverseRoom": selected_rooms,
+        "UniverseRoomContent": selected_content,
+    }
+
+
 def build(partition_id: str) -> dict[str, Any]:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     partition = next(
@@ -377,7 +475,12 @@ def build(partition_id: str) -> dict[str, Any]:
         or partition["mechanic_family"]
         != "enemies-encounters-worlds-difficulty-carry"
         or partition["lane"]
-        not in {"domain-graph", "encounter-selection", "topology-map"}
+        not in {
+            "domain-graph",
+            "encounter-selection",
+            "topology-map",
+            "room-content",
+        }
     ):
         raise ValueError(f"{partition_id}: unsupported world-structure partition")
 
@@ -394,8 +497,10 @@ def build(partition_id: str) -> dict[str, Any]:
         selected = build_encounter_partition(
             partition, universe, bindings, evidence
         )
-    else:
+    elif partition["lane"] == "topology-map":
         selected = build_map_partition(partition, universe, evidence)
+    else:
+        selected = build_room_partition(partition, universe, bindings, evidence)
     domain_ids = {
         int(row["id"]) for row in selected.get("UniverseDomain", [])
     }
@@ -404,6 +509,9 @@ def build(partition_id: str) -> dict[str, Any]:
     }
     node_ids = {
         int(row["id"]) for row in selected.get("UniverseMapNode", [])
+    }
+    room_ids = {
+        int(row["id"]) for row in selected.get("UniverseRoom", [])
     }
     for table, selected_rows in selected.items():
         exported = sora_rows(table)
@@ -432,6 +540,15 @@ def build(partition_id: str) -> dict[str, Any]:
                 row
                 for row in exported
                 if int(row.get("source_node_id", -1)) in node_ids
+            ]
+        elif table == "UniverseRoom":
+            keys = {row["stable_key"] for row in selected_rows}
+            exported = [row for row in exported if row.get("stable_key") in keys]
+        elif table == "UniverseRoomContent":
+            exported = [
+                row
+                for row in exported
+                if int(row.get("room_id", -1)) in room_ids
             ]
         if digest(table, selected_rows) != digest(table, exported):
             raise ValueError(f"{partition_id}: Sora {table} rows differ from Excel")
