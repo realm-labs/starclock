@@ -441,8 +441,8 @@ mod tests {
         const EXPECTED: [(&str, usize, &str); 6] = [
             (
                 SCENARIOS[0].0,
-                66,
-                "ef7b5d60ca5f5d76c4addfaeac087898ea6354e17c4054f5b4a0d2dce703d033",
+                154,
+                "71faf56504a7ffb1f5c54b0135c68939a5973fb6b9e065217c12ae4d0e5e5b9e",
             ),
             (
                 SCENARIOS[1].0,
@@ -451,8 +451,8 @@ mod tests {
             ),
             (
                 SCENARIOS[2].0,
-                65,
-                "3dfeddcc52dfcb68c98c8b4b10589f98a4d79a410e6c525523ab3880c5a0c949",
+                109,
+                "157610fab9cd6fe5f5f04a8ba7b66bf46d28449c83465dfd41f8ee2bc9df02a4",
             ),
             (
                 SCENARIOS[3].0,
@@ -466,8 +466,8 @@ mod tests {
             ),
             (
                 SCENARIOS[5].0,
-                284,
-                "0af968b91ac13cbb958bbb7324aef9f242f3570b71ca2eb1cc1abfb24aac2f07",
+                314,
+                "64edfe3b9d53abff715004369cf9cb8627b1c65adc419ff66be08514e5a295c3",
             ),
         ];
         for (scenario, expected_events, expected_hash) in EXPECTED {

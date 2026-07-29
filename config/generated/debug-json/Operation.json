@@ -21431,6 +21431,1850 @@
             "Integer": 1100408
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112001
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113025
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.everwinter-shadewalker-basic-attack-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112002
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115001
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.1-surprise-variety-show-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112003
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113027
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Quantum"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.1-startling-broadcast-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112004
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115001
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.1-startling-broadcast-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112005
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115001
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.1-channel-switch-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112006
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115001
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.1-channel-crossover-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112007
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113029
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.2-throw-die-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112008
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115002
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.2-throw-die-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112009
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113032
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-limitless-free-drinks-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112010
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115003
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-limitless-free-drinks-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112011
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113030
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-frenzied-free-drinks-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112012
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115003
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-frenzied-free-drinks-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112013
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115004
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-soulglad-party-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112014
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115005
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.3-celebration-fountain-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112015
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113032
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-limited-free-drinks-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112016
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115003
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-limited-free-drinks-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112017
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113031
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-unlimited-free-drinks-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112018
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115003
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-unlimited-free-drinks-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112019
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115004
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-soulglad-party-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112020
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115005
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.4-celebration-fountain-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112021
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115006
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.5-set-alarm-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112022
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115006
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.5-wake-up-alarm-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112023
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113029
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Physical"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.5-wake-up-punch-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112024
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113028
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Imaginary"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.6-dense-fog-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112025
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115007
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.6-dense-fog-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112026
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113026
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.7-nightly-luminosity-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112027
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115008
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.7-nightly-luminosity-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112028
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115009
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.7-candle-flame-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112029
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113028
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.8-lions-roar-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112030
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113030
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.9-frost-crush-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112031
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113006
+              },
+              "type": {
+                "String": "DelayAction"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.9-frost-crush-delay"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112032
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113029
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.10-distract-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112033
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113030
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-ice-wheel-fist-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112034
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1110401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1110351
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-summon-otherling-summon-1110351"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112035
+          },
+          "payload": {
+            "Object": {
+              "owner_selector_id": {
+                "Integer": 1110401
+              },
+              "type": {
+                "String": "Summon"
+              },
+              "unit_definition_identity_id": {
+                "Integer": 1110352
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-summon-otherling-summon-1110352"
+          },
+          "target_selector_id": "Null"
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112036
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115011
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-devour-otherling-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112037
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113033
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-ice-wheel-crusher-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112038
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115010
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-ice-wheel-crusher-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112039
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113025
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-frozen-storm-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112040
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115010
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.11-frozen-storm-effect"
+          },
+          "target_selector_id": {
+            "Integer": 1110406
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112041
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113029
+              },
+              "can_crit": {
+                "Bool": true
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Ice"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.12-distract-damage"
+          },
+          "target_selector_id": {
+            "Integer": 1110404
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "Fault"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112042
+          },
+          "payload": {
+            "Object": {
+              "base_chance_expression_id": "Null",
+              "chance_policy": {
+                "String": "Guaranteed"
+              },
+              "effect_id": {
+                "Integer": 1115009
+              },
+              "rng_purpose_key": "Null",
+              "stacks_expression_id": "Null",
+              "type": {
+                "String": "ApplyEffect"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.illumination-dragonfish-candle-flame-entry"
+          },
+          "target_selector_id": {
+            "Integer": 1110401
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": "Null",
+          "domain": {
+            "String": "Battle"
+          },
+          "empty_target_policy": {
+            "String": "NoOp"
+          },
+          "fault_policy": {
+            "String": "Rollback"
+          },
+          "id": {
+            "Integer": 1112043
+          },
+          "payload": {
+            "Object": {
+              "amount_expression_id": {
+                "Integer": 1113034
+              },
+              "can_crit": {
+                "Bool": false
+              },
+              "damage_class": {
+                "String": "Ordinary"
+              },
+              "element": {
+                "String": "Fire"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "snapshot_boundary": {
+            "String": "Dynamic"
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.operation.illumination-dragonfish-candle-flame-adjacent-allies"
+          },
+          "target_selector_id": {
+            "Integer": 1110407
+          }
+        }
       }
     ]
   }

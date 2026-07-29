@@ -688,7 +688,7 @@ mod tests {
 
     #[test]
     fn repairing_codes_transition_only_after_three_won_battles() {
-        let mut activity = activity_from_seed(3);
+        let mut activity = activity();
         let energy = curio(&activity, "universe.curio.45");
         let hp = curio(&activity, "universe.curio.47");
         acquire_curios(&mut activity, &[energy, hp]);

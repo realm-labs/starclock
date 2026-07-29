@@ -1470,6 +1470,50 @@
             "String": "goal07.enemy.s13.trigger.automaton-spider-chains"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1114801
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1115102
+          },
+          "id": {
+            "Integer": 1115103
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterDefeatSettlement"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1111031
+          },
+          "rule_id": {
+            "Integer": 1115101
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s14.trigger.illumination-dragonfish-candle-flame"
+          }
+        }
       }
     ]
   }

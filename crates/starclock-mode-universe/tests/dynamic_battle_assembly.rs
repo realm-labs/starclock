@@ -350,13 +350,14 @@ fn damaged_win(identity: starclock_activity::BattleResultIdentity) -> BattleResu
 
 #[test]
 fn production_baseline_records_and_verifies_dynamic_replay_v3() {
+    const SEED: u64 = 1;
     let factory = StandardUniverseRuntimeFactory::load(CORE_BUNDLE, UNIVERSE_BUNDLE).unwrap();
     let controller = StandardUniverseControllerIdentity {
         id: "dynamic-replay-test",
         revision: StandardUniverseBaselineRunner::REVISION,
         digest: [0x63; 32],
     };
-    let instance = factory.start(1, 0, 0x6027, controller).unwrap();
+    let instance = factory.start(1, 0, SEED, controller).unwrap();
     let profile_id = instance.profile_id().to_owned();
     let components = instance.components().clone();
     let compatibility = instance.compatibility().clone();
@@ -365,7 +366,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
     let header = standard_universe_header_v3(
         compatibility.clone(),
         components.clone(),
-        0x6027,
+        SEED,
         &activity,
         &profile_id,
     )
@@ -384,7 +385,7 @@ fn production_baseline_records_and_verifies_dynamic_replay_v3() {
         "new production recordings use replay v3"
     );
 
-    let fresh = factory.start(1, 0, 0x6027, controller).unwrap();
+    let fresh = factory.start(1, 0, SEED, controller).unwrap();
     let fresh_assembler = Arc::clone(fresh.battle_assembler());
     let (_, fresh_activity, _, _, _) = fresh.into_dynamic_parts();
     let verified = verify_standard_universe_replay_v3_dynamic(

@@ -158,6 +158,29 @@ PARTITION_CONFIG = {
         "source_record_id": 15,
         "evidence_record_id": 16,
     },
+    "G07-P5-M15-S14": {
+        "base": 1_110_000,
+        "variant": "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01",
+        "variants": [
+            "enemy.dreamjolt-troupes-mr-domescreen.minionlv2.variant.01",
+            "enemy.dreamjolt-troupes-spring-loader.minion.variant.01",
+            "enemy.dreamjolt-troupes-sweet-gorilla-bug.elite.variant.01",
+            "enemy.dreamjolt-troupes-sweet-gorilla.elite.variant.01",
+            "enemy.dreamjolt-troupes-winder-goon.minionlv2.variant.01",
+            "enemy.entranced-ingenium-golden-cloud-toad.minion.variant.01",
+            (
+                "enemy.entranced-ingenium-illumination-dragonfish."
+                "minionlv2.variant.01"
+            ),
+            "enemy.entranced-ingenium-obedient-dracolion.minion.variant.01",
+            "enemy.everwinter-shadewalker.minionlv2.variant.01",
+            "enemy.flamespawn.minion.variant.01",
+            "enemy.frigid-prowler.elite.variant.01",
+            "enemy.frostspawn.minion.variant.01",
+        ],
+        "source_record_id": 16,
+        "evidence_record_id": 17,
+    },
 }
 PARTITION = "G07-P5-M15-S01"
 VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
@@ -13561,15 +13584,19 @@ def owned_rows_s11() -> dict[str, list[dict[str, Any]]]:
             subject_selector_id=selectors["actor"],
         ),
     )
-    actor_maximum_hp = expression(
-        "actor-maximum-hp",
-        "Scalar",
-        json_cell(
-            "QueryStat",
-            subject_selector_id=selectors["actor"],
-            stat="Hp",
-            formula_purpose="Stat",
-        ),
+    actor_maximum_hp = (
+        expression(
+            "actor-maximum-hp",
+            "Scalar",
+            json_cell(
+                "QueryStat",
+                subject_selector_id=selectors["actor"],
+                stat="Hp",
+                formula_purpose="Stat",
+            ),
+        )
+        if PARTITION in {"G07-P5-M15-S13", "G07-P5-M15-S14"}
+        else None
     )
     primary_hp = expression(
         "primary-maximum-hp",
@@ -15074,6 +15101,195 @@ def enemy_specs_s13() -> list[dict[str, Any]]:
     ]
 
 
+def enemy_specs_s14() -> list[dict[str, Any]]:
+    return [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.dreamjolt-troupes-mr-domescreen.minionlv2",
+            "name": "Dreamjolt Troupe's Mr. Domescreen",
+            "zh": "惊梦剧团的圆幕先生",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Ice", "Imaginary", "Lightning"],
+            "resistances": [("Fire", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("surprise-variety-show", "Surprise Variety Show", "惊喜综艺", "300201001", None, None, "primary", True, "channel"),
+                ("startling-broadcast", "Startling Broadcast", "惊吓播报", "300201002", "1.6", "Quantum", "all-opposing", True, "channel"),
+                ("channel-switch", "Channel Switch", "频道切换", "300201003", None, None, "actor", True, "channel"),
+                ("channel-crossover", "Channel Crossover", "串台", "300201004", None, None, "actor", False, "channel"),
+            ],
+            "cycle": ["surprise-variety-show", "startling-broadcast", "channel-switch"],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.dreamjolt-troupes-spring-loader.minion",
+            "name": "Dreamjolt Troupe's Spring Loader",
+            "zh": "惊梦剧团的弹簧荷官",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Physical", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("throw-die", "Throw Die", "掷点", "300101001", "2.5", "Physical", "primary", True, "die-debuff"),
+            ],
+            "cycle": ["throw-die"],
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.dreamjolt-troupes-sweet-gorilla-bug.elite",
+            "name": "Dreamjolt Troupe's Sweet Gorilla (Bug)",
+            "zh": "惊梦剧团的甜猿泰山（错误）",
+            "rank": "Elite",
+            "toughness": "360",
+            "weaknesses": ["Fire", "Imaginary", "Physical"],
+            "resistances": [("Ice", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("limitless-free-drinks", "Limitless Free Drinks", "不限量赠饮", "300302201", "3.8", "Ice", "primary", True, "drink-shield"),
+                ("frenzied-free-drinks", "Frenzied Free Drinks", "疯狂畅饮", "300302202", "3", "Ice", "primary", True, "drink-shield"),
+                ("soulglad-party", "SoulGlad Party", "苏乐达派对", "300302203", None, None, "actor", True, "soulglad"),
+                ("celebration-fountain", "Celebration Fountain", "酬宾喷泉", "300302204", None, None, "actor", True, "fountain"),
+            ],
+            "cycle": ["limitless-free-drinks", "frenzied-free-drinks", "soulglad-party", "celebration-fountain"],
+        },
+        {
+            "key": VARIANT_KEYS[3],
+            "template": "enemy.dreamjolt-troupes-sweet-gorilla.elite",
+            "name": "Dreamjolt Troupe's Sweet Gorilla",
+            "zh": "惊梦剧团的甜猿泰山",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Fire", "Imaginary", "Physical"],
+            "resistances": [("Ice", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("limited-free-drinks", "Limited Free Drinks", "限量赠饮", "300302001", "3.8", "Ice", "primary", True, "drink-shield"),
+                ("unlimited-free-drinks", "Unlimited Free Drinks", "无限畅饮", "300302002", "3.6", "Ice", "primary", True, "drink-shield"),
+                ("soulglad-party", "SoulGlad Party", "苏乐达派对", "300302003", None, None, "actor", True, "soulglad"),
+                ("celebration-fountain", "Celebration Fountain", "酬宾喷泉", "300302004", None, None, "actor", True, "fountain"),
+            ],
+            "cycle": ["limited-free-drinks", "unlimited-free-drinks", "soulglad-party", "celebration-fountain"],
+        },
+        {
+            "key": VARIANT_KEYS[4],
+            "template": "enemy.dreamjolt-troupes-winder-goon.minionlv2",
+            "name": "Dreamjolt Troupe's Winder Goon",
+            "zh": "惊梦剧团的发条暴徒",
+            "rank": "Normal",
+            "toughness": "90",
+            "weaknesses": ["Lightning", "Quantum"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Physical", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("set-alarm", "Set Alarm", "预定闹钟", "300204001", None, None, "actor", True, "alarm"),
+                ("wake-up-alarm", "Wake-Up Alarm", "起床铃声", "300204002", None, None, "actor", True, "alarm"),
+                ("wake-up-punch", "Wake-Up Punch", "清醒铁拳", "300204003", "2.5", "Physical", "primary", True, None),
+            ],
+            "cycle": ["set-alarm", "wake-up-alarm", "wake-up-punch"],
+        },
+        {
+            "key": VARIANT_KEYS[5],
+            "template": "enemy.entranced-ingenium-golden-cloud-toad.minion",
+            "name": "Entranced Ingenium: Golden Cloud Toad",
+            "zh": "入魔机巧 • 浓云金蟾",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Lightning", "Quantum"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Imaginary", "0.2"), ("Physical", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("dense-fog", "Dense Fog", "霏雾", "201102001", "2", "Imaginary", "primary", True, "fog"),
+            ],
+            "cycle": ["dense-fog"],
+        },
+        {
+            "key": VARIANT_KEYS[6],
+            "template": "enemy.entranced-ingenium-illumination-dragonfish.minionlv2",
+            "name": "Entranced Ingenium: Illumination Dragonfish",
+            "zh": "入魔机巧 • 灯昼龙鱼",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Imaginary", "Lightning", "Physical"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("nightly-luminosity", "Nightly Luminosity", "宵明", "201201001", "1.5", "Fire", "all-opposing", True, "def-down"),
+                ("candle-flame", "Candle Flame", "烛花", "201201002", None, "Fire", "actor", False, "candle-flame"),
+            ],
+            "cycle": ["nightly-luminosity"],
+        },
+        {
+            "key": VARIANT_KEYS[7],
+            "template": "enemy.entranced-ingenium-obedient-dracolion.minion",
+            "name": "Entranced Ingenium: Obedient Dracolion",
+            "zh": "入魔机巧 • 率从狻猊",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Imaginary", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("lions-roar", "Lion's Roar", "狮子吼", "201101001", "2", "Fire", "primary", True, None),
+            ],
+            "cycle": ["lions-roar"],
+        },
+        {
+            "key": VARIANT_KEYS[8],
+            "template": "enemy.everwinter-shadewalker.minionlv2",
+            "name": "Everwinter Shadewalker",
+            "zh": "永冬灾影",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Fire", "Physical", "Quantum"],
+            "resistances": [("Ice", "0.4"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("frost-crush", "Frost Crush", "霜冻重击", "102201001", "3", "Ice", "primary", True, "delay-50"),
+            ],
+            "cycle": ["frost-crush"],
+        },
+        {
+            "key": VARIANT_KEYS[9],
+            "template": "enemy.flamespawn.minion",
+            "name": "Flamespawn",
+            "zh": "炎华造物",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Ice", "Physical"],
+            "resistances": [("Fire", "0.4"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("distract", "Distract", "扰乱", "800101001", "2.5", "Fire", "primary", True, None),
+            ],
+            "cycle": ["distract"],
+        },
+        {
+            "key": VARIANT_KEYS[10],
+            "template": "enemy.frigid-prowler.elite",
+            "name": "Frigid Prowler",
+            "zh": "深寒徘徊者",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Fire", "Lightning", "Quantum"],
+            "resistances": [("Ice", "0.4"), ("Imaginary", "0.2"), ("Physical", "0.2"), ("Wind", "0.2")],
+            "abilities": [
+                ("ice-wheel-fist", "Ice Wheel Fist", "冰轮铁拳", "102302001", "3", "Ice", "primary", True, None),
+                ("summon-otherling", "Summon Otherling", "召来衍生物", "102302005", None, None, "actor", True, "otherling"),
+                ("devour-otherling", "Devour Otherling", "吞噬衍生物", "102302007", None, None, "actor", True, "devour"),
+                ("ice-wheel-crusher", "Ice Wheel Crusher", "冰轮碎碾", "102302009", "5", "Ice", "primary", True, "deep-freeze"),
+                ("frozen-storm", "Frozen Storm", "冻结风暴", "102302006", "1", "Ice", "all-opposing", True, "deep-freeze"),
+            ],
+            "cycle": ["summon-otherling", "ice-wheel-fist", "devour-otherling", "ice-wheel-crusher", "frozen-storm"],
+        },
+        {
+            "key": VARIANT_KEYS[11],
+            "template": "enemy.frostspawn.minion",
+            "name": "Frostspawn",
+            "zh": "霜晶造物",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Fire", "Wind"],
+            "resistances": [("Ice", "0.4"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("distract", "Distract", "扰乱", "800102001", "2.5", "Ice", "primary", True, None),
+            ],
+            "cycle": ["distract"],
+        },
+    ]
+
+
 def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
@@ -15083,7 +15299,12 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     if [item["enemy_variant_id"] for item in anchor["variants"]] != VARIANT_KEYS:
         raise ValueError("S12 numeric anchor variants changed")
 
-    enemy_specs = enemy_specs_s13() if PARTITION == "G07-P5-M15-S13" else [
+    enemy_specs = (
+        enemy_specs_s14()
+        if PARTITION == "G07-P5-M15-S14"
+        else enemy_specs_s13()
+        if PARTITION == "G07-P5-M15-S13"
+        else [
         {
             "key": VARIANT_KEYS[0],
             "template": "enemy.abundance-sprite-golden-hound.minionlv2",
@@ -15337,6 +15558,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "cycle": ["vertical-strike", "self-healing-module"],
         },
     ]
+    )
     if PARTITION == "G07-P5-M15-S12":
         variant_row_ids = [
             95 if index == 0 else 96 if index == 6 else BASE + 1 + index
@@ -15361,6 +15583,27 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             else BASE + 21 + index
             for index in range(len(enemy_specs))
         ]
+    elif PARTITION == "G07-P5-M15-S14":
+        variant_row_ids = [
+            102
+            if index == 6
+            else 103
+            if index == 9
+            else 104
+            if index == 11
+            else BASE + 1 + index
+            for index in range(len(enemy_specs))
+        ]
+        template_row_ids = [
+            10_008
+            if index == 6
+            else 10_009
+            if index == 9
+            else 10_010
+            if index == 11
+            else BASE + 21 + index
+            for index in range(len(enemy_specs))
+        ]
     else:
         variant_row_ids = [BASE + 1 + index for index in range(len(enemy_specs))]
         template_row_ids = [BASE + 21 + index for index in range(len(enemy_specs))]
@@ -15378,7 +15621,24 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         "adjacent-allies": BASE + 408,
         "blast": BASE + 409,
     }
+    if PARTITION == "G07-P5-M15-S12":
+        selectors.pop("blast")
     effects = (
+        {
+            "channel": BASE + 5_001,
+            "die-debuff": BASE + 5_002,
+            "drink-shield": BASE + 5_003,
+            "soulglad": BASE + 5_004,
+            "fountain": BASE + 5_005,
+            "alarm": BASE + 5_006,
+            "fog": BASE + 5_007,
+            "def-down": BASE + 5_008,
+            "candle-flame": BASE + 5_009,
+            "deep-freeze": BASE + 5_010,
+            "devour": BASE + 5_011,
+        }
+        if PARTITION == "G07-P5-M15-S14"
+        else
         {
             "chains": BASE + 5_001,
             "timed": BASE + 5_002,
@@ -15507,15 +15767,19 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             formula_purpose="OrdinaryDamage",
         ),
     )
-    actor_maximum_hp = expression(
-        "actor-maximum-hp",
-        "Scalar",
-        json_cell(
-            "QueryStat",
-            subject_selector_id=selectors["actor"],
-            stat="Hp",
-            formula_purpose="Stat",
-        ),
+    actor_maximum_hp = (
+        expression(
+            "actor-maximum-hp",
+            "Scalar",
+            json_cell(
+                "QueryStat",
+                subject_selector_id=selectors["actor"],
+                stat="Hp",
+                formula_purpose="Stat",
+            ),
+        )
+        if PARTITION in {"G07-P5-M15-S13", "G07-P5-M15-S14"}
+        else None
     )
     ratio_values = {
         value
@@ -15523,18 +15787,19 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         for _, _, _, _, value, _, _, _, _ in spec["abilities"]
         if value is not None
     } | {
-        "0.025",
-        "0.03",
-        "0.075",
-        "0.1",
         "0.25",
         "0.35",
         "0.5",
         "0.6",
         "0.7",
         "1",
-        "1.2",
-    }
+    } | (
+        {"0.025", "0.03", "0.075", "0.1", "1.2"}
+        if PARTITION == "G07-P5-M15-S13"
+        else {"0.4"}
+        if PARTITION == "G07-P5-M15-S14"
+        else set()
+    )
     ratios = {
         value: expression(
             f"ratio-{value.replace('.', '-')}",
@@ -15572,7 +15837,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 rounding="NearestTiesAway",
             ),
         )
-        for value in ("0.025", "0.03", "0.1", "1.2")
+        for value in (
+            ("0.025", "0.03", "0.1", "1.2")
+            if PARTITION == "G07-P5-M15-S13"
+            else ("0.4",)
+            if PARTITION == "G07-P5-M15-S14"
+            else ()
+        )
     }
 
     add(
@@ -15585,6 +15856,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     )
 
     effect_metadata = (
+        {
+            "channel": ("Channel State", "频道状态", "NeutralState", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "die-debuff": ("Bad Roll", "坏点数", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "drink-shield": ("Free Drinks Shield", "赠饮护盾", "Buff", "DispellableBuff", 2, integer_two, "OwnerTurnEnd", "RefreshAndAddStacks", None, None),
+            "soulglad": ("SoulGlad Party", "苏乐达派对", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "fountain": ("Celebration Fountain", "酬宾喷泉", "NeutralState", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "alarm": ("Alarm Set", "闹钟预定", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+            "fog": ("Dense Fog", "霏雾", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "def-down": ("Defense Down", "防御降低", "Debuff", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "candle-flame": ("Candle Flame", "烛花", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
+            "deep-freeze": ("Deep Freeze", "深度冻结", "Control", "CleanseableControl", 3, integer_two, "TargetTurnEnd", "RefreshAndAddStacks", None, None),
+            "devour": ("Devour Otherling", "吞噬衍生物", "Buff", "DispellableBuff", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
+        }
+        if PARTITION == "G07-P5-M15-S14"
+        else
         {
             "chains": ("Chains of Destruction", "毁灭连锁", "NeutralState", "NonDispellable", 1, None, "Permanent", "Replace", None, None),
             "timed": ("Timed Module", "定时模块", "Buff", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
@@ -15655,6 +15941,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             },
         )
     effect_tags = (
+        {
+            "channel": ["channel-state"],
+            "die-debuff": ["bad-roll"],
+            "drink-shield": ["shield"],
+            "soulglad": ["soulglad-party"],
+            "fountain": ["celebration-fountain"],
+            "alarm": ["alarm-set"],
+            "fog": ["dense-fog"],
+            "def-down": ["defense-down"],
+            "candle-flame": ["candle-flame"],
+            "deep-freeze": ["deep-freeze", "speed-down"],
+            "devour": ["attack-up", "lock-on-target"],
+        }
+        if PARTITION == "G07-P5-M15-S14"
+        else
         {
             "chains": ["chains-of-destruction"],
             "timed": ["timed-module"],
@@ -15732,33 +16033,71 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     linked_units = [BASE + 351, BASE + 352]
     linked_ability = BASE + 381
     is_s13 = PARTITION == "G07-P5-M15-S13"
-    linked_slug = "mara-struck-soldier" if is_s13 else "illumination-dragonfish"
-    linked_name = "Mara-Struck Soldier" if is_s13 else "Illumination Dragonfish"
-    linked_name_zh = "魔阴身士卒" if is_s13 else "入魔机巧·灯昼龙鱼"
-    linked_skill = "Thunder Strike" if is_s13 else "Candle Flame"
-    linked_skill_zh = "雷霆突刺" if is_s13 else "烛焰"
-    linked_element = "Lightning" if is_s13 else "Fire"
+    is_s14 = PARTITION == "G07-P5-M15-S14"
+    linked_slug = (
+        "everwinter-shadewalker"
+        if is_s14
+        else "mara-struck-soldier"
+        if is_s13
+        else "illumination-dragonfish"
+    )
+    linked_name = (
+        "Everwinter Shadewalker"
+        if is_s14
+        else "Mara-Struck Soldier"
+        if is_s13
+        else "Illumination Dragonfish"
+    )
+    linked_name_zh = (
+        "永冬灾影" if is_s14 else "魔阴身士卒" if is_s13 else "入魔机巧·灯昼龙鱼"
+    )
+    linked_skill = (
+        "Frost Crush" if is_s14 else "Thunder Strike" if is_s13 else "Candle Flame"
+    )
+    linked_skill_zh = "霜冻重击" if is_s14 else "雷霆突刺" if is_s13 else "烛焰"
+    linked_element = "Ice" if is_s14 else "Lightning" if is_s13 else "Fire"
+    linked_ability_key = (
+        f"enemy.goal07.s12.{linked_slug}.ability.basic-attack"
+        if is_s13 or is_s14
+        else "enemy.goal07.s12.illumination-dragonfish.ability.candle-flame"
+    )
+    linked_program_slug = (
+        f"{linked_slug}-basic-attack"
+        if is_s13 or is_s14
+        else "illumination-dragonfish-candle-flame"
+    )
+    linked_operation_slug = (
+        f"{linked_slug}-basic-attack-damage"
+        if is_s13 or is_s14
+        else "illumination-dragonfish-candle-flame-damage"
+    )
     linked_summary = (
-        "Formation-linked Mara-Struck Soldier summoned by Shape Shifter."
+        "Formation-linked Everwinter Shadewalker summoned by Frigid Prowler."
+        if is_s14
+        else "Formation-linked Mara-Struck Soldier summoned by Shape Shifter."
         if is_s13
         else "Formation-linked Gatekeeper sanction summon."
     )
     identities.append(
         ident(
             linked_ability,
-            f"enemy.goal07.s12.{linked_slug}.ability.basic-attack",
+            linked_ability_key,
             "Ability",
             linked_skill,
             linked_skill_zh,
-            f"Executable linked-unit attack used by {linked_name}.",
+            (
+                f"Executable linked-unit attack used by {linked_name}."
+                if is_s13 or is_s14
+                else "Executable linked-unit attack used by Aurumaton Gatekeeper."
+            ),
         )
     )
     linked_program = make_program(
-        f"{linked_slug}-basic-attack",
+        linked_program_slug,
         [
             op_step(
                 new_operation(
-                    f"{linked_slug}-basic-attack-damage",
+                    linked_operation_slug,
                     json_cell(
                         "Damage",
                         amount_expression_id=damage_amounts["1"],
@@ -15796,7 +16135,14 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         identities.append(
             ident(
                 unit_id,
-                f"unit.goal07.s12.{linked_slug}-{index}",
+                (
+                    f"unit.goal07.s12.{linked_slug}-{index}"
+                    if is_s13 or is_s14
+                    else (
+                        "unit.goal07.s12.aurumaton-gatekeeper."
+                        f"{linked_slug}-{index}"
+                    )
+                ),
                 "CharacterForm",
                 f"{linked_name} {index}",
                 f"{linked_name_zh}{index}",
@@ -15887,6 +16233,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                     )
             effect_key = (
                 {
+                    "channel": "channel",
+                    "die-debuff": "die-debuff",
+                    "drink-shield": "drink-shield",
+                    "soulglad": "soulglad",
+                    "fountain": "fountain",
+                    "alarm": "alarm",
+                    "fog": "fog",
+                    "def-down": "def-down",
+                    "candle-flame": "candle-flame",
+                    "deep-freeze": "deep-freeze",
+                    "devour": "devour",
+                }
+                if is_s14
+                else
+                {
                     "chains": "chains",
                     "timed": "timed",
                     "cloud-edge": "cloud-edge",
@@ -15954,14 +16315,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                                     "mara-summon",
                                     "stove",
                                     "sweetness",
+                                    "channel",
+                                    "drink-shield",
+                                    "soulglad",
+                                    "fountain",
+                                    "alarm",
+                                    "candle-flame",
+                                    "devour",
                                 }
                                 else target_selector
                             ),
                         )
                     )
                 )
-            if mechanic in {"imprison-50", "imprison-60"}:
-                delay_ratio = "0.5" if mechanic == "imprison-50" else "0.6"
+            if mechanic in {"imprison-50", "imprison-60", "delay-50"}:
+                delay_ratio = "0.6" if mechanic == "imprison-60" else "0.5"
                 steps.append(
                     op_step(
                         new_operation(
@@ -16017,7 +16385,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                         )
                     )
                 )
-            if mechanic in {"sanction", "mara-summon"}:
+            if mechanic in {"sanction", "mara-summon", "otherling"}:
                 for unit_id in linked_units:
                     steps.append(
                         op_step(
@@ -16075,12 +16443,39 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 },
             )
 
-    defeat_effect = effects["chains"] if is_s13 else effects["rebound"]
-    defeat_slug = "automaton-spider-chains" if is_s13 else "golden-hound-rebound"
-    defeat_name = "Automaton Spider Chains Rule" if is_s13 else "Golden Hound Rebound Rule"
-    defeat_name_zh = "自动机兵蜘蛛毁灭连锁规则" if is_s13 else "娄金嗥吠规则"
+    defeat_effect = (
+        effects["candle-flame"]
+        if is_s14
+        else effects["chains"]
+        if is_s13
+        else effects["rebound"]
+    )
+    defeat_slug = (
+        "illumination-dragonfish-candle-flame"
+        if is_s14
+        else "automaton-spider-chains"
+        if is_s13
+        else "golden-hound-rebound"
+    )
+    defeat_name = (
+        "Illumination Dragonfish Candle Flame Rule"
+        if is_s14
+        else "Automaton Spider Chains Rule"
+        if is_s13
+        else "Golden Hound Rebound Rule"
+    )
+    defeat_name_zh = (
+        "灯昼龙鱼烛花规则"
+        if is_s14
+        else "自动机兵蜘蛛毁灭连锁规则"
+        if is_s13
+        else "娄金嗥吠规则"
+    )
     defeat_summary = (
-        "Deals 120% of the Automaton Spider's maximum HP as Fire damage "
+        "Deals 40% of the Illumination Dragonfish's maximum HP as Fire "
+        "damage to all same-side units after it is defeated."
+        if is_s14
+        else "Deals 120% of the Automaton Spider's maximum HP as Fire damage "
         "to adjacent same-side units after it is defeated."
         if is_s13
         else "Advances adjacent living allies after the Golden Hound is defeated."
@@ -16109,22 +16504,28 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         [
             op_step(
                 new_operation(
-                    f"{defeat_slug}-adjacent-allies",
+                    (
+                        f"{defeat_slug}-adjacent-allies"
+                        if is_s13 or is_s14
+                        else "golden-hound-rebound-advance-adjacent-allies"
+                    ),
                     (
                         json_cell(
                             "Damage",
-                            amount_expression_id=maximum_hp_amounts["1.2"],
+                            amount_expression_id=maximum_hp_amounts[
+                                "0.4" if is_s14 else "1.2"
+                            ],
                             damage_class="Ordinary",
                             element="Fire",
                             can_crit=False,
                         )
-                        if is_s13
+                        if is_s13 or is_s14
                         else json_cell(
                             "AdvanceAction",
                             amount_expression_id=ratios["1"],
                         )
                     ),
-                    selectors["adjacent-allies"],
+                    selectors["all-allies"] if is_s14 else selectors["adjacent-allies"],
                     "NoOp",
                 )
             )
@@ -16159,7 +16560,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         "EventFilter",
         {
             "id": rebound_filter,
-            "stable_key": f"goal07.enemy.s12.filter.{defeat_slug}-defeated",
+            "stable_key": (
+                f"goal07.enemy.s12.filter.{defeat_slug}-defeated"
+                if is_s13 or is_s14
+                else "goal07.enemy.s12.filter.golden-hound-defeated"
+            ),
             "target_selector_id": selectors["owner"],
             "cause_ancestry": "Any",
         },
@@ -16377,7 +16782,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "exit_condition_id": condition_always,
                 "replacement_priority": 1,
                 "ai_graph_id": graph,
-                "entry_program_id": rebound_entry if enemy_index == 0 else None,
+                "entry_program_id": (
+                    rebound_entry
+                    if enemy_index == (6 if is_s14 else 0)
+                    else None
+                ),
                 "targetable": True,
                 "transition_model": "TransformSameUnit",
                 "hp_carry": "Reset",
@@ -16450,12 +16859,16 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "mechanism_quality": "ExactStructured",
             },
         )
-    if is_s13:
+    if is_s13 or is_s14:
+        batch = "s14" if is_s14 else "s13"
+        batch_upper = batch.upper()
         for table_rows in rows.values():
             for row in table_rows:
                 for field, value in row.items():
                     if isinstance(value, str):
-                        row[field] = value.replace("s12", "s13").replace("S12", "S13")
+                        row[field] = value.replace("s12", batch).replace(
+                            "S12", batch_upper
+                        )
     for table_rows in rows.values():
         table_rows.sort(
             key=lambda row: json.dumps(
@@ -16479,6 +16892,9 @@ def owns_partition_identity(value: Any) -> bool:
     ) or (
         PARTITION == "G07-P5-M15-S13"
         and id_ in {97, 99, 100, 10_003, 10_005, 10_006}
+    ) or (
+        PARTITION == "G07-P5-M15-S14"
+        and id_ in {102, 103, 104, 10_008, 10_009, 10_010}
     )
 
 
@@ -16488,6 +16904,8 @@ def owns_partition_variant(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S12" and id_ in {95, 96}
     ) or (
         PARTITION == "G07-P5-M15-S13" and id_ in {97, 99, 100}
+    ) or (
+        PARTITION == "G07-P5-M15-S14" and id_ in {102, 103, 104}
     )
 
 
@@ -16497,6 +16915,8 @@ def owns_partition_template(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S12" and id_ in {10_001, 10_002}
     ) or (
         PARTITION == "G07-P5-M15-S13" and id_ in {10_003, 10_005, 10_006}
+    ) or (
+        PARTITION == "G07-P5-M15-S14" and id_ in {10_008, 10_009, 10_010}
     )
 
 
@@ -16606,6 +17026,7 @@ def main() -> None:
         "G07-P5-M15-S11": owned_rows_s11,
         "G07-P5-M15-S12": owned_rows_ordinary,
         "G07-P5-M15-S13": owned_rows_ordinary,
+        "G07-P5-M15-S14": owned_rows_ordinary,
     }[PARTITION]()
     golden_path = (
         ROOT
