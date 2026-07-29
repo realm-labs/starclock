@@ -1,0 +1,2036 @@
+[
+  {
+    "id": "divergent-universe.titan-talent.12001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Moneta — Boon Ascension 1",
+    "name_zh_cn": "Moneta — 祝颂升华 1",
+    "summary_en": "Level 1 talent increases golden_blood_boon_choice_count under Run.",
+    "summary_zh_cn": "1 级天赋在 Run 条件下执行 Increase：golden_blood_boon_choice_count。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "0",
+        "sha256": "8a94006b0821e8f252a86bd413b3c2fd25ae55ab6281d6363c63a61200daf37e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "moneta",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12001",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 1,
+    "predecessor_id": "",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "golden_blood_boon_choice_count",
+      "value": "1",
+      "condition": "Run",
+      "parameters": [],
+      "description_hash": "1061377387375447842"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817820.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12001",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Moneta — Benediction Condensation 2",
+    "name_zh_cn": "Moneta — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases healing_received under Day.",
+    "summary_zh_cn": "2 级天赋在 Day 条件下执行 Increase：healing_received。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "1",
+        "sha256": "e423df6630ae07cd75d07507c79ea89b6943c35305609ab9490f49e9c36042c3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "moneta",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12002",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12501",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "healing_received",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "10860726233009905990"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817850.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12002",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Moneta — Benediction Condensation 3",
+    "name_zh_cn": "Moneta — 赐福凝练 3",
+    "summary_en": "Level 3 talent decreases damage_taken under Day.",
+    "summary_zh_cn": "3 级天赋在 Day 条件下执行 Decrease：damage_taken。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "2",
+        "sha256": "10d73c39857fdec4d6b3e92ba07442f154756c7e1d671cf7b74722da99b5ec74",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "moneta",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12003",
+    "titan_type": "divergent-universe.titan-type.moneta",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12502",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Decrease",
+      "metric": "damage_taken",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "2683379921666744252"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817880.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12003",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Ianos — Benediction Condensation 1",
+    "name_zh_cn": "Ianos — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases defense under Day.",
+    "summary_zh_cn": "1 级天赋在 Day 条件下执行 Increase：defense。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "3",
+        "sha256": "b0c83597c708284666ee0429358d140c755985cf54043ea8f787a9ea6d415a5d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "ianos",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12101",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12001",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "4541638577417613356"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817910.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12102",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Ianos — Boon Ascension 2",
+    "name_zh_cn": "Ianos — 祝颂升华 2",
+    "summary_en": "Level 2 talent restores hp_from_max_hp under EnterDay.",
+    "summary_zh_cn": "2 级天赋在 EnterDay 条件下执行 Restore：hp_from_max_hp。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "4",
+        "sha256": "b563d1eef1a6c782536a696685ee8b68832b2bd857d1e3eb804a0cbd98afcc6c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "ianos",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12102",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12002",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Restore",
+      "metric": "hp_from_max_hp",
+      "value": "0.2",
+      "condition": "EnterDay",
+      "parameters": [
+        "0.2"
+      ],
+      "description_hash": "2317290853902376222"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817940.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12102",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12103",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Ianos — Benediction Condensation 3",
+    "name_zh_cn": "Ianos — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases max_hp under Day.",
+    "summary_zh_cn": "3 级天赋在 Day 条件下执行 Increase：max_hp。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "5",
+        "sha256": "66960767e2bd482ab4b73af6afa862780437a43af486b5fb07867c4c55e2a3d0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "ianos",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12103",
+    "titan_type": "divergent-universe.titan-type.ianos",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12003",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "7343041191750286680"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817970.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12103",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12201",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Phageina — Benediction Condensation 1",
+    "name_zh_cn": "Phageina — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases effect_resistance under Day.",
+    "summary_zh_cn": "1 级天赋在 Day 条件下执行 Increase：effect_resistance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "6",
+        "sha256": "43e7775674fb78ec82c2b2931f079ddb03c747b87ea4c20ea6a71f8cdb9589ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "phageina",
+      "titan"
+    ],
+    "source_id": "12201",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12101",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_resistance",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "13571003422941546268"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817720.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12201",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12202",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Phageina — Benediction Condensation 2",
+    "name_zh_cn": "Phageina — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases shield_received under Day.",
+    "summary_zh_cn": "2 级天赋在 Day 条件下执行 Increase：shield_received。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "7",
+        "sha256": "fca131366d85ed84b990c3337914b37eb434c67f5b759b7844942615073994b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "phageina",
+      "titan"
+    ],
+    "source_id": "12202",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12102",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "shield_received",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "14062907658336933352"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817750.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12202",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12203",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Phageina — Boon Ascension 3",
+    "name_zh_cn": "Phageina — 祝颂升华 3",
+    "summary_en": "Level 3 talent enables day_occurrence_options under Occurrence.",
+    "summary_zh_cn": "3 级天赋在 Occurrence 条件下执行 Enable：day_occurrence_options。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "8",
+        "sha256": "fd4cf83c92d5eb66b207285e9b6bd86e96cebc4a6e80b4ef949f2546124f5850",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "permanent-talent",
+      "phageina",
+      "titan"
+    ],
+    "source_id": "12203",
+    "titan_type": "divergent-universe.titan-type.phageina",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12103",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "day_occurrence_options",
+      "value": "true",
+      "condition": "Occurrence",
+      "parameters": [],
+      "description_hash": "377016416063384199"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817780.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12203",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12301",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Zagreus — Benediction Condensation 1",
+    "name_zh_cn": "Zagreus — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases attack under Night.",
+    "summary_zh_cn": "1 级天赋在 Night 条件下执行 Increase：attack。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "9",
+        "sha256": "4bb63bd9cca722808228aa6c8615d2585ed672b14580858a400da68f0bf42176",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "titan",
+      "zagreus"
+    ],
+    "source_id": "12301",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12201",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "8780128208282102992"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817540.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12301",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12302",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Zagreus — Boon Ascension 2",
+    "name_zh_cn": "Zagreus — 祝颂升华 2",
+    "summary_en": "Level 2 talent increases starting_cosmic_fragments under RunEntry.",
+    "summary_zh_cn": "2 级天赋在 RunEntry 条件下执行 Increase：starting_cosmic_fragments。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "10",
+        "sha256": "9bf625f83960d5b51fa8029641a941803d92a66055d11b168fb23caf3d721470",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "permanent-talent",
+      "titan",
+      "zagreus"
+    ],
+    "source_id": "12302",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12202",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "starting_cosmic_fragments",
+      "value": "30",
+      "condition": "RunEntry",
+      "parameters": [
+        "30"
+      ],
+      "description_hash": "10402452538131023217"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817570.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12302",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12303",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Zagreus — Benediction Condensation 3",
+    "name_zh_cn": "Zagreus — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases damage_dealt under Night.",
+    "summary_zh_cn": "3 级天赋在 Night 条件下执行 Increase：damage_dealt。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "11",
+        "sha256": "32828a16ce5dcc10132f91baf490d8a639f6fc40dbb55f147af5a2d71ac6d0b2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "titan",
+      "zagreus"
+    ],
+    "source_id": "12303",
+    "titan_type": "divergent-universe.titan-type.zagreus",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12203",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "damage_dealt",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "650275594614357641"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817600.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12303",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12401",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Nikadory — Boon Ascension 1",
+    "name_zh_cn": "Nikadory — 祝颂升华 1",
+    "summary_en": "Level 1 talent increases max_hp under Night.",
+    "summary_zh_cn": "1 级天赋在 Night 条件下执行 Increase：max_hp。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "12",
+        "sha256": "44e8f7b3d029ca5451442ce7c35ff52d8652a67201c6ffa02c4166af3ae60bb2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "nikadory",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12401",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12301",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "value": "0.3",
+      "condition": "Night",
+      "parameters": [
+        "0.3"
+      ],
+      "description_hash": "4614394603734772572"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817450.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12401",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12402",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Nikadory — Benediction Condensation 2",
+    "name_zh_cn": "Nikadory — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases critical_damage under Night.",
+    "summary_zh_cn": "2 级天赋在 Night 条件下执行 Increase：critical_damage。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "13",
+        "sha256": "759d2a4b05aff1ac2ac1e7e2a1d19ca84d412be94ecf6c3a7bf2f5402bcd0967",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "nikadory",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12402",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12302",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_damage",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "10970289196718335415"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817480.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12402",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12403",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Nikadory — Benediction Condensation 3",
+    "name_zh_cn": "Nikadory — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases break_effect under Night.",
+    "summary_zh_cn": "3 级天赋在 Night 条件下执行 Increase：break_effect。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "14",
+        "sha256": "837e8542c90452f310cfa24723060a5f2dfd86002d888799dc7551489b84e108",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "nikadory",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12403",
+    "titan_type": "divergent-universe.titan-type.nikadory",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12303",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "break_effect",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "14755956893120939052"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817510.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12403",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12501",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Xenatos — Benediction Condensation 1",
+    "name_zh_cn": "Xenatos — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases effect_hit_rate under Night.",
+    "summary_zh_cn": "1 级天赋在 Night 条件下执行 Increase：effect_hit_rate。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "15",
+        "sha256": "442b89aee4da4c0d818ad94191b8715a436b7d2cd9756f932f7074bdd410bc54",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "titan",
+      "xenatos"
+    ],
+    "source_id": "12501",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12401",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_hit_rate",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "651397872714484350"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817630.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12501",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12502",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Xenatos — Benediction Condensation 2",
+    "name_zh_cn": "Xenatos — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases speed under Night.",
+    "summary_zh_cn": "2 级天赋在 Night 条件下执行 Increase：speed。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "16",
+        "sha256": "61df27f03b62130b448127d55227c07321e5804c781d2b4cfdb488df54802351",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "titan",
+      "xenatos"
+    ],
+    "source_id": "12502",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12402",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "speed",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "2919138354616463160"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817660.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12502",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12503",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Xenatos — Boon Ascension 3",
+    "name_zh_cn": "Xenatos — 祝颂升华 3",
+    "summary_en": "Level 3 talent enables night_occurrence_options under Occurrence.",
+    "summary_zh_cn": "3 级天赋在 Occurrence 条件下执行 Enable：night_occurrence_options。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "17",
+        "sha256": "ed8ac93f5993376f5b929fb3e23f1cee24b4e774708311383cf4d1bc65a01850",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "permanent-talent",
+      "titan",
+      "xenatos"
+    ],
+    "source_id": "12503",
+    "titan_type": "divergent-universe.titan-type.xenatos",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12403",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Enable",
+      "metric": "night_occurrence_options",
+      "value": "true",
+      "condition": "Occurrence",
+      "parameters": [],
+      "description_hash": "10492428420394856882"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403817690.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12503",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12601",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Aigle — Boon Ascension 1",
+    "name_zh_cn": "Aigle — 祝颂升华 1",
+    "summary_en": "Level 1 talent increases golden_blood_boon_choice_count under Run.",
+    "summary_zh_cn": "1 级天赋在 Run 条件下执行 Increase：golden_blood_boon_choice_count。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "18",
+        "sha256": "83f2105e9ac58b76f57551d955762363aabef4bb55a50a796b77cb5f00a91a68",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "aigle",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12601",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.13101",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "golden_blood_boon_choice_count",
+      "value": "1",
+      "condition": "Run",
+      "parameters": [],
+      "description_hash": "4786106878980680592"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818550.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12601",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12602",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Aigle — Benediction Condensation 2",
+    "name_zh_cn": "Aigle — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases max_hp under Day.",
+    "summary_zh_cn": "2 级天赋在 Day 条件下执行 Increase：max_hp。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "19",
+        "sha256": "42696878eaa88f4184982c50ac55ff4300c58cfd3cbe6fbceae81ba07e879e44",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "battle",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12602",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.13102",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "max_hp",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "921599370329981828"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818580.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12602",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12603",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Aigle — Benediction Condensation 3",
+    "name_zh_cn": "Aigle — 赐福凝练 3",
+    "summary_en": "Level 3 talent decreases damage_taken under Day.",
+    "summary_zh_cn": "3 级天赋在 Day 条件下执行 Decrease：damage_taken。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "20",
+        "sha256": "496e8b365812100ccd681d7ad2f18736faa41b357e9f4fa4273d019398d21c69",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "aigle",
+      "battle",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12603",
+    "titan_type": "divergent-universe.titan-type.aigle",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.13103",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Decrease",
+      "metric": "damage_taken",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "6411534537330256285"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818610.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12603",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12701",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Cerces — Benediction Condensation 1",
+    "name_zh_cn": "Cerces — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases defense under Day.",
+    "summary_zh_cn": "1 级天赋在 Day 条件下执行 Increase：defense。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "21",
+        "sha256": "87d46b70617efee5154a2c1ee4d79e9c4a6ae7930c860f7d772356f3aeb6abba",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "cerces",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12701",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12601",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "defense",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "7572693029335458396"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818460.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12701",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12702",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Cerces — Boon Ascension 2",
+    "name_zh_cn": "Cerces — 祝颂升华 2",
+    "summary_en": "Level 2 talent increases double_occurrence_chance under OccurrenceDomain.",
+    "summary_zh_cn": "2 级天赋在 OccurrenceDomain 条件下执行 Increase：double_occurrence_chance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "22",
+        "sha256": "497ce35dcfe774fabae2892659ed9c30f50a28304e74510d2c4adde8af00d60e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "cerces",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12702",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12602",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "double_occurrence_chance",
+      "value": "Unspecified",
+      "condition": "OccurrenceDomain",
+      "parameters": [],
+      "description_hash": "16668372505952251797"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818490.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12702",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12703",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Cerces — Benediction Condensation 3",
+    "name_zh_cn": "Cerces — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases healing_received under Day.",
+    "summary_zh_cn": "3 级天赋在 Day 条件下执行 Increase：healing_received。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "23",
+        "sha256": "e81611fbc3d61b043a6b003ded9e1c234dbb22310596eff0dba0c5ca06586a7b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "cerces",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12703",
+    "titan_type": "divergent-universe.titan-type.cerces",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12603",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "healing_received",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "14479308093901517372"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818520.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12703",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12801",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Kephale — Benediction Condensation 1",
+    "name_zh_cn": "Kephale — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases effect_resistance under Day.",
+    "summary_zh_cn": "1 级天赋在 Day 条件下执行 Increase：effect_resistance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.24",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "24",
+        "sha256": "4e995a3fed77cd87f49aef26cc5aa55b4c4f6b082d04b6eb65ac9ec2ae905865",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "kephale",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12801",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12701",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_resistance",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "12684241818849658305"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818640.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12801",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12802",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Kephale — Benediction Condensation 2",
+    "name_zh_cn": "Kephale — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases shield_received under Day.",
+    "summary_zh_cn": "2 级天赋在 Day 条件下执行 Increase：shield_received。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.25",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "25",
+        "sha256": "ef070a5028abffa2243a21492a8df5136e437721d84d4fac2dfddc024faaa34d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "kephale",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12802",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12702",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "shield_received",
+      "value": "0.02",
+      "condition": "Day",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "15429280731278223509"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818670.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12802",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12803",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Kephale — Boon Ascension 3",
+    "name_zh_cn": "Kephale — 祝颂升华 3",
+    "summary_en": "Level 3 talent increases weighted_curio_overwrite_count under WeightedCurioOffer.",
+    "summary_zh_cn": "3 级天赋在 WeightedCurioOffer 条件下执行 Increase：weighted_curio_overwrite_count。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.26",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "26",
+        "sha256": "02f1f78c2720250812314f0952fe65c4f24fb954707f20185981af55fb837a9a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "kephale",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12803",
+    "titan_type": "divergent-universe.titan-type.kephale",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12703",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "weighted_curio_overwrite_count",
+      "value": "1",
+      "condition": "WeightedCurioOffer",
+      "parameters": [],
+      "description_hash": "4854804142745098726"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818700.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12803",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12901",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Olonyx — Benediction Condensation 1",
+    "name_zh_cn": "Olonyx — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases effect_hit_rate under Night.",
+    "summary_zh_cn": "1 级天赋在 Night 条件下执行 Increase：effect_hit_rate。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.27",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "27",
+        "sha256": "d5ae8afcc36aa684e92a801049581787ce84b03c2e879cdc3366f78cfe6c9fb6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "olonyx",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12901",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12503",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "effect_hit_rate",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "11514014923849512340"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818190.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12901",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12902",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Olonyx — Boon Ascension 2",
+    "name_zh_cn": "Olonyx — 祝颂升华 2",
+    "summary_en": "Level 2 talent increases trotter_combat_domain_chance under CombatDomain.",
+    "summary_zh_cn": "2 级天赋在 CombatDomain 条件下执行 Increase：trotter_combat_domain_chance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.28",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "28",
+        "sha256": "4df60f41d6056fe9abb3384f8ae0066e87c6887e1f32c33f17cc8f8025b99674",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "olonyx",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12902",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12801",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "trotter_combat_domain_chance",
+      "value": "Unspecified",
+      "condition": "CombatDomain",
+      "parameters": [],
+      "description_hash": "14542126636272883908"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818220.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12902",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.12903",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Olonyx — Benediction Condensation 3",
+    "name_zh_cn": "Olonyx — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases break_effect under Night.",
+    "summary_zh_cn": "3 级天赋在 Night 条件下执行 Increase：break_effect。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.29",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "29",
+        "sha256": "03f40864055dd2460058700e0b955c63e3e28b7248cc40590408eb07af29b78b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "olonyx",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "12903",
+    "titan_type": "divergent-universe.titan-type.olonyx",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12802",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "break_effect",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "7079930604122007129"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818250.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.12903",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13001",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Talentum — Boon Ascension 1",
+    "name_zh_cn": "Talentum — 祝颂升华 1",
+    "summary_en": "Level 1 talent increases second_plane_boss_altar_chance under SecondPlaneBossDomain.",
+    "summary_zh_cn": "1 级天赋在 SecondPlaneBossDomain 条件下执行 Increase：second_plane_boss_altar_chance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.30",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "30",
+        "sha256": "11f450d773a150c75c573d21e5d2723bd6dcc2799b971215d51fdcb62ccfd778",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "permanent-talent",
+      "talentum",
+      "titan"
+    ],
+    "source_id": "13001",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.12901",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "second_plane_boss_altar_chance",
+      "value": "Unspecified",
+      "condition": "SecondPlaneBossDomain",
+      "parameters": [],
+      "description_hash": "14607589803110014540"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818280.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13001",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13002",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Talentum — Benediction Condensation 2",
+    "name_zh_cn": "Talentum — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases critical_damage under Night.",
+    "summary_zh_cn": "2 级天赋在 Night 条件下执行 Increase：critical_damage。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.31",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "31",
+        "sha256": "8eb905181207a0a602c4bfd3c6fed662a9f5e7c49779518a0e6e95a18803dacf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "talentum",
+      "titan"
+    ],
+    "source_id": "13002",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.12902",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "critical_damage",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "2836614287191796970"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818310.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13002",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13003",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Talentum — Benediction Condensation 3",
+    "name_zh_cn": "Talentum — 赐福凝练 3",
+    "summary_en": "Level 3 talent increases speed under Night.",
+    "summary_zh_cn": "3 级天赋在 Night 条件下执行 Increase：speed。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.32",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "32",
+        "sha256": "dc4a5c680881be19b464e8a5ceb8cce985b51ffc302e0cc8dbdab3023303c962",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "permanent-talent",
+      "talentum",
+      "titan"
+    ],
+    "source_id": "13003",
+    "titan_type": "divergent-universe.titan-type.talentum",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.12903",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "speed",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "11921914795875453960"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818340.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13003",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13101",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Georia — Benediction Condensation 1",
+    "name_zh_cn": "Georia — 赐福凝练 1",
+    "summary_en": "Level 1 talent increases damage_dealt under Night.",
+    "summary_zh_cn": "1 级天赋在 Night 条件下执行 Increase：damage_dealt。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.33",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "33",
+        "sha256": "1de9c26ffc509125109d1163e31264f5b15a2116910476ef1fdfe6115d3f745b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "georia",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "13101",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 1,
+    "predecessor_id": "divergent-universe.titan-talent.13001",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "50"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "damage_dealt",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "12910770302248873477"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818370.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13101",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13102",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Georia — Benediction Condensation 2",
+    "name_zh_cn": "Georia — 赐福凝练 2",
+    "summary_en": "Level 2 talent increases attack under Night.",
+    "summary_zh_cn": "2 级天赋在 Night 条件下执行 Increase：attack。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.34",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "34",
+        "sha256": "01b64d773aa13d80a9c35e7c9afee2bb204dfbd3acc22659f3790e5a4bde6488",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "battle",
+      "georia",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "13102",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 2,
+    "predecessor_id": "divergent-universe.titan-talent.13002",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "75"
+      }
+    ],
+    "effect_program": {
+      "scope": "Battle",
+      "operation": "Increase",
+      "metric": "attack",
+      "value": "0.02",
+      "condition": "Night",
+      "parameters": [
+        "0.02"
+      ],
+      "description_hash": "7816847160798969022"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818400.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13102",
+    "runtime_lowered": false
+  },
+  {
+    "id": "divergent-universe.titan-talent.13103",
+    "schema_revision": "starclock.divergent-universe-row.v1",
+    "kind": "DivergentUniverseTitanTalent",
+    "name_en": "Georia — Boon Ascension 3",
+    "name_zh_cn": "Georia — 祝颂升华 3",
+    "summary_en": "Level 3 talent increases reward_domain_chance under DomainSelection.",
+    "summary_zh_cn": "3 级天赋在 DomainSelection 条件下执行 Increase：reward_domain_chance。",
+    "ownership": "DivergentUniverse",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal11.exceloutput-roguetourntitantalent-json.35",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueTournTitanTalent.json",
+        "locator": "35",
+        "sha256": "722a42c42b1993294c122b52570da3baab11ed4639d82ca404285c38a9babc41",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "activity",
+      "georia",
+      "permanent-talent",
+      "titan"
+    ],
+    "source_id": "13103",
+    "titan_type": "divergent-universe.titan-type.georia",
+    "level": 3,
+    "predecessor_id": "divergent-universe.titan-talent.13003",
+    "cost": [
+      {
+        "item_id": "281020",
+        "amount": "100"
+      }
+    ],
+    "effect_program": {
+      "scope": "Activity",
+      "operation": "Increase",
+      "metric": "reward_domain_chance",
+      "value": "Unspecified",
+      "condition": "DomainSelection",
+      "parameters": [],
+      "description_hash": "4438436595500237862"
+    },
+    "presentation_act_json": "Config/Level/RogueDialogue/RogueNpcDialogEvent/Act/Act403818430.json",
+    "presentation_graph_excluded": true,
+    "contribution_id": "divergent-universe.titan-contribution.talent.13103",
+    "runtime_lowered": false
+  }
+]
