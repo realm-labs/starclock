@@ -30,11 +30,11 @@ pub struct CurrencyWarsBlessingPaths {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "path_id")]
-    pub path_id: String,
+    pub path_id: Option<String>,
     #[serde(rename = "offer_roles")]
-    pub offer_roles: String,
+    pub offer_roles: Option<String>,
     #[serde(rename = "formula_roles")]
-    pub formula_roles: String,
+    pub formula_roles: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBlessingPaths {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsBlessingPaths {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            path_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            offer_roles: <String as super::runtime::SoraDecode>::decode(reader)?,
-            formula_roles: <String as super::runtime::SoraDecode>::decode(reader)?,
+            path_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            offer_roles: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            formula_roles: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

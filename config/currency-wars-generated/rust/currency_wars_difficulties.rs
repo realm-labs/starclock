@@ -30,11 +30,11 @@ pub struct CurrencyWarsDifficulties {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "rank_bounds")]
-    pub rank_bounds: String,
+    pub rank_bounds: Option<String>,
     #[serde(rename = "enemy_scaling_refs")]
-    pub enemy_scaling_refs: String,
+    pub enemy_scaling_refs: Option<String>,
     #[serde(rename = "gambit_rules")]
-    pub gambit_rules: String,
+    pub gambit_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsDifficulties {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsDifficulties {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rank_bounds: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_scaling_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
-            gambit_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
+            rank_bounds: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            enemy_scaling_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            gambit_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

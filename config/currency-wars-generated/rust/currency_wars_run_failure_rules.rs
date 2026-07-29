@@ -30,11 +30,11 @@ pub struct CurrencyWarsRunFailureRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "failure_condition")]
-    pub failure_condition: String,
+    pub failure_condition: Option<String>,
     #[serde(rename = "same_boundary_order")]
-    pub same_boundary_order: String,
+    pub same_boundary_order: Option<String>,
     #[serde(rename = "terminal_disposition")]
-    pub terminal_disposition: String,
+    pub terminal_disposition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRunFailureRules {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsRunFailureRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            failure_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
-            same_boundary_order: <String as super::runtime::SoraDecode>::decode(reader)?,
-            terminal_disposition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            failure_condition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            same_boundary_order: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            terminal_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

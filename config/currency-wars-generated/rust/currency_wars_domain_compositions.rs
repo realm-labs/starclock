@@ -30,13 +30,13 @@ pub struct CurrencyWarsDomainCompositions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "domain_type")]
-    pub domain_type: String,
+    pub domain_type: Option<String>,
     #[serde(rename = "room_candidate_ids")]
-    pub room_candidate_ids: String,
+    pub room_candidate_ids: Option<String>,
     #[serde(rename = "selection_policy")]
-    pub selection_policy: String,
+    pub selection_policy: Option<String>,
     #[serde(rename = "fallback")]
-    pub fallback: String,
+    pub fallback: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsDomainCompositions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsDomainCompositions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            domain_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            room_candidate_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selection_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            fallback: <String as super::runtime::SoraDecode>::decode(reader)?,
+            domain_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            room_candidate_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            selection_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            fallback: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

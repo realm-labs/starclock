@@ -1,0 +1,267 @@
+{
+  "table": {
+    "name": "CurrencyWarsRooms",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsRoom"
+          },
+          "name_en": {
+            "String": "Boss"
+          },
+          "name_zh_cn": {
+            "String": "首领"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reachability_disposition": {
+            "String": "DirectGridFightNodeType"
+          },
+          "room_type": {
+            "String": "Boss"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a868391e42d4b046f226696ebfcec964\",\"currency-wars.source.de53c5c34f42f245ea49a24544b424e3\",\"currency-wars.source.39c5d4f431e0361f590fffb0ed834da5\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.room-type.boss"
+          },
+          "stage_refs": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "Boss is one of five direct GridFight Node types."
+          },
+          "summary_zh_cn": {
+            "String": "Boss 是五种直接 GridFight 节点类型之一。"
+          },
+          "tags_json": {
+            "String": "[\"boss\",\"gridfight\",\"node-type\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsRoom"
+          },
+          "name_en": {
+            "String": "Combat"
+          },
+          "name_zh_cn": {
+            "String": "战斗"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reachability_disposition": {
+            "String": "DirectGridFightNodeType"
+          },
+          "room_type": {
+            "String": "CampMonster"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.daaf7f3c3234b3fec6187afce58cd74f\",\"currency-wars.source.4c3b6bc8c923f3a9421ac9ac38a25afe\",\"currency-wars.source.4e110e1187da379d3e53caf5f0e821ec\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.room-type.campmonster"
+          },
+          "stage_refs": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "CampMonster is one of five direct GridFight Node types."
+          },
+          "summary_zh_cn": {
+            "String": "CampMonster 是五种直接 GridFight 节点类型之一。"
+          },
+          "tags_json": {
+            "String": "[\"campmonster\",\"gridfight\",\"node-type\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsRoom"
+          },
+          "name_en": {
+            "String": "Encounter"
+          },
+          "name_zh_cn": {
+            "String": "遭遇"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reachability_disposition": {
+            "String": "DirectGridFightNodeType"
+          },
+          "room_type": {
+            "String": "EliteBranch"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.01ff3dae85ef27588c7c2c08870b0927\",\"currency-wars.source.e892e01c12870b09683145af53fe247c\",\"currency-wars.source.9ba5c9a37cecb807966a7eb7f21f6130\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.room-type.elitebranch"
+          },
+          "stage_refs": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "EliteBranch is one of five direct GridFight Node types."
+          },
+          "summary_zh_cn": {
+            "String": "EliteBranch 是五种直接 GridFight 节点类型之一。"
+          },
+          "tags_json": {
+            "String": "[\"elitebranch\",\"gridfight\",\"node-type\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsRoom"
+          },
+          "name_en": {
+            "String": "Reward"
+          },
+          "name_zh_cn": {
+            "String": "奖励"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reachability_disposition": {
+            "String": "DirectGridFightNodeType"
+          },
+          "room_type": {
+            "String": "Monster"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.81a9572d9e35d35737bb4d54018c820b\",\"currency-wars.source.39cc8458eddc44386edd0b7609f3fd22\",\"currency-wars.source.3ce340440fc87290fdc4394d6c7050f5\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.room-type.monster"
+          },
+          "stage_refs": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "Monster is one of five direct GridFight Node types."
+          },
+          "summary_zh_cn": {
+            "String": "Monster 是五种直接 GridFight 节点类型之一。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"monster\",\"node-type\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsRoom"
+          },
+          "name_en": {
+            "String": "Supply"
+          },
+          "name_zh_cn": {
+            "String": "补给"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reachability_disposition": {
+            "String": "DirectGridFightNodeType"
+          },
+          "room_type": {
+            "String": "Supply"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.561c6075c818bb802167e2f3016e5aee\",\"currency-wars.source.97fa039b49a5611ec1a4f71d92060b2e\",\"currency-wars.source.a8ba745f22eb5474a1020580730fbdfa\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.room-type.supply"
+          },
+          "stage_refs": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "Supply is one of five direct GridFight Node types."
+          },
+          "summary_zh_cn": {
+            "String": "Supply 是五种直接 GridFight 节点类型之一。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"node-type\",\"supply\"]"
+          }
+        }
+      }
+    ]
+  }
+}

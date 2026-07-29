@@ -30,13 +30,13 @@ pub struct CurrencyWarsActionValueLimits {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "limit_kind")]
-    pub limit_kind: String,
+    pub limit_kind: Option<String>,
     #[serde(rename = "initial_value")]
-    pub initial_value: String,
+    pub initial_value: Option<String>,
     #[serde(rename = "decrement_rules")]
-    pub decrement_rules: String,
+    pub decrement_rules: Option<String>,
     #[serde(rename = "timeout_boundary")]
-    pub timeout_boundary: String,
+    pub timeout_boundary: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsActionValueLimits {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsActionValueLimits {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            limit_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            initial_value: <String as super::runtime::SoraDecode>::decode(reader)?,
-            decrement_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            timeout_boundary: <String as super::runtime::SoraDecode>::decode(reader)?,
+            limit_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            initial_value: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            decrement_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            timeout_boundary: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

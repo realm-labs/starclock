@@ -30,13 +30,13 @@ pub struct CurrencyWarsBuildSourceFiles {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "source_path")]
-    pub source_path: String,
+    pub source_path: Option<String>,
     #[serde(rename = "source_sha256")]
-    pub source_sha256: String,
+    pub source_sha256: Option<String>,
     #[serde(rename = "mapping_role")]
-    pub mapping_role: String,
+    pub mapping_role: Option<String>,
     #[serde(rename = "disposition")]
-    pub disposition: String,
+    pub disposition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBuildSourceFiles {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBuildSourceFiles {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
-            mapping_role: <String as super::runtime::SoraDecode>::decode(reader)?,
-            disposition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            source_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            mapping_role: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

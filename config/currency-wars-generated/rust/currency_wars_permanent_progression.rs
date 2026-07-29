@@ -30,13 +30,13 @@ pub struct CurrencyWarsPermanentProgression {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "source_id")]
-    pub source_id: String,
+    pub source_id: Option<String>,
     #[serde(rename = "scope")]
-    pub scope: String,
+    pub scope: Option<String>,
     #[serde(rename = "entry_changes")]
-    pub entry_changes: String,
+    pub entry_changes: Option<String>,
     #[serde(rename = "available_choice_changes")]
-    pub available_choice_changes: String,
+    pub available_choice_changes: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsPermanentProgression {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsPermanentProgression {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            scope: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_changes: <String as super::runtime::SoraDecode>::decode(reader)?,
-            available_choice_changes: <String as super::runtime::SoraDecode>::decode(reader)?,
+            source_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            scope: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            entry_changes: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            available_choice_changes: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

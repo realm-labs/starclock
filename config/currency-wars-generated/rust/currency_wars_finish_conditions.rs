@@ -30,11 +30,11 @@ pub struct CurrencyWarsFinishConditions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "condition_kind")]
-    pub condition_kind: String,
+    pub condition_kind: Option<String>,
     #[serde(rename = "parameters")]
-    pub parameters: String,
+    pub parameters: Option<String>,
     #[serde(rename = "terminal_disposition")]
-    pub terminal_disposition: String,
+    pub terminal_disposition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsFinishConditions {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFinishConditions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            condition_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <String as super::runtime::SoraDecode>::decode(reader)?,
-            terminal_disposition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            condition_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            terminal_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

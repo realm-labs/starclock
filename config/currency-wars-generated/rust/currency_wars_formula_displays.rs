@@ -30,11 +30,11 @@ pub struct CurrencyWarsFormulaDisplays {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "formula_id")]
-    pub formula_id: String,
+    pub formula_id: Option<String>,
     #[serde(rename = "display_state")]
-    pub display_state: String,
+    pub display_state: Option<String>,
     #[serde(rename = "mechanical_summary_ids")]
-    pub mechanical_summary_ids: String,
+    pub mechanical_summary_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsFormulaDisplays {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaDisplays {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            formula_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            display_state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            mechanical_summary_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            formula_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            display_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            mechanical_summary_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

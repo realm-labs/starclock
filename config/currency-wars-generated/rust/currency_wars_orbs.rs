@@ -30,11 +30,11 @@ pub struct CurrencyWarsOrbs {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "bonus_id")]
-    pub bonus_id: String,
+    pub bonus_id: Option<String>,
     #[serde(rename = "orb_type")]
-    pub orb_type: String,
+    pub orb_type: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsOrbs {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsOrbs {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            bonus_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            orb_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            bonus_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            orb_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,13 +30,13 @@ pub struct CurrencyWarsStarStates {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "avatar_id")]
-    pub avatar_id: String,
+    pub avatar_id: Option<String>,
     #[serde(rename = "star_level")]
-    pub star_level: String,
+    pub star_level: Option<String>,
     #[serde(rename = "copy_count")]
-    pub copy_count: String,
+    pub copy_count: Option<String>,
     #[serde(rename = "scaling_refs")]
-    pub scaling_refs: String,
+    pub scaling_refs: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsStarStates {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsStarStates {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            star_level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            copy_count: <String as super::runtime::SoraDecode>::decode(reader)?,
-            scaling_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            star_level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            copy_count: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            scaling_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

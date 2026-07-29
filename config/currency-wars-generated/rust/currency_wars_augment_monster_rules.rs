@@ -30,11 +30,11 @@ pub struct CurrencyWarsAugmentMonsterRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "quality")]
-    pub quality: String,
+    pub quality: Option<String>,
     #[serde(rename = "parameters")]
-    pub parameters: String,
+    pub parameters: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAugmentMonsterRules {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsAugmentMonsterRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            quality: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            quality: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,15 +30,15 @@ pub struct CurrencyWarsBuildMappings {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "avatar_id")]
-    pub avatar_id: String,
+    pub avatar_id: Option<String>,
     #[serde(rename = "level")]
-    pub level: String,
+    pub level: Option<String>,
     #[serde(rename = "trace_state")]
-    pub trace_state: String,
+    pub trace_state: Option<String>,
     #[serde(rename = "light_cone")]
-    pub light_cone: String,
+    pub light_cone: Option<String>,
     #[serde(rename = "relics")]
-    pub relics: String,
+    pub relics: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBuildMappings {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsBuildMappings {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            trace_state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            light_cone: <String as super::runtime::SoraDecode>::decode(reader)?,
-            relics: <String as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            trace_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            light_cone: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            relics: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

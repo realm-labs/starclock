@@ -30,17 +30,17 @@ pub struct CurrencyWarsSources {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "repository")]
-    pub repository: String,
+    pub repository: Option<String>,
     #[serde(rename = "revision")]
-    pub revision: String,
+    pub revision: Option<String>,
     #[serde(rename = "path")]
-    pub path: String,
+    pub path: Option<String>,
     #[serde(rename = "locator")]
-    pub locator: String,
+    pub locator: Option<String>,
     #[serde(rename = "sha256")]
-    pub sha256: String,
+    pub sha256: Option<String>,
     #[serde(rename = "mechanism_quality")]
-    pub mechanism_quality: String,
+    pub mechanism_quality: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsSources {
@@ -59,12 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsSources {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            repository: <String as super::runtime::SoraDecode>::decode(reader)?,
-            revision: <String as super::runtime::SoraDecode>::decode(reader)?,
-            path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            locator: <String as super::runtime::SoraDecode>::decode(reader)?,
-            sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
-            mechanism_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
+            repository: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            revision: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            locator: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            mechanism_quality: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

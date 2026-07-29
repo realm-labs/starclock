@@ -1,0 +1,62 @@
+{
+  "table": {
+    "name": "CurrencyWarsEconomyRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "currency_ids": {
+            "String": "[\"currency-wars.currency.gold-coins\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "experience_rules": {
+            "String": "{\"direct_level_up_exp\":\"4\",\"direct_level_up_gold\":\"4\",\"overclock_boss_wave_gain\":[\"10\",\"12\",\"16\"],\"overclock_wave_gain\":[\"6\",\"8\",\"12\"],\"resource_id\":\"1\",\"standard_boss_wave_gain\":\"10\",\"standard_wave_gain\":\"2\"}"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsEconomyRule"
+          },
+          "name_en": {
+            "String": "Currency Wars roster economy"
+          },
+          "name_zh_cn": {
+            "String": "货币战争角色经济"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "refresh_rules": {
+            "String": "{\"cards_per_refresh\":\"5\",\"refresh_gold\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2e21ddf18817c19d8e7030191fe02e24\",\"currency-wars.source.0b620ef32ffbb30583865eb8396c2a27\",\"currency-wars.source.83d4bf1f82ac179226dcb829ab7f65d8\",\"currency-wars.source.7a8856416211a9f646160fccb2350cab\",\"currency-wars.source.f2083dd55bf228123cfcb324c8669f84\",\"currency-wars.source.d63c65965c15b219020a3eb5dd76fc31\",\"currency-wars.source.0bcd43370e20f36f1cdc2e90e58df7b8\",\"currency-wars.source.a7807d212760635146f8f84cfc78a73b\",\"currency-wars.source.79ae5f976dab24195b3ba64128282683\",\"currency-wars.source.ec2bf31d9209e98159377ca99faf925b\",\"currency-wars.source.362bdf23ec8715b6b762ee58fcab83ad\",\"currency-wars.source.5fa89cfa3f5ff42ffddbff69be4589f3\",\"currency-wars.source.c8c08c119a58e06a76f2e4ea37873b71\",\"currency-wars.source.492e627d17c2cc87e5a30fe70b09e32f\",\"currency-wars.source.0a188c42aa97765e2186d4f50984662b\",\"currency-wars.source.38ffc880d69b35096b7449a5748434dd\",\"currency-wars.source.6a7cac43ec3d56094684ce3f526749b3\",\"currency-wars.source.802e1f8fb1fafe6be9eed5db47f24a05\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.5ae6fcb8fbcbb6d68bd919490b799b4f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.economy.gridfight"
+          },
+          "summary_en": {
+            "String": "GridFight authors five cards per refresh, a two-Gold refresh, wave Experience, level-up costs, interest and front/back/bench bounds."
+          },
+          "summary_zh_cn": {
+            "String": "GridFight 编写每次刷新五张卡、两金币刷新、波次经验、升级费用、利息与前台/后台/备选区边界。"
+          },
+          "tags_json": {
+            "String": "[\"economy\",\"gold-coins\",\"gridfight\"]"
+          },
+          "team_size_rules": {
+            "String": "{\"back_initial\":\"6\",\"back_max\":\"9\",\"bench_authored\":\"9\",\"bench_overflow\":\"100\",\"front_max\":\"4\",\"front_min\":\"1\"}"
+          }
+        }
+      }
+    ]
+  }
+}

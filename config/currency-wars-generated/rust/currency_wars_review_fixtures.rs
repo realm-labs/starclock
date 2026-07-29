@@ -30,15 +30,15 @@ pub struct CurrencyWarsReviewFixtures {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "family_id")]
-    pub family_id: String,
+    pub family_id: Option<String>,
     #[serde(rename = "preconditions")]
-    pub preconditions: String,
+    pub preconditions: Option<String>,
     #[serde(rename = "input")]
-    pub input: String,
+    pub input: Option<String>,
     #[serde(rename = "ordered_operations")]
-    pub ordered_operations: String,
+    pub ordered_operations: Option<String>,
     #[serde(rename = "expected_facts")]
-    pub expected_facts: String,
+    pub expected_facts: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsReviewFixtures {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsReviewFixtures {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            family_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            preconditions: <String as super::runtime::SoraDecode>::decode(reader)?,
-            input: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_operations: <String as super::runtime::SoraDecode>::decode(reader)?,
-            expected_facts: <String as super::runtime::SoraDecode>::decode(reader)?,
+            family_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            preconditions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            input: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_operations: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            expected_facts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

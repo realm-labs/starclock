@@ -30,13 +30,13 @@ pub struct CurrencyWarsHexEligibility {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "hex_id")]
-    pub hex_id: String,
+    pub hex_id: Option<String>,
     #[serde(rename = "subject_id")]
-    pub subject_id: String,
+    pub subject_id: Option<String>,
     #[serde(rename = "eligibility")]
-    pub eligibility: String,
+    pub eligibility: Option<String>,
     #[serde(rename = "replacement")]
-    pub replacement: String,
+    pub replacement: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsHexEligibility {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsHexEligibility {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            hex_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            subject_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replacement: <String as super::runtime::SoraDecode>::decode(reader)?,
+            hex_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            subject_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            replacement: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

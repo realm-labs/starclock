@@ -30,13 +30,13 @@ pub struct CurrencyWarsShopServices {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "service_kind")]
-    pub service_kind: String,
+    pub service_kind: Option<String>,
     #[serde(rename = "price_rule")]
-    pub price_rule: String,
+    pub price_rule: Option<String>,
     #[serde(rename = "inventory_rule")]
-    pub inventory_rule: String,
+    pub inventory_rule: Option<String>,
     #[serde(rename = "refresh_rule")]
-    pub refresh_rule: String,
+    pub refresh_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsShopServices {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsShopServices {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            service_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            price_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            inventory_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            refresh_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            service_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            price_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            inventory_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            refresh_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

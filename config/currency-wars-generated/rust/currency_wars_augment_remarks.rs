@@ -30,9 +30,9 @@ pub struct CurrencyWarsAugmentRemarks {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "augment_id")]
-    pub augment_id: String,
+    pub augment_id: Option<String>,
     #[serde(rename = "remark")]
-    pub remark: String,
+    pub remark: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAugmentRemarks {
@@ -51,8 +51,8 @@ impl super::runtime::SoraDecode for CurrencyWarsAugmentRemarks {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            augment_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            remark: <String as super::runtime::SoraDecode>::decode(reader)?,
+            augment_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            remark: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

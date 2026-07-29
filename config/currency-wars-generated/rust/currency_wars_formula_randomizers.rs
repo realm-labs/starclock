@@ -30,13 +30,13 @@ pub struct CurrencyWarsFormulaRandomizers {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "candidate_ids")]
-    pub candidate_ids: String,
+    pub candidate_ids: Option<String>,
     #[serde(rename = "weight_program")]
-    pub weight_program: String,
+    pub weight_program: Option<String>,
     #[serde(rename = "reroll_rule")]
-    pub reroll_rule: String,
+    pub reroll_rule: Option<String>,
     #[serde(rename = "fallback")]
-    pub fallback: String,
+    pub fallback: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsFormulaRandomizers {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaRandomizers {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            candidate_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            weight_program: <String as super::runtime::SoraDecode>::decode(reader)?,
-            reroll_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            fallback: <String as super::runtime::SoraDecode>::decode(reader)?,
+            candidate_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            weight_program: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            reroll_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            fallback: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

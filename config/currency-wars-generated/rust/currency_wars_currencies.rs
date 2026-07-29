@@ -30,13 +30,13 @@ pub struct CurrencyWarsCurrencies {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "scope")]
-    pub scope: String,
+    pub scope: Option<String>,
     #[serde(rename = "gain_rules")]
-    pub gain_rules: String,
+    pub gain_rules: Option<String>,
     #[serde(rename = "spend_rules")]
-    pub spend_rules: String,
+    pub spend_rules: Option<String>,
     #[serde(rename = "reset_rule")]
-    pub reset_rule: String,
+    pub reset_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCurrencies {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsCurrencies {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            scope: <String as super::runtime::SoraDecode>::decode(reader)?,
-            gain_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            spend_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            reset_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            scope: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            gain_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            spend_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            reset_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

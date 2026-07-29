@@ -30,11 +30,11 @@ pub struct CurrencyWarsModuleBanRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "module_id")]
-    pub module_id: String,
+    pub module_id: Option<String>,
     #[serde(rename = "subject_kind")]
-    pub subject_kind: String,
+    pub subject_kind: Option<String>,
     #[serde(rename = "subject_id")]
-    pub subject_id: String,
+    pub subject_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsModuleBanRules {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsModuleBanRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            module_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            subject_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            subject_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            module_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            subject_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            subject_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

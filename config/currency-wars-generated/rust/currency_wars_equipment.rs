@@ -30,13 +30,13 @@ pub struct CurrencyWarsEquipment {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "slot")]
-    pub slot: String,
+    pub slot: Option<String>,
     #[serde(rename = "eligibility")]
-    pub eligibility: String,
+    pub eligibility: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
     #[serde(rename = "replacement_rule")]
-    pub replacement_rule: String,
+    pub replacement_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEquipment {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsEquipment {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            slot: <String as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replacement_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            slot: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            replacement_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

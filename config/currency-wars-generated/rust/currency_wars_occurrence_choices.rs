@@ -30,15 +30,15 @@ pub struct CurrencyWarsOccurrenceChoices {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "variant_id")]
-    pub variant_id: String,
+    pub variant_id: Option<String>,
     #[serde(rename = "ordinal")]
-    pub ordinal: String,
+    pub ordinal: Option<String>,
     #[serde(rename = "conditions")]
-    pub conditions: String,
+    pub conditions: Option<String>,
     #[serde(rename = "costs")]
-    pub costs: String,
+    pub costs: Option<String>,
     #[serde(rename = "ordered_outcomes")]
-    pub ordered_outcomes: String,
+    pub ordered_outcomes: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsOccurrenceChoices {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsOccurrenceChoices {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            variant_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordinal: <String as super::runtime::SoraDecode>::decode(reader)?,
-            conditions: <String as super::runtime::SoraDecode>::decode(reader)?,
-            costs: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_outcomes: <String as super::runtime::SoraDecode>::decode(reader)?,
+            variant_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordinal: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            conditions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            costs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_outcomes: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

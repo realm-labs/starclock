@@ -1,0 +1,2702 @@
+{
+  "table": {
+    "name": "CurrencyWarsBonds",
+    "rows": [
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1001.2.0\",\"currency-wars.bond-contribution.layer.1001.4.1\",\"currency-wars.bond-contribution.layer.1001.6.2\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1001.2\",\"currency-wars.bond-level.1001.4\",\"currency-wars.bond-level.1001.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "name_en": {
+            "String": "Express Cohort"
+          },
+          "name_zh_cn": {
+            "String": "列车同行"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.d54734cd45e0f7b73809ff212ad4da8b\",\"currency-wars.source.62022cfba8b32fa752f90e578230e9a8\",\"currency-wars.source.43a09f759b9e3353b2f21ad8807834a3\",\"currency-wars.source.812c1a6602b6612ab89d58affc647f7d\",\"currency-wars.source.288adc3c1bad969420843fcd1bec4fac\",\"currency-wars.source.e9bdd7550a8a3fb45e5e8bc1e69c9ee1\",\"currency-wars.source.24295cf6e9d95c28f648c38488180a7f\",\"currency-wars.source.f7dbcf206d176a081ef97fce411b41b8\",\"currency-wars.source.dcd3ffe36e28053ed9e95db03eedcc2a\",\"currency-wars.source.8262a258927488bb5d245e889bdeebbb\",\"currency-wars.source.50f08a4883b22a0f8d6da19cb9690de2\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1001"
+          },
+          "summary_en": {
+            "String": "Bond 1001 uses GreaterEqualThan, has 8 direct role member(s) and 3 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1001 使用 GreaterEqualThan，包含 8 个直接角色成员与 3 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1002.2.3\",\"currency-wars.bond-contribution.layer.1002.3.4\",\"currency-wars.bond-contribution.layer.1002.4.5\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1002.2\",\"currency-wars.bond-level.1002.3\",\"currency-wars.bond-level.1002.4\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.15063\",\"currency-wars.roster.role.1507\"]"
+          },
+          "name_en": {
+            "String": "Stellaron Hunters"
+          },
+          "name_zh_cn": {
+            "String": "星核猎手"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.d1d416d40f5a1e8aca21920420d035f3\",\"currency-wars.source.41ddb9d8ffba30b9a91b5c866ea955a8\",\"currency-wars.source.b428d736f4860209a0bf52c27ba48563\",\"currency-wars.source.d36317086fcf16d0d31555b3960ccd53\",\"currency-wars.source.c4175b3d603a5a079c273771ea821b8f\",\"currency-wars.source.d9417225ea1c24c8778fd542f2bbad1c\",\"currency-wars.source.c0fb033a92baf34d853e76f34bb382c3\",\"currency-wars.source.808fc13de95c296c21876ff65ef697ca\",\"currency-wars.source.47d5dfbfc8e59e39d23a60c098288773\",\"currency-wars.source.9777165bb13eda7bd11574e61ca69f37\",\"currency-wars.source.22246f4ad4b86879a0fda04d623ecc73\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1002"
+          },
+          "summary_en": {
+            "String": "Bond 1002 uses GreaterEqualThan, has 8 direct role member(s) and 3 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1002 使用 GreaterEqualThan，包含 8 个直接角色成员与 3 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1003.2.6\",\"currency-wars.bond-contribution.layer.1003.4.7\",\"currency-wars.bond-contribution.layer.1003.6.8\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1003.2\",\"currency-wars.bond-level.1003.4\",\"currency-wars.bond-level.1003.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1401\"]"
+          },
+          "name_en": {
+            "String": "Cosmic Scholar"
+          },
+          "name_zh_cn": {
+            "String": "银河学者"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.6730cae411a6bec72b61b183b828d75b\",\"currency-wars.source.1cf2356943aea3321343c40bf043a5a4\",\"currency-wars.source.bc2b2410382d8f88ffef41871f1692de\",\"currency-wars.source.86bbe78c17e48270b9bdc865ce5aeba3\",\"currency-wars.source.e753fbe3147bc9c841b99bd42c75ecbf\",\"currency-wars.source.94212333e203c53f200547714eeab5f8\",\"currency-wars.source.dbea27ac30542ff76c0a8c6d20cd6e8d\",\"currency-wars.source.0b376ed465d90f370ba49b8a5bde7841\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1003"
+          },
+          "summary_en": {
+            "String": "Bond 1003 uses GreaterEqualThan, has 5 direct role member(s) and 3 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1003 使用 GreaterEqualThan，包含 5 个直接角色成员与 3 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1004.2.9\",\"currency-wars.bond-contribution.layer.1004.3.10\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1004.2\",\"currency-wars.bond-level.1004.3\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1314\"]"
+          },
+          "name_en": {
+            "String": "IPC"
+          },
+          "name_zh_cn": {
+            "String": "公司"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.9f5af82c3aa663ff743b2b20b4aaf146\",\"currency-wars.source.e80794f6e537ad0aae5a0c97cfaaf6ce\",\"currency-wars.source.65fd8609e4c0b1bea9c0bbf0b38498ee\",\"currency-wars.source.977223020202f7cf2dcb48fab6bf062f\",\"currency-wars.source.b8fac93c30e7bff1846531cf01ce06fa\",\"currency-wars.source.ae3de1fcdf494804827d27f9f1270cec\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1004"
+          },
+          "summary_en": {
+            "String": "Bond 1004 uses GreaterEqualThan, has 3 direct role member(s) and 2 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1004 使用 GreaterEqualThan，包含 3 个直接角色成员与 2 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1005.2.11\",\"currency-wars.bond-contribution.layer.1005.4.12\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1005.2\",\"currency-wars.bond-level.1005.4\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1108\"]"
+          },
+          "name_en": {
+            "String": "Belobog"
+          },
+          "name_zh_cn": {
+            "String": "贝洛伯格"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.aa28570a5706ae41111b29d2b17ee9a9\",\"currency-wars.source.e19cce6b6cf79a5ecc82f3e2324da3ee\",\"currency-wars.source.ead5f4f904da88a99cfab0153c9d7361\",\"currency-wars.source.14e5eb41f71aa9f39b613d72f30632a4\",\"currency-wars.source.6aea3d232c565bd26a0451dec18aadfe\",\"currency-wars.source.43e3b7ea0d71810bf18a2efcbec6c530\",\"currency-wars.source.41f7c34ff80597db7d863edfe58ec703\",\"currency-wars.source.1dcff417740070e1cdabc05c86db3bce\",\"currency-wars.source.4c93f39782bcd9a2557204a21cea57da\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1005"
+          },
+          "summary_en": {
+            "String": "Bond 1005 uses GreaterEqualThan, has 6 direct role member(s) and 2 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1005 使用 GreaterEqualThan，包含 6 个直接角色成员与 2 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1006.1.13\",\"currency-wars.bond-contribution.layer.1006.2.14\",\"currency-wars.bond-contribution.layer.1006.3.15\",\"currency-wars.bond-contribution.layer.1006.4.16\",\"currency-wars.bond-contribution.layer.1006.5.17\",\"currency-wars.bond-contribution.layer.1006.6.18\",\"currency-wars.bond-contribution.layer.1006.7.19\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1006.1\",\"currency-wars.bond-level.1006.2\",\"currency-wars.bond-level.1006.3\",\"currency-wars.bond-level.1006.4\",\"currency-wars.bond-level.1006.5\",\"currency-wars.bond-level.1006.6\",\"currency-wars.bond-level.1006.7\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.1505\"]"
+          },
+          "name_en": {
+            "String": "Galactic Voyager"
+          },
+          "name_zh_cn": {
+            "String": "星间旅人"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.b7e4c47152aea6682103a8ff9907a4f6\",\"currency-wars.source.35a8f92a87ddb51c9f93af7282a501e2\",\"currency-wars.source.8b41e018c17d6ff8d0d07d77097f9977\",\"currency-wars.source.3e7dcad24a5b16343f71b8c34446645e\",\"currency-wars.source.0f394a95a82e8ba959e504c8747cb1e2\",\"currency-wars.source.923d6efa692121352a2999a886be0a68\",\"currency-wars.source.dbea27ac30542ff76c0a8c6d20cd6e8d\",\"currency-wars.source.1a58418c4ef21d4c49a7c500ed99c065\",\"currency-wars.source.8ba02114cb5e2daf34f353589ca1f18f\",\"currency-wars.source.449f8e41fb277ef49a6605452efa7e9b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1006"
+          },
+          "summary_en": {
+            "String": "Bond 1006 uses GreaterEqualThan, has 7 direct role member(s) and 7 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1006 使用 GreaterEqualThan，包含 7 个直接角色成员与 7 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1007.3.20\",\"currency-wars.bond-contribution.layer.1007.5.21\",\"currency-wars.bond-contribution.layer.1007.7.22\",\"currency-wars.bond-contribution.layer.1007.10.23\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1007.3\",\"currency-wars.bond-level.1007.5\",\"currency-wars.bond-level.1007.7\",\"currency-wars.bond-level.1007.10\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1502\"]"
+          },
+          "name_en": {
+            "String": "Xianzhou"
+          },
+          "name_zh_cn": {
+            "String": "仙舟"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.90ffc84840c1f580a493cbcc6a603446\",\"currency-wars.source.4db5bbcd40931be84c7db5a85944d233\",\"currency-wars.source.bd7286c8152d950923dbbef79c81edd7\",\"currency-wars.source.dbc02736b41ec2a35f57882ba5143328\",\"currency-wars.source.92529e6fc4ce1915b2912011ca4f501a\",\"currency-wars.source.8cbcdb53a23d1b5a6038b57d2d3ceba8\",\"currency-wars.source.3918470ea49458fe98808004b216990e\",\"currency-wars.source.ceac24209256969e5a11a115213c1cfe\",\"currency-wars.source.5b05e722b3b3ff69b2a99605b9ef7274\",\"currency-wars.source.a384193eb1dff280629f5b9e31b38004\",\"currency-wars.source.3ac9e6d7dfbf65e7b07d68430ec45c36\",\"currency-wars.source.504f30ee75c429712b8fc681fd0b6fe5\",\"currency-wars.source.a9f1ca05628361f31e47d7fad6d38618\",\"currency-wars.source.ffd326c9bcd97ef052f602e5ec621ae4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1007"
+          },
+          "summary_en": {
+            "String": "Bond 1007 uses GreaterEqualThan, has 11 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1007 使用 GreaterEqualThan，包含 11 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1008.3.24\",\"currency-wars.bond-contribution.layer.1008.5.25\",\"currency-wars.bond-contribution.layer.1008.6.26\",\"currency-wars.bond-contribution.layer.1008.8.27\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1008.3\",\"currency-wars.bond-level.1008.5\",\"currency-wars.bond-level.1008.6\",\"currency-wars.bond-level.1008.8\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1223\"]"
+          },
+          "name_en": {
+            "String": "Wolf Hunt"
+          },
+          "name_zh_cn": {
+            "String": "狼狩"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.cf72e88c01904acf89f607e1ec018598\",\"currency-wars.source.d902d79386483771fe68afea617024f0\",\"currency-wars.source.118e02e25121c6d57d2e1951a7e6cbab\",\"currency-wars.source.3b1fd84c2ffe51c20d35e88154268a94\",\"currency-wars.source.d914cfa117948d3adc23eb33494de866\",\"currency-wars.source.d37de2b0081492c3b73a920f48827445\",\"currency-wars.source.f47424c8028bea17582e46c7784e08f3\",\"currency-wars.source.f11fe6c133b87dd6bac9567aa72c88cd\",\"currency-wars.source.a67ae8b2238b747a14005d8db02491bf\",\"currency-wars.source.af4468ec60edd3f3989a28fc4cab5686\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1008"
+          },
+          "summary_en": {
+            "String": "Bond 1008 uses GreaterEqualThan, has 7 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1008 使用 GreaterEqualThan，包含 7 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1009.1.104\",\"currency-wars.bond-contribution.layer.1009.2.105\",\"currency-wars.bond-contribution.layer.1009.3.112\",\"currency-wars.bond-contribution.layer.1009.4.129\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1009.1\",\"currency-wars.bond-level.1009.2\",\"currency-wars.bond-level.1009.3\",\"currency-wars.bond-level.1009.4\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1504\"]"
+          },
+          "name_en": {
+            "String": "Galaxy Ranger"
+          },
+          "name_zh_cn": {
+            "String": "巡海游侠"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0cf535ec1ef56f87bb3eb6454545ae48\",\"currency-wars.source.fd4d0d1a33b41b932a288f501aac937b\",\"currency-wars.source.30ab3f58bf1bae9a7ae199e42e01e1b0\",\"currency-wars.source.ccc9a23f2dd67179b5c5187666265ffa\",\"currency-wars.source.5c8672528c13a38826573cd3714d9ad9\",\"currency-wars.source.a13987b8a5fab3022baa014c0870aca0\",\"currency-wars.source.61cad7f23a3aabb5c0c4824b33b72543\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1009"
+          },
+          "summary_en": {
+            "String": "Bond 1009 uses GreaterEqualThan, has 4 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1009 使用 GreaterEqualThan，包含 4 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1010.2.28\",\"currency-wars.bond-contribution.layer.1010.3.29\",\"currency-wars.bond-contribution.layer.1010.4.30\",\"currency-wars.bond-contribution.layer.1010.5.31\",\"currency-wars.bond-contribution.layer.1010.6.32\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1010.2\",\"currency-wars.bond-level.1010.3\",\"currency-wars.bond-level.1010.4\",\"currency-wars.bond-level.1010.5\",\"currency-wars.bond-level.1010.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1321\"]"
+          },
+          "name_en": {
+            "String": "The Planet of Festivities"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.c8dbe85d250a659f1b40765cc643b501\",\"currency-wars.source.9d30c9532c6d3f052a673a6a3825604f\",\"currency-wars.source.fc19f31a9a48c6b8f9e00a8f9e7e4c64\",\"currency-wars.source.818720d4421bec083504dba773e447f0\",\"currency-wars.source.442cb373807e28037f95ebdd4b15830b\",\"currency-wars.source.ab1095bc3d8fd731e0c9940dafa1d8c2\",\"currency-wars.source.4df170b03aa3ad501c734c92d75698d9\",\"currency-wars.source.dd0bb91b149fc1929c36d61a34e699c0\",\"currency-wars.source.4faccb47845acc8e0c097cd99d076b40\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1010"
+          },
+          "summary_en": {
+            "String": "Bond 1010 uses GreaterEqualThan, has 6 direct role member(s) and 5 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1010 使用 GreaterEqualThan，包含 6 个直接角色成员与 5 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1011.3.33\",\"currency-wars.bond-contribution.layer.1011.4.34\",\"currency-wars.bond-contribution.layer.1011.6.35\",\"currency-wars.bond-contribution.layer.1011.9.36\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1011.3\",\"currency-wars.bond-level.1011.4\",\"currency-wars.bond-level.1011.6\",\"currency-wars.bond-level.1011.9\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1415\"]"
+          },
+          "name_en": {
+            "String": "Day Demigod"
+          },
+          "name_zh_cn": {
+            "String": "昼之半神"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.8f9b8ef184751fed60a254475c9e759f\",\"currency-wars.source.498da0532b23208b7af117b3ddbf128e\",\"currency-wars.source.c2272927d422001ab81a2c49c6bd9875\",\"currency-wars.source.3158d8abc4932f6f7d6e5ae6aae2bb48\",\"currency-wars.source.b88997e8ce0bba8f4dcd88e7d935c581\",\"currency-wars.source.17eefe0534df0b570ebbd2a9d1c59d8a\",\"currency-wars.source.dd92e21944d52b4c489b228162c9ec4b\",\"currency-wars.source.923565048be34e884b4ff47a75a1124d\",\"currency-wars.source.d0be9a17242ad8a3c3ec829ceb827944\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1011"
+          },
+          "summary_en": {
+            "String": "Bond 1011 uses GreaterEqualThan, has 6 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1011 使用 GreaterEqualThan，包含 6 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1012.2.37\",\"currency-wars.bond-contribution.layer.1012.4.38\",\"currency-wars.bond-contribution.layer.1012.7.39\",\"currency-wars.bond-contribution.layer.1012.9.111\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1012.2\",\"currency-wars.bond-level.1012.4\",\"currency-wars.bond-level.1012.7\",\"currency-wars.bond-level.1012.9\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1415\"]"
+          },
+          "name_en": {
+            "String": "Night Demigod"
+          },
+          "name_zh_cn": {
+            "String": "夜之半神"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.cff0aed271f205f1b8d3a80aa8b175d2\",\"currency-wars.source.2c861633dd10057cecb7a2fb94c63de6\",\"currency-wars.source.54082c87ae217873a5bc92f5feeef7e9\",\"currency-wars.source.c9aa73c4b9dda4952122fa19aff58a29\",\"currency-wars.source.b4c0bc403f957feaeca02b703e302744\",\"currency-wars.source.34edc7508ce84738d75a2ff5e0ae41a6\",\"currency-wars.source.86581cec951fb5d07017712267a4eafd\",\"currency-wars.source.84100378dc7bcabbc7e29db71c0915ea\",\"currency-wars.source.6bee5c0b6c9345ce1759f3641e2d78bf\",\"currency-wars.source.eb895b7c00da107f34340f68f1815fae\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1012"
+          },
+          "summary_en": {
+            "String": "Bond 1012 uses GreaterEqualThan, has 7 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1012 使用 GreaterEqualThan，包含 7 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1013.2.138\",\"currency-wars.bond-contribution.layer.1013.3.139\",\"currency-wars.bond-contribution.layer.1013.4.140\",\"currency-wars.bond-contribution.layer.1013.5.141\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1013.2\",\"currency-wars.bond-level.1013.3\",\"currency-wars.bond-level.1013.4\",\"currency-wars.bond-level.1013.5\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1509\"]"
+          },
+          "name_en": {
+            "String": "Holy Grail of Destiny"
+          },
+          "name_zh_cn": {
+            "String": "命运圣杯"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a8b102fa8495c537fca6c43d90b03cd0\",\"currency-wars.source.ee95e3e35418701116198e36bdd22d9c\",\"currency-wars.source.636d7aeef05524f87882cce1e421056f\",\"currency-wars.source.1dcef2ccc442b46cb8a9a504e19aa126\",\"currency-wars.source.27d2f631234c7ea9144c1175a5b528ab\",\"currency-wars.source.434ca5f3114c216c3184fcc46dab0170\",\"currency-wars.source.09402204b2ac34819706965b4d245908\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1013"
+          },
+          "summary_en": {
+            "String": "Bond 1013 uses GreaterEqualThan, has 4 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1013 使用 GreaterEqualThan，包含 4 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.1014.2.142\",\"currency-wars.bond-contribution.layer.1014.3.143\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.1014.2\",\"currency-wars.bond-level.1014.3\"]"
+          },
+          "member_ids": {
+            "String": "[]"
+          },
+          "name_en": {
+            "String": "Master and Disciple"
+          },
+          "name_zh_cn": {
+            "String": "师徒"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.4e11ffa8dfb1645e646f34a4f94d1e66\",\"currency-wars.source.62a7692fafec1bff00ac9e3f842ec9d7\",\"currency-wars.source.90beab592032e6c9b5d09b8c2dd4dc49\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.1014"
+          },
+          "summary_en": {
+            "String": "Bond 1014 uses GreaterEqualThan, has 0 direct role member(s) and 2 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 1014 使用 GreaterEqualThan，包含 0 个直接角色成员与 2 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2001.3.40\",\"currency-wars.bond-contribution.layer.2001.5.41\",\"currency-wars.bond-contribution.layer.2001.7.42\",\"currency-wars.bond-contribution.layer.2001.9.43\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2001.3\",\"currency-wars.bond-level.2001.5\",\"currency-wars.bond-level.2001.7\",\"currency-wars.bond-level.2001.9\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1504\"]"
+          },
+          "name_en": {
+            "String": "Follow-Up ATK"
+          },
+          "name_zh_cn": {
+            "String": "追击"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ccedc373f1fa27c690c24ca583fb9864\",\"currency-wars.source.2c4af612e630107a05b605e6580fd35e\",\"currency-wars.source.3274ce9bf0e09127e3ff72d69628b6df\",\"currency-wars.source.977223020202f7cf2dcb48fab6bf062f\",\"currency-wars.source.b5ad57fca81003b19fd9311928db2c11\",\"currency-wars.source.478511809a971fc1dd9d32cb4f796db7\",\"currency-wars.source.a662a97f3983dc7003edfdd15e5110b8\",\"currency-wars.source.40d4eff82e8c053ab2f75509e7129d1a\",\"currency-wars.source.c7cecd0be47169d549baa2d4a86fc2d5\",\"currency-wars.source.0cdd825aeee9ddc8da0b40a3877118e9\",\"currency-wars.source.3c43ada8ff31f66825d332ce4ef09b7f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2001"
+          },
+          "summary_en": {
+            "String": "Bond 2001 uses GreaterEqualThan, has 8 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2001 使用 GreaterEqualThan，包含 8 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2002.2.44\",\"currency-wars.bond-contribution.layer.2002.4.45\",\"currency-wars.bond-contribution.layer.2002.6.46\",\"currency-wars.bond-contribution.layer.2002.9.47\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2002.2\",\"currency-wars.bond-level.2002.4\",\"currency-wars.bond-level.2002.6\",\"currency-wars.bond-level.2002.9\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\"]"
+          },
+          "name_en": {
+            "String": "Break"
+          },
+          "name_zh_cn": {
+            "String": "击破"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.9786452deb7b7d2879d5618058ec90fc\",\"currency-wars.source.5c6c52516d3903c67e52bb6ce2830bd0\",\"currency-wars.source.f0bf3cd2f43cfbdd8b12033f0dd17fe2\",\"currency-wars.source.cfc3410bbb6dac2329ca3ffd97ed0127\",\"currency-wars.source.abd5a6f23ee335c101c2ca7f1a5c61b7\",\"currency-wars.source.c2e9704b71dcdcad6ee83bb61b3aabde\",\"currency-wars.source.be7902e17d413f56aec0ed594a308b32\",\"currency-wars.source.da306c9e60dbf7b197feb6a99ddfd073\",\"currency-wars.source.eb3a19dce013e157d0df0c2d815d0201\",\"currency-wars.source.0bc55962d90532fd5ace6889a7ca557b\",\"currency-wars.source.05ebfa5b58ca08b478b9f810eb761e70\",\"currency-wars.source.42d97ffd4f988f00649d5ff75e3d2d42\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2002"
+          },
+          "summary_en": {
+            "String": "Bond 2002 uses GreaterEqualThan, has 9 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2002 使用 GreaterEqualThan，包含 9 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2003.3.48\",\"currency-wars.bond-contribution.layer.2003.5.49\",\"currency-wars.bond-contribution.layer.2003.7.50\",\"currency-wars.bond-contribution.layer.2003.9.51\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2003.3\",\"currency-wars.bond-level.2003.5\",\"currency-wars.bond-level.2003.7\",\"currency-wars.bond-level.2003.9\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1405\"]"
+          },
+          "name_en": {
+            "String": "AoE ATK"
+          },
+          "name_zh_cn": {
+            "String": "群攻"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f92b56e1e1b154fd1216f70216f1c690\",\"currency-wars.source.769b801155e835b93f751cf1229ccc00\",\"currency-wars.source.98706b48e5cff31c63ac03a08dba8b78\",\"currency-wars.source.955761382655074509c2b921b9d992fd\",\"currency-wars.source.fc7f82aa32805504ce3453552263e0cf\",\"currency-wars.source.ae3de1fcdf494804827d27f9f1270cec\",\"currency-wars.source.de6801e98b819375502f6e01e1723cdf\",\"currency-wars.source.9ae1ceea643a0c1ff59caf57e127ad6d\",\"currency-wars.source.32b91a43470dff93af6fd5a2c0ea082f\",\"currency-wars.source.634dafbaa74f1e448709f84c5766ea9e\",\"currency-wars.source.559c6080b511e4b54e2e48f83d58eff9\",\"currency-wars.source.a3e41a8b4749ee8ec7e9f17b09dff62e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2003"
+          },
+          "summary_en": {
+            "String": "Bond 2003 uses GreaterEqualThan, has 9 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2003 使用 GreaterEqualThan，包含 9 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2004.3.52\",\"currency-wars.bond-contribution.layer.2004.5.53\",\"currency-wars.bond-contribution.layer.2004.7.54\",\"currency-wars.bond-contribution.layer.2004.10.55\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2004.3\",\"currency-wars.bond-level.2004.5\",\"currency-wars.bond-level.2004.7\",\"currency-wars.bond-level.2004.10\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "name_en": {
+            "String": "Energy"
+          },
+          "name_zh_cn": {
+            "String": "能量"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.48e5c6b719cc231c25e9ebcb4e9bae93\",\"currency-wars.source.30dfc1c393c05a6405dbddb0855568b9\",\"currency-wars.source.b0a7e6b31dca14bcad83a73b1afe6c5c\",\"currency-wars.source.1dcef2ccc442b46cb8a9a504e19aa126\",\"currency-wars.source.92529e6fc4ce1915b2912011ca4f501a\",\"currency-wars.source.65c7451ed6d4ebe54049c206f1fc70d2\",\"currency-wars.source.3b098b582548ba910b0526b7f7fbc0b7\",\"currency-wars.source.c2e69e00e3f8e135d8a90f26495eadfd\",\"currency-wars.source.1c00c7012082720365397153e96b76c3\",\"currency-wars.source.4bd2b2eba7818e7584b1ec3287af4be0\",\"currency-wars.source.50f08a4883b22a0f8d6da19cb9690de2\",\"currency-wars.source.e9eb1225b2af09cf324146d961f53927\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2004"
+          },
+          "summary_en": {
+            "String": "Bond 2004 uses GreaterEqualThan, has 9 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2004 使用 GreaterEqualThan，包含 9 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2005.2.56\",\"currency-wars.bond-contribution.layer.2005.4.57\",\"currency-wars.bond-contribution.layer.2005.6.58\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2005.2\",\"currency-wars.bond-level.2005.4\",\"currency-wars.bond-level.2005.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1409\"]"
+          },
+          "name_en": {
+            "String": "Heal"
+          },
+          "name_zh_cn": {
+            "String": "治疗"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.de36dcae2a21ec749d5254b74f6d5b98\",\"currency-wars.source.b841aad19e2923c2419381e0ca2be3eb\",\"currency-wars.source.99490f367522b1bad6430febc666fcca\",\"currency-wars.source.e26bd34b631f1bf523175416c7051411\",\"currency-wars.source.e1bdb29fd983b67654332b65e895731c\",\"currency-wars.source.ab3019a1f710e3a070e54d854b1e9a28\",\"currency-wars.source.7897acb25b052852c557393bc05ca1b8\",\"currency-wars.source.816ac23720ac81d5df75b1e49e82fa65\",\"currency-wars.source.1856ea7878547d73b4475734642110bc\",\"currency-wars.source.10d4cf724b59ff9d16205bbe5583a09e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2005"
+          },
+          "summary_en": {
+            "String": "Bond 2005 uses GreaterEqualThan, has 7 direct role member(s) and 3 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2005 使用 GreaterEqualThan，包含 7 个直接角色成员与 3 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2006.2.59\",\"currency-wars.bond-contribution.layer.2006.4.60\",\"currency-wars.bond-contribution.layer.2006.6.61\",\"currency-wars.bond-contribution.layer.2006.8.62\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2006.2\",\"currency-wars.bond-level.2006.4\",\"currency-wars.bond-level.2006.6\",\"currency-wars.bond-level.2006.8\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.11012\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1507\"]"
+          },
+          "name_en": {
+            "String": "Bloodflame"
+          },
+          "name_zh_cn": {
+            "String": "燃血"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.aa9b8fbfe1b0ea9aa73436abf70dc7d5\",\"currency-wars.source.def692d82136d59bddc6ecf13bc39b6e\",\"currency-wars.source.96835ebebb71a6060bb386cdbe458555\",\"currency-wars.source.dbcb70b3afbcb5310d27802774d7a7de\",\"currency-wars.source.d914cfa117948d3adc23eb33494de866\",\"currency-wars.source.f907730b2478cbcd86078e1080df5294\",\"currency-wars.source.9e3c29f88432e93f9465598953523617\",\"currency-wars.source.5e5745a5b55a2d82e7a38be835527b2c\",\"currency-wars.source.aedde592aef5fe1e5f15c583dd017e0b\",\"currency-wars.source.e1db85117bdd101e434bcda19d655174\",\"currency-wars.source.22246f4ad4b86879a0fda04d623ecc73\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2006"
+          },
+          "summary_en": {
+            "String": "Bond 2006 uses GreaterEqualThan, has 8 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2006 使用 GreaterEqualThan，包含 8 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2007.2.63\",\"currency-wars.bond-contribution.layer.2007.4.64\",\"currency-wars.bond-contribution.layer.2007.6.65\",\"currency-wars.bond-contribution.layer.2007.8.66\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2007.2\",\"currency-wars.bond-level.2007.4\",\"currency-wars.bond-level.2007.6\",\"currency-wars.bond-level.2007.8\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1507\"]"
+          },
+          "name_en": {
+            "String": "Debuff"
+          },
+          "name_zh_cn": {
+            "String": "减益"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.412b2ad6bccaf70b39ff06a0baea271d\",\"currency-wars.source.696d99660e66fbf0d87cb3713a893945\",\"currency-wars.source.659b7027300f25edf1119601fa1188c6\",\"currency-wars.source.3e7dcad24a5b16343f71b8c34446645e\",\"currency-wars.source.926b8fa07f6e103f76dff1e00c51f0f0\",\"currency-wars.source.34186322a21cb23b5b00c3cd02644313\",\"currency-wars.source.36c3061de918dfa9b505c648aaa53cbb\",\"currency-wars.source.ebfc9856ad4630f81af5065d60f0cfdf\",\"currency-wars.source.e230530f138832721f371dae43303496\",\"currency-wars.source.4198e4f96affa7600fcf40b658f5270c\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2007"
+          },
+          "summary_en": {
+            "String": "Bond 2007 uses GreaterEqualThan, has 7 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2007 使用 GreaterEqualThan，包含 7 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2008.2.67\",\"currency-wars.bond-contribution.layer.2008.4.68\",\"currency-wars.bond-contribution.layer.2008.6.69\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2008.2\",\"currency-wars.bond-level.2008.4\",\"currency-wars.bond-level.2008.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1410\"]"
+          },
+          "name_en": {
+            "String": "DoT"
+          },
+          "name_zh_cn": {
+            "String": "持续伤害"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.09003aad7f5e10efa0dabfcac6c40478\",\"currency-wars.source.d171722f8bda732ed5d6b156e60ec039\",\"currency-wars.source.953893bda8b7b164724071a9fe90ae86\",\"currency-wars.source.86bbe78c17e48270b9bdc865ce5aeba3\",\"currency-wars.source.0f394a95a82e8ba959e504c8747cb1e2\",\"currency-wars.source.d37de2b0081492c3b73a920f48827445\",\"currency-wars.source.26fe101238c2a9dc9b1e0927a4dab280\",\"currency-wars.source.923565048be34e884b4ff47a75a1124d\",\"currency-wars.source.6692998646f4763fbffe853b31ad54fb\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2008"
+          },
+          "summary_en": {
+            "String": "Bond 2008 uses GreaterEqualThan, has 6 direct role member(s) and 3 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2008 使用 GreaterEqualThan，包含 6 个直接角色成员与 3 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2009.2.70\",\"currency-wars.bond-contribution.layer.2009.3.71\",\"currency-wars.bond-contribution.layer.2009.4.72\",\"currency-wars.bond-contribution.layer.2009.5.73\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2009.2\",\"currency-wars.bond-level.2009.3\",\"currency-wars.bond-level.2009.4\",\"currency-wars.bond-level.2009.5\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\"]"
+          },
+          "name_en": {
+            "String": "Quantum Resonance"
+          },
+          "name_zh_cn": {
+            "String": "量子同频"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.94ba406e741caf9c6c59367ea4d26566\",\"currency-wars.source.b9a4679de4a76058935c082ebaf2d6b2\",\"currency-wars.source.3a6c670956cfa5f858d3515cb55aaf5e\",\"currency-wars.source.d36317086fcf16d0d31555b3960ccd53\",\"currency-wars.source.6aea3d232c565bd26a0451dec18aadfe\",\"currency-wars.source.ab3019a1f710e3a070e54d854b1e9a28\",\"currency-wars.source.0a065e245f2e4c74120e23c7530bc699\",\"currency-wars.source.9ae1ceea643a0c1ff59caf57e127ad6d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2009"
+          },
+          "summary_en": {
+            "String": "Bond 2009 uses GreaterEqualThan, has 5 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2009 使用 GreaterEqualThan，包含 5 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2010.2.74\",\"currency-wars.bond-contribution.layer.2010.4.75\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2010.2\",\"currency-wars.bond-level.2010.4\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1414\"]"
+          },
+          "name_en": {
+            "String": "Shield"
+          },
+          "name_zh_cn": {
+            "String": "护盾"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f23b10b6b9ef97611762c53812ee955b\",\"currency-wars.source.c31a4868aa6db9bb4a369937b8e1217f\",\"currency-wars.source.aab30b8561df7fac2848cdc5e7d59081\",\"currency-wars.source.812c1a6602b6612ab89d58affc647f7d\",\"currency-wars.source.f85cd2a0a8484759e88789969ec7fdb2\",\"currency-wars.source.59a69dd352fe7ccd193dbd1dfb089a0c\",\"currency-wars.source.1f2df783a14d701cba9ccbd177b953d4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2010"
+          },
+          "summary_en": {
+            "String": "Bond 2010 uses GreaterEqualThan, has 4 direct role member(s) and 2 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2010 使用 GreaterEqualThan，包含 4 个直接角色成员与 2 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2011.2.76\",\"currency-wars.bond-contribution.layer.2011.4.77\",\"currency-wars.bond-contribution.layer.2011.6.78\",\"currency-wars.bond-contribution.layer.2011.8.118\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2011.2\",\"currency-wars.bond-level.2011.4\",\"currency-wars.bond-level.2011.6\",\"currency-wars.bond-level.2011.8\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.1508\"]"
+          },
+          "name_en": {
+            "String": "Skill Points"
+          },
+          "name_zh_cn": {
+            "String": "战技点"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ca70fcd74c989ab0aaa2265a30eaa078\",\"currency-wars.source.9abb0b0f69266ac44a28118e239e140f\",\"currency-wars.source.4816dddffc3de24ce3def9829a644348\",\"currency-wars.source.f5b3f31a2cdc223a0e9deca7ad090cdb\",\"currency-wars.source.2cd04bc98f9ad577171a22a081094154\",\"currency-wars.source.b1fda63a8d107e76f53eadd90e57554a\",\"currency-wars.source.0a065e245f2e4c74120e23c7530bc699\",\"currency-wars.source.4d064de3507692b1f21b339dd4a22823\",\"currency-wars.source.40454e77aa692ea93ab5079f42550457\",\"currency-wars.source.91c2df17d96a1e2b82473e73c2f6def8\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2011"
+          },
+          "summary_en": {
+            "String": "Bond 2011 uses GreaterEqualThan, has 7 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2011 使用 GreaterEqualThan，包含 7 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2012.3.124\",\"currency-wars.bond-contribution.layer.2012.4.125\",\"currency-wars.bond-contribution.layer.2012.5.126\",\"currency-wars.bond-contribution.layer.2012.7.127\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2012.3\",\"currency-wars.bond-level.2012.4\",\"currency-wars.bond-level.2012.5\",\"currency-wars.bond-level.2012.7\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.15063\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "name_en": {
+            "String": "Elation"
+          },
+          "name_zh_cn": {
+            "String": "欢愉"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.7a499154d3a852c1ce24bd742d52cc20\",\"currency-wars.source.e8ee6e08dcbac5afaa53ed4b2f021d35\",\"currency-wars.source.a951dd3dc16953c85fb1c771aca4285e\",\"currency-wars.source.c46d5d441460756c87f177322ab41f6d\",\"currency-wars.source.d67bf5476586251b316aaa9f48094fcb\",\"currency-wars.source.929a34d563623a114667a7e0927fd442\",\"currency-wars.source.0e412cdbea7635dc8c03ffca35278049\",\"currency-wars.source.37305228a09764cc5b79c3e101452880\",\"currency-wars.source.c1dbb07208e43d19bb87188b728fbb45\",\"currency-wars.source.8887f276093c9508b77eac2564c936bf\",\"currency-wars.source.d0818687cdf4ee3d3a007651addf065b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.2012"
+          },
+          "summary_en": {
+            "String": "Bond 2012 uses GreaterEqualThan, has 8 direct role member(s) and 4 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 2012 使用 GreaterEqualThan，包含 8 个直接角色成员与 4 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3001.1.113\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3001.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.11012\"]"
+          },
+          "name_en": {
+            "String": "Supreme Guardian"
+          },
+          "name_zh_cn": {
+            "String": "大守护者"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f2dd90427238148d8876c6fbd2102e17\",\"currency-wars.source.13a27a2acffe3ac79cacf7c3d4686267\",\"currency-wars.source.f0c447b3b08e2f29e1f7ac6a9247efcd\",\"currency-wars.source.14e5eb41f71aa9f39b613d72f30632a4\",\"currency-wars.source.39ea5ab5523883e3ef83a87f9f15445b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3001"
+          },
+          "summary_en": {
+            "String": "Bond 3001 uses GreaterEqualThan, has 2 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3001 使用 GreaterEqualThan，包含 2 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3002.1.115\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 28
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3002.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1307\"]"
+          },
+          "name_en": {
+            "String": "Destiny Diviner"
+          },
+          "name_zh_cn": {
+            "String": "命运卜者"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.7f16676e1a2538f04d494a69cd616cf7\",\"currency-wars.source.61cdb44fe809c7e33636be04e68f745d\",\"currency-wars.source.f814874198cae9c6cf82b4e64a987fbc\",\"currency-wars.source.465932b1a9d4f7e142b29427c59e3052\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3002"
+          },
+          "summary_en": {
+            "String": "Bond 3002 uses GreaterEqualThan, has 1 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3002 使用 GreaterEqualThan，包含 1 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3003.1.114\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 29
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3003.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1015\"]"
+          },
+          "name_en": {
+            "String": "Magician"
+          },
+          "name_zh_cn": {
+            "String": "魔术师"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f99793cfe9d5900b58d7545603f63a3c\",\"currency-wars.source.bb8ebd136012c71b8ce48ea85708f2a4\",\"currency-wars.source.006c19aa6fc1feb42590b510617aad33\",\"currency-wars.source.f5b3f31a2cdc223a0e9deca7ad090cdb\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3003"
+          },
+          "summary_en": {
+            "String": "Bond 3003 uses GreaterEqualThan, has 1 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3003 使用 GreaterEqualThan，包含 1 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3004.1.116\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 30
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3004.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1415\"]"
+          },
+          "name_en": {
+            "String": "Beloved One"
+          },
+          "name_zh_cn": {
+            "String": "挚爱之人"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.60051ebd3f110c39a94691548b58bc52\",\"currency-wars.source.14cf4b315b631273e75cf5516c58d6fb\",\"currency-wars.source.c1daa0b60c641208c4f8b25b5d8bdcde\",\"currency-wars.source.0495b599cacc4d04466cbc130788d3ba\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3004"
+          },
+          "summary_en": {
+            "String": "Bond 3004 uses GreaterEqualThan, has 1 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3004 使用 GreaterEqualThan，包含 1 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3005.1.117\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 31
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3005.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1408\"]"
+          },
+          "name_en": {
+            "String": "Deliverer"
+          },
+          "name_zh_cn": {
+            "String": "救世主"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.dcf24298e9ec6d74806b13295a0f5bc5\",\"currency-wars.source.216b40444e3c6e01e1d98999b18eb034\",\"currency-wars.source.336a09e5ee25a926dad912115526daa7\",\"currency-wars.source.ad4f38dae966ca721e89abbe568a75fb\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3005"
+          },
+          "summary_en": {
+            "String": "Bond 3005 uses GreaterEqualThan, has 1 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3005 使用 GreaterEqualThan，包含 1 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3006.1.128\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 32
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3006.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.15063\"]"
+          },
+          "name_en": {
+            "String": "Top Player"
+          },
+          "name_zh_cn": {
+            "String": "头号玩家"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f07785a272891df0909da6f82b1905b4\",\"currency-wars.source.5d80c09e3ab530291cceae6567915c6d\",\"currency-wars.source.27f9f6559c9a0dd1d9fbe6b1f2d2d0fe\",\"currency-wars.source.87def9fe6e11270c48837756146356c5\",\"currency-wars.source.ea906c674e2427d3ace6b98d82b9ed16\",\"currency-wars.source.4485ef69fe5b95a0d031ab2f62f6ea6b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3006"
+          },
+          "summary_en": {
+            "String": "Bond 3006 uses GreaterEqualThan, has 3 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3006 使用 GreaterEqualThan，包含 3 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.3007.1.130\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 33
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.3007.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1510\"]"
+          },
+          "name_en": {
+            "String": "Navigator"
+          },
+          "name_zh_cn": {
+            "String": "领航员"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after an ordered roster mutation and before battle contribution projection."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.70c7ed3397f7d608277fb20ebd18120f\",\"currency-wars.source.c374f59ced57380fa85f9131c77df4dd\",\"currency-wars.source.2ef569e4e6f7707e9aeddca5271e8fe0\",\"currency-wars.source.a362df20e77dc72521312bb803178a8f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.3007"
+          },
+          "summary_en": {
+            "String": "Bond 3007 uses GreaterEqualThan, has 1 direct role member(s) and 1 authored level(s)."
+          },
+          "summary_zh_cn": {
+            "String": "羁绊 3007 使用 GreaterEqualThan，包含 1 个直接角色成员与 1 个已编写等级。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"trait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.10131.2.144\",\"currency-wars.bond-contribution.layer.10131.3.145\",\"currency-wars.bond-contribution.layer.10131.4.146\",\"currency-wars.bond-contribution.layer.10131.5.147\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 34
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.10131.2\",\"currency-wars.bond-level.10131.3\",\"currency-wars.bond-level.10131.4\",\"currency-wars.bond-level.10131.5\"]"
+          },
+          "member_ids": {
+            "String": "[]"
+          },
+          "name_en": {
+            "String": "Holy Grail of Destiny"
+          },
+          "name_zh_cn": {
+            "String": "命运圣杯"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.58e95ade27cce78fbf431f3d5054b5fd\",\"currency-wars.source.1bf4220f6a6250b05dd58ff788e1cb8f\",\"currency-wars.source.c2f0397aa487e0dc63db1af44f67b0a1\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.10131"
+          },
+          "summary_en": {
+            "String": "Sub-trait 10131 belongs to parent Bond 1013 and has 0 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 10131 属于父羁绊 1013，包含 0 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.10132.2.148\",\"currency-wars.bond-contribution.layer.10132.3.149\",\"currency-wars.bond-contribution.layer.10132.4.150\",\"currency-wars.bond-contribution.layer.10132.5.151\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 35
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.10132.2\",\"currency-wars.bond-level.10132.3\",\"currency-wars.bond-level.10132.4\",\"currency-wars.bond-level.10132.5\"]"
+          },
+          "member_ids": {
+            "String": "[]"
+          },
+          "name_en": {
+            "String": "Holy Grail of Destiny: Projection"
+          },
+          "name_zh_cn": {
+            "String": "命运圣杯•投影"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.705d2066dd315075eabc8e50595c3a21\",\"currency-wars.source.8827daf2270c66174536bb01093960f3\",\"currency-wars.source.0e4081fe0c751af06893a343aca1fae2\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.10132"
+          },
+          "summary_en": {
+            "String": "Sub-trait 10132 belongs to parent Bond 1013 and has 0 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 10132 属于父羁绊 1013，包含 0 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2501.2.79\",\"currency-wars.bond-contribution.layer.2501.3.80\",\"currency-wars.bond-contribution.layer.2501.4.81\",\"currency-wars.bond-contribution.layer.2501.5.82\",\"currency-wars.bond-contribution.layer.2501.6.83\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 36
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2501.2\",\"currency-wars.bond-level.2501.3\",\"currency-wars.bond-level.2501.4\",\"currency-wars.bond-level.2501.5\",\"currency-wars.bond-level.2501.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1301\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Mr. Gallagher!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—加拉赫先生！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.9d0182a3a858117a243e722820f5d06a\",\"currency-wars.source.ea9fc9917771410152531285bc8b516a\",\"currency-wars.source.e12f09b7fab62ff059d20b77480b6443\",\"currency-wars.source.b4afb38ff4aae1470298a041eeccec54\",\"currency-wars.source.09884d3ac32b5379b2e3c9f4bb9516c0\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2501"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2501 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2501 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2502.2.84\",\"currency-wars.bond-contribution.layer.2502.3.85\",\"currency-wars.bond-contribution.layer.2502.4.86\",\"currency-wars.bond-contribution.layer.2502.5.87\",\"currency-wars.bond-contribution.layer.2502.6.88\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 37
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2502.2\",\"currency-wars.bond-level.2502.3\",\"currency-wars.bond-level.2502.4\",\"currency-wars.bond-level.2502.5\",\"currency-wars.bond-level.2502.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1306\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Miss Sparkle!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—花火女士！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.946f0537650fd719ddb17237170bcc6c\",\"currency-wars.source.6e6171dea77dc93420f73be720f869c0\",\"currency-wars.source.b19596167db9cf13a69cce4149f5b1ee\",\"currency-wars.source.100f8db3a9a563a308db8bc3c2fa279d\",\"currency-wars.source.e98dcab395fe2acbe72afb72df0d3211\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2502"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2502 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2502 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2503.2.89\",\"currency-wars.bond-contribution.layer.2503.3.90\",\"currency-wars.bond-contribution.layer.2503.4.91\",\"currency-wars.bond-contribution.layer.2503.5.92\",\"currency-wars.bond-contribution.layer.2503.6.93\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 38
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2503.2\",\"currency-wars.bond-level.2503.3\",\"currency-wars.bond-level.2503.4\",\"currency-wars.bond-level.2503.5\",\"currency-wars.bond-level.2503.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1313\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Mr. Sunday!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—星期日先生！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.25bb81fdd41bd88e75d3ec417c81ab54\",\"currency-wars.source.02f9a04dbaaa521f822906fb10b5636a\",\"currency-wars.source.1d633a6b7e2045f663e521a5e9d200a2\",\"currency-wars.source.b707324440e2934ee0c3fd90a1eb352e\",\"currency-wars.source.d76d3be344f3ca9cb6b7583d54afd54e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2503"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2503 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2503 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2504.2.94\",\"currency-wars.bond-contribution.layer.2504.3.95\",\"currency-wars.bond-contribution.layer.2504.4.96\",\"currency-wars.bond-contribution.layer.2504.5.97\",\"currency-wars.bond-contribution.layer.2504.6.98\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 39
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2504.2\",\"currency-wars.bond-level.2504.3\",\"currency-wars.bond-level.2504.4\",\"currency-wars.bond-level.2504.5\",\"currency-wars.bond-level.2504.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1309\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Miss Robin!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—知更鸟女士！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.20edeecddeb23e24e5bc889d61721de9\",\"currency-wars.source.ef4b619b395b5c6f0c6dca8e13442fd2\",\"currency-wars.source.29c76835427cdb02294a33cb1e0728b6\",\"currency-wars.source.4d7d48265540935aa7f555f2799cc22d\",\"currency-wars.source.66475840ebeb47f3f985d8c2c41562f5\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2504"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2504 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2504 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2505.2.99\",\"currency-wars.bond-contribution.layer.2505.3.100\",\"currency-wars.bond-contribution.layer.2505.4.101\",\"currency-wars.bond-contribution.layer.2505.5.102\",\"currency-wars.bond-contribution.layer.2505.6.103\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 40
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2505.2\",\"currency-wars.bond-level.2505.3\",\"currency-wars.bond-level.2505.4\",\"currency-wars.bond-level.2505.5\",\"currency-wars.bond-level.2505.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1307\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Miss Black Swan!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—黑天鹅女士！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fcb0ac6499e6c3a83895ca74f84636b2\",\"currency-wars.source.7731195e786e8fd7b45b1de59b0addc1\",\"currency-wars.source.018a2947b6d4dadcc3bc075fdbc03c15\",\"currency-wars.source.436f19a6259a0a298eee2ca31fd62580\",\"currency-wars.source.91ec71722675df9f81e5dd403b22c4c4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2505"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2505 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2505 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2506.2.106\",\"currency-wars.bond-contribution.layer.2506.3.107\",\"currency-wars.bond-contribution.layer.2506.4.108\",\"currency-wars.bond-contribution.layer.2506.5.109\",\"currency-wars.bond-contribution.layer.2506.6.110\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 41
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2506.2\",\"currency-wars.bond-level.2506.3\",\"currency-wars.bond-level.2506.4\",\"currency-wars.bond-level.2506.5\",\"currency-wars.bond-level.2506.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.35051010\"]"
+          },
+          "name_en": {
+            "String": "The Planet of Festivities — Cameo Appearances!"
+          },
+          "name_zh_cn": {
+            "String": "盛徽之星—友情出演！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.d8810bdf2a65a58230ec28f1d98ebf11\",\"currency-wars.source.4eb6bab948e87d5f9d2b2cd464d66c94\",\"currency-wars.source.4212480156c46ffb6f462cb4a136f82f\",\"currency-wars.source.14bb19dc8676b9da6ca8109526910b9e\",\"currency-wars.source.6b4d3c7e0bf97e534fff0f636652813b\",\"currency-wars.source.88ba25c24c5de298b3d653f6b8276883\",\"currency-wars.source.e3dfb2a58e9f66ccb95d0c97a6369052\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2506"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2506 belongs to parent Bond 1010 and has 2 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2506 属于父羁绊 1010，包含 2 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2507.2.119\",\"currency-wars.bond-contribution.layer.2507.3.120\",\"currency-wars.bond-contribution.layer.2507.4.121\",\"currency-wars.bond-contribution.layer.2507.5.122\",\"currency-wars.bond-contribution.layer.2507.6.123\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 42
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2507.2\",\"currency-wars.bond-level.2507.3\",\"currency-wars.bond-level.2507.4\",\"currency-wars.bond-level.2507.5\",\"currency-wars.bond-level.2507.6\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1321\"]"
+          },
+          "name_en": {
+            "String": "Planet of Festivities... Lady Dahlia!"
+          },
+          "name_zh_cn": {
+            "String": "盛会之星—大丽花女士！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.709754d779dad7e6666a2cdcc6d959a4\",\"currency-wars.source.3d2aa7b9dc87a35a8251c82754ffb2eb\",\"currency-wars.source.8e3a624501012935ba191a55c8866c69\",\"currency-wars.source.a9dcad52b639163af38f733d7543623f\",\"currency-wars.source.d944eea99d7e1ca947c3320ca3258e1d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2507"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2507 belongs to parent Bond 1010 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2507 属于父羁绊 1010，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2601.1.131\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 43
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2601.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1213\"]"
+          },
+          "name_en": {
+            "String": "Navigator & Dan Heng"
+          },
+          "name_zh_cn": {
+            "String": "领航员&丹恒"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.edd3f81e65d6df94fd4516134d516e78\",\"currency-wars.source.aeb4f272e11ee297f5756bb2d3009b81\",\"currency-wars.source.5b8e92d0b927e73335c845dc0210e2f2\",\"currency-wars.source.6b0e2bbb979c48fcdeb4e383bd16114d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2601"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2601 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2601 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2602.1.132\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 44
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2602.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1313\"]"
+          },
+          "name_en": {
+            "String": "Navigator & Sunday"
+          },
+          "name_zh_cn": {
+            "String": "领航员&星期日"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.7c3606024f4bdf839415d95b297f5e31\",\"currency-wars.source.0fa689278a8b867f6c5207ee97e8f5b7\",\"currency-wars.source.42641ec8b6e8f40bbbfd3b68b023bf22\",\"currency-wars.source.bd7f9e3ba8f2ead82dc76c7304707f70\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2602"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2602 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2602 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2603.1.133\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 45
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2603.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "name_en": {
+            "String": "Navigator & Trailblazer"
+          },
+          "name_zh_cn": {
+            "String": "领航员&开拓者"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.56b3577eadf715a67157d67fafe8a224\",\"currency-wars.source.554c39f7805e75ad6bdfdfb6fb1334de\",\"currency-wars.source.e23e96e4e102c2581af35fa03293529a\",\"currency-wars.source.5d2609b29c8f95938ff89bf147758f42\",\"currency-wars.source.231e27a21d0181fc6f4862abbb7b1f8e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2603"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2603 belongs to parent Bond 3007 and has 2 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2603 属于父羁绊 3007，包含 2 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2604.1.134\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 46
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2604.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1004\"]"
+          },
+          "name_en": {
+            "String": "Navigator & Welt"
+          },
+          "name_zh_cn": {
+            "String": "领航员&瓦尔特"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.918304add450fa76c7a577f54ca564ee\",\"currency-wars.source.8ad0e4cc4062bf4a8471f4e9a4e459d0\",\"currency-wars.source.b4530927e7c32089e8831f8f5b09c97c\",\"currency-wars.source.447a397db3fdb79fb3bd11311f5c50f4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2604"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2604 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2604 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2605.1.135\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 47
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2605.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1003\"]"
+          },
+          "name_en": {
+            "String": "Navigator: Himeko"
+          },
+          "name_zh_cn": {
+            "String": "领航员：姬子"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.3cee7dbf43ddefed2a8c58105f35c62d\",\"currency-wars.source.4fd049e939fccacbe3b8d3c28ddb8bb0\",\"currency-wars.source.dd66ec708b0b49067ea46a96926f4a15\",\"currency-wars.source.bf33b81c15916a7eea940f3a3b17e5c9\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2605"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2605 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2605 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2606.1.136\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 48
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2606.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.1001\"]"
+          },
+          "name_en": {
+            "String": "Navigator & March 7th"
+          },
+          "name_zh_cn": {
+            "String": "领航员&三月七"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0cc842967033ef7e0ec988a89d641c13\",\"currency-wars.source.f8eb2c681f71bc9f462a50a0bc414a8b\",\"currency-wars.source.7177617137e19b4583ad5c76c943a65c\",\"currency-wars.source.13f2d84bc7f3f2de204f81ede14d4c94\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2606"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2606 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2606 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "contribution_ids": {
+            "String": "[\"currency-wars.bond-contribution.layer.2607.1.137\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 49
+          },
+          "kind": {
+            "String": "CurrencyWarsBond"
+          },
+          "level_ids": {
+            "String": "[\"currency-wars.bond-level.2607.1\"]"
+          },
+          "member_ids": {
+            "String": "[\"currency-wars.roster.role.35051001\"]"
+          },
+          "name_en": {
+            "String": "This journey leads us starward!"
+          },
+          "name_zh_cn": {
+            "String": "此行，终抵群星！"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recompute_timing": {
+            "String": "Recompute after the parent Bond's explicit sub-trait selection changes."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.c8707da6a6d60ea7fa03ea25f9f99669\",\"currency-wars.source.7d2c38fd305d091800472006f125d82b\",\"currency-wars.source.438541a0989c3fe1470cf5fc0ec97dd2\",\"currency-wars.source.9dedbc2e65856a5e06f858fb33426e60\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.bond.subtrait.2607"
+          },
+          "summary_en": {
+            "String": "Sub-trait 2607 belongs to parent Bond 3007 and has 1 explicitly selected role member(s)."
+          },
+          "summary_zh_cn": {
+            "String": "子羁绊 2607 属于父羁绊 3007，包含 1 个明确选择的角色成员。"
+          },
+          "tags_json": {
+            "String": "[\"bond\",\"gridfight\",\"subtrait\"]"
+          }
+        }
+      }
+    ]
+  }
+}

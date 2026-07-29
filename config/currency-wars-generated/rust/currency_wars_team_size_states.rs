@@ -30,13 +30,13 @@ pub struct CurrencyWarsTeamSizeStates {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "level")]
-    pub level: String,
+    pub level: Option<String>,
     #[serde(rename = "field_cap")]
-    pub field_cap: String,
+    pub field_cap: Option<String>,
     #[serde(rename = "bench_cap")]
-    pub bench_cap: String,
+    pub bench_cap: Option<String>,
     #[serde(rename = "transition_rules")]
-    pub transition_rules: String,
+    pub transition_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsTeamSizeStates {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsTeamSizeStates {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            field_cap: <String as super::runtime::SoraDecode>::decode(reader)?,
-            bench_cap: <String as super::runtime::SoraDecode>::decode(reader)?,
-            transition_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
+            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            field_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            bench_cap: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            transition_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

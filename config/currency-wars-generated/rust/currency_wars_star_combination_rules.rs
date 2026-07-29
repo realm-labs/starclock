@@ -30,13 +30,13 @@ pub struct CurrencyWarsStarCombinationRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "input_state")]
-    pub input_state: String,
+    pub input_state: Option<String>,
     #[serde(rename = "required_copies")]
-    pub required_copies: String,
+    pub required_copies: Option<String>,
     #[serde(rename = "output_state")]
-    pub output_state: String,
+    pub output_state: Option<String>,
     #[serde(rename = "overflow_rule")]
-    pub overflow_rule: String,
+    pub overflow_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsStarCombinationRules {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsStarCombinationRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            input_state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            required_copies: <String as super::runtime::SoraDecode>::decode(reader)?,
-            output_state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            overflow_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            input_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            required_copies: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            output_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            overflow_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

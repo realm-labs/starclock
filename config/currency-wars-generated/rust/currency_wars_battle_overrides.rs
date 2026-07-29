@@ -30,15 +30,15 @@ pub struct CurrencyWarsBattleOverrides {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "rule_kind")]
-    pub rule_kind: String,
+    pub rule_kind: Option<String>,
     #[serde(rename = "trigger")]
-    pub trigger: String,
+    pub trigger: Option<String>,
     #[serde(rename = "parameters")]
-    pub parameters: String,
+    pub parameters: Option<String>,
     #[serde(rename = "ordered_operations")]
-    pub ordered_operations: String,
+    pub ordered_operations: Option<String>,
     #[serde(rename = "teardown")]
-    pub teardown: String,
+    pub teardown: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBattleOverrides {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsBattleOverrides {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rule_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            trigger: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_operations: <String as super::runtime::SoraDecode>::decode(reader)?,
-            teardown: <String as super::runtime::SoraDecode>::decode(reader)?,
+            rule_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            trigger: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_operations: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            teardown: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,13 +30,13 @@ pub struct CurrencyWarsCurioStates {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "curio_id")]
-    pub curio_id: String,
+    pub curio_id: Option<String>,
     #[serde(rename = "state")]
-    pub state: String,
+    pub state: Option<String>,
     #[serde(rename = "charges")]
-    pub charges: String,
+    pub charges: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCurioStates {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsCurioStates {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            curio_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            charges: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            curio_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            charges: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

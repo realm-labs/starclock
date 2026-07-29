@@ -30,15 +30,15 @@ pub struct CurrencyWarsNodes {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "plane_id")]
-    pub plane_id: String,
+    pub plane_id: Option<String>,
     #[serde(rename = "layer_id")]
-    pub layer_id: String,
+    pub layer_id: Option<String>,
     #[serde(rename = "ordinal")]
-    pub ordinal: String,
+    pub ordinal: Option<String>,
     #[serde(rename = "domain_composition_id")]
-    pub domain_composition_id: String,
+    pub domain_composition_id: Option<String>,
     #[serde(rename = "room_pool_id")]
-    pub room_pool_id: String,
+    pub room_pool_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsNodes {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsNodes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            layer_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordinal: <String as super::runtime::SoraDecode>::decode(reader)?,
-            domain_composition_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            room_pool_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            plane_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            layer_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordinal: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            domain_composition_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            room_pool_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

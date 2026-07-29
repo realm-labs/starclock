@@ -1,0 +1,62 @@
+{
+  "table": {
+    "name": "CurrencyWarsCurrencies",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "gain_rules": {
+            "String": "[\"Authored battle, event, interest and service outcomes\"]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsCurrency"
+          },
+          "name_en": {
+            "String": "Gold Coin"
+          },
+          "name_zh_cn": {
+            "String": "金币"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "reset_rule": {
+            "String": "Discard at run teardown"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "scope": {
+            "String": "CurrencyWarsRun"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.5ae6fcb8fbcbb6d68bd919490b799b4f\"]"
+          },
+          "spend_rules": {
+            "String": "[\"Recruitment, Store refresh and explicitly priced service operations\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.currency.gold-coin"
+          },
+          "summary_en": {
+            "String": "Gold Coin is the run-local recruitment, refresh and authored service cost currency and resets with the run."
+          },
+          "summary_zh_cn": {
+            "String": "金币是局内招募、刷新与已编写服务消耗的货币，并随对局重置。"
+          },
+          "tags_json": {
+            "String": "[\"currency\",\"gold-coin\",\"run-local\"]"
+          }
+        }
+      }
+    ]
+  }
+}

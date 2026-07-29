@@ -30,15 +30,15 @@ pub struct CurrencyWarsResearchGaps {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "field")]
-    pub field: String,
+    pub field: Option<String>,
     #[serde(rename = "known_facts")]
-    pub known_facts: String,
+    pub known_facts: Option<String>,
     #[serde(rename = "selected_policy")]
-    pub selected_policy: String,
+    pub selected_policy: Option<String>,
     #[serde(rename = "alternatives")]
-    pub alternatives: String,
+    pub alternatives: Option<String>,
     #[serde(rename = "replacement_condition")]
-    pub replacement_condition: String,
+    pub replacement_condition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsResearchGaps {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsResearchGaps {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            field: <String as super::runtime::SoraDecode>::decode(reader)?,
-            known_facts: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selected_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            alternatives: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replacement_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            field: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            known_facts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            selected_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            alternatives: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            replacement_condition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

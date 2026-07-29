@@ -30,17 +30,17 @@ pub struct CurrencyWarsCurioLifecycleRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "curio_id")]
-    pub curio_id: String,
+    pub curio_id: Option<String>,
     #[serde(rename = "activation")]
-    pub activation: String,
+    pub activation: Option<String>,
     #[serde(rename = "destruction")]
-    pub destruction: String,
+    pub destruction: Option<String>,
     #[serde(rename = "repair")]
-    pub repair: String,
+    pub repair: Option<String>,
     #[serde(rename = "replacement")]
-    pub replacement: String,
+    pub replacement: Option<String>,
     #[serde(rename = "fallback")]
-    pub fallback: String,
+    pub fallback: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCurioLifecycleRules {
@@ -59,12 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsCurioLifecycleRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            curio_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            activation: <String as super::runtime::SoraDecode>::decode(reader)?,
-            destruction: <String as super::runtime::SoraDecode>::decode(reader)?,
-            repair: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replacement: <String as super::runtime::SoraDecode>::decode(reader)?,
-            fallback: <String as super::runtime::SoraDecode>::decode(reader)?,
+            curio_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            activation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            destruction: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            repair: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            replacement: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            fallback: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,13 +30,13 @@ pub struct CurrencyWarsBossPools {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "plane_id")]
-    pub plane_id: String,
+    pub plane_id: Option<String>,
     #[serde(rename = "difficulty_id")]
-    pub difficulty_id: String,
+    pub difficulty_id: Option<String>,
     #[serde(rename = "candidate_monster_ids")]
-    pub candidate_monster_ids: String,
+    pub candidate_monster_ids: Option<String>,
     #[serde(rename = "selection_policy")]
-    pub selection_policy: String,
+    pub selection_policy: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBossPools {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBossPools {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            candidate_monster_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selection_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
+            plane_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            difficulty_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            candidate_monster_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            selection_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

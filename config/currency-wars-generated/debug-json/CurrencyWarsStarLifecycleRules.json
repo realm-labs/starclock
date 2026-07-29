@@ -1,0 +1,172 @@
+{
+  "table": {
+    "name": "CurrencyWarsStarLifecycleRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsStarLifecycleRule"
+          },
+          "name_en": {
+            "String": "Acquire and combine"
+          },
+          "name_zh_cn": {
+            "String": "获得与合成"
+          },
+          "operation": {
+            "String": "AcquireCopy"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_rule": {
+            "String": "Add the copy, then repeatedly combine legal equal-star triples."
+          },
+          "sale_rule": {
+            "String": "No sale in this operation."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.549e179e7ee20771f9ed423990e3cf49\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.star-lifecycle.acquire"
+          },
+          "summary_en": {
+            "String": "Acquire and combine records the reference lifecycle boundary; same-boundary precedence remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "获得与合成 记录资料生命周期边界；同边界优先级仍为策略约束。"
+          },
+          "tags_json": {
+            "String": "[\"acquire\",\"gridfight\",\"star-lifecycle\"]"
+          },
+          "teardown": {
+            "String": "Preserve the resulting star state in run scope."
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsStarLifecycleRule"
+          },
+          "name_en": {
+            "String": "Sell starred role"
+          },
+          "name_zh_cn": {
+            "String": "出售升星角色"
+          },
+          "operation": {
+            "String": "SellRole"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_rule": {
+            "String": "Remove the selected role state."
+          },
+          "sale_rule": {
+            "String": "Use the exact rarity/star sell price from roster-transactions.json."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.549e179e7ee20771f9ed423990e3cf49\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.star-lifecycle.sell"
+          },
+          "summary_en": {
+            "String": "Sell starred role records the reference lifecycle boundary; same-boundary precedence remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "出售升星角色 记录资料生命周期边界；同边界优先级仍为策略约束。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"sell\",\"star-lifecycle\"]"
+          },
+          "teardown": {
+            "String": "Remove role, star, position and contribution state together."
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsStarLifecycleRule"
+          },
+          "name_en": {
+            "String": "Terminal star state"
+          },
+          "name_zh_cn": {
+            "String": "终端星级状态"
+          },
+          "operation": {
+            "String": "AcquireAtMaximumStar"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_rule": {
+            "String": "Do not synthesize an unauthored higher star state."
+          },
+          "sale_rule": {
+            "String": "Retain or sell using an explicit user decision."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.549e179e7ee20771f9ed423990e3cf49\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.star-lifecycle.terminal"
+          },
+          "summary_en": {
+            "String": "Terminal star state records the reference lifecycle boundary; same-boundary precedence remains policy-bound."
+          },
+          "summary_zh_cn": {
+            "String": "终端星级状态 记录资料生命周期边界；同边界优先级仍为策略约束。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"star-lifecycle\",\"terminal\"]"
+          },
+          "teardown": {
+            "String": "No implicit overflow conversion is claimed."
+          }
+        }
+      }
+    ]
+  }
+}

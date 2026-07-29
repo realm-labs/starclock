@@ -56,35 +56,35 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "repository"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "revision"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "path"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "locator"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "sha256"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "mechanism_quality"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -145,27 +145,27 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "manifest_category"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "manifest_record_id"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "normalized_record_ids"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "state"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -226,31 +226,31 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "field"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "known_facts"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "selected_policy"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "alternatives"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "replacement_condition"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -311,19 +311,19 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "minimum_cases"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "must_cover"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -384,31 +384,31 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "family_id"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "preconditions"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "input"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "ordered_operations"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "expected_facts"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -469,31 +469,31 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "source_path"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "row_locator"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "evidence_sha256"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "checkpoint"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "outcome"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -554,23 +554,23 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "content_manifest_sha256"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "normalized_files"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "record_counts"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -631,23 +631,23 @@ length = [1, 32767]
 [[tables.fields]]
 name = "source_refs_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "tags_json"
 type = "string"
-length = [2, 32767]
+length = [1, 32767]
 [[tables.fields]]
 name = "pack_digest"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "file_digests"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.fields]]
 name = "stable_id_index"
-type = "string"
-length = [0, 32767]
+type = "optional<string>"
+length = [1, 32767]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

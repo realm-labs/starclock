@@ -30,15 +30,15 @@ pub struct CurrencyWarsProfiles {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "entry_refs")]
-    pub entry_refs: String,
+    pub entry_refs: Option<String>,
     #[serde(rename = "module_id")]
-    pub module_id: String,
+    pub module_id: Option<String>,
     #[serde(rename = "gambit_mode_ids")]
-    pub gambit_mode_ids: String,
+    pub gambit_mode_ids: Option<String>,
     #[serde(rename = "initial_resources")]
-    pub initial_resources: String,
+    pub initial_resources: Option<String>,
     #[serde(rename = "finish_condition_ids")]
-    pub finish_condition_ids: String,
+    pub finish_condition_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsProfiles {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsProfiles {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
-            module_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            gambit_mode_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            initial_resources: <String as super::runtime::SoraDecode>::decode(reader)?,
-            finish_condition_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            entry_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            module_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            gambit_mode_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            initial_resources: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            finish_condition_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

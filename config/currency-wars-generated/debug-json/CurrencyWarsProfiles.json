@@ -1,0 +1,65 @@
+{
+  "table": {
+    "name": "CurrencyWarsProfiles",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "entry_refs": {
+            "String": "[\"currency-wars.entry.guide-tab.1003\",\"currency-wars.entry.guide-data.301\"]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "finish_condition_ids": {
+            "String": "[\"currency-wars.finish.settle-rank.1\",\"currency-wars.finish.settle-rank.2\",\"currency-wars.finish.settle-rank.3\",\"currency-wars.finish.settle-rank.4\",\"currency-wars.finish.settle-rank.5\",\"currency-wars.finish.settle-rank.6\",\"currency-wars.finish.stage-rule.3260\",\"currency-wars.finish.stage-rule.3261\",\"currency-wars.finish.stage-rule.3262\",\"currency-wars.finish.stage-rule.3263\",\"currency-wars.finish.stage-rule.3264\",\"currency-wars.finish.stage-rule.3265\",\"currency-wars.finish.stage-rule.3266\",\"currency-wars.finish.stage-rule.3267\",\"currency-wars.finish.stage-rule.3268\",\"currency-wars.finish.stage-rule.3269\",\"currency-wars.finish.stage-rule.3270\",\"currency-wars.finish.stage-rule.3271\",\"currency-wars.finish.stage-rule.3272\",\"currency-wars.finish.stage-rule.3273\",\"currency-wars.finish.stage-rule.3274\"]"
+          },
+          "gambit_mode_ids": {
+            "String": "[\"currency-wars.gambit.overclock\",\"currency-wars.gambit.standard\"]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_resources": {
+            "String": "[]"
+          },
+          "kind": {
+            "String": "CurrencyWarsProfile"
+          },
+          "module_id": {
+            "String": "currency-wars.module.7100501"
+          },
+          "name_en": {
+            "String": "Currency Wars"
+          },
+          "name_zh_cn": {
+            "String": "货币战争"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.bb4f4013c3c91bbb6532587bb861a28c\",\"currency-wars.source.b0db3e5f21d9ac759214f1a54fd08871\",\"currency-wars.source.70c70c71623e5e0716840f7461d77fd5\",\"currency-wars.source.8dede1ead44748224a7fc78880407d32\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.profile.v1"
+          },
+          "summary_en": {
+            "String": "Version 4.4 Candidate reference profile selected directly by GuideType GridFight; runtime lowering is absent."
+          },
+          "summary_zh_cn": {
+            "String": "由 GuideType GridFight 直接选择的 4.4 版本 Candidate 资料档案；不包含运行时降级。"
+          },
+          "tags_json": {
+            "String": "[\"candidate-reference\",\"currency-wars\",\"gridfight\"]"
+          }
+        }
+      }
+    ]
+  }
+}

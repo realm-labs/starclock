@@ -30,13 +30,13 @@ pub struct CurrencyWarsRosterAvatars {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "avatar_id")]
-    pub avatar_id: String,
+    pub avatar_id: Option<String>,
     #[serde(rename = "cost")]
-    pub cost: String,
+    pub cost: Option<String>,
     #[serde(rename = "role_id")]
-    pub role_id: String,
+    pub role_id: Option<String>,
     #[serde(rename = "build_mapping_id")]
-    pub build_mapping_id: String,
+    pub build_mapping_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRosterAvatars {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsRosterAvatars {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            cost: <String as super::runtime::SoraDecode>::decode(reader)?,
-            role_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            build_mapping_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            cost: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            role_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            build_mapping_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -174,8 +174,8 @@ type = "i32"
 range = [1, 2147483647]
 ${uniqueFields.map(([name, minimum]) => `[[tables.fields]]
 name = ${tomlString(name)}
-type = "string"
-length = [${minimum}, 32767]`).join("\n")}
+type = "${minimum === 0 ? "optional<string>" : "string"}"
+length = [1, 32767]`).join("\n")}
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

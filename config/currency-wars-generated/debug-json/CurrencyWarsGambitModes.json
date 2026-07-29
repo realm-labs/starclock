@@ -1,0 +1,117 @@
+{
+  "table": {
+    "name": "CurrencyWarsGambitModes",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "entry_rules": {
+            "String": "[\"Challenge difficulty cannot exceed the highest Standard Gambit rank.\",\"Completion does not change current rank.\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_resources": {
+            "String": "[]"
+          },
+          "kind": {
+            "String": "CurrencyWarsGambitMode"
+          },
+          "mode_kind": {
+            "String": "Overclock"
+          },
+          "name_en": {
+            "String": "Overclock Gambit"
+          },
+          "name_zh_cn": {
+            "String": "超频博弈"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.4fea6575ea0865d8f36df46417ee6228\",\"currency-wars.source.86d8848adf8c57e7a992150b4644bef5\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.1a694d1d055be6977b2c95f97a7bdcea\",\"currency-wars.source.d972d08797946dc56da8cf220ea3aa4d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.gambit.overclock"
+          },
+          "summary_en": {
+            "String": "Overclock Gambit is a released Currency Wars entry choice; account rewards are excluded."
+          },
+          "summary_zh_cn": {
+            "String": "超频博弈 是已发布的货币战争入口选择；账号奖励不在资料范围内。"
+          },
+          "tags_json": {
+            "String": "[\"currency-wars\",\"gambit\",\"overclock\"]"
+          },
+          "unlock_ids": {
+            "String": "[\"complete-one-standard-gambit\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "entry_rules": {
+            "String": "[\"Challenge difficulty is bounded by the current highest rank.\",\"Victory may advance rank; defeat does not reduce current rank.\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_resources": {
+            "String": "[]"
+          },
+          "kind": {
+            "String": "CurrencyWarsGambitMode"
+          },
+          "mode_kind": {
+            "String": "Standard"
+          },
+          "name_en": {
+            "String": "Standard Gambit"
+          },
+          "name_zh_cn": {
+            "String": "标准博弈"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.8076ec39ee74123d01d5704c0ce9a312\",\"currency-wars.source.293277c52f2a51d3a7071bf4fa385432\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.gambit.standard"
+          },
+          "summary_en": {
+            "String": "Standard Gambit is a released Currency Wars entry choice; account rewards are excluded."
+          },
+          "summary_zh_cn": {
+            "String": "标准博弈 是已发布的货币战争入口选择；账号奖励不在资料范围内。"
+          },
+          "tags_json": {
+            "String": "[\"currency-wars\",\"gambit\",\"standard\"]"
+          },
+          "unlock_ids": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -30,13 +30,13 @@ pub struct CurrencyWarsStageFlow {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "entry_id")]
-    pub entry_id: String,
+    pub entry_id: Option<String>,
     #[serde(rename = "ordered_node_refs")]
-    pub ordered_node_refs: String,
+    pub ordered_node_refs: Option<String>,
     #[serde(rename = "carry_rules")]
-    pub carry_rules: String,
+    pub carry_rules: Option<String>,
     #[serde(rename = "reset_rules")]
-    pub reset_rules: String,
+    pub reset_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsStageFlow {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsStageFlow {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_node_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
-            carry_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            reset_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
+            entry_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_node_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            carry_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            reset_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

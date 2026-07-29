@@ -1,0 +1,557 @@
+{
+  "table": {
+    "name": "CurrencyWarsRosterOffers",
+    "rows": [
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 1"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 1"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0c58235ab2279dea09cf71950210bd87\",\"currency-wars.source.b386f4dbee904f3ea079046852b1a41d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.1"
+          },
+          "summary_en": {
+            "String": "Level 1 weights rarities 1–5 as 100/0/0/0/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 1 对费用 1–5 的权重为 100/0/0/0/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-1\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"100\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\",\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.11012\",\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.1415\",\"currency-wars.roster.role.15063\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 10"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 10"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2ddd79344082723afd4af26736860791\",\"currency-wars.source.c2acfe103a45d9961bb379b431898591\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.10"
+          },
+          "summary_en": {
+            "String": "Level 10 weights rarities 1–5 as 5/10/20/40/25; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 10 对费用 1–5 的权重为 5/10/20/40/25；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-10\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"5\",\"2\":\"10\",\"3\":\"20\",\"4\":\"40\",\"5\":\"25\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 2"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 2"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.5f7e192d2fc35dcffd4980e7bbaf8b00\",\"currency-wars.source.e2a42355e49891cbd6d86fbbd6c096d5\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.2"
+          },
+          "summary_en": {
+            "String": "Level 2 weights rarities 1–5 as 100/0/0/0/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 2 对费用 1–5 的权重为 100/0/0/0/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-2\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"100\",\"2\":\"0\",\"3\":\"0\",\"4\":\"0\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 3"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 3"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.41448145e3566731d0344e8fef416380\",\"currency-wars.source.aefc258c8bd2da565faf30e5a16121ec\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.3"
+          },
+          "summary_en": {
+            "String": "Level 3 weights rarities 1–5 as 75/25/0/0/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 3 对费用 1–5 的权重为 75/25/0/0/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-3\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"75\",\"2\":\"25\",\"3\":\"0\",\"4\":\"0\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 4"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 4"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.10e9be34e2e7daaed50a912413f10e9c\",\"currency-wars.source.688a42067f8b1e02237991b5885e030d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.4"
+          },
+          "summary_en": {
+            "String": "Level 4 weights rarities 1–5 as 55/30/15/0/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 4 对费用 1–5 的权重为 55/30/15/0/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-4\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"55\",\"2\":\"30\",\"3\":\"15\",\"4\":\"0\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 5"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 5"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2ef3d2b768d2997b8a48d4d91cdc50a8\",\"currency-wars.source.c433091c9b1c1c84839a0306afdba1e3\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.5"
+          },
+          "summary_en": {
+            "String": "Level 5 weights rarities 1–5 as 45/33/20/2/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 5 对费用 1–5 的权重为 45/33/20/2/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-5\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"45\",\"2\":\"33\",\"3\":\"20\",\"4\":\"2\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 6"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 6"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc256e825f75bcb2586689dfcefd80da\",\"currency-wars.source.d6057cd32ee15f683787785ac512694d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.6"
+          },
+          "summary_en": {
+            "String": "Level 6 weights rarities 1–5 as 30/40/25/5/0; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 6 对费用 1–5 的权重为 30/40/25/5/0；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-6\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"30\",\"2\":\"40\",\"3\":\"25\",\"4\":\"5\",\"5\":\"0\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\",\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.11012\",\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.1415\",\"currency-wars.roster.role.15063\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 7"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 7"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.e2172a38f451fd7974b27a55dc46e20b\",\"currency-wars.source.bc17619cce696a2eda13bb9e49e5320e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.7"
+          },
+          "summary_en": {
+            "String": "Level 7 weights rarities 1–5 as 19/30/40/10/1; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 7 对费用 1–5 的权重为 19/30/40/10/1；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-7\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"19\",\"2\":\"30\",\"3\":\"40\",\"4\":\"10\",\"5\":\"1\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\",\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.11012\",\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.1415\",\"currency-wars.roster.role.15063\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 8"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 8"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.6ff8945b1f884598982475736844306d\",\"currency-wars.source.297a9d818ca754fe887997b1e959273c\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.8"
+          },
+          "summary_en": {
+            "String": "Level 8 weights rarities 1–5 as 18/25/32/22/3; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 8 对费用 1–5 的权重为 18/25/32/22/3；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-8\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"18\",\"2\":\"25\",\"3\":\"32\",\"4\":\"22\",\"5\":\"3\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "candidate_avatar_ids": {
+            "String": "[\"currency-wars.roster.role.1001\",\"currency-wars.roster.role.1009\",\"currency-wars.roster.role.1013\",\"currency-wars.roster.role.1108\",\"currency-wars.roster.role.1201\",\"currency-wars.roster.role.1202\",\"currency-wars.roster.role.12041\",\"currency-wars.roster.role.1205\",\"currency-wars.roster.role.1217\",\"currency-wars.roster.role.1218\",\"currency-wars.roster.role.1220\",\"currency-wars.roster.role.1223\",\"currency-wars.roster.role.1301\",\"currency-wars.roster.role.1314\",\"currency-wars.roster.role.1317\",\"currency-wars.roster.role.1321\",\"currency-wars.roster.role.1402\",\"currency-wars.roster.role.1404\",\"currency-wars.roster.role.1406\",\"currency-wars.roster.role.1502\",\"currency-wars.roster.role.1508\",\"currency-wars.roster.role.1005\",\"currency-wars.roster.role.1106\",\"currency-wars.roster.role.1213\",\"currency-wars.roster.role.1222\",\"currency-wars.roster.role.1302\",\"currency-wars.roster.role.1303\",\"currency-wars.roster.role.1304\",\"currency-wars.roster.role.1306\",\"currency-wars.roster.role.1403\",\"currency-wars.roster.role.1409\",\"currency-wars.roster.role.1414\",\"currency-wars.roster.role.1504\",\"currency-wars.roster.role.1505\",\"currency-wars.roster.role.1507\",\"currency-wars.roster.role.1509\",\"currency-wars.roster.role.1003\",\"currency-wars.roster.role.1014\",\"currency-wars.roster.role.1102\",\"currency-wars.roster.role.1105\",\"currency-wars.roster.role.12042\",\"currency-wars.roster.role.1212\",\"currency-wars.roster.role.1225\",\"currency-wars.roster.role.1305\",\"currency-wars.roster.role.1308\",\"currency-wars.roster.role.1313\",\"currency-wars.roster.role.1405\",\"currency-wars.roster.role.1408\",\"currency-wars.roster.role.1412\",\"currency-wars.roster.role.15061\",\"currency-wars.roster.role.1510\",\"currency-wars.roster.role.1006\",\"currency-wars.roster.role.1104\",\"currency-wars.roster.role.1203\",\"currency-wars.roster.role.1208\",\"currency-wars.roster.role.1209\",\"currency-wars.roster.role.1309\",\"currency-wars.roster.role.1315\",\"currency-wars.roster.role.1401\",\"currency-wars.roster.role.1407\",\"currency-wars.roster.role.1410\",\"currency-wars.roster.role.1413\",\"currency-wars.roster.role.1501\",\"currency-wars.roster.role.15062\",\"currency-wars.roster.role.8007\",\"currency-wars.roster.role.8009\",\"currency-wars.roster.role.1004\",\"currency-wars.roster.role.1015\",\"currency-wars.roster.role.11011\",\"currency-wars.roster.role.11012\",\"currency-wars.roster.role.1112\",\"currency-wars.roster.role.1204\",\"currency-wars.roster.role.1221\",\"currency-wars.roster.role.1307\",\"currency-wars.roster.role.1310\",\"currency-wars.roster.role.1415\",\"currency-wars.roster.role.15063\"]"
+          },
+          "cost_rule": {
+            "String": "GridFightShopPrice.BuyGoldStar1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectIfNoPositiveRarityWeight"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsRosterOffer"
+          },
+          "name_en": {
+            "String": "Roster offer level 9"
+          },
+          "name_zh_cn": {
+            "String": "角色招募等级 9"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.b5bca6e2b053c036d4949480e5833728\",\"currency-wars.source.ba24e6e56d4403bd0c0435a998623159\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.roster-offer.level.9"
+          },
+          "summary_en": {
+            "String": "Level 9 weights rarities 1–5 as 15/20/25/30/10; each refresh offers 5 cards."
+          },
+          "summary_zh_cn": {
+            "String": "等级 9 对费用 1–5 的权重为 15/20/25/30/10；每次刷新提供 5 张卡。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"level-9\",\"roster-offer\"]"
+          },
+          "weights": {
+            "String": "{\"1\":\"15\",\"2\":\"20\",\"3\":\"25\",\"4\":\"30\",\"5\":\"10\"}"
+          }
+        }
+      }
+    ]
+  }
+}

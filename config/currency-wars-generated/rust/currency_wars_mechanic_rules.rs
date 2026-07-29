@@ -30,15 +30,15 @@ pub struct CurrencyWarsMechanicRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "scope")]
-    pub scope: String,
+    pub scope: Option<String>,
     #[serde(rename = "trigger")]
-    pub trigger: String,
+    pub trigger: Option<String>,
     #[serde(rename = "ordered_operations")]
-    pub ordered_operations: String,
+    pub ordered_operations: Option<String>,
     #[serde(rename = "state_lifecycle")]
-    pub state_lifecycle: String,
+    pub state_lifecycle: Option<String>,
     #[serde(rename = "runtime_lowered")]
-    pub runtime_lowered: String,
+    pub runtime_lowered: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsMechanicRules {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsMechanicRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            scope: <String as super::runtime::SoraDecode>::decode(reader)?,
-            trigger: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_operations: <String as super::runtime::SoraDecode>::decode(reader)?,
-            state_lifecycle: <String as super::runtime::SoraDecode>::decode(reader)?,
-            runtime_lowered: <String as super::runtime::SoraDecode>::decode(reader)?,
+            scope: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            trigger: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_operations: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            state_lifecycle: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            runtime_lowered: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

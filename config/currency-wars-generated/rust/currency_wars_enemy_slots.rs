@@ -30,15 +30,15 @@ pub struct CurrencyWarsEnemySlots {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "wave_id")]
-    pub wave_id: String,
+    pub wave_id: Option<String>,
     #[serde(rename = "slot_index")]
-    pub slot_index: String,
+    pub slot_index: Option<String>,
     #[serde(rename = "monster_id")]
-    pub monster_id: String,
+    pub monster_id: Option<String>,
     #[serde(rename = "level")]
-    pub level: String,
+    pub level: Option<String>,
     #[serde(rename = "ability_refs")]
-    pub ability_refs: String,
+    pub ability_refs: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEnemySlots {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsEnemySlots {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            wave_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            slot_index: <String as super::runtime::SoraDecode>::decode(reader)?,
-            monster_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ability_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
+            wave_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            slot_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            monster_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ability_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

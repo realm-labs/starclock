@@ -30,13 +30,13 @@ pub struct CurrencyWarsEncounterWaves {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "stage_id")]
-    pub stage_id: String,
+    pub stage_id: Option<String>,
     #[serde(rename = "wave_index")]
-    pub wave_index: String,
+    pub wave_index: Option<String>,
     #[serde(rename = "enemy_slot_ids")]
-    pub enemy_slot_ids: String,
+    pub enemy_slot_ids: Option<String>,
     #[serde(rename = "trigger")]
-    pub trigger: String,
+    pub trigger: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEncounterWaves {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsEncounterWaves {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            stage_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            wave_index: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_slot_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            trigger: <String as super::runtime::SoraDecode>::decode(reader)?,
+            stage_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            wave_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            enemy_slot_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            trigger: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

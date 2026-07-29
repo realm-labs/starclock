@@ -30,11 +30,11 @@ pub struct CurrencyWarsFormulaRecipes {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "required_path_counts")]
-    pub required_path_counts: String,
+    pub required_path_counts: Option<String>,
     #[serde(rename = "required_blessing_states")]
-    pub required_blessing_states: String,
+    pub required_blessing_states: Option<String>,
     #[serde(rename = "completion_rule")]
-    pub completion_rule: String,
+    pub completion_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsFormulaRecipes {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaRecipes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            required_path_counts: <String as super::runtime::SoraDecode>::decode(reader)?,
-            required_blessing_states: <String as super::runtime::SoraDecode>::decode(reader)?,
-            completion_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            required_path_counts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            required_blessing_states: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            completion_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -1,0 +1,1342 @@
+{
+  "table": {
+    "name": "CurrencyWarsEnhancements",
+    "rows": [
+      {
+        "values": {
+          "cost": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Assertion"
+          },
+          "name_zh_cn": {
+            "String": "断言"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"0.1\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.97666e45187544ded0862b9e08ebd61c\",\"currency-wars.source.2e1bf6247ce4e057a1416e7121e4bdc7\",\"currency-wars.source.46f505e045f016ca4631240ff4c249b5\",\"currency-wars.source.9ea74757ea5f5a4c1e314ccea5661011\",\"currency-wars.source.f22779286019283d7b2565b4cd118001\",\"currency-wars.source.43e2629f949984ffc2954396d347c474\",\"currency-wars.source.e4d42af287877859d2f4665a0dfa192e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.1"
+          },
+          "summary_en": {
+            "String": "Enhancement 1 belongs to group 30021, costs 5 and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 1 属于组 30021，消耗 5，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30061\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30061"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Virus Firewall"
+          },
+          "name_zh_cn": {
+            "String": "病毒防火墙"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352302\",\"0.35\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.94947b7cd11259a936dc3902dd7e1d77\",\"currency-wars.source.5662a15668ca0e83aaa3e3cb8dc6c8e3\",\"currency-wars.source.1079c1c5e07f6f79c9510bef528b7789\",\"currency-wars.source.5b2671919586117fe98fee946419842b\",\"currency-wars.source.702464eb79e329e0f4432ed0e251cc1d\",\"currency-wars.source.40ccae68b3307ddc1db103350741ec22\",\"currency-wars.source.e9478669d9ede586491e54ff9ee0db70\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.10"
+          },
+          "summary_en": {
+            "String": "Enhancement 10 belongs to group 30061, costs no authored amount and publishes 2 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 10 属于组 30061，消耗 未编写数值，并发布 2 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30061\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30061"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Trotter Virus"
+          },
+          "name_zh_cn": {
+            "String": "扑满病毒"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352304\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a699656784a801520c02b5eee6eb8997\",\"currency-wars.source.5949d9179be84614c17cea0085a001bb\",\"currency-wars.source.4f93622772fff7a50d17d5e170b0bb21\",\"currency-wars.source.df391e17ade8ec9ebbf176e9f48bc5b9\",\"currency-wars.source.deef2fe7196600e13a85af940296eada\",\"currency-wars.source.c8377b70b964c9a171988681a43567e4\",\"currency-wars.source.0f06de9ecb494f40a8dfa3929ec2fcee\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.11"
+          },
+          "summary_en": {
+            "String": "Enhancement 11 belongs to group 30061, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 11 属于组 30061，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30061\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30061"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Cracking Chip"
+          },
+          "name_zh_cn": {
+            "String": "破解芯片"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352303\",\"5\",\"0.1\",\"0.2\",\"0.1\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ef2f3d4d5483a2e087d89d6146ce9766\",\"currency-wars.source.c5ba5ec6ae1f4ac7ee4730de6a6ae689\",\"currency-wars.source.4515642aa1527923b57573a99492ad86\",\"currency-wars.source.14c7082e4294d8e6fb8510e9e401ceb4\",\"currency-wars.source.4d30dfec11f41a57901723fe59aa0a06\",\"currency-wars.source.0197df498761675eb2f16d233f62db12\",\"currency-wars.source.9a105ad1d7b4c1d4387135bb2463f317\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.12"
+          },
+          "summary_en": {
+            "String": "Enhancement 12 belongs to group 30061, costs no authored amount and publishes 5 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 12 属于组 30061，消耗 未编写数值，并发布 5 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Silver Wolf LV.999"
+          },
+          "name_zh_cn": {
+            "String": "银狼LV.999"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"15063\"],\"select_condition\":\"Permanent\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.64abbe971f31b5a8dd78125cab117f24\",\"currency-wars.source.172781f83ddc6c762eb938457d8341e7\",\"currency-wars.source.c6df92b329116247217e7bdbe38466de\",\"currency-wars.source.4abb1669acb3edea0aeca885be35a8ac\",\"currency-wars.source.b1603ea75b1b29b2303e01efd1ffe7b8\",\"currency-wars.source.b7638beb585be69cff431174eb221786\",\"currency-wars.source.ea06b14a6bd38f172d84ca9ac4f55956\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.13"
+          },
+          "summary_en": {
+            "String": "Enhancement 13 belongs to group 30062, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 13 属于组 30062，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Data Copier Pro"
+          },
+          "name_zh_cn": {
+            "String": "数据拷贝仪Pro"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352401\",\"3\",\"0.2\",\"0.3\",\"0.5\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.aa9d9d26ab262475f64dd20db82c5ab5\",\"currency-wars.source.40aa179f0c8dd76ebec8bb2134b2c765\",\"currency-wars.source.6cb84a716dce7abd819a0a0478e18337\",\"currency-wars.source.4517d9e53d8b92f8855cdcbdb1a0ffd4\",\"currency-wars.source.6a3f4cdfb49b985c69665e60c66314ce\",\"currency-wars.source.48c16e66ef0f8e5beefcc7a4f3942d7d\",\"currency-wars.source.9b2118f9e3d503149ce740fb509ac3e2\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.14"
+          },
+          "summary_en": {
+            "String": "Enhancement 14 belongs to group 30062, costs no authored amount and publishes 5 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 14 属于组 30062，消耗 未编写数值，并发布 5 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Elation Cartridge"
+          },
+          "name_zh_cn": {
+            "String": "欢愉卡带"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352402\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.570b1fac79d48bea05a6168d5b3e07df\",\"currency-wars.source.56b70f9641b351b014211cc55e1b3f89\",\"currency-wars.source.0f1e6251f57e18b7098244bbc7c96732\",\"currency-wars.source.f8134ef4e8cc123a225cd6988080a1aa\",\"currency-wars.source.c940e1c05a521e1459890e819b0bd603\",\"currency-wars.source.db0c3966c839579c1f86ccf42f29a368\",\"currency-wars.source.6625f6a817b4c45e7937bac67a6bafb2\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.15"
+          },
+          "summary_en": {
+            "String": "Enhancement 15 belongs to group 30062, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 15 属于组 30062，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Stellaron Hunter Cartridge"
+          },
+          "name_zh_cn": {
+            "String": "星核猎手卡带"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352404\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2dc0c638b98c1d93809d04abaa7f7b8c\",\"currency-wars.source.4f45aa700500b4e6a0a81fc61043ceb0\",\"currency-wars.source.ef8d98ff60b9ab010838cc8fe52b1b12\",\"currency-wars.source.e717b61734bd6987b056bb9a461dee06\",\"currency-wars.source.1013373ddb38f1658f6cb9a2eb39450a\",\"currency-wars.source.8557983fa65e6dec9df387cc6901f5e3\",\"currency-wars.source.8a079a1bc0fa3a6c7ebc571b8cdad6ba\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.16"
+          },
+          "summary_en": {
+            "String": "Enhancement 16 belongs to group 30062, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 16 属于组 30062，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Clone Sunglasses"
+          },
+          "name_zh_cn": {
+            "String": "分身墨镜"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352405\",\"0.2\",\"0.2\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.d2e8645fdaaeab22d696107f1eb2e477\",\"currency-wars.source.da6bba60c7285fd22af2bde123f28599\",\"currency-wars.source.f8cb9eb0f6798675a862573ce2cd12c4\",\"currency-wars.source.9a45c5c62185fd13e631c887e9e7aa73\",\"currency-wars.source.4ad34f0dddd6f20dce7e6bf0fe3d35dc\",\"currency-wars.source.547f9ea6e888154792f3fe3edc49f530\",\"currency-wars.source.bfb3672fa0e7e8d736b63bf9d859bef7\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.17"
+          },
+          "summary_en": {
+            "String": "Enhancement 17 belongs to group 30062, costs no authored amount and publishes 3 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 17 属于组 30062，消耗 未编写数值，并发布 3 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30062\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30062"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Trotter Virus Pro"
+          },
+          "name_zh_cn": {
+            "String": "扑满病毒Pro"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352406\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.49754d2a704e88f54ae539917d8511c0\",\"currency-wars.source.b9631175b2330b0dff734c430680a556\",\"currency-wars.source.ab2ddb43a672e0a263b010ce8b8f9705\",\"currency-wars.source.ce5e6edcf1629106c1cbd45629477730\",\"currency-wars.source.f2dd8cf469c37b59c9610788b5712337\",\"currency-wars.source.4a8d91843591437918d2e8a98b17b1ed\",\"currency-wars.source.16e76c78b1b714353f24f29ebf183d99\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.18"
+          },
+          "summary_en": {
+            "String": "Enhancement 18 belongs to group 30062, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 18 属于组 30062，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Elation Cartridge Max"
+          },
+          "name_zh_cn": {
+            "String": "欢愉卡带Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352502\",\"0.5\",\"0.5\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.55f7126f779eb228698718a8189a2691\",\"currency-wars.source.25985ac5d151caca47f2408548000aa7\",\"currency-wars.source.079d1830723b2617af60e55bf07d7480\",\"currency-wars.source.642dbc2e139ef3fc2012f36bd990d77e\",\"currency-wars.source.4539d0b1d6a90e995a1583ab89271fe7\",\"currency-wars.source.80296b9354506f4da0c8f8e82998130b\",\"currency-wars.source.117cdcfa952d8a3b6b0c9bebac5f6faa\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.19"
+          },
+          "summary_en": {
+            "String": "Enhancement 19 belongs to group 30063, costs no authored amount and publishes 3 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 19 属于组 30063，消耗 未编写数值，并发布 3 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Deep Arcana"
+          },
+          "name_zh_cn": {
+            "String": "深层奥迹"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"49\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.32b8bcfc760d9cd01e4bccd788882129\",\"currency-wars.source.f74ef8b01f79f0f031bdd5d6034173ed\",\"currency-wars.source.67cf521889497c63f6abc42eec5af53d\",\"currency-wars.source.059c45cc5ad0afc49c9ebf2dcb8daf5e\",\"currency-wars.source.cf97c98b0297c0cf64a111143e36b5f1\",\"currency-wars.source.38d490de19d22269633c77ef298b76fb\",\"currency-wars.source.c910f4e002f83f727d78f849661add90\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.2"
+          },
+          "summary_en": {
+            "String": "Enhancement 2 belongs to group 30021, costs 5 and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 2 属于组 30021，消耗 5，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Stellaron Hunter Cartridge Max"
+          },
+          "name_zh_cn": {
+            "String": "星核猎手卡带Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352503\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.26fd49816bcdb3e397326e2023bba4d2\",\"currency-wars.source.0e004c5198435976198b167944eef5e8\",\"currency-wars.source.31fa9b280455e8e1821094559c5ba579\",\"currency-wars.source.9144ea4155a406cbdefacbdc66d6aee1\",\"currency-wars.source.887c9ce1dfd62d990a894e4c7ff3ec97\",\"currency-wars.source.757566b2f0c7363911f15250cc688d14\",\"currency-wars.source.a1a879510955776e788168464b8e7182\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.20"
+          },
+          "summary_en": {
+            "String": "Enhancement 20 belongs to group 30063, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 20 属于组 30063，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Data Copier Max"
+          },
+          "name_zh_cn": {
+            "String": "数据拷贝仪Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352501\",\"2\",\"0.5\",\"0.3\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.dc1c6e015c7d9e43bc81e11e9dfae1c3\",\"currency-wars.source.a8eb650006055cf9dcd53baaf9789bd2\",\"currency-wars.source.d3874791c8bba64ed8ff09532dfd1004\",\"currency-wars.source.29c7a918e6ad0f558e2b6c6603db93a2\",\"currency-wars.source.975b2c576c3fb46a1b25d45f5c6b5b74\",\"currency-wars.source.1072f2c8543eda3f6674bebb9bfca57b\",\"currency-wars.source.cf421eb902fa1b1984cc717e3f915a32\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.21"
+          },
+          "summary_en": {
+            "String": "Enhancement 21 belongs to group 30063, costs no authored amount and publishes 4 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 21 属于组 30063，消耗 未编写数值，并发布 4 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Clone Sunglasses Max"
+          },
+          "name_zh_cn": {
+            "String": "分身墨镜Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352504\",\"0.3\",\"0.3\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2186a2eff1c806d210e61abe085c604c\",\"currency-wars.source.dbf24f8b8f78623398685d5d461ac409\",\"currency-wars.source.5cd9ef4f5a882ca903ad704cd9b7859d\",\"currency-wars.source.36f0fabb2245243d7fc0aa8395c14778\",\"currency-wars.source.13653a98b2541e12a9c3cd1483f1810e\",\"currency-wars.source.31cb575a43e21c2f2c9d95ae0f3c638e\",\"currency-wars.source.f439a3cb5618d6aa580e4e0f62e39897\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.22"
+          },
+          "summary_en": {
+            "String": "Enhancement 22 belongs to group 30063, costs no authored amount and publishes 3 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 22 属于组 30063，消耗 未编写数值，并发布 3 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Virus Firewall Max"
+          },
+          "name_zh_cn": {
+            "String": "病毒防火墙Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352505\",\"0.6\",\"0.3\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ff9e9a8eeed7dbf3152bd93718d2f71f\",\"currency-wars.source.9fb68809ab3de85dfee30af8f4a2a482\",\"currency-wars.source.4f792c57cf5b1a6c1cae3f1094922c5f\",\"currency-wars.source.42df546ddbe41b6507530804bff55744\",\"currency-wars.source.d9e6016921d736c926ce63e7109e2419\",\"currency-wars.source.75565466acbf2bdbc6f6a07a4c5a3383\",\"currency-wars.source.83e9f3e1f2bfe7d08b77e886e0270797\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.23"
+          },
+          "summary_en": {
+            "String": "Enhancement 23 belongs to group 30063, costs no authored amount and publishes 3 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 23 属于组 30063，消耗 未编写数值，并发布 3 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Trotter Virus Max"
+          },
+          "name_zh_cn": {
+            "String": "扑满病毒Max"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352506\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.39af4569ade3b906714b87f7be04c525\",\"currency-wars.source.33d9a02446346cfa32149322d0ea9864\",\"currency-wars.source.4f3872c0da0cd1e77fbf342c683cefc4\",\"currency-wars.source.9309fc28e7d71ac7826a699e13d436c8\",\"currency-wars.source.9016b7cb7258ccefd6073320c78b5b43\",\"currency-wars.source.ff6f8c404930f84397077b4903cb8547\",\"currency-wars.source.262fbeffae04a3db39975703c3d42f32\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.24"
+          },
+          "summary_en": {
+            "String": "Enhancement 24 belongs to group 30063, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 24 属于组 30063，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30063\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30063"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Administrator Gloves Pro Max"
+          },
+          "name_zh_cn": {
+            "String": "管理员手套ProMax"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352507\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.d47b876e904520a8a1b1a677cbbba06c\",\"currency-wars.source.69ed97417ea43f7c20c2f73fbf778950\",\"currency-wars.source.74a94d1bb209ed30a1b5bdb6551e761d\",\"currency-wars.source.bdd39e33b7190bb33d0f76dcdb7c4abe\",\"currency-wars.source.89c33fe14bfb928e0f1400ac5c92ce66\",\"currency-wars.source.9a575445f4e51535776317ef13c7b26d\",\"currency-wars.source.af6f24f85b5f1da1b360cc4b6c64f6cf\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.25"
+          },
+          "summary_en": {
+            "String": "Enhancement 25 belongs to group 30063, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 25 属于组 30063，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Primal Arcana"
+          },
+          "name_zh_cn": {
+            "String": "原始奥迹"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"15\",\"0.05\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.085e55b0f0beaf0c47f788c146615181\",\"currency-wars.source.4b6afd5ccdb85a3f11caf08b31224aac\",\"currency-wars.source.51dbcaff4e422818d18812d6e9532ab2\",\"currency-wars.source.5714f784e94586b5812979b7de515899\",\"currency-wars.source.d4eaf94b4c395378938720a385378f81\",\"currency-wars.source.cf966f73f2cf9423ec4a3354c2f7b96e\",\"currency-wars.source.f54e12ef4aac47c13732feab4e147c6e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.3"
+          },
+          "summary_en": {
+            "String": "Enhancement 3 belongs to group 30021, costs 5 and publishes 2 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 3 属于组 30021，消耗 5，并发布 2 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Agile"
+          },
+          "name_zh_cn": {
+            "String": "机敏"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"0.16\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.e7b217f77c681ec2f1cff6a4acbef0ec\",\"currency-wars.source.7dd04f28d43dcf11ab2980f335380996\",\"currency-wars.source.60620a28f6c5eaa50d1e23fb60c86d88\",\"currency-wars.source.897ff2d96dec9b42fcfe87996535e55e\",\"currency-wars.source.0409e309f0ad374e21ba9c17ff4dd09c\",\"currency-wars.source.9ec392f7b9c27acda88a497d1b44e6de\",\"currency-wars.source.cd32e2e0d19a4a476bd1a962dd172568\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.4"
+          },
+          "summary_en": {
+            "String": "Enhancement 4 belongs to group 30021, costs 5 and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 4 属于组 30021，消耗 5，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": {
+            "String": "5"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Felicity"
+          },
+          "name_zh_cn": {
+            "String": "妙运"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"0.03\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.68659e95bc3cc3a18fc0aaeaa39daf3a\",\"currency-wars.source.b8c2d6c439e7c82c2a5292433f39245b\",\"currency-wars.source.212daa6616a20f894ea84472e4daa4d1\",\"currency-wars.source.5bca7b150b4a3bebcac5a3618889b518\",\"currency-wars.source.9f3c96a0b5d0423bdc2cf177ee29b3b6\",\"currency-wars.source.8da7bb96b6e93c100254dd03d23d5edb\",\"currency-wars.source.8abcb4492f857609f54e5a960acac05d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.5"
+          },
+          "summary_en": {
+            "String": "Enhancement 5 belongs to group 30021, costs 5 and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 5 属于组 30021，消耗 5，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Blank Card"
+          },
+          "name_zh_cn": {
+            "String": "留白卡"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"0.25\"],\"select_condition\":\"Permanent\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.dcc79af9d217db93c786120a3c69a5e1\",\"currency-wars.source.88a7efd8b55676ed87726e74384fcb71\",\"currency-wars.source.756e9f0f8ef53552e78d15eecfc217c2\",\"currency-wars.source.0a0ed847ed905db17be1c260ee488cb6\",\"currency-wars.source.b8ca00b8b572e228f890bbe389208214\",\"currency-wars.source.5b378f9303e7f2252f9a06c604e54b35\",\"currency-wars.source.d9b8174573ff022602a18b0ad54877aa\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.6"
+          },
+          "summary_en": {
+            "String": "Enhancement 6 belongs to group 30021, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 6 属于组 30021，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30021\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30021"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Moment of Revelation"
+          },
+          "name_zh_cn": {
+            "String": "启示降临"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[],\"select_condition\":\"MaxStar\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.b4372975ec1e3f01e1a65462b0b23f64\",\"currency-wars.source.619fc6999eeea4cc7f020f03911f122b\",\"currency-wars.source.eff7fd33082ba340acc80dcf79992689\",\"currency-wars.source.dc24a0b8dc7a7f01c3c31a6aaec0b9ae\",\"currency-wars.source.3ed4815e5456d7121d17dbbe7dde07e6\",\"currency-wars.source.b0552e835a80461973032b3cd392ce4b\",\"currency-wars.source.32e9747b89eea3ccd1d744cf168c9f03\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.7"
+          },
+          "summary_en": {
+            "String": "Enhancement 7 belongs to group 30021, costs no authored amount and publishes 0 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 7 属于组 30021，消耗 未编写数值，并发布 0 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30061\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30061"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Silver Wolf LV.999"
+          },
+          "name_zh_cn": {
+            "String": "银狼LV.999"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"15062\"],\"select_condition\":\"Permanent\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2d68b882cbe4cfbc5610634e16c6d671\",\"currency-wars.source.7d671212d8946a9098f93772f1928671\",\"currency-wars.source.c3c13ebcee9db9fc5693ec61414e259a\",\"currency-wars.source.3317a9bd8e58f855e0b8aef0bbe2573c\",\"currency-wars.source.17e0196eca86a327a8b222d6bffcf3ea\",\"currency-wars.source.693786880faf637c4a87340f0e5cae8f\",\"currency-wars.source.21e98ba43e708a7c98f90ef698fb6929\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.8"
+          },
+          "summary_en": {
+            "String": "Enhancement 8 belongs to group 30061, costs no authored amount and publishes 1 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 8 属于组 30061，消耗 未编写数值，并发布 1 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "cost": "Null",
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"enhancement-group:30061\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "group_id": {
+            "String": "30061"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "kind": {
+            "String": "CurrencyWarsEnhancement"
+          },
+          "name_en": {
+            "String": "Data Copier"
+          },
+          "name_zh_cn": {
+            "String": "数据拷贝仪"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"effects\":[\"352301\",\"3\",\"0.2\",\"0.3\",\"0.5\"],\"select_condition\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a5e2ef6316fd652a63e15c77731bf8d4\",\"currency-wars.source.8e377b8365da6b0ab46da3a381aa233d\",\"currency-wars.source.11c82a0767fa68621962d88f56296f8a\",\"currency-wars.source.f47d49ba5f69ec38d3f5e2a200e349db\",\"currency-wars.source.d1a9a6d4c86931b084c4b61c1affef1a\",\"currency-wars.source.7b5dcea38d5788674b2e270d8270f08c\",\"currency-wars.source.6600f83daf312bfa02ef99508e3fa84f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.enhancement.9"
+          },
+          "summary_en": {
+            "String": "Enhancement 9 belongs to group 30061, costs no authored amount and publishes 5 parameter(s)."
+          },
+          "summary_zh_cn": {
+            "String": "强化 9 属于组 30061，消耗 未编写数值，并发布 5 个参数。"
+          },
+          "tags_json": {
+            "String": "[\"enhancement\",\"gridfight\",\"investment-system\"]"
+          }
+        }
+      }
+    ]
+  }
+}

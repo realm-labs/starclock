@@ -30,13 +30,13 @@ pub struct CurrencyWarsPositions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "position_kind")]
-    pub position_kind: String,
+    pub position_kind: Option<String>,
     #[serde(rename = "field_index")]
-    pub field_index: String,
+    pub field_index: Option<String>,
     #[serde(rename = "validation_rules")]
-    pub validation_rules: String,
+    pub validation_rules: Option<String>,
     #[serde(rename = "battle_contributions")]
-    pub battle_contributions: String,
+    pub battle_contributions: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsPositions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsPositions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            position_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            field_index: <String as super::runtime::SoraDecode>::decode(reader)?,
-            validation_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            battle_contributions: <String as super::runtime::SoraDecode>::decode(reader)?,
+            position_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            field_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            validation_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            battle_contributions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

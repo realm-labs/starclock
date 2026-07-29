@@ -1,0 +1,65 @@
+{
+  "table": {
+    "name": "CurrencyWarsSquadHpRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_hp": {
+            "String": "100"
+          },
+          "kind": {
+            "String": "CurrencyWarsSquadHpRules"
+          },
+          "loss_rules": {
+            "String": "[{\"amount\":\"ConfiguredByNodeOrDifficulty\",\"operation\":\"SubtractThenClampToMinimum\",\"resolution\":\"ExactTriggerPolicyBoundAmount\",\"trigger\":\"NodeNonVictory\"}]"
+          },
+          "maximum_hp": {
+            "String": "{\"initial_value\":\"100\",\"mutation\":\"ContentDefinedIncreaseOrRecovery\",\"resolution\":\"ProjectPolicy\"}"
+          },
+          "minimum_hp": {
+            "String": "0"
+          },
+          "name_en": {
+            "String": "Squad HP"
+          },
+          "name_zh_cn": {
+            "String": "小队生命值"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "recovery_rules": {
+            "String": "[{\"amount\":\"0\",\"operation\":\"PreserveSquadHp\",\"resolution\":\"ExactPublicText\",\"trigger\":\"NodeVictory\"},{\"amount\":\"ConfiguredByContent\",\"operation\":\"RestoreOrIncreaseMaximumAsAuthored\",\"resolution\":\"DeferredToOwningContentBatch\",\"trigger\":\"ContentContribution\"}]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.35a5801fb43231f2fb7fe1bffbb7ee29\",\"currency-wars.source.2f14afe13b04884ebfdf4edd31d48a47\",\"currency-wars.source.5510b4b1857465a30c83318f2a9f3a25\",\"currency-wars.source.ebfce81810b13da6c4198db18e5f066c\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.869534321356c1d429bf3de7522f5d20\",\"currency-wars.source.a05cc5e530e20ad4b46e12983237c204\",\"currency-wars.source.e4195f82bf0371451464923d5897878e\",\"currency-wars.source.0614f23a8feb5d81b39228c9110b4655\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.squad-hp.global"
+          },
+          "summary_en": {
+            "String": "A match starts with 100 Squad HP; victory preserves it, non-victory applies configured loss, and zero ends the match."
+          },
+          "summary_zh_cn": {
+            "String": "对局以 100 点小队生命值开始；胜利时保持不变，未胜利时扣除配置值，归零则结束对局。"
+          },
+          "tags_json": {
+            "String": "[\"activity-state\",\"project-policy\",\"squad-hp\"]"
+          }
+        }
+      }
+    ]
+  }
+}

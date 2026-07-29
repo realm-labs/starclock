@@ -30,11 +30,11 @@ pub struct CurrencyWarsRoleMappings {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "avatar_id")]
-    pub avatar_id: String,
+    pub avatar_id: Option<String>,
     #[serde(rename = "position_ids")]
-    pub position_ids: String,
+    pub position_ids: Option<String>,
     #[serde(rename = "empowerment_ids")]
-    pub empowerment_ids: String,
+    pub empowerment_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRoleMappings {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsRoleMappings {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            position_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            empowerment_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            position_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            empowerment_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

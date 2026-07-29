@@ -30,15 +30,15 @@ pub struct CurrencyWarsReconciliationReceipts {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "source_path")]
-    pub source_path: String,
+    pub source_path: Option<String>,
     #[serde(rename = "row_locator")]
-    pub row_locator: String,
+    pub row_locator: Option<String>,
     #[serde(rename = "evidence_sha256")]
-    pub evidence_sha256: String,
+    pub evidence_sha256: Option<String>,
     #[serde(rename = "checkpoint")]
-    pub checkpoint: String,
+    pub checkpoint: Option<String>,
     #[serde(rename = "outcome")]
-    pub outcome: String,
+    pub outcome: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsReconciliationReceipts {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsReconciliationReceipts {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            row_locator: <String as super::runtime::SoraDecode>::decode(reader)?,
-            evidence_sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
-            checkpoint: <String as super::runtime::SoraDecode>::decode(reader)?,
-            outcome: <String as super::runtime::SoraDecode>::decode(reader)?,
+            source_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            row_locator: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            evidence_sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            checkpoint: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            outcome: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

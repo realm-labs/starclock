@@ -30,11 +30,11 @@ pub struct CurrencyWarsBlessingGroups {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "candidate_ids")]
-    pub candidate_ids: String,
+    pub candidate_ids: Option<String>,
     #[serde(rename = "selection_policy")]
-    pub selection_policy: String,
+    pub selection_policy: Option<String>,
     #[serde(rename = "weight_program")]
-    pub weight_program: String,
+    pub weight_program: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBlessingGroups {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsBlessingGroups {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            candidate_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selection_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            weight_program: <String as super::runtime::SoraDecode>::decode(reader)?,
+            candidate_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            selection_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            weight_program: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -1,0 +1,1099 @@
+{
+  "table": {
+    "name": "CurrencyWarsFinishConditions",
+    "rows": [
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "C"
+          },
+          "name_zh_cn": {
+            "String": "C"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"\",\"rank_type\":\"\",\"right_inclusive\":\"\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.262acc6a0adaa608a786d0520c160e57\",\"currency-wars.source.e5c59950234067dbbff6945b484ecf09\",\"currency-wars.source.efec9fd8660f553e91abbaea9ac017c9\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.1"
+          },
+          "summary_en": {
+            "String": "Settlement rank 1 covers score interval unbounded through unbounded."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 1 覆盖分数区间 未指定 至 未指定。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "B"
+          },
+          "name_zh_cn": {
+            "String": "B"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"1\",\"rank_type\":\"B\",\"right_inclusive\":\"39\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f53db0affaae53562db3157df682afcc\",\"currency-wars.source.594fa5d24b7659dc84a2a97c6bd75984\",\"currency-wars.source.14e68a7f0b1dce60d911854340c61699\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.2"
+          },
+          "summary_en": {
+            "String": "Settlement rank 2 covers score interval 1 through 39."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 2 覆盖分数区间 1 至 39。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "A"
+          },
+          "name_zh_cn": {
+            "String": "A"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"40\",\"rank_type\":\"A\",\"right_inclusive\":\"69\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f9b5ec56b3e56fc6f5e5ad675c226c84\",\"currency-wars.source.ca34ae89375e17f74ffb3979b35bfd1f\",\"currency-wars.source.681861cc30d93ef0d1cc9477a5e4dd39\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.3"
+          },
+          "summary_en": {
+            "String": "Settlement rank 3 covers score interval 40 through 69."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 3 覆盖分数区间 40 至 69。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "S"
+          },
+          "name_zh_cn": {
+            "String": "S"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"70\",\"rank_type\":\"S\",\"right_inclusive\":\"89\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.1dfc91603a888f5d4833910509a3c8ff\",\"currency-wars.source.5cde8d26ad8b2ca85c105b30fac90ec9\",\"currency-wars.source.611d9e19969377c9b878f99fc85acaf1\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.4"
+          },
+          "summary_en": {
+            "String": "Settlement rank 4 covers score interval 70 through 89."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 4 覆盖分数区间 70 至 89。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "SS"
+          },
+          "name_zh_cn": {
+            "String": "SS"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"90\",\"rank_type\":\"SS\",\"right_inclusive\":\"99\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2a490d309a36f909d767d0c727e3345d\",\"currency-wars.source.7b8af44f5e1a1073baa1c55c9e133fe9\",\"currency-wars.source.d63503bd8e3ba1a0902706931d6e6980\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.5"
+          },
+          "summary_en": {
+            "String": "Settlement rank 5 covers score interval 90 through 99."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 5 覆盖分数区间 90 至 99。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "SettlementRank"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "SSS"
+          },
+          "name_zh_cn": {
+            "String": "SSS"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"left_inclusive\":\"100\",\"rank_type\":\"SSS\",\"right_inclusive\":\"9999999\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.03f425f1edf139f342d67e7c9cc6e7fb\",\"currency-wars.source.bf3b6193f19bdfeb9fb08056c07ae6ba\",\"currency-wars.source.ddf55252d224ecc7519f7872aa7c0729\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.settle-rank.6"
+          },
+          "summary_en": {
+            "String": "Settlement rank 6 covers score interval 100 through 9999999."
+          },
+          "summary_zh_cn": {
+            "String": "结算评级 6 覆盖分数区间 100 至 9999999。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"settle-rank\"]"
+          },
+          "terminal_disposition": {
+            "String": "ClassifySettlement"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3260"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3260"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.24fd0035d0f2a7b8c92770afd9b762f0\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3260"
+          },
+          "summary_en": {
+            "String": "Stage 3260 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3260 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3261"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3261"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.aff94cab053f8f3fd10546b8cf7d9512\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3261"
+          },
+          "summary_en": {
+            "String": "Stage 3261 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3261 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3262"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3262"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.04bca4d57878a3602a83e018d1f52b35\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3262"
+          },
+          "summary_en": {
+            "String": "Stage 3262 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3262 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3263"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3263"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.22aed039e0cefc5a8fd3968dc69f1197\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3263"
+          },
+          "summary_en": {
+            "String": "Stage 3263 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3263 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3264"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3264"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.3\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.e1e564e20d1840a5e539483973c86572\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3264"
+          },
+          "summary_en": {
+            "String": "Stage 3264 publishes 2 total turns and a 0.3 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3264 发布 2 回合上限与 0.3 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3265"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3265"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.4b62080ac0a4de730d5c67e00bc1e20c\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3265"
+          },
+          "summary_en": {
+            "String": "Stage 3265 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3265 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3266"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3266"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.837ea03492fccc0f341d227d4cc2d9b8\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3266"
+          },
+          "summary_en": {
+            "String": "Stage 3266 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3266 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3267"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3267"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.defb539968b1a8e18a9c7ac55519f47b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3267"
+          },
+          "summary_en": {
+            "String": "Stage 3267 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3267 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3268"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3268"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.9078b20407653fedf42c1cc818eff837\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3268"
+          },
+          "summary_en": {
+            "String": "Stage 3268 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3268 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3269"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3269"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.3\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.7c9f227196b52453b5a64cebd0679000\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3269"
+          },
+          "summary_en": {
+            "String": "Stage 3269 publishes 2 total turns and a 0.3 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3269 发布 2 回合上限与 0.3 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3270"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3270"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.febea3132bfc7dcf956dac87d74b379c\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3270"
+          },
+          "summary_en": {
+            "String": "Stage 3270 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3270 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3271"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3271"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0ae9d5dc300160a73e6506e064692154\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3271"
+          },
+          "summary_en": {
+            "String": "Stage 3271 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3271 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3272"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3272"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.802fbee81a4e55ab42e0eb56d74c2b80\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3272"
+          },
+          "summary_en": {
+            "String": "Stage 3272 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3272 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3273"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3273"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.4\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.6826ac1385a21a51bb3a884081832097\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3273"
+          },
+          "summary_en": {
+            "String": "Stage 3273 publishes 2 total turns and a 0.4 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3273 发布 2 回合上限与 0.4 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_kind": {
+            "String": "BattleStageRule"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "kind": {
+            "String": "CurrencyWarsFinishCondition"
+          },
+          "name_en": {
+            "String": "Stage rule 3274"
+          },
+          "name_zh_cn": {
+            "String": "关卡规则 3274"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "{\"stage_rule_id\":\"1\",\"threshold_position\":\"0.3\",\"total_turn\":\"2\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0c969715d609d7f671413545ab644ad4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.finish.stage-rule.3274"
+          },
+          "summary_en": {
+            "String": "Stage 3274 publishes 2 total turns and a 0.3 threshold."
+          },
+          "summary_zh_cn": {
+            "String": "关卡 3274 发布 2 回合上限与 0.3 阈值。"
+          },
+          "tags_json": {
+            "String": "[\"finish-condition\",\"stage-rule\"]"
+          },
+          "terminal_disposition": {
+            "String": "ProjectBattleResultToRun"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -30,13 +30,13 @@ pub struct CurrencyWarsAreas {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "plane_number")]
-    pub plane_number: String,
+    pub plane_number: Option<String>,
     #[serde(rename = "difficulty_ids")]
-    pub difficulty_ids: String,
+    pub difficulty_ids: Option<String>,
     #[serde(rename = "layer_ids")]
-    pub layer_ids: String,
+    pub layer_ids: Option<String>,
     #[serde(rename = "map_entry_id")]
-    pub map_entry_id: String,
+    pub map_entry_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAreas {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsAreas {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_number: <String as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            layer_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            map_entry_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            plane_number: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            difficulty_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            layer_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            map_entry_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,11 +30,11 @@ pub struct CurrencyWarsAdventureOutcomes {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "adventure_type")]
-    pub adventure_type: String,
+    pub adventure_type: Option<String>,
     #[serde(rename = "parameter_group_id")]
-    pub parameter_group_id: String,
+    pub parameter_group_id: Option<String>,
     #[serde(rename = "abstract_outcome")]
-    pub abstract_outcome: String,
+    pub abstract_outcome: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAdventureOutcomes {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsAdventureOutcomes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            adventure_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameter_group_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            abstract_outcome: <String as super::runtime::SoraDecode>::decode(reader)?,
+            adventure_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameter_group_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            abstract_outcome: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

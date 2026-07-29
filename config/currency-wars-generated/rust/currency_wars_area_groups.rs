@@ -30,11 +30,11 @@ pub struct CurrencyWarsAreaGroups {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "area_ids")]
-    pub area_ids: String,
+    pub area_ids: Option<String>,
     #[serde(rename = "selection_policy")]
-    pub selection_policy: String,
+    pub selection_policy: Option<String>,
     #[serde(rename = "transition_rules")]
-    pub transition_rules: String,
+    pub transition_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAreaGroups {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsAreaGroups {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            area_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selection_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            transition_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
+            area_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            selection_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            transition_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

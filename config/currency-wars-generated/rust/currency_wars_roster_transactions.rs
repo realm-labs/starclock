@@ -30,13 +30,13 @@ pub struct CurrencyWarsRosterTransactions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "operation")]
-    pub operation: String,
+    pub operation: Option<String>,
     #[serde(rename = "price_rule")]
-    pub price_rule: String,
+    pub price_rule: Option<String>,
     #[serde(rename = "eligibility")]
-    pub eligibility: String,
+    pub eligibility: Option<String>,
     #[serde(rename = "ordered_state_changes")]
-    pub ordered_state_changes: String,
+    pub ordered_state_changes: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRosterTransactions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsRosterTransactions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            operation: <String as super::runtime::SoraDecode>::decode(reader)?,
-            price_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_state_changes: <String as super::runtime::SoraDecode>::decode(reader)?,
+            operation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            price_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_state_changes: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

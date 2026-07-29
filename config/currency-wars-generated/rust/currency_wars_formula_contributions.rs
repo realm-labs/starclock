@@ -30,13 +30,13 @@ pub struct CurrencyWarsFormulaContributions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "formula_id")]
-    pub formula_id: String,
+    pub formula_id: Option<String>,
     #[serde(rename = "source_state")]
-    pub source_state: String,
+    pub source_state: Option<String>,
     #[serde(rename = "scope")]
-    pub scope: String,
+    pub scope: Option<String>,
     #[serde(rename = "ordered_effects")]
-    pub ordered_effects: String,
+    pub ordered_effects: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsFormulaContributions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsFormulaContributions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            formula_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_state: <String as super::runtime::SoraDecode>::decode(reader)?,
-            scope: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_effects: <String as super::runtime::SoraDecode>::decode(reader)?,
+            formula_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            scope: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_effects: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

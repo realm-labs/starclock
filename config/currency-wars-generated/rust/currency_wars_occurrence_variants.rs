@@ -30,13 +30,13 @@ pub struct CurrencyWarsOccurrenceVariants {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "occurrence_id")]
-    pub occurrence_id: String,
+    pub occurrence_id: Option<String>,
     #[serde(rename = "graph_path")]
-    pub graph_path: String,
+    pub graph_path: Option<String>,
     #[serde(rename = "entry_conditions")]
-    pub entry_conditions: String,
+    pub entry_conditions: Option<String>,
     #[serde(rename = "choice_ids")]
-    pub choice_ids: String,
+    pub choice_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsOccurrenceVariants {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsOccurrenceVariants {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            occurrence_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            graph_path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_conditions: <String as super::runtime::SoraDecode>::decode(reader)?,
-            choice_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            occurrence_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            graph_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            entry_conditions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            choice_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

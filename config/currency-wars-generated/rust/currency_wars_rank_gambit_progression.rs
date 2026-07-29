@@ -30,13 +30,13 @@ pub struct CurrencyWarsRankGambitProgression {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "rank")]
-    pub rank: String,
+    pub rank: Option<String>,
     #[serde(rename = "gambit_mode")]
-    pub gambit_mode: String,
+    pub gambit_mode: Option<String>,
     #[serde(rename = "entry_boundary")]
-    pub entry_boundary: String,
+    pub entry_boundary: Option<String>,
     #[serde(rename = "enemy_affix_ids")]
-    pub enemy_affix_ids: String,
+    pub enemy_affix_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRankGambitProgression {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsRankGambitProgression {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rank: <String as super::runtime::SoraDecode>::decode(reader)?,
-            gambit_mode: <String as super::runtime::SoraDecode>::decode(reader)?,
-            entry_boundary: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_affix_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            rank: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            gambit_mode: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            entry_boundary: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            enemy_affix_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

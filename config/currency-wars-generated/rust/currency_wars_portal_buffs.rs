@@ -30,13 +30,13 @@ pub struct CurrencyWarsPortalBuffs {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "config_path")]
-    pub config_path: String,
+    pub config_path: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
     #[serde(rename = "bonus_ids")]
-    pub bonus_ids: String,
+    pub bonus_ids: Option<String>,
     #[serde(rename = "lifecycle")]
-    pub lifecycle: String,
+    pub lifecycle: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsPortalBuffs {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsPortalBuffs {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            config_path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            bonus_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            lifecycle: <String as super::runtime::SoraDecode>::decode(reader)?,
+            config_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            bonus_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            lifecycle: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,11 +30,11 @@ pub struct CurrencyWarsCurseChests {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "chest_type")]
-    pub chest_type: String,
+    pub chest_type: Option<String>,
     #[serde(rename = "parameters")]
-    pub parameters: String,
+    pub parameters: Option<String>,
     #[serde(rename = "choice_program")]
-    pub choice_program: String,
+    pub choice_program: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCurseChests {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsCurseChests {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            chest_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <String as super::runtime::SoraDecode>::decode(reader)?,
-            choice_program: <String as super::runtime::SoraDecode>::decode(reader)?,
+            chest_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            choice_program: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

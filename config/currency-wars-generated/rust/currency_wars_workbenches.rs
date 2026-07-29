@@ -30,11 +30,11 @@ pub struct CurrencyWarsWorkbenches {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "function_ids")]
-    pub function_ids: String,
+    pub function_ids: Option<String>,
     #[serde(rename = "currency_ids")]
-    pub currency_ids: String,
+    pub currency_ids: Option<String>,
     #[serde(rename = "availability")]
-    pub availability: String,
+    pub availability: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsWorkbenches {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsWorkbenches {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            function_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            currency_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            availability: <String as super::runtime::SoraDecode>::decode(reader)?,
+            function_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            currency_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            availability: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

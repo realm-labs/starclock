@@ -30,11 +30,11 @@ pub struct CurrencyWarsManifest {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "content_manifest_sha256")]
-    pub content_manifest_sha256: String,
+    pub content_manifest_sha256: Option<String>,
     #[serde(rename = "normalized_files")]
-    pub normalized_files: String,
+    pub normalized_files: Option<String>,
     #[serde(rename = "record_counts")]
-    pub record_counts: String,
+    pub record_counts: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsManifest {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsManifest {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            content_manifest_sha256: <String as super::runtime::SoraDecode>::decode(reader)?,
-            normalized_files: <String as super::runtime::SoraDecode>::decode(reader)?,
-            record_counts: <String as super::runtime::SoraDecode>::decode(reader)?,
+            content_manifest_sha256: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            normalized_files: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            record_counts: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

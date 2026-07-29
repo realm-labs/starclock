@@ -30,13 +30,13 @@ pub struct CurrencyWarsBattleResultProjections {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "battle_outcome")]
-    pub battle_outcome: String,
+    pub battle_outcome: Option<String>,
     #[serde(rename = "squad_hp_projection")]
-    pub squad_hp_projection: String,
+    pub squad_hp_projection: Option<String>,
     #[serde(rename = "action_value_projection")]
-    pub action_value_projection: String,
+    pub action_value_projection: Option<String>,
     #[serde(rename = "run_disposition")]
-    pub run_disposition: String,
+    pub run_disposition: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBattleResultProjections {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBattleResultProjections {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            battle_outcome: <String as super::runtime::SoraDecode>::decode(reader)?,
-            squad_hp_projection: <String as super::runtime::SoraDecode>::decode(reader)?,
-            action_value_projection: <String as super::runtime::SoraDecode>::decode(reader)?,
-            run_disposition: <String as super::runtime::SoraDecode>::decode(reader)?,
+            battle_outcome: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            squad_hp_projection: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            action_value_projection: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            run_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

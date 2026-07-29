@@ -30,11 +30,11 @@ pub struct CurrencyWarsPackIndex {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "pack_digest")]
-    pub pack_digest: String,
+    pub pack_digest: Option<String>,
     #[serde(rename = "file_digests")]
-    pub file_digests: String,
+    pub file_digests: Option<String>,
     #[serde(rename = "stable_id_index")]
-    pub stable_id_index: String,
+    pub stable_id_index: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsPackIndex {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsPackIndex {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            pack_digest: <String as super::runtime::SoraDecode>::decode(reader)?,
-            file_digests: <String as super::runtime::SoraDecode>::decode(reader)?,
-            stable_id_index: <String as super::runtime::SoraDecode>::decode(reader)?,
+            pack_digest: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            file_digests: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            stable_id_index: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

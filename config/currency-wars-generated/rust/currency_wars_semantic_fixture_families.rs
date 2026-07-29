@@ -30,9 +30,9 @@ pub struct CurrencyWarsSemanticFixtureFamilies {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "minimum_cases")]
-    pub minimum_cases: String,
+    pub minimum_cases: Option<String>,
     #[serde(rename = "must_cover")]
-    pub must_cover: String,
+    pub must_cover: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsSemanticFixtureFamilies {
@@ -51,8 +51,8 @@ impl super::runtime::SoraDecode for CurrencyWarsSemanticFixtureFamilies {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            minimum_cases: <String as super::runtime::SoraDecode>::decode(reader)?,
-            must_cover: <String as super::runtime::SoraDecode>::decode(reader)?,
+            minimum_cases: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            must_cover: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

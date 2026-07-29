@@ -1,0 +1,392 @@
+{
+  "table": {
+    "name": "CurrencyWarsWorkbenchFunctions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "DirectConsumable"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":true}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350101"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350101"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.70c4d1d1449875379b940f39b204aa5d\",\"currency-wars.source.5b02411369b1398230e506e9eeb767a0\",\"currency-wars.source.db3fa1c9818f97b68289c63fd2311c08\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350101"
+          },
+          "summary_en": {
+            "String": "Consumable 350101 applies rule direct with 0 parameter(s), stack=true, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350101 应用规则 直接 与 0 个参数，可堆叠=true，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"direct\",\"gridfight\",\"service\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "DirectConsumable"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "input_policy": {
+            "String": "{\"consume\":false,\"stack\":false}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350102"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350102"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.6671e9d99dd72de6c63f21b754a6cb80\",\"currency-wars.source.7c9431267bb0747f9cd0f06be9f3e8f8\",\"currency-wars.source.a60a6fa055ab2d17471f319b189a443e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350102"
+          },
+          "summary_en": {
+            "String": "Consumable 350102 applies rule direct with 0 parameter(s), stack=false, consume=false."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350102 应用规则 直接 与 0 个参数，可堆叠=false，会消耗=false。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"direct\",\"gridfight\",\"service\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "Roll"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":true}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350103"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350103"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.6c0fad1d3de3f51edd53dc9fcaae18d8\",\"currency-wars.source.cb255b2af3331870996b3cfbb68599ce\",\"currency-wars.source.db19c4949f25b59cdede766378ab4a1f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350103"
+          },
+          "summary_en": {
+            "String": "Consumable 350103 applies rule Roll with 0 parameter(s), stack=true, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350103 应用规则 Roll 与 0 个参数，可堆叠=true，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"gridfight\",\"roll\",\"service\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "Upgrade"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":false}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350104"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350104"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.e9c48e5a22b951193f36da43bf0ee846\",\"currency-wars.source.2402fafc2b202fd8cf11453c78b84041\",\"currency-wars.source.ab3a49150c3641f2828735327bf354db\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350104"
+          },
+          "summary_en": {
+            "String": "Consumable 350104 applies rule Upgrade with 0 parameter(s), stack=false, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350104 应用规则 Upgrade 与 0 个参数，可堆叠=false，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"gridfight\",\"service\",\"upgrade\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "Copy"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":true}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350105"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350105"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[\"3\",\"1\"]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.3a8b7e5a78769124f04ffb1bd4bfdd0f\",\"currency-wars.source.a5cc4ac4b7a14892f92fed92dee5eee0\",\"currency-wars.source.3e3a7224787a70d8ea1961506e32de31\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350105"
+          },
+          "summary_en": {
+            "String": "Consumable 350105 applies rule Copy with 2 parameter(s), stack=true, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350105 应用规则 Copy 与 2 个参数，可堆叠=true，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"copy\",\"gridfight\",\"service\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "Copy"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":true}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350106"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350106"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[\"5\",\"1\"]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.1bef943344c36cce10ce5c5d7fce386e\",\"currency-wars.source.1d403633b3cead496b1c604a3a8bf21f\",\"currency-wars.source.f810a975a3150c8b0cd3d8fd631c94c9\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350106"
+          },
+          "summary_en": {
+            "String": "Consumable 350106 applies rule Copy with 2 parameter(s), stack=true, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350106 应用规则 Copy 与 2 个参数，可堆叠=true，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"copy\",\"gridfight\",\"service\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "function_type": {
+            "String": "GainRecommendEquip"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "input_policy": {
+            "String": "{\"consume\":true,\"stack\":false}"
+          },
+          "kind": {
+            "String": "CurrencyWarsWorkbenchFunction"
+          },
+          "name_en": {
+            "String": "Consumable 350107"
+          },
+          "name_zh_cn": {
+            "String": "消耗品 350107"
+          },
+          "output_policy": {
+            "String": "{\"parameters\":[\"4\"]}"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "price_rule": {
+            "String": "InventoryItemConsumption"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.63c346e79dc5130caa9c8bb77b5d6bd3\",\"currency-wars.source.36ace2d2e756c555ef0cf76ce0b7d6dc\",\"currency-wars.source.48b3a7719ba8ee48959d15ce8233ad38\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.workbench-function.consumable.350107"
+          },
+          "summary_en": {
+            "String": "Consumable 350107 applies rule GainRecommendEquip with 1 parameter(s), stack=false, consume=true."
+          },
+          "summary_zh_cn": {
+            "String": "消耗品 350107 应用规则 GainRecommendEquip 与 1 个参数，可堆叠=false，会消耗=true。"
+          },
+          "tags_json": {
+            "String": "[\"consumable\",\"gainrecommendequip\",\"gridfight\",\"service\"]"
+          }
+        }
+      }
+    ]
+  }
+}

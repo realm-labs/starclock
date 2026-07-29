@@ -30,11 +30,11 @@ pub struct CurrencyWarsEncounterSourceObligations {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "parent_kind")]
-    pub parent_kind: String,
+    pub parent_kind: Option<String>,
     #[serde(rename = "parent_id")]
-    pub parent_id: String,
+    pub parent_id: Option<String>,
     #[serde(rename = "resolution_state")]
-    pub resolution_state: String,
+    pub resolution_state: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEncounterSourceObligations {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsEncounterSourceObligations {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parent_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parent_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            resolution_state: <String as super::runtime::SoraDecode>::decode(reader)?,
+            parent_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parent_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            resolution_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

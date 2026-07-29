@@ -30,13 +30,13 @@ pub struct CurrencyWarsModules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "sub_mode")]
-    pub sub_mode: String,
+    pub sub_mode: Option<String>,
     #[serde(rename = "tourn_mode")]
-    pub tourn_mode: String,
+    pub tourn_mode: Option<String>,
     #[serde(rename = "main_tourn_id")]
-    pub main_tourn_id: String,
+    pub main_tourn_id: Option<String>,
     #[serde(rename = "sub_tourn_id")]
-    pub sub_tourn_id: String,
+    pub sub_tourn_id: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsModules {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsModules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            sub_mode: <String as super::runtime::SoraDecode>::decode(reader)?,
-            tourn_mode: <String as super::runtime::SoraDecode>::decode(reader)?,
-            main_tourn_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            sub_tourn_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            sub_mode: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            tourn_mode: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            main_tourn_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            sub_tourn_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,13 +30,13 @@ pub struct CurrencyWarsWorkbenchFunctions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "function_type")]
-    pub function_type: String,
+    pub function_type: Option<String>,
     #[serde(rename = "input_policy")]
-    pub input_policy: String,
+    pub input_policy: Option<String>,
     #[serde(rename = "output_policy")]
-    pub output_policy: String,
+    pub output_policy: Option<String>,
     #[serde(rename = "price_rule")]
-    pub price_rule: String,
+    pub price_rule: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsWorkbenchFunctions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsWorkbenchFunctions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            function_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            input_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            output_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            price_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
+            function_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            input_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            output_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            price_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

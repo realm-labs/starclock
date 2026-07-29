@@ -30,13 +30,13 @@ pub struct CurrencyWarsCoverage {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "manifest_category")]
-    pub manifest_category: String,
+    pub manifest_category: Option<String>,
     #[serde(rename = "manifest_record_id")]
-    pub manifest_record_id: String,
+    pub manifest_record_id: Option<String>,
     #[serde(rename = "normalized_record_ids")]
-    pub normalized_record_ids: String,
+    pub normalized_record_ids: Option<String>,
     #[serde(rename = "state")]
-    pub state: String,
+    pub state: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCoverage {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsCoverage {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            manifest_category: <String as super::runtime::SoraDecode>::decode(reader)?,
-            manifest_record_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            normalized_record_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            state: <String as super::runtime::SoraDecode>::decode(reader)?,
+            manifest_category: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            manifest_record_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            normalized_record_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

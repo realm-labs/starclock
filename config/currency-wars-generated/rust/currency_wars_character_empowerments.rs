@@ -30,15 +30,15 @@ pub struct CurrencyWarsCharacterEmpowerments {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "avatar_id")]
-    pub avatar_id: String,
+    pub avatar_id: Option<String>,
     #[serde(rename = "position_id")]
-    pub position_id: String,
+    pub position_id: Option<String>,
     #[serde(rename = "activation")]
-    pub activation: String,
+    pub activation: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
     #[serde(rename = "teardown")]
-    pub teardown: String,
+    pub teardown: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsCharacterEmpowerments {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsCharacterEmpowerments {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            avatar_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            position_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            activation: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            teardown: <String as super::runtime::SoraDecode>::decode(reader)?,
+            avatar_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            position_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            activation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            teardown: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

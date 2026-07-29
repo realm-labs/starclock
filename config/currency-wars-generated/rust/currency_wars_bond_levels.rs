@@ -30,13 +30,13 @@ pub struct CurrencyWarsBondLevels {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "bond_id")]
-    pub bond_id: String,
+    pub bond_id: Option<String>,
     #[serde(rename = "level")]
-    pub level: String,
+    pub level: Option<String>,
     #[serde(rename = "threshold")]
-    pub threshold: String,
+    pub threshold: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBondLevels {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBondLevels {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            bond_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            threshold: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            bond_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            threshold: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,13 +30,13 @@ pub struct CurrencyWarsServiceOfferRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "service_id")]
-    pub service_id: String,
+    pub service_id: Option<String>,
     #[serde(rename = "candidate_ids")]
-    pub candidate_ids: String,
+    pub candidate_ids: Option<String>,
     #[serde(rename = "weights")]
-    pub weights: String,
+    pub weights: Option<String>,
     #[serde(rename = "fallback")]
-    pub fallback: String,
+    pub fallback: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsServiceOfferRules {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsServiceOfferRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            service_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            candidate_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            weights: <String as super::runtime::SoraDecode>::decode(reader)?,
-            fallback: <String as super::runtime::SoraDecode>::decode(reader)?,
+            service_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            candidate_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            weights: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            fallback: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

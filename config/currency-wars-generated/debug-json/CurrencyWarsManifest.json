@@ -1,0 +1,59 @@
+{
+  "table": {
+    "name": "CurrencyWarsManifest",
+    "rows": [
+      {
+        "values": {
+          "content_manifest_sha256": {
+            "String": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsManifest"
+          },
+          "name_en": {
+            "String": "Currency Wars normalized manifest"
+          },
+          "name_zh_cn": {
+            "String": "货币战争规范化清单"
+          },
+          "normalized_files": {
+            "String": "[\"action-value-limits.json\",\"adventure-outcomes.json\",\"area-groups.json\",\"areas.json\",\"augment-definitions.json\",\"augment-maze-buffs.json\",\"augment-monster-rules.json\",\"augment-remarks.json\",\"battle-overrides.json\",\"battle-result-projections.json\",\"blessing-groups.json\",\"blessing-levels.json\",\"blessing-paths.json\",\"blessings.json\",\"bond-contributions.json\",\"bond-levels.json\",\"bonds.json\",\"boss-pools.json\",\"build-mappings.json\",\"build-reference-avatars.json\",\"build-source-files.json\",\"build-substitution-rules.json\",\"character-empowerments.json\",\"coverage.json\",\"curio-groups.json\",\"curio-lifecycle-rules.json\",\"curio-states.json\",\"curios.json\",\"currencies.json\",\"curse-chests.json\",\"difficulties.json\",\"domain-compositions.json\",\"economy-rules.json\",\"encounter-groups.json\",\"encounter-source-obligations.json\",\"encounter-waves.json\",\"enemy-affixes.json\",\"enemy-slots.json\",\"enhancements.json\",\"entries.json\",\"equipment.json\",\"finish-conditions.json\",\"formula-contributions.json\",\"formula-displays.json\",\"formula-randomizers.json\",\"formula-recipes.json\",\"formulas.json\",\"gambit-modes.json\",\"gamble-groups.json\",\"gamble-units.json\",\"hex-eligibility.json\",\"hex-states.json\",\"layers.json\",\"manifest.json\",\"mechanic-rules.json\",\"mechanic-source-files.json\",\"module-ban-rules.json\",\"modules.json\",\"nodes.json\",\"occurrence-choices.json\",\"occurrence-variants.json\",\"occurrences.json\",\"off-field-conversions.json\",\"orb-displays.json\",\"orbs.json\",\"pack-index.json\",\"permanent-progression.json\",\"portal-buffs.json\",\"portal-maze-buffs.json\",\"portal-remarks.json\",\"positions.json\",\"profiles.json\",\"projection-maze-buffs.json\",\"projections.json\",\"rank-gambit-progression.json\",\"research-gaps.json\",\"review-fixtures.json\",\"role-mappings.json\",\"rooms.json\",\"roster-avatars.json\",\"roster-offers.json\",\"roster-transactions.json\",\"run-failure-rules.json\",\"season-augment-memberships.json\",\"season-portal-memberships.json\",\"season-talents.json\",\"selected-enhancements.json\",\"semantic-fixture-families.json\",\"service-offer-rules.json\",\"shop-services.json\",\"sources.json\",\"squad-hp-rules.json\",\"stage-flow.json\",\"star-combination-rules.json\",\"star-lifecycle-rules.json\",\"star-states.json\",\"talent-maze-buffs.json\",\"talents.json\",\"team-size-states.json\",\"workbench-functions.json\",\"workbenches.json\"]"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "record_counts": {
+            "String": "{\"action-value-limits.json\":\"2\",\"adventure-outcomes.json\":\"0\",\"area-groups.json\":\"1\",\"areas.json\":\"26\",\"augment-definitions.json\":\"334\",\"augment-maze-buffs.json\":\"57\",\"augment-monster-rules.json\":\"30\",\"augment-remarks.json\":\"10\",\"battle-overrides.json\":\"340\",\"battle-result-projections.json\":\"2\",\"blessing-groups.json\":\"0\",\"blessing-levels.json\":\"7\",\"blessing-paths.json\":\"1\",\"blessings.json\":\"0\",\"bond-contributions.json\":\"653\",\"bond-levels.json\":\"152\",\"bonds.json\":\"49\",\"boss-pools.json\":\"10\",\"build-mappings.json\":\"77\",\"build-reference-avatars.json\":\"77\",\"build-source-files.json\":\"6\",\"build-substitution-rules.json\":\"2\",\"character-empowerments.json\":\"4652\",\"coverage.json\":\"19250\",\"curio-groups.json\":\"0\",\"curio-lifecycle-rules.json\":\"0\",\"curio-states.json\":\"0\",\"curios.json\":\"0\",\"currencies.json\":\"1\",\"curse-chests.json\":\"0\",\"difficulties.json\":\"97\",\"domain-compositions.json\":\"5\",\"economy-rules.json\":\"1\",\"encounter-groups.json\":\"25\",\"encounter-source-obligations.json\":\"861\",\"encounter-waves.json\":\"5\",\"enemy-affixes.json\":\"721\",\"enemy-slots.json\":\"306\",\"enhancements.json\":\"25\",\"entries.json\":\"2\",\"equipment.json\":\"518\",\"finish-conditions.json\":\"21\",\"formula-contributions.json\":\"0\",\"formula-displays.json\":\"0\",\"formula-randomizers.json\":\"0\",\"formula-recipes.json\":\"0\",\"formulas.json\":\"1\",\"gambit-modes.json\":\"2\",\"gamble-groups.json\":\"0\",\"gamble-units.json\":\"0\",\"hex-eligibility.json\":\"0\",\"hex-states.json\":\"0\",\"layers.json\":\"75\",\"manifest.json\":\"1\",\"mechanic-rules.json\":\"2367\",\"mechanic-source-files.json\":\"2367\",\"module-ban-rules.json\":\"5\",\"modules.json\":\"4\",\"nodes.json\":\"493\",\"occurrence-choices.json\":\"90\",\"occurrence-variants.json\":\"150\",\"occurrences.json\":\"167\",\"off-field-conversions.json\":\"417\",\"orb-displays.json\":\"4\",\"orbs.json\":\"376\",\"pack-index.json\":\"234\",\"permanent-progression.json\":\"162\",\"portal-buffs.json\":\"84\",\"portal-maze-buffs.json\":\"6\",\"portal-remarks.json\":\"7\",\"positions.json\":\"3\",\"profiles.json\":\"1\",\"projection-maze-buffs.json\":\"2\",\"projections.json\":\"2\",\"rank-gambit-progression.json\":\"56\",\"research-gaps.json\":\"12\",\"review-fixtures.json\":\"28\",\"role-mappings.json\":\"77\",\"rooms.json\":\"5\",\"roster-avatars.json\":\"77\",\"roster-offers.json\":\"10\",\"roster-transactions.json\":\"5\",\"run-failure-rules.json\":\"1\",\"season-augment-memberships.json\":\"334\",\"season-portal-memberships.json\":\"83\",\"season-talents.json\":\"40\",\"selected-enhancements.json\":\"7\",\"semantic-fixture-families.json\":\"28\",\"service-offer-rules.json\":\"164\",\"shop-services.json\":\"208\",\"sources.json\":\"38139\",\"squad-hp-rules.json\":\"1\",\"stage-flow.json\":\"493\",\"star-combination-rules.json\":\"189\",\"star-lifecycle-rules.json\":\"3\",\"star-states.json\":\"295\",\"talent-maze-buffs.json\":\"3\",\"talents.json\":\"13\",\"team-size-states.json\":\"10\",\"workbench-functions.json\":\"7\",\"workbenches.json\":\"9\"}"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.87bf5e33b5185deae074b7a15623309d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.manifest.v1"
+          },
+          "summary_en": {
+            "String": "Canonical Version 4.4 normalized file membership and record counts."
+          },
+          "summary_zh_cn": {
+            "String": "Version 4.4 规范化文件成员关系与记录计数。"
+          },
+          "tags_json": {
+            "String": "[\"manifest\",\"pack\"]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -30,13 +30,13 @@ pub struct CurrencyWarsBonds {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "member_ids")]
-    pub member_ids: String,
+    pub member_ids: Option<String>,
     #[serde(rename = "level_ids")]
-    pub level_ids: String,
+    pub level_ids: Option<String>,
     #[serde(rename = "recompute_timing")]
-    pub recompute_timing: String,
+    pub recompute_timing: Option<String>,
     #[serde(rename = "contribution_ids")]
-    pub contribution_ids: String,
+    pub contribution_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBonds {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBonds {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            member_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            recompute_timing: <String as super::runtime::SoraDecode>::decode(reader)?,
-            contribution_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            member_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            recompute_timing: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            contribution_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

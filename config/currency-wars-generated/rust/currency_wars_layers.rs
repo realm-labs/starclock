@@ -30,11 +30,11 @@ pub struct CurrencyWarsLayers {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "plane_id")]
-    pub plane_id: String,
+    pub plane_id: Option<String>,
     #[serde(rename = "layer_number")]
-    pub layer_number: String,
+    pub layer_number: Option<String>,
     #[serde(rename = "ordered_node_ids")]
-    pub ordered_node_ids: String,
+    pub ordered_node_ids: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsLayers {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsLayers {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            plane_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            layer_number: <String as super::runtime::SoraDecode>::decode(reader)?,
-            ordered_node_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
+            plane_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            layer_number: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            ordered_node_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

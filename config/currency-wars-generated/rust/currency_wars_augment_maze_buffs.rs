@@ -30,15 +30,15 @@ pub struct CurrencyWarsAugmentMazeBuffs {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "buff_series")]
-    pub buff_series: String,
+    pub buff_series: Option<String>,
     #[serde(rename = "level")]
-    pub level: String,
+    pub level: Option<String>,
     #[serde(rename = "binding")]
-    pub binding: String,
+    pub binding: Option<String>,
     #[serde(rename = "parameters")]
-    pub parameters: String,
+    pub parameters: Option<String>,
     #[serde(rename = "modifier")]
-    pub modifier: String,
+    pub modifier: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAugmentMazeBuffs {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsAugmentMazeBuffs {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            buff_series: <String as super::runtime::SoraDecode>::decode(reader)?,
-            level: <String as super::runtime::SoraDecode>::decode(reader)?,
-            binding: <String as super::runtime::SoraDecode>::decode(reader)?,
-            parameters: <String as super::runtime::SoraDecode>::decode(reader)?,
-            modifier: <String as super::runtime::SoraDecode>::decode(reader)?,
+            buff_series: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            level: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            binding: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            parameters: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            modifier: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

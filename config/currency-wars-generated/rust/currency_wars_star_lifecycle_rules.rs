@@ -30,13 +30,13 @@ pub struct CurrencyWarsStarLifecycleRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "operation")]
-    pub operation: String,
+    pub operation: Option<String>,
     #[serde(rename = "replacement_rule")]
-    pub replacement_rule: String,
+    pub replacement_rule: Option<String>,
     #[serde(rename = "sale_rule")]
-    pub sale_rule: String,
+    pub sale_rule: Option<String>,
     #[serde(rename = "teardown")]
-    pub teardown: String,
+    pub teardown: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsStarLifecycleRules {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsStarLifecycleRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            operation: <String as super::runtime::SoraDecode>::decode(reader)?,
-            replacement_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            sale_rule: <String as super::runtime::SoraDecode>::decode(reader)?,
-            teardown: <String as super::runtime::SoraDecode>::decode(reader)?,
+            operation: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            replacement_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            sale_rule: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            teardown: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

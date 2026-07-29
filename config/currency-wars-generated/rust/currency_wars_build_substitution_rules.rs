@@ -30,13 +30,13 @@ pub struct CurrencyWarsBuildSubstitutionRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "selection_timing")]
-    pub selection_timing: String,
+    pub selection_timing: Option<String>,
     #[serde(rename = "owned_trial_policy")]
-    pub owned_trial_policy: String,
+    pub owned_trial_policy: Option<String>,
     #[serde(rename = "refresh_timing")]
-    pub refresh_timing: String,
+    pub refresh_timing: Option<String>,
     #[serde(rename = "teardown")]
-    pub teardown: String,
+    pub teardown: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsBuildSubstitutionRules {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsBuildSubstitutionRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            selection_timing: <String as super::runtime::SoraDecode>::decode(reader)?,
-            owned_trial_policy: <String as super::runtime::SoraDecode>::decode(reader)?,
-            refresh_timing: <String as super::runtime::SoraDecode>::decode(reader)?,
-            teardown: <String as super::runtime::SoraDecode>::decode(reader)?,
+            selection_timing: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            owned_trial_policy: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            refresh_timing: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            teardown: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

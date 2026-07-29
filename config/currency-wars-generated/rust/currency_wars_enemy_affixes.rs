@@ -30,11 +30,11 @@ pub struct CurrencyWarsEnemyAffixes {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "rank_bounds")]
-    pub rank_bounds: String,
+    pub rank_bounds: Option<String>,
     #[serde(rename = "difficulty_ids")]
-    pub difficulty_ids: String,
+    pub difficulty_ids: Option<String>,
     #[serde(rename = "battle_contributions")]
-    pub battle_contributions: String,
+    pub battle_contributions: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsEnemyAffixes {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsEnemyAffixes {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            rank_bounds: <String as super::runtime::SoraDecode>::decode(reader)?,
-            difficulty_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            battle_contributions: <String as super::runtime::SoraDecode>::decode(reader)?,
+            rank_bounds: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            difficulty_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            battle_contributions: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

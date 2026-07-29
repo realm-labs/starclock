@@ -30,11 +30,11 @@ pub struct CurrencyWarsRooms {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "room_type")]
-    pub room_type: String,
+    pub room_type: Option<String>,
     #[serde(rename = "reachability_disposition")]
-    pub reachability_disposition: String,
+    pub reachability_disposition: Option<String>,
     #[serde(rename = "stage_refs")]
-    pub stage_refs: String,
+    pub stage_refs: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsRooms {
@@ -53,9 +53,9 @@ impl super::runtime::SoraDecode for CurrencyWarsRooms {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            room_type: <String as super::runtime::SoraDecode>::decode(reader)?,
-            reachability_disposition: <String as super::runtime::SoraDecode>::decode(reader)?,
-            stage_refs: <String as super::runtime::SoraDecode>::decode(reader)?,
+            room_type: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            reachability_disposition: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            stage_refs: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -30,15 +30,15 @@ pub struct CurrencyWarsSquadHpRules {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "initial_hp")]
-    pub initial_hp: String,
+    pub initial_hp: Option<String>,
     #[serde(rename = "minimum_hp")]
-    pub minimum_hp: String,
+    pub minimum_hp: Option<String>,
     #[serde(rename = "maximum_hp")]
-    pub maximum_hp: String,
+    pub maximum_hp: Option<String>,
     #[serde(rename = "loss_rules")]
-    pub loss_rules: String,
+    pub loss_rules: Option<String>,
     #[serde(rename = "recovery_rules")]
-    pub recovery_rules: String,
+    pub recovery_rules: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsSquadHpRules {
@@ -57,11 +57,11 @@ impl super::runtime::SoraDecode for CurrencyWarsSquadHpRules {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            initial_hp: <String as super::runtime::SoraDecode>::decode(reader)?,
-            minimum_hp: <String as super::runtime::SoraDecode>::decode(reader)?,
-            maximum_hp: <String as super::runtime::SoraDecode>::decode(reader)?,
-            loss_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
-            recovery_rules: <String as super::runtime::SoraDecode>::decode(reader)?,
+            initial_hp: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            minimum_hp: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            maximum_hp: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            loss_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            recovery_rules: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

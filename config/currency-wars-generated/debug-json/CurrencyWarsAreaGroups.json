@@ -1,0 +1,59 @@
+{
+  "table": {
+    "name": "CurrencyWarsAreaGroups",
+    "rows": [
+      {
+        "values": {
+          "area_ids": {
+            "String": "[\"currency-wars.area.route.100\",\"currency-wars.area.route.200\",\"currency-wars.area.route.201\",\"currency-wars.area.route.801\",\"currency-wars.area.route.802\",\"currency-wars.area.route.803\",\"currency-wars.area.route.1000\",\"currency-wars.area.route.1100\",\"currency-wars.area.route.1200\",\"currency-wars.area.route.1300\",\"currency-wars.area.route.1400\",\"currency-wars.area.route.1500\",\"currency-wars.area.route.1600\",\"currency-wars.area.route.1700\",\"currency-wars.area.route.1800\",\"currency-wars.area.route.1801\",\"currency-wars.area.route.2000\",\"currency-wars.area.route.2100\",\"currency-wars.area.route.2200\",\"currency-wars.area.route.2300\",\"currency-wars.area.route.2400\",\"currency-wars.area.route.2500\",\"currency-wars.area.route.2600\",\"currency-wars.area.route.2700\",\"currency-wars.area.route.2800\",\"currency-wars.area.route.2801\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsAreaGroup"
+          },
+          "name_en": {
+            "String": "Currency Wars Stage Routes"
+          },
+          "name_zh_cn": {
+            "String": "货币战争关卡路线"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "CompleteGridFightStageRouteClosure"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.bcf85d860ce6eb96c25c004692684db2\",\"currency-wars.source.3a50084d5b7cb9106d4cdcbe3998b789\",\"currency-wars.source.1d4013a787585b68985b572fb865a612\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.area-group.gridfight-season-1"
+          },
+          "summary_en": {
+            "String": "The complete GridFight StageRoute closure contains 26 route families across three ordered chapters."
+          },
+          "summary_zh_cn": {
+            "String": "完整 GridFight StageRoute 闭包包含 26 个路线族，分布于三个有序章节。"
+          },
+          "tags_json": {
+            "String": "[\"area-group\",\"gridfight\",\"stage-route\"]"
+          },
+          "transition_rules": {
+            "String": "[\"ChapterID and SectionID define the authored route order.\",\"Gambit-specific route membership remains unresolved.\"]"
+          }
+        }
+      }
+    ]
+  }
+}

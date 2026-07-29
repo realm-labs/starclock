@@ -1,0 +1,59 @@
+{
+  "table": {
+    "name": "CurrencyWarsBlessingPaths",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "formula_roles": {
+            "String": "[]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsBlessingClosure"
+          },
+          "name_en": {
+            "String": "No reachable Blessing path"
+          },
+          "name_zh_cn": {
+            "String": "无可达祝福命途"
+          },
+          "offer_roles": {
+            "String": "[]"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "path_id": {
+            "String": "none"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.3d1597e6003fb12abaa69037488f7daf\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.blessing-closure.no-reachable-blessing-path"
+          },
+          "summary_en": {
+            "String": "The frozen GridFight closure contains no Blessing path or Blessing identity; enemy Affixes remain a separate system."
+          },
+          "summary_zh_cn": {
+            "String": "冻结的 GridFight 闭包不含祝福命途或祝福身份；敌人词缀保持为独立系统。"
+          },
+          "tags_json": {
+            "String": "[\"blessing\",\"generated-closure\",\"proven-empty\"]"
+          }
+        }
+      }
+    ]
+  }
+}

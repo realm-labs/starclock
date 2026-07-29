@@ -30,17 +30,17 @@ pub struct CurrencyWarsAugmentDefinitions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "category_id")]
-    pub category_id: String,
+    pub category_id: Option<String>,
     #[serde(rename = "quality")]
-    pub quality: String,
+    pub quality: Option<String>,
     #[serde(rename = "chapter_limits")]
-    pub chapter_limits: String,
+    pub chapter_limits: Option<String>,
     #[serde(rename = "effect_ids")]
-    pub effect_ids: String,
+    pub effect_ids: Option<String>,
     #[serde(rename = "config_path")]
-    pub config_path: String,
+    pub config_path: Option<String>,
     #[serde(rename = "lifecycle")]
-    pub lifecycle: String,
+    pub lifecycle: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsAugmentDefinitions {
@@ -59,12 +59,12 @@ impl super::runtime::SoraDecode for CurrencyWarsAugmentDefinitions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            category_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            quality: <String as super::runtime::SoraDecode>::decode(reader)?,
-            chapter_limits: <String as super::runtime::SoraDecode>::decode(reader)?,
-            effect_ids: <String as super::runtime::SoraDecode>::decode(reader)?,
-            config_path: <String as super::runtime::SoraDecode>::decode(reader)?,
-            lifecycle: <String as super::runtime::SoraDecode>::decode(reader)?,
+            category_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            quality: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            chapter_limits: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            effect_ids: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            config_path: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            lifecycle: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

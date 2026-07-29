@@ -30,13 +30,13 @@ pub struct CurrencyWarsOffFieldConversions {
     #[serde(rename = "tags_json")]
     pub tags_json: String,
     #[serde(rename = "source_kind")]
-    pub source_kind: String,
+    pub source_kind: Option<String>,
     #[serde(rename = "eligibility")]
-    pub eligibility: String,
+    pub eligibility: Option<String>,
     #[serde(rename = "conversion")]
-    pub conversion: String,
+    pub conversion: Option<String>,
     #[serde(rename = "destination_state")]
-    pub destination_state: String,
+    pub destination_state: Option<String>,
 }
 
 impl super::runtime::SoraDecode for CurrencyWarsOffFieldConversions {
@@ -55,10 +55,10 @@ impl super::runtime::SoraDecode for CurrencyWarsOffFieldConversions {
             evidence_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_refs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             tags_json: <String as super::runtime::SoraDecode>::decode(reader)?,
-            source_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            eligibility: <String as super::runtime::SoraDecode>::decode(reader)?,
-            conversion: <String as super::runtime::SoraDecode>::decode(reader)?,
-            destination_state: <String as super::runtime::SoraDecode>::decode(reader)?,
+            source_kind: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            eligibility: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            conversion: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            destination_state: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }
