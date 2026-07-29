@@ -63,6 +63,12 @@ const expected = new Map([
   ["GoldGearsEncounterWave", "encounter-waves.json"],
   ["GoldGearsEnemySlot", "enemy-slots.json"],
   ["GoldGearsMechanicRule", "mechanic-rules.json"],
+  ["GoldGearsSourceRecord", "sources.json"],
+  ["GoldGearsCoverage", "coverage.json"],
+  ["GoldGearsResearchGap", "research-gaps.json"],
+  ["GoldGearsReviewFixture", "review-fixtures.json"],
+  ["GoldGearsManifest", "manifest.json"],
+  ["GoldGearsPackIndex", "pack-index.json"],
 ]);
 
 try {
@@ -89,7 +95,11 @@ try {
   assert(tables.size === expected.size, `expected ${expected.size} core tables, found ${tables.size}`);
   for (const [tableName, normalized] of expected) {
     assert(tables.has(tableName), `missing table ${tableName}`);
-    assert(Array.isArray(json(path.join("content-reference/gold-and-gears-v1", normalized))), `${normalized} is not an array`);
+    const normalizedValue = json(path.join("content-reference/gold-and-gears-v1", normalized));
+    assert(
+      Array.isArray(normalizedValue) || ["manifest.json", "pack-index.json"].includes(normalized),
+      `${normalized} has the wrong top-level shape`,
+    );
     const stable = tables.get(tableName).fields.find((field) => field.name === "stable_key");
     assert(stable?.ty === "String", `${tableName}.stable_key is not typed as string`);
   }
@@ -125,7 +135,34 @@ try {
       `${tableName}.${fieldName} is not ref<${target}.id>`,
     );
   }
-  console.log(`Gold and Gears Sora schema verified (${tables.size} isolated tables with typed core, progression and content references).`);
+  const committed = path.join(root, "config", "gold-and-gears-generated");
+  assert(fs.existsSync(path.join(committed, "schema.lock")), "committed schema lock is missing");
+  const directTemplates = path.join(temporary, "templates");
+  const directRust = path.join(temporary, "rust");
+  run(sora, ["--serial", "excel-template", "--project", project, "--out", directTemplates]);
+  run(sora, ["--serial", "gen", "--target", "rust", "--project", project, "--out", directRust, "--format-code", "never"]);
+  formatRust(directRust);
+  assert(
+    fs.readFileSync(lock).equals(fs.readFileSync(path.join(committed, "schema.lock"))),
+    "committed schema lock drifted",
+  );
+  for (const workbook of [
+    "GoldAndGears.xlsx",
+    "GoldAndGearsProgression.xlsx",
+    "GoldAndGearsContent.xlsx",
+    "GoldAndGearsEvidence.xlsx",
+  ]) {
+    assert(fs.statSync(path.join(directTemplates, workbook)).size > 1000, `${workbook} direct template is missing`);
+    assert(fs.statSync(path.join(committed, "templates", workbook)).size > 1000, `${workbook} committed template is missing`);
+  }
+  const committedRust = path.join(committed, "rust");
+  for (const file of fs.readdirSync(directRust).filter((name) => name.endsWith(".rs"))) {
+    assert(
+      fs.readFileSync(path.join(directRust, file)).equals(fs.readFileSync(path.join(committedRust, file))),
+      `${file} generated reader drifted`,
+    );
+  }
+  console.log(`Gold and Gears Sora schema verified (${tables.size} isolated tables, four templates, generated lock/readers stable).`);
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }
@@ -135,6 +172,14 @@ function run(command, arguments_) {
   if (result.status !== 0) {
     throw new Error(`${command} ${arguments_.join(" ")} failed\n${result.stdout}\n${result.stderr}`);
   }
+}
+
+function formatRust(directory) {
+  const files = fs.readdirSync(directory)
+    .filter((name) => name.endsWith(".rs"))
+    .map((name) => path.join(directory, name));
+  const result = spawnSync("rustfmt", ["--edition", "2024", ...files], { cwd: root, encoding: "utf8" });
+  if (result.status !== 0) throw new Error(`rustfmt failed\n${result.stdout}\n${result.stderr}`);
 }
 
 function json(relative) {

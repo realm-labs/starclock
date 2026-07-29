@@ -839,6 +839,117 @@ const evidenceTables = [
       list("fixture_ids", 32, false),
     ],
   },
+  {
+    name: "GoldGearsSourceRecord",
+    sheet: "SourceRecord",
+    normalized: "sources.json",
+    baseFields: [
+      integer("id", 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("source_id", 240),
+      string("source_kind", 100),
+      string("repository_or_url", 1000),
+      string("revision_or_access_date", 200),
+      string("game_version", 32),
+      string("relative_path_or_page", 1000),
+      string("row_locator", 500),
+      string("evidence_sha256", 64),
+      { name: "evidence_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("access_date", 32),
+      string("note", 2000, true),
+      string("replacement_condition", 2000, true),
+    ],
+  },
+  {
+    name: "GoldGearsCoverage",
+    sheet: "Coverage",
+    normalized: "coverage.json",
+    fields: [
+      string("category_id", 160),
+      list("normalized_files", 32, false),
+      integer("required", 0),
+      integer("accounted", 0),
+      integer("data_ready", 0),
+      string("coverage_percent", 32),
+      list("blocking_gap_ids", 32),
+    ],
+  },
+  {
+    name: "GoldGearsResearchGap",
+    sheet: "ResearchGap",
+    normalized: "research-gaps.json",
+    fields: [
+      string("gap_state", 80),
+      boolean("blocking"),
+      string("policy_source_id", 240),
+      json("affected_records_json"),
+      string("note", 2000),
+      string("replacement_condition", 2000),
+    ],
+  },
+  {
+    name: "GoldGearsReviewFixture",
+    sheet: "ReviewFixture",
+    normalized: "review-fixtures.json",
+    fields: [
+      string("family_id", 160),
+      list("source_record_ids", 64, false),
+      json("preconditions_json"),
+      json("input_json"),
+      json("ordered_operations_json"),
+      json("expected_facts_json"),
+      list("evidence_refs", 256, false),
+      { name: "fixture_evidence_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("note", 4000, true),
+      string("replacement_condition", 4000, true),
+    ],
+  },
+  {
+    name: "GoldGearsManifest",
+    sheet: "Manifest",
+    normalized: "manifest.json",
+    baseFields: [
+      integer("id", 1, 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("schema_revision", 100),
+      string("goal_id", 100),
+      string("profile_id", 240),
+      json("snapshot_json"),
+      string("structured_source_revision", 64),
+      string("bilingual_index_revision", 64),
+      string("content_manifest", 500),
+      string("content_manifest_sha256", 64),
+      integer("frozen_source_obligations", 0),
+      integer("data_ready_source_obligations", 0),
+      string("coverage_percent", 32),
+      integer("normalized_file_count", 0),
+      integer("mechanic_rule_count", 0),
+      integer("semantic_fixture_family_count", 0),
+      integer("research_gap_count", 0),
+      integer("blocking_research_gap_count", 0),
+      string("runtime_loading", 100),
+      string("authoring_target", 100),
+      boolean("candidate_quality"),
+    ],
+  },
+  {
+    name: "GoldGearsPackIndex",
+    sheet: "PackIndex",
+    normalized: "pack-index.json",
+    baseFields: [
+      integer("id", 1, 1),
+      string("stable_key", 240),
+    ],
+    fields: [
+      string("schema_revision", 100),
+      json("files_json"),
+      string("pack_sha256", 64),
+    ],
+  },
 ];
 
 const enumDefinitions = [
@@ -877,7 +988,7 @@ function generate(filename, workbook, tables, enums = []) {
       `file = ${quote(workbook)}`,
       `sheet = ${quote(table.sheet)}`,
     );
-    for (const field of [...common, ...table.fields]) {
+    for (const field of [...(table.baseFields ?? common), ...table.fields]) {
       lines.push("[[tables.fields]]", `name = ${quote(field.name)}`, `type = ${quote(field.type)}`);
       if (field.parser) lines.push(`parser = ${toml(field.parser)}`);
       if (field.length) lines.push(`length = ${toml(field.length)}`);
