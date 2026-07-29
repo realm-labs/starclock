@@ -121,6 +121,19 @@ node tools/gold-and-gears-reference/verify-sora-schema.mjs
 surface. Its outputs remain under `config/gold-and-gears-generated/` and do not
 modify the Standard Universe or production configuration projects.
 
+Complete isolated workbooks author and structurally verify with the pinned
+`openpyxl==3.1.5` environment:
+
+```text
+python tools/gold-and-gears-reference/author_workbooks.py \
+  --root . --output config/gold-and-gears/data
+python tools/gold-and-gears-reference/verify_workbooks.py \
+  --root . --data-root config/gold-and-gears/data
+```
+
+The author refuses to overwrite any existing target workbook. Regeneration
+checks therefore use clean temporary output directories.
+
 Every row carries bilingual mechanical text, explicit ownership and coverage,
 and ordered row-level source references. `map-edges.json` is deliberately
 `ProjectPolicy`: released chessboard configs contain nodes and coordinates but

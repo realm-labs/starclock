@@ -732,7 +732,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<GoldGearsEvidenceQuality>"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
 name = "quality_overrides_json"
 type = "string"
@@ -762,12 +763,10 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "special_option_id"
-type = "string"
-length = [1, 32]
+type = "optional<string>"
 [[tables.fields]]
 name = "description_value"
-type = "string"
-length = [1, 64]
+type = "optional<string>"
 [[tables.fields]]
 name = "dynamic_display_options_json"
 type = "string"
@@ -871,9 +870,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "source_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
-length = [1, 32]
 [[tables.fields]]
 name = "source_mode_owner"
 type = "string"
@@ -884,16 +882,13 @@ type = "string"
 length = [1, 100]
 [[tables.fields]]
 name = "currency_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "price_formula_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "inherited_offer_pool_id"
-type = "string"
-length = [1, 240]
+type = "optional<string>"
 [[tables.fields]]
 name = "inherited_rule_ids"
 type = "optional<list<string>>"
@@ -978,7 +973,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<GoldGearsEvidenceQuality>"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
 name = "quality_overrides_json"
 type = "string"
@@ -1014,8 +1010,7 @@ type = "string"
 length = [1, 64]
 [[tables.fields]]
 name = "time_limit_seconds"
-type = "string"
-length = [1, 64]
+type = "optional<string>"
 [[tables.fields]]
 name = "technique_rule"
 type = "string"

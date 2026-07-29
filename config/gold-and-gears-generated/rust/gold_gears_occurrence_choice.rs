@@ -33,7 +33,7 @@ pub struct GoldGearsOccurrenceChoice {
     #[serde(rename = "tags")]
     pub tags: Option<Vec<String>>,
     #[serde(rename = "mechanism_quality")]
-    pub mechanism_quality: GoldGearsEvidenceQuality,
+    pub mechanism_quality: String,
     #[serde(rename = "quality_overrides_json")]
     pub quality_overrides_json: String,
     #[serde(rename = "source_id")]
@@ -49,9 +49,9 @@ pub struct GoldGearsOccurrenceChoice {
     #[serde(rename = "condition_ids")]
     pub condition_ids: Option<Vec<String>>,
     #[serde(rename = "special_option_id")]
-    pub special_option_id: String,
+    pub special_option_id: Option<String>,
     #[serde(rename = "description_value")]
-    pub description_value: String,
+    pub description_value: Option<String>,
     #[serde(rename = "dynamic_display_options_json")]
     pub dynamic_display_options_json: String,
     #[serde(rename = "costs_json")]
@@ -94,9 +94,7 @@ impl super::runtime::SoraDecode for GoldGearsOccurrenceChoice {
             )?,
             source_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
-            mechanism_quality: <GoldGearsEvidenceQuality as super::runtime::SoraDecode>::decode(
-                reader,
-            )?,
+            mechanism_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             quality_overrides_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             variant_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
@@ -104,8 +102,8 @@ impl super::runtime::SoraDecode for GoldGearsOccurrenceChoice {
             choice_index: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             option_index: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             condition_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
-            special_option_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            description_value: <String as super::runtime::SoraDecode>::decode(reader)?,
+            special_option_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            description_value: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
             dynamic_display_options_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             costs_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             outcomes_json: <String as super::runtime::SoraDecode>::decode(reader)?,

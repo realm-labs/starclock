@@ -33,7 +33,7 @@ pub struct GoldGearsConundrumLevel {
     #[serde(rename = "tags")]
     pub tags: Option<Vec<String>>,
     #[serde(rename = "mechanism_quality")]
-    pub mechanism_quality: GoldGearsEvidenceQuality,
+    pub mechanism_quality: String,
     #[serde(rename = "quality_overrides_json")]
     pub quality_overrides_json: String,
     #[serde(rename = "source_id")]
@@ -96,9 +96,7 @@ impl super::runtime::SoraDecode for GoldGearsConundrumLevel {
             )?,
             source_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
-            mechanism_quality: <GoldGearsEvidenceQuality as super::runtime::SoraDecode>::decode(
-                reader,
-            )?,
+            mechanism_quality: <String as super::runtime::SoraDecode>::decode(reader)?,
             quality_overrides_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
             source_type: <String as super::runtime::SoraDecode>::decode(reader)?,

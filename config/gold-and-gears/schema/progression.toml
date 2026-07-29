@@ -184,7 +184,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<GoldGearsEvidenceQuality>"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
 name = "quality_overrides_json"
 type = "string"
@@ -328,7 +329,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<GoldGearsEvidenceQuality>"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
 name = "quality_overrides_json"
 type = "string"
@@ -811,7 +813,8 @@ type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<GoldGearsEvidenceQuality>"
+type = "string"
+length = [1, 100]
 [[tables.fields]]
 name = "quality_overrides_json"
 type = "string"

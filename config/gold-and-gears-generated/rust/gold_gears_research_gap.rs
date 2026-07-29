@@ -38,8 +38,6 @@ pub struct GoldGearsResearchGap {
     pub blocking: bool,
     #[serde(rename = "policy_source_id")]
     pub policy_source_id: String,
-    #[serde(rename = "affected_records_json")]
-    pub affected_records_json: String,
     #[serde(rename = "note")]
     pub note: String,
     #[serde(rename = "replacement_condition")]
@@ -69,7 +67,6 @@ impl super::runtime::SoraDecode for GoldGearsResearchGap {
             gap_state: <String as super::runtime::SoraDecode>::decode(reader)?,
             blocking: <bool as super::runtime::SoraDecode>::decode(reader)?,
             policy_source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            affected_records_json: <String as super::runtime::SoraDecode>::decode(reader)?,
             note: <String as super::runtime::SoraDecode>::decode(reader)?,
             replacement_condition: <String as super::runtime::SoraDecode>::decode(reader)?,
         })

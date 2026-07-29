@@ -33,17 +33,17 @@ pub struct GoldGearsService {
     #[serde(rename = "tags")]
     pub tags: Option<Vec<String>>,
     #[serde(rename = "source_ids")]
-    pub source_ids: Vec<String>,
+    pub source_ids: Option<Vec<String>>,
     #[serde(rename = "source_mode_owner")]
     pub source_mode_owner: String,
     #[serde(rename = "service_kind")]
     pub service_kind: String,
     #[serde(rename = "currency_id")]
-    pub currency_id: String,
+    pub currency_id: Option<String>,
     #[serde(rename = "price_formula_id")]
-    pub price_formula_id: String,
+    pub price_formula_id: Option<String>,
     #[serde(rename = "inherited_offer_pool_id")]
-    pub inherited_offer_pool_id: String,
+    pub inherited_offer_pool_id: Option<String>,
     #[serde(rename = "inherited_rule_ids")]
     pub inherited_rule_ids: Option<Vec<String>>,
     #[serde(rename = "parameters_json")]
@@ -76,12 +76,14 @@ impl super::runtime::SoraDecode for GoldGearsService {
             )?,
             source_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
-            source_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            source_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_mode_owner: <String as super::runtime::SoraDecode>::decode(reader)?,
             service_kind: <String as super::runtime::SoraDecode>::decode(reader)?,
-            currency_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            price_formula_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            inherited_offer_pool_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            currency_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            price_formula_id: <Option<String> as super::runtime::SoraDecode>::decode(reader)?,
+            inherited_offer_pool_id: <Option<String> as super::runtime::SoraDecode>::decode(
+                reader,
+            )?,
             inherited_rule_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(
                 reader,
             )?,

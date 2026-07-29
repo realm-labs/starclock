@@ -592,9 +592,8 @@ type = "i32"
 range = [-100, 100]
 [[tables.fields]]
 name = "domain_ids"
-type = "list<string>"
+type = "optional<list<string>>"
 parser = { kind = "split", separator = "|" }
-length = [1, 32]
 [[tables.fields]]
 name = "domain_resolution"
 type = "string"
@@ -1068,14 +1067,6 @@ parser = { kind = "split", separator = "|" }
 name = "source_id"
 type = "string"
 length = [1, 32]
-[[tables.fields]]
-name = "modifier_name"
-type = "string"
-length = [1, 200]
-[[tables.fields]]
-name = "modifier_name_hash"
-type = "string"
-length = [1, 32]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
@@ -1143,24 +1134,18 @@ name = "source_id"
 type = "string"
 length = [1, 32]
 [[tables.fields]]
-name = "area_id"
-type = "ref<GoldGearsArea.id>"
+name = "display_level"
+type = "i32"
+range = [1, 200]
 [[tables.fields]]
-name = "monster_id"
-type = "string"
-length = [1, 32]
+name = "weakness_elements"
+type = "list<string>"
+parser = { kind = "split", separator = "|" }
+length = [1, 8]
 [[tables.fields]]
 name = "monster_template_id"
 type = "string"
 length = [1, 32]
-[[tables.fields]]
-name = "enemy_variant_stable_key"
-type = "string"
-length = [1, 240]
-[[tables.fields]]
-name = "display_order"
-type = "i32"
-range = [0, 100]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]

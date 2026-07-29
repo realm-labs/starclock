@@ -70,6 +70,7 @@ const expected = new Map([
   ["GoldGearsManifest", "manifest.json"],
   ["GoldGearsPackIndex", "pack-index.json"],
 ]);
+const childTables = new Set(["GoldGearsResearchGapAffectedRecord"]);
 
 try {
   assert(policy.version === "0.3.0", "Sora version policy differs");
@@ -92,7 +93,10 @@ try {
   const parsed = JSON.parse(fs.readFileSync(lock, "utf8")).schema;
   assert(parsed.package === "starclock_gold_and_gears_reference_config", "schema package differs");
   const tables = new Map(parsed.tables.map((table) => [table.name, table]));
-  assert(tables.size === expected.size, `expected ${expected.size} core tables, found ${tables.size}`);
+  assert(
+    tables.size === expected.size + childTables.size,
+    `expected ${expected.size} primary and ${childTables.size} child tables, found ${tables.size}`,
+  );
   for (const [tableName, normalized] of expected) {
     assert(tables.has(tableName), `missing table ${tableName}`);
     const normalizedValue = json(path.join("content-reference/gold-and-gears-v1", normalized));
@@ -103,6 +107,7 @@ try {
     const stable = tables.get(tableName).fields.find((field) => field.name === "stable_key");
     assert(stable?.ty === "String", `${tableName}.stable_key is not typed as string`);
   }
+  for (const tableName of childTables) assert(tables.has(tableName), `missing child table ${tableName}`);
   for (const [tableName, fieldName, target] of [
     ["GoldGearsChessboard", "start_node_id", "GoldGearsMapNode"],
     ["GoldGearsMapNode", "chessboard_id", "GoldGearsChessboard"],
@@ -128,6 +133,7 @@ try {
     ["GoldGearsAdventureOutcome", "downloader_service_id", "GoldGearsService"],
     ["GoldGearsEncounterWave", "encounter_group_id", "GoldGearsEncounterGroup"],
     ["GoldGearsEnemySlot", "encounter_wave_id", "GoldGearsEncounterWave"],
+    ["GoldGearsResearchGapAffectedRecord", "research_gap_id", "GoldGearsResearchGap"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) => candidate.name === fieldName);
     assert(

@@ -34,16 +34,12 @@ pub struct GoldGearsBossChoice {
     pub tags: Option<Vec<String>>,
     #[serde(rename = "source_id")]
     pub source_id: String,
-    #[serde(rename = "area_id")]
-    pub area_id: i32,
-    #[serde(rename = "monster_id")]
-    pub monster_id: String,
+    #[serde(rename = "display_level")]
+    pub display_level: i32,
+    #[serde(rename = "weakness_elements")]
+    pub weakness_elements: Vec<String>,
     #[serde(rename = "monster_template_id")]
     pub monster_template_id: String,
-    #[serde(rename = "enemy_variant_stable_key")]
-    pub enemy_variant_stable_key: String,
-    #[serde(rename = "display_order")]
-    pub display_order: i32,
 }
 
 impl super::runtime::SoraDecode for GoldGearsBossChoice {
@@ -67,11 +63,9 @@ impl super::runtime::SoraDecode for GoldGearsBossChoice {
             source_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            area_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            monster_id: <String as super::runtime::SoraDecode>::decode(reader)?,
+            display_level: <i32 as super::runtime::SoraDecode>::decode(reader)?,
+            weakness_elements: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
             monster_template_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            enemy_variant_stable_key: <String as super::runtime::SoraDecode>::decode(reader)?,
-            display_order: <i32 as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }

@@ -131,7 +131,7 @@ const coreTables = [
       ref("column_id", "GoldGearsMapColumn"),
       integer("position_x", -100, 100),
       integer("position_y", -100, 100),
-      list("domain_ids", 32, false),
+      list("domain_ids", 32),
       string("domain_resolution", 80),
       boolean("is_start"),
       boolean("is_end"),
@@ -197,11 +197,7 @@ const coreTables = [
     name: "GoldGearsBeacon",
     sheet: "Beacon",
     normalized: "beacons.json",
-    fields: [
-      string("source_id", 32),
-      string("modifier_name", 200),
-      string("modifier_name_hash", 32),
-    ],
+    fields: [string("source_id", 32)],
   },
   {
     name: "GoldGearsBossChoice",
@@ -209,11 +205,9 @@ const coreTables = [
     normalized: "boss-choices.json",
     fields: [
       string("source_id", 32),
-      ref("area_id", "GoldGearsArea"),
-      string("monster_id", 32),
+      integer("display_level", 1, 200),
+      list("weakness_elements", 8, false),
       string("monster_template_id", 32),
-      string("enemy_variant_stable_key", 240),
-      integer("display_order", 0, 100),
     ],
   },
   {
@@ -406,7 +400,7 @@ const progressionTables = [
     sheet: "NeuralNetwork",
     normalized: "neural-network.json",
     fields: [
-      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("mechanism_quality", 100),
       json("quality_overrides_json"),
       string("source_id", 32),
       integer("topological_index", 1, 100),
@@ -434,7 +428,7 @@ const progressionTables = [
     sheet: "ConundrumLevel",
     normalized: "conundrum-levels.json",
     fields: [
-      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("mechanism_quality", 100),
       json("quality_overrides_json"),
       string("source_id", 32),
       string("source_type", 100),
@@ -521,7 +515,7 @@ const progressionTables = [
     sheet: "ResonanceExtrapolation",
     normalized: "resonance-extrapolations.json",
     fields: [
-      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("mechanism_quality", 100),
       json("quality_overrides_json"),
       string("source_id", 32),
       ref("path_id", "GoldGearsPath"),
@@ -705,7 +699,7 @@ const contentTables = [
     sheet: "OccurrenceChoice",
     normalized: "occurrence-choices.json",
     fields: [
-      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("mechanism_quality", 100),
       json("quality_overrides_json"),
       string("source_id", 32),
       ref("variant_id", "GoldGearsOccurrenceVariant"),
@@ -713,8 +707,8 @@ const contentTables = [
       integer("choice_index", 0),
       integer("option_index", 0),
       list("condition_ids", 64),
-      string("special_option_id", 32),
-      string("description_value", 64),
+      string("special_option_id", 32, true),
+      string("description_value", 64, true),
       json("dynamic_display_options_json"),
       json("costs_json"),
       json("outcomes_json"),
@@ -732,12 +726,12 @@ const contentTables = [
     sheet: "Service",
     normalized: "services.json",
     fields: [
-      list("source_ids", 32, false),
+      list("source_ids", 32),
       string("source_mode_owner", 80),
       string("service_kind", 100),
-      string("currency_id", 240),
-      string("price_formula_id", 240),
-      string("inherited_offer_pool_id", 240),
+      string("currency_id", 240, true),
+      string("price_formula_id", 240, true),
+      string("inherited_offer_pool_id", 240, true),
       list("inherited_rule_ids", 64),
       json("parameters_json"),
       json("gold_gears_offer_rule_json"),
@@ -750,7 +744,7 @@ const contentTables = [
     sheet: "AdventureOutcome",
     normalized: "adventure-outcomes.json",
     fields: [
-      { name: "mechanism_quality", type: "enum<GoldGearsEvidenceQuality>" },
+      string("mechanism_quality", 100),
       json("quality_overrides_json"),
       string("source_id", 32),
       string("room_stable_key", 240),
@@ -759,7 +753,7 @@ const contentTables = [
       string("objective_metric", 100),
       list("objective_thresholds", 16, false),
       string("maximum_value", 64),
-      string("time_limit_seconds", 64),
+      string("time_limit_seconds", 64, true),
       string("technique_rule", 100),
       boolean("rewards_are_cumulative"),
       json("reward_tiers_json"),
@@ -884,10 +878,23 @@ const evidenceTables = [
       string("gap_state", 80),
       boolean("blocking"),
       string("policy_source_id", 240),
-      json("affected_records_json"),
       string("note", 2000),
       string("replacement_condition", 2000),
     ],
+  },
+  {
+    name: "GoldGearsResearchGapAffectedRecord",
+    sheet: "ResearchGapAffected",
+    normalized: "research-gaps.json",
+    baseFields: [
+      integer("id", 1),
+      ref("research_gap_id", "GoldGearsResearchGap"),
+      integer("ordinal", 0),
+      string("file", 240),
+      string("record_stable_key", 240),
+    ],
+    noStableIndex: true,
+    fields: [],
   },
   {
     name: "GoldGearsReviewFixture",
@@ -994,13 +1001,23 @@ function generate(filename, workbook, tables, enums = []) {
       if (field.length) lines.push(`length = ${toml(field.length)}`);
       if (field.range) lines.push(`range = ${toml(field.range)}`);
     }
-    lines.push(
-      "[[tables.indexes]]",
-      `name = ${quote("by_stable_key")}`,
-      'fields = ["stable_key"]',
-      "unique = true",
-      "",
-    );
+    if (!table.noStableIndex) {
+      lines.push(
+        "[[tables.indexes]]",
+        `name = ${quote("by_stable_key")}`,
+        'fields = ["stable_key"]',
+        "unique = true",
+        "",
+      );
+    } else {
+      lines.push(
+        "[[tables.indexes]]",
+        `name = ${quote("by_gap_ordinal")}`,
+        'fields = ["research_gap_id", "ordinal"]',
+        "unique = true",
+        "",
+      );
+    }
   }
   fs.mkdirSync(schemaRoot, { recursive: true });
   fs.writeFileSync(path.join(schemaRoot, filename), `${lines.join("\n")}\n`);

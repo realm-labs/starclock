@@ -1,7 +1,7 @@
 {
   "version": 1,
   "package": "starclock_gold_and_gears_reference_config",
-  "fingerprint": "04157b1f2c1ef7a2",
+  "fingerprint": "5d5e76d3dbe1afca",
   "schema": {
     "package": "starclock_gold_and_gears_reference_config",
     "enums": [
@@ -2794,7 +2794,9 @@
           {
             "name": "domain_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -2805,10 +2807,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": {
               "kind": "split",
               "options": {
@@ -5052,44 +5051,6 @@
             ],
             "parser": null,
             "derived_from": null
-          },
-          {
-            "name": "modifier_name",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              200
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "modifier_name_hash",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              32
-            ],
-            "parser": null,
-            "derived_from": null
           }
         ],
         "indexes": [
@@ -5393,13 +5354,8 @@
             "derived_from": null
           },
           {
-            "name": "area_id",
-            "ty": {
-              "Ref": {
-                "table": "GoldGearsArea",
-                "field": "id"
-              }
-            },
+            "name": "display_level",
+            "ty": "I32",
             "scope": {
               "values": [
                 "all"
@@ -5408,14 +5364,19 @@
             "key": false,
             "comment": null,
             "default": null,
-            "range": null,
+            "range": [
+              1,
+              200
+            ],
             "length": null,
             "parser": null,
             "derived_from": null
           },
           {
-            "name": "monster_id",
-            "ty": "String",
+            "name": "weakness_elements",
+            "ty": {
+              "List": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -5427,9 +5388,14 @@
             "range": null,
             "length": [
               1,
-              32
+              8
             ],
-            "parser": null,
+            "parser": {
+              "kind": "split",
+              "options": {
+                "separator": "|"
+              }
+            },
             "derived_from": null
           },
           {
@@ -5448,44 +5414,6 @@
               1,
               32
             ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "enemy_variant_stable_key",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              240
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
-            "name": "display_order",
-            "ty": "I32",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": [
-              0,
-              100
-            ],
-            "length": null,
             "parser": null,
             "derived_from": null
           }
@@ -10826,9 +10754,7 @@
           },
           {
             "name": "mechanism_quality",
-            "ty": {
-              "Enum": "GoldGearsEvidenceQuality"
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -10838,7 +10764,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              100
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -11521,9 +11450,7 @@
           },
           {
             "name": "mechanism_quality",
-            "ty": {
-              "Enum": "GoldGearsEvidenceQuality"
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -11533,7 +11460,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              100
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -13823,9 +13753,7 @@
           },
           {
             "name": "mechanism_quality",
-            "ty": {
-              "Enum": "GoldGearsEvidenceQuality"
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -13835,7 +13763,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              100
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -18731,9 +18662,7 @@
           },
           {
             "name": "mechanism_quality",
-            "ty": {
-              "Enum": "GoldGearsEvidenceQuality"
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -18743,7 +18672,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              100
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -18890,7 +18822,9 @@
           },
           {
             "name": "special_option_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -18900,16 +18834,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "description_value",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -18919,10 +18852,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              64
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -19400,7 +19330,9 @@
           {
             "name": "source_ids",
             "ty": {
-              "List": "String"
+              "Optional": {
+                "List": "String"
+              }
             },
             "scope": {
               "values": [
@@ -19411,10 +19343,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              32
-            ],
+            "length": null,
             "parser": {
               "kind": "split",
               "options": {
@@ -19463,7 +19392,9 @@
           },
           {
             "name": "currency_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19473,16 +19404,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "price_formula_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19492,16 +19422,15 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
           {
             "name": "inherited_offer_pool_id",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -19511,10 +19440,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              240
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -19903,9 +19829,7 @@
           },
           {
             "name": "mechanism_quality",
-            "ty": {
-              "Enum": "GoldGearsEvidenceQuality"
-            },
+            "ty": "String",
             "scope": {
               "values": [
                 "all"
@@ -19915,7 +19839,10 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": null,
+            "length": [
+              1,
+              100
+            ],
             "parser": null,
             "derived_from": null
           },
@@ -20080,7 +20007,9 @@
           },
           {
             "name": "time_limit_seconds",
-            "ty": "String",
+            "ty": {
+              "Optional": "String"
+            },
             "scope": {
               "values": [
                 "all"
@@ -20090,10 +20019,7 @@
             "comment": null,
             "default": null,
             "range": null,
-            "length": [
-              1,
-              64
-            ],
+            "length": null,
             "parser": null,
             "derived_from": null
           },
@@ -23184,25 +23110,6 @@
             "derived_from": null
           },
           {
-            "name": "affected_records_json",
-            "ty": "String",
-            "scope": {
-              "values": [
-                "all"
-              ]
-            },
-            "key": false,
-            "comment": null,
-            "default": null,
-            "range": null,
-            "length": [
-              1,
-              60000
-            ],
-            "parser": null,
-            "derived_from": null
-          },
-          {
             "name": "note",
             "ty": "String",
             "scope": {
@@ -23246,6 +23153,130 @@
             "name": "by_stable_key",
             "fields": [
               "stable_key"
+            ],
+            "unique": true
+          }
+        ]
+      },
+      {
+        "name": "GoldGearsResearchGapAffectedRecord",
+        "scope": {
+          "values": [
+            "all"
+          ]
+        },
+        "mode": "Map",
+        "key": "id",
+        "source": {
+          "format": "xlsx",
+          "file": "GoldAndGearsEvidence.xlsx",
+          "sheet": "ResearchGapAffected"
+        },
+        "fields": [
+          {
+            "name": "id",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": true,
+            "comment": null,
+            "default": null,
+            "range": [
+              1,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "research_gap_id",
+            "ty": {
+              "Ref": {
+                "table": "GoldGearsResearchGap",
+                "field": "id"
+              }
+            },
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "ordinal",
+            "ty": "I32",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": [
+              0,
+              2147483647
+            ],
+            "length": null,
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "file",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              240
+            ],
+            "parser": null,
+            "derived_from": null
+          },
+          {
+            "name": "record_stable_key",
+            "ty": "String",
+            "scope": {
+              "values": [
+                "all"
+              ]
+            },
+            "key": false,
+            "comment": null,
+            "default": null,
+            "range": null,
+            "length": [
+              1,
+              240
+            ],
+            "parser": null,
+            "derived_from": null
+          }
+        ],
+        "indexes": [
+          {
+            "name": "by_gap_ordinal",
+            "fields": [
+              "research_gap_id",
+              "ordinal"
             ],
             "unique": true
           }

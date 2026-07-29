@@ -348,10 +348,6 @@ name = "policy_source_id"
 type = "string"
 length = [1, 240]
 [[tables.fields]]
-name = "affected_records_json"
-type = "string"
-length = [1, 60000]
-[[tables.fields]]
 name = "note"
 type = "string"
 length = [1, 2000]
@@ -362,6 +358,38 @@ length = [1, 2000]
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
+unique = true
+
+[[tables]]
+name = "GoldGearsResearchGapAffectedRecord"
+mode = "map"
+key = "id"
+[tables.source]
+format = "xlsx"
+file = "GoldAndGearsEvidence.xlsx"
+sheet = "ResearchGapAffected"
+[[tables.fields]]
+name = "id"
+type = "i32"
+range = [1, 2147483647]
+[[tables.fields]]
+name = "research_gap_id"
+type = "ref<GoldGearsResearchGap.id>"
+[[tables.fields]]
+name = "ordinal"
+type = "i32"
+range = [0, 2147483647]
+[[tables.fields]]
+name = "file"
+type = "string"
+length = [1, 240]
+[[tables.fields]]
+name = "record_stable_key"
+type = "string"
+length = [1, 240]
+[[tables.indexes]]
+name = "by_gap_ordinal"
+fields = ["research_gap_id", "ordinal"]
 unique = true
 
 [[tables]]

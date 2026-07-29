@@ -47,6 +47,7 @@ pub mod gold_gears_path_boost;
 pub mod gold_gears_plane;
 pub mod gold_gears_profile;
 pub mod gold_gears_research_gap;
+pub mod gold_gears_research_gap_affected_record;
 pub mod gold_gears_resonance;
 pub mod gold_gears_resonance_extrapolation;
 pub mod gold_gears_resonance_interplay;
@@ -59,7 +60,7 @@ pub mod gold_gears_trailblaze_bonus;
 pub mod runtime;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "04157b1f2c1ef7a2";
+pub const SCHEMA_FINGERPRINT: &str = "5d5e76d3dbe1afca";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -145,7 +146,7 @@ impl SoraConfig {
             )));
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
-            sora_map_with_capacity(51);
+            sora_map_with_capacity(52);
         tables.insert(
             gold_gears_profile::GoldGearsProfileTable::NAME,
             Box::new(gold_gears_profile::GoldGearsProfileTable::from_rows(
@@ -562,6 +563,7 @@ impl SoraConfig {
                 )?,
             ),
         );
+        tables.insert(gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecordTable::NAME, Box::new(gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecordTable::from_rows(source.decode_table::<gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecord>(gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecordTable::NAME)?)?));
         tables.insert(
             gold_gears_review_fixture::GoldGearsReviewFixtureTable::NAME,
             Box::new(
@@ -842,6 +844,14 @@ impl SoraConfig {
 
     pub fn gold_gears_research_gap(&self) -> &gold_gears_research_gap::GoldGearsResearchGapTable {
         self.table(gold_gears_research_gap::GoldGearsResearchGapTable::NAME)
+    }
+
+    pub fn gold_gears_research_gap_affected_record(
+        &self,
+    ) -> &gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecordTable {
+        self.table(
+            gold_gears_research_gap_affected_record::GoldGearsResearchGapAffectedRecordTable::NAME,
+        )
     }
 
     pub fn gold_gears_review_fixture(

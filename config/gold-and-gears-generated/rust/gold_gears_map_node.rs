@@ -43,7 +43,7 @@ pub struct GoldGearsMapNode {
     #[serde(rename = "position_y")]
     pub position_y: i32,
     #[serde(rename = "domain_ids")]
-    pub domain_ids: Vec<String>,
+    pub domain_ids: Option<Vec<String>>,
     #[serde(rename = "domain_resolution")]
     pub domain_resolution: String,
     #[serde(rename = "is_start")]
@@ -77,7 +77,7 @@ impl super::runtime::SoraDecode for GoldGearsMapNode {
             column_id: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             position_x: <i32 as super::runtime::SoraDecode>::decode(reader)?,
             position_y: <i32 as super::runtime::SoraDecode>::decode(reader)?,
-            domain_ids: <Vec<String> as super::runtime::SoraDecode>::decode(reader)?,
+            domain_ids: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             domain_resolution: <String as super::runtime::SoraDecode>::decode(reader)?,
             is_start: <bool as super::runtime::SoraDecode>::decode(reader)?,
             is_end: <bool as super::runtime::SoraDecode>::decode(reader)?,

@@ -34,10 +34,6 @@ pub struct GoldGearsBeacon {
     pub tags: Option<Vec<String>>,
     #[serde(rename = "source_id")]
     pub source_id: String,
-    #[serde(rename = "modifier_name")]
-    pub modifier_name: String,
-    #[serde(rename = "modifier_name_hash")]
-    pub modifier_name_hash: String,
 }
 
 impl super::runtime::SoraDecode for GoldGearsBeacon {
@@ -61,8 +57,6 @@ impl super::runtime::SoraDecode for GoldGearsBeacon {
             source_refs: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             tags: <Option<Vec<String>> as super::runtime::SoraDecode>::decode(reader)?,
             source_id: <String as super::runtime::SoraDecode>::decode(reader)?,
-            modifier_name: <String as super::runtime::SoraDecode>::decode(reader)?,
-            modifier_name_hash: <String as super::runtime::SoraDecode>::decode(reader)?,
         })
     }
 }
