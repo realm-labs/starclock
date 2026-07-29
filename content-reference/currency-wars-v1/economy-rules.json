@@ -1,0 +1,6216 @@
+[
+  {
+    "id": "currency-wars.economy.gridfight",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsEconomyRule",
+    "name_en": "Currency Wars roster economy",
+    "name_zh_cn": "货币战争角色经济",
+    "summary_en": "GridFight authors five cards per refresh, a two-Gold refresh, wave Experience, level-up costs, interest and front/back/bench bounds.",
+    "summary_zh_cn": "GridFight 编写每次刷新五张卡、两金币刷新、波次经验、升级费用、利息与前台/后台/备选区边界。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "2",
+        "sha256": "bce9921f7e840812caec4b4d9d86833cbf7b3059b81943426396df7574b1b5f8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 0,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "6",
+        "sha256": "517c87956acdfdaeb713c222b96fb0a05b18c51cf5119e9a7c421029cc11a89a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 1,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "7",
+        "sha256": "ea9c5fe9352ca549139c47ae348c2b7efab9aed5e50cb4b36612938937db9410",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 2,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "8",
+        "sha256": "b356f1609921524a6b93fc6cd849b8354835958e9847faccc254cc6e0b5019c1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 3,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "9",
+        "sha256": "d21998b9b827fc1355d2a1228b48d09b6268ad13b1a33d4559fa6ba78d0179b8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 4,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "10",
+        "sha256": "c3f52ef10870312406963734f7f035ba9a17e68e822d58de56990e7f82fb31cf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 5,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "11",
+        "sha256": "16d49990e290e0e1f274dbd5ed7feeb797c8e27edd92b461cd2fab4a90880d22",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 6,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "12",
+        "sha256": "584043bc4c85550ab0bdd015ab33f80b005ffcd2d869b75304df2e443bea35da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 7,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "18",
+        "sha256": "00c1ae984ae11d9a779fb788e8fcb96c84ce5273c8e7cb033d72f37243870167",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 8,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "19",
+        "sha256": "1b80f7475fce5844698ce32de21907890102255ce8568bc8b93d793b726f7834",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 9,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "20",
+        "sha256": "af4e91d2abda61793dd3237e773299d14a8b9ca10e82d7def5cbb67c46c7d7a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 10,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "21",
+        "sha256": "fa560753971279f95e27178fbbccaed9f32a031577c1f016c438ce75630559e8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 11,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "22",
+        "sha256": "f801ffe45b9ea3c70abea0ead73b1727b8b6b895615271b9fc0d82c6790951a3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 12,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.23",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "23",
+        "sha256": "cd46b5b0177c4ca9eed327ff5e119fb344dd24d1378e72c6f386b45c2920f643",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 13,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.45",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "45",
+        "sha256": "718b866fd5666871464bc1cc58b2cbeed5d9f6b15fe8abca88e1a1f90a5c1cc4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 14,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.82",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "82",
+        "sha256": "2b8bc418f1a27d44028e1fac5413b698a0db3817543e5555e1aa82225d6c01cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 15,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.83",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "83",
+        "sha256": "2c3cc86ab147739704093fe9d300a8f405a81be9c76210f71fe233a750d4f40a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 16,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "0": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "2",
+          "row": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_CardNumberPerRefresh",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "1": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "6",
+          "row": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LotteryRefreshGold",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "2": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "7",
+          "row": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_DepositPerInterest",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "3": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "8",
+          "row": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainInterestMax",
+            "Value": {
+              "IntValue": 5
+            }
+          }
+        },
+        "4": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "9",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenWaveEnd",
+            "Value": {
+              "IntValue": 2
+            }
+          }
+        },
+        "5": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "10",
+          "row": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_GainExpWhenBossWaveEnd",
+            "Value": {
+              "IntValue": 10
+            }
+          }
+        },
+        "6": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "11",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpGold",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "7": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "12",
+          "row": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_LevelUpExp",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "8": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "18",
+          "row": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_AvatarNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "9": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "19",
+          "row": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Bench_OverFlow_AvatarNum",
+            "Value": {
+              "IntValue": 100
+            }
+          }
+        },
+        "10": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "20",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMaxNum",
+            "Value": {
+              "IntValue": 4
+            }
+          }
+        },
+        "11": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "21",
+          "row": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Front_AvatarMinNum",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "12": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "22",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarMaxNum",
+            "Value": {
+              "IntValue": 9
+            }
+          }
+        },
+        "13": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "23",
+          "row": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Back_AvatarInitialNum",
+            "Value": {
+              "IntValue": 6
+            }
+          }
+        },
+        "14": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "45",
+          "row": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_Exp_Resource_ID",
+            "Value": {
+              "IntValue": 1
+            }
+          }
+        },
+        "15": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "82",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 6
+                },
+                {
+                  "IntValue": 8
+                },
+                {
+                  "IntValue": 12
+                }
+              ]
+            }
+          }
+        },
+        "16": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "83",
+          "row": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainExpWhenBossWaveEndList",
+            "Value": {
+              "ArrayValue": [
+                {
+                  "IntValue": 10
+                },
+                {
+                  "IntValue": 12
+                },
+                {
+                  "IntValue": 16
+                }
+              ]
+            }
+          }
+        },
+        "17": {
+          "sourcePath": "ExcelOutput/GridFightConstCommon.json",
+          "locator": "84",
+          "row": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          },
+          "evidenceRow": {
+            "ConstValueName": "GridFight_OCGainInterestMax",
+            "Value": {
+              "IntValue": 0
+            }
+          }
+        },
+        "source_id": "source.goal12.exceloutput-gridfightconstcommon-json.84",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightConstCommon.json",
+        "locator": "84",
+        "sha256": "ee3cae17d5af8166fa4dc083573fabe1413623095ff8beacfb567b6617a5be4f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": 17,
+        "mechanism_quality": "PolicyBound"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gold-coin-stable-identity",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gold-coin-stable-identity",
+        "sha256": "52dc13b1fa11c6d277bea91d9271f2320d15b588822161a49970abed76c75088",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released Currency Wars text calls the purchase currency Gold Coins while GridFight tables encode Gold-valued fields without a standalone resource identity.",
+        "replacement_condition": "Replace when a released GridFight resource table publishes the stable Gold Coin identity."
+      }
+    ],
+    "tags": [
+      "economy",
+      "gold-coins",
+      "gridfight"
+    ],
+    "currency_ids": [
+      "currency-wars.currency.gold-coins"
+    ],
+    "experience_rules": {
+      "resource_id": "1",
+      "standard_wave_gain": "2",
+      "standard_boss_wave_gain": "10",
+      "overclock_wave_gain": [
+        "6",
+        "8",
+        "12"
+      ],
+      "overclock_boss_wave_gain": [
+        "10",
+        "12",
+        "16"
+      ],
+      "direct_level_up_exp": "4",
+      "direct_level_up_gold": "4"
+    },
+    "refresh_rules": {
+      "cards_per_refresh": "5",
+      "refresh_gold": "2"
+    },
+    "interest_rules": {
+      "deposit_per_interest": "10",
+      "standard_max_interest": "5",
+      "overclock_max_interest": "0"
+    },
+    "team_size_rules": {
+      "front_min": "1",
+      "front_max": "4",
+      "back_initial": "6",
+      "back_max": "9",
+      "bench_authored": "9",
+      "bench_overflow": "100"
+    }
+  }
+]

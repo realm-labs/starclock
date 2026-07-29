@@ -1,0 +1,822 @@
+[
+  {
+    "id": "currency-wars.team-size.level.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 1",
+    "name_zh_cn": "角色栏位等级 1",
+    "summary_en": "Level 1 authors AvatarMaxNumber 1, next-level Experience 2 and rarity weights 100/0/0/0/0.",
+    "summary_zh_cn": "等级 1 编写 AvatarMaxNumber 1、下级经验 2 与费用权重 100/0/0/0/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "0",
+        "sha256": "45d3898e6abe87964b37fd86dc04680cc43af77a7935ac7d4f13dc3c248ecf64",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "0",
+        "sha256": "49d9367ba2fbacf1a188dc9840890b72dbedd0b3921abd917eb75a41a22856ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "0",
+        "sha256": "7bf3d4af87d91149938423c8afcaea317af3e2d208044911cbac754d30ef9256",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "1",
+    "level": 1,
+    "field_cap": "1",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "2",
+    "rarity_weights": [
+      "100",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "0"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "0"
+      }
+    ],
+    "transition_rules": [
+      "Spend 2 Experience to reach level 2."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.10",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 10",
+    "name_zh_cn": "角色栏位等级 10",
+    "summary_en": "Level 10 authors AvatarMaxNumber 10, next-level Experience none and rarity weights 5/10/20/40/25.",
+    "summary_zh_cn": "等级 10 编写 AvatarMaxNumber 10、下级经验 无 与费用权重 5/10/20/40/25。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "9",
+        "sha256": "84103ef60b2887f41f4c9756df4c9c8e2ebf92b630cd480dac4f3de80a76f30e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "9",
+        "sha256": "5e4b7515fab6c662f35f20450e9024bfa8515a5fb05701b2c811a54979fc71b2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "9",
+        "sha256": "ed95430a24d26aa76de91b8a53d080391ebd3a24f2645edec0ae85fa76eac7af",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "10",
+    "level": 10,
+    "field_cap": "10",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "",
+    "rarity_weights": [
+      "5",
+      "10",
+      "20",
+      "40",
+      "25"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "700"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "1400"
+      }
+    ],
+    "transition_rules": [
+      "Maximum authored roster level."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 2",
+    "name_zh_cn": "角色栏位等级 2",
+    "summary_en": "Level 2 authors AvatarMaxNumber 2, next-level Experience 2 and rarity weights 100/0/0/0/0.",
+    "summary_zh_cn": "等级 2 编写 AvatarMaxNumber 2、下级经验 2 与费用权重 100/0/0/0/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "1",
+        "sha256": "1484eb57b90778b639fb9118343d42a8a7fc9a2de834e117bb3c64c6e9c2cc86",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "1",
+        "sha256": "9b8e1857588a49690db680fd0d0f7cb68849b417345886da7852a186f4b6b3e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "1",
+        "sha256": "c5b1660e34551489a1185300d26aacb29f564a2642391a464958132cdcc49e67",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "2",
+    "level": 2,
+    "field_cap": "2",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "2",
+    "rarity_weights": [
+      "100",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "0"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "0"
+      }
+    ],
+    "transition_rules": [
+      "Spend 2 Experience to reach level 3."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 3",
+    "name_zh_cn": "角色栏位等级 3",
+    "summary_en": "Level 3 authors AvatarMaxNumber 3, next-level Experience 6 and rarity weights 75/25/0/0/0.",
+    "summary_zh_cn": "等级 3 编写 AvatarMaxNumber 3、下级经验 6 与费用权重 75/25/0/0/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "2",
+        "sha256": "caa3c5b3e16e36d4d998944cf23bee24d2c583ffda4e1f488f3ea156fb3dee71",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "2",
+        "sha256": "508d937940804c197e855267b08545522673c7fa4eedf92011a3867531dfea3d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "2",
+        "sha256": "c2d8f977f36e5b2c3ce8b0afc5c22f9bbee1f8e2eca96b35cc47ed9410ff2ec3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "3",
+    "level": 3,
+    "field_cap": "3",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "6",
+    "rarity_weights": [
+      "75",
+      "25",
+      "0",
+      "0",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "0"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "0"
+      }
+    ],
+    "transition_rules": [
+      "Spend 6 Experience to reach level 4."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 4",
+    "name_zh_cn": "角色栏位等级 4",
+    "summary_en": "Level 4 authors AvatarMaxNumber 4, next-level Experience 8 and rarity weights 55/30/15/0/0.",
+    "summary_zh_cn": "等级 4 编写 AvatarMaxNumber 4、下级经验 8 与费用权重 55/30/15/0/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "3",
+        "sha256": "a1f7245e2f8b4bc35ae0c2af9ef468c16a60b35d619da261b97343417b04a055",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "3",
+        "sha256": "0c7b00a20aee7f23dabd10446e7a1d1cc6efc91810bd11638951da066cf911fe",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "3",
+        "sha256": "9820cf901235cfd14072bf0b73f798d144a3edc213d5ed8c0eb3996617de1117",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "4",
+    "level": 4,
+    "field_cap": "4",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "8",
+    "rarity_weights": [
+      "55",
+      "30",
+      "15",
+      "0",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "100"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "200"
+      }
+    ],
+    "transition_rules": [
+      "Spend 8 Experience to reach level 5."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 5",
+    "name_zh_cn": "角色栏位等级 5",
+    "summary_en": "Level 5 authors AvatarMaxNumber 5, next-level Experience 20 and rarity weights 45/33/20/2/0.",
+    "summary_zh_cn": "等级 5 编写 AvatarMaxNumber 5、下级经验 20 与费用权重 45/33/20/2/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "4",
+        "sha256": "923e687d0cdc8f1d49fc6b998de6a53f9b47e350e2e9dce4214cee9cec6887db",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "4",
+        "sha256": "b4ac1ce8ae2d529546a40a3eb2090b033185b48c62298983b85345e466bd9837",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "4",
+        "sha256": "10061f83995c6a77c853d6f6123ac0d841d147d2c8a8648b2a91722ae5f936c1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "5",
+    "level": 5,
+    "field_cap": "5",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "20",
+    "rarity_weights": [
+      "45",
+      "33",
+      "20",
+      "2",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "200"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "400"
+      }
+    ],
+    "transition_rules": [
+      "Spend 20 Experience to reach level 6."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 6",
+    "name_zh_cn": "角色栏位等级 6",
+    "summary_en": "Level 6 authors AvatarMaxNumber 6, next-level Experience 36 and rarity weights 30/40/25/5/0.",
+    "summary_zh_cn": "等级 6 编写 AvatarMaxNumber 6、下级经验 36 与费用权重 30/40/25/5/0。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "5",
+        "sha256": "5ccea60066c0ce27688d7f278cdb3254e1aba620decf0414e2f4980f5a5fdb58",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "5",
+        "sha256": "f74ffaef6940a84110057ba81108196e62679a7481f865e6d56ab6d3f2a2cc38",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "5",
+        "sha256": "bfac8cdec636f0c8f97cbd33392f321dbc9f4e21fa4d4ddb8b4b6309f49ea13b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "6",
+    "level": 6,
+    "field_cap": "6",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "36",
+    "rarity_weights": [
+      "30",
+      "40",
+      "25",
+      "5",
+      "0"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "300"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "600"
+      }
+    ],
+    "transition_rules": [
+      "Spend 36 Experience to reach level 7."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 7",
+    "name_zh_cn": "角色栏位等级 7",
+    "summary_en": "Level 7 authors AvatarMaxNumber 7, next-level Experience 48 and rarity weights 19/30/40/10/1.",
+    "summary_zh_cn": "等级 7 编写 AvatarMaxNumber 7、下级经验 48 与费用权重 19/30/40/10/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "6",
+        "sha256": "e358604a38490e18ec9c8dd0fdf6976bbc15bde10c04d13a859341f2208ea8ed",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "6",
+        "sha256": "c572050b83c063cc1fbd47385f58eda807ae1379307a8517bfb69e2a3557b66f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "6",
+        "sha256": "0a08537f33ced72368919df43860899af6c733a3906d9a340edf2411bcc5424f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "7",
+    "level": 7,
+    "field_cap": "7",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "48",
+    "rarity_weights": [
+      "19",
+      "30",
+      "40",
+      "10",
+      "1"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "400"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "800"
+      }
+    ],
+    "transition_rules": [
+      "Spend 48 Experience to reach level 8."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.8",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 8",
+    "name_zh_cn": "角色栏位等级 8",
+    "summary_en": "Level 8 authors AvatarMaxNumber 8, next-level Experience 60 and rarity weights 18/25/32/22/3.",
+    "summary_zh_cn": "等级 8 编写 AvatarMaxNumber 8、下级经验 60 与费用权重 18/25/32/22/3。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "7",
+        "sha256": "8960efd4762f014645a984625986bc59da25d6469d0101ba2b6a3de652e799bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "7",
+        "sha256": "50dec195afb63545b6fa9ff74907d4801d01374cce584968ac444b5eae442e2e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "7",
+        "sha256": "9915a562cea00589f9a58eb3f8c568accceccf976b29acf64426adcfb14bcc51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "8",
+    "level": 8,
+    "field_cap": "8",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "60",
+    "rarity_weights": [
+      "18",
+      "25",
+      "32",
+      "22",
+      "3"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "500"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "1000"
+      }
+    ],
+    "transition_rules": [
+      "Spend 60 Experience to reach level 9."
+    ]
+  },
+  {
+    "id": "currency-wars.team-size.level.9",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTeamSizeState",
+    "name_en": "Roster level 9",
+    "name_zh_cn": "角色栏位等级 9",
+    "summary_en": "Level 9 authors AvatarMaxNumber 9, next-level Experience 72 and rarity weights 15/20/25/30/10.",
+    "summary_zh_cn": "等级 9 编写 AvatarMaxNumber 9、下级经验 72 与费用权重 15/20/25/30/10。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelv2-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelV2.json",
+        "locator": "8",
+        "sha256": "91c0b739fad24b83d596e4e2c909af4f28dc956cefa1fb95fdc1a7acafabde7b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightplayerlevel-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightPlayerLevel.json",
+        "locator": "8",
+        "sha256": "895adc5180e3107909b4828786654cfbbc014f7b0abe2f4df5043da0fa22f5ec",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.exceloutput-gridfightrarityweight-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightRarityWeight.json",
+        "locator": "8",
+        "sha256": "3b4b5aa89158d6166a9e3bd6ad2cdb795fa7684b65866f664d3fbcd38a196815",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "roster-level",
+      "team-size"
+    ],
+    "source_id": "9",
+    "level": 9,
+    "field_cap": "9",
+    "field_cap_source_field": "AvatarMaxNumber",
+    "positional_front_cap": "4",
+    "bench_cap": "9",
+    "next_level_experience": "72",
+    "rarity_weights": [
+      "15",
+      "20",
+      "25",
+      "30",
+      "10"
+    ],
+    "general_properties": [
+      {
+        "property_type": "AttackDelta",
+        "value": "600"
+      },
+      {
+        "property_type": "HPDelta",
+        "value": "1200"
+      }
+    ],
+    "transition_rules": [
+      "Spend 72 Experience to reach level 10."
+    ]
+  }
+]
