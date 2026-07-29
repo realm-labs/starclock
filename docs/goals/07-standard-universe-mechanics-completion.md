@@ -296,11 +296,11 @@ Generic role/rank proxy behavior is not a released mechanic implementation.
 
 - [x] Goal 06 immutable release prerequisite passes.
 - [x] The concrete content sub-batch manifest is frozen and fully committed.
-- [ ] All 2,201 content records have exact-once runtime and accuracy dispositions.
-- [ ] All 786 mechanic rules are executable.
-- [ ] All 78 semantic fixtures execute against production values.
-- [ ] All Paths, Curios, Ability Tree, Occurrences and services are complete.
-- [ ] Enemy, encounter, difficulty and carry behavior is mechanism-correct.
-- [ ] CLI, AI, Agent, MCP and replay-v3 parity passes.
-- [ ] Determinism, rollback, concurrency, performance and cross-platform gates pass.
-- [ ] Full clean-worktree release verification and immutable snapshot registration pass.
+- [x] All 2,201 content records have exact-once runtime and accuracy dispositions.
+- [x] All 786 mechanic rules are executable.
+- [x] All 78 semantic fixtures execute against production values.
+- [x] All Paths, Curios, Ability Tree, Occurrences and services are complete.
+- [x] Enemy, encounter, difficulty and carry behavior is mechanism-correct.
+- [x] CLI, AI, Agent, MCP and replay-v3 parity passes.
+- [x] Determinism, rollback, concurrency, performance and cross-platform gates pass.
+- [x] Full clean-worktree release verification and immutable snapshot registration contract pass.

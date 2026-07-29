@@ -39,6 +39,16 @@ assert(!commands.some((command) =>
 assert(!commands.some((command) =>
   command.includes("tools/goal05/") || command.includes("tools/goal06/")),
 "global generated drift still reruns a completed Goal 05/06 batch against current source");
+assert(commands.includes(
+  "node tools/goal07/verify-release-contract.mjs . --release"),
+"global generated drift does not verify the Goal 07 release contract");
+assert(!commands.some((command) =>
+  command.includes("tools/goal07/verify-foundation.mjs")
+  || command.includes("tools/goal07/verify-retained-audit.mjs")
+  || command.includes("tools/goal07/verify-partitions.mjs")
+  || command.includes("tools/goal07/verify-phase0.mjs")
+  || command.includes("tools/goal07/verify-phase1-b1.mjs")),
+"global generated drift still reruns a completed Goal 07 foundation batch");
 assert(workflow.includes("fetch-depth: 0") && !workflow.includes("tools/goal04/run-native-ci.mjs"),
   "CI cannot resolve immutable snapshots or still reruns historical Goal 04 gates");
 assert(workspacePolicy.schema_revision === "starclock.workspace-dependencies.v1"

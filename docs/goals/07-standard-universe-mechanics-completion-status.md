@@ -5,10 +5,10 @@
 | Field | Value |
 |---|---|
 | Goal ID | `standard-universe-mechanics-complete-v1` |
-| State | `InProgress` |
-| Active phase | Phase 7 — Audit and release |
-| Active batch | `G07-P7-B3` |
-| Next unblocked batch | `G07-P7-B3` |
+| State | `Complete` |
+| Active phase | None |
+| Active batch | None |
+| Next unblocked batch | None |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -395,8 +395,10 @@ replay mutations, all eight ordered divergence boundaries and native Agent/MCP
 surface checks in 256.3 seconds. The full repository gate passes after
 separating immutable Goal 01/06 evidence from current production regeneration;
 historical bytes are checked from registered completion snapshots while current
-Excel/Sora artifacts retain their own regeneration gates. `G07-P7-B3` is
-active.
+Excel/Sora artifacts retain their own regeneration gates. P7-B3 now freezes
+the complete 121-row ledger, release contract and evidence inventory. Its
+containing commit is the immutable completion target; snapshot registration
+follows in the dedicated release-registration commit.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
 model. All 104 completed partitions use scoped Excel/Sora semantic
@@ -446,14 +448,14 @@ verification commands are recorded in
 | `G07-P6-B4` | `Complete` | `node tools/goal07/verify-performance.mjs`; Goal 06 stable-runner benchmark on current complete content; integrated/hardening/quick acceptance samples | Reused the exact Win10/i7-10700F/Rust 1.97 stable runner and unchanged Goal 06 workload. Warm assembly completes 10,000 hits in 14.62 ms with zero allocations; cold all-entry assembly retains one catalog composition, 33 misses and 26 evictions under the reviewed 90 s/30 GB cumulative/640 MiB peak ceilings. Eviction and 16-session rows retain exact cache/catalog shapes. Four material regression groups caused by 786-rule/86-enemy/real-build scope expansion are explicit; the out-of-contract Goal 04 64-session timeout is not promoted to evidence. |
 | `G07-P7-B1` | `Complete` | `node tools/goal07/verify-release-audits.mjs`; production Excel/Sora double regeneration; dependency/license, native-handler and source-policy audits | Proved exact-once 104-receipt coverage; 2,201 bilingual DataReady rows and 2,645 licensed provenance rows; zero workbook/Sora drift; 136 unchanged registry identities plus one reviewed internal build-compiler edge; 427 terminal native reviews with zero admissions; and 73/73 terminal numeric candidates with zero mechanic approximations. |
 | `G07-P7-B2` | `Complete` | `node tools/goal07/run-native-release.mjs . --record`; replay/Agent property and malformed corpora; 33-run complete-content matrix; `node tools/repository-check/run.mjs --full` | Added the Goal 07 gate to all three native CI hosts and retained three alternate targets as compile-only. Windows x64 passed in 256.3 seconds with 33 fresh replay verifications, 154 battles, 1,048 command/state pairs, 256-case replay properties, 512-case schema properties, 16 inert replay mutations and all eight divergence boundaries. The full workspace gate passes against current artifacts plus immutable historical snapshots. |
-| `G07-P7-B3` | `Pending` | — | Freeze release and register immutable snapshot. |
+| `G07-P7-B3` | `Complete` | `node tools/goal07/verify-release-contract.mjs . --release`; final 121-row ledger; release evidence; full repository gate | Froze the Released contract, 17 complete fixed batches, 104 complete generated content batches, terminal 2,201/786/78/86/173 coverage, release inventories and the completion-tree registration contract. |
 
 ## Content milestone ledger
 
 These are coverage milestones, not permission to make one oversized commit.
 The complete 104-row generated ledger is maintained in
 [Goal 07 content ledger](07-standard-universe-mechanics-content-ledger.md).
-Validated completion state is maintained separately in
+The same validated completion state is also detailed in
 [Goal 07 content progress](07-standard-universe-mechanics-content-progress.md).
 The milestone summary remains here for orientation.
 
@@ -473,7 +475,7 @@ The milestone summary remains here for orientation.
 | `G07-P3-M12` | `Complete` | 42 / 42 | Negative/error/repair/replacement Curios complete. |
 | `G07-P4-M13` | `Complete` | 447 / 447 | Occurrence choices and effects complete. |
 | `G07-P4-M14` | `Complete` | 94 / 94 | Services, shops, roster and interactables complete. |
-| `G07-P5-M15` | `Expanded` | 0 / 959 | Enemy, encounter, World/difficulty and carry complete. |
+| `G07-P5-M15` | `Complete` | 959 / 959 | Enemy, encounter, World/difficulty and carry complete. |
 
 ## Starting coverage
 
@@ -524,10 +526,10 @@ The milestone summary remains here for orientation.
 
 | Field | Value |
 |---|---|
-| Final state | In progress |
-| Completion commit | — |
+| Final state | `Complete` |
+| Completion commit | This row's containing commit (`G07-P7-B3`) |
 | Expanded batch denominator | 121 total: 17 fixed + 104 generated content batches |
-| Runtime coverage | 3 / 786 executable starting point |
-| Numeric approximation register | 73 candidates under `goal07-public-anchor-level-curve-v1`; per-variant inputs remain partition work |
-| Cross-platform evidence | To be generated |
-| Release evidence | To be generated |
+| Runtime coverage | 2,201 / 2,201 content records; 786 / 786 rules; 78 / 78 semantic fixtures; 86 / 86 enemy variants; 173 / 173 encounter members |
+| Numeric approximation register | 73 / 73 terminal: 24 `ExactPublic`, 49 approved numeric approximations, 0 mechanic approximations |
+| Cross-platform evidence | Three required native profiles and three compile-only profiles; Windows x64 recorded locally |
+| Release evidence | `evidence/standard-universe-mechanics-complete-v1/release/release-evidence.json` |
