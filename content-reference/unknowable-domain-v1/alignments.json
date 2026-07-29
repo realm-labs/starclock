@@ -1,0 +1,279 @@
+[
+  {
+    "id": "unknowable-domain.alignment.break",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ExtrapolationAlignment",
+    "name_en": "Break",
+    "name_zh_cn": "击破",
+    "summary_en": "Break is a released Extrapolation Alignment with 6 directly style-matched Scepter candidates and 2 default-area binding(s).",
+    "summary_zh_cn": "击破是已发布的推演倾向，拥有 6 个直接按风格匹配的权杖候选与 2 个默认区域绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "3",
+        "sha256": "d8c59d279873db3caeeae8ab552d38678e2943f38d0abce02cd6c14109ef5dfa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "0",
+        "sha256": "893388f5e2d3531ad72afc3caa0ef5452ac969caabe99ffd420b92a05f2d260b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "alignment",
+      "break"
+    ],
+    "source_id": "Break",
+    "display_id": "101",
+    "display_text_en": "First Plane",
+    "display_text_zh_cn": "第一位面",
+    "unlock_id": "5013002",
+    "eligibility": "RequiresUnlock",
+    "selection_cardinality": "Unspecified",
+    "default_area_ids": [
+      "unknowable-domain.area.401",
+      "unknowable-domain.area.801"
+    ],
+    "scepter_candidate_ids": [
+      "unknowable-domain.scepter.2005",
+      "unknowable-domain.scepter.2006",
+      "unknowable-domain.scepter.2012",
+      "unknowable-domain.scepter.3009",
+      "unknowable-domain.scepter.3010",
+      "unknowable-domain.scepter.3011"
+    ],
+    "component_candidate_ids": [],
+    "component_pool_resolution": "Unspecified",
+    "pool_ids": [
+      "unknowable-domain.pool.scepters.break"
+    ],
+    "rule_contribution_ids": [],
+    "contribution_resolution": "DeferredToScepterAndComponentRules"
+  },
+  {
+    "id": "unknowable-domain.alignment.dot",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ExtrapolationAlignment",
+    "name_en": "Damage over Time",
+    "name_zh_cn": "持续伤害",
+    "summary_en": "Damage over Time is a released Extrapolation Alignment with 6 directly style-matched Scepter candidates and 2 default-area binding(s).",
+    "summary_zh_cn": "持续伤害是已发布的推演倾向，拥有 6 个直接按风格匹配的权杖候选与 2 个默认区域绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "1",
+        "sha256": "ece06450bc35977457bf6d1cbb866d7a1dc9ca3883bd7514c7ea51b913eed625",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "1",
+        "sha256": "48e81c193e447f01d3dc9d9768d808dcea879310565d52e04d74963d7c66b12d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "alignment",
+      "dot"
+    ],
+    "source_id": "Dot",
+    "display_id": "102",
+    "display_text_en": "Second Plane",
+    "display_text_zh_cn": "第二位面",
+    "unlock_id": "5013017",
+    "eligibility": "RequiresUnlock",
+    "selection_cardinality": "Unspecified",
+    "default_area_ids": [
+      "unknowable-domain.area.201",
+      "unknowable-domain.area.802"
+    ],
+    "scepter_candidate_ids": [
+      "unknowable-domain.scepter.2001",
+      "unknowable-domain.scepter.2007",
+      "unknowable-domain.scepter.2008",
+      "unknowable-domain.scepter.2013",
+      "unknowable-domain.scepter.3001",
+      "unknowable-domain.scepter.3005"
+    ],
+    "component_candidate_ids": [],
+    "component_pool_resolution": "Unspecified",
+    "pool_ids": [
+      "unknowable-domain.pool.scepters.dot"
+    ],
+    "rule_contribution_ids": [],
+    "contribution_resolution": "DeferredToScepterAndComponentRules"
+  },
+  {
+    "id": "unknowable-domain.alignment.follow",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ExtrapolationAlignment",
+    "name_en": "Follow-up Attack",
+    "name_zh_cn": "追加攻击",
+    "summary_en": "Follow-up Attack is a released Extrapolation Alignment with 6 directly style-matched Scepter candidates and 2 default-area binding(s).",
+    "summary_zh_cn": "追加攻击是已发布的推演倾向，拥有 6 个直接按风格匹配的权杖候选与 2 个默认区域绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "2",
+        "sha256": "23e52556f1d6e22966450e9b8241513d023b2ef00da762239b44e8754cd48092",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "3",
+        "sha256": "614d3388791db29114ac9163ec8c4c9f8680e82dac38e4acabb5f7fb8afde853",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "alignment",
+      "follow"
+    ],
+    "source_id": "Follow",
+    "display_id": "104",
+    "display_text_en": "Fourth Plane",
+    "display_text_zh_cn": "第四位面",
+    "unlock_id": "5013001",
+    "eligibility": "RequiresUnlock",
+    "selection_cardinality": "Unspecified",
+    "default_area_ids": [
+      "unknowable-domain.area.301",
+      "unknowable-domain.area.805"
+    ],
+    "scepter_candidate_ids": [
+      "unknowable-domain.scepter.2002",
+      "unknowable-domain.scepter.2004",
+      "unknowable-domain.scepter.2010",
+      "unknowable-domain.scepter.3002",
+      "unknowable-domain.scepter.3003",
+      "unknowable-domain.scepter.3008"
+    ],
+    "component_candidate_ids": [],
+    "component_pool_resolution": "Unspecified",
+    "pool_ids": [
+      "unknowable-domain.pool.scepters.follow"
+    ],
+    "rule_contribution_ids": [],
+    "contribution_resolution": "DeferredToScepterAndComponentRules"
+  },
+  {
+    "id": "unknowable-domain.alignment.ultimate",
+    "schema_revision": "starclock.unknowable-domain-row.v1",
+    "kind": "ExtrapolationAlignment",
+    "name_en": "Ultimate",
+    "name_zh_cn": "终结技",
+    "summary_en": "Ultimate is a released Extrapolation Alignment with 6 directly style-matched Scepter candidates and 7 default-area binding(s).",
+    "summary_zh_cn": "终结技是已发布的推演倾向，拥有 6 个直接按风格匹配的权杖候选与 7 个默认区域绑定。",
+    "ownership": "UnknowableDomain",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicstyletypeselect-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicStyleTypeSelect.json",
+        "locator": "0",
+        "sha256": "b44ba82ce2e7ec2a95a2314adb6142caded9f217748785e6af2da3e550fbf097",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal10.exceloutput-roguemagicmiscdisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/RogueMagicMiscDisplay.json",
+        "locator": "2",
+        "sha256": "57b0286a2692bbc493c0132106d0a8c7482de5f191ba08db9c32393bd6ffaaab",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "alignment",
+      "ultimate"
+    ],
+    "source_id": "Ultimate",
+    "display_id": "103",
+    "display_text_en": "Third Plane",
+    "display_text_zh_cn": "第三位面",
+    "unlock_id": "",
+    "eligibility": "AvailableByDefault",
+    "selection_cardinality": "Unspecified",
+    "default_area_ids": [
+      "unknowable-domain.area.101",
+      "unknowable-domain.area.501",
+      "unknowable-domain.area.601",
+      "unknowable-domain.area.701",
+      "unknowable-domain.area.803",
+      "unknowable-domain.area.804",
+      "unknowable-domain.area.806"
+    ],
+    "scepter_candidate_ids": [
+      "unknowable-domain.scepter.2003",
+      "unknowable-domain.scepter.2009",
+      "unknowable-domain.scepter.2011",
+      "unknowable-domain.scepter.3004",
+      "unknowable-domain.scepter.3006",
+      "unknowable-domain.scepter.3007"
+    ],
+    "component_candidate_ids": [],
+    "component_pool_resolution": "Unspecified",
+    "pool_ids": [
+      "unknowable-domain.pool.scepters.ultimate"
+    ],
+    "rule_contribution_ids": [],
+    "contribution_resolution": "DeferredToScepterAndComponentRules"
+  }
+]
