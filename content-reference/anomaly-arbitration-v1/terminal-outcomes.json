@@ -1,0 +1,169 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "terminal-outcomes.json",
+  "record_kind": "TerminalOutcome",
+  "records": [
+    {
+      "id": "outcome.king-normal-clear",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "King normal clear",
+      "name_zh_cn": "常规王棋通关",
+      "summary_en": "King normal clear terminates the current stage attempt; it records the King result and evaluates its targets.",
+      "summary_zh_cn": "常规王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "terminal_outcomes:king-normal-clear"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-normal-clear",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage and King in Check Stage",
+          "sha256": "f7f9a50579e6d22c59b92fb6109761d67e7430fbe96ea0a6b2164807dde51b18",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "The King stage has its own clear and target evaluation result."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "success",
+        "terminal-outcome"
+      ],
+      "stage_scope": "KingNormal",
+      "result": "Success",
+      "projection_summary": "records the King result and evaluates its targets",
+      "detailed_projection_owner_batch": "G13-P1-B6",
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.king-plight-clear",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "King Plight clear",
+      "name_zh_cn": "绝境王棋通关",
+      "summary_en": "King Plight clear terminates the current stage attempt; it treats all Knight stages as three-star clears before downstream settlement.",
+      "summary_zh_cn": "绝境王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "terminal_outcomes:king-plight-clear"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-plight-clear",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "King in Check Stage direct Plight clear",
+          "sha256": "bc5f0f4471b08d57c2e1aa95494131ef0be5d9ef15367946e891c17ff0b78e6f",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Direct Plight victory counts all Knight stages as three-star clears."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "success",
+        "terminal-outcome"
+      ],
+      "stage_scope": "KingPlight",
+      "result": "Success",
+      "projection_summary": "treats all Knight stages as three-star clears before downstream settlement",
+      "detailed_projection_owner_batch": "G13-P1-B3",
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.knight-stage-clear",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "Knight stage clear",
+      "name_zh_cn": "骑士关通关",
+      "summary_en": "Knight stage clear terminates the current stage attempt; it records this Knight team and independently evaluated stars.",
+      "summary_zh_cn": "骑士关通关会终止当前关卡尝试，并执行对应的记录或结算投影。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "terminal_outcomes:knight-stage-clear"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Knight Stage and King in Check Stage",
+          "sha256": "7b4d6c1bb9ab03c93555fbc9489befb3fc3c84b9d3030de0a1a167400af32394",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "A cleared Knight stage records its team and independently evaluated stars."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "success",
+        "terminal-outcome"
+      ],
+      "stage_scope": "Knight",
+      "result": "Success",
+      "projection_summary": "records this Knight team and independently evaluated stars",
+      "detailed_projection_owner_batch": "G13-P1-B6",
+      "runtime_executable": false
+    },
+    {
+      "id": "outcome.stage-attempt-failure",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "TerminalOutcome",
+      "name_en": "Stage attempt failure",
+      "name_zh_cn": "关卡挑战失败",
+      "summary_en": "Stage attempt failure terminates the current stage attempt; it does not create a successful stage record.",
+      "summary_zh_cn": "关卡挑战失败会终止当前关卡尝试，并执行对应的记录或结算投影。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "terminal_outcomes:stage-attempt-failure"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Cycles",
+          "sha256": "e6fdecee80d1841c37c8ca2c5577e4363a3c6b9ae8fa69801fbc4f6f43adf22d",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exceeding the stage's own cycle limit makes the attempt fail."
+        }
+      ],
+      "tags": [
+        "attempt",
+        "failure",
+        "terminal-outcome"
+      ],
+      "stage_scope": "Any",
+      "result": "Failure",
+      "projection_summary": "does not create a successful stage record",
+      "detailed_projection_owner_batch": "G13-P1-B6",
+      "runtime_executable": false
+    }
+  ]
+}

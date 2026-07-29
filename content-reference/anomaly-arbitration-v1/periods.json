@@ -1,0 +1,131 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "periods.json",
+  "record_kind": "Period",
+  "records": [
+    {
+      "id": "period.8",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Period",
+      "name_en": "Enwreathed by the World",
+      "name_zh_cn": "尘世卷中",
+      "summary_en": "Version 4.4 rotation 8 binds aliases 801-804 to four normal encounters and one Plight variant.",
+      "summary_zh_cn": "4.4 版本第 8 期，将别名 801–804 绑定到四个常规遭遇与一个绝境变体。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "mechanism_quality": "IdentityCrossCheck",
+      "manifest_record_ids": [
+        "active_periods:period:8"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakGroupConfig.json",
+          "locator": "row=7;ID=8",
+          "sha256": "b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Exact group, title hash and alias relationships."
+        },
+        {
+          "source_id": "public:hoyolab:45950079",
+          "repository_or_url": "https://www.hoyolab.com/article/45950079",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/45950079",
+          "locator": "title",
+          "sha256": "3faaf7f7bf9c95d6d149b456b1be2ec5a2e5397b6976dcaf3689e5edc85b7eea",
+          "evidence_quality": "Observed",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "4.4 Anomaly Arbitration Nr 8 | 2026/07/15 - 2026/08/25"
+        },
+        {
+          "source_id": "public:hsrtierlist:anomaly-arbitration-4-4",
+          "repository_or_url": "https://hsrtierlist.net/anomaly-arbitration/4-4",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://hsrtierlist.net/anomaly-arbitration/4-4",
+          "locator": "Version and stage overview",
+          "sha256": "c74f66b572dbe2fc8c3cbf9f6e03670f28a2789cdc8172b57d30c22ade4c7ed1",
+          "evidence_quality": "Observed",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Version 4.4 Enwreathed by the World; 2026-07-15 through 2026-08-26; Knight I-III, King and Plight."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13457040013447238093",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapCHS.json",
+          "locator": "Hash=13457040013447238093",
+          "sha256": "289b9655562d73cab5b1f7e2204b2d1d7a93d047bf1db7fec346f8a5284558ef",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact zh_cn name for the referenced TextMap hash."
+        },
+        {
+          "source_id": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13457040013447238093",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "TextMap/TextMapEN.json",
+          "locator": "Hash=13457040013447238093",
+          "sha256": "db35fd5b0ead890e7dc3295a6c446df989a1734cbca2f9994f02ada429415ee5",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Exact en name for the referenced TextMap hash."
+        }
+      ],
+      "tags": [
+        "active-at-snapshot",
+        "period",
+        "version-4.4"
+      ],
+      "source_group_id": "8",
+      "active_at_snapshot": true,
+      "structured_access_date": "2026-07-22",
+      "observed_start_date": "2026-07-15",
+      "observed_end_dates": [
+        "2026-08-25",
+        "2026-08-26"
+      ],
+      "alias_ids": [
+        "801",
+        "802",
+        "803",
+        "804"
+      ],
+      "stage_ids": [
+        "30508011",
+        "30508012",
+        "30508013",
+        "30508021",
+        "30508022"
+      ],
+      "approximations": [
+        {
+          "field_path": "observed_end_dates",
+          "unavailable_fact": "The released structured snapshot has no timezone-aware period boundary and public pages display adjacent end dates.",
+          "selected_policy": "Preserve both source-local observed dates and make no canonical instant claim.",
+          "alternatives": [
+            "choose the HoYoLAB display date",
+            "choose the independent guide display date"
+          ],
+          "rationale": "The one-day difference is consistent with locale/timezone presentation but no released offset was captured.",
+          "affected_fixture_ids": [
+            "fixture.profile-entry.period-window"
+          ],
+          "confidence": "High",
+          "replacement_condition": "Replace with an exact timezone-aware start/end instant from released structured or official text evidence."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}

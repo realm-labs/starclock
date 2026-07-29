@@ -1,0 +1,133 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "profiles.json",
+  "record_kind": "Profile",
+  "records": [
+    {
+      "id": "anomaly-arbitration-v1",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "Profile",
+      "name_en": "Anomaly Arbitration",
+      "name_zh_cn": "异相仲裁",
+      "summary_en": "A permanent high-difficulty activity whose period replaces three Knight stages and one King stage.",
+      "summary_zh_cn": "常驻高难玩法，每期更新三个骑士关与一个王棋关的资料边界。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "mode_constants:constant:ChallengePeak_Entrance",
+        "mode_constants:constant:ChallengePeak_Entrance_MapInfo",
+        "mode_constants:constant:ChallengePeak_Pre_Quest",
+        "mode_constants:constant:ChallengePeak_TutorialMissionID",
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration-gameplay-guide",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "Availability, Participation Requirement and How to Play",
+          "sha256": "800956b17300decec3e0954b7dec5a5c34609fe432c8a660dd41ff4a457257f8",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Released official guide: permanent periodically updated mode; Equilibrium 6 plus maximum-star records in the three rotating endgame modes; three Knight stages in arbitrary order and one King stage."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakGroupConfig.json:row=7;ID=8",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakGroupConfig.json",
+          "locator": "row=7;ID=8",
+          "sha256": "b11dbeb1adf80da2e678de9eb0b1a8f297294ffa8dce0c4dbe0e44990c954adb",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "IdentityCrossCheck",
+          "note": "Pinned active group anchors the Version 4.4 profile instance."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=0;ConstValueName=ChallengePeak_Pre_Quest",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=0;ConstValueName=ChallengePeak_Pre_Quest",
+          "sha256": "868a4bc94cab5138437df7b9d66878540006f3e54f939b1d26ec86006de58c6b",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured prerequisite quest locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=20;ConstValueName=ChallengePeak_Entrance_MapInfo",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=20;ConstValueName=ChallengePeak_Entrance_MapInfo",
+          "sha256": "6b1c12aa1f5f48d1428088dcba8e7fd20326cf85882899fa13d2320858213642",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured entrance map locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=21;ConstValueName=ChallengePeak_Entrance",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=21;ConstValueName=ChallengePeak_Entrance",
+          "sha256": "db4cd07f03c41912646b8bd662f0a75c82d90f7af94431528b0a17fb538ddf4c",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured entrance locator."
+        },
+        {
+          "source_id": "turnbasedgamedata:ExcelOutput/ChallengePeakCommonConst.json:row=24;ConstValueName=ChallengePeak_TutorialMissionID",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/ChallengePeakCommonConst.json",
+          "locator": "row=24;ConstValueName=ChallengePeak_TutorialMissionID",
+          "sha256": "2bd713118b4fc0d6462bf94ab1c61b03176ede80ed516a2c5c81dc933d9598f3",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ContextOnly",
+          "note": "Structured tutorial mission locator."
+        }
+      ],
+      "tags": [
+        "activity",
+        "high-difficulty",
+        "periodic",
+        "profile"
+      ],
+      "availability": "PermanentWithPeriodicStages",
+      "minimum_equilibrium_level": 6,
+      "participation_requirements": [
+        "equilibrium-level-at-least-6",
+        "maximum-stars-in-highest-memory-of-chaos-stage",
+        "maximum-stars-in-highest-pure-fiction-stage",
+        "maximum-stars-in-highest-apocalyptic-shadow-stage"
+      ],
+      "requirements_may_be_completed_in_different_versions": true,
+      "entry_locators": {
+        "prerequisite_quest_id": "2200506",
+        "entrance_map_id": "2116",
+        "entrance_id": "100000352",
+        "tutorial_mission_id": "8036301"
+      },
+      "active_period_id": "period.8",
+      "stage_ids": [
+        "stage.knight-1",
+        "stage.knight-2",
+        "stage.knight-3",
+        "stage.king-normal",
+        "stage.king-plight"
+      ],
+      "runtime_executable": false
+    }
+  ]
+}
