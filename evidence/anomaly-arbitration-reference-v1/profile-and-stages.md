@@ -56,3 +56,24 @@ of one character are separate uniqueness identities. The normalized policy
 therefore rejects duplicate base character IDs, retains character-plus-Path as
 an authored form key, labels that form key `ProjectPolicy`, and supplies a
 replacement condition. This is not presented as observed parity.
+
+## King protection and Plight
+
+The official guide says Knight-stage protection greatly enhances the King,
+recommends clearing all three Knights to cut their energy transmission, and
+states that a direct Plight clear counts as a three-star clear of every Knight
+stage. The active structured selector separately closes to normal StageConfig
+30508021 and Plight StageConfig 30508022.
+
+Released evidence does not expose numeric protection effects, whether the
+protection weakens after each individual Knight clear, or the precise
+normal-difficulty unlock predicate. The reference therefore tracks three named
+boolean transmissions only for lifecycle audit, records no numeric stacking
+claim, and labels per-clear/reset transitions as replaceable policy
+boundaries. Normal availability after all three clears remains the same
+released-text approximation frozen in `G13-P1-B1`.
+
+The exact Plight projection is limited to three-star result equivalence.
+Account rewards stay excluded. Because no Knight battles occurred, synthetic
+team snapshots are not fabricated; that fail-closed choice has its own
+replacement condition.

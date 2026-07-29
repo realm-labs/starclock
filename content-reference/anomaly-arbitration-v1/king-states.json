@@ -1,0 +1,158 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "king-states.json",
+  "record_kind": "KingState",
+  "records": [
+    {
+      "id": "king-state.normal",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingState",
+      "name_en": "Normal King state",
+      "name_zh_cn": "常规王棋状态",
+      "summary_en": "The normal King reference selects StageConfig 30508021 after all three Knight transmissions are cut.",
+      "summary_zh_cn": "常规王棋资料在三路骑士能量输送全部阻断后选择 StageConfig 30508021。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "king_state_transitions:normal-king-state"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:StageConfig:30508021",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508021",
+          "sha256": "77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Released normal King StageConfig selected by active alias 804."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:knight-protection",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "How to Play and King in Check Stage",
+          "sha256": "788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge."
+        },
+        {
+          "source_id": "goal13:king-state-transitions:normal-king-state",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 6",
+          "sha256": "6bdce9d2491bf4581dee4e21037605da432209ae21553ba62fc6db1f00470f38",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "The exact normal-difficulty availability transition is retained as a replaceable policy."
+        }
+      ],
+      "tags": [
+        "king",
+        "normal",
+        "state"
+      ],
+      "state_order": 20,
+      "stage_id": "stage.king-normal",
+      "source_stage_id": "30508021",
+      "required_cleared_knight_count": 3,
+      "protection_contribution_count": 0,
+      "availability": "AfterAllThreeKnightClears",
+      "approximations": [
+        {
+          "field_path": "availability",
+          "unavailable_fact": "Official released text recommends cutting all three transmissions but does not define the normal-stage unlock predicate.",
+          "selected_policy": "Expose normal King only after all three current Knight clears.",
+          "alternatives": [
+            "normal King always selectable",
+            "normal King weakens incrementally after each Knight clear"
+          ],
+          "rationale": "This matches released independent observation and keeps the official recommendation fail-closed.",
+          "affected_fixture_ids": [
+            "fixture.king-protection.normal-unlock"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace when released structured data or official instructions state the normal King availability selector."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "king-state.plight",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingState",
+      "name_en": "Plight King state",
+      "name_zh_cn": "困厄王棋状态",
+      "summary_en": "The direct Plight alternative selects StageConfig 30508022 while Knight protection remains active.",
+      "summary_zh_cn": "直接挑战困厄难度时，在骑士保护仍生效的情况下选择 StageConfig 30508022。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "king_state_transitions:plight-state"
+      ],
+      "source_refs": [
+        {
+          "source_id": "turnbasedgamedata:StageConfig:30508022",
+          "repository_or_url": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+          "revision_or_access_date": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+          "game_version": "4.4",
+          "path_or_page": "ExcelOutput/StageConfig.json",
+          "locator": "StageID=30508022",
+          "sha256": "d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6",
+          "evidence_quality": "ExactStructured",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Released Plight King StageConfig selected by active alias 804."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:knight-protection",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "How to Play and King in Check Stage",
+          "sha256": "788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge."
+        },
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:direct-plight-clear",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "King in Check Stage",
+          "sha256": "7c95d97a0e01b026341188cc380c329b15c0212025fbb8d853d6b577e353f3b4",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Directly defeating the Plight King counts as three-star clearing all Knight stages."
+        }
+      ],
+      "tags": [
+        "king",
+        "plight",
+        "state"
+      ],
+      "state_order": 10,
+      "stage_id": "stage.king-plight",
+      "source_stage_id": "30508022",
+      "availability": "DirectAlternative",
+      "protection_state": "ActiveKnightProtection",
+      "direct_clear_shortcut_id": "king-protection.direct-plight-shortcut",
+      "runtime_executable": false
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "king-protection.json",
+  "record_kind": "KingProtectionRule",
+  "records": [
+    {
+      "id": "king-protection.composition",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingProtectionRule",
+      "name_en": "Knight protection composition",
+      "name_zh_cn": "骑士保护组成",
+      "summary_en": "Three named Knight-clear contributions form the auditable protection boundary around the King.",
+      "summary_zh_cn": "三条具名骑士通关贡献共同构成王棋保护的可审计边界。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "king_state_transitions:king-protection-composition"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:knight-protection",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "How to Play and King in Check Stage",
+          "sha256": "788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge."
+        },
+        {
+          "source_id": "goal13:king-state-transitions:king-protection-composition",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 6",
+          "sha256": "880f0a8975888dcd1a0f0d6f28d977d31dc871eac4ef7f020668f5948eebed96",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "The released guide names three transmissions but does not expose their numeric composition."
+        }
+      ],
+      "tags": [
+        "composition",
+        "king",
+        "protection"
+      ],
+      "contribution_order": 10,
+      "contribution_ids": [
+        "knight-clear-contribution.knight-1",
+        "knight-clear-contribution.knight-2",
+        "knight-clear-contribution.knight-3"
+      ],
+      "active_contribution_rule": "OneProtectionContributionPerUnclearedKnightStage",
+      "numeric_effects": "Unavailable",
+      "approximations": [
+        {
+          "field_path": "active_contribution_rule",
+          "unavailable_fact": "Released text does not state whether protection is one aggregate gate or three independently weakening contributions.",
+          "selected_policy": "Track one boolean transmission per Knight solely for lifecycle accounting; make no numeric stacking claim.",
+          "alternatives": [
+            "single protection gate removed after three clears",
+            "three distinct numeric protection stacks"
+          ],
+          "rationale": "Named per-Knight booleans support reset and teardown auditing without inventing combat values.",
+          "affected_fixture_ids": [
+            "fixture.king-protection.three-contributions"
+          ],
+          "confidence": "Low",
+          "replacement_condition": "Replace with released ability/config selectors or reproducible observations that identify contribution composition."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "king-protection.knight-clear-contribution",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingProtectionRule",
+      "name_en": "Knight clear contribution",
+      "name_zh_cn": "骑士通关贡献",
+      "summary_en": "A current Knight clear cuts that stage's named transmission in the reference lifecycle.",
+      "summary_zh_cn": "骑士关当前通关会在资料生命周期中阻断该关具名能量输送。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ApproximateFromReleasedText",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "king_state_transitions:knight-clear-contribution"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:knight-protection",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "How to Play and King in Check Stage",
+          "sha256": "788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge."
+        },
+        {
+          "source_id": "goal13:king-state-transitions:knight-clear-contribution",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 6",
+          "sha256": "b37bb7e53768e392a1ea8035a845ad7e2d78c40273026838fdddff37f4ce4e14",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Per-Knight teardown ordering is explicit and replaceable."
+        }
+      ],
+      "tags": [
+        "clear",
+        "knight",
+        "protection"
+      ],
+      "contribution_order": 20,
+      "trigger": "CurrentKnightClearCommitted",
+      "projection": "DeactivateMatchingKnightTransmission",
+      "evaluation_order": [
+        "CommitKnightClear",
+        "DeactivateMatchingTransmission",
+        "RecomputeKingAvailability"
+      ],
+      "approximations": [
+        {
+          "field_path": "projection",
+          "unavailable_fact": "Official text says to complete all three and cut their transmissions but does not expose the per-clear state update.",
+          "selected_policy": "Deactivate the matching boolean contribution after its successful clear.",
+          "alternatives": [
+            "deactivate all protection only after the third clear"
+          ],
+          "rationale": "The policy preserves a deterministic auditable transition without numeric combat claims.",
+          "affected_fixture_ids": [
+            "fixture.king-protection.knight-clear"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace when released evidence identifies the exact per-clear protection update."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "king-protection.reset-and-teardown",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingProtectionRule",
+      "name_en": "Protection reset and teardown",
+      "name_zh_cn": "保护重置与拆除",
+      "summary_en": "Resetting a current Knight clear restores its transmission before King availability is reevaluated.",
+      "summary_zh_cn": "重置骑士关当前通关时，先恢复该关能量输送，再重新评估王棋可用状态。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "king_state_transitions:protection-removal-and-teardown"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:knight-protection",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "How to Play and King in Check Stage",
+          "sha256": "788a93fb1dd328b2565836e6ac63ebd93a2dcb1971bf18187f3eb58fac70c6c6",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Knight-stage protection greatly enhances the King; the guide recommends clearing all three Knights to cut their energy transmission before the King challenge."
+        },
+        {
+          "source_id": "goal13:king-state-transitions:protection-removal-and-teardown",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 6",
+          "sha256": "c3309e1ec86923eb1234e7591a8ff193a819353ee434e076cb70973195f24ef8",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "The Goal lifecycle requires explicit reset and teardown order."
+        }
+      ],
+      "tags": [
+        "king",
+        "reset",
+        "teardown"
+      ],
+      "contribution_order": 30,
+      "clear_transition": "DeactivateMatchingKnightTransmission",
+      "reset_transition": "ReactivateMatchingKnightTransmission",
+      "ordered_reset_projection": [
+        "InvalidateCurrentKnightClear",
+        "ReactivateMatchingKnightTransmission",
+        "RevokeNormalKingAvailabilityIfAnyTransmissionActive"
+      ],
+      "best_battle_record_effect": "Unchanged",
+      "approximations": [
+        {
+          "field_path": "ordered_reset_projection",
+          "unavailable_fact": "Released text separates current reset from Best Battle Records but does not state King-protection reset ordering.",
+          "selected_policy": "Restore the matching transmission atomically with current-record invalidation and reevaluate normal availability afterward.",
+          "alternatives": [
+            "retain removed protection after current reset",
+            "defer protection restoration until another King attempt"
+          ],
+          "rationale": "Restoration mirrors current-state loss while preserving the exact Best Battle Record separation.",
+          "affected_fixture_ids": [
+            "fixture.king-protection.reset-restores-transmission"
+          ],
+          "confidence": "Medium",
+          "replacement_condition": "Replace with released transition evidence covering a Knight reset after normal King becomes available."
+        }
+      ],
+      "runtime_executable": false
+    },
+    {
+      "id": "king-protection.direct-plight-shortcut",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "KingProtectionRule",
+      "name_en": "Direct Plight clear shortcut",
+      "name_zh_cn": "困厄直通捷径",
+      "summary_en": "A direct Plight clear projects three-star equivalence to all Knight stages without claiming account rewards.",
+      "summary_zh_cn": "直接通关困厄王棋会向全部骑士关投影三星等价结果，但不纳入账号奖励。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ExactPublicText",
+      "mechanism_quality": "ExactRelationship",
+      "manifest_record_ids": [
+        "king_state_transitions:direct-plight-clear-shortcut"
+      ],
+      "source_refs": [
+        {
+          "source_id": "official:hoyolab:anomaly-arbitration:direct-plight-clear",
+          "repository_or_url": "https://www.hoyolab.com/article/41091494",
+          "revision_or_access_date": "accessed 2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "https://www.hoyolab.com/article/41091494",
+          "locator": "King in Check Stage",
+          "sha256": "7c95d97a0e01b026341188cc380c329b15c0212025fbb8d853d6b577e353f3b4",
+          "evidence_quality": "ExactPublicText",
+          "mechanism_quality": "ExactRelationship",
+          "note": "Directly defeating the Plight King counts as three-star clearing all Knight stages."
+        },
+        {
+          "source_id": "goal13:king-state-transitions:direct-plight-clear-shortcut",
+          "repository_or_url": "starclock",
+          "revision_or_access_date": "G13-P0-B3 manifest",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content item 6",
+          "sha256": "60122ee836593fed8c293d82f772c7e8636d853b5450b276d4990beab57702eb",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Snapshot creation remains a separately labeled boundary because released text states result equivalence only."
+        }
+      ],
+      "tags": [
+        "king",
+        "plight",
+        "shortcut"
+      ],
+      "contribution_order": 40,
+      "trigger": "SuccessfulPlightKingClear",
+      "exact_projection": {
+        "knight_stage_ids": [
+          "stage.knight-1",
+          "stage.knight-2",
+          "stage.knight-3"
+        ],
+        "stars_each": 3,
+        "result_equivalence": "ThreeStarKnightClear"
+      },
+      "account_reward_projection": "Excluded",
+      "loadout_snapshot_projection": "NoSyntheticKnightTeamSnapshots",
+      "downstream_order": [
+        "CommitPlightKingClear",
+        "ProjectThreeStarKnightEquivalence",
+        "EvaluateCurrentAndBestProgress",
+        "SettleMechanicalResults"
+      ],
+      "approximations": [
+        {
+          "field_path": "loadout_snapshot_projection",
+          "unavailable_fact": "Released text states three-star clear equivalence but does not state whether synthetic Knight team snapshots are created.",
+          "selected_policy": "Do not fabricate team snapshots for Knight battles that did not occur.",
+          "alternatives": [
+            "copy the Plight team into all Knight snapshots",
+            "create empty synthetic Knight snapshots"
+          ],
+          "rationale": "Failing closed preserves equipment uniqueness and avoids inventing three battle records.",
+          "affected_fixture_ids": [
+            "fixture.king-protection.plight-shortcut"
+          ],
+          "confidence": "High",
+          "replacement_condition": "Replace if released battle-record observation shows synthetic Knight compositions after a direct Plight clear."
+        }
+      ],
+      "runtime_executable": false
+    }
+  ]
+}
