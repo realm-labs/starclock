@@ -93,3 +93,25 @@ threshold and the buff identity/parameters. Those fields remain
 generic damage buff is authored. Retry creates a fresh stage-attempt clock as a
 clearly labeled project boundary. Each unavailable field names its alternatives,
 semantic fixture and stronger-evidence replacement condition.
+
+## Arbitral Quadrant
+
+The active alias 804 `BuffList` closes exactly to MazeBuff 3033066, 3033068
+and 3033067. Their editable normalized order is numeric, while the offer policy
+preserves that selector order. Exact bilingual names, descriptions, canonical
+parameters and stage-ability binding keys are retained:
+
+- 3033066, Navigator's Oath / 领航誓言: position-one Skill and Ultimate
+  All-Type RES PEN, `0.5`;
+- 3033067, Endless Euphoria / 狂欢不息: party All-Type RES PEN `0.2` plus
+  Elation-specific `0.2`;
+- 3033068, Add Insult to Injury / 落井下石: Follow-Up hits add `0.15`
+  damage taken for 2 turns, up to 3 stacks.
+
+The official guide proves that one offered buff is selected before the King
+challenge. No-selection rejection and terminal teardown are explicit
+attempt-local policies. The fixed ability layout names plugin bodies 0022 and
+0023, but the extracted fixed-revision ability list stops at 0021; those two
+program bodies remain unresolved without weakening their exact MazeBuff
+descriptions or inventing runtime programs. Plugin 0014 resolves in the
+extracted ability list.
