@@ -1,0 +1,305 @@
+{
+  "table": {
+    "name": "ArbParticipantPolicies",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_policies:three-knight-team-slots"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Three disjoint Knight teams"
+          },
+          "name_zh_cn": {
+            "String": "三支互斥骑士队伍"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"distinct_recorded_teams\":true,\"evidence_quality\":\"ExactPublicText\",\"id\":\"participant-policy.three-knight-team-slots\",\"kind\":\"ParticipantPolicy\",\"king_team_participates_in_uniqueness_scope\":false,\"manifest_record_ids\":[\"participant_policies:three-knight-team-slots\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Three disjoint Knight teams\",\"name_zh_cn\":\"三支互斥骑士队伍\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"slot_count\":3,\"slot_ids\":[\"team-slot.knight-1\",\"team-slot.knight-2\",\"team-slot.knight-3\"],\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The three Knight stages use three different character teams, and the player may choose their challenge order.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d\",\"source_id\":\"official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams\"}],\"stage_scope\":\"Knight\",\"summary_en\":\"Each Knight stage owns one recorded team slot, and cleared slots may not share characters.\",\"summary_zh_cn\":\"每个骑士关各有一个已记录队伍槽，已通关槽之间不得重复使用角色。\",\"tags\":[\"knight\",\"participant\",\"team\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "participant-policy.three-knight-team-slots"
+          },
+          "summary_en": {
+            "String": "Each Knight stage owns one recorded team slot, and cleared slots may not share characters."
+          },
+          "summary_zh_cn": {
+            "String": "每个骑士关各有一个已记录队伍槽，已通关槽之间不得重复使用角色。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "knight"
+              },
+              {
+                "String": "participant"
+              },
+              {
+                "String": "team"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_policies:character-and-combat-form-uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Character and combat-form uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "角色与战斗形态唯一性"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.knight-uniqueness.character-form-conflict\"],\"alternatives\":[\"base character ID only\",\"account-owned combatant instance plus Path\"],\"confidence\":\"Medium\",\"field_path\":\"combat_form_identity_key\",\"rationale\":\"The stricter base-character rejection preserves the released no-overlap rule; the form key keeps the unresolved distinction visible.\",\"replacement_condition\":\"Replace when released instructions or reproducible observation explicitly demonstrate multi-Path character identity across two cleared Knight records.\",\"selected_policy\":\"Use character ID plus Path/form as the static authored identity while also rejecting duplicate base character IDs across cleared Knight records.\",\"unavailable_fact\":\"Released instructions describe fixed team members and current retry state but do not define whether alternate Paths share one uniqueness identity.\"}],\"character_identity_key\":\"stable-character-id\",\"combat_form_identity_key\":\"stable-character-id-plus-path\",\"conflict_effect\":\"ResetConflictingClearedKnightProgress\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"id\":\"participant-policy.character-and-combat-form-uniqueness\",\"kind\":\"ParticipantPolicy\",\"manifest_record_ids\":[\"participant_policies:character-and-combat-form-uniqueness\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Character and combat-form uniqueness\",\"name_zh_cn\":\"角色与战斗形态唯一性\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The three Knight stages use three different character teams, and the player may choose their challenge order.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"b5e3b6730c6142d38e8e9ad51592aed317e84dd14bbb9c4ffadb5d2aff1f6f2d\",\"source_id\":\"official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams\"},{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"},{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content items 2-4\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"The frozen Goal contract requires a fail-closed combat-form identity boundary.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P0-B3 manifest\",\"sha256\":\"d88aead3120f416ebd51b2e9c4752baf9c244f73e933e6aeb1bb3b45a9bd83bf\",\"source_id\":\"goal13:participant_policies:character-and-combat-form-uniqueness\"}],\"summary_en\":\"A character identity cannot occur in two cleared Knight records; multi-form identity remains an explicit reference policy.\",\"summary_zh_cn\":\"同一角色身份不能同时出现在两份已通关骑士记录中；多形态身份仍采用显式资料策略。\",\"tags\":[\"character\",\"identity\",\"uniqueness\"],\"uniqueness_scope\":\"AcrossClearedKnightRecords\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:three-disjoint-knight-teams"
+              },
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              },
+              {
+                "String": "goal13:participant_policies:character-and-combat-form-uniqueness"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "participant-policy.character-and-combat-form-uniqueness"
+          },
+          "summary_en": {
+            "String": "A character identity cannot occur in two cleared Knight records; multi-form identity remains an explicit reference policy."
+          },
+          "summary_zh_cn": {
+            "String": "同一角色身份不能同时出现在两份已通关骑士记录中；多形态身份仍采用显式资料策略。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "character"
+              },
+              {
+                "String": "identity"
+              },
+              {
+                "String": "uniqueness"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_policies:light-cone-instance-uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Recorded Light Cone instance uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "已记录光锥实例唯一性"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"conflict_effect\":\"ResetSourceKnightProgress\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"participant-policy.light-cone-instance-uniqueness\",\"identity_key\":\"account-light-cone-instance-id\",\"kind\":\"ParticipantPolicy\",\"manifest_record_ids\":[\"participant_policies:light-cone-instance-uniqueness\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Recorded Light Cone instance uniqueness\",\"name_zh_cn\":\"已记录光锥实例唯一性\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"A recorded Light Cone instance moved across cleared Knight teams invalidates the source record.\",\"summary_zh_cn\":\"已记录光锥实例若跨已通关骑士队伍转移，会使来源记录失效。\",\"tags\":[\"equipment\",\"light-cone\",\"uniqueness\"],\"uniqueness_scope\":\"AcrossClearedKnightRecords\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "participant-policy.light-cone-instance-uniqueness"
+          },
+          "summary_en": {
+            "String": "A recorded Light Cone instance moved across cleared Knight teams invalidates the source record."
+          },
+          "summary_zh_cn": {
+            "String": "已记录光锥实例若跨已通关骑士队伍转移，会使来源记录失效。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equipment"
+              },
+              {
+                "String": "light-cone"
+              },
+              {
+                "String": "uniqueness"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "participant_policies:relic-instance-uniqueness"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Recorded Relic instance uniqueness"
+          },
+          "name_zh_cn": {
+            "String": "已记录遗器实例唯一性"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"conflict_effect\":\"ResetSourceKnightProgress\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"participant-policy.relic-instance-uniqueness\",\"identity_key\":\"account-relic-instance-id\",\"kind\":\"ParticipantPolicy\",\"manifest_record_ids\":[\"participant_policies:relic-instance-uniqueness\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Recorded Relic instance uniqueness\",\"name_zh_cn\":\"已记录遗器实例唯一性\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"A recorded Relic instance moved across cleared Knight teams invalidates the source record.\",\"summary_zh_cn\":\"已记录遗器实例若跨已通关骑士队伍转移，会使来源记录失效。\",\"tags\":[\"equipment\",\"relic\",\"uniqueness\"],\"uniqueness_scope\":\"AcrossClearedKnightRecords\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "participant-policy.relic-instance-uniqueness"
+          },
+          "summary_en": {
+            "String": "A recorded Relic instance moved across cleared Knight teams invalidates the source record."
+          },
+          "summary_zh_cn": {
+            "String": "已记录遗器实例若跨已通关骑士队伍转移，会使来源记录失效。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "equipment"
+              },
+              {
+                "String": "relic"
+              },
+              {
+                "String": "uniqueness"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

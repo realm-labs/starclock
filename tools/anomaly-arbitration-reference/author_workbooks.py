@@ -106,7 +106,10 @@ def stage_scope(row: dict, all_stages: list[str]) -> list[str]:
 
 def type_value(field: dict, value: object) -> object:
     ty = field["ty"]
-    if isinstance(ty, dict) and "List" in ty:
+    container = ty.get("Optional") if isinstance(ty, dict) else None
+    if isinstance(ty, dict) and (
+        "List" in ty or isinstance(container, dict) and "List" in container
+    ):
         return join_list(value)
     if ty == "String" and not isinstance(value, str):
         return str(value)

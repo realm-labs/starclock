@@ -11,66 +11,66 @@ const output = path.join(
 );
 
 const definitions = [
-  ["AAPoolAudits", "PoolAudits", [
+  ["ArbPoolAudits", "PoolAudits", [
     field("pool_family", "string", 'length = [1, 100]'),
   ]],
-  ["AATraits", "Traits", [
+  ["ArbTraits", "Traits", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AAMazeBuffBindings", "MazeBuffBindings", [
+  ["ArbMazeBuffBindings", "MazeBuffBindings", [
     field("stage_stable_key", "string", 'length = [1, 200]'),
     field("binding_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AABattleEvents", "BattleEvents", [
+  ["ArbBattleEvents", "BattleEvents", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AAEncounters", "Encounters", [
+  ["ArbEncounters", "Encounters", [
     field(
       "stage_id",
-      "ref<AAStages.id>",
+      "ref<ArbStages.id>",
     ),
     field("source_stage_id", "string", 'length = [1, 64]'),
   ]],
-  ["AAEncounterWaves", "EncounterWaves", [
+  ["ArbEncounterWaves", "EncounterWaves", [
     field(
       "encounter_id",
-      "ref<AAEncounters.id>",
+      "ref<ArbEncounters.id>",
     ),
     field("wave_order", "i32", "range = [1, 100]"),
   ]],
-  ["AAEnemySlots", "EnemySlots", [
+  ["ArbEnemySlots", "EnemySlots", [
     field(
       "encounter_id",
-      "ref<AAEncounters.id>",
+      "ref<ArbEncounters.id>",
     ),
     field("wave_order", "i32", "range = [1, 100]"),
     field("slot_order", "i32", "range = [1, 100]"),
     field(
       "enemy_id",
-      "ref<AAEnemies.id>",
+      "ref<ArbEnemies.id>",
     ),
   ]],
-  ["AAEnemies", "Enemies", [
+  ["ArbEnemies", "Enemies", [
     field("source_numeric_id", "string", 'length = [1, 64]'),
     field("source_template_id", "string", 'length = [1, 64]'),
   ]],
-  ["AAEnemySkills", "EnemySkills", [
+  ["ArbEnemySkills", "EnemySkills", [
     field(
       "enemy_id",
-      "ref<AAEnemies.id>",
+      "ref<ArbEnemies.id>",
     ),
     field("source_numeric_id", "string", 'length = [1, 64]'),
     field("skill_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AAEnemyStatuses", "EnemyStatuses", [
+  ["ArbEnemyStatuses", "EnemyStatuses", [
     field("owner_stable_key", "string", 'length = [1, 300]'),
     field("source_numeric_id", "string", 'length = [1, 64]'),
   ]],
-  ["AAAbilityBindings", "AbilityBindings", [
+  ["ArbAbilityBindings", "AbilityBindings", [
     field("owner_stable_key", "string", 'length = [1, 300]'),
     field("binding_order", "i32", "range = [1, 1000]"),
   ]],
-  ["AAMechanicContributions", "MechanicContributions", [
+  ["ArbMechanicContributions", "MechanicContributions", [
     field("scope", "string", 'length = [1, 100]'),
     field("install_order", "i32", "range = [1, 10000]"),
   ]],
@@ -97,10 +97,10 @@ const commonFields = [
   field("name_zh_cn", "string", "length = [1, 300]"),
   field("summary_en", "string", "length = [1, 2000]"),
   field("summary_zh_cn", "string", "length = [1, 2000]"),
-  field("ownership", "enum<AAOwnership>"),
-  field("coverage_state", "enum<AACoverageState>"),
-  field("evidence_quality", "enum<AAEvidenceQuality>"),
-  field("mechanism_quality", "enum<AAMechanismQuality>"),
+  field("ownership", "enum<ArbOwnership>"),
+  field("coverage_state", "enum<ArbCoverageState>"),
+  field("evidence_quality", "enum<ArbEvidenceQuality>"),
+  field("mechanism_quality", "enum<ArbMechanismQuality>"),
   field(
     "manifest_record_ids",
     "list<string>",
@@ -124,7 +124,11 @@ const sections = definitions.map(([name, sheet, extraFields]) => [
   'format = "xlsx"',
   'file = "AnomalyArbitrationBindings.xlsx"',
   `sheet = ${JSON.stringify(sheet)}`,
-  ...commonFields.map(renderField),
+  ...commonFields.map((commonField) => renderField(
+    name === "ArbPoolAudits" && commonField.name === "manifest_record_ids"
+      ? { ...commonField, type: "optional<list<string>>" }
+      : commonField,
+  )),
   ...extraFields.map(renderField),
   "[[tables.indexes]]",
   'name = "by_stable_key"',

@@ -1,0 +1,399 @@
+{
+  "table": {
+    "name": "ArbAggregations",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:current-stage-progress"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Current stage progress"
+          },
+          "name_zh_cn": {
+            "String": "当前关卡进度"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"aggregation.current-stage-progress\",\"input_scope\":\"ActivePeriodCommittedStageResults\",\"kind\":\"AggregationRule\",\"manifest_record_ids\":[\"objective_aggregations:current-stage-progress\"],\"mechanism_quality\":\"ExactRelationship\",\"mutation_sources\":[\"SuccessfulStageResult\",\"AcceptedRecordReplacement\",\"KnightProgressReset\",\"DirectPlightShortcut\"],\"name_en\":\"Current stage progress\",\"name_zh_cn\":\"当前关卡进度\",\"ownership\":\"AnomalyArbitration\",\"projection_order\":10,\"retained_best_effect_on_reset\":\"Unchanged\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"summary_en\":\"Current progress is the active set of committed stage results and may be reset independently of retained best records.\",\"summary_zh_cn\":\"当前进度由当期已提交关卡结果组成，可独立重置且不影响保留的最佳战绩。\",\"tags\":[\"aggregation\",\"progress\",\"result\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "aggregation.current-stage-progress"
+          },
+          "stage_stable_keys": {
+            "List": [
+              {
+                "String": "stage.knight-1"
+              },
+              {
+                "String": "stage.knight-2"
+              },
+              {
+                "String": "stage.knight-3"
+              },
+              {
+                "String": "stage.king-normal"
+              },
+              {
+                "String": "stage.king-plight"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Current progress is the active set of committed stage results and may be reset independently of retained best records."
+          },
+          "summary_zh_cn": {
+            "String": "当前进度由当期已提交关卡结果组成，可独立重置且不影响保留的最佳战绩。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:per-stage-star-evaluation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Per-stage star total"
+          },
+          "name_zh_cn": {
+            "String": "逐关星级合计"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"combine_across_attempts\":false,\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"aggregation.per-stage-star-evaluation\",\"input_scope\":\"OneSuccessfulAttemptTargets\",\"kind\":\"AggregationRule\",\"manifest_record_ids\":[\"objective_aggregations:per-stage-star-evaluation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Per-stage star total\",\"name_zh_cn\":\"逐关星级合计\",\"output\":\"SatisfiedTargetCount\",\"ownership\":\"AnomalyArbitration\",\"projection_order\":20,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Each Knight stage calculates its stars independently at completion; stars from multiple clears of the same stage are not combined.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"27a2ab175f8a36efd08e8803f1c8a828c98649d17a86d27fbe11eb889c22449c\",\"source_id\":\"official:hoyolab:anomaly-arbitration:independent-stage-stars\"}],\"summary_en\":\"Each successful attempt produces one non-combined target-satisfaction total for its stage.\",\"summary_zh_cn\":\"每次成功尝试为对应关卡生成一份不与其他尝试合并的目标满足合计。\",\"tags\":[\"aggregation\",\"progress\",\"result\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:independent-stage-stars"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "aggregation.per-stage-star-evaluation"
+          },
+          "stage_stable_keys": {
+            "List": [
+              {
+                "String": "stage.knight-1"
+              },
+              {
+                "String": "stage.knight-2"
+              },
+              {
+                "String": "stage.knight-3"
+              },
+              {
+                "String": "stage.king-normal"
+              },
+              {
+                "String": "stage.king-plight"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Each successful attempt produces one non-combined target-satisfaction total for its stage."
+          },
+          "summary_zh_cn": {
+            "String": "每次成功尝试为对应关卡生成一份不与其他尝试合并的目标满足合计。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:simultaneous-three-knight-best"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Simultaneous three-Knight best"
+          },
+          "name_zh_cn": {
+            "String": "三骑士同时生效最佳战绩"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"candidate_rule\":\"SumSimultaneouslyActiveKnightStars\",\"coverage_state\":\"DataReady\",\"current_reset_effect\":\"Unchanged\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"aggregation.simultaneous-three-knight-best\",\"input_stage_ids\":[\"stage.knight-1\",\"stage.knight-2\",\"stage.knight-3\"],\"kind\":\"AggregationRule\",\"manifest_record_ids\":[\"objective_aggregations:simultaneous-three-knight-best\"],\"maximum_total\":9,\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Simultaneous three-Knight best\",\"name_zh_cn\":\"三骑士同时生效最佳战绩\",\"ownership\":\"AnomalyArbitration\",\"projection_order\":30,\"retention_rule\":\"MaximumObservedCandidate\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Best Battle Records use the highest total star rating active simultaneously across all three Knight stages, and current resets do not affect them.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"f0ebf1bdf7e6d765f877edefcf896b4324e5a0642159dfb13b7c056e58478041\",\"source_id\":\"official:hoyolab:anomaly-arbitration:simultaneous-best\"}],\"summary_en\":\"The best Knight score is the maximum simultaneous sum of the three committed Knight stage star totals.\",\"summary_zh_cn\":\"骑士最佳战绩取三份已提交骑士关星级同时生效时的最高合计。\",\"tags\":[\"aggregation\",\"progress\",\"result\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:simultaneous-best"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "aggregation.simultaneous-three-knight-best"
+          },
+          "stage_stable_keys": {
+            "List": [
+              {
+                "String": "stage.knight-1"
+              },
+              {
+                "String": "stage.knight-2"
+              },
+              {
+                "String": "stage.knight-3"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "The best Knight score is the maximum simultaneous sum of the three committed Knight stage star totals."
+          },
+          "summary_zh_cn": {
+            "String": "骑士最佳战绩取三份已提交骑士关星级同时生效时的最高合计。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:retained-historical-best"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Retained historical battle records"
+          },
+          "name_zh_cn": {
+            "String": "保留的历史最佳战绩"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"expiry_warning_days\":14,\"id\":\"aggregation.retained-historical-best\",\"kind\":\"AggregationRule\",\"manifest_record_ids\":[\"objective_aggregations:retained-historical-best\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Retained historical battle records\",\"name_zh_cn\":\"保留的历史最佳战绩\",\"ownership\":\"AnomalyArbitration\",\"projection_order\":40,\"retained_period_count\":3,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selection_order\":\"PeriodDescendingThenStablePeriodId\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Battle Records display challenge records from the last three Anomaly Arbitration phases.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"353770d2b12ec9bd93f6fab312cb1e284d39b496dfc6870f45de70dc429158ac\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retained-battle-records\"}],\"structured_retention_days\":160,\"summary_en\":\"Review retains the most recent three period records within the structured 160-day retention locator.\",\"summary_zh_cn\":\"战绩回顾保留最近三期记录，并保留结构化的160天留存定位值。\",\"tags\":[\"aggregation\",\"progress\",\"result\"],\"wall_clock_runtime_claim\":false}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retained-battle-records"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "aggregation.retained-historical-best"
+          },
+          "stage_stable_keys": {
+            "List": [
+              {
+                "String": "stage.knight-1"
+              },
+              {
+                "String": "stage.knight-2"
+              },
+              {
+                "String": "stage.knight-3"
+              },
+              {
+                "String": "stage.king-normal"
+              },
+              {
+                "String": "stage.king-plight"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "Review retains the most recent three period records within the structured 160-day retention locator."
+          },
+          "summary_zh_cn": {
+            "String": "战绩回顾保留最近三期记录，并保留结构化的160天留存定位值。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ApproximateFromReleasedText"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "objective_aggregations:king-medal-rating"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "King stage rating"
+          },
+          "name_zh_cn": {
+            "String": "王棋关卡评级"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"account_reward_projection\":\"Excluded\",\"approximations\":[{\"affected_fixture_ids\":[\"fixture.target-star-aggregation.king-rating\"],\"alternatives\":[\"treat it as a six-star threshold\",\"treat it as a target ID\"],\"confidence\":\"High\",\"field_path\":\"color_medal_target_interpretation\",\"rationale\":\"Neither interpretation is supported by an explicit released relationship.\",\"replacement_condition\":\"Replace when released schema/config or reproducible observations define ColorMedalTarget semantics.\",\"selected_policy\":\"Retain the exact source value as an uninterpreted locator and do not lower it into a medal formula.\",\"unavailable_fact\":\"ChallengePeakBossConfig exposes ColorMedalTarget=6 without a released semantic enum or join.\"}],\"color_medal_target_interpretation\":\"UnresolvedSourceField\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ApproximateFromReleasedText\",\"id\":\"aggregation.king-medal-rating\",\"kind\":\"AggregationRule\",\"manifest_record_ids\":[\"objective_aggregations:king-medal-rating\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"King stage rating\",\"name_zh_cn\":\"王棋关卡评级\",\"normal_target_ids\":[\"battle-target.3003\",\"battle-target.3004\",\"battle-target.3005\"],\"ownership\":\"AnomalyArbitration\",\"plight_target_ids\":[\"battle-target.3007\"],\"projection_order\":50,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage and Battle Records\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own star rating, which is retained in Battle Records.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"fa2aa8d9521e7208a9a546303b49079082362fbeba1cfd10e15f6f37f4c3d0dc\",\"source_id\":\"official:hoyolab:anomaly-arbitration:king-rating\"},{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Phase 1 G13-P1-B6\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"ColorMedalTarget remains an uninterpreted structured locator.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"starclock\",\"revision_or_access_date\":\"G13-P1-B6\",\"sha256\":\"62f403b38dbd906a660c3c12f6c213204ca7ef34279d5bed840ee0b6e71dd63a\",\"source_id\":\"goal13:objective-policy:king-medal-rating\"}],\"structured_color_medal_target\":6,\"summary_en\":\"The King result retains its own satisfied-target rating separately from the three-Knight best.\",\"summary_zh_cn\":\"王棋结果独立保留其目标满足评级，不与三骑士最佳战绩合并。\",\"tags\":[\"aggregation\",\"progress\",\"result\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:king-rating"
+              },
+              {
+                "String": "goal13:objective-policy:king-medal-rating"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "aggregation.king-medal-rating"
+          },
+          "stage_stable_keys": {
+            "List": [
+              {
+                "String": "stage.knight-1"
+              },
+              {
+                "String": "stage.knight-2"
+              },
+              {
+                "String": "stage.knight-3"
+              },
+              {
+                "String": "stage.king-normal"
+              },
+              {
+                "String": "stage.king-plight"
+              }
+            ]
+          },
+          "summary_en": {
+            "String": "The King result retains its own satisfied-target rating separately from the three-Knight best."
+          },
+          "summary_zh_cn": {
+            "String": "王棋结果独立保留其目标满足评级，不与三骑士最佳战绩合并。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -3,52 +3,52 @@
 #![allow(dead_code)]
 
 pub mod runtime;
-pub mod aa_ownership;
-pub mod aa_coverage_state;
-pub mod aa_evidence_quality;
-pub mod aa_mechanism_quality;
-pub mod aa_stage_kind;
-pub mod aa_difficulty;
-pub mod aa_profiles;
-pub mod aa_periods;
-pub mod aa_stages;
-pub mod aa_terminal_outcomes;
-pub mod aa_participant_policies;
-pub mod aa_team_slots;
-pub mod aa_loadout_records;
-pub mod aa_progress_records;
-pub mod aa_king_states;
-pub mod aa_king_protection;
-pub mod aa_clocks;
-pub mod aa_quadrant_options;
-pub mod aa_quadrant_selections;
-pub mod aa_targets;
-pub mod aa_objectives;
-pub mod aa_stage_results;
-pub mod aa_aggregations;
-pub mod aa_pool_audits;
-pub mod aa_traits;
-pub mod aa_maze_buff_bindings;
-pub mod aa_battle_events;
-pub mod aa_encounters;
-pub mod aa_encounter_waves;
-pub mod aa_enemy_slots;
-pub mod aa_enemies;
-pub mod aa_enemy_skills;
-pub mod aa_enemy_statuses;
-pub mod aa_ability_bindings;
-pub mod aa_mechanic_contributions;
-pub mod aa_mechanic_rules;
-pub mod aa_sources;
-pub mod aa_reconciliation;
-pub mod aa_coverage;
-pub mod aa_research_gaps;
-pub mod aa_review_fixtures;
-pub mod aa_manifest_receipt;
-pub mod aa_pack_index;
+pub mod arb_ownership;
+pub mod arb_coverage_state;
+pub mod arb_evidence_quality;
+pub mod arb_mechanism_quality;
+pub mod arb_stage_kind;
+pub mod arb_difficulty;
+pub mod arb_profiles;
+pub mod arb_periods;
+pub mod arb_stages;
+pub mod arb_terminal_outcomes;
+pub mod arb_participant_policies;
+pub mod arb_team_slots;
+pub mod arb_loadout_records;
+pub mod arb_progress_records;
+pub mod arb_king_states;
+pub mod arb_king_protection;
+pub mod arb_clocks;
+pub mod arb_quadrant_options;
+pub mod arb_quadrant_selections;
+pub mod arb_targets;
+pub mod arb_objectives;
+pub mod arb_stage_results;
+pub mod arb_aggregations;
+pub mod arb_pool_audits;
+pub mod arb_traits;
+pub mod arb_maze_buff_bindings;
+pub mod arb_battle_events;
+pub mod arb_encounters;
+pub mod arb_encounter_waves;
+pub mod arb_enemy_slots;
+pub mod arb_enemies;
+pub mod arb_enemy_skills;
+pub mod arb_enemy_statuses;
+pub mod arb_ability_bindings;
+pub mod arb_mechanic_contributions;
+pub mod arb_mechanic_rules;
+pub mod arb_sources;
+pub mod arb_reconciliation;
+pub mod arb_coverage;
+pub mod arb_research_gaps;
+pub mod arb_review_fixtures;
+pub mod arb_manifest_receipt;
+pub mod arb_pack_index;
 pub type SoraMap<K, V> = std::collections::HashMap<K, V>;
 
-pub const SCHEMA_FINGERPRINT: &str = "d9507bd3401a8d4c";
+pub const SCHEMA_FINGERPRINT: &str = "740fa7f2e0010cff";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SoraTableShape {
@@ -132,43 +132,43 @@ impl SoraConfig {
         }
         let mut tables: SoraMap<&'static str, Box<dyn ErasedSoraTable>> =
             sora_map_with_capacity(37);
-        tables.insert(aa_profiles::AaProfilesTable::NAME, Box::new(aa_profiles::AaProfilesTable::from_rows(source.decode_table::<aa_profiles::AaProfiles>(aa_profiles::AaProfilesTable::NAME)?)?));
-        tables.insert(aa_periods::AaPeriodsTable::NAME, Box::new(aa_periods::AaPeriodsTable::from_rows(source.decode_table::<aa_periods::AaPeriods>(aa_periods::AaPeriodsTable::NAME)?)?));
-        tables.insert(aa_stages::AaStagesTable::NAME, Box::new(aa_stages::AaStagesTable::from_rows(source.decode_table::<aa_stages::AaStages>(aa_stages::AaStagesTable::NAME)?)?));
-        tables.insert(aa_terminal_outcomes::AaTerminalOutcomesTable::NAME, Box::new(aa_terminal_outcomes::AaTerminalOutcomesTable::from_rows(source.decode_table::<aa_terminal_outcomes::AaTerminalOutcomes>(aa_terminal_outcomes::AaTerminalOutcomesTable::NAME)?)?));
-        tables.insert(aa_participant_policies::AaParticipantPoliciesTable::NAME, Box::new(aa_participant_policies::AaParticipantPoliciesTable::from_rows(source.decode_table::<aa_participant_policies::AaParticipantPolicies>(aa_participant_policies::AaParticipantPoliciesTable::NAME)?)?));
-        tables.insert(aa_team_slots::AaTeamSlotsTable::NAME, Box::new(aa_team_slots::AaTeamSlotsTable::from_rows(source.decode_table::<aa_team_slots::AaTeamSlots>(aa_team_slots::AaTeamSlotsTable::NAME)?)?));
-        tables.insert(aa_loadout_records::AaLoadoutRecordsTable::NAME, Box::new(aa_loadout_records::AaLoadoutRecordsTable::from_rows(source.decode_table::<aa_loadout_records::AaLoadoutRecords>(aa_loadout_records::AaLoadoutRecordsTable::NAME)?)?));
-        tables.insert(aa_progress_records::AaProgressRecordsTable::NAME, Box::new(aa_progress_records::AaProgressRecordsTable::from_rows(source.decode_table::<aa_progress_records::AaProgressRecords>(aa_progress_records::AaProgressRecordsTable::NAME)?)?));
-        tables.insert(aa_king_states::AaKingStatesTable::NAME, Box::new(aa_king_states::AaKingStatesTable::from_rows(source.decode_table::<aa_king_states::AaKingStates>(aa_king_states::AaKingStatesTable::NAME)?)?));
-        tables.insert(aa_king_protection::AaKingProtectionTable::NAME, Box::new(aa_king_protection::AaKingProtectionTable::from_rows(source.decode_table::<aa_king_protection::AaKingProtection>(aa_king_protection::AaKingProtectionTable::NAME)?)?));
-        tables.insert(aa_clocks::AaClocksTable::NAME, Box::new(aa_clocks::AaClocksTable::from_rows(source.decode_table::<aa_clocks::AaClocks>(aa_clocks::AaClocksTable::NAME)?)?));
-        tables.insert(aa_quadrant_options::AaQuadrantOptionsTable::NAME, Box::new(aa_quadrant_options::AaQuadrantOptionsTable::from_rows(source.decode_table::<aa_quadrant_options::AaQuadrantOptions>(aa_quadrant_options::AaQuadrantOptionsTable::NAME)?)?));
-        tables.insert(aa_quadrant_selections::AaQuadrantSelectionsTable::NAME, Box::new(aa_quadrant_selections::AaQuadrantSelectionsTable::from_rows(source.decode_table::<aa_quadrant_selections::AaQuadrantSelections>(aa_quadrant_selections::AaQuadrantSelectionsTable::NAME)?)?));
-        tables.insert(aa_targets::AaTargetsTable::NAME, Box::new(aa_targets::AaTargetsTable::from_rows(source.decode_table::<aa_targets::AaTargets>(aa_targets::AaTargetsTable::NAME)?)?));
-        tables.insert(aa_objectives::AaObjectivesTable::NAME, Box::new(aa_objectives::AaObjectivesTable::from_rows(source.decode_table::<aa_objectives::AaObjectives>(aa_objectives::AaObjectivesTable::NAME)?)?));
-        tables.insert(aa_stage_results::AaStageResultsTable::NAME, Box::new(aa_stage_results::AaStageResultsTable::from_rows(source.decode_table::<aa_stage_results::AaStageResults>(aa_stage_results::AaStageResultsTable::NAME)?)?));
-        tables.insert(aa_aggregations::AaAggregationsTable::NAME, Box::new(aa_aggregations::AaAggregationsTable::from_rows(source.decode_table::<aa_aggregations::AaAggregations>(aa_aggregations::AaAggregationsTable::NAME)?)?));
-        tables.insert(aa_pool_audits::AaPoolAuditsTable::NAME, Box::new(aa_pool_audits::AaPoolAuditsTable::from_rows(source.decode_table::<aa_pool_audits::AaPoolAudits>(aa_pool_audits::AaPoolAuditsTable::NAME)?)?));
-        tables.insert(aa_traits::AaTraitsTable::NAME, Box::new(aa_traits::AaTraitsTable::from_rows(source.decode_table::<aa_traits::AaTraits>(aa_traits::AaTraitsTable::NAME)?)?));
-        tables.insert(aa_maze_buff_bindings::AaMazeBuffBindingsTable::NAME, Box::new(aa_maze_buff_bindings::AaMazeBuffBindingsTable::from_rows(source.decode_table::<aa_maze_buff_bindings::AaMazeBuffBindings>(aa_maze_buff_bindings::AaMazeBuffBindingsTable::NAME)?)?));
-        tables.insert(aa_battle_events::AaBattleEventsTable::NAME, Box::new(aa_battle_events::AaBattleEventsTable::from_rows(source.decode_table::<aa_battle_events::AaBattleEvents>(aa_battle_events::AaBattleEventsTable::NAME)?)?));
-        tables.insert(aa_encounters::AaEncountersTable::NAME, Box::new(aa_encounters::AaEncountersTable::from_rows(source.decode_table::<aa_encounters::AaEncounters>(aa_encounters::AaEncountersTable::NAME)?)?));
-        tables.insert(aa_encounter_waves::AaEncounterWavesTable::NAME, Box::new(aa_encounter_waves::AaEncounterWavesTable::from_rows(source.decode_table::<aa_encounter_waves::AaEncounterWaves>(aa_encounter_waves::AaEncounterWavesTable::NAME)?)?));
-        tables.insert(aa_enemy_slots::AaEnemySlotsTable::NAME, Box::new(aa_enemy_slots::AaEnemySlotsTable::from_rows(source.decode_table::<aa_enemy_slots::AaEnemySlots>(aa_enemy_slots::AaEnemySlotsTable::NAME)?)?));
-        tables.insert(aa_enemies::AaEnemiesTable::NAME, Box::new(aa_enemies::AaEnemiesTable::from_rows(source.decode_table::<aa_enemies::AaEnemies>(aa_enemies::AaEnemiesTable::NAME)?)?));
-        tables.insert(aa_enemy_skills::AaEnemySkillsTable::NAME, Box::new(aa_enemy_skills::AaEnemySkillsTable::from_rows(source.decode_table::<aa_enemy_skills::AaEnemySkills>(aa_enemy_skills::AaEnemySkillsTable::NAME)?)?));
-        tables.insert(aa_enemy_statuses::AaEnemyStatusesTable::NAME, Box::new(aa_enemy_statuses::AaEnemyStatusesTable::from_rows(source.decode_table::<aa_enemy_statuses::AaEnemyStatuses>(aa_enemy_statuses::AaEnemyStatusesTable::NAME)?)?));
-        tables.insert(aa_ability_bindings::AaAbilityBindingsTable::NAME, Box::new(aa_ability_bindings::AaAbilityBindingsTable::from_rows(source.decode_table::<aa_ability_bindings::AaAbilityBindings>(aa_ability_bindings::AaAbilityBindingsTable::NAME)?)?));
-        tables.insert(aa_mechanic_contributions::AaMechanicContributionsTable::NAME, Box::new(aa_mechanic_contributions::AaMechanicContributionsTable::from_rows(source.decode_table::<aa_mechanic_contributions::AaMechanicContributions>(aa_mechanic_contributions::AaMechanicContributionsTable::NAME)?)?));
-        tables.insert(aa_mechanic_rules::AaMechanicRulesTable::NAME, Box::new(aa_mechanic_rules::AaMechanicRulesTable::from_rows(source.decode_table::<aa_mechanic_rules::AaMechanicRules>(aa_mechanic_rules::AaMechanicRulesTable::NAME)?)?));
-        tables.insert(aa_sources::AaSourcesTable::NAME, Box::new(aa_sources::AaSourcesTable::from_rows(source.decode_table::<aa_sources::AaSources>(aa_sources::AaSourcesTable::NAME)?)?));
-        tables.insert(aa_reconciliation::AaReconciliationTable::NAME, Box::new(aa_reconciliation::AaReconciliationTable::from_rows(source.decode_table::<aa_reconciliation::AaReconciliation>(aa_reconciliation::AaReconciliationTable::NAME)?)?));
-        tables.insert(aa_coverage::AaCoverageTable::NAME, Box::new(aa_coverage::AaCoverageTable::from_rows(source.decode_table::<aa_coverage::AaCoverage>(aa_coverage::AaCoverageTable::NAME)?)?));
-        tables.insert(aa_research_gaps::AaResearchGapsTable::NAME, Box::new(aa_research_gaps::AaResearchGapsTable::from_rows(source.decode_table::<aa_research_gaps::AaResearchGaps>(aa_research_gaps::AaResearchGapsTable::NAME)?)?));
-        tables.insert(aa_review_fixtures::AaReviewFixturesTable::NAME, Box::new(aa_review_fixtures::AaReviewFixturesTable::from_rows(source.decode_table::<aa_review_fixtures::AaReviewFixtures>(aa_review_fixtures::AaReviewFixturesTable::NAME)?)?));
-        tables.insert(aa_manifest_receipt::AaManifestReceiptTable::NAME, Box::new(aa_manifest_receipt::AaManifestReceiptTable::from_rows(source.decode_table::<aa_manifest_receipt::AaManifestReceipt>(aa_manifest_receipt::AaManifestReceiptTable::NAME)?)?));
-        tables.insert(aa_pack_index::AaPackIndexTable::NAME, Box::new(aa_pack_index::AaPackIndexTable::from_rows(source.decode_table::<aa_pack_index::AaPackIndex>(aa_pack_index::AaPackIndexTable::NAME)?)?));
+        tables.insert(arb_profiles::ArbProfilesTable::NAME, Box::new(arb_profiles::ArbProfilesTable::from_rows(source.decode_table::<arb_profiles::ArbProfiles>(arb_profiles::ArbProfilesTable::NAME)?)?));
+        tables.insert(arb_periods::ArbPeriodsTable::NAME, Box::new(arb_periods::ArbPeriodsTable::from_rows(source.decode_table::<arb_periods::ArbPeriods>(arb_periods::ArbPeriodsTable::NAME)?)?));
+        tables.insert(arb_stages::ArbStagesTable::NAME, Box::new(arb_stages::ArbStagesTable::from_rows(source.decode_table::<arb_stages::ArbStages>(arb_stages::ArbStagesTable::NAME)?)?));
+        tables.insert(arb_terminal_outcomes::ArbTerminalOutcomesTable::NAME, Box::new(arb_terminal_outcomes::ArbTerminalOutcomesTable::from_rows(source.decode_table::<arb_terminal_outcomes::ArbTerminalOutcomes>(arb_terminal_outcomes::ArbTerminalOutcomesTable::NAME)?)?));
+        tables.insert(arb_participant_policies::ArbParticipantPoliciesTable::NAME, Box::new(arb_participant_policies::ArbParticipantPoliciesTable::from_rows(source.decode_table::<arb_participant_policies::ArbParticipantPolicies>(arb_participant_policies::ArbParticipantPoliciesTable::NAME)?)?));
+        tables.insert(arb_team_slots::ArbTeamSlotsTable::NAME, Box::new(arb_team_slots::ArbTeamSlotsTable::from_rows(source.decode_table::<arb_team_slots::ArbTeamSlots>(arb_team_slots::ArbTeamSlotsTable::NAME)?)?));
+        tables.insert(arb_loadout_records::ArbLoadoutRecordsTable::NAME, Box::new(arb_loadout_records::ArbLoadoutRecordsTable::from_rows(source.decode_table::<arb_loadout_records::ArbLoadoutRecords>(arb_loadout_records::ArbLoadoutRecordsTable::NAME)?)?));
+        tables.insert(arb_progress_records::ArbProgressRecordsTable::NAME, Box::new(arb_progress_records::ArbProgressRecordsTable::from_rows(source.decode_table::<arb_progress_records::ArbProgressRecords>(arb_progress_records::ArbProgressRecordsTable::NAME)?)?));
+        tables.insert(arb_king_states::ArbKingStatesTable::NAME, Box::new(arb_king_states::ArbKingStatesTable::from_rows(source.decode_table::<arb_king_states::ArbKingStates>(arb_king_states::ArbKingStatesTable::NAME)?)?));
+        tables.insert(arb_king_protection::ArbKingProtectionTable::NAME, Box::new(arb_king_protection::ArbKingProtectionTable::from_rows(source.decode_table::<arb_king_protection::ArbKingProtection>(arb_king_protection::ArbKingProtectionTable::NAME)?)?));
+        tables.insert(arb_clocks::ArbClocksTable::NAME, Box::new(arb_clocks::ArbClocksTable::from_rows(source.decode_table::<arb_clocks::ArbClocks>(arb_clocks::ArbClocksTable::NAME)?)?));
+        tables.insert(arb_quadrant_options::ArbQuadrantOptionsTable::NAME, Box::new(arb_quadrant_options::ArbQuadrantOptionsTable::from_rows(source.decode_table::<arb_quadrant_options::ArbQuadrantOptions>(arb_quadrant_options::ArbQuadrantOptionsTable::NAME)?)?));
+        tables.insert(arb_quadrant_selections::ArbQuadrantSelectionsTable::NAME, Box::new(arb_quadrant_selections::ArbQuadrantSelectionsTable::from_rows(source.decode_table::<arb_quadrant_selections::ArbQuadrantSelections>(arb_quadrant_selections::ArbQuadrantSelectionsTable::NAME)?)?));
+        tables.insert(arb_targets::ArbTargetsTable::NAME, Box::new(arb_targets::ArbTargetsTable::from_rows(source.decode_table::<arb_targets::ArbTargets>(arb_targets::ArbTargetsTable::NAME)?)?));
+        tables.insert(arb_objectives::ArbObjectivesTable::NAME, Box::new(arb_objectives::ArbObjectivesTable::from_rows(source.decode_table::<arb_objectives::ArbObjectives>(arb_objectives::ArbObjectivesTable::NAME)?)?));
+        tables.insert(arb_stage_results::ArbStageResultsTable::NAME, Box::new(arb_stage_results::ArbStageResultsTable::from_rows(source.decode_table::<arb_stage_results::ArbStageResults>(arb_stage_results::ArbStageResultsTable::NAME)?)?));
+        tables.insert(arb_aggregations::ArbAggregationsTable::NAME, Box::new(arb_aggregations::ArbAggregationsTable::from_rows(source.decode_table::<arb_aggregations::ArbAggregations>(arb_aggregations::ArbAggregationsTable::NAME)?)?));
+        tables.insert(arb_pool_audits::ArbPoolAuditsTable::NAME, Box::new(arb_pool_audits::ArbPoolAuditsTable::from_rows(source.decode_table::<arb_pool_audits::ArbPoolAudits>(arb_pool_audits::ArbPoolAuditsTable::NAME)?)?));
+        tables.insert(arb_traits::ArbTraitsTable::NAME, Box::new(arb_traits::ArbTraitsTable::from_rows(source.decode_table::<arb_traits::ArbTraits>(arb_traits::ArbTraitsTable::NAME)?)?));
+        tables.insert(arb_maze_buff_bindings::ArbMazeBuffBindingsTable::NAME, Box::new(arb_maze_buff_bindings::ArbMazeBuffBindingsTable::from_rows(source.decode_table::<arb_maze_buff_bindings::ArbMazeBuffBindings>(arb_maze_buff_bindings::ArbMazeBuffBindingsTable::NAME)?)?));
+        tables.insert(arb_battle_events::ArbBattleEventsTable::NAME, Box::new(arb_battle_events::ArbBattleEventsTable::from_rows(source.decode_table::<arb_battle_events::ArbBattleEvents>(arb_battle_events::ArbBattleEventsTable::NAME)?)?));
+        tables.insert(arb_encounters::ArbEncountersTable::NAME, Box::new(arb_encounters::ArbEncountersTable::from_rows(source.decode_table::<arb_encounters::ArbEncounters>(arb_encounters::ArbEncountersTable::NAME)?)?));
+        tables.insert(arb_encounter_waves::ArbEncounterWavesTable::NAME, Box::new(arb_encounter_waves::ArbEncounterWavesTable::from_rows(source.decode_table::<arb_encounter_waves::ArbEncounterWaves>(arb_encounter_waves::ArbEncounterWavesTable::NAME)?)?));
+        tables.insert(arb_enemy_slots::ArbEnemySlotsTable::NAME, Box::new(arb_enemy_slots::ArbEnemySlotsTable::from_rows(source.decode_table::<arb_enemy_slots::ArbEnemySlots>(arb_enemy_slots::ArbEnemySlotsTable::NAME)?)?));
+        tables.insert(arb_enemies::ArbEnemiesTable::NAME, Box::new(arb_enemies::ArbEnemiesTable::from_rows(source.decode_table::<arb_enemies::ArbEnemies>(arb_enemies::ArbEnemiesTable::NAME)?)?));
+        tables.insert(arb_enemy_skills::ArbEnemySkillsTable::NAME, Box::new(arb_enemy_skills::ArbEnemySkillsTable::from_rows(source.decode_table::<arb_enemy_skills::ArbEnemySkills>(arb_enemy_skills::ArbEnemySkillsTable::NAME)?)?));
+        tables.insert(arb_enemy_statuses::ArbEnemyStatusesTable::NAME, Box::new(arb_enemy_statuses::ArbEnemyStatusesTable::from_rows(source.decode_table::<arb_enemy_statuses::ArbEnemyStatuses>(arb_enemy_statuses::ArbEnemyStatusesTable::NAME)?)?));
+        tables.insert(arb_ability_bindings::ArbAbilityBindingsTable::NAME, Box::new(arb_ability_bindings::ArbAbilityBindingsTable::from_rows(source.decode_table::<arb_ability_bindings::ArbAbilityBindings>(arb_ability_bindings::ArbAbilityBindingsTable::NAME)?)?));
+        tables.insert(arb_mechanic_contributions::ArbMechanicContributionsTable::NAME, Box::new(arb_mechanic_contributions::ArbMechanicContributionsTable::from_rows(source.decode_table::<arb_mechanic_contributions::ArbMechanicContributions>(arb_mechanic_contributions::ArbMechanicContributionsTable::NAME)?)?));
+        tables.insert(arb_mechanic_rules::ArbMechanicRulesTable::NAME, Box::new(arb_mechanic_rules::ArbMechanicRulesTable::from_rows(source.decode_table::<arb_mechanic_rules::ArbMechanicRules>(arb_mechanic_rules::ArbMechanicRulesTable::NAME)?)?));
+        tables.insert(arb_sources::ArbSourcesTable::NAME, Box::new(arb_sources::ArbSourcesTable::from_rows(source.decode_table::<arb_sources::ArbSources>(arb_sources::ArbSourcesTable::NAME)?)?));
+        tables.insert(arb_reconciliation::ArbReconciliationTable::NAME, Box::new(arb_reconciliation::ArbReconciliationTable::from_rows(source.decode_table::<arb_reconciliation::ArbReconciliation>(arb_reconciliation::ArbReconciliationTable::NAME)?)?));
+        tables.insert(arb_coverage::ArbCoverageTable::NAME, Box::new(arb_coverage::ArbCoverageTable::from_rows(source.decode_table::<arb_coverage::ArbCoverage>(arb_coverage::ArbCoverageTable::NAME)?)?));
+        tables.insert(arb_research_gaps::ArbResearchGapsTable::NAME, Box::new(arb_research_gaps::ArbResearchGapsTable::from_rows(source.decode_table::<arb_research_gaps::ArbResearchGaps>(arb_research_gaps::ArbResearchGapsTable::NAME)?)?));
+        tables.insert(arb_review_fixtures::ArbReviewFixturesTable::NAME, Box::new(arb_review_fixtures::ArbReviewFixturesTable::from_rows(source.decode_table::<arb_review_fixtures::ArbReviewFixtures>(arb_review_fixtures::ArbReviewFixturesTable::NAME)?)?));
+        tables.insert(arb_manifest_receipt::ArbManifestReceiptTable::NAME, Box::new(arb_manifest_receipt::ArbManifestReceiptTable::from_rows(source.decode_table::<arb_manifest_receipt::ArbManifestReceipt>(arb_manifest_receipt::ArbManifestReceiptTable::NAME)?)?));
+        tables.insert(arb_pack_index::ArbPackIndexTable::NAME, Box::new(arb_pack_index::ArbPackIndexTable::from_rows(source.decode_table::<arb_pack_index::ArbPackIndex>(arb_pack_index::ArbPackIndexTable::NAME)?)?));
         Ok(Self { tables })
     }
 
@@ -191,152 +191,152 @@ impl SoraConfig {
         self.tables.values().map(Box::as_ref)
     }
 
-    pub fn aa_profiles(&self) -> &aa_profiles::AaProfilesTable {
-        self.table(aa_profiles::AaProfilesTable::NAME)
+    pub fn arb_profiles(&self) -> &arb_profiles::ArbProfilesTable {
+        self.table(arb_profiles::ArbProfilesTable::NAME)
     }
 
-    pub fn aa_periods(&self) -> &aa_periods::AaPeriodsTable {
-        self.table(aa_periods::AaPeriodsTable::NAME)
+    pub fn arb_periods(&self) -> &arb_periods::ArbPeriodsTable {
+        self.table(arb_periods::ArbPeriodsTable::NAME)
     }
 
-    pub fn aa_stages(&self) -> &aa_stages::AaStagesTable {
-        self.table(aa_stages::AaStagesTable::NAME)
+    pub fn arb_stages(&self) -> &arb_stages::ArbStagesTable {
+        self.table(arb_stages::ArbStagesTable::NAME)
     }
 
-    pub fn aa_terminal_outcomes(&self) -> &aa_terminal_outcomes::AaTerminalOutcomesTable {
-        self.table(aa_terminal_outcomes::AaTerminalOutcomesTable::NAME)
+    pub fn arb_terminal_outcomes(&self) -> &arb_terminal_outcomes::ArbTerminalOutcomesTable {
+        self.table(arb_terminal_outcomes::ArbTerminalOutcomesTable::NAME)
     }
 
-    pub fn aa_participant_policies(&self) -> &aa_participant_policies::AaParticipantPoliciesTable {
-        self.table(aa_participant_policies::AaParticipantPoliciesTable::NAME)
+    pub fn arb_participant_policies(&self) -> &arb_participant_policies::ArbParticipantPoliciesTable {
+        self.table(arb_participant_policies::ArbParticipantPoliciesTable::NAME)
     }
 
-    pub fn aa_team_slots(&self) -> &aa_team_slots::AaTeamSlotsTable {
-        self.table(aa_team_slots::AaTeamSlotsTable::NAME)
+    pub fn arb_team_slots(&self) -> &arb_team_slots::ArbTeamSlotsTable {
+        self.table(arb_team_slots::ArbTeamSlotsTable::NAME)
     }
 
-    pub fn aa_loadout_records(&self) -> &aa_loadout_records::AaLoadoutRecordsTable {
-        self.table(aa_loadout_records::AaLoadoutRecordsTable::NAME)
+    pub fn arb_loadout_records(&self) -> &arb_loadout_records::ArbLoadoutRecordsTable {
+        self.table(arb_loadout_records::ArbLoadoutRecordsTable::NAME)
     }
 
-    pub fn aa_progress_records(&self) -> &aa_progress_records::AaProgressRecordsTable {
-        self.table(aa_progress_records::AaProgressRecordsTable::NAME)
+    pub fn arb_progress_records(&self) -> &arb_progress_records::ArbProgressRecordsTable {
+        self.table(arb_progress_records::ArbProgressRecordsTable::NAME)
     }
 
-    pub fn aa_king_states(&self) -> &aa_king_states::AaKingStatesTable {
-        self.table(aa_king_states::AaKingStatesTable::NAME)
+    pub fn arb_king_states(&self) -> &arb_king_states::ArbKingStatesTable {
+        self.table(arb_king_states::ArbKingStatesTable::NAME)
     }
 
-    pub fn aa_king_protection(&self) -> &aa_king_protection::AaKingProtectionTable {
-        self.table(aa_king_protection::AaKingProtectionTable::NAME)
+    pub fn arb_king_protection(&self) -> &arb_king_protection::ArbKingProtectionTable {
+        self.table(arb_king_protection::ArbKingProtectionTable::NAME)
     }
 
-    pub fn aa_clocks(&self) -> &aa_clocks::AaClocksTable {
-        self.table(aa_clocks::AaClocksTable::NAME)
+    pub fn arb_clocks(&self) -> &arb_clocks::ArbClocksTable {
+        self.table(arb_clocks::ArbClocksTable::NAME)
     }
 
-    pub fn aa_quadrant_options(&self) -> &aa_quadrant_options::AaQuadrantOptionsTable {
-        self.table(aa_quadrant_options::AaQuadrantOptionsTable::NAME)
+    pub fn arb_quadrant_options(&self) -> &arb_quadrant_options::ArbQuadrantOptionsTable {
+        self.table(arb_quadrant_options::ArbQuadrantOptionsTable::NAME)
     }
 
-    pub fn aa_quadrant_selections(&self) -> &aa_quadrant_selections::AaQuadrantSelectionsTable {
-        self.table(aa_quadrant_selections::AaQuadrantSelectionsTable::NAME)
+    pub fn arb_quadrant_selections(&self) -> &arb_quadrant_selections::ArbQuadrantSelectionsTable {
+        self.table(arb_quadrant_selections::ArbQuadrantSelectionsTable::NAME)
     }
 
-    pub fn aa_targets(&self) -> &aa_targets::AaTargetsTable {
-        self.table(aa_targets::AaTargetsTable::NAME)
+    pub fn arb_targets(&self) -> &arb_targets::ArbTargetsTable {
+        self.table(arb_targets::ArbTargetsTable::NAME)
     }
 
-    pub fn aa_objectives(&self) -> &aa_objectives::AaObjectivesTable {
-        self.table(aa_objectives::AaObjectivesTable::NAME)
+    pub fn arb_objectives(&self) -> &arb_objectives::ArbObjectivesTable {
+        self.table(arb_objectives::ArbObjectivesTable::NAME)
     }
 
-    pub fn aa_stage_results(&self) -> &aa_stage_results::AaStageResultsTable {
-        self.table(aa_stage_results::AaStageResultsTable::NAME)
+    pub fn arb_stage_results(&self) -> &arb_stage_results::ArbStageResultsTable {
+        self.table(arb_stage_results::ArbStageResultsTable::NAME)
     }
 
-    pub fn aa_aggregations(&self) -> &aa_aggregations::AaAggregationsTable {
-        self.table(aa_aggregations::AaAggregationsTable::NAME)
+    pub fn arb_aggregations(&self) -> &arb_aggregations::ArbAggregationsTable {
+        self.table(arb_aggregations::ArbAggregationsTable::NAME)
     }
 
-    pub fn aa_pool_audits(&self) -> &aa_pool_audits::AaPoolAuditsTable {
-        self.table(aa_pool_audits::AaPoolAuditsTable::NAME)
+    pub fn arb_pool_audits(&self) -> &arb_pool_audits::ArbPoolAuditsTable {
+        self.table(arb_pool_audits::ArbPoolAuditsTable::NAME)
     }
 
-    pub fn aa_traits(&self) -> &aa_traits::AaTraitsTable {
-        self.table(aa_traits::AaTraitsTable::NAME)
+    pub fn arb_traits(&self) -> &arb_traits::ArbTraitsTable {
+        self.table(arb_traits::ArbTraitsTable::NAME)
     }
 
-    pub fn aa_maze_buff_bindings(&self) -> &aa_maze_buff_bindings::AaMazeBuffBindingsTable {
-        self.table(aa_maze_buff_bindings::AaMazeBuffBindingsTable::NAME)
+    pub fn arb_maze_buff_bindings(&self) -> &arb_maze_buff_bindings::ArbMazeBuffBindingsTable {
+        self.table(arb_maze_buff_bindings::ArbMazeBuffBindingsTable::NAME)
     }
 
-    pub fn aa_battle_events(&self) -> &aa_battle_events::AaBattleEventsTable {
-        self.table(aa_battle_events::AaBattleEventsTable::NAME)
+    pub fn arb_battle_events(&self) -> &arb_battle_events::ArbBattleEventsTable {
+        self.table(arb_battle_events::ArbBattleEventsTable::NAME)
     }
 
-    pub fn aa_encounters(&self) -> &aa_encounters::AaEncountersTable {
-        self.table(aa_encounters::AaEncountersTable::NAME)
+    pub fn arb_encounters(&self) -> &arb_encounters::ArbEncountersTable {
+        self.table(arb_encounters::ArbEncountersTable::NAME)
     }
 
-    pub fn aa_encounter_waves(&self) -> &aa_encounter_waves::AaEncounterWavesTable {
-        self.table(aa_encounter_waves::AaEncounterWavesTable::NAME)
+    pub fn arb_encounter_waves(&self) -> &arb_encounter_waves::ArbEncounterWavesTable {
+        self.table(arb_encounter_waves::ArbEncounterWavesTable::NAME)
     }
 
-    pub fn aa_enemy_slots(&self) -> &aa_enemy_slots::AaEnemySlotsTable {
-        self.table(aa_enemy_slots::AaEnemySlotsTable::NAME)
+    pub fn arb_enemy_slots(&self) -> &arb_enemy_slots::ArbEnemySlotsTable {
+        self.table(arb_enemy_slots::ArbEnemySlotsTable::NAME)
     }
 
-    pub fn aa_enemies(&self) -> &aa_enemies::AaEnemiesTable {
-        self.table(aa_enemies::AaEnemiesTable::NAME)
+    pub fn arb_enemies(&self) -> &arb_enemies::ArbEnemiesTable {
+        self.table(arb_enemies::ArbEnemiesTable::NAME)
     }
 
-    pub fn aa_enemy_skills(&self) -> &aa_enemy_skills::AaEnemySkillsTable {
-        self.table(aa_enemy_skills::AaEnemySkillsTable::NAME)
+    pub fn arb_enemy_skills(&self) -> &arb_enemy_skills::ArbEnemySkillsTable {
+        self.table(arb_enemy_skills::ArbEnemySkillsTable::NAME)
     }
 
-    pub fn aa_enemy_statuses(&self) -> &aa_enemy_statuses::AaEnemyStatusesTable {
-        self.table(aa_enemy_statuses::AaEnemyStatusesTable::NAME)
+    pub fn arb_enemy_statuses(&self) -> &arb_enemy_statuses::ArbEnemyStatusesTable {
+        self.table(arb_enemy_statuses::ArbEnemyStatusesTable::NAME)
     }
 
-    pub fn aa_ability_bindings(&self) -> &aa_ability_bindings::AaAbilityBindingsTable {
-        self.table(aa_ability_bindings::AaAbilityBindingsTable::NAME)
+    pub fn arb_ability_bindings(&self) -> &arb_ability_bindings::ArbAbilityBindingsTable {
+        self.table(arb_ability_bindings::ArbAbilityBindingsTable::NAME)
     }
 
-    pub fn aa_mechanic_contributions(&self) -> &aa_mechanic_contributions::AaMechanicContributionsTable {
-        self.table(aa_mechanic_contributions::AaMechanicContributionsTable::NAME)
+    pub fn arb_mechanic_contributions(&self) -> &arb_mechanic_contributions::ArbMechanicContributionsTable {
+        self.table(arb_mechanic_contributions::ArbMechanicContributionsTable::NAME)
     }
 
-    pub fn aa_mechanic_rules(&self) -> &aa_mechanic_rules::AaMechanicRulesTable {
-        self.table(aa_mechanic_rules::AaMechanicRulesTable::NAME)
+    pub fn arb_mechanic_rules(&self) -> &arb_mechanic_rules::ArbMechanicRulesTable {
+        self.table(arb_mechanic_rules::ArbMechanicRulesTable::NAME)
     }
 
-    pub fn aa_sources(&self) -> &aa_sources::AaSourcesTable {
-        self.table(aa_sources::AaSourcesTable::NAME)
+    pub fn arb_sources(&self) -> &arb_sources::ArbSourcesTable {
+        self.table(arb_sources::ArbSourcesTable::NAME)
     }
 
-    pub fn aa_reconciliation(&self) -> &aa_reconciliation::AaReconciliationTable {
-        self.table(aa_reconciliation::AaReconciliationTable::NAME)
+    pub fn arb_reconciliation(&self) -> &arb_reconciliation::ArbReconciliationTable {
+        self.table(arb_reconciliation::ArbReconciliationTable::NAME)
     }
 
-    pub fn aa_coverage(&self) -> &aa_coverage::AaCoverageTable {
-        self.table(aa_coverage::AaCoverageTable::NAME)
+    pub fn arb_coverage(&self) -> &arb_coverage::ArbCoverageTable {
+        self.table(arb_coverage::ArbCoverageTable::NAME)
     }
 
-    pub fn aa_research_gaps(&self) -> &aa_research_gaps::AaResearchGapsTable {
-        self.table(aa_research_gaps::AaResearchGapsTable::NAME)
+    pub fn arb_research_gaps(&self) -> &arb_research_gaps::ArbResearchGapsTable {
+        self.table(arb_research_gaps::ArbResearchGapsTable::NAME)
     }
 
-    pub fn aa_review_fixtures(&self) -> &aa_review_fixtures::AaReviewFixturesTable {
-        self.table(aa_review_fixtures::AaReviewFixturesTable::NAME)
+    pub fn arb_review_fixtures(&self) -> &arb_review_fixtures::ArbReviewFixturesTable {
+        self.table(arb_review_fixtures::ArbReviewFixturesTable::NAME)
     }
 
-    pub fn aa_manifest_receipt(&self) -> &aa_manifest_receipt::AaManifestReceiptTable {
-        self.table(aa_manifest_receipt::AaManifestReceiptTable::NAME)
+    pub fn arb_manifest_receipt(&self) -> &arb_manifest_receipt::ArbManifestReceiptTable {
+        self.table(arb_manifest_receipt::ArbManifestReceiptTable::NAME)
     }
 
-    pub fn aa_pack_index(&self) -> &aa_pack_index::AaPackIndexTable {
-        self.table(aa_pack_index::AaPackIndexTable::NAME)
+    pub fn arb_pack_index(&self) -> &arb_pack_index::ArbPackIndexTable {
+        self.table(arb_pack_index::ArbPackIndexTable::NAME)
     }
 }
 

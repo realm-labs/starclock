@@ -75,14 +75,14 @@ run(["check", "--project", projectPath]);
 assert(project.includes('"schema/audit.toml"'),
   "audit schema include drift");
 const expected = new Map([
-  ["AAMechanicRules", "MechanicRules"],
-  ["AASources", "Sources"],
-  ["AAReconciliation", "Reconciliation"],
-  ["AACoverage", "Coverage"],
-  ["AAResearchGaps", "ResearchGaps"],
-  ["AAReviewFixtures", "ReviewFixtures"],
-  ["AAManifestReceipt", "ManifestReceipt"],
-  ["AAPackIndex", "PackIndex"],
+  ["ArbMechanicRules", "MechanicRules"],
+  ["ArbSources", "Sources"],
+  ["ArbReconciliation", "Reconciliation"],
+  ["ArbCoverage", "Coverage"],
+  ["ArbResearchGaps", "ResearchGaps"],
+  ["ArbReviewFixtures", "ReviewFixtures"],
+  ["ArbManifestReceipt", "ManifestReceipt"],
+  ["ArbPackIndex", "PackIndex"],
 ]);
 const tableBlocks = schema.split("[[tables]]").slice(1);
 assert(tableBlocks.length === expected.size, "audit table count drift");
@@ -96,8 +96,8 @@ for (const block of tableBlocks) {
     && block.includes('name = "runtime_executable"'),
   `${name} authoring fields drift`);
 }
-assert(schema.includes("list<ref<AASources.id>>")
-  && schema.includes("ref<AAProfiles.id>"),
+assert(schema.includes("list<ref<ArbSources.id>>")
+  && schema.includes("ref<ArbProfiles.id>"),
 "audit typed-reference drift");
 
 const lock = JSON.parse(await readFile(
@@ -186,7 +186,20 @@ for (const [name, sheets] of Object.entries(workbookSheets)) {
   }
 }
 const generatedFiles = await files(generatedRoot);
-assert(generatedFiles.length === 49, "generated artifact count drift");
+const coreFiles = generatedFiles.filter((file) => {
+  const relative = path.relative(generatedRoot, file);
+  return relative === "schema.lock"
+    || relative.startsWith("templates/")
+    || relative.startsWith("readers/");
+});
+const debugFiles = generatedFiles.filter((file) =>
+  path.relative(generatedRoot, file).startsWith("debug-json/"));
+assert(coreFiles.length === 49, "generated schema/template/reader count drift");
+assert(debugFiles.length === 37, "generated debug-table count drift");
+assert(generatedFiles.length === 87
+  && generatedFiles.some((file) =>
+    path.relative(generatedRoot, file) === "config.sora"),
+"generated export artifact count drift");
 const treeDigest = createHash("sha256");
 for (const file of generatedFiles) {
   treeDigest.update(path.relative(generatedRoot, file));
@@ -196,7 +209,7 @@ for (const file of generatedFiles) {
 }
 console.log(
   "Anomaly Arbitration Sora audit/generated artifacts verified: "
-    + `8 audit tables, 37 total tables, 49 files, `
+    + `8 audit tables, 37 total tables, 49 core and 38 export files, `
     + `schema=${digest(Buffer.from(schema))}, `
     + `tree=${treeDigest.digest("hex")}.`,
 );

@@ -1,0 +1,214 @@
+{
+  "table": {
+    "name": "ArbBattleEvents",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_events:battle-event:30502"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight countdown event"
+          },
+          "name_zh_cn": {
+            "String": "骑士倒计时事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"action_bar_text_en\":\"Starting from Cycle 3, at the beginning of each Cycle, all allies enter the \\\"Middlegame Mayhem\\\" state, which greatly increases their final DMG dealt. This effect can be stacked.\",\"action_bar_text_zh_cn\":\"从第3轮起，每个轮次开始时，我方全体进入【中盘激战】状态，造成的最终伤害大幅提高，该效果可以叠加。\",\"countdown_program_owner_batch\":\"G13-P2-B3\",\"coverage_state\":\"DataReady\",\"event_subtype\":\"BattleVersusBarWarningEvent\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-event.30502\",\"kind\":\"BattleEvent\",\"manifest_record_ids\":[\"battle_events:battle-event:30502\"],\"mechanical_ability_names\":[\"BattleEventAbility_SummonMonsterInfinite\",\"BattleEventAbility_ChallengePeakBattle_CountDown\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight countdown event\",\"name_zh_cn\":\"骑士倒计时事件\",\"override_properties\":{\"base_attack\":\"100\",\"base_hp\":\"90\",\"speed\":\"100\"},\"ownership\":\"Shared\",\"presentation_assets_included\":false,\"presentation_only_ability_names\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":30502,\"source_parameters\":[\"0.5\",\"7\",\"4\",\"0.5\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30502\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"35ea5841c86b7bcb14128510c87c0f40640d885d1da92c27623edf63e0b29304\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"StageConfig 30508011 selects battle event 30502.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b4982767925afb0fb2eeaa67d227ab9137127b0f7d4adc4fa41a474ee8feb3c7\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"StageConfig 30508012 selects battle event 30502.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f1eb33272bd91806b5b3424be96c82a32d19150d79a9db60e8b28692ea58a66d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508013\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"StageConfig 30508013 selects battle event 30502.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a35183920eb1e8754b7a529f18662e132200453787c6a38a2d290344b9698103\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16601839680787935738\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released action-bar text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"41fc5987e03f2e1e90648f6c7e85bd619d795c977fe8f162994140e40bd02f48\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=16601839680787935738\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16601839680787935738\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released action-bar text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4abc2b32698ea11de6aea6876d190a1898380de49c6dc1627edbe78dc68c2fcd\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16601839680787935738\"}],\"source_stage_ids\":[\"30508011\",\"30508012\",\"30508013\"],\"stage_ids\":[\"stage.knight-1\",\"stage.knight-2\",\"stage.knight-3\"],\"summary_en\":\"Knight countdown event owns the stage-local countdown actor and its mechanical ability list.\",\"summary_zh_cn\":\"骑士倒计时事件承载关卡局部倒计时参与者及其机械能力列表。\",\"tags\":[\"battle-event\",\"countdown\",\"knight\"],\"team\":\"TeamNeutral\"}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "30502"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30502"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508012"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508013"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16601839680787935738"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16601839680787935738"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-event.30502"
+          },
+          "summary_en": {
+            "String": "Knight countdown event owns the stage-local countdown actor and its mechanical ability list."
+          },
+          "summary_zh_cn": {
+            "String": "骑士倒计时事件承载关卡局部倒计时参与者及其机械能力列表。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_events:battle-event:30503"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Normal King countdown event"
+          },
+          "name_zh_cn": {
+            "String": "常规王棋倒计时事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"action_bar_text_en\":\"Starting from Cycle 3, at the beginning of each Cycle, all allies enter the \\\"Middlegame Mayhem\\\" state, which greatly increases their final DMG dealt. This effect can be stacked.\",\"action_bar_text_zh_cn\":\"从第3轮起，每个轮次开始时，我方全体进入【中盘激战】状态，造成的最终伤害大幅提高，该效果可以叠加。\",\"countdown_program_owner_batch\":\"G13-P2-B3\",\"coverage_state\":\"DataReady\",\"event_subtype\":\"BattleVersusBarWarningEvent\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-event.30503\",\"kind\":\"BattleEvent\",\"manifest_record_ids\":[\"battle_events:battle-event:30503\"],\"mechanical_ability_names\":[\"BattleEventAbility_SummonMonsterInfinite\",\"BattleEventAbility_ChallengePeakBattle_CountDown\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Normal King countdown event\",\"name_zh_cn\":\"常规王棋倒计时事件\",\"override_properties\":{\"base_attack\":\"100\",\"base_hp\":\"90\",\"speed\":\"100\"},\"ownership\":\"Shared\",\"presentation_assets_included\":false,\"presentation_only_ability_names\":[],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":30503,\"source_parameters\":[\"0.5\",\"7\",\"4\",\"0.5\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30503\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9949e261bbafb3f34087a11c48718e825b66bd80dd565c55a08daa5116f083d9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508021\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"StageConfig 30508021 selects battle event 30503.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"77ede3fa4d94d3064fec7c5c6f084147d29d50f9c92cc9736708cc236f98bb93\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=12468610405161025562\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released action-bar text.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"24949fc93a330681d10f70cac3df27794e8c2ed43f60486d368bf5fe2b551ee1\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=12468610405161025562\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=12468610405161025562\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released action-bar text.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b8bec837dfcc6f6a1c19f571ba5b4be0e50a48ed9dbaa6501ea7ae9699005d43\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12468610405161025562\"}],\"source_stage_ids\":[\"30508021\"],\"stage_ids\":[\"stage.king-normal\"],\"summary_en\":\"Normal King countdown event owns the stage-local countdown actor and its mechanical ability list.\",\"summary_zh_cn\":\"常规王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。\",\"tags\":[\"battle-event\",\"countdown\",\"king-normal\"],\"team\":\"TeamNeutral\"}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "30503"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30503"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508021"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=12468610405161025562"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=12468610405161025562"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-event.30503"
+          },
+          "summary_en": {
+            "String": "Normal King countdown event owns the stage-local countdown actor and its mechanical ability list."
+          },
+          "summary_zh_cn": {
+            "String": "常规王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "battle_events:battle-event:30504"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Plight King countdown event"
+          },
+          "name_zh_cn": {
+            "String": "困厄王棋倒计时事件"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"action_bar_text_en\":null,\"action_bar_text_zh_cn\":null,\"countdown_program_owner_batch\":\"G13-P2-B3\",\"coverage_state\":\"DataReady\",\"event_subtype\":\"BattleVersusBarWarningEvent\",\"evidence_quality\":\"ExactStructured\",\"id\":\"battle-event.30504\",\"kind\":\"BattleEvent\",\"manifest_record_ids\":[\"battle_events:battle-event:30504\"],\"mechanical_ability_names\":[\"BattleEventAbility_SummonMonsterInfinite\",\"BattleEventAbility_ChallengePeakBattle_CountDown\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Plight King countdown event\",\"name_zh_cn\":\"困厄王棋倒计时事件\",\"override_properties\":{\"base_attack\":\"100\",\"base_hp\":\"90\",\"speed\":\"100\"},\"ownership\":\"Shared\",\"presentation_assets_included\":false,\"presentation_only_ability_names\":[\"BattleEventAbility_ChallengePeakBattle_HardBossScreenEffect\"],\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_numeric_id\":30504,\"source_parameters\":[\"0.5\",\"3\",\"0\",\"0\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"BattleEventID=30504\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig _CreateBattleEvent resolves this exact row.\",\"path_or_page\":\"ExcelOutput/BattleEventConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d821a5986b6761345daf7df12f645639817d451563d31851edd7b57a8107905e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"StageID=30508022\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"StageConfig 30508022 selects battle event 30504.\",\"path_or_page\":\"ExcelOutput/StageConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d905949369a0e788e0f3be920bfc856bf2b04d3524f72b91cb5aa0e42f42acc6\",\"source_id\":\"turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022\"}],\"source_stage_ids\":[\"30508022\"],\"stage_ids\":[\"stage.king-plight\"],\"summary_en\":\"Plight King countdown event owns the stage-local countdown actor and its mechanical ability list.\",\"summary_zh_cn\":\"困厄王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。\",\"tags\":[\"battle-event\",\"countdown\",\"king-plight\"],\"team\":\"TeamNeutral\"}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "30504"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/BattleEventConfig.json:BattleEventID=30504"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/StageConfig.json:StageID=30508022"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "battle-event.30504"
+          },
+          "summary_en": {
+            "String": "Plight King countdown event owns the stage-local countdown actor and its mechanical ability list."
+          },
+          "summary_zh_cn": {
+            "String": "困厄王棋倒计时事件承载关卡局部倒计时参与者及其机械能力列表。"
+          }
+        }
+      }
+    ]
+  }
+}

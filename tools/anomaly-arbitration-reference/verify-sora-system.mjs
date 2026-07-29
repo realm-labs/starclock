@@ -52,14 +52,14 @@ for (const forbidden of [
   assert(!project.includes(forbidden), `forbidden project output: ${forbidden}`);
 
 const expected = new Map([
-  ["AAProfiles", "Profiles"],
-  ["AAPeriods", "Periods"],
-  ["AAStages", "Stages"],
-  ["AATerminalOutcomes", "TerminalOutcomes"],
-  ["AAParticipantPolicies", "ParticipantPolicies"],
-  ["AATeamSlots", "TeamSlots"],
-  ["AALoadoutRecords", "LoadoutRecords"],
-  ["AAProgressRecords", "ProgressRecords"],
+  ["ArbProfiles", "Profiles"],
+  ["ArbPeriods", "Periods"],
+  ["ArbStages", "Stages"],
+  ["ArbTerminalOutcomes", "TerminalOutcomes"],
+  ["ArbParticipantPolicies", "ParticipantPolicies"],
+  ["ArbTeamSlots", "TeamSlots"],
+  ["ArbLoadoutRecords", "LoadoutRecords"],
+  ["ArbProgressRecords", "ProgressRecords"],
 ]);
 const tableBlocks = schema.split("[[tables]]").slice(1);
 assert(tableBlocks.length === expected.size, "system table count drift");
@@ -76,19 +76,19 @@ for (const block of tableBlocks) {
   `${name} common authoring fields drift`);
 }
 for (const typedReference of [
-  "ref<AAProfiles.id>",
-  "ref<AAPeriods.id>",
-  "ref<AAStages.id>",
+  "ref<ArbProfiles.id>",
+  "ref<ArbPeriods.id>",
+  "ref<ArbStages.id>",
 ])
   assert(schema.includes(typedReference),
     `missing typed reference ${typedReference}`);
 for (const enumName of [
-  "AAOwnership",
-  "AACoverageState",
-  "AAEvidenceQuality",
-  "AAMechanismQuality",
-  "AAStageKind",
-  "AADifficulty",
+  "ArbOwnership",
+  "ArbCoverageState",
+  "ArbEvidenceQuality",
+  "ArbMechanismQuality",
+  "ArbStageKind",
+  "ArbDifficulty",
 ])
   assert(schema.includes(`name = "${enumName}"`),
     `missing enum ${enumName}`);

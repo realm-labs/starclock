@@ -1,0 +1,229 @@
+{
+  "table": {
+    "name": "ArbLoadoutRecords",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "record_progress_lifecycles:successful-knight-record"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Successful Knight clear snapshot"
+          },
+          "name_zh_cn": {
+            "String": "骑士通关编队快照"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"creation_trigger\":\"SuccessfulKnightClear\",\"equipment_identity_resolution\":\"RecordedAccountInstance\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"loadout-record.successful-clear-snapshot\",\"kind\":\"LoadoutRecordPolicy\",\"manifest_record_ids\":[\"record_progress_lifecycles:successful-knight-record\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Successful Knight clear snapshot\",\"name_zh_cn\":\"骑士通关编队快照\",\"ownership\":\"AnomalyArbitration\",\"participant_membership\":\"FixedForRetry\",\"progression_resolution\":\"LatestStatusAtRetry\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"After a Knight clear, the team composition is recorded and that fixed team may retry the same stage; current character progression states are used on retry.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"90c7687283cb72faa1be2d75639b3e403821677d165665b6ce78be75a9ddd6e6\",\"source_id\":\"official:hoyolab:anomaly-arbitration:retry-fixed-team\"}],\"summary_en\":\"A successful Knight clear records its team composition for later retries.\",\"summary_zh_cn\":\"骑士关成功通关后会记录编队情况，供之后重复挑战使用。\",\"tags\":[\"loadout\",\"record\",\"snapshot\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:retry-fixed-team"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "loadout-record.successful-clear-snapshot"
+          },
+          "summary_en": {
+            "String": "A successful Knight clear records its team composition for later retries."
+          },
+          "summary_zh_cn": {
+            "String": "骑士关成功通关后会记录编队情况，供之后重复挑战使用。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "record"
+              },
+              {
+                "String": "snapshot"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "record_progress_lifecycles:loadout-change-invalidation"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Cross-team equipment invalidation"
+          },
+          "name_zh_cn": {
+            "String": "跨队装备记录失效"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"loadout-record.cross-team-equipment-invalidation\",\"invalidated_scope\":\"SourceClearedKnightRecord\",\"kind\":\"LoadoutRecordPolicy\",\"manifest_record_ids\":[\"record_progress_lifecycles:loadout-change-invalidation\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Cross-team equipment invalidation\",\"name_zh_cn\":\"跨队装备记录失效\",\"ordering\":[\"DetectRecordedInstanceConflict\",\"ResetSourceKnightProgress\",\"ClearSourceTeamSnapshot\",\"PermitTargetChallengeIfNoConflictsRemain\"],\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Moving a recorded Light Cone or Relic into another Knight retry resets the progress of the cleared Knight record that contained that equipment.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"2cb5bd38082558d63a4c850375ce22cc7cd78040e10c874751ee867dab45a53f\",\"source_id\":\"official:hoyolab:anomaly-arbitration:cross-team-equipment-reset\"}],\"summary_en\":\"Reusing recorded equipment in another Knight retry resets the cleared record that supplied it.\",\"summary_zh_cn\":\"在另一骑士重试中复用已记录装备，会重置提供该装备的已通关记录。\",\"tags\":[\"invalidation\",\"loadout\",\"reset\"],\"trigger\":\"RecordedLightConeOrRelicAssignedToDifferentKnightRetry\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:cross-team-equipment-reset"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "loadout-record.cross-team-equipment-invalidation"
+          },
+          "summary_en": {
+            "String": "Reusing recorded equipment in another Knight retry resets the cleared record that supplied it."
+          },
+          "summary_zh_cn": {
+            "String": "在另一骑士重试中复用已记录装备，会重置提供该装备的已通关记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "invalidation"
+              },
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "reset"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "record_progress_lifecycles:rechallenge-eligibility"
+              },
+              {
+                "String": "record_progress_lifecycles:record-replacement-choice"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Nonconflicting loadout retry"
+          },
+          "name_zh_cn": {
+            "String": "无冲突配装重试"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"eligible_change_classes\":[\"EquipmentFromSameRecordedTeam\",\"EquipmentAbsentFromAllClearRecords\"],\"evidence_quality\":\"ExactPublicText\",\"failed_attempt_resolution\":\"KeepOldRecord\",\"id\":\"loadout-record.same-team-or-unrecorded-change\",\"kind\":\"LoadoutRecordPolicy\",\"manifest_record_ids\":[\"record_progress_lifecycles:rechallenge-eligibility\",\"record_progress_lifecycles:record-replacement-choice\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Nonconflicting loadout retry\",\"name_zh_cn\":\"无冲突配装重试\",\"old_record_retained_during_attempt\":true,\"ownership\":\"AnomalyArbitration\",\"retry_allowed\":true,\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Retrying Challenges\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Using same-team or previously unrecorded Light Cones or Relics permits a retry, and a successful clear offers a choice whether to replace the old record and composition.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"494f27b8aec9a33c72ca9bb7590260630c29d427dbe70d8e75b5f8739ac5b077\",\"source_id\":\"official:hoyolab:anomaly-arbitration:record-replacement-choice\"}],\"success_resolution\":\"ExplicitKeepOldOrReplaceWithNewChoice\",\"summary_en\":\"Same-team or previously unrecorded equipment permits a retry without first erasing the old record.\",\"summary_zh_cn\":\"同队装备或未出现在任何通关记录中的装备可直接重试，无须先清除旧记录。\",\"tags\":[\"loadout\",\"replacement\",\"retry\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration:record-replacement-choice"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "loadout-record.same-team-or-unrecorded-change"
+          },
+          "summary_en": {
+            "String": "Same-team or previously unrecorded equipment permits a retry without first erasing the old record."
+          },
+          "summary_zh_cn": {
+            "String": "同队装备或未出现在任何通关记录中的装备可直接重试，无须先清除旧记录。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "loadout"
+              },
+              {
+                "String": "replacement"
+              },
+              {
+                "String": "retry"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

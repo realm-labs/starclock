@@ -2,7 +2,7 @@
 # generate-sora-audit-schema.mjs; do not hand-edit.
 
 [[tables]]
-name = "AAMechanicRules"
+name = "ArbMechanicRules"
 mode = "map"
 key = "id"
 [tables.source]
@@ -39,16 +39,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -75,7 +75,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AASources"
+name = "ArbSources"
 mode = "map"
 key = "id"
 [tables.source]
@@ -112,16 +112,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -152,7 +152,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AAReconciliation"
+name = "ArbReconciliation"
 mode = "map"
 key = "id"
 [tables.source]
@@ -189,16 +189,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -233,7 +233,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AACoverage"
+name = "ArbCoverage"
 mode = "map"
 key = "id"
 [tables.source]
@@ -270,16 +270,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -310,7 +310,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AAResearchGaps"
+name = "ArbResearchGaps"
 mode = "map"
 key = "id"
 [tables.source]
@@ -347,16 +347,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -386,7 +386,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AAReviewFixtures"
+name = "ArbReviewFixtures"
 mode = "map"
 key = "id"
 [tables.source]
@@ -423,16 +423,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -456,7 +456,7 @@ type = "string"
 length = [1, 200]
 [[tables.fields]]
 name = "evidence_ref_ids"
-type = "list<ref<AASources.id>>"
+type = "list<ref<ArbSources.id>>"
 parser = { kind = "split", separator = "|" }
 length = [1, 1024]
 [[tables.indexes]]
@@ -464,7 +464,7 @@ name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AAManifestReceipt"
+name = "ArbManifestReceipt"
 mode = "map"
 key = "id"
 [tables.source]
@@ -501,16 +501,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"
@@ -530,13 +530,13 @@ name = "runtime_executable"
 type = "bool"
 [[tables.fields]]
 name = "profile_id"
-type = "ref<AAProfiles.id>"
+type = "ref<ArbProfiles.id>"
 [[tables.indexes]]
 name = "by_stable_key"
 fields = ["stable_key"]
 unique = true
 [[tables]]
-name = "AAPackIndex"
+name = "ArbPackIndex"
 mode = "map"
 key = "id"
 [tables.source]
@@ -573,16 +573,16 @@ type = "string"
 length = [1, 4000]
 [[tables.fields]]
 name = "ownership"
-type = "enum<AAOwnership>"
+type = "enum<ArbOwnership>"
 [[tables.fields]]
 name = "coverage_state"
-type = "enum<AACoverageState>"
+type = "enum<ArbCoverageState>"
 [[tables.fields]]
 name = "evidence_quality"
-type = "enum<AAEvidenceQuality>"
+type = "enum<ArbEvidenceQuality>"
 [[tables.fields]]
 name = "mechanism_quality"
-type = "enum<AAMechanismQuality>"
+type = "enum<ArbMechanismQuality>"
 [[tables.fields]]
 name = "manifest_record_ids"
 type = "list<string>"

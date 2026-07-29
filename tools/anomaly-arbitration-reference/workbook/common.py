@@ -31,7 +31,7 @@ THIN_BORDER = Border(bottom=Side(style="thin", color="B7C9E2"))
 def schema_tables(root: Path) -> list[dict]:
     lock_path = root / "config" / "anomaly-arbitration-generated" / "schema.lock"
     lock = json.loads(lock_path.read_text(encoding="utf-8"))
-    return [table for table in lock["schema"]["tables"] if table["name"].startswith("AA")]
+    return [table for table in lock["schema"]["tables"] if table["name"].startswith("Arb")]
 
 
 def workbook_tables(root: Path, workbook_name: str) -> list[dict]:

@@ -1,0 +1,287 @@
+{
+  "table": {
+    "name": "ArbTerminalOutcomes",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "terminal_outcomes:king-normal-clear"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King normal clear"
+          },
+          "name_zh_cn": {
+            "String": "常规王棋通关"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"detailed_projection_owner_batch\":\"G13-P1-B6\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"outcome.king-normal-clear\",\"kind\":\"TerminalOutcome\",\"manifest_record_ids\":[\"terminal_outcomes:king-normal-clear\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King normal clear\",\"name_zh_cn\":\"常规王棋通关\",\"ownership\":\"AnomalyArbitration\",\"projection_summary\":\"records the King result and evaluates its targets\",\"result\":\"Success\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"The King stage has its own clear and target evaluation result.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"f7f9a50579e6d22c59b92fb6109761d67e7430fbe96ea0a6b2164807dde51b18\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-normal-clear\"}],\"stage_scope\":\"KingNormal\",\"summary_en\":\"King normal clear terminates the current stage attempt; it records the King result and evaluates its targets.\",\"summary_zh_cn\":\"常规王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。\",\"tags\":[\"attempt\",\"success\",\"terminal-outcome\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-normal-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.king-normal-clear"
+          },
+          "summary_en": {
+            "String": "King normal clear terminates the current stage attempt; it records the King result and evaluates its targets."
+          },
+          "summary_zh_cn": {
+            "String": "常规王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "attempt"
+              },
+              {
+                "String": "success"
+              },
+              {
+                "String": "terminal-outcome"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "terminal_outcomes:king-plight-clear"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "King Plight clear"
+          },
+          "name_zh_cn": {
+            "String": "绝境王棋通关"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"detailed_projection_owner_batch\":\"G13-P1-B3\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"outcome.king-plight-clear\",\"kind\":\"TerminalOutcome\",\"manifest_record_ids\":[\"terminal_outcomes:king-plight-clear\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"King Plight clear\",\"name_zh_cn\":\"绝境王棋通关\",\"ownership\":\"AnomalyArbitration\",\"projection_summary\":\"treats all Knight stages as three-star clears before downstream settlement\",\"result\":\"Success\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"King in Check Stage direct Plight clear\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Direct Plight victory counts all Knight stages as three-star clears.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"bc5f0f4471b08d57c2e1aa95494131ef0be5d9ef15367946e891c17ff0b78e6f\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-plight-clear\"}],\"stage_scope\":\"KingPlight\",\"summary_en\":\"King Plight clear terminates the current stage attempt; it treats all Knight stages as three-star clears before downstream settlement.\",\"summary_zh_cn\":\"绝境王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。\",\"tags\":[\"attempt\",\"success\",\"terminal-outcome\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-king-plight-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.king-plight-clear"
+          },
+          "summary_en": {
+            "String": "King Plight clear terminates the current stage attempt; it treats all Knight stages as three-star clears before downstream settlement."
+          },
+          "summary_zh_cn": {
+            "String": "绝境王棋通关会终止当前关卡尝试，并执行对应的记录或结算投影。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "attempt"
+              },
+              {
+                "String": "success"
+              },
+              {
+                "String": "terminal-outcome"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "terminal_outcomes:knight-stage-clear"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Knight stage clear"
+          },
+          "name_zh_cn": {
+            "String": "骑士关通关"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"detailed_projection_owner_batch\":\"G13-P1-B6\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"outcome.knight-stage-clear\",\"kind\":\"TerminalOutcome\",\"manifest_record_ids\":[\"terminal_outcomes:knight-stage-clear\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Knight stage clear\",\"name_zh_cn\":\"骑士关通关\",\"ownership\":\"AnomalyArbitration\",\"projection_summary\":\"records this Knight team and independently evaluated stars\",\"result\":\"Success\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Knight Stage and King in Check Stage\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"A cleared Knight stage records its team and independently evaluated stars.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"7b4d6c1bb9ab03c93555fbc9489befb3fc3c84b9d3030de0a1a167400af32394\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear\"}],\"stage_scope\":\"Knight\",\"summary_en\":\"Knight stage clear terminates the current stage attempt; it records this Knight team and independently evaluated stars.\",\"summary_zh_cn\":\"骑士关通关会终止当前关卡尝试，并执行对应的记录或结算投影。\",\"tags\":[\"attempt\",\"success\",\"terminal-outcome\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-knight-stage-clear"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.knight-stage-clear"
+          },
+          "summary_en": {
+            "String": "Knight stage clear terminates the current stage attempt; it records this Knight team and independently evaluated stars."
+          },
+          "summary_zh_cn": {
+            "String": "骑士关通关会终止当前关卡尝试，并执行对应的记录或结算投影。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "attempt"
+              },
+              {
+                "String": "success"
+              },
+              {
+                "String": "terminal-outcome"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "terminal_outcomes:stage-attempt-failure"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Stage attempt failure"
+          },
+          "name_zh_cn": {
+            "String": "关卡挑战失败"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"coverage_state\":\"DataReady\",\"detailed_projection_owner_batch\":\"G13-P1-B6\",\"evidence_quality\":\"ExactPublicText\",\"id\":\"outcome.stage-attempt-failure\",\"kind\":\"TerminalOutcome\",\"manifest_record_ids\":[\"terminal_outcomes:stage-attempt-failure\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Stage attempt failure\",\"name_zh_cn\":\"关卡挑战失败\",\"ownership\":\"AnomalyArbitration\",\"projection_summary\":\"does not create a successful stage record\",\"result\":\"Failure\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_refs\":[{\"evidence_quality\":\"ExactPublicText\",\"game_version\":\"4.4\",\"locator\":\"Cycles\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Exceeding the stage's own cycle limit makes the attempt fail.\",\"path_or_page\":\"https://www.hoyolab.com/article/41091494\",\"repository_or_url\":\"https://www.hoyolab.com/article/41091494\",\"revision_or_access_date\":\"accessed 2026-07-29\",\"sha256\":\"e6fdecee80d1841c37c8ca2c5577e4363a3c6b9ae8fa69801fbc4f6f43adf22d\",\"source_id\":\"official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure\"}],\"stage_scope\":\"Any\",\"summary_en\":\"Stage attempt failure terminates the current stage attempt; it does not create a successful stage record.\",\"summary_zh_cn\":\"关卡挑战失败会终止当前关卡尝试，并执行对应的记录或结算投影。\",\"tags\":[\"attempt\",\"failure\",\"terminal-outcome\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "official:hoyolab:anomaly-arbitration-gameplay-guide:terminal-stage-attempt-failure"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "outcome.stage-attempt-failure"
+          },
+          "summary_en": {
+            "String": "Stage attempt failure terminates the current stage attempt; it does not create a successful stage record."
+          },
+          "summary_zh_cn": {
+            "String": "关卡挑战失败会终止当前关卡尝试，并执行对应的记录或结算投影。"
+          },
+          "tags": {
+            "List": [
+              {
+                "String": "attempt"
+              },
+              {
+                "String": "failure"
+              },
+              {
+                "String": "terminal-outcome"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

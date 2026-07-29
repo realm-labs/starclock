@@ -11,41 +11,41 @@ const output = path.join(
 );
 
 const definitions = [
-  ["AAMechanicRules", "MechanicRules", [
+  ["ArbMechanicRules", "MechanicRules", [
     field("family_id", "string", "length = [1, 200]"),
   ]],
-  ["AASources", "Sources", [
+  ["ArbSources", "Sources", [
     field("source_id", "string", "length = [1, 1000]"),
     field("locator", "string", "length = [1, 1000]"),
   ]],
-  ["AAReconciliation", "Reconciliation", [
+  ["ArbReconciliation", "Reconciliation", [
     field("source_path", "string", "length = [1, 1000]"),
     field("row_locator", "string", "length = [1, 1000]"),
     field("peer_goal_id", "string", "length = [1, 200]"),
   ]],
-  ["AACoverage", "Coverage", [
+  ["ArbCoverage", "Coverage", [
     field("manifest_category", "string", "length = [1, 200]"),
     field("manifest_record_id", "string", "length = [1, 1000]"),
   ]],
-  ["AAResearchGaps", "ResearchGaps", [
+  ["ArbResearchGaps", "ResearchGaps", [
     field("blocking", "bool"),
     field("owner_batch", "string", "length = [1, 200]"),
   ]],
-  ["AAReviewFixtures", "ReviewFixtures", [
+  ["ArbReviewFixtures", "ReviewFixtures", [
     field("family_id", "string", "length = [1, 200]"),
     field(
       "evidence_ref_ids",
-      "list<ref<AASources.id>>",
+      "list<ref<ArbSources.id>>",
       'parser = { kind = "split", separator = "|" }\nlength = [1, 1024]',
     ),
   ]],
-  ["AAManifestReceipt", "ManifestReceipt", [
+  ["ArbManifestReceipt", "ManifestReceipt", [
     field(
       "profile_id",
-      "ref<AAProfiles.id>",
+      "ref<ArbProfiles.id>",
     ),
   ]],
-  ["AAPackIndex", "PackIndex", [
+  ["ArbPackIndex", "PackIndex", [
     field("file_order", "i32", "range = [1, 100]"),
     field("record_order", "i32", "range = [0, 1000000]"),
   ]],
@@ -72,10 +72,10 @@ const commonFields = [
   field("name_zh_cn", "string", "length = [1, 2200]"),
   field("summary_en", "string", "length = [1, 4000]"),
   field("summary_zh_cn", "string", "length = [1, 4000]"),
-  field("ownership", "enum<AAOwnership>"),
-  field("coverage_state", "enum<AACoverageState>"),
-  field("evidence_quality", "enum<AAEvidenceQuality>"),
-  field("mechanism_quality", "enum<AAMechanismQuality>"),
+  field("ownership", "enum<ArbOwnership>"),
+  field("coverage_state", "enum<ArbCoverageState>"),
+  field("evidence_quality", "enum<ArbEvidenceQuality>"),
+  field("mechanism_quality", "enum<ArbMechanismQuality>"),
   field(
     "manifest_record_ids",
     "list<string>",

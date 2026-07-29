@@ -1,0 +1,67 @@
+{
+  "table": {
+    "name": "ArbManifestReceipt",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "profiles:anomaly-arbitration-v1"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Anomaly Arbitration pack manifest receipt"
+          },
+          "name_zh_cn": {
+            "String": "异相仲裁资料包清单收据"
+          },
+          "ownership": {
+            "String": "AnomalyArbitration"
+          },
+          "payload_json": {
+            "String": "{\"bundle_state\":\"Candidate\",\"content_lane\":\"Experimental\",\"content_manifest_obligations\":392,\"content_manifest_path\":\"content-manifests/anomaly-arbitration-v1/content-manifest.json\",\"content_manifest_sha256\":\"84d60c5edea6f3210bc706cf21d18d886292cdbff1f2cc4f310b3e18c3146ac4\",\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ProjectPolicy\",\"fixture_contract_sha256\":\"5d523aa85c7716cabaea6ce8d95db1f1a4558b4363adda1e44c99246da58a5f8\",\"game_version\":\"4.4\",\"id\":\"manifest-receipt.anomaly-arbitration-v1\",\"identity_revision\":\"7b349e39ee0f6f3bf814567995829b99c95e7a93\",\"kind\":\"ManifestReceipt\",\"manifest_record_ids\":[\"profiles:anomaly-arbitration-v1\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Anomaly Arbitration pack manifest receipt\",\"name_zh_cn\":\"异相仲裁资料包清单收据\",\"normalized_file_count\":37,\"normalized_schema_sha256\":\"db436a34b66bacc6811bf0b6101d58317691faccd106cf29024f2271cca0a12a\",\"ownership\":\"AnomalyArbitration\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"source_inventory_path\":\"content-manifests/anomaly-arbitration-v1/source-inventory.json\",\"source_inventory_sha256\":\"86ec49eef98c3912fa886abd6706eee691106c9b644639d6d55bf4d23a4d2583\",\"source_refs\":[{\"evidence_quality\":\"ProjectPolicy\",\"game_version\":\"4.4\",\"locator\":\"Included content\",\"mechanism_quality\":\"PolicyBoundary\",\"note\":\"Goal-owned pack identity and isolated authoring boundary.\",\"path_or_page\":\"docs/goals/13-anomaly-arbitration-reference-data.md\",\"repository_or_url\":\"https://github.com/realm-labs/starclock.git\",\"revision_or_access_date\":\"2026-07-29\",\"sha256\":\"6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1\",\"source_id\":\"starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content\"}],\"source_revision\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"summary_en\":\"This receipt binds the frozen source inventory, ownership manifest and normalized contracts.\",\"summary_zh_cn\":\"该收据绑定冻结源清单、所有权清单与规范化契约。\",\"tags\":[\"manifest\",\"pack-receipt\"]}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "manifest-receipt.anomaly-arbitration-v1"
+          },
+          "summary_en": {
+            "String": "This receipt binds the frozen source inventory, ownership manifest and normalized contracts."
+          },
+          "summary_zh_cn": {
+            "String": "该收据绑定冻结源清单、所有权清单与规范化契约。"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -35,15 +35,15 @@ assert(project.includes('"schema/system.toml"')
   && project.includes('"schema/mechanics.toml"'),
 "Sora schema include order drift");
 const expected = new Map([
-  ["AAKingStates", "KingStates"],
-  ["AAKingProtection", "KingProtection"],
-  ["AAClocks", "Clocks"],
-  ["AAQuadrantOptions", "QuadrantOptions"],
-  ["AAQuadrantSelections", "QuadrantSelections"],
-  ["AATargets", "Targets"],
-  ["AAObjectives", "Objectives"],
-  ["AAStageResults", "StageResults"],
-  ["AAAggregations", "Aggregations"],
+  ["ArbKingStates", "KingStates"],
+  ["ArbKingProtection", "KingProtection"],
+  ["ArbClocks", "Clocks"],
+  ["ArbQuadrantOptions", "QuadrantOptions"],
+  ["ArbQuadrantSelections", "QuadrantSelections"],
+  ["ArbTargets", "Targets"],
+  ["ArbObjectives", "Objectives"],
+  ["ArbStageResults", "StageResults"],
+  ["ArbAggregations", "Aggregations"],
 ]);
 const tableBlocks = schema.split("[[tables]]").slice(1);
 assert(tableBlocks.length === expected.size, "mechanics table count drift");
@@ -59,8 +59,8 @@ for (const block of tableBlocks) {
     && block.includes('name = "source_ref_ids"'),
   `${name} common authoring fields drift`);
 }
-assert(schema.includes("ref<AAProfiles.id>")
-  && schema.includes("ref<AAStages.id>"),
+assert(schema.includes("ref<ArbProfiles.id>")
+  && schema.includes("ref<ArbStages.id>"),
 "mechanics typed-reference drift");
 assert((schema.match(/name = "source_numeric_id"/gu) ?? []).length === 2,
   "source numeric ID authoring boundary drift");

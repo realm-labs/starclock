@@ -1,0 +1,232 @@
+{
+  "table": {
+    "name": "ArbQuadrantOptions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "quadrant_options:quadrant:3033066"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Navigator's Oath"
+          },
+          "name_zh_cn": {
+            "String": "领航誓言"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.quadrant-selection.option-3033066\"],\"alternatives\":[\"infer a program from the localized description\",\"substitute a similar older plugin\"],\"confidence\":\"High\",\"field_path\":\"binding_program_state\",\"rationale\":\"Descriptions establish the authored contribution, but neither inference is byte-identical program evidence.\",\"replacement_condition\":\"Replace when a released fixed-revision source exposes the named plugin body and its dynamic-value mapping.\",\"selected_policy\":\"Keep the exact released description and parameters while marking the program body unresolved and non-runtime.\",\"unavailable_fact\":\"The MazeBuff and layout name the binding, but the fixed extracted ability JSON stops at Plugins_0021 and does not contain the 0022/0023 program body.\"}],\"binding_program_state\":\"NamedInLayoutButMissingFromExtractedAbilityList\",\"contribution\":{\"attack_types\":[\"Skill\",\"Ultimate\"],\"property\":\"AllTypeResistancePenetration\",\"ratio\":\"0.5\",\"target\":\"LineupPosition1\",\"trigger\":\"StageAbilityBeforeCharacterBorn\"},\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"quadrant-option.3033066\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_Plugins_0022\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"QuadrantOption\",\"manifest_record_ids\":[\"quadrant_options:quadrant:3033066\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Navigator's Oath\",\"name_zh_cn\":\"领航誓言\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selection_policy_id\":\"quadrant-selection.active-period\",\"source_buff_level\":1,\"source_numeric_id\":3033066,\"source_parameters\":[\"0.5\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033066\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b358fcf94d1f1fd182a97ef2a270f04b8eaf20eeb75bf268a324d25c4bcb6b0c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=15001982558288419463\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"55d54dcdf7c26233132e7d69445dd4b8329873437b8d826c902ede364087c370\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15001982558288419463\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=15001982558288419463\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"390192cd6968159e08e43dc8d26f89f8dd75ce594732410bdd22d305de49e51b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=15001982558288419463\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=8716817855956121302\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"412ad9db1fc6b3cda821569cf9086fc1d9b959ee96775362ba168db40e3f29e9\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8716817855956121302\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=8716817855956121302\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"19ea06d1b520212ecea9246d2c38a6d28adc4e6e936adbc41a08c4b70d90f6ff\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=8716817855956121302\"}],\"stage_scope\":[\"KingNormal\",\"KingPlight\"],\"summary_en\":\"Increases the All-Type RES PEN for Skill and Ultimate damage dealt by the character in lineup position 1.\",\"summary_zh_cn\":\"提高编队第一位角色战技与终结技伤害的全属性抗性穿透。\",\"tags\":[\"arbitral-quadrant\",\"king\",\"option\"],\"teardown_policy_id\":\"quadrant-selection.attempt-teardown\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033066"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033066"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15001982558288419463"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=15001982558288419463"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8716817855956121302"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=8716817855956121302"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "quadrant-option.3033066"
+          },
+          "summary_en": {
+            "String": "Increases the All-Type RES PEN for Skill and Ultimate damage dealt by the character in lineup position 1."
+          },
+          "summary_zh_cn": {
+            "String": "提高编队第一位角色战技与终结技伤害的全属性抗性穿透。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "quadrant_options:quadrant:3033067"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "PolicyBoundary"
+          },
+          "name_en": {
+            "String": "Endless Euphoria"
+          },
+          "name_zh_cn": {
+            "String": "狂欢不息"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"approximations\":[{\"affected_fixture_ids\":[\"fixture.quadrant-selection.option-3033067\"],\"alternatives\":[\"infer a program from the localized description\",\"substitute a similar older plugin\"],\"confidence\":\"High\",\"field_path\":\"binding_program_state\",\"rationale\":\"Descriptions establish the authored contribution, but neither inference is byte-identical program evidence.\",\"replacement_condition\":\"Replace when a released fixed-revision source exposes the named plugin body and its dynamic-value mapping.\",\"selected_policy\":\"Keep the exact released description and parameters while marking the program body unresolved and non-runtime.\",\"unavailable_fact\":\"The MazeBuff and layout name the binding, but the fixed extracted ability JSON stops at Plugins_0021 and does not contain the 0022/0023 program body.\"}],\"binding_program_state\":\"NamedInLayoutButMissingFromExtractedAbilityList\",\"contribution\":{\"base_ratio\":\"0.2\",\"elation_additional_ratio\":\"0.2\",\"property\":\"AllTypeResistancePenetration\",\"target\":\"AllAllies\",\"trigger\":\"StageAbilityBeforeCharacterBorn\"},\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"quadrant-option.3033067\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_Plugins_0023\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"QuadrantOption\",\"manifest_record_ids\":[\"quadrant_options:quadrant:3033067\"],\"mechanism_quality\":\"PolicyBoundary\",\"name_en\":\"Endless Euphoria\",\"name_zh_cn\":\"狂欢不息\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selection_policy_id\":\"quadrant-selection.active-period\",\"source_buff_level\":1,\"source_numeric_id\":3033067,\"source_parameters\":[\"0.2\",\"0.2\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033067\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ac079a5e54a67bffd1060c1c6fd57d5460577eb233a61c20f0d90f8558c3fbc3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1144961268741207686\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"56ca55d7d86a31a3b4658d48ffab01a03f16ea9b2d25f0187f8c7be17c13c3ce\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1144961268741207686\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1144961268741207686\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e3464fa2dae1feff56a7083c05c243079366ae88dffb815224e441881855160f\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=1144961268741207686\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1083179235023776380\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9db81b024e3fea9598d1d8274e003cee65940a1bc411e6596702e18a341aaa5d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1083179235023776380\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1083179235023776380\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b5894c21105591958bb1df320e8f7412fef66498f5df07fcbb927bb7a6834b91\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=1083179235023776380\"}],\"stage_scope\":[\"KingNormal\",\"KingPlight\"],\"summary_en\":\"Raises all allies' All-Type RES PEN and adds the same increase to Elation damage.\",\"summary_zh_cn\":\"提高我方全体全属性抗性穿透，并对欢愉伤害额外提高同等数值。\",\"tags\":[\"arbitral-quadrant\",\"king\",\"option\"],\"teardown_policy_id\":\"quadrant-selection.attempt-teardown\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033067"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033067"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1144961268741207686"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=1144961268741207686"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1083179235023776380"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=1083179235023776380"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "quadrant-option.3033067"
+          },
+          "summary_en": {
+            "String": "Raises all allies' All-Type RES PEN and adds the same increase to Elation damage."
+          },
+          "summary_zh_cn": {
+            "String": "提高我方全体全属性抗性穿透，并对欢愉伤害额外提高同等数值。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "quadrant_options:quadrant:3033068"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Add Insult to Injury"
+          },
+          "name_zh_cn": {
+            "String": "落井下石"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"binding_program_state\":\"ResolvedInExtractedAbilityList\",\"contribution\":{\"duration_turns\":2,\"maximum_stacks\":3,\"property\":\"AllDamageTakenRatio\",\"ratio_per_stack\":\"0.15\",\"stacking\":\"ReplaceWithLayerIncrement\",\"target\":\"HitEnemy\",\"trigger\":\"AfterEnemyHitByAllyFollowUpAttack\"},\"coverage_state\":\"DataReady\",\"evidence_quality\":\"ExactStructured\",\"id\":\"quadrant-option.3033068\",\"in_battle_binding_key\":\"ChallengePeakBattle_BaseAbility_Plugins_0014\",\"in_battle_binding_type\":\"StageAbilityBeforeCharacterBorn\",\"kind\":\"QuadrantOption\",\"manifest_record_ids\":[\"quadrant_options:quadrant:3033068\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Add Insult to Injury\",\"name_zh_cn\":\"落井下石\",\"ownership\":\"Shared\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"selection_policy_id\":\"quadrant-selection.active-period\",\"source_buff_level\":1,\"source_numeric_id\":3033068,\"source_parameters\":[\"0.15\",\"2\",\"3\"],\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"ID=3033068\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active alias 804 BuffList explicitly selects this MazeBuff row.\",\"path_or_page\":\"ExcelOutput/MazeBuff.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"41fcf459235c8e65784be7890d1fe1ef655cee4db6a3ce86a267491a7a3976ef\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=15416898346825293541\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e310d1096d4a44fb3a92413edd85f259021e44c99861a5b66662026cdc8ec0d7\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15416898346825293541\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=15416898346825293541\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"26f127e22d5309658a6b2476af5848b5fc31ce94fc2ef2447e8ede9b239ffd0c\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=15416898346825293541\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14543835869706011294\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact zh_cn released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"30bcc175c6139f47f4387b06c32ccf6fa62ee93b7cda664972d9b3e1f0194c52\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14543835869706011294\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14543835869706011294\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact en released text for the referenced hash.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"80507e2b033df7f9ea5a564720b55f51c1e0eb175d03b7147af11a12898225da\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14543835869706011294\"}],\"stage_scope\":[\"KingNormal\",\"KingPlight\"],\"summary_en\":\"Follow-Up ATKs add a stacking damage-taken increase to the struck enemy.\",\"summary_zh_cn\":\"追加攻击命中敌方后，为目标叠加受到伤害提高效果。\",\"tags\":[\"arbitral-quadrant\",\"king\",\"option\"],\"teardown_policy_id\":\"quadrant-selection.attempt-teardown\"}"
+          },
+          "profile_id": {
+            "Integer": 1
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3033068"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MazeBuff.json:ID=3033068"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=15416898346825293541"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=15416898346825293541"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14543835869706011294"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14543835869706011294"
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "quadrant-option.3033068"
+          },
+          "summary_en": {
+            "String": "Follow-Up ATKs add a stacking damage-taken increase to the struck enemy."
+          },
+          "summary_zh_cn": {
+            "String": "追加攻击命中敌方后，为目标叠加受到伤害提高效果。"
+          }
+        }
+      }
+    ]
+  }
+}

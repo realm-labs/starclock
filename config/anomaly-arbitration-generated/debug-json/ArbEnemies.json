@@ -1,0 +1,2029 @@
+{
+  "table": {
+    "name": "ArbEnemies",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:1012040"
+              },
+              {
+                "String": "enemy_variants:monster:1012040"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Auxiliary Robot Arm Unit"
+          },
+          "name_zh_cn": {
+            "String": "辅助机械臂单元"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"325.5\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W1_SvarogPart_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[{\"key\":\"STAT_CTRL\",\"value\":\"0.5\"}],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.1012040\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:1012040\",\"enemy_variants:monster:1012040\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Auxiliary Robot Arm Unit\",\"name_zh_cn\":\"辅助机械臂单元\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.101204001\",\"enemy-skill.101204002\",\"enemy-skill.101204003\",\"enemy-skill.101204004\",\"enemy-skill.101204005\",\"enemy-skill.101204006\",\"enemy-skill.101204007\"],\"source_numeric_id\":1012040,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=1012040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"bdf0e0e1c9ad4b3baafbfbf3e59e9c564413bff5054260d2678479e7454a5fc3\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=1012040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=1012040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"07e37e6f84677d40ce909830196353e14456e1b2f5683f16c6ca372b11ef749f\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1012040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13600386300325008755\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d4f602301fbc27c80426bc2d368c24ed591bb41eb1205a6776514655a0079504\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13600386300325008755\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13600386300325008755\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6d2185e365bfb40cffa90200912458236df82265b5b0f1715c58eb169d93ee55\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13600386300325008755\"}],\"source_template_id\":1012040,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Auxiliary Robot Arm Unit is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"辅助机械臂单元是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.101401016\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W1_SvarogPart_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Thunder\",\"Wind\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 1
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "1012040"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=1012040"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1012040"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13600386300325008755"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13600386300325008755"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "1012040"
+          },
+          "stable_key": {
+            "String": "enemy.1012040"
+          },
+          "summary_en": {
+            "String": "Auxiliary Robot Arm Unit is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "辅助机械臂单元是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:2022040"
+              },
+              {
+                "String": "enemy_variants:monster:2022040"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Abundance Sprite: Golden Hound"
+          },
+          "name_zh_cn": {
+            "String": "丰饶灵兽•娄金"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"148.8\",\"speed\":\"118\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_Beast01_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.2022040\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:2022040\",\"enemy_variants:monster:2022040\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Abundance Sprite: Golden Hound\",\"name_zh_cn\":\"丰饶灵兽•娄金\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.202204001\",\"enemy-skill.202204002\"],\"source_numeric_id\":2022040,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=2022040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5ce7e3457225ea752e8af15a650fff2f0bd5e2f764e72b694980cddd8b82ca26\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=2022040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"70ac7be46b160ea95bd7f359924b728548e23a22518c56c5f650a5bf3bfb3d1a\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13185907477180094891\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"47f5af0f0448b2ebdd790139512e81dfff1784a6862f24b8babb38ba79fd97fc\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13185907477180094891\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13185907477180094891\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"b900d925a5f29435c1cc72c42e7fefc48771212b81f78700f8f45ec3d8961b41\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13185907477180094891\"}],\"source_template_id\":2022040,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Abundance Sprite: Golden Hound is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"丰饶灵兽•娄金是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.2023020\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.202204001\"],\"weaknesses\":[\"Ice\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 2
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "2022040"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022040"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022040"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13185907477180094891"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13185907477180094891"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "2022040"
+          },
+          "stable_key": {
+            "String": "enemy.2022040"
+          },
+          "summary_en": {
+            "String": "Abundance Sprite: Golden Hound is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "丰饶灵兽•娄金是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:2022050"
+              },
+              {
+                "String": "enemy_variants:monster:2022050"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Abundance Sprite: Wooden Lupus"
+          },
+          "name_zh_cn": {
+            "String": "丰饶灵兽•奎木"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"186\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_Beast01_01_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.2022050\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:2022050\",\"enemy_variants:monster:2022050\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Abundance Sprite: Wooden Lupus\",\"name_zh_cn\":\"丰饶灵兽•奎木\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.202205001\",\"enemy-skill.202205002\",\"enemy-skill.202205003\"],\"source_numeric_id\":2022050,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=2022050\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ea37a698826106bc15fee61efabba1eaab286c85e52ff627f678f48a85242d8e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022050\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=2022050\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"7797484a0ea050b91fdd5d6fd0d58437955d63c581b095c27aa0ee44a3b4af42\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022050\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5705744438691432074\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3122d70e58373688d5e00b8177ad7779d905b390d198f00f31378facae4e1d4b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=5705744438691432074\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5705744438691432074\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a021c5fe3d5e45bbdf4c8cf7e106549eb9ed29bb5f89489cd972eafd05d6b2a8\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5705744438691432074\"}],\"source_template_id\":2022050,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Abundance Sprite: Wooden Lupus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"丰饶灵兽•奎木是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.2022051\"],\"summon_parent_ids\":[\"enemy.2023020\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W2_Beast01_01_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.202205002\",\"enemy-skill.202205001\"],\"weaknesses\":[\"Fire\",\"Wind\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 3
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "2022050"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022050"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022050"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5705744438691432074"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5705744438691432074"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "2022050"
+          },
+          "stable_key": {
+            "String": "enemy.2022050"
+          },
+          "summary_en": {
+            "String": "Abundance Sprite: Wooden Lupus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "丰饶灵兽•奎木是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:2022051"
+              },
+              {
+                "String": "enemy_variants:monster:2022051"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Shadow Jackhyena"
+          },
+          "name_zh_cn": {
+            "String": "狈影"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"186\",\"speed\":\"100\",\"stance\":\"60\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_Beast01_02_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.2022051\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:2022051\",\"enemy_variants:monster:2022051\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Shadow Jackhyena\",\"name_zh_cn\":\"狈影\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.202205101\"],\"source_numeric_id\":2022051,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=2022051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8bfaf880efd2b8d658291dd870ef70c0ca2d5a32d8bcc342b8c08f9ec2af0245\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022051\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=2022051\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fa5407719136ff940dd0e9aaf455db716c7359bb8afd3b7c4c13073c1a087f1d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022051\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=10021676229655675270\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"34fe8234375ac6ea4b7298b69f2e42c770430b031f84e45c422abe786360f537\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=10021676229655675270\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=10021676229655675270\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"cbff93e7c8dfa9f0be18fd7741e42364b28a4f97af69bcbd0911f0fe4fd3d728\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=10021676229655675270\"}],\"source_template_id\":2022051,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Shadow Jackhyena is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"狈影是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.2022050\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.202205101\"],\"weaknesses\":[\"Fire\",\"Wind\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 4
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "2022051"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2022051"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2022051"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=10021676229655675270"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=10021676229655675270"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "2022051"
+          },
+          "stable_key": {
+            "String": "enemy.2022051"
+          },
+          "summary_en": {
+            "String": "Shadow Jackhyena is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "狈影是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:2023020"
+              },
+              {
+                "String": "enemy_variants:monster:2023020"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Abundance Sprite: Malefic Ape"
+          },
+          "name_zh_cn": {
+            "String": "丰饶灵兽•长右"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1116\",\"speed\":\"144\",\"stance\":\"360\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_Beast02_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.2023020\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:2023020\",\"enemy_variants:monster:2023020\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Abundance Sprite: Malefic Ape\",\"name_zh_cn\":\"丰饶灵兽•长右\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.202302001\",\"enemy-skill.202302002\",\"enemy-skill.202302003\",\"enemy-skill.202302004\",\"enemy-skill.202302005\",\"enemy-skill.202302006\"],\"source_numeric_id\":2023020,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=2023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"10ed5a3c679c4790fbb986b5a5cc7f9040d3ca0797c44e89fa070c72ce0d75d9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=2023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a9a90eefd2a1686db4615504fa98aa28de2727b82d2f2cdaca0fcbaed83971d1\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5650742420150656798\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"15bbbc936d9b753909f8b3810c1bcc5e46caf3dfd45051b2756be2888b7ec0b1\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=5650742420150656798\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5650742420150656798\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f95b8f2e9325732bae1181535b6e7d6ce4f76d912d9a8c1affeb657b51a1fb55\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5650742420150656798\"}],\"source_template_id\":2023020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Abundance Sprite: Malefic Ape is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"丰饶灵兽•长右是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.2022040\",\"enemy.2022050\"],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W2_Beast02_00_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.202302002\",\"enemy-skill.202302001\"],\"weaknesses\":[\"Fire\",\"Ice\",\"Wind\"]}"
+          },
+          "row_order": {
+            "Integer": 5
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "2023020"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=2023020"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=2023020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5650742420150656798"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5650742420150656798"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "2023020"
+          },
+          "stable_key": {
+            "String": "enemy.2023020"
+          },
+          "summary_en": {
+            "String": "Abundance Sprite: Malefic Ape is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "丰饶灵兽•长右是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:3021020"
+              },
+              {
+                "String": "enemy_variants:monster:3021020"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "\"The Honored\""
+          },
+          "name_zh_cn": {
+            "String": "「授勋」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"255.75\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_01_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.3021020\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:3021020\",\"enemy_variants:monster:3021020\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"\\\"The Honored\\\"\",\"name_zh_cn\":\"「授勋」\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Minion\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.302102001\",\"enemy-skill.302102002\"],\"source_numeric_id\":3021020,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=3021020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"10a086d174ce4b7fbe588696680c54703530ca3487081c8c101b1926eca7c55d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=3021020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"89a80754fb7478362b595a9c5b2badf2d5ab6e7a96b3ea65a2b5368db22f09c2\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16661620947140777919\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1052a5083db7187f0dfd2a2ffd30daf5867bb1b00dc53b64b8c42e72ff816e56\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=16661620947140777919\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16661620947140777919\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"87058dd031d9ca2cfeb50efbcd9944eaf4fb4c4847028ac4c910a8b8720072f1\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16661620947140777919\"}],\"source_template_id\":3021020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"\\\"The Honored\\\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"「授勋」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.302401012\"],\"tags\":[\"enemy\",\"minion\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.302102001\"],\"weaknesses\":[\"Physical\",\"Ice\"]}"
+          },
+          "row_order": {
+            "Integer": 6
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3021020"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021020"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16661620947140777919"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16661620947140777919"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "3021020"
+          },
+          "stable_key": {
+            "String": "enemy.3021020"
+          },
+          "summary_en": {
+            "String": "\"The Honored\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "「授勋」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:3021030"
+              },
+              {
+                "String": "enemy_variants:monster:3021030"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "\"Speartip\""
+          },
+          "name_zh_cn": {
+            "String": "「枪尖」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"148.8\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.3021030\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:3021030\",\"enemy_variants:monster:3021030\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"\\\"Speartip\\\"\",\"name_zh_cn\":\"「枪尖」\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Minion\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.302103001\",\"enemy-skill.302103002\"],\"source_numeric_id\":3021030,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=3021030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3e7ab86b549f394fda311cbf8d784522f5bcb6666493dfe99a1d60af32a5ff0b\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=3021030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a31f8a13c72bbebe7d7e0e8f4ca832792111a6c76b6d8477af612bd303b46283\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4915829938898806706\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fdf9fa9aaca945bcf501aeff120bdd9b0a2b8a65fbe91ff6b124cfe3ab29bc39\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4915829938898806706\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4915829938898806706\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"efa70f0f521dd4827072a8cf3fa53ddeb6fac269a0dba67a1b8f4f0915117c85\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4915829938898806706\"}],\"source_template_id\":3021030,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"\\\"Speartip\\\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"「枪尖」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.302401012\"],\"tags\":[\"enemy\",\"minion\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.302103001\"],\"weaknesses\":[\"Physical\",\"Fire\"]}"
+          },
+          "row_order": {
+            "Integer": 7
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3021030"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021030"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021030"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4915829938898806706"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4915829938898806706"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "3021030"
+          },
+          "stable_key": {
+            "String": "enemy.3021030"
+          },
+          "summary_en": {
+            "String": "\"Speartip\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "「枪尖」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:3021040"
+              },
+              {
+                "String": "enemy_variants:monster:3021040"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "\"The Shield\""
+          },
+          "name_zh_cn": {
+            "String": "「盾」"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"176.7\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_ArgentiTotem_02_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.3021040\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:3021040\",\"enemy_variants:monster:3021040\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"\\\"The Shield\\\"\",\"name_zh_cn\":\"「盾」\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Minion\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.302104001\",\"enemy-skill.302104002\"],\"source_numeric_id\":3021040,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=3021040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e20a27942db0df0dd042b2a059531eb4954e53dc6549960620d82ad92c5011ca\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=3021040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"772ed403e54a56b70110ecb12cf287ac69ad36efa5be32f4c0537c956461f4c8\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14822826857306615781\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ecc681296e3d0744cbd27f118d23a6faa8465ed112b522625201f7ab011da656\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14822826857306615781\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14822826857306615781\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8779b9467be5a344765a16c0e6f2e98a53cd04ef2ca9f9beaadea2a80a386949\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14822826857306615781\"}],\"source_template_id\":3021040,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"\\\"The Shield\\\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"「盾」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.302401012\"],\"tags\":[\"enemy\",\"minion\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.302104001\"],\"weaknesses\":[\"Physical\",\"Thunder\"]}"
+          },
+          "row_order": {
+            "Integer": 8
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "3021040"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=3021040"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3021040"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14822826857306615781"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14822826857306615781"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "3021040"
+          },
+          "stable_key": {
+            "String": "enemy.3021040"
+          },
+          "summary_en": {
+            "String": "\"The Shield\" is a reachable level-scaled Minion variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "「盾」是可达的等级缩放Minion变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:4033030"
+              },
+              {
+                "String": "enemy_variants:monster:4033030"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Dark Sun Gryphon"
+          },
+          "name_zh_cn": {
+            "String": "黑日狮鹫"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1395\",\"speed\":\"144\",\"stance\":\"480\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W4_Griffin_01_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.4033030\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:4033030\",\"enemy_variants:monster:4033030\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Dark Sun Gryphon\",\"name_zh_cn\":\"黑日狮鹫\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.403303001\",\"enemy-skill.403303002\",\"enemy-skill.403303003\",\"enemy-skill.403303004\"],\"source_numeric_id\":4033030,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=4033030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9cc248d5c756293dd79a8b466a3374fd8f1a0a7de73f88476d7d1dc950dcaee1\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=4033030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=4033030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9e3847760d2053da03588244cd375c45bf872642a95369e5fe8e6accd26ffc75\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4033030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1605669051038619450\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e4ca7a00debddbc7d20f623c2580c4d26d77e2bee4475668ffc7797b7ab7cb4f\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=1605669051038619450\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=1605669051038619450\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9856430ffe7e09d18b5b3c630340bb11e69f0e39f970d72cfce95b4b6dd90d7d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1605669051038619450\"}],\"source_template_id\":4033030,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Dark Sun Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"黑日狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.403205002\"],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W4_Griffin_01_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Physical\",\"Fire\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 9
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "4033030"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=4033030"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4033030"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=1605669051038619450"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=1605669051038619450"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "4033030"
+          },
+          "stable_key": {
+            "String": "enemy.4033030"
+          },
+          "summary_en": {
+            "String": "Dark Sun Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "黑日狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5013040"
+              },
+              {
+                "String": "enemy_variants:monster:5013040"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Daybreak Squadron: Azurewing"
+          },
+          "name_zh_cn": {
+            "String": "破晓战队•苍翼"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1395\",\"speed\":\"120\",\"stance\":\"480\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_Ranger_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.8\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5013040\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5013040\",\"enemy_variants:monster:5013040\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Daybreak Squadron: Azurewing\",\"name_zh_cn\":\"破晓战队•苍翼\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.501304001\",\"enemy-skill.501304002\",\"enemy-skill.501304003\",\"enemy-skill.501304004\",\"enemy-skill.501304005\"],\"source_numeric_id\":5013040,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5013040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6387aa8112d1c850d7c7f9436571460e9d6fab585aa6ac4908a560ef7577b847\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5013040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5013040\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8e044ce6c3880996ec952c893b32b3902e94b905abeac72fa950d6aed4e041ae\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5013040\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=11521268823526759418\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"3b9ee83e5b65644c304dcd4665beb211bac55787d85bfa303d81d15c5a2c50a3\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=11521268823526759418\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=11521268823526759418\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a913967240eeb261a823fe846d2e4b496d6cbde9f65bdb1eecce5a57adefc54b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11521268823526759418\"}],\"source_template_id\":5013040,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Daybreak Squadron: Azurewing is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"破晓战队•苍翼是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_Ranger_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Physical\",\"Fire\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 10
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5013040"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5013040"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5013040"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11521268823526759418"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11521268823526759418"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5013040"
+          },
+          "stable_key": {
+            "String": "enemy.5013040"
+          },
+          "summary_en": {
+            "String": "Daybreak Squadron: Azurewing is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "破晓战队•苍翼是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5014030"
+              },
+              {
+                "String": "enemy_variants:monster:5014030"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Murata Graphia, Founding Artist"
+          },
+          "name_zh_cn": {
+            "String": "始作画者，无量塔绘世"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"3022.5\",\"speed\":\"120\",\"stance\":\"1080\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_Painter_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.4\"},{\"damage_type\":\"Ice\",\"value\":\"0.4\"},{\"damage_type\":\"Wind\",\"value\":\"0.4\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.4\"}],\"debuff_resistances\":[{\"key\":\"STAT_CTRL\",\"value\":\"0.5\"}],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5014030\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5014030\",\"enemy_variants:monster:5014030\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Murata Graphia, Founding Artist\",\"name_zh_cn\":\"始作画者，无量塔绘世\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1,2],\"presentation_assets_included\":false,\"rank\":\"LittleBoss\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.501403001\",\"enemy-skill.501403002\",\"enemy-skill.501403003\",\"enemy-skill.501403005\",\"enemy-skill.501403006\",\"enemy-skill.501403007\"],\"source_numeric_id\":5014030,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5014030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"129717dbf5e0e797ff49d421ee5d0d937f94ee5d674dd0a43a521b94daaab76d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5014030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5014030\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4225f2be4438f5fb4765ec5ed24c377c195485d5703bb12cd7be452891cfcb87\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5014030\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=11050040960591794587\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"5905c86c75a3f8ef9133a8c4aa3f5c1cc6f432a8b39289216993fb0a17eec59a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=11050040960591794587\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=11050040960591794587\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"70ec9dbc25e67ab1de86ee457e5b9b08b736385f4341016f33e8f558277405b9\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11050040960591794587\"}],\"source_template_id\":5014030,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Murata Graphia, Founding Artist is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"始作画者，无量塔绘世是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.502302001\"],\"summon_parent_ids\":[],\"tags\":[\"enemy\",\"littleboss\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_Painter_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 11
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5014030"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5014030"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5014030"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=11050040960591794587"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=11050040960591794587"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5014030"
+          },
+          "stable_key": {
+            "String": "enemy.5014030"
+          },
+          "summary_en": {
+            "String": "Murata Graphia, Founding Artist is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "始作画者，无量塔绘世是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5022010"
+              },
+              {
+                "String": "enemy_variants:monster:5022010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Illwish Lotus"
+          },
+          "name_zh_cn": {
+            "String": "邪愿莲华"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"334.8\",\"speed\":\"150\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_RipperPart_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5022010\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5022010\",\"enemy_variants:monster:5022010\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Illwish Lotus\",\"name_zh_cn\":\"邪愿莲华\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502201001\",\"enemy-skill.502201003\"],\"source_numeric_id\":5022010,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5022010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ade535f7a10cb8aa0490abc0260899c37baf1fee690ba976f39fc74619592612\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5022010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5022010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d697f628ae0327d148a4db48424edd18a34e285b9da1986705e69cb2e25dc967\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5022010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16480565768491057981\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6e42e9642bde6bed0a7675d634631cfc5edb60b251178905d605a97f77759cd2\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=16480565768491057981\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=16480565768491057981\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"ca3aeb452bd91a894510d75d5e1e6b130e2411f96d0d13b86988cab4456e8049\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16480565768491057981\"}],\"source_template_id\":5022010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Illwish Lotus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"邪愿莲华是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.5024010\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_RipperPart_00_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.502201001\"],\"weaknesses\":[\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 12
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5022010"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5022010"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5022010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=16480565768491057981"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=16480565768491057981"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5022010"
+          },
+          "stable_key": {
+            "String": "enemy.5022010"
+          },
+          "summary_en": {
+            "String": "Illwish Lotus is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "邪愿莲华是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5023010"
+              },
+              {
+                "String": "enemy_variants:monster:5023010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Joy Ascendant"
+          },
+          "name_zh_cn": {
+            "String": "乐变化天人"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"558\",\"speed\":\"144\",\"stance\":\"420\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5023010\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5023010\",\"enemy_variants:monster:5023010\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Joy Ascendant\",\"name_zh_cn\":\"乐变化天人\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502301001\",\"enemy-skill.502301002\",\"enemy-skill.502301003\",\"enemy-skill.502301004\",\"enemy-skill.502301005\"],\"source_numeric_id\":5023010,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5023010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"869687af604a4a8bf6f9d5b07fc5cdb14078e90a2794cc71083589e326c5b95d\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5023010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9526d786d152781f5958424334b02324cef22cbe730e5994a3aaf26a112b7edf\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3953081297978276563\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"7fe1b939ccdff50450b74cb8fe6bc0720ac3ec3ec347ac1b6c1db202a274c0f8\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=3953081297978276563\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3953081297978276563\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"71a8d8b65def8bce7939f4c4895c08226d7f6ddb79384318e83a6db9e2573d38\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3953081297978276563\"}],\"source_template_id\":5023010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Joy Ascendant is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"乐变化天人是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.5023011\",\"enemy.5023012\"],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_XP_Elite02_03_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 13
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5023010"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023010"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3953081297978276563"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3953081297978276563"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5023010"
+          },
+          "stable_key": {
+            "String": "enemy.5023010"
+          },
+          "summary_en": {
+            "String": "Joy Ascendant is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "乐变化天人是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 14
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5023011"
+              },
+              {
+                "String": "enemy_variants:monster:5023011"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Joy Ascendant: Prelude"
+          },
+          "name_zh_cn": {
+            "String": "乐变化天人•始"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"488.25\",\"speed\":\"144\",\"stance\":\"420\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Middle.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5023011\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5023011\",\"enemy_variants:monster:5023011\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Joy Ascendant: Prelude\",\"name_zh_cn\":\"乐变化天人•始\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502301101\",\"enemy-skill.502301102\",\"enemy-skill.502301103\",\"enemy-skill.502301104\",\"enemy-skill.502301105\"],\"source_numeric_id\":5023011,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5023011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"09e8ba82a4dbfbe67dd1ceabc96cef69d74003f6dc7bc37d0fd345986d46dbd9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5023011\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"db6216f6bcfe04f49c19ecbc84e8373487ceb13305cbbb7b18a91d15f149c73e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023011\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4858443114808711655\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"17a6317b0afb8ffa97e095d2d61542f9a35bc85dfcfb3c333989db253c46a339\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4858443114808711655\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4858443114808711655\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"037f9d873e6dddac5656d429892adf69be10fb5b1f0382d41414bece86702a8a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4858443114808711655\"}],\"source_template_id\":5023011,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Joy Ascendant: Prelude is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"乐变化天人•始是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.5023011\",\"enemy.5023012\"],\"summon_parent_ids\":[\"enemy.5023010\",\"enemy.5023011\",\"enemy.5023012\"],\"tags\":[\"elite\",\"enemy\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_XP_Elite02_03_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 14
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5023011"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023011"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023011"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4858443114808711655"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4858443114808711655"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5023011"
+          },
+          "stable_key": {
+            "String": "enemy.5023011"
+          },
+          "summary_en": {
+            "String": "Joy Ascendant: Prelude is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "乐变化天人•始是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 15
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5023012"
+              },
+              {
+                "String": "enemy_variants:monster:5023012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Joy Ascendant: Finale"
+          },
+          "name_zh_cn": {
+            "String": "乐变化天人•终"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"418.5\",\"speed\":\"144\",\"stance\":\"420\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_XP_Elite02_03_Config_Small.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5023012\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5023012\",\"enemy_variants:monster:5023012\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Joy Ascendant: Finale\",\"name_zh_cn\":\"乐变化天人•终\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502301201\",\"enemy-skill.502301202\",\"enemy-skill.502301203\",\"enemy-skill.502301204\",\"enemy-skill.502301205\"],\"source_numeric_id\":5023012,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5023012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"91a263e062e0929afc5e553115e2a18e90b5aef9e07ce934c63a751c758eab43\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5023012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"23aa47ce1910abc50874b2c8befb45503b78696127424f8dc7ff858758c74e04\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4176033676639482627\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"dde70e82e137b6de700e86e6139d41092211c8af6635416b48c0b954df80393e\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=4176033676639482627\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=4176033676639482627\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6798b6ed259d8ba21d36a030bd40e11b8eff8eefc8a8315cca31fba593c320bb\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4176033676639482627\"}],\"source_template_id\":5023012,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Joy Ascendant: Finale is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"乐变化天人•终是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.5023011\",\"enemy.5023012\"],\"summon_parent_ids\":[\"enemy.5023010\",\"enemy.5023011\",\"enemy.5023012\"],\"tags\":[\"elite\",\"enemy\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_XP_Elite02_03_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 15
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5023012"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023012"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023012"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=4176033676639482627"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=4176033676639482627"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5023012"
+          },
+          "stable_key": {
+            "String": "enemy.5023012"
+          },
+          "summary_en": {
+            "String": "Joy Ascendant: Finale is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "乐变化天人•终是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 16
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5023020"
+              },
+              {
+                "String": "enemy_variants:monster:5023020"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "God-Devourer Offspring"
+          },
+          "name_zh_cn": {
+            "String": "吞神子嗣"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1488\",\"speed\":\"120\",\"stance\":\"540\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5023020\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5023020\",\"enemy_variants:monster:5023020\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"God-Devourer Offspring\",\"name_zh_cn\":\"吞神子嗣\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502302001\",\"enemy-skill.502302002\",\"enemy-skill.502302003\",\"enemy-skill.502302004\",\"enemy-skill.502302005\"],\"source_numeric_id\":5023020,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c9884547f1e3c2d3744c6e9f46a508f1dad0eb0fae24bfa8e71e88bbd069363c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"89318972d515bdf4c822713d81e4139d1fa2563145ec29cbdabe8396e9df4003\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5330384923626977308\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6f99e46b910f4754c4c451ada718bc9143686ba50394927748903db6de5ffad1\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5330384923626977308\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a9f76fb0ec2352b25450f4600878e1c59ddfc52d85096be4e18f0d7d730f0a03\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308\"}],\"source_template_id\":5023020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_Eater_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 16
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5023020"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5023020"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5023020"
+          },
+          "stable_key": {
+            "String": "enemy.5023020"
+          },
+          "summary_en": {
+            "String": "God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 17
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:5024010"
+              },
+              {
+                "String": "enemy_variants:monster:5024010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Paramount Bliss Inverted: Illwish Archlotus"
+          },
+          "name_zh_cn": {
+            "String": "极乐颠倒•邪愿莲华主"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"4464\",\"speed\":\"144\",\"stance\":\"720\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_Ripper_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Fire\",\"value\":\"0.4\"},{\"damage_type\":\"Ice\",\"value\":\"0.4\"},{\"damage_type\":\"Wind\",\"value\":\"0.4\"},{\"damage_type\":\"Quantum\",\"value\":\"0.4\"}],\"debuff_resistances\":[{\"key\":\"STAT_CTRL\",\"value\":\"0.5\"}],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.5024010\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:5024010\",\"enemy_variants:monster:5024010\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Paramount Bliss Inverted: Illwish Archlotus\",\"name_zh_cn\":\"极乐颠倒•邪愿莲华主\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1,2],\"presentation_assets_included\":false,\"rank\":\"LittleBoss\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502401001\",\"enemy-skill.502401003\",\"enemy-skill.502401004\",\"enemy-skill.502401005\",\"enemy-skill.502401006\",\"enemy-skill.502401007\",\"enemy-skill.502401008\"],\"source_numeric_id\":5024010,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=5024010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"eab7c5220c99bcabc73791eacdf7cb5dc7bde81aefbc9943cc01287d947803f9\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5024010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5024010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"9f7d012173ecae180247dbad5933f319527a13217d3815a0f536f43b79770eee\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5024010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13970359017855679954\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0451f075728194a147ba47a4c3e635d0ae7309bd5aa4e89faee9e5e9194aa396\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13970359017855679954\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13970359017855679954\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e05231e8abe0f89fd0b34dc37168d222ce49e8845a621d98dd0719e26aa237bd\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13970359017855679954\"}],\"source_template_id\":5024010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Paramount Bliss Inverted: Illwish Archlotus is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"极乐颠倒•邪愿莲华主是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.5022010\"],\"summon_parent_ids\":[],\"tags\":[\"enemy\",\"littleboss\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_Ripper_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Physical\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 17
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "5024010"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=5024010"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5024010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13970359017855679954"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13970359017855679954"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5024010"
+          },
+          "stable_key": {
+            "String": "enemy.5024010"
+          },
+          "summary_en": {
+            "String": "Paramount Bliss Inverted: Illwish Archlotus is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "极乐颠倒•邪愿莲华主是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 18
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:8032010"
+              },
+              {
+                "String": "enemy_variants:monster:8032010"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Grunt: Field Personnel"
+          },
+          "name_zh_cn": {
+            "String": "基层员工•外勤"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"148.8\",\"speed\":\"118\",\"stance\":\"60\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W1_Soldier02_01_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.8032010\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:8032010\",\"enemy_variants:monster:8032010\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Grunt: Field Personnel\",\"name_zh_cn\":\"基层员工•外勤\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.803201001\",\"enemy-skill.803201002\",\"enemy-skill.803201003\"],\"source_numeric_id\":8032010,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=8032010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"859ec2dddce9a9c897556d825e34345b3bce164c638c19ac88412ba46054d4ed\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=8032010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"df3b4c3bb2f9cfd1d013b464ff0ec1762f49e1f5aefd2d4df74fc9779fd8dc98\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3795011572181178242\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1541ee22b63dd5d08b99d0fc3d10a9778bf35c7610c910f3d467633e8aacf77f\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=3795011572181178242\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=3795011572181178242\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"87b32c1ca03e247e88b70740500bb862343d3ddfb4d1b89e61353b9126169b38\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3795011572181178242\"}],\"source_template_id\":8032010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Grunt: Field Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"基层员工•外勤是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.803301014\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.803201001\"],\"weaknesses\":[\"Fire\",\"Ice\"]}"
+          },
+          "row_order": {
+            "Integer": 18
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "8032010"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032010"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=3795011572181178242"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=3795011572181178242"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "8032010"
+          },
+          "stable_key": {
+            "String": "enemy.8032010"
+          },
+          "summary_en": {
+            "String": "Grunt: Field Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "基层员工•外勤是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 19
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:8032020"
+              },
+              {
+                "String": "enemy_variants:monster:8032020"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Grunt: Security Personnel"
+          },
+          "name_zh_cn": {
+            "String": "基层员工•安保"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"204.6\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W1_Soldier01_04_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.8032020\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:8032020\",\"enemy_variants:monster:8032020\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Grunt: Security Personnel\",\"name_zh_cn\":\"基层员工•安保\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.803202001\",\"enemy-skill.803202002\",\"enemy-skill.803202003\"],\"source_numeric_id\":8032020,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=8032020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"f6478d96a4e49c064dccc1adf3e0d6d086420930cd1ee475cb44b26cdadb1223\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=8032020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a3666644ffed16aef4a5e3ab3f87a308e9887388221c1992f5ca36a327b1fefd\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=17377909462658896540\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2f2508eeae174bf949a345aeb766b52e9c10fcc863f33f9b102486d78b9beb0a\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=17377909462658896540\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=17377909462658896540\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"1edfa7c804cc4930d7003901ee9c4fac04c6989f9d318071374f9fc00d3b4b8b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17377909462658896540\"}],\"source_template_id\":8032020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Grunt: Security Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"基层员工•安保是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.803301014\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.803202001\"],\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\"]}"
+          },
+          "row_order": {
+            "Integer": 19
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "8032020"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=8032020"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8032020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17377909462658896540"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17377909462658896540"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "8032020"
+          },
+          "stable_key": {
+            "String": "enemy.8032020"
+          },
+          "summary_en": {
+            "String": "Grunt: Security Personnel is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "基层员工•安保是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 20
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:1014010"
+              },
+              {
+                "String": "enemy_variants:monster:101401016"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Svarog"
+          },
+          "name_zh_cn": {
+            "String": "史瓦罗"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[\"Monster_Common_SpecialDieEffect\"],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1488\",\"speed\":\"120\",\"stance\":\"360\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W1_Svarog_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[{\"key\":\"STAT_CTRL\",\"value\":\"0.5\"}],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"2.0625\",\"id\":\"enemy.101401016\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:1014010\",\"enemy_variants:monster:101401016\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Svarog\",\"name_zh_cn\":\"史瓦罗\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"LittleBoss\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.101401001\",\"enemy-skill.101401002\",\"enemy-skill.101401003\",\"enemy-skill.101401004\",\"enemy-skill.101401005\",\"enemy-skill.101401006\",\"enemy-skill.101401007\",\"enemy-skill.101401008\",\"enemy-skill.101401009\",\"enemy-skill.101401010\",\"enemy-skill.101401011\"],\"source_numeric_id\":101401016,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=101401016\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8d26badbade79b2eea4489619e7fde2ad93ac1ae06dd816a6cb519531077d247\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=101401016\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=1014010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c5c1609a1c37ee62b2424e23d7fc142d3316f11e4165d5ec2add6d22a3170d17\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1014010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=7306112122138119445\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"fd3fdbe8c974faa6924ee809642253af897836d7b89eacf05e2dd677fb300b4d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=7306112122138119445\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=7306112122138119445\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a4712ca51020f9114ac0ed0c13aee6a42fae59cbaf80eacf2cce66445dc04b52\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7306112122138119445\"}],\"source_template_id\":1014010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":\"60\",\"summary_en\":\"Svarog is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"史瓦罗是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.1012040\"],\"summon_parent_ids\":[],\"tags\":[\"enemy\",\"littleboss\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W1_Svarog_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Wind\"]}"
+          },
+          "row_order": {
+            "Integer": 20
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "101401016"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=101401016"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=1014010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7306112122138119445"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7306112122138119445"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "1014010"
+          },
+          "stable_key": {
+            "String": "enemy.101401016"
+          },
+          "summary_en": {
+            "String": "Svarog is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "史瓦罗是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 21
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:3024010"
+              },
+              {
+                "String": "enemy_variants:monster:302401012"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Argenti"
+          },
+          "name_zh_cn": {
+            "String": "银枝"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1395\",\"speed\":\"144\",\"stance\":\"480\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W2_Argenti_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[{\"key\":\"STAT_CTRL\",\"value\":\"0.5\"}],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1.5\",\"id\":\"enemy.302401012\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:3024010\",\"enemy_variants:monster:302401012\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Argenti\",\"name_zh_cn\":\"银枝\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1,2],\"presentation_assets_included\":false,\"rank\":\"LittleBoss\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.302401001\",\"enemy-skill.302401002\",\"enemy-skill.302401003\",\"enemy-skill.302401004\",\"enemy-skill.302401005\",\"enemy-skill.302401007\"],\"source_numeric_id\":302401012,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=302401012\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"29debc703abae39d5729b0bbcc619bbf1841ca9fb447b24e4571e3e6faa19553\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=302401012\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=3024010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"0d09158e935959e2827547e89460e80e70af37fc3465b8c3d6d4776e10592394\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3024010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14805961183082142131\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"7a7fb9f720f69fc9ceae741681876dbbf7fde62a70e21d3d861e560e7b0276fb\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=14805961183082142131\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=14805961183082142131\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"7169eaeb7fb84e0e3a1007d96c1f58087baffcf13f1be16e5648f7480a991135\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14805961183082142131\"}],\"source_template_id\":3024010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Argenti is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"银枝是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.3021020\",\"enemy.3021030\",\"enemy.3021040\"],\"summon_parent_ids\":[],\"tags\":[\"enemy\",\"littleboss\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W2_Argenti_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Physical\",\"Fire\",\"Ice\"]}"
+          },
+          "row_order": {
+            "Integer": 21
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "302401012"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=302401012"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=3024010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=14805961183082142131"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=14805961183082142131"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "3024010"
+          },
+          "stable_key": {
+            "String": "enemy.302401012"
+          },
+          "summary_en": {
+            "String": "Argenti is a reachable level-scaled LittleBoss variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "银枝是可达的等级缩放LittleBoss变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 22
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:4022010"
+              },
+              {
+                "String": "enemy_variants:monster:402201001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Meteoric Eagle"
+          },
+          "name_zh_cn": {
+            "String": "流星铁鹰"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"279\",\"speed\":\"100\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W4_Harpy_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.402201001\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:4022010\",\"enemy_variants:monster:402201001\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Meteoric Eagle\",\"name_zh_cn\":\"流星铁鹰\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.402201001\",\"enemy-skill.402201002\"],\"source_numeric_id\":402201001,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=402201001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c823cb98e64f3b7611427e31be02911fa172c1c7416480fcae682ae58ffd11fe\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402201001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=4022010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"eca4877a16b0546daf02f725cd6ec419a8b5d509e07e507b504eab60efe50f5c\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4022010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=7715014407492377801\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8808e05506fc6d5892ad2a9d2fed0085f6ce60a1ccb4acdd7e7ceee2b4dc5f7d\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=7715014407492377801\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=7715014407492377801\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6a9bcf59d9e10ec555e1906d3bfb27fa9d08a0943f9fa4b86376d9cc187ae876\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7715014407492377801\"}],\"source_template_id\":4022010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Meteoric Eagle is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"流星铁鹰是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.402301001\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W4_Harpy_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Wind\",\"Quantum\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 22
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "402201001"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402201001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4022010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=7715014407492377801"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=7715014407492377801"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "4022010"
+          },
+          "stable_key": {
+            "String": "enemy.402201001"
+          },
+          "summary_en": {
+            "String": "Meteoric Eagle is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "流星铁鹰是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 23
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:4023010"
+              },
+              {
+                "String": "enemy_variants:monster:402301001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Noontide Gryphon"
+          },
+          "name_zh_cn": {
+            "String": "正阳狮鹫"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1209\",\"speed\":\"120\",\"stance\":\"480\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W4_Griffin_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1.384615\",\"id\":\"enemy.402301001\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:4023010\",\"enemy_variants:monster:402301001\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Noontide Gryphon\",\"name_zh_cn\":\"正阳狮鹫\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.402301001\",\"enemy-skill.402301002\",\"enemy-skill.402301003\",\"enemy-skill.402301004\",\"enemy-skill.402301005\",\"enemy-skill.402301006\"],\"source_numeric_id\":402301001,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=402301001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"d6c7dcf77b6d26f69f2681ba7687131bc343dc04c61f7c8c177bdf36867ced17\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402301001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=4023010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"036b2e8b24c47c8ff081115b472adc21da03a9bfcb6e770c5cb7f5cc4dd3c6ea\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=8036735044007088635\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4cf4c5723ba78cecec32a689ad78f4477ffd7bc7cad59fb0319d93383774b0c8\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=8036735044007088635\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=8036735044007088635\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"33c4739f864e436c251350a5b1d815b71db04f21a1fae85e3570acf6553d9d42\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8036735044007088635\"}],\"source_template_id\":4023010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Noontide Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"正阳狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.402201001\"],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W4_Griffin_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Physical\",\"Quantum\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 23
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "402301001"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402301001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=8036735044007088635"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=8036735044007088635"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "4023010"
+          },
+          "stable_key": {
+            "String": "enemy.402301001"
+          },
+          "summary_en": {
+            "String": "Noontide Gryphon is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "正阳狮鹫是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 24
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:4023020"
+              },
+              {
+                "String": "enemy_variants:monster:402302001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Moonlit Pegasus"
+          },
+          "name_zh_cn": {
+            "String": "月夜天马"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1023\",\"speed\":\"100\",\"stance\":\"480\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W4_Unicorn_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1.454545\",\"id\":\"enemy.402302001\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:4023020\",\"enemy_variants:monster:402302001\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Moonlit Pegasus\",\"name_zh_cn\":\"月夜天马\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.402302001\",\"enemy-skill.402302002\",\"enemy-skill.402302003\",\"enemy-skill.402302004\",\"enemy-skill.402302005\",\"enemy-skill.402302006\"],\"source_numeric_id\":402302001,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=402302001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"4c8e9f6c0be9535187c557836328a5129ef0bf1b0261790c7cf8c05c32b680dc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402302001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=4023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"8eab36a8b1a305ad377b04583b7e056c3523d30ac060376055bde6b77a086a8e\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13345892087718649038\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"cdcdde749abb9c9ab81edf310feb1ed6ae4bcc5254b4ab9549ab90091fb0b417\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13345892087718649038\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13345892087718649038\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"210f95182d4f33eabdf784da2d98cd67f41de10d6b44b89884702b630481e72b\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13345892087718649038\"}],\"source_template_id\":4023020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Moonlit Pegasus is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"月夜天马是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W4_Unicorn_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Quantum\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 24
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "402302001"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=402302001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4023020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13345892087718649038"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13345892087718649038"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "4023020"
+          },
+          "stable_key": {
+            "String": "enemy.402302001"
+          },
+          "summary_en": {
+            "String": "Moonlit Pegasus is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "月夜天马是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 25
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:4032050"
+              },
+              {
+                "String": "enemy_variants:monster:403205002"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Archer of the Dark Sun"
+          },
+          "name_zh_cn": {
+            "String": "黑日弓手"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"279\",\"speed\":\"155\",\"stance\":\"90\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W4_Shooter_01_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Fire\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Imaginary\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.403205002\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:4032050\",\"enemy_variants:monster:403205002\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Archer of the Dark Sun\",\"name_zh_cn\":\"黑日弓手\",\"override_ai_path\":null,\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"MinionLv2\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.403205001\",\"enemy-skill.403205002\"],\"source_numeric_id\":403205002,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=403205002\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"78969bd962650e68a7a53861499f26d810407b52c30860a79dc440423181d398\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=403205002\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=4032050\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"740a14e396902b99ec6548e5ef66c283dbbfbb61934e7d356e70f93672f8d8da\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4032050\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=17876259160402782536\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"aedbdfe952980e88b6ea4955fce7ba076ceee7c825aca1463d5211e1c5001b58\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=17876259160402782536\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=17876259160402782536\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"e9ddcf2b08e0f75323423933c68c041ca6685a9d69e2edbfb8d002c31ab1dbb7\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17876259160402782536\"}],\"source_template_id\":4032050,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Archer of the Dark Sun is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"黑日弓手是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.4033030\"],\"tags\":[\"enemy\",\"minionlv2\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.403205001\"],\"weaknesses\":[\"Physical\",\"Ice\",\"Quantum\"]}"
+          },
+          "row_order": {
+            "Integer": 25
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "403205002"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=403205002"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=4032050"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=17876259160402782536"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=17876259160402782536"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "4032050"
+          },
+          "stable_key": {
+            "String": "enemy.403205002"
+          },
+          "summary_en": {
+            "String": "Archer of the Dark Sun is a reachable level-scaled MinionLv2 variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "黑日弓手是可达的等级缩放MinionLv2变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 26
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_variants:monster:502302001"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "God-Devourer Offspring"
+          },
+          "name_zh_cn": {
+            "String": "吞神子嗣"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[\"enemy-skill.502302001\"],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1488\",\"speed\":\"120\",\"stance\":\"540\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W5_Eater_00_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Ice\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":false,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"0.4375\",\"id\":\"enemy.502302001\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_variants:monster:502302001\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"God-Devourer Offspring\",\"name_zh_cn\":\"吞神子嗣\",\"override_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.502302001\",\"enemy-skill.502302002\",\"enemy-skill.502302003\",\"enemy-skill.502302004\",\"enemy-skill.502302005\"],\"source_numeric_id\":502302001,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=502302001\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"An explicit reachable summon reference selects this variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"59c63f6a97a446adddc82cef22e1eab0850c2d80d118ff746de1a4784e919ac5\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=502302001\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=5023020\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"89318972d515bdf4c822713d81e4139d1fa2563145ec29cbdabe8396e9df4003\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5330384923626977308\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6f99e46b910f4754c4c451ada718bc9143686ba50394927748903db6de5ffad1\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=5330384923626977308\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"a9f76fb0ec2352b25450f4600878e1c59ddfc52d85096be4e18f0d7d730f0a03\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308\"}],\"source_template_id\":5023020,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":\"-120\",\"summary_en\":\"God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[],\"summon_parent_ids\":[\"enemy.5014030\"],\"tags\":[\"elite\",\"enemy\",\"summoned\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W5_Eater_00_AI.json\",\"template_ai_skill_sequence\":[],\"weaknesses\":[\"Fire\",\"Thunder\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 26
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "502302001"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=502302001"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=5023020"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=5330384923626977308"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=5330384923626977308"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "5023020"
+          },
+          "stable_key": {
+            "String": "enemy.502302001"
+          },
+          "summary_en": {
+            "String": "God-Devourer Offspring is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "吞神子嗣是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 27
+          },
+          "manifest_record_ids": {
+            "List": [
+              {
+                "String": "enemy_templates:template:8033010"
+              },
+              {
+                "String": "enemy_variants:monster:803301014"
+              }
+            ]
+          },
+          "mechanism_quality": {
+            "String": "ExactRelationship"
+          },
+          "name_en": {
+            "String": "Senior Staff: Team Leader"
+          },
+          "name_zh_cn": {
+            "String": "资深员工•组长"
+          },
+          "ownership": {
+            "String": "Shared"
+          },
+          "payload_json": {
+            "String": "{\"ability_names\":[],\"ai_skill_sequence\":[\"enemy-skill.803301006\",\"enemy-skill.803301001\",\"enemy-skill.803301006\",\"enemy-skill.803301002\"],\"attack_ratio\":\"1\",\"base_stats\":{\"attack\":\"18\",\"defence\":\"210\",\"hp\":\"1488\",\"speed\":\"120\",\"stance\":\"360\"},\"character_config_path\":\"Config/ConfigCharacter/Monster/Monster_W1_Mecha03_02_Config.json\",\"coverage_state\":\"DataReady\",\"damage_resistances\":[{\"damage_type\":\"Physical\",\"value\":\"0.2\"},{\"damage_type\":\"Thunder\",\"value\":\"0.2\"},{\"damage_type\":\"Wind\",\"value\":\"0.2\"},{\"damage_type\":\"Quantum\",\"value\":\"0.2\"}],\"debuff_resistances\":[],\"defence_ratio\":\"1\",\"direct_stage_member\":true,\"evidence_quality\":\"ExactStructured\",\"hp_ratio\":\"1\",\"id\":\"enemy.803301014\",\"kind\":\"EnemyVariant\",\"manifest_record_ids\":[\"enemy_templates:template:8033010\",\"enemy_variants:monster:803301014\"],\"mechanism_quality\":\"ExactRelationship\",\"name_en\":\"Senior Staff: Team Leader\",\"name_zh_cn\":\"资深员工•组长\",\"override_ai_path\":\"Config/ConfigAI/Monster_Common_SequenceThree_AI.json\",\"ownership\":\"Shared\",\"phase_markers\":[1],\"presentation_assets_included\":false,\"rank\":\"Elite\",\"runtime_executable\":false,\"schema_revision\":\"starclock.anomaly-arbitration-row.v1\",\"skill_ids\":[\"enemy-skill.803301001\",\"enemy-skill.803301002\",\"enemy-skill.803301003\",\"enemy-skill.803301004\",\"enemy-skill.803301005\",\"enemy-skill.803301006\",\"enemy-skill.803301007\"],\"source_numeric_id\":803301014,\"source_refs\":[{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterID=803301014\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"Active StageConfig selects this concrete variant.\",\"path_or_page\":\"ExcelOutput/MonsterConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"204368df2380033080045eecfb907d4f1486fe991fc62bb399e604d1fa8c6adf\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=803301014\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"MonsterTemplateID=8033010\",\"mechanism_quality\":\"ExactRelationship\",\"note\":\"MonsterConfig explicitly selects this template.\",\"path_or_page\":\"ExcelOutput/MonsterTemplateConfig.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"2cc0fc935166e66d0285ac1930294448f1465fdf9d7f8609b13039fd977971bc\",\"source_id\":\"turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8033010\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13208664396652254584\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released English enemy name.\",\"path_or_page\":\"TextMap/TextMapEN.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"6725fca5f737094aeb8047527364e17fc385c721853240709360066ca4aed343\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapEN.json:Hash=13208664396652254584\"},{\"evidence_quality\":\"ExactStructured\",\"game_version\":\"4.4\",\"locator\":\"Hash=13208664396652254584\",\"mechanism_quality\":\"IdentityCrossCheck\",\"note\":\"Exact released Simplified Chinese enemy name.\",\"path_or_page\":\"TextMap/TextMapCHS.json\",\"repository_or_url\":\"https://gitlab.com/Dimbreath/turnbasedgamedata.git\",\"revision_or_access_date\":\"fd978d6ef09f941fba644c731ab54abd6f7c3568\",\"sha256\":\"c83260d1c74eb7ef266d270549fec4ed61071b98050e2cbe2f93d5f3f23b2953\",\"source_id\":\"turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13208664396652254584\"}],\"source_template_id\":8033010,\"speed_ratio\":\"1\",\"stance_ratio\":\"1\",\"stance_value\":null,\"summary_en\":\"Senior Staff: Team Leader is a reachable level-scaled Elite variant with an exact template, skill and summon closure.\",\"summary_zh_cn\":\"资深员工•组长是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。\",\"summon_enemy_ids\":[\"enemy.8032010\",\"enemy.8032020\"],\"summon_parent_ids\":[],\"tags\":[\"elite\",\"enemy\",\"stage-direct\"],\"template_ai_path\":\"Config/ConfigAI/Monster_W1_Mecha03_02_AI.json\",\"template_ai_skill_sequence\":[\"enemy-skill.101301009\",\"enemy-skill.101301001\",\"enemy-skill.101301002\",\"enemy-skill.101301003\",\"enemy-skill.101301004\"],\"weaknesses\":[\"Fire\",\"Ice\",\"Imaginary\"]}"
+          },
+          "row_order": {
+            "Integer": 27
+          },
+          "runtime_executable": {
+            "Bool": false
+          },
+          "source_numeric_id": {
+            "String": "803301014"
+          },
+          "source_ref_ids": {
+            "List": [
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterConfig.json:MonsterID=803301014"
+              },
+              {
+                "String": "turnbasedgamedata:ExcelOutput/MonsterTemplateConfig.json:MonsterTemplateID=8033010"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapEN.json:Hash=13208664396652254584"
+              },
+              {
+                "String": "turnbasedgamedata:TextMap/TextMapCHS.json:Hash=13208664396652254584"
+              }
+            ]
+          },
+          "source_template_id": {
+            "String": "8033010"
+          },
+          "stable_key": {
+            "String": "enemy.803301014"
+          },
+          "summary_en": {
+            "String": "Senior Staff: Team Leader is a reachable level-scaled Elite variant with an exact template, skill and summon closure."
+          },
+          "summary_zh_cn": {
+            "String": "资深员工•组长是可达的等级缩放Elite变体，保留精确模板、技能与召唤闭包。"
+          }
+        }
+      }
+    ]
+  }
+}

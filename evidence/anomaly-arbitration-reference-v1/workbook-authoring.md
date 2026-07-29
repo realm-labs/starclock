@@ -9,12 +9,12 @@ to overwrite any existing target workbook.
 
 | Workbook | Sheets | Rows | SHA-256 |
 |---|---:|---:|---|
-| `AnomalyArbitration.xlsx` | 17 | 68 | `f4c4f7522742e649dd4d51c96d4e94462c629fd5c02afea60973d8b1f8fc4901` |
-| `AnomalyArbitrationBindings.xlsx` | 12 | 416 | `65ee37d3355a58e226f287e4fa6ef418e65a6dd8cd48c5ff72f4e8e5651ffbe5` |
-| `AnomalyArbitrationReview.xlsx` | 8 | 1,619 | `1b1ed4ad711b2d491d5c22f4c13b66889582e250917e4704931a7dc37536d749` |
+| `AnomalyArbitration.xlsx` | 17 | 68 | `0119370d9000e4aec476a7f5ec35b78031d3757101928c8e03828189f3c1618c` |
+| `AnomalyArbitrationBindings.xlsx` | 12 | 416 | `f6373e0addd351ebfd46fe84c872fbfef0dfb7ec42b10d425db3a3b53cc50aa3` |
+| `AnomalyArbitrationReview.xlsx` | 8 | 1,619 | `a218a87f3a2cc546c221f0c200615a2a10206a5aac9d632a3f3dbe6d8d09cf9a` |
 
 The 37 sheets contain 2,103 rows. Their canonical semantic digest is
-`f4ee771a47c5ee91212d1214bfd552010e169e062f5b1309fe23ef41b7cfe389`.
+`d740894821b6ffbcdec0e0cf9de88441f546f627f5b35f864b3c1e22510a27e0`.
 
 ## Authoring and QA contract
 
