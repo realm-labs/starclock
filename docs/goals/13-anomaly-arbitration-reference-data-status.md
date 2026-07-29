@@ -7,8 +7,8 @@
 | Goal ID | `anomaly-arbitration-reference-v1` |
 | State | `InProgress` |
 | Active phase | Phase 2 — Content and encounters |
-| Active batch | `G13-P2-B4` complete pending this commit's publication |
-| Next unblocked batch | `G13-P2-B5` after remote verification |
+| Active batch | `G13-P2-B5` complete pending this commit's publication |
+| Next unblocked batch | `G13-P3-B1` after remote verification |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
@@ -33,7 +33,7 @@
 |---|---|---|
 | Phase 0 — Scope, sources and contracts | `Complete` | Foundation, 2,745-file inventory, 392-record active manifest, 37-file normalized schema, three-workbook authoring surface, row-level reconciliation and 18-family fixture contract are frozen. |
 | Phase 1 — Unique mode systems | `Complete` | Profile/period/lifecycle locators, five stages, Knight records/uniqueness, King protection/Plight, clocks, all three Quadrants, seven targets, stage results, current/best aggregation and settlement boundaries are DataReady. |
-| Phase 2 — Content and encounters | `InProgress` | Pools, traits, events, five encounters, ten waves, 16 direct slots, 27 variants, 26 templates, 115 skills, 52 statuses and 73 configuration bindings are DataReady; awaiting pack-wide mechanics, sources, coverage and fixtures. |
+| Phase 2 — Content and encounters | `Complete` | All 392 obligations are DataReady across 37 normalized file contracts; 824 source receipts, 316 shared reconciliation rows, 18 rule families, 23 review fixtures and nine nonblocking replacement-tracked gaps close the Candidate pack. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, three complete workbooks, deterministic exports and visual QA. |
 | Phase 4 — Review and freeze | `Pending` | Awaiting ownership audit, semantic fixtures, reconciliation, regeneration and clean-checkout evidence. |
 
@@ -54,8 +54,8 @@
 | `G13-P2-B1` | `Complete` | `17e1aaedf1bcdb16aa93af31568529fe16aa3d48` | Imported six independent `PoolAudit` rows proving exact zero active members for Blessings, Curios, Occurrences, gameplay services, currencies and other random pools. Each proof retains its own selector-closure digest and replacement condition; account reward/shop locators do not grant gameplay membership. Digest: `eb6dcd32…d55a`. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `17e1aaedf1bcdb16aa93af31568529fe16aa3d48`. |
 | `G13-P2-B2` | `Complete` | `cdc3fdd8e601b66c9f5ddf6be3128b4743007093` | Imported all three shared countdown events and their exact StageConfig selectors: Knights → 30502, normal King → 30503, Plight → 30504. Canonical parameters, neutral event actor properties, mechanical ability lists and the cycle-3 bilingual text are retained. The 30504 hard-boss screen effect is presentation-only and excluded; countdown program semantics remain owned by P2-B3. Digest: `92e4f1e2…1a34`. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `cdc3fdd8e601b66c9f5ddf6be3128b4743007093`. |
 | `G13-P2-B3` | `Complete` | `d705579d6a6e5985cce97e9a516c00ee1610b029` | Imported eight stage-selected enemy traits, 14 per-stage trait/Quadrant bindings and 87 exact-once contribution rows covering eight traits, three Quadrants, three battle events and 73 reachable configuration programs. Canonical parameters and contribution lifetimes are retained; plugin bodies 0022/0023 and all transitive configuration bodies remain explicit non-runtime boundaries. Digests: traits `d42c991c…7437`, bindings `a1c51943…8a9a`, contributions `d4109df8…3be2`. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `d705579d6a6e5985cce97e9a516c00ee1610b029`. |
-| `G13-P2-B4` | `Complete` | This row's containing commit | Imported five exact StageConfig encounters, ten waves, 16 direct slots, the recursive 27-variant/26-template closure, 115 skills, 52 statuses and 73 configuration bindings. Enemy dossiers retain bilingual identity, canonical statistics, weaknesses/resistances, summons, skills, AI/config paths and phase markers. Statuses require exact ModifierName occurrence in enabled programs; program bodies remain excluded. Digests: encounters `a2e803e3…b233`, waves `fbe24907…ef45`, slots `8e1265ec…f37f`, enemies `278687d5…9468`, skills `9d7a86b5…26ff`, statuses `42b203a5…9ae`, bindings `9f1d662b…02b6`. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` resolve to the same full commit before P2-B5. |
-| `G13-P2-B5` | `Pending` | — | Generate mechanics, sources, coverage, research gaps, fixtures and pack index. |
+| `G13-P2-B4` | `Complete` | `804a653ef741c6d09fb5a5af31451a579a406fae` | Imported five exact StageConfig encounters, ten waves, 16 direct slots, the recursive 27-variant/26-template closure, 115 skills, 52 statuses and 73 configuration bindings. Enemy dossiers retain bilingual identity, canonical statistics, weaknesses/resistances, summons, skills, AI/config paths and phase markers. Statuses require exact ModifierName occurrence in enabled programs; program bodies remain excluded. Digests: encounters `a2e803e3…b233`, waves `fbe24907…ef45`, slots `8e1265ec…f37f`, enemies `278687d5…9468`, skills `9d7a86b5…26ff`, statuses `42b203a5…9ae`, bindings `9f1d662b…02b6`. Publication: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference` succeeded; local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` all resolved to `804a653ef741c6d09fb5a5af31451a579a406fae`. |
+| `G13-P2-B5` | `Complete` | This row's containing commit | Generated the complete 37-file normalized Candidate pack: 18 mechanic rules, 824 deduplicated sources, 316 shared reconciliation receipts, 392 exact-once coverage rows, nine nonblocking research gaps, 23 review fixtures, one manifest receipt and a nonrecursive 36-file pack index. Coverage is 392/392 DataReady; each remaining unavailable fact has an owner and replacement condition, and no runtime executable claim exists. Pack-index digest: `923394ff…bdf3`. Publication contract: `remote=origin`; `branch=codex/goal13-anomaly-arbitration-reference`; push `git push origin HEAD:refs/heads/codex/goal13-anomaly-arbitration-reference`; verify local, tracking and `git ls-remote --exit-code origin refs/heads/codex/goal13-anomaly-arbitration-reference` resolve to the same full commit before P3-B1. |
 | `G13-P3-B1` | `Pending` | — | Add profile/period/stage/participant/record/progress Sora tables. |
 | `G13-P3-B2` | `Pending` | — | Add King/Plight, clock, target, objective, aggregation and Quadrant tables. |
 | `G13-P3-B3` | `Pending` | — | Add pool, trait, event, encounter, enemy and contribution binding tables. |
@@ -122,6 +122,9 @@ foundation evidence before any data mutation.
 | P2-B3 `git diff --check`; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed; 25 batch IDs agree, 634 local links across 310 Markdown files resolve, no Rust scope was selected and four generated/release inputs remain deferred. |
 | `node tools/anomaly-arbitration-reference/import-encounters.mjs`; `node tools/anomaly-arbitration-reference/verify-encounters.mjs` | Passed clean fixed-cache, source-row digest, deterministic generation/drift, normalized bilingual/source contracts, exact StageConfig/wave/slot ordering, recursive summon and skill closure, template exact-once accounting, boss phase-marker coverage, exact status-program references and non-runtime ability boundaries. Digests: encounters `a2e803e3ca99deb53175c6ba540ae9934154143d4ea9ca69a1d77e833943b233`; waves `fbe2490779ab28585a3318ad66d00075b1be71edb305478d130f587783cbef45`; slots `8e1265ecb77166423dd966c3f0941f13c3ac61e91b1f9c0fd5232116b8f7f37f`; enemies `278687d5c7d946905a0a873857b00b6795beb6eec17c32530de6a5b56b4e9468`; skills `9d7a86b54a52767ae9383ebc1d821643c57fa855b4a7e396477e75908f0626ff`; statuses `42b203a5d3f6bc1b86ce98457f67ceb84746a534307dfd14719fa9decc0e29ae`; bindings `9f1d662b2cf744f2e28f28e1a0f9782a0e9186aa9ff3a1bfa58aeebd40c802b6`. |
 | P2-B4 `git diff --check`; mechanics/encounter drift checks; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed; 25 batch IDs agree, 634 local links across 311 Markdown files resolve, no Rust scope was selected and eight generated/release inputs remain deferred. |
+| `node tools/anomaly-arbitration-reference/build-pack.mjs`; `node tools/anomaly-arbitration-reference/verify-pack.mjs` | Passed deterministic generation/drift and all 37 file envelopes; 392/392 obligations are DataReady, 18 rule families meet 23 fixture minimums, all fixture evidence IDs resolve among 824 source rows, all 316 shared receipts match source path/locator/digest with no conflict, nine gaps are nonblocking and replacement-tracked, contract digests match and the 36-entry nonrecursive pack index verifies byte counts and SHA-256. Pack-index digest: `923394ff72bddcc86318363e2ef248ee2d47ec05e19b60001aa3f7c1bd7dbdf3`. |
+| P2-B5 full Goal 13 normalized verifier chain; `git diff --check`; plan/status batch-set script; repository-wide local Markdown target script; `node tools/repository-check/run.mjs` | Passed all contracts and deterministic imports through pack closure; 25 batch IDs agree, 634 local links across 312 Markdown files resolve, no Rust scope was selected and nine generated/release inputs remain deferred. |
+| Phase 2 checkpoint `node tools/repository-check/run.mjs --full --with-source-cache` | Runner, extension, dependency, workflow, immutable release snapshots and Goal 05 release checks passed; the unchanged Goal 06 historical verifier again stopped on the additive current `Cargo.lock` differing from its immutable baseline. Goal 13 changes neither file and no later full-gate step is claimed. |
 
 ## Frozen counters
 
@@ -143,8 +146,8 @@ obligation. Zero denominators carry generated selector-closure proofs.
 | Blessings/Curios/Occurrences | 0 | 0 | 0 | Three separate generated exact-zero selector proofs are imported as DataReady audit rows. |
 | Services/currencies/other pools | 0 | 0 | 0 | Three separate exact-zero proofs are imported; shop/reward locators remain non-member account evidence. |
 | Encounter groups/waves/enemy slots | 293 | 293 | 293 | All 27 variants, 26 templates, 115 skills, 52 statuses and 73 mechanical configuration programs are DataReady; five StageConfig parents are counted with stages and expand to ten waves and 16 direct slots. |
-| Mechanic rules | 18 | 0 | 0 | Non-shrinking semantic rule-family minimum; reference contributions make no runtime claim. |
-| Semantic fixtures | 18 | 0 | 0 | Same non-shrinking family minimum; P0-B4 freezes fixture shape. |
+| Mechanic rules | 18 | 18 | 18 | All non-shrinking semantic rule families are DataReady reference-review contracts and make no runtime claim. |
+| Semantic fixtures | 18 | 18 | 18 | All 18 families meet their minimums through 23 fixtures; the empty-pool family has six independent cases. |
 
 ## Decisions
 
@@ -189,6 +192,7 @@ obligation. Zero denominators carry generated selector-closure proofs.
 | 2026-07-29 | Classify the 30504 hard-boss screen-effect ability as presentation-only while retaining the countdown and infinite-summon abilities as mechanical relationships. | The user-visible effect does not alter rules, whereas the other two names participate in wave/countdown behavior; assets and UI remain excluded. |
 | 2026-07-29 | Preserve transitive configuration programs as exact reachability receipts without importing their bodies or claiming executable semantics. | Stable selectors prove inclusion in the active encounter closure, while reference data must not become runtime lowering and program interpretation remains separately auditable. |
 | 2026-07-29 | Assign status ownership to the transitive configuration-program closure unless an explicit enemy relationship is present. | Exact ModifierName occurrences prove reachability, while numeric prefixes and matching names are forbidden as standalone enemy ownership evidence. |
+| 2026-07-29 | Keep the canonical pack index nonrecursive by receipting the other 36 normalized files and excluding its own bytes. | A file cannot stably contain its own digest; the index itself is verified and will be bound by the later Sora/workbook and final bundle receipts. |
 
 ## Research cases
 
@@ -204,25 +208,25 @@ obligation. Zero denominators carry generated selector-closure proofs.
 | `G13-R08` | `Resolved` | Are any Blessings, Curios, Occurrences, services, currencies or analogous pools mechanically reachable in the active period? | P0-B3 / P2-B1 | Reopen only when a released active selector or transitive reference names a member; all six independent zero proofs are now normalized and drift-verified. |
 | `G13-R09` | `Resolved` | Which active enemy traits, King/Plight modifiers and shared battle events bind to each stage and difficulty? | P2-B2–B3 | Reopen only if stronger released evidence changes a StageConfig TagList, event selector, MazeBuff parameter or ability binding; replacement must update the exact per-stage join and affected fixtures. |
 | `G13-R10` | `Resolved` | Which StageConfig waves, concrete enemy variants, skills, AI, phases and difficulty inputs define every active encounter? | P2-B4 | Reopen only if released fixed-version evidence changes a StageConfig slot, explicit summon, template/skill/config reference or phase marker; replacement must regenerate the full exact closure. |
-| `G13-R11` | `Open` | Which hidden ordering, timing, caps, rounding and fallback fields remain unavailable after bounded research? | P2-B5 / P4-B2 | Replace each field with exact/observed evidence or a reviewed approximation/project-policy row with a concrete stronger-evidence trigger. |
+| `G13-R11` | `Resolved` | Which hidden ordering, timing, caps, rounding and fallback fields remain unavailable after bounded research? | P2-B5 / P4-B2 | Nine nonblocking rows now preserve every known unavailable field with an owner, alternatives and replacement condition; reopen only when stronger released evidence satisfies one of those explicit triggers. |
 
 ## Terminal checklist
 
 - [x] Exact active-period category manifests and denominators are frozen.
 - [x] Both pinned caches and the focused
       table/config/TextMap/Stage/ability inventory regenerate deterministically.
-- [ ] Complete normalized pack and canonical pack index regenerate without
+- [x] Complete normalized pack and canonical pack index regenerate without
       drift.
-- [ ] All required rows have bilingual summaries and row-level provenance.
-- [ ] Ownership, active-period enablement and shared reachability are explicit
+- [x] All required rows have bilingual summaries and row-level provenance.
+- [x] Ownership, active-period enablement and shared reachability are explicit
       and fail closed.
-- [ ] Empty content-pool families have generated selector-closure proofs.
+- [x] Empty content-pool families have generated selector-closure proofs.
 - [ ] Shared classifications reconcile with committed Goal 07–12 facts.
-- [ ] All required mechanics are exact or explicitly
+- [x] All required mechanics are exact or explicitly
       approximate/policy-bound.
 - [ ] Knight records/uniqueness, King/Plight, clocks, Arbitral Quadrant,
       objectives and aggregation have complete semantic fixtures.
-- [ ] Encounter identities, StageConfig rows, waves, traits and boss bindings
+- [x] Encounter identities, StageConfig rows, waves, traits and boss bindings
       resolve.
 - [ ] Isolated Sora schemas, templates and generated readers validate.
 - [ ] All three complete `openpyxl` workbooks pass structural and visual QA.
@@ -230,7 +234,7 @@ obligation. Zero denominators carry generated selector-closure proofs.
       isolated readers.
 - [ ] Goal 03 evidence and all other mode/production bundle identities remain
       unchanged.
-- [ ] Coverage reports 100% `DataReady` and no blocking research row.
+- [x] Coverage reports 100% `DataReady` and no blocking research row.
 - [ ] Every completed batch commit is reachable from its recorded remote
       branch at the recorded commit ID.
 - [ ] Clean-checkout acceptance passes and `G13-P4-B4` is committed and pushed.

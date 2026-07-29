@@ -1,0 +1,1485 @@
+{
+  "schema_revision": "starclock.anomaly-arbitration-normalized-file.v1",
+  "goal_id": "anomaly-arbitration-reference-v1",
+  "profile": "anomaly-arbitration-v1",
+  "file": "pack-index.json",
+  "record_kind": "PackIndex",
+  "records": [
+    {
+      "id": "pack-index.01.profiles.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "profiles.json pack index",
+      "name_zh_cn": "profiles.json资料包索引",
+      "summary_en": "profiles.json is frozen at 1 records and 10173 bytes.",
+      "summary_zh_cn": "profiles.json冻结为1条记录、10173字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 1,
+      "record_order": 0,
+      "file_name": "profiles.json",
+      "record_kind": "Profile",
+      "row_count": 1,
+      "byte_count": 10173,
+      "sha256": "8b4891aec980e5d8e7e303b9f6e9409da6f81c2e154430eb42d465e29dd7f72c",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.02.periods.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "periods.json pack index",
+      "name_zh_cn": "periods.json资料包索引",
+      "summary_en": "periods.json is frozen at 1 records and 8347 bytes.",
+      "summary_zh_cn": "periods.json冻结为1条记录、8347字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 2,
+      "record_order": 0,
+      "file_name": "periods.json",
+      "record_kind": "Period",
+      "row_count": 1,
+      "byte_count": 8347,
+      "sha256": "1f7747cd3bc13ae9968c2d6484c596e6ec04537ad5ca1e8ffef5d76e9212d514",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.03.stages.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "stages.json pack index",
+      "name_zh_cn": "stages.json资料包索引",
+      "summary_en": "stages.json is frozen at 5 records and 28338 bytes.",
+      "summary_zh_cn": "stages.json冻结为5条记录、28338字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 3,
+      "record_order": 0,
+      "file_name": "stages.json",
+      "record_kind": "Stage",
+      "row_count": 5,
+      "byte_count": 28338,
+      "sha256": "c6ce591ad25a4cd80dac183a99f66dde2f86fdd6e2aefdaf296391f6f55474d2",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.04.terminal-outcomes.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "terminal-outcomes.json pack index",
+      "name_zh_cn": "terminal-outcomes.json资料包索引",
+      "summary_en": "terminal-outcomes.json is frozen at 4 records and 7457 bytes.",
+      "summary_zh_cn": "terminal-outcomes.json冻结为4条记录、7457字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 4,
+      "record_order": 0,
+      "file_name": "terminal-outcomes.json",
+      "record_kind": "TerminalOutcome",
+      "row_count": 4,
+      "byte_count": 7457,
+      "sha256": "171dfa56f52a735094092e32922f9786892a647d6baf6a613d820915861d1193",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.05.participant-policies.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "participant-policies.json pack index",
+      "name_zh_cn": "participant-policies.json资料包索引",
+      "summary_en": "participant-policies.json is frozen at 4 records and 10308 bytes.",
+      "summary_zh_cn": "participant-policies.json冻结为4条记录、10308字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 5,
+      "record_order": 0,
+      "file_name": "participant-policies.json",
+      "record_kind": "ParticipantPolicy",
+      "row_count": 4,
+      "byte_count": 10308,
+      "sha256": "75df925c209bb4b5dbd89da9ab1fdb13855bb012de2c60042ce393e00318c183",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.06.team-slots.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "team-slots.json pack index",
+      "name_zh_cn": "team-slots.json资料包索引",
+      "summary_en": "team-slots.json is frozen at 3 records and 7573 bytes.",
+      "summary_zh_cn": "team-slots.json冻结为3条记录、7573字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 6,
+      "record_order": 0,
+      "file_name": "team-slots.json",
+      "record_kind": "TeamSlot",
+      "row_count": 3,
+      "byte_count": 7573,
+      "sha256": "e1aa2361245d744e63678b3b5b77d6d4904a4b87fa4c0ddb251d1cc195e6f45a",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.07.loadout-records.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "loadout-records.json pack index",
+      "name_zh_cn": "loadout-records.json资料包索引",
+      "summary_en": "loadout-records.json is frozen at 3 records and 6241 bytes.",
+      "summary_zh_cn": "loadout-records.json冻结为3条记录、6241字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 7,
+      "record_order": 0,
+      "file_name": "loadout-records.json",
+      "record_kind": "LoadoutRecordPolicy",
+      "row_count": 3,
+      "byte_count": 6241,
+      "sha256": "8dc6e1860e5b56e9289c8e00b74f5a39212d271c0dea95b1c4c80ffe092d18f5",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.08.progress-records.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "progress-records.json pack index",
+      "name_zh_cn": "progress-records.json资料包索引",
+      "summary_en": "progress-records.json is frozen at 6 records and 11647 bytes.",
+      "summary_zh_cn": "progress-records.json冻结为6条记录、11647字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 8,
+      "record_order": 0,
+      "file_name": "progress-records.json",
+      "record_kind": "ProgressRecordPolicy",
+      "row_count": 6,
+      "byte_count": 11647,
+      "sha256": "ed89f8eb5d8dc54085c6197c4ebe56d20045f5ef5b4e8812f03e6b9876811792",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.09.king-states.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "king-states.json pack index",
+      "name_zh_cn": "king-states.json资料包索引",
+      "summary_en": "king-states.json is frozen at 2 records and 7566 bytes.",
+      "summary_zh_cn": "king-states.json冻结为2条记录、7566字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 9,
+      "record_order": 0,
+      "file_name": "king-states.json",
+      "record_kind": "KingState",
+      "row_count": 2,
+      "byte_count": 7566,
+      "sha256": "4f3c595455615076c8fdd1272f8402a916c5dcb6fa5612968b1852777e49d9f0",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.10.king-protection.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "king-protection.json pack index",
+      "name_zh_cn": "king-protection.json资料包索引",
+      "summary_en": "king-protection.json is frozen at 4 records and 14863 bytes.",
+      "summary_zh_cn": "king-protection.json冻结为4条记录、14863字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 10,
+      "record_order": 0,
+      "file_name": "king-protection.json",
+      "record_kind": "KingProtectionRule",
+      "row_count": 4,
+      "byte_count": 14863,
+      "sha256": "e6ac6da49ac6c880be84a83dabd3d42e0a913dfc8432e70ca8e6b343fb368e62",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.11.clocks.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "clocks.json pack index",
+      "name_zh_cn": "clocks.json资料包索引",
+      "summary_en": "clocks.json is frozen at 9 records and 23712 bytes.",
+      "summary_zh_cn": "clocks.json冻结为9条记录、23712字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 11,
+      "record_order": 0,
+      "file_name": "clocks.json",
+      "record_kind": "ClockRule",
+      "row_count": 9,
+      "byte_count": 23712,
+      "sha256": "1d2eaf74017978603210e250b24464cf869827ce2795e1c0eff520900dd4b18d",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.12.quadrant-options.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "quadrant-options.json pack index",
+      "name_zh_cn": "quadrant-options.json资料包索引",
+      "summary_en": "quadrant-options.json is frozen at 3 records and 17330 bytes.",
+      "summary_zh_cn": "quadrant-options.json冻结为3条记录、17330字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 12,
+      "record_order": 0,
+      "file_name": "quadrant-options.json",
+      "record_kind": "QuadrantOption",
+      "row_count": 3,
+      "byte_count": 17330,
+      "sha256": "555ef28acd926a1117062a780059e43f9636f10bd6f8bd08171beb2b0f6a357e",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.13.quadrant-selections.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "quadrant-selections.json pack index",
+      "name_zh_cn": "quadrant-selections.json资料包索引",
+      "summary_en": "quadrant-selections.json is frozen at 3 records and 9872 bytes.",
+      "summary_zh_cn": "quadrant-selections.json冻结为3条记录、9872字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 13,
+      "record_order": 0,
+      "file_name": "quadrant-selections.json",
+      "record_kind": "QuadrantSelectionPolicy",
+      "row_count": 3,
+      "byte_count": 9872,
+      "sha256": "5dad4e832e2fe3d383c621e3719670e5f8b256627023cb25395ff9b8904e9374",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.14.targets.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "targets.json pack index",
+      "name_zh_cn": "targets.json资料包索引",
+      "summary_en": "targets.json is frozen at 7 records and 21464 bytes.",
+      "summary_zh_cn": "targets.json冻结为7条记录、21464字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 14,
+      "record_order": 0,
+      "file_name": "targets.json",
+      "record_kind": "BattleTarget",
+      "row_count": 7,
+      "byte_count": 21464,
+      "sha256": "2458291ba3ca8443d319f010c388ed29ca1d06dd94a013ce7806f14540c7a1cb",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.15.objectives.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "objectives.json pack index",
+      "name_zh_cn": "objectives.json资料包索引",
+      "summary_en": "objectives.json is frozen at 3 records and 10417 bytes.",
+      "summary_zh_cn": "objectives.json冻结为3条记录、10417字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 15,
+      "record_order": 0,
+      "file_name": "objectives.json",
+      "record_kind": "ObjectiveRule",
+      "row_count": 3,
+      "byte_count": 10417,
+      "sha256": "39e25f0c7b0c1202948e007b5cb280b49b7e806c7fb881479b822ade26d69b63",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.16.stage-results.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "stage-results.json pack index",
+      "name_zh_cn": "stage-results.json资料包索引",
+      "summary_en": "stage-results.json is frozen at 5 records and 10191 bytes.",
+      "summary_zh_cn": "stage-results.json冻结为5条记录、10191字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 16,
+      "record_order": 0,
+      "file_name": "stage-results.json",
+      "record_kind": "StageResultPolicy",
+      "row_count": 5,
+      "byte_count": 10191,
+      "sha256": "6337c25926d5996f27965b6e77220e49c88300a1b528300f3b21780d81049395",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.17.aggregations.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "aggregations.json pack index",
+      "name_zh_cn": "aggregations.json资料包索引",
+      "summary_en": "aggregations.json is frozen at 5 records and 11301 bytes.",
+      "summary_zh_cn": "aggregations.json冻结为5条记录、11301字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 17,
+      "record_order": 0,
+      "file_name": "aggregations.json",
+      "record_kind": "AggregationRule",
+      "row_count": 5,
+      "byte_count": 11301,
+      "sha256": "f3adca5d434d1f17c8c7905cb5ec406af4af68d3ee3d58e326bbac7ebe2093d5",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.18.pool-audits.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "pool-audits.json pack index",
+      "name_zh_cn": "pool-audits.json资料包索引",
+      "summary_en": "pool-audits.json is frozen at 6 records and 13951 bytes.",
+      "summary_zh_cn": "pool-audits.json冻结为6条记录、13951字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 18,
+      "record_order": 0,
+      "file_name": "pool-audits.json",
+      "record_kind": "PoolAudit",
+      "row_count": 6,
+      "byte_count": 13951,
+      "sha256": "eb6dcd32a1632f8a48570b5ddd176df71926240529af04802fd30b8e3d04d55a",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.19.traits.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "traits.json pack index",
+      "name_zh_cn": "traits.json资料包索引",
+      "summary_en": "traits.json is frozen at 8 records and 14984 bytes.",
+      "summary_zh_cn": "traits.json冻结为8条记录、14984字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 19,
+      "record_order": 0,
+      "file_name": "traits.json",
+      "record_kind": "EnemyTrait",
+      "row_count": 8,
+      "byte_count": 14984,
+      "sha256": "d42c991c4c8515e8e474c3f5ebd7a7b9472f848d7afac5f5f310f40f6f817437",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.20.maze-buff-bindings.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "maze-buff-bindings.json pack index",
+      "name_zh_cn": "maze-buff-bindings.json资料包索引",
+      "summary_en": "maze-buff-bindings.json is frozen at 14 records and 27959 bytes.",
+      "summary_zh_cn": "maze-buff-bindings.json冻结为14条记录、27959字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 20,
+      "record_order": 0,
+      "file_name": "maze-buff-bindings.json",
+      "record_kind": "MazeBuffBinding",
+      "row_count": 14,
+      "byte_count": 27959,
+      "sha256": "a1c5194386264b7aa3f733aeeebd6e484e30d19503c9d2458fd48a4811c98a9a",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.21.battle-events.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "battle-events.json pack index",
+      "name_zh_cn": "battle-events.json资料包索引",
+      "summary_en": "battle-events.json is frozen at 3 records and 14170 bytes.",
+      "summary_zh_cn": "battle-events.json冻结为3条记录、14170字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 21,
+      "record_order": 0,
+      "file_name": "battle-events.json",
+      "record_kind": "BattleEvent",
+      "row_count": 3,
+      "byte_count": 14170,
+      "sha256": "92e4f1e24781c91e200b2d7f33ed7141e6e9a10b92ed509a136cac9e2fbc1a34",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.22.encounters.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "encounters.json pack index",
+      "name_zh_cn": "encounters.json资料包索引",
+      "summary_en": "encounters.json is frozen at 5 records and 9873 bytes.",
+      "summary_zh_cn": "encounters.json冻结为5条记录、9873字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 22,
+      "record_order": 0,
+      "file_name": "encounters.json",
+      "record_kind": "Encounter",
+      "row_count": 5,
+      "byte_count": 9873,
+      "sha256": "a2e803e3ca99deb53175c6ba540ae9934154143d4ea9ca69a1d77e833943b233",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.23.encounter-waves.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "encounter-waves.json pack index",
+      "name_zh_cn": "encounter-waves.json资料包索引",
+      "summary_en": "encounter-waves.json is frozen at 10 records and 16900 bytes.",
+      "summary_zh_cn": "encounter-waves.json冻结为10条记录、16900字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 23,
+      "record_order": 0,
+      "file_name": "encounter-waves.json",
+      "record_kind": "EncounterWave",
+      "row_count": 10,
+      "byte_count": 16900,
+      "sha256": "fbe2490779ab28585a3318ad66d00075b1be71edb305478d130f587783cbef45",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.24.enemy-slots.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "enemy-slots.json pack index",
+      "name_zh_cn": "enemy-slots.json资料包索引",
+      "summary_en": "enemy-slots.json is frozen at 16 records and 36436 bytes.",
+      "summary_zh_cn": "enemy-slots.json冻结为16条记录、36436字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 24,
+      "record_order": 0,
+      "file_name": "enemy-slots.json",
+      "record_kind": "EnemySlot",
+      "row_count": 16,
+      "byte_count": 36436,
+      "sha256": "8e1265ecb77166423dd966c3f0941f13c3ac61e91b1f9c0fd5232116b8f7f37f",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.25.enemies.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "enemies.json pack index",
+      "name_zh_cn": "enemies.json资料包索引",
+      "summary_en": "enemies.json is frozen at 27 records and 143149 bytes.",
+      "summary_zh_cn": "enemies.json冻结为27条记录、143149字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 25,
+      "record_order": 0,
+      "file_name": "enemies.json",
+      "record_kind": "EnemyVariant",
+      "row_count": 27,
+      "byte_count": 143149,
+      "sha256": "278687d5c7d946905a0a873857b00b6795beb6eec17c32530de6a5b56b4e9468",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.26.enemy-skills.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "enemy-skills.json pack index",
+      "name_zh_cn": "enemy-skills.json资料包索引",
+      "summary_en": "enemy-skills.json is frozen at 115 records and 465260 bytes.",
+      "summary_zh_cn": "enemy-skills.json冻结为115条记录、465260字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 26,
+      "record_order": 0,
+      "file_name": "enemy-skills.json",
+      "record_kind": "EnemySkill",
+      "row_count": 115,
+      "byte_count": 465260,
+      "sha256": "9d7a86b54a52767ae9383ebc1d821643c57fa855b4a7e396477e75908f0626ff",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.27.enemy-statuses.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "enemy-statuses.json pack index",
+      "name_zh_cn": "enemy-statuses.json资料包索引",
+      "summary_en": "enemy-statuses.json is frozen at 52 records and 227990 bytes.",
+      "summary_zh_cn": "enemy-statuses.json冻结为52条记录、227990字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 27,
+      "record_order": 0,
+      "file_name": "enemy-statuses.json",
+      "record_kind": "EnemyStatus",
+      "row_count": 52,
+      "byte_count": 227990,
+      "sha256": "42b203a5d3f6bc1b86ce98457f67ceb84746a534307dfd14719fa9decc0e29ae",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.28.ability-bindings.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "ability-bindings.json pack index",
+      "name_zh_cn": "ability-bindings.json资料包索引",
+      "summary_en": "ability-bindings.json is frozen at 73 records and 157616 bytes.",
+      "summary_zh_cn": "ability-bindings.json冻结为73条记录、157616字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 28,
+      "record_order": 0,
+      "file_name": "ability-bindings.json",
+      "record_kind": "AbilityBinding",
+      "row_count": 73,
+      "byte_count": 157616,
+      "sha256": "9f1d662b2cf744f2e28f28e1a0f9782a0e9186aa9ff3a1bfa58aeebd40c802b6",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.29.mechanic-contributions.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "mechanic-contributions.json pack index",
+      "name_zh_cn": "mechanic-contributions.json资料包索引",
+      "summary_en": "mechanic-contributions.json is frozen at 87 records and 181052 bytes.",
+      "summary_zh_cn": "mechanic-contributions.json冻结为87条记录、181052字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 29,
+      "record_order": 0,
+      "file_name": "mechanic-contributions.json",
+      "record_kind": "MechanicContribution",
+      "row_count": 87,
+      "byte_count": 181052,
+      "sha256": "d4109df84c30e947276b3ca4ad4c795d2f14b0aa884c81547be1d258c6ed3be2",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.30.mechanic-rules.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "mechanic-rules.json pack index",
+      "name_zh_cn": "mechanic-rules.json资料包索引",
+      "summary_en": "mechanic-rules.json is frozen at 18 records and 91658 bytes.",
+      "summary_zh_cn": "mechanic-rules.json冻结为18条记录、91658字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 30,
+      "record_order": 0,
+      "file_name": "mechanic-rules.json",
+      "record_kind": "MechanicRule",
+      "row_count": 18,
+      "byte_count": 91658,
+      "sha256": "7522ecc0cda8c135d70d407f54c39659ac199a1673be694b2f1deba2ed7c7b91",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.31.sources.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "sources.json pack index",
+      "name_zh_cn": "sources.json资料包索引",
+      "summary_en": "sources.json is frozen at 824 records and 1903037 bytes.",
+      "summary_zh_cn": "sources.json冻结为824条记录、1903037字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 31,
+      "record_order": 0,
+      "file_name": "sources.json",
+      "record_kind": "Source",
+      "row_count": 824,
+      "byte_count": 1903037,
+      "sha256": "e74e03583aa222fe9bb516f943b6eebc385ffe0798f633ab164bf48fc0659e40",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.32.reconciliation.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "reconciliation.json pack index",
+      "name_zh_cn": "reconciliation.json资料包索引",
+      "summary_en": "reconciliation.json is frozen at 316 records and 651362 bytes.",
+      "summary_zh_cn": "reconciliation.json冻结为316条记录、651362字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 32,
+      "record_order": 0,
+      "file_name": "reconciliation.json",
+      "record_kind": "ReconciliationReceipt",
+      "row_count": 316,
+      "byte_count": 651362,
+      "sha256": "ed8d160f61dfd897bdf014760b881fa8a8a6d7050ecc48b96822856b72d95965",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.33.coverage.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "coverage.json pack index",
+      "name_zh_cn": "coverage.json资料包索引",
+      "summary_en": "coverage.json is frozen at 392 records and 748725 bytes.",
+      "summary_zh_cn": "coverage.json冻结为392条记录、748725字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 33,
+      "record_order": 0,
+      "file_name": "coverage.json",
+      "record_kind": "Coverage",
+      "row_count": 392,
+      "byte_count": 748725,
+      "sha256": "3febd2425475d382a9cc56e1cdf89129b5d90b49a5509825d9d49fd696658802",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.34.research-gaps.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "research-gaps.json pack index",
+      "name_zh_cn": "research-gaps.json资料包索引",
+      "summary_en": "research-gaps.json is frozen at 9 records and 35038 bytes.",
+      "summary_zh_cn": "research-gaps.json冻结为9条记录、35038字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 34,
+      "record_order": 0,
+      "file_name": "research-gaps.json",
+      "record_kind": "ResearchGap",
+      "row_count": 9,
+      "byte_count": 35038,
+      "sha256": "6a1d69bb5213c925b52a7c2f0f91868ced0b4b7fb7d5da484bde681a4ea59703",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.35.review-fixtures.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "review-fixtures.json pack index",
+      "name_zh_cn": "review-fixtures.json资料包索引",
+      "summary_en": "review-fixtures.json is frozen at 23 records and 139094 bytes.",
+      "summary_zh_cn": "review-fixtures.json冻结为23条记录、139094字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 35,
+      "record_order": 0,
+      "file_name": "review-fixtures.json",
+      "record_kind": "ReviewFixture",
+      "row_count": 23,
+      "byte_count": 139094,
+      "sha256": "0ec9c496ff5aa6357a82a3763913ec03501762c63a3596af1237b373721ac91c",
+      "runtime_executable": false
+    },
+    {
+      "id": "pack-index.36.manifest.json",
+      "schema_revision": "starclock.anomaly-arbitration-row.v1",
+      "kind": "PackIndex",
+      "name_en": "manifest.json pack index",
+      "name_zh_cn": "manifest.json资料包索引",
+      "summary_en": "manifest.json is frozen at 1 records and 2715 bytes.",
+      "summary_zh_cn": "manifest.json冻结为1条记录、2715字节。",
+      "ownership": "AnomalyArbitration",
+      "coverage_state": "DataReady",
+      "evidence_quality": "ProjectPolicy",
+      "mechanism_quality": "PolicyBoundary",
+      "manifest_record_ids": [
+        "profiles:anomaly-arbitration-v1"
+      ],
+      "source_refs": [
+        {
+          "source_id": "starclock:docs/goals/13-anomaly-arbitration-reference-data.md:Included content",
+          "repository_or_url": "https://github.com/realm-labs/starclock.git",
+          "revision_or_access_date": "2026-07-29",
+          "game_version": "4.4",
+          "path_or_page": "docs/goals/13-anomaly-arbitration-reference-data.md",
+          "locator": "Included content",
+          "sha256": "6f24f1a675df4f900f1c3ce6a7e2080980cf9e06e42b6c247b59f2f12794add1",
+          "evidence_quality": "ProjectPolicy",
+          "mechanism_quality": "PolicyBoundary",
+          "note": "Goal-owned pack identity and isolated authoring boundary."
+        }
+      ],
+      "tags": [
+        "pack-index"
+      ],
+      "file_order": 36,
+      "record_order": 0,
+      "file_name": "manifest.json",
+      "record_kind": "ManifestReceipt",
+      "row_count": 1,
+      "byte_count": 2715,
+      "sha256": "8c00fe51f7e5e0543a9bd4534d5f93f1bb160ed355bc0357cc9b510834e800bf",
+      "runtime_executable": false
+    }
+  ]
+}
