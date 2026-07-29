@@ -241,6 +241,17 @@ PARTITION_CONFIG = {
         "source_record_id": 19,
         "evidence_record_id": 20,
     },
+    "G07-P5-M15-S18": {
+        "base": 1_150_000,
+        "variant": "enemy.voidranger-trampler.elite.variant.01",
+        "variants": [
+            "enemy.voidranger-trampler.elite.variant.01",
+            "enemy.windspawn.minion.variant.01",
+            "enemy.wraith-warden.minionlv2.variant.01",
+        ],
+        "source_record_id": 20,
+        "evidence_record_id": 21,
+    },
 }
 PARTITION = "G07-P5-M15-S01"
 VARIANT_KEY = PARTITION_CONFIG[PARTITION]["variant"]
@@ -16037,6 +16048,58 @@ def enemy_specs_s17() -> list[dict[str, Any]]:
     ]
 
 
+def enemy_specs_s18() -> list[dict[str, Any]]:
+    return [
+        {
+            "key": VARIANT_KEYS[0],
+            "template": "enemy.voidranger-trampler.elite",
+            "name": "Voidranger: Trampler",
+            "zh": "虚卒·践踏者",
+            "rank": "Elite",
+            "toughness": "300",
+            "weaknesses": ["Imaginary", "Physical", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Ice", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("unreal-projection", "Unreal Projection", "虚实的投影", "801301001", "3", "Quantum", "primary", True, None),
+                ("rule-of-force", "Rule of Force", "侵略的铁蹄", "801301002", "4", "Quantum", "primary", True, None),
+                ("war-trample", "War Trample", "战争的践踏", "801301003", "2.5", "Quantum", "blast", True, None),
+                ("spiral-arrow", "Spiral Arrow", "螺旋的弓矢", "801301004", None, None, "primary", True, "spiral-arrow"),
+                ("end-of-bow", "End of Bow", "强弩的终结", "801301005", "6", "Quantum", "primary", True, "entanglement"),
+            ],
+            "cycle": ["spiral-arrow", "end-of-bow", "unreal-projection", "rule-of-force", "war-trample"],
+        },
+        {
+            "key": VARIANT_KEYS[1],
+            "template": "enemy.windspawn.minion",
+            "name": "Windspawn",
+            "zh": "风之造物",
+            "rank": "Minion",
+            "toughness": "30",
+            "weaknesses": ["Fire", "Lightning"],
+            "resistances": [("Ice", "0.2"), ("Imaginary", "0.2"), ("Physical", "0.2"), ("Quantum", "0.2"), ("Wind", "0.4")],
+            "debuff_resistances": [("STAT_DOT_Poison", "1")],
+            "abilities": [
+                ("windpath", "Windpath", "风色", "800105001", "2.5", "Wind", "primary", True, "wind-shear"),
+            ],
+            "cycle": ["windpath"],
+        },
+        {
+            "key": VARIANT_KEYS[2],
+            "template": "enemy.wraith-warden.minionlv2",
+            "name": "Wraith Warden",
+            "zh": "怨灵看守",
+            "rank": "Normal",
+            "toughness": "60",
+            "weaknesses": ["Ice", "Physical", "Wind"],
+            "resistances": [("Fire", "0.2"), ("Imaginary", "0.2"), ("Lightning", "0.2"), ("Quantum", "0.2")],
+            "abilities": [
+                ("sawing-evil", "Sawing Evil", "锯恶", "200203001", "2.5", "Physical", "primary", True, None),
+            ],
+            "cycle": ["sawing-evil"],
+        },
+    ]
+
+
 def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
     manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
@@ -16047,7 +16110,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         raise ValueError("S12 numeric anchor variants changed")
 
     enemy_specs = (
-        enemy_specs_s17()
+        enemy_specs_s18()
+        if PARTITION == "G07-P5-M15-S18"
+        else enemy_specs_s17()
         if PARTITION == "G07-P5-M15-S17"
         else enemy_specs_s16()
         if PARTITION == "G07-P5-M15-S16"
@@ -16387,6 +16452,15 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             10_016 if index == 10 else BASE + 21 + index
             for index in range(len(enemy_specs))
         ]
+    elif PARTITION == "G07-P5-M15-S18":
+        variant_row_ids = [
+            111 if index == 0 else BASE + 1 + index
+            for index in range(len(enemy_specs))
+        ]
+        template_row_ids = [
+            10_017 if index == 0 else BASE + 21 + index
+            for index in range(len(enemy_specs))
+        ]
     else:
         variant_row_ids = [BASE + 1 + index for index in range(len(enemy_specs))]
         template_row_ids = [BASE + 21 + index for index in range(len(enemy_specs))]
@@ -16410,6 +16484,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     if PARTITION != "G07-P5-M15-S17":
         selectors.pop("random-ally")
     effects = (
+        {
+            "spiral-arrow": BASE + 5_001,
+            "entanglement": BASE + 5_002,
+            "wind-shear": BASE + 5_003,
+        }
+        if PARTITION == "G07-P5-M15-S18"
+        else
         {
             "shock": BASE + 5_001,
             "scared": BASE + 5_002,
@@ -16643,6 +16724,8 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         if PARTITION == "G07-P5-M15-S14"
         else {"0.2"}
         if PARTITION == "G07-P5-M15-S15"
+        else {"0.8"}
+        if PARTITION == "G07-P5-M15-S18"
         else {"0.1", "0.3", "0.4", "0.55", "0.75", "0.8"}
         if PARTITION == "G07-P5-M15-S17"
         else set()
@@ -16715,6 +16798,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
     )
 
     effect_metadata = (
+        {
+            "spiral-arrow": ("Spiral Arrow Lock", "螺旋箭锁定", "Mark", "DispellableDebuff", 1, integer_two, "TargetTurnEnd", "Refresh", None, None),
+            "entanglement": ("Entanglement", "纠缠", "Control", "CleanseableControl", 1, integer_two, "TargetTurnStart", "Refresh", None, None),
+            "wind-shear": ("Windpath Wind Shear", "风色风化", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.8"], "Wind"),
+        }
+        if PARTITION == "G07-P5-M15-S18"
+        else
         {
             "shock": ("Thunderflash Shock", "雷闪触电", "Dot", "DispellableDebuff", 1, integer_two, "TargetTurnStart", "Refresh", damage_amounts["0.8"], "Lightning"),
             "scared": ("Scared", "惊慌", "NeutralState", "NonDispellable", 1, integer_two, "OwnerTurnEnd", "Refresh", None, None),
@@ -16852,6 +16942,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             },
         )
     effect_tags = (
+        {
+            "spiral-arrow": ["spiral-arrow", "lock-on-target"],
+            "entanglement": ["entanglement", "blocks-normal-action"],
+            "wind-shear": ["wind-shear"],
+        }
+        if PARTITION == "G07-P5-M15-S18"
+        else
         {
             "shock": ["shock"],
             "scared": ["scared", "prepare"],
@@ -16994,7 +17091,8 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         return id_
 
     is_s17 = PARTITION == "G07-P5-M15-S17"
-    linked_units = [] if is_s17 else [BASE + 351, BASE + 352]
+    is_s18 = PARTITION == "G07-P5-M15-S18"
+    linked_units = [] if is_s17 or is_s18 else [BASE + 351, BASE + 352]
     linked_ability = BASE + 381
     is_s13 = PARTITION == "G07-P5-M15-S13"
     is_s14 = PARTITION == "G07-P5-M15-S14"
@@ -17247,6 +17345,13 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                     )
             effect_key = (
                 {
+                    "spiral-arrow": "spiral-arrow",
+                    "entanglement": "entanglement",
+                    "wind-shear": "wind-shear",
+                }
+                if is_s18
+                else
+                {
                     "shock": "shock",
                     "scared": "scared",
                     "run": "run",
@@ -17364,7 +17469,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                                     else integer_three
                                     if mechanic == "detonated"
                                     else integer_two
-                                    if mechanic == "wind-shear"
+                                    if mechanic == "wind-shear" and is_s16
                                     else None
                                 ),
                                 chance_policy=(
@@ -17628,7 +17733,9 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             )
 
     defeat_effect = (
-        effects["detonated"]
+        effects["entanglement"]
+        if is_s18
+        else effects["detonated"]
         if is_s17
         else effects["shield-reflect"]
         if is_s16
@@ -17717,6 +17824,21 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
         ],
     )
     defeat_steps = (
+        [
+            op_step(
+                new_operation(
+                    f"{defeat_slug}-unused",
+                    json_cell(
+                        "AdvanceAction",
+                        amount_expression_id=ratios["1"],
+                    ),
+                    selectors["owner"],
+                    "NoOp",
+                )
+            )
+        ]
+        if is_s18
+        else
         [
             op_step(
                 new_operation(
@@ -17871,6 +17993,14 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
             "rule_id": rebound_rule,
         },
     )
+    if is_s18:
+        rows["EffectRuleBinding"].clear()
+        rows["RuleTrigger"].clear()
+        rows["RuleDefinition"].clear()
+        rows["EventFilter"].clear()
+        identities[:] = [
+            item for item in identities if item["id"] != rebound_rule
+        ]
 
     anchor_by_variant = {
         item["enemy_variant_id"]: item for item in anchor["variants"]
@@ -18082,7 +18212,7 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                         else 6
                         if is_s14
                         else 99
-                        if is_s17
+                        if is_s17 or is_s18
                         else 0
                     )
                     else None
@@ -18159,9 +18289,11 @@ def owned_rows_ordinary() -> dict[str, list[dict[str, Any]]]:
                 "mechanism_quality": "ExactStructured",
             },
         )
-    if is_s13 or is_s14 or is_s15 or is_s16 or is_s17:
+    if is_s13 or is_s14 or is_s15 or is_s16 or is_s17 or is_s18:
         batch = (
-            "s17"
+            "s18"
+            if is_s18
+            else "s17"
             if is_s17
             else "s16"
             if is_s16
@@ -18210,6 +18342,8 @@ def owns_partition_identity(value: Any) -> bool:
         and id_ in {106, 107, 108, 10_012, 10_013, 10_014}
     ) or (
         PARTITION == "G07-P5-M15-S17" and id_ in {110, 10_016}
+    ) or (
+        PARTITION == "G07-P5-M15-S18" and id_ in {111, 10_017}
     )
 
 
@@ -18225,6 +18359,8 @@ def owns_partition_variant(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S15" and id_ in {106, 107, 108}
     ) or (
         PARTITION == "G07-P5-M15-S17" and id_ == 110
+    ) or (
+        PARTITION == "G07-P5-M15-S18" and id_ == 111
     )
 
 
@@ -18240,6 +18376,8 @@ def owns_partition_template(value: Any) -> bool:
         PARTITION == "G07-P5-M15-S15" and id_ in {10_012, 10_013, 10_014}
     ) or (
         PARTITION == "G07-P5-M15-S17" and id_ == 10_016
+    ) or (
+        PARTITION == "G07-P5-M15-S18" and id_ == 10_017
     )
 
 
@@ -18353,6 +18491,7 @@ def main() -> None:
         "G07-P5-M15-S15": owned_rows_ordinary,
         "G07-P5-M15-S16": owned_rows_ordinary,
         "G07-P5-M15-S17": owned_rows_ordinary,
+        "G07-P5-M15-S18": owned_rows_ordinary,
     }[PARTITION]()
     golden_path = (
         ROOT

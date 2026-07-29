@@ -7,8 +7,8 @@
 | Goal ID | `standard-universe-mechanics-complete-v1` |
 | State | `InProgress` |
 | Active phase | Phase 5 — Enemies, encounters and worlds |
-| Active batch | `G07-P5-M15-S16` |
-| Next unblocked batch | `G07-P5-M15-S16` |
+| Active batch | `G07-P5-M15-S19` |
+| Next unblocked batch | `G07-P5-M15-S19` |
 | Required snapshot | Goal 06 `combat-identity-dynamic-assembly-v1` |
 | Top-level milestones | 32 |
 | Concrete content sub-batches | 104 frozen by `G07-P0-B3` |
@@ -287,14 +287,14 @@ living character's current HP before granting two random one-star Blessings.
 All 31 records and the assigned restoration fixture have terminal
 dispositions. The complete 321-choice Occurrence runtime now has zero
 deferred operations, with no native handler or numeric approximation.
-Enemy partitions S01–S16 are complete. S16 replaces twelve remaining proxies
-with exact ordinary-enemy definitions across three frozen encounter members,
-including Searing Prowler's Burn cycle, Senior Staff and Silvermane
-reinforcements, Cannoneer support, Lieutenant Shield Reflect, Stormbringer's
-Wind Shear and The Ascended's Prana effects. `G07-P5-M15-S17` is active.
+Enemy partitions S01–S18 are complete. S17 and S18 close the final ordinary
+enemy proxies, including the three Trotter paths, Voidranger action cycles,
+Trampler lock and Entanglement, Windspawn Wind Shear and Wraith Warden's
+Physical strike. All 86 frozen enemy variants now materialize through exact
+production definitions. `G07-P5-M15-S19` is active.
 
 Partition evidence is incrementally stable under the shared-workbook authoring
-model. The first 84 completed partitions use scoped Excel/Sora semantic
+model. The first 86 completed partitions use scoped Excel/Sora semantic
 goldens, while their receipts retain exact accepted artifact bytes through Git
 blob identities. Later authoritative workbook and bundle regeneration can no
 longer invalidate unrelated completed partitions; any change to a partition's

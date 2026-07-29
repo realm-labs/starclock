@@ -4611,53 +4611,6 @@
       {
         "values": {
           "content_kind": {
-            "String": "EnemyVariant"
-          },
-          "coverage_state": {
-            "String": "GoldenVerified"
-          },
-          "enabled": {
-            "Bool": true
-          },
-          "game_version_introduced": {
-            "String": "unresolved"
-          },
-          "game_version_snapshot": {
-            "String": "4.4"
-          },
-          "id": {
-            "Integer": 111
-          },
-          "name_en": {
-            "String": "Voidranger: Trampler Variant"
-          },
-          "name_zh_cn": {
-            "String": "虚卒•践踏者变体"
-          },
-          "release_state": {
-            "String": "Released"
-          },
-          "source_record_ids": {
-            "List": [
-              {
-                "Integer": 1
-              }
-            ]
-          },
-          "stable_key": {
-            "String": "enemy.voidranger-trampler.elite.variant.01"
-          },
-          "summary_en": {
-            "String": "Frozen Standard enemy-variant identity. Executable Standard-v1 rows and seeded golden evidence are present."
-          },
-          "summary_zh_cn": {
-            "String": "已冻结的标准模式敌人变体身份。 已具备标准模式第一版可执行数据与种子黄金证据。"
-          }
-        }
-      },
-      {
-        "values": {
-          "content_kind": {
             "String": "LightCone"
           },
           "coverage_state": {
@@ -12918,53 +12871,6 @@
           },
           "stable_key": {
             "String": "enemy.sableclaw-wolftrooper.minionlv2"
-          },
-          "summary_en": {
-            "String": "Prepared Version 4.4 enemy template used by the frozen Standard-v1 manifest."
-          },
-          "summary_zh_cn": {
-            "String": "版本4.4准备数据中的敌人模板，用于已冻结的标准模式第一版清单。"
-          }
-        }
-      },
-      {
-        "values": {
-          "content_kind": {
-            "String": "Enemy"
-          },
-          "coverage_state": {
-            "String": "DataReady"
-          },
-          "enabled": {
-            "Bool": true
-          },
-          "game_version_introduced": {
-            "String": "unresolved"
-          },
-          "game_version_snapshot": {
-            "String": "4.4"
-          },
-          "id": {
-            "Integer": 10017
-          },
-          "name_en": {
-            "String": "Voidranger: Trampler"
-          },
-          "name_zh_cn": {
-            "String": "虚卒•践踏者"
-          },
-          "release_state": {
-            "String": "Released"
-          },
-          "source_record_ids": {
-            "List": [
-              {
-                "Integer": 1
-              }
-            ]
-          },
-          "stable_key": {
-            "String": "enemy.voidranger-trampler.elite"
           },
           "summary_en": {
             "String": "Prepared Version 4.4 enemy template used by the frozen Standard-v1 manifest."
@@ -314302,6 +314208,1848 @@
           },
           "summary_zh_cn": {
             "String": "Goal 07 S17 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150102
+          },
+          "name_en": {
+            "String": "Unreal Projection"
+          },
+          "name_zh_cn": {
+            "String": "虚实的投影"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.ability.unreal-projection"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150103
+          },
+          "name_en": {
+            "String": "Rule of Force"
+          },
+          "name_zh_cn": {
+            "String": "侵略的铁蹄"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.ability.rule-of-force"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301002."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150104
+          },
+          "name_en": {
+            "String": "War Trample"
+          },
+          "name_zh_cn": {
+            "String": "战争的践踏"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.ability.war-trample"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301003."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150105
+          },
+          "name_en": {
+            "String": "Spiral Arrow"
+          },
+          "name_zh_cn": {
+            "String": "螺旋的弓矢"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.ability.spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301004."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150106
+          },
+          "name_en": {
+            "String": "End of Bow"
+          },
+          "name_zh_cn": {
+            "String": "强弩的终结"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.ability.end-of-bow"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 801301005."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150122
+          },
+          "name_en": {
+            "String": "Windpath"
+          },
+          "name_zh_cn": {
+            "String": "风色"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.windspawn.minion.ability.windpath"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 800105001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150142
+          },
+          "name_en": {
+            "String": "Sawing Evil"
+          },
+          "name_zh_cn": {
+            "String": "锯恶"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.wraith-warden.minionlv2.ability.sawing-evil"
+          },
+          "summary_en": {
+            "String": "Executable transcription of source skill 200203001."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Ability"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150381
+          },
+          "name_en": {
+            "String": "Candle Flame"
+          },
+          "name_zh_cn": {
+            "String": "烛焰"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.goal07.s18.illumination-dragonfish.ability.candle-flame"
+          },
+          "summary_en": {
+            "String": "Executable linked-unit attack used by Aurumaton Gatekeeper."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150041
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler AI"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s18.1"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150042
+          },
+          "name_en": {
+            "String": "Windspawn AI"
+          },
+          "name_zh_cn": {
+            "String": "风之造物AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s18.2"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "AiGraph"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150043
+          },
+          "name_en": {
+            "String": "Wraith Warden AI"
+          },
+          "name_zh_cn": {
+            "String": "怨灵看守AI"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "ai.goal07.enemy-s18.3"
+          },
+          "summary_en": {
+            "String": "Finite source-ordered ordinary-enemy action graph."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1155001
+          },
+          "name_en": {
+            "String": "Spiral Arrow Lock"
+          },
+          "name_zh_cn": {
+            "String": "螺旋箭锁定"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s18.spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1155002
+          },
+          "name_en": {
+            "String": "Entanglement"
+          },
+          "name_zh_cn": {
+            "String": "纠缠"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s18.entanglement"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Effect"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1155003
+          },
+          "name_en": {
+            "String": "Windpath Wind Shear"
+          },
+          "name_zh_cn": {
+            "String": "风色风化"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "effect.goal07.enemy-s18.wind-shear"
+          },
+          "summary_en": {
+            "String": "Shared executable status for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 10017
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler Template"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150022
+          },
+          "name_en": {
+            "String": "Windspawn Template"
+          },
+          "name_zh_cn": {
+            "String": "风之造物模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.windspawn.minion"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Enemy"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150023
+          },
+          "name_en": {
+            "String": "Wraith Warden Template"
+          },
+          "name_zh_cn": {
+            "String": "怨灵看守模板"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.wraith-warden.minionlv2"
+          },
+          "summary_en": {
+            "String": "Version 4.4 source-bound enemy template."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 111
+          },
+          "name_en": {
+            "String": "Voidranger: Trampler"
+          },
+          "name_zh_cn": {
+            "String": "虚卒·践踏者"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 20
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.voidranger-trampler.elite.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150002
+          },
+          "name_en": {
+            "String": "Windspawn"
+          },
+          "name_zh_cn": {
+            "String": "风之造物"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 20
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.windspawn.minion.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "EnemyVariant"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150003
+          },
+          "name_en": {
+            "String": "Wraith Warden"
+          },
+          "name_zh_cn": {
+            "String": "怨灵看守"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              },
+              {
+                "Integer": 20
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "enemy.wraith-warden.minionlv2.variant.01"
+          },
+          "summary_en": {
+            "String": "Production materialization variant for frozen Standard Universe bindings."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151001
+          },
+          "name_en": {
+            "String": "S18 illumination-dragonfish-candle-flame Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 illumination-dragonfish-candle-flame程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.illumination-dragonfish-candle-flame"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151002
+          },
+          "name_en": {
+            "String": "S18 1-unreal-projection Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 1-unreal-projection程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.1-unreal-projection"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151003
+          },
+          "name_en": {
+            "String": "S18 1-rule-of-force Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 1-rule-of-force程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.1-rule-of-force"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151004
+          },
+          "name_en": {
+            "String": "S18 1-war-trample Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 1-war-trample程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.1-war-trample"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151005
+          },
+          "name_en": {
+            "String": "S18 1-spiral-arrow Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 1-spiral-arrow程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.1-spiral-arrow"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151006
+          },
+          "name_en": {
+            "String": "S18 1-end-of-bow Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 1-end-of-bow程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.1-end-of-bow"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151007
+          },
+          "name_en": {
+            "String": "S18 2-windpath Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 2-windpath程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.2-windpath"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151008
+          },
+          "name_en": {
+            "String": "S18 3-sawing-evil Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 3-sawing-evil程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.3-sawing-evil"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151009
+          },
+          "name_en": {
+            "String": "S18 golden-hound-rebound-entry Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 golden-hound-rebound-entry程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.golden-hound-rebound-entry"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Program"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1151010
+          },
+          "name_en": {
+            "String": "S18 golden-hound-rebound-trigger Program"
+          },
+          "name_zh_cn": {
+            "String": "S18 golden-hound-rebound-trigger程序"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "program.goal07.enemy-s18.golden-hound-rebound-trigger"
+          },
+          "summary_en": {
+            "String": "Ordered Rule IR program for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150401
+          },
+          "name_en": {
+            "String": "S18 actor Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 actor选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.actor"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150402
+          },
+          "name_en": {
+            "String": "S18 owner Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 owner选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.owner"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150403
+          },
+          "name_en": {
+            "String": "S18 current-subject Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 current-subject选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.current-subject"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150404
+          },
+          "name_en": {
+            "String": "S18 primary Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 primary选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.primary"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150405
+          },
+          "name_en": {
+            "String": "S18 random Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 random选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.random"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150406
+          },
+          "name_en": {
+            "String": "S18 all-opposing Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 all-opposing选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.all-opposing"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150407
+          },
+          "name_en": {
+            "String": "S18 all-allies Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 all-allies选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.all-allies"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150408
+          },
+          "name_en": {
+            "String": "S18 adjacent-allies Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 adjacent-allies选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.adjacent-allies"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
+          }
+        }
+      },
+      {
+        "values": {
+          "content_kind": {
+            "String": "Selector"
+          },
+          "coverage_state": {
+            "String": "GoldenVerified"
+          },
+          "enabled": {
+            "Bool": true
+          },
+          "game_version_introduced": {
+            "String": "1.0"
+          },
+          "game_version_snapshot": {
+            "String": "4.4"
+          },
+          "id": {
+            "Integer": 1150409
+          },
+          "name_en": {
+            "String": "S18 blast Selector"
+          },
+          "name_zh_cn": {
+            "String": "S18 blast选择器"
+          },
+          "release_state": {
+            "String": "Released"
+          },
+          "source_record_ids": {
+            "List": [
+              {
+                "Integer": 1
+              }
+            ]
+          },
+          "stable_key": {
+            "String": "selector.goal07.enemy-s18.blast"
+          },
+          "summary_en": {
+            "String": "Shared selector for the S18 ordinary-enemy batch."
+          },
+          "summary_zh_cn": {
+            "String": "Goal 07 S18 来源绑定的普通敌人批次可执行定义。"
           }
         }
       }

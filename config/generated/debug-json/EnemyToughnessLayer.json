@@ -139,31 +139,6 @@
             "String": "layer-1"
           },
           "maximum_decimal": {
-            "String": "300"
-          },
-          "recovery_ratio_decimal": {
-            "String": "1"
-          },
-          "sequence": {
-            "Integer": 1
-          },
-          "variant_id": {
-            "Integer": 111
-          }
-        }
-      },
-      {
-        "values": {
-          "active_at_start": {
-            "Bool": true
-          },
-          "kind": {
-            "String": "Ordinary"
-          },
-          "layer_key": {
-            "String": "layer-1"
-          },
-          "maximum_decimal": {
             "String": "540"
           },
           "recovery_ratio_decimal": {
@@ -2249,6 +2224,81 @@
           },
           "variant_id": {
             "Integer": 1140010
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "ordinary"
+          },
+          "maximum_decimal": {
+            "String": "30"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 1150002
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "ordinary"
+          },
+          "maximum_decimal": {
+            "String": "300"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 111
+          }
+        }
+      },
+      {
+        "values": {
+          "active_at_start": {
+            "Bool": true
+          },
+          "kind": {
+            "String": "Ordinary"
+          },
+          "layer_key": {
+            "String": "ordinary"
+          },
+          "maximum_decimal": {
+            "String": "60"
+          },
+          "recovery_ratio_decimal": {
+            "String": "1"
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "variant_id": {
+            "Integer": 1150003
           }
         }
       }
