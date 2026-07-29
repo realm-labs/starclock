@@ -22,6 +22,10 @@ const integer = (
   type: optional ? "optional<i32>" : "i32",
   range: optional ? undefined : [minimum, maximum],
 });
+const boolean = (name, optional = false) => ({
+  name,
+  type: optional ? "optional<bool>" : "bool",
+});
 const list = (name, maximum = 256, optional = true) => ({
   name,
   type: optional ? "optional<list<string>>" : "list<string>",
@@ -376,6 +380,265 @@ const systemTables = [
   },
 ];
 
+const progressionTables = [
+  {
+    name: "UnknowableDomainSynthesisRule",
+    sheet: "SynthesisRule",
+    normalized: "synthesis-rules.json",
+    fields: [
+      string("source_id", 100),
+      string("function_type", 100),
+      string("input_count", 64),
+      json("input_eligibility_json"),
+      string("input_level_relation", 160),
+      list("output_pool", 256),
+      string("output_pool_resolution", 160),
+      string("output_ordering", 160),
+      string("cost", 160),
+      string("fallback", 160),
+      string("policy_id", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainUpgradeRule",
+    sheet: "UpgradeRule",
+    normalized: "upgrade-rules.json",
+    fields: [
+      string("source_id", 100),
+      string("function_type", 100),
+      string("input_level", 32),
+      string("output_level", 32),
+      string("cost", 160),
+      string("cap", 64),
+      json("ordered_operations_json"),
+      string("fallback", 160),
+      string("policy_id", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainReforgeRule",
+    sheet: "ReforgeRule",
+    normalized: "reforge-rules.json",
+    fields: [
+      string("source_id", 100),
+      string("function_type", 100),
+      json("input_eligibility_json"),
+      list("candidate_set", 256),
+      string("candidate_set_resolution", 160),
+      string("exclude_input_identity", 160),
+      string("ordering", 160),
+      string("cost", 160),
+      string("fallback", 160),
+      string("policy_id", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainWorkbench",
+    sheet: "Workbench",
+    normalized: "workbenches.json",
+    fields: [
+      string("source_id", 32),
+      list("function_ids", 16, false),
+      string("eligibility", 160),
+      string("lifecycle", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainWorkbenchFunction",
+    sheet: "WorkbenchFunction",
+    normalized: "workbench-functions.json",
+    fields: [
+      string("source_id", 32),
+      string("function_type", 100),
+      string("currency_key", 240),
+      string("price", 160),
+      string("description_en", 2400),
+      string("description_zh_cn", 2400),
+      ref("offer_policy_id", "UnknowableDomainServiceOfferRule"),
+    ],
+  },
+  {
+    name: "UnknowableDomainGambleGroup",
+    sheet: "GambleGroup",
+    normalized: "gamble-groups.json",
+    fields: [
+      string("source_id", 32),
+      string("gamble_type", 100),
+      string("group_level", 100, true),
+      list("unit_ids", 64),
+      string("unit_binding_resolution", 160),
+      ref("offer_policy_id", "UnknowableDomainServiceOfferRule"),
+    ],
+  },
+  {
+    name: "UnknowableDomainGambleUnit",
+    sheet: "GambleUnit",
+    normalized: "gamble-units.json",
+    fields: [
+      string("source_id", 32),
+      string("unit_type", 100),
+      json("parameters_json"),
+      string("parameter_target_resolution", 160),
+      string("outcome_program", 240),
+    ],
+  },
+  {
+    name: "UnknowableDomainServiceOfferRule",
+    sheet: "ServiceOfferRule",
+    normalized: "service-offer-rules.json",
+    fields: [
+      string("source_id", 100),
+      string("service_key", 240),
+      list("candidate_set", 256),
+      string("candidate_set_resolution", 160),
+      string("ordering", 160),
+      string("refresh", 160),
+      string("price", 160),
+      string("eligibility", 160),
+      string("no_legal_candidate", 160),
+      string("policy_id", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainModeConstant",
+    sheet: "ModeConstant",
+    normalized: "mode-constants.json",
+    fields: [
+      string("source_id", 160),
+      string("value_type", 100),
+      json("value_json"),
+      list("consumer_ids", 256),
+      string("consumer_resolution", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainTalent",
+    sheet: "Talent",
+    normalized: "talents.json",
+    fields: [
+      string("source_id", 32),
+      string("level", 32),
+      json("cost_json"),
+      list("prerequisite_ids", 64),
+      string("prerequisite_resolution", 160),
+      list("effect_ids", 128, false),
+      json("effect_parameters_json"),
+      string("description_en", 2400),
+      string("description_zh_cn", 2400),
+      string("display_group_id", 32),
+    ],
+  },
+  {
+    name: "UnknowableDomainUnlock",
+    sheet: "Unlock",
+    normalized: "unlocks.json",
+    fields: [
+      string("source_id", 32),
+      ref("finish_condition_id", "UnknowableDomainFinishCondition"),
+      string("consequence", 160),
+      string("evaluation_boundary", 160),
+      list("consumer_source_locators", 512),
+      string("description_en", 2400),
+      string("description_zh_cn", 2400),
+    ],
+  },
+  {
+    name: "UnknowableDomainLayerEffect",
+    sheet: "LayerEffect",
+    normalized: "layer-effects.json",
+    fields: [
+      string("source_id", 32),
+      string("trigger", 160),
+      json("parameters_json"),
+      json("ordered_operations_json"),
+      list("component_pool_ids", 256),
+      string("component_pool_resolution", 160),
+      string("description_en", 2400),
+      string("description_zh_cn", 2400),
+    ],
+  },
+  {
+    name: "UnknowableDomainMazeBuff",
+    sheet: "MazeBuff",
+    normalized: "maze-buffs.json",
+    fields: [
+      string("source_id", 32),
+      string("series", 100),
+      string("rarity", 64),
+      string("level", 32),
+      string("max_level", 32),
+      json("binding_json"),
+      json("parameters_json"),
+      string("maze_buff_type", 100),
+      string("description_en", 2400),
+      string("description_zh_cn", 2400),
+      string("battle_projection", 160),
+    ],
+  },
+  {
+    name: "UnknowableDomainScoreInput",
+    sheet: "ScoreInput",
+    normalized: "score-inputs.json",
+    fields: [
+      string("source_id", 100),
+      string("world_level", 32),
+      string("layer", 32),
+      string("room", 32),
+      string("score", 64),
+      list("account_reward_ids", 128),
+    ],
+  },
+  {
+    name: "UnknowableDomainProgressionEffect",
+    sheet: "ProgressionEffect",
+    normalized: "progression-effects.json",
+    fields: [
+      string("source_kind", 100),
+      string("source_id", 160),
+      string("scope", 100),
+      json("ordered_operations_json"),
+      string("battle_projection", 160),
+      boolean("runtime_lowered"),
+    ],
+  },
+];
+
+const mechanicTables = [
+  {
+    name: "UnknowableDomainMechanicSourceFile",
+    sheet: "MechanicSourceFile",
+    normalized: "mechanic-source-files.json",
+    fields: [
+      string("source_id", 500),
+      string("path", 500),
+      string("source_sha256", 64),
+      string("source_ref_sha256", 64),
+      string("scope", 100),
+      json("operation_types_json"),
+      integer("operation_occurrence_count", 1),
+      string("operation_types_sha256", 64),
+      list("consumer_rule_ids", 8, false),
+      boolean("runtime_lowered"),
+    ],
+  },
+  {
+    name: "UnknowableDomainMechanicRule",
+    sheet: "MechanicRule",
+    normalized: "mechanic-rules.json",
+    fields: [
+      string("source_id", 500),
+      ref("source_file_id", "UnknowableDomainMechanicSourceFile"),
+      string("family_id", 160),
+      string("scope", 100),
+      string("trigger", 160),
+      json("ordered_operations_json"),
+      string("battle_projection", 160),
+      list("fixture_ids", 8, false),
+      boolean("runtime_lowered"),
+    ],
+  },
+];
+
 const enums = [
   ["UnknowableDomainOwnership", ["UnknowableDomain", "Shared"]],
   ["UnknowableDomainCoverageState", ["DataReady"]],
@@ -397,9 +660,20 @@ generate(
   "UnknowableDomain.xlsx",
   systemTables,
 );
+generate(
+  "progression.toml",
+  "UnknowableDomain.xlsx",
+  progressionTables,
+);
+generate(
+  "mechanics.toml",
+  "UnknowableDomainReview.xlsx",
+  mechanicTables,
+);
 console.log(
   `Generated Unknowable Domain Sora schema (${coreTables.length} core and ` +
-  `${systemTables.length} system tables).`,
+  `${systemTables.length} system, ${progressionTables.length} progression ` +
+  `and ${mechanicTables.length} mechanic tables).`,
 );
 
 function generate(filename, workbook, tables, enumDefinitions = []) {

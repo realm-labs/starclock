@@ -21,7 +21,12 @@ const schemaRoot = path.join(
   "unknowable-domain",
   "schema",
 );
-const schemaFiles = ["core.toml", "systems.toml"].map((name) =>
+const schemaFiles = [
+  "core.toml",
+  "systems.toml",
+  "progression.toml",
+  "mechanics.toml",
+].map((name) =>
   path.join(schemaRoot, name));
 const temporary = fs.mkdtempSync(
   path.join(os.tmpdir(), "starclock-unknowable-domain-schema-"),
@@ -52,6 +57,23 @@ const expected = new Map([
   ["UnknowableDomainDecisionComponent", "decision-components.json"],
   ["UnknowableDomainComponentChoiceProgram",
     "component-choice-programs.json"],
+  ["UnknowableDomainSynthesisRule", "synthesis-rules.json"],
+  ["UnknowableDomainUpgradeRule", "upgrade-rules.json"],
+  ["UnknowableDomainReforgeRule", "reforge-rules.json"],
+  ["UnknowableDomainWorkbench", "workbenches.json"],
+  ["UnknowableDomainWorkbenchFunction", "workbench-functions.json"],
+  ["UnknowableDomainGambleGroup", "gamble-groups.json"],
+  ["UnknowableDomainGambleUnit", "gamble-units.json"],
+  ["UnknowableDomainServiceOfferRule", "service-offer-rules.json"],
+  ["UnknowableDomainModeConstant", "mode-constants.json"],
+  ["UnknowableDomainTalent", "talents.json"],
+  ["UnknowableDomainUnlock", "unlocks.json"],
+  ["UnknowableDomainLayerEffect", "layer-effects.json"],
+  ["UnknowableDomainMazeBuff", "maze-buffs.json"],
+  ["UnknowableDomainScoreInput", "score-inputs.json"],
+  ["UnknowableDomainProgressionEffect", "progression-effects.json"],
+  ["UnknowableDomainMechanicSourceFile", "mechanic-source-files.json"],
+  ["UnknowableDomainMechanicRule", "mechanic-rules.json"],
 ]);
 
 try {
@@ -62,7 +84,12 @@ try {
     "isolated Unknowable Domain schema is missing",
   );
   const projectText = fs.readFileSync(project, "utf8");
-  for (const include of ["schema/core.toml", "schema/systems.toml"])
+  for (const include of [
+    "schema/core.toml",
+    "schema/systems.toml",
+    "schema/progression.toml",
+    "schema/mechanics.toml",
+  ])
     assert(projectText.includes(include), `project lacks ${include}`);
   for (const forbidden of [
     "config/data",
@@ -165,6 +192,14 @@ try {
       "UnknowableDomainComponentLevel"],
     ["UnknowableDomainComponentChoiceProgram", "decision_component_id",
       "UnknowableDomainDecisionComponent"],
+    ["UnknowableDomainWorkbenchFunction", "offer_policy_id",
+      "UnknowableDomainServiceOfferRule"],
+    ["UnknowableDomainGambleGroup", "offer_policy_id",
+      "UnknowableDomainServiceOfferRule"],
+    ["UnknowableDomainUnlock", "finish_condition_id",
+      "UnknowableDomainFinishCondition"],
+    ["UnknowableDomainMechanicRule", "source_file_id",
+      "UnknowableDomainMechanicSourceFile"],
   ]) {
     const field = tables.get(tableName).fields.find((candidate) =>
       candidate.name === fieldName);
@@ -286,12 +321,51 @@ try {
         decisionIds.has(id)),
     "Decision Component normalized reference drift",
   );
+  const offerRules = json(
+    "content-reference/unknowable-domain-v1/service-offer-rules.json",
+  );
+  const workbenchFunctions = json(
+    "content-reference/unknowable-domain-v1/workbench-functions.json",
+  );
+  const gambleGroups = json(
+    "content-reference/unknowable-domain-v1/gamble-groups.json",
+  );
+  const unlocks = json(
+    "content-reference/unknowable-domain-v1/unlocks.json",
+  );
+  const finishConditions = json(
+    "content-reference/unknowable-domain-v1/finish-conditions.json",
+  );
+  const mechanicSources = json(
+    "content-reference/unknowable-domain-v1/mechanic-source-files.json",
+  );
+  const mechanicRules = json(
+    "content-reference/unknowable-domain-v1/mechanic-rules.json",
+  );
+  const offerIds = new Set(offerRules.map(({ id }) => id));
+  const finishIds = new Set(finishConditions.map(({ id }) => id));
+  const mechanicSourceIds = new Set(mechanicSources.map(({ id }) => id));
+  assert(
+    workbenchFunctions.every(({ offer_policy_id: id }) => offerIds.has(id))
+      && gambleGroups.every(({ offer_policy_id: id }) => offerIds.has(id)),
+    "service offer normalized reference drift",
+  );
+  assert(
+    unlocks.every(({ finish_condition_id: id }) => finishIds.has(id)),
+    "Unlock finish-condition normalized reference drift",
+  );
+  assert(
+    mechanicRules.every(({ source_file_id: id }) =>
+      mechanicSourceIds.has(id)),
+    "MechanicRule source-file normalized reference drift",
+  );
   const digest = crypto.createHash("sha256")
     .update(schemaFiles.map((file) => fs.readFileSync(file)).join("\n"))
     .digest("hex");
   console.log(
-    `Unknowable Domain Sora schema verified (${tables.size} isolated core/` +
-    `system tables; typed local references; schemas ${digest}; ` +
+    `Unknowable Domain Sora schema verified (${tables.size} isolated ` +
+    `core/system/progression/mechanic tables; typed local references; ` +
+    `schemas ${digest}; ` +
     "pinned Sora 0.3.0).",
   );
 } finally {

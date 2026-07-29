@@ -2,6 +2,8 @@ package = "starclock_unknowable_domain_reference_config"
 includes = [
   "schema/core.toml",
   "schema/systems.toml",
+  "schema/progression.toml",
+  "schema/mechanics.toml",
 ]
 
 [build]
