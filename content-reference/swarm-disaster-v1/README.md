@@ -30,6 +30,8 @@ node tools/swarm-disaster-reference/import-pathstrider.mjs
 node tools/swarm-disaster-reference/verify-pathstrider.mjs
 node tools/swarm-disaster-reference/import-paths.mjs
 node tools/swarm-disaster-reference/verify-paths.mjs
+node tools/swarm-disaster-reference/import-blessings.mjs
+node tools/swarm-disaster-reference/verify-blessings.mjs
 ```
 
 `map-edges.json` is explicitly `ProjectPolicy`: the pinned released files expose
@@ -92,3 +94,11 @@ six run-start Trailblaze Bonuses and all 16 released 3+3 Resonance Interplays.
 Distinct-blessing threshold counting and Activity commit boundaries are
 replaceable `ProjectPolicy`; exact modifier bindings, parameters, bonus values,
 ordered operations, unlock IDs and Path extra-effect locators remain separate.
+
+The Blessing partition inherits exactly 18 Blessings for each of the eight
+reachable Paths, with the released `8/7/3` rarity distribution and both exact
+authored levels for every Blessing. The 184 explicit pool memberships cover
+eight selectable Paths, 32 deterministic Resonance/Formation unlocks and 144
+Blessings. Released pool weights are unavailable, so selectable Path and
+Blessing candidates use stable ID order and equal integer weight `1` as
+replaceable `ProjectPolicy`; no additional selected-Path weighting is claimed.
