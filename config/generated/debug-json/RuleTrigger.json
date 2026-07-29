@@ -558,6 +558,786 @@
             "String": "goal07.enemy.s08.trigger.weakness-break-reset"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060646
+          },
+          "id": {
+            "Integer": 1060683
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060334
+          },
+          "rule_id": {
+            "Integer": 1060546
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-release-0-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060647
+          },
+          "id": {
+            "Integer": 1060684
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060335
+          },
+          "rule_id": {
+            "Integer": 1060547
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-release-1-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060648
+          },
+          "id": {
+            "Integer": 1060685
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060336
+          },
+          "rule_id": {
+            "Integer": 1060548
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-release-2-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Defeated"
+              },
+              "type": {
+                "String": "Unit"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060649
+          },
+          "id": {
+            "Integer": 1060686
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060337
+          },
+          "rule_id": {
+            "Integer": 1060549
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-release-3-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060642
+          },
+          "id": {
+            "Integer": 1060673
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060330
+          },
+          "rule_id": {
+            "Integer": 1060542
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.sunset-break-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060551
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060644
+          },
+          "id": {
+            "Integer": 1060680
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060331
+          },
+          "rule_id": {
+            "Integer": 1060544
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-break-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060552
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060641
+          },
+          "id": {
+            "Integer": 1060671
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060325
+          },
+          "rule_id": {
+            "Integer": 1060541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.sunset-actions-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060553
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060679
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060328
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 6
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-6"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060554
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060645
+          },
+          "id": {
+            "Integer": 1060681
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060332
+          },
+          "rule_id": {
+            "Integer": 1060545
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-bars-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060554
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060645
+          },
+          "id": {
+            "Integer": 1060687
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060332
+          },
+          "rule_id": {
+            "Integer": 1060545
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-bars-weakness-last"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060555
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Damage"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060645
+          },
+          "id": {
+            "Integer": 1060682
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060333
+          },
+          "rule_id": {
+            "Integer": 1060545
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-bars-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060555
+          },
+          "event": {
+            "Object": {
+              "type": {
+                "String": "WeaknessBroken"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060645
+          },
+          "id": {
+            "Integer": 1060688
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060333
+          },
+          "rule_id": {
+            "Integer": 1060545
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.tomb-bars-weakness-more"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060557
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060641
+          },
+          "id": {
+            "Integer": 1060672
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060324
+          },
+          "rule_id": {
+            "Integer": 1060541
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.sunset-actions-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060558
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060678
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060327
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 5
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-5"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060570
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060674
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060311
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060571
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060675
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060312
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060572
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060676
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060313
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1060573
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Resolved"
+              },
+              "type": {
+                "String": "Action"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1060643
+          },
+          "id": {
+            "Integer": 1060677
+          },
+          "once_scope": {
+            "String": "Event"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1060314
+          },
+          "rule_id": {
+            "Integer": 1060543
+          },
+          "sequence": {
+            "Integer": 4
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.trigger.nightfall-actions-4"
+          }
+        }
       }
     ]
   }

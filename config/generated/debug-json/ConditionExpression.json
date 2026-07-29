@@ -530,6 +530,404 @@
             "String": "goal07.enemy.s08.condition.reset"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060551
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060552
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "GreaterOrEqual"
+              },
+              "left_expression_id": {
+                "Integer": 1061117
+              },
+              "right_expression_id": {
+                "Integer": 1061111
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.sunset-ready"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060553
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "GreaterOrEqual"
+              },
+              "left_expression_id": {
+                "Integer": 1061118
+              },
+              "right_expression_id": {
+                "Integer": 1061111
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.nightfall-second"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060554
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "LessOrEqual"
+              },
+              "left_expression_id": {
+                "Integer": 1061119
+              },
+              "right_expression_id": {
+                "Integer": 1061110
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.tomb-last"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060555
+          },
+          "node": {
+            "Object": {
+              "comparison": {
+                "String": "Greater"
+              },
+              "left_expression_id": {
+                "Integer": 1061119
+              },
+              "right_expression_id": {
+                "Integer": 1061110
+              },
+              "type": {
+                "String": "Compare"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.tomb-more"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060556
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 0
+              },
+              "minimum_count": {
+                "Integer": 0
+              },
+              "selector_id": {
+                "Integer": 1060407
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.no-dreams"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060557
+          },
+          "node": {
+            "Object": {
+              "condition_id": {
+                "Integer": 1060552
+              },
+              "type": {
+                "String": "Not"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.sunset-not-ready"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060558
+          },
+          "node": {
+            "Object": {
+              "condition_id": {
+                "Integer": 1060553
+              },
+              "type": {
+                "String": "Not"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.nightfall-not-second"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060560
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060410
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.primary-formation-0"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060561
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060411
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.primary-formation-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060562
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060412
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.primary-formation-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060563
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060413
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.primary-formation-3"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060570
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060420
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.current-formation-0"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060571
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060421
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.current-formation-1"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060572
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060422
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.current-formation-2"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1060573
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 1
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1060423
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.condition.current-formation-3"
+          }
+        }
       }
     ]
   }

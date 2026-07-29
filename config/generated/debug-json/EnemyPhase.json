@@ -1211,6 +1211,156 @@
             "Integer": 1050001
           }
         }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "Reset"
+          },
+          "ai_graph_id": {
+            "Integer": 1060010
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1060551
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1060551
+          },
+          "hp_carry": {
+            "String": "Reset"
+          },
+          "id": {
+            "Integer": 1060601
+          },
+          "replacement_priority": {
+            "Integer": 1
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.phase-1"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 1060001
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "Reset"
+          },
+          "ai_graph_id": {
+            "Integer": 1060011
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1060551
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1060551
+          },
+          "hp_carry": {
+            "String": "Reset"
+          },
+          "id": {
+            "Integer": 1060602
+          },
+          "replacement_priority": {
+            "Integer": 2
+          },
+          "sequence": {
+            "Integer": 2
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.phase-2"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 1060001
+          }
+        }
+      },
+      {
+        "values": {
+          "action_gauge_carry": {
+            "String": "Reset"
+          },
+          "ai_graph_id": {
+            "Integer": 1060012
+          },
+          "effect_carry": {
+            "String": "Clear"
+          },
+          "entry_condition_id": {
+            "Integer": 1060551
+          },
+          "entry_program_id": "Null",
+          "exit_condition_id": {
+            "Integer": 1060551
+          },
+          "hp_carry": {
+            "String": "Reset"
+          },
+          "id": {
+            "Integer": 1060603
+          },
+          "replacement_priority": {
+            "Integer": 3
+          },
+          "sequence": {
+            "Integer": 3
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.phase-3"
+          },
+          "summon_carry": {
+            "String": "Clear"
+          },
+          "targetable": {
+            "Bool": true
+          },
+          "toughness_carry": {
+            "String": "Reset"
+          },
+          "transition_model": {
+            "String": "TransformSameUnit"
+          },
+          "variant_id": {
+            "Integer": 1060001
+          }
+        }
       }
     ]
   }

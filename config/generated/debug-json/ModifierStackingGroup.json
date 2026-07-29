@@ -549,6 +549,34 @@
             "String": "goal07.enemy.s07.def-down"
           }
         }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1060531
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.modifier-group.obituary-permanent"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1060532
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s09.modifier-group.obituary-burst"
+          }
+        }
       }
     ]
   }

@@ -3,8 +3,8 @@
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
 of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), S06 owns
-Cocolia (Complete), S07 owns Gepard (Complete), and S08 owns Ice Out of
-Space. Each
+Cocolia (Complete), S07 owns Gepard (Complete), S08 owns Ice Out of Space,
+and S09 owns Memory Zone Meme "Something Unto Death" (Complete). Each
 partition receives an isolated 10,000-ID range so authoring and verification
 never consume rows owned by another partition.
 """
@@ -78,6 +78,15 @@ PARTITION_CONFIG = {
         "variant": "enemy.ice-out-of-space.elite.variant.01",
         "source_record_id": 10,
         "evidence_record_id": 11,
+    },
+    "G07-P5-M15-S09": {
+        "base": 1_060_000,
+        "variant": (
+            "enemy.memory-zone-meme-something-unto-death-complete."
+            "littleboss.variant.01"
+        ),
+        "source_record_id": 11,
+        "evidence_record_id": 12,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -10219,6 +10228,1812 @@ def owned_rows_s08() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s09() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S09 frozen enemy assignment changed")
+
+    variant, template = BASE + 1, BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "funereal-kiss": BASE + 101,
+        "sunken-rain": BASE + 102,
+        "harrowing-obituary": BASE + 103,
+        "fading-radiance": BASE + 104,
+        "losing-eventide-light": BASE + 105,
+        "go-into-that-good-night": BASE + 106,
+        "watery-dissolution": BASE + 107,
+        "capture-insert": BASE + 108,
+        "sad-true-lover": BASE + 109,
+    }
+    tombs = {f"formation-{index}": BASE + 201 + index for index in range(4)}
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "primary": BASE + 403,
+        "all-opposing": BASE + 404,
+        "random-two": BASE + 405,
+        "current-subject": BASE + 406,
+        "dreaming-opponents": BASE + 407,
+    }
+    for index in range(4):
+        selectors[f"primary-{index}"] = BASE + 410 + index
+        selectors[f"current-{index}"] = BASE + 420 + index
+        selectors[f"release-{index}"] = BASE + 430 + index
+        selectors[f"actor-tomb-{index}"] = BASE + 440 + index
+        selectors[f"owner-tomb-{index}"] = BASE + 450 + index
+    effects = {
+        "obituary-permanent": BASE + 501,
+        "obituary-burst": BASE + 502,
+        "sunset": BASE + 503,
+        "nightfall": BASE + 504,
+        "morbid-dream": BASE + 505,
+        "tomb-bars": BASE + 506,
+    }
+    for index in range(4):
+        effects[f"tomb-marker-{index}"] = BASE + 510 + index
+    modifiers = {
+        "obituary-permanent": BASE + 521,
+        "obituary-burst": BASE + 522,
+    }
+    modifier_groups = {
+        "obituary-permanent": BASE + 531,
+        "obituary-burst": BASE + 532,
+    }
+    rules = {
+        "sunset-actions": BASE + 541,
+        "sunset-break": BASE + 542,
+        "nightfall-actions": BASE + 543,
+        "nightfall-break": BASE + 544,
+        "tomb-bars": BASE + 545,
+    }
+    for index in range(4):
+        rules[f"tomb-release-{index}"] = BASE + 546 + index
+    filters = {key: rule_id + 100 for key, rule_id in rules.items()}
+    conditions = {
+        "always": BASE + 551,
+        "sunset-ready": BASE + 552,
+        "nightfall-second": BASE + 553,
+        "tomb-last": BASE + 554,
+        "tomb-more": BASE + 555,
+        "no-dreams": BASE + 556,
+        "sunset-not-ready": BASE + 557,
+        "nightfall-not-second": BASE + 558,
+    }
+    for index in range(4):
+        conditions[f"primary-{index}"] = BASE + 560 + index
+        conditions[f"current-{index}"] = BASE + 570 + index
+
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+    next_trigger = BASE + 671
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def ident(
+        id_: int,
+        key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S09 来源绑定的忆域迷因「何物朝向死亡」可执行定义。"
+        row["game_version_introduced"] = "2.0"
+        return row
+
+    identities.extend(
+        [
+            ident(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                'Memory Zone Meme "Something Unto Death" (Complete)',
+                "忆域迷因「何物朝向死亡」（完整）",
+                "Exact three-phase World 9 boss materialization.",
+                "1|11",
+            ),
+            ident(
+                template,
+                "enemy.memory-zone-meme-something-unto-death-complete.littleboss",
+                "Enemy",
+                'Memory Zone Meme "Something Unto Death" Template',
+                "忆域迷因「何物朝向死亡」（完整）模板",
+                "Version 4.4 boss template retained from source monster 3014022.",
+            ),
+        ]
+    )
+    for sequence, graph_id in enumerate(graphs, start=1):
+        identities.append(
+            ident(
+                graph_id,
+                f"ai.goal07.memory-zone-meme-something-unto-death.phase-{sequence}",
+                "AiGraph",
+                f"Something Unto Death Phase {sequence} AI",
+                f"何物朝向死亡第{sequence}阶段AI",
+                "Finite source-phase action graph with queued capture reactions.",
+            )
+        )
+    ability_metadata = {
+        "funereal-kiss": ("Funereal Kiss", "葬仪之吻", "301402201"),
+        "sunken-rain": ("Sunken Rain", "沦没黑雨", "301402202"),
+        "harrowing-obituary": ("Harrowing Obituary", "彻心悼词", "301402203"),
+        "fading-radiance": ("Fading Radiance", "光明消歇", "301402204"),
+        "losing-eventide-light": (
+            "Losing Eventide Light",
+            "已在黄昏失色",
+            "301402205",
+        ),
+        "go-into-that-good-night": (
+            "Go Into That Good Night",
+            "步入良夜",
+            "301402206",
+        ),
+        "watery-dissolution": ("Watery Dissolution", "如水逝于水中", "301402207"),
+        "capture-insert": ("Morbid Dream Insert", "梦死插入", "301402208"),
+        "sad-true-lover": (
+            "Sad True Lover Never Find My Grave",
+            "无从凭吊的荒场",
+            "301402209",
+        ),
+    }
+    for key, ability_id in abilities.items():
+        name_en, name_zh_cn, source_skill = ability_metadata[key]
+        identities.append(
+            ident(
+                ability_id,
+                (
+                    "enemy.memory-zone-meme-something-unto-death-complete."
+                    f"littleboss.ability.{key}"
+                ),
+                "Ability",
+                name_en,
+                name_zh_cn,
+                f"Executable transcription of source skill {source_skill}.",
+            )
+        )
+    for index, tomb_id in enumerate(tombs.values()):
+        identities.append(
+            ident(
+                tomb_id,
+                f"unit.goal07.something-unto-death.sombrous-sepulcher-{index + 1}",
+                "CharacterForm",
+                f"Sombrous Sepulcher {index + 1}",
+                f"阴影墓碑{index + 1}",
+                "Formation-linked five-bar captivity unit from source monster 3012030.",
+            )
+        )
+    for key, selector_id in selectors.items():
+        identities.append(
+            ident(
+                selector_id,
+                f"selector.goal07.something-unto-death.{key}",
+                "Selector",
+                f"Something Unto Death {key} Selector",
+                f"何物朝向死亡{key}选择器",
+                "S09 battle selector.",
+            )
+        )
+    effect_names = {
+        "obituary-permanent": ("Harrowing Obituary Growth", "彻心悼词成长"),
+        "obituary-burst": ("Harrowing Obituary Burst", "彻心悼词爆发"),
+        "sunset": ("Sunset", "落日"),
+        "nightfall": ("Nightfall", "夜幕"),
+        "morbid-dream": ("Morbid Dream", "梦死"),
+        "tomb-bars": ("Sombrous Sepulcher Bars", "阴影墓碑生命段"),
+    }
+    for index in range(4):
+        effect_names[f"tomb-marker-{index}"] = (
+            f"Sombrous Sepulcher Formation {index + 1}",
+            f"阴影墓碑站位{index + 1}",
+        )
+    for key, effect_id in effects.items():
+        name_en, name_zh_cn = effect_names[key]
+        identities.append(
+            ident(
+                effect_id,
+                f"effect.goal07.something-unto-death.{key}",
+                "Effect",
+                name_en,
+                name_zh_cn,
+                "Effect-backed S09 capture, reset, or tomb lifecycle state.",
+            )
+        )
+    for key, modifier_id in modifiers.items():
+        identities.append(
+            ident(
+                modifier_id,
+                f"modifier.goal07.something-unto-death.{key}",
+                "Modifier",
+                f"Something Unto Death {key} Modifier",
+                f"何物朝向死亡{key}调整器",
+                "Effect-owned public damage increase.",
+            )
+        )
+    for key, rule_id in rules.items():
+        identities.append(
+            ident(
+                rule_id,
+                f"rule.goal07.something-unto-death.{key}",
+                "Rule",
+                f"Something Unto Death {key} Rule",
+                f"何物朝向死亡{key}规则",
+                "Shared Rule IR lifecycle rule for S09.",
+            )
+        )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["primary"], "PrimaryTarget", "OpposingSide"))
+    add(
+        "Selector",
+        selector(
+            selectors["all-opposing"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    random_two = selector(
+        selectors["random-two"],
+        "Actor",
+        "OpposingSide",
+        minimum=1,
+        maximum=2,
+        choice="RngUniform",
+    )
+    random_two["rng_purpose_key"] = "behavior-choice"
+    add("Selector", random_two)
+    add(
+        "Selector",
+        selector(
+            selectors["current-subject"],
+            "CurrentSubject",
+            "AnySide",
+            life="Any",
+            presence="Any",
+        ),
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["dreaming-opponents"],
+            "Actor",
+            "OpposingSide",
+            life="Any",
+            presence="Any",
+            minimum=0,
+            maximum=4,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["dreaming-opponents"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "HasEffect", effect_id=effects["morbid-dream"]
+            ),
+        },
+    )
+    for index in range(4):
+        selector_specs = [
+            (f"primary-{index}", "PrimaryTarget", "OpposingSide", "Alive", "Present"),
+            (f"current-{index}", "CurrentSubject", "AnySide", "Alive", "Present"),
+            (f"release-{index}", "Owner", "OpposingSide", "Any", "Any"),
+        ]
+        for key, origin, side, life, presence in selector_specs:
+            add(
+                "Selector",
+                selector(
+                    selectors[key],
+                    origin,
+                    side,
+                    life=life,
+                    presence=presence,
+                    minimum=0,
+                    maximum=1,
+                    empty="NoOp",
+                ),
+            )
+            add(
+                "SelectorPredicate",
+                {
+                    "selector_id": selectors[key],
+                    "sequence": 1,
+                    "predicate": json_cell(
+                        "FormationRange",
+                        minimum_index=index,
+                        maximum_index=index,
+                    ),
+                },
+            )
+        for prefix, origin, owner_selector in [
+            ("actor-tomb", "Actor", selectors["actor"]),
+            ("owner-tomb", "Owner", selectors["owner"]),
+        ]:
+            key = f"{prefix}-{index}"
+            add(
+                "Selector",
+                selector(
+                    selectors[key],
+                    origin,
+                    "SameSide",
+                    life="Any",
+                    presence="Any",
+                    minimum=0,
+                    maximum=1,
+                    empty="NoOp",
+                ),
+            )
+            for sequence, predicate in enumerate(
+                [
+                    json_cell("OwnedBy", owner_selector_id=owner_selector),
+                    json_cell(
+                        "FormationRange",
+                        minimum_index=8 + index,
+                        maximum_index=8 + index,
+                    ),
+                ],
+                start=1,
+            ):
+                add(
+                    "SelectorPredicate",
+                    {
+                        "selector_id": selectors[key],
+                        "sequence": sequence,
+                        "predicate": predicate,
+                    },
+                )
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s09.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def binary(name: str, kind: str, operator: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            kind,
+            json_cell(
+                "CheckedBinary",
+                operator=operator,
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    ratios = {
+        name: expr(
+            f"scalar-{name}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+        for name, value in [
+            ("zero", "0"),
+            ("twelve-percent", "0.12"),
+            ("one-half", "0.5"),
+            ("one", "1"),
+            ("two-point-five", "2.5"),
+            ("four", "4"),
+            ("energy-cap", "1000000"),
+        ]
+    }
+    integers = {
+        name: expr(
+            f"integer-{name}",
+            "Integer",
+            json_cell("IntegerLiteral", value=value),
+        )
+        for name, value in [
+            ("negative-one", -1),
+            ("one", 1),
+            ("two", 2),
+            ("five", 5),
+        ]
+    }
+    actor_obituary_stacks = expr(
+        "actor-obituary-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["actor"],
+            effect_id=effects["obituary-permanent"],
+        ),
+    )
+    owner_obituary_stacks = expr(
+        "owner-obituary-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["obituary-permanent"],
+        ),
+    )
+    initial_bars_actor = binary(
+        "initial-bars-actor",
+        "Integer",
+        "CheckedAdd",
+        integers["five"],
+        actor_obituary_stacks,
+    )
+    initial_bars_owner = binary(
+        "initial-bars-owner",
+        "Integer",
+        "CheckedAdd",
+        integers["five"],
+        owner_obituary_stacks,
+    )
+    sunset_stacks = expr(
+        "sunset-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["sunset"],
+        ),
+    )
+    nightfall_stacks = expr(
+        "nightfall-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["nightfall"],
+        ),
+    )
+    tomb_bar_stacks = expr(
+        "tomb-bar-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["tomb-bars"],
+        ),
+    )
+    damage = {
+        "funereal-kiss": binary(
+            "funereal-kiss-damage",
+            "Scalar",
+            "CheckedMultiply",
+            actor_atk,
+            ratios["four"],
+        ),
+        "sunken-rain": binary(
+            "sunken-rain-damage",
+            "Scalar",
+            "CheckedMultiply",
+            actor_atk,
+            ratios["two-point-five"],
+        ),
+    }
+    release_heals: dict[int, int] = {}
+    for index in range(4):
+        maximum_hp = expr(
+            f"release-{index}-maximum-hp",
+            "Scalar",
+            json_cell(
+                "QueryStat",
+                subject_selector_id=selectors[f"release-{index}"],
+                stat="Hp",
+                formula_purpose="Healing",
+            ),
+        )
+        release_heals[index] = binary(
+            f"release-{index}-half-hp",
+            "Scalar",
+            "CheckedMultiply",
+            maximum_hp,
+            ratios["one-half"],
+        )
+    tomb_max_hp = expr(
+        "tomb-maximum-hp",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["owner"],
+            stat="Hp",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s09.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    for key, left, comparison, right in [
+        ("sunset-ready", sunset_stacks, "GreaterOrEqual", integers["two"]),
+        ("nightfall-second", nightfall_stacks, "GreaterOrEqual", integers["two"]),
+        ("tomb-last", tomb_bar_stacks, "LessOrEqual", integers["one"]),
+        ("tomb-more", tomb_bar_stacks, "Greater", integers["one"]),
+    ]:
+        add(
+            "ConditionExpression",
+            {
+                "id": conditions[key],
+                "stable_key": f"goal07.enemy.s09.condition.{key}",
+                "node": json_cell(
+                    "Compare",
+                    left_expression_id=left,
+                    comparison=comparison,
+                    right_expression_id=right,
+                ),
+            },
+        )
+    for key, inner in [
+        ("sunset-not-ready", "sunset-ready"),
+        ("nightfall-not-second", "nightfall-second"),
+    ]:
+        add(
+            "ConditionExpression",
+            {
+                "id": conditions[key],
+                "stable_key": f"goal07.enemy.s09.condition.{key}",
+                "node": json_cell(
+                    "Not",
+                    condition_id=conditions[inner],
+                ),
+            },
+        )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["no-dreams"],
+            "stable_key": "goal07.enemy.s09.condition.no-dreams",
+            "node": json_cell(
+                "SelectorCardinality",
+                selector_id=selectors["dreaming-opponents"],
+                minimum_count=0,
+                maximum_count=0,
+            ),
+        },
+    )
+    for index in range(4):
+        for prefix in ["primary", "current"]:
+            add(
+                "ConditionExpression",
+                {
+                    "id": conditions[f"{prefix}-{index}"],
+                    "stable_key": (
+                        f"goal07.enemy.s09.condition.{prefix}-formation-{index}"
+                    ),
+                    "node": json_cell(
+                        "SelectorCardinality",
+                        selector_id=selectors[f"{prefix}-{index}"],
+                        minimum_count=1,
+                        maximum_count=1,
+                    ),
+                },
+            )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s09.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def op_step(operation_id: int) -> str:
+        return json_cell("Operation", operation_id=operation_id)
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            ident(
+                id_,
+                f"program.goal07.something-unto-death.{name}",
+                "Program",
+                f"Something Unto Death {name} Program",
+                f"何物朝向死亡{name}程序",
+                "Ordered Rule IR program for the S09 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add(
+                "ProgramStep",
+                {"program_id": id_, "sequence": sequence, "step": step},
+            )
+        return id_
+
+    def apply_effect_op(
+        name: str,
+        effect_id: int,
+        target: int,
+        *,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect_id,
+                stacks_expression_id=stacks,
+                chance_policy="Guaranteed",
+                base_chance_expression_id=None,
+                rng_purpose_key=None,
+            ),
+            target,
+            empty,
+        )
+
+    def remove_effect_op(name: str, effect_id: int, target: int) -> int:
+        return new_operation(
+            name,
+            json_cell("RemoveEffect", effect_id=effect_id),
+            target,
+            "NoOp",
+        )
+
+    def modify_effect_op(
+        name: str,
+        effect_id: int,
+        delta: int,
+        target: int,
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ModifyEffect",
+                effect_id=effect_id,
+                stack_delta_expression_id=delta,
+            ),
+            target,
+            "NoOp",
+        )
+
+    def summon_op(name: str, tomb_id: int, owner_selector: int) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Summon",
+                unit_definition_identity_id=tomb_id,
+                owner_selector_id=owner_selector,
+            ),
+        )
+
+    def capture_program(
+        name: str,
+        formation_prefix: str,
+        tomb_prefix: str,
+        summon_owner_selector: int,
+        initial_bars: int,
+    ) -> tuple[int, list[int]]:
+        formation_programs: list[int] = []
+        for index in range(4):
+            target = selectors[f"{formation_prefix}-{index}"]
+            tomb_target = selectors[f"{tomb_prefix}-{index}"]
+            formation_programs.append(
+                make_program(
+                    f"{name}-formation-{index}",
+                    [
+                        op_step(
+                            apply_effect_op(
+                                f"{name}-{index}-morbid-dream",
+                                effects["morbid-dream"],
+                                target,
+                                empty="NoOp",
+                            )
+                        ),
+                        op_step(
+                            new_operation(
+                                f"{name}-{index}-untargetable",
+                                json_cell("ChangePresence", presence="Untargetable"),
+                                target,
+                                "NoOp",
+                            )
+                        ),
+                        op_step(
+                            summon_op(
+                                f"{name}-{index}-summon-tomb",
+                                tombs[f"formation-{index}"],
+                                summon_owner_selector,
+                            )
+                        ),
+                        op_step(
+                            apply_effect_op(
+                                f"{name}-{index}-tomb-bars",
+                                effects["tomb-bars"],
+                                tomb_target,
+                                stacks=initial_bars,
+                                empty="NoOp",
+                            )
+                        ),
+                        op_step(
+                            apply_effect_op(
+                                f"{name}-{index}-tomb-marker",
+                                effects[f"tomb-marker-{index}"],
+                                tomb_target,
+                                empty="NoOp",
+                            )
+                        ),
+                    ],
+                )
+            )
+        root = make_program(
+            name,
+            [
+                json_cell(
+                    "If",
+                    condition_id=conditions[f"{formation_prefix}-{index}"],
+                    then_program_id=formation_programs[index],
+                    else_program_id=None,
+                )
+                for index in range(4)
+            ],
+        )
+        return root, formation_programs
+
+    capture_primary, _capture_primary_formations = capture_program(
+        "capture-primary",
+        "primary",
+        "actor-tomb",
+        selectors["actor"],
+        initial_bars_actor,
+    )
+    capture_current_actor, _capture_current_actor_formations = capture_program(
+        "capture-current-actor",
+        "current",
+        "actor-tomb",
+        selectors["actor"],
+        initial_bars_actor,
+    )
+    capture_current_owner, capture_current_owner_formations = capture_program(
+        "capture-current-owner",
+        "current",
+        "owner-tomb",
+        selectors["owner"],
+        initial_bars_owner,
+    )
+
+    funereal_program = make_program(
+        "funereal-kiss",
+        [
+            op_step(
+                new_operation(
+                    "funereal-kiss-damage",
+                    json_cell(
+                        "Damage",
+                        amount_expression_id=damage["funereal-kiss"],
+                        damage_class="Ordinary",
+                        element="Physical",
+                        can_crit=True,
+                    ),
+                    selectors["primary"],
+                )
+            )
+        ],
+    )
+    rain_program = make_program(
+        "sunken-rain",
+        [
+            op_step(
+                new_operation(
+                    "sunken-rain-damage",
+                    json_cell(
+                        "Damage",
+                        amount_expression_id=damage["sunken-rain"],
+                        damage_class="Ordinary",
+                        element="Physical",
+                        can_crit=True,
+                    ),
+                    selectors["all-opposing"],
+                )
+            )
+        ],
+    )
+    obituary_program = make_program(
+        "harrowing-obituary",
+        [
+            op_step(
+                apply_effect_op(
+                    "harrowing-obituary-permanent-stack",
+                    effects["obituary-permanent"],
+                    selectors["actor"],
+                    stacks=integers["one"],
+                )
+            ),
+            op_step(
+                apply_effect_op(
+                    "harrowing-obituary-burst",
+                    effects["obituary-burst"],
+                    selectors["actor"],
+                )
+            ),
+        ],
+    )
+    fading_program = make_program(
+        "fading-radiance",
+        [
+            op_step(
+                apply_effect_op(
+                    "fading-radiance-sunset",
+                    effects["sunset"],
+                    selectors["actor"],
+                    stacks=integers["one"],
+                )
+            )
+        ],
+    )
+    good_night_program = make_program(
+        "go-into-that-good-night",
+        [
+            op_step(
+                new_operation(
+                    "go-into-that-good-night-fill-energy",
+                    json_cell(
+                        "ModifyResource",
+                        resource_kind="Energy",
+                        character_resource_key=None,
+                        update_kind="Set",
+                        amount_expression_id=ratios["energy-cap"],
+                        scales_with_energy_regeneration=False,
+                        rounding="Floor",
+                    ),
+                    selectors["all-opposing"],
+                )
+            ),
+            op_step(
+                apply_effect_op(
+                    "go-into-that-good-night-nightfall",
+                    effects["nightfall"],
+                    selectors["actor"],
+                    stacks=integers["one"],
+                )
+            ),
+        ],
+    )
+    watery_fallback = make_program(
+        "watery-dissolution-fallback",
+        [
+            json_cell(
+                "ForEach",
+                selector_id=selectors["random-two"],
+                body_program_id=capture_current_actor,
+                maximum_iterations=2,
+            )
+        ],
+    )
+    watery_program = make_program(
+        "watery-dissolution",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["no-dreams"],
+                then_program_id=watery_fallback,
+                else_program_id=None,
+            )
+        ],
+    )
+    inert_program = make_program(
+        "capture-lifecycle-passive",
+        [
+            op_step(
+                remove_effect_op(
+                    "capture-lifecycle-passive-noop",
+                    effects["morbid-dream"],
+                    selectors["actor"],
+                )
+            )
+        ],
+    )
+    ability_programs = {
+        abilities["funereal-kiss"]: funereal_program,
+        abilities["sunken-rain"]: rain_program,
+        abilities["harrowing-obituary"]: obituary_program,
+        abilities["fading-radiance"]: fading_program,
+        abilities["losing-eventide-light"]: capture_primary,
+        abilities["go-into-that-good-night"]: good_night_program,
+        abilities["watery-dissolution"]: watery_program,
+        abilities["capture-insert"]: inert_program,
+        abilities["sad-true-lover"]: inert_program,
+    }
+    target_patterns = {
+        "funereal-kiss": ("SingleTarget", 5),
+        "sunken-rain": ("Aoe", 5),
+        "harrowing-obituary": ("None", 4),
+        "fading-radiance": ("None", 4),
+        "losing-eventide-light": ("SingleTarget", 4),
+        "go-into-that-good-night": ("Aoe", 4),
+        "watery-dissolution": ("Aoe", 4),
+        "capture-insert": ("None", 4),
+        "sad-true-lover": ("None", 4),
+    }
+    for key, ability_id in abilities.items():
+        target_pattern, tags = target_patterns[key]
+        if key in {"losing-eventide-light", "watery-dissolution"}:
+            tags = 2_053
+        add(
+            "Ability",
+            {
+                "id": ability_id,
+                "kind": "Passive" if key == "sad-true-lover" else "Skill",
+                "target_pattern": target_pattern,
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": tags,
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability_id,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[ability_id],
+            },
+        )
+        add(
+            "EnemyAbility",
+            {
+                "id": ability_id,
+                "telegraph": "None",
+                "cooldown_actions": 1,
+                "initial_cooldown_actions": 0,
+                "charge_actions": 0,
+                "ai_tag": key,
+            },
+        )
+
+    effect_specs = {
+        "obituary-permanent": (
+            "Buff",
+            "NonDispellable",
+            99,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "obituary-burst": (
+            "Buff",
+            "NonDispellable",
+            1,
+            integers["one"],
+            "OwnerTurnEnd",
+            "Refresh",
+        ),
+        "sunset": (
+            "NeutralState",
+            "NonDispellable",
+            3,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "nightfall": (
+            "NeutralState",
+            "NonDispellable",
+            3,
+            None,
+            "Permanent",
+            "RefreshAndAddStacks",
+        ),
+        "morbid-dream": (
+            "Control",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+        "tomb-bars": (
+            "NeutralState",
+            "NonDispellable",
+            99,
+            None,
+            "Permanent",
+            "Replace",
+        ),
+    }
+    for index in range(4):
+        effect_specs[f"tomb-marker-{index}"] = (
+            "Mark",
+            "NonDispellable",
+            1,
+            None,
+            "Permanent",
+            "Replace",
+        )
+    for key, effect_id in effects.items():
+        category, dispel, limit, duration, clock, policy = effect_specs[key]
+        add(
+            "Effect",
+            {
+                "id": effect_id,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": "None",
+                "stack_policy": policy,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    effect_tags = {
+        "obituary-permanent": ["harrowing-obituary", "permanent-damage-growth"],
+        "obituary-burst": ["harrowing-obituary", "remove-on-weakness-break"],
+        "sunset": ["sunset", "remove-on-weakness-break"],
+        "nightfall": [
+            "nightfall",
+            "weakness-protection",
+            "prevents-toughness-reduction",
+            "remove-on-weakness-break",
+        ],
+        "morbid-dream": ["morbid-dream", "blocks-normal-action"],
+        "tomb-bars": ["sombrous-sepulcher", "fixed-hit-bars"],
+    }
+    for index in range(4):
+        effect_tags[f"tomb-marker-{index}"] = [
+            "sombrous-sepulcher",
+            f"captured-formation-{index}",
+        ]
+    for key, tags in effect_tags.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add(
+                "EffectTag",
+                {"effect_id": effects[key], "sequence": sequence, "tag": tag},
+            )
+
+    for key, value_expression in [
+        ("obituary-permanent", ratios["twelve-percent"]),
+        ("obituary-burst", ratios["one-half"]),
+    ]:
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": modifier_groups[key],
+                "stable_key": f"goal07.enemy.s09.modifier-group.{key}",
+                "aggregation": "Sum",
+                "comparator_expression_id": None,
+            },
+        )
+        add(
+            "ModifierDefinition",
+            {
+                "id": modifiers[key],
+                "source_effect_id": effects[key],
+                "owner_selector_id": selectors["owner"],
+                "subject_selector_id": selectors["owner"],
+                "stat": "Atk",
+                "formula_stage": "DamageBoost",
+                "formula_purpose": "OrdinaryDamage",
+                "value_expression_id": value_expression,
+                "value_domain": "Ratio",
+                "stacking_group_id": modifier_groups[key],
+                "priority": 0,
+                "cap_formula_stage": "DamageBoost",
+                "snapshot_policy": "Dynamic",
+                "duration_scope": "Turn",
+            },
+        )
+        add(
+            "EffectModifierBinding",
+            {
+                "effect_id": effects[key],
+                "sequence": 1,
+                "modifier_id": modifiers[key],
+            },
+        )
+
+    queue_losing = new_operation(
+        "sunset-queue-losing-eventide-light",
+        json_cell(
+            "QueueAction",
+            ability_id=abilities["losing-eventide-light"],
+            actor_selector_id=selectors["owner"],
+            priority=100,
+            forced_use=True,
+            reaction_boundary="AfterAction",
+            owner_policy="Actor",
+            payment_policy="Suppressed",
+            payment_resource_key=None,
+        ),
+        selectors["current-subject"],
+    )
+    sunset_continue = make_program(
+        "sunset-continue",
+        [
+            op_step(
+                modify_effect_op(
+                    "sunset-increment",
+                    effects["sunset"],
+                    integers["one"],
+                    selectors["owner"],
+                )
+            )
+        ],
+    )
+    sunset_release = make_program(
+        "sunset-release",
+        [
+            op_step(queue_losing),
+            op_step(
+                remove_effect_op(
+                    "sunset-release-clear",
+                    effects["sunset"],
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    sunset_action_program = make_program(
+        "sunset-action-count",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["sunset-ready"],
+                then_program_id=sunset_release,
+                else_program_id=sunset_continue,
+            )
+        ],
+    )
+    queue_watery = new_operation(
+        "nightfall-queue-watery-dissolution",
+        json_cell(
+            "QueueAction",
+            ability_id=abilities["watery-dissolution"],
+            actor_selector_id=selectors["owner"],
+            priority=100,
+            forced_use=True,
+            reaction_boundary="AfterAction",
+            owner_policy="Actor",
+            payment_policy="Suppressed",
+            payment_resource_key=None,
+        ),
+        selectors["all-opposing"],
+    )
+    nightfall_continue = make_program(
+        "nightfall-first-actor",
+        [
+            op_step(
+                modify_effect_op(
+                    "nightfall-increment",
+                    effects["nightfall"],
+                    integers["one"],
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    nightfall_release = make_program(
+        "nightfall-second-actor",
+        [
+            op_step(queue_watery),
+            op_step(
+                remove_effect_op(
+                    "nightfall-release-clear",
+                    effects["nightfall"],
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    nightfall_action_program = make_program(
+        "nightfall-action-count",
+        [
+            json_cell(
+                "If",
+                condition_id=conditions["nightfall-second"],
+                then_program_id=nightfall_release,
+                else_program_id=nightfall_continue,
+            )
+        ],
+    )
+    reset_sunset_program = make_program(
+        "weakness-break-clear-sunset",
+        [
+            op_step(
+                remove_effect_op(
+                    "weakness-break-clear-sunset",
+                    effects["sunset"],
+                    selectors["owner"],
+                )
+            ),
+            op_step(
+                remove_effect_op(
+                    "weakness-break-clear-obituary-burst-from-sunset",
+                    effects["obituary-burst"],
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    reset_nightfall_program = make_program(
+        "weakness-break-clear-nightfall",
+        [
+            op_step(
+                remove_effect_op(
+                    "weakness-break-clear-nightfall",
+                    effects["nightfall"],
+                    selectors["owner"],
+                )
+            ),
+            op_step(
+                remove_effect_op(
+                    "weakness-break-clear-obituary-burst-from-nightfall",
+                    effects["obituary-burst"],
+                    selectors["owner"],
+                )
+            ),
+        ],
+    )
+    defeat_tomb_program = make_program(
+        "tomb-last-bar",
+        [
+            op_step(
+                new_operation(
+                    "tomb-last-bar-consume-hp",
+                    json_cell(
+                        "ConsumeHp",
+                        amount_expression_id=tomb_max_hp,
+                        floor_expression_id=ratios["zero"],
+                    ),
+                    selectors["owner"],
+                )
+            )
+        ],
+    )
+    decrement_tomb_program = make_program(
+        "tomb-decrement-bar",
+        [
+            op_step(
+                modify_effect_op(
+                    "tomb-decrement-bar",
+                    effects["tomb-bars"],
+                    integers["negative-one"],
+                    selectors["owner"],
+                )
+            )
+        ],
+    )
+    release_programs: dict[int, int] = {}
+    for index in range(4):
+        target = selectors[f"release-{index}"]
+        release_programs[index] = make_program(
+            f"tomb-release-formation-{index}",
+            [
+                op_step(
+                    new_operation(
+                        f"tomb-release-{index}-present",
+                        json_cell("ChangePresence", presence="Present"),
+                        target,
+                        "NoOp",
+                    )
+                ),
+                op_step(
+                    remove_effect_op(
+                        f"tomb-release-{index}-clear-dream",
+                        effects["morbid-dream"],
+                        target,
+                    )
+                ),
+                op_step(
+                    new_operation(
+                        f"tomb-release-{index}-heal",
+                        json_cell(
+                            "Heal",
+                            amount_expression_id=release_heals[index],
+                        ),
+                        target,
+                        "NoOp",
+                    )
+                ),
+                op_step(
+                    new_operation(
+                        f"tomb-release-{index}-energy",
+                        json_cell(
+                            "ModifyResource",
+                            resource_kind="Energy",
+                            character_resource_key=None,
+                            update_kind="Set",
+                            amount_expression_id=ratios["energy-cap"],
+                            scales_with_energy_regeneration=False,
+                            rounding="Floor",
+                        ),
+                        target,
+                        "NoOp",
+                    )
+                ),
+            ],
+        )
+
+    rule_specs = [
+        (
+            "sunset-actions",
+            effects["sunset"],
+            json_cell("Action", point="Resolved"),
+            {"actor_selector_id": selectors["current-subject"]},
+            [
+                (conditions["sunset-ready"], sunset_release, "Event"),
+                (conditions["sunset-not-ready"], sunset_continue, "Event"),
+            ],
+        ),
+        (
+            "sunset-break",
+            effects["sunset"],
+            json_cell("WeaknessBroken"),
+            {"target_selector_id": selectors["owner"]},
+            [(conditions["always"], reset_sunset_program, "Event")],
+        ),
+        (
+            "nightfall-actions",
+            effects["nightfall"],
+            json_cell("Action", point="Resolved"),
+            {"actor_selector_id": selectors["current-subject"]},
+            [
+                *[
+                    (
+                        conditions[f"current-{index}"],
+                        capture_current_owner_formations[index],
+                        "Event",
+                    )
+                    for index in range(4)
+                ],
+                (
+                    conditions["nightfall-not-second"],
+                    nightfall_continue,
+                    "Event",
+                ),
+                (
+                    conditions["nightfall-second"],
+                    nightfall_release,
+                    "Event",
+                ),
+            ],
+        ),
+        (
+            "nightfall-break",
+            effects["nightfall"],
+            json_cell("WeaknessBroken"),
+            {"target_selector_id": selectors["owner"]},
+            [(conditions["always"], reset_nightfall_program, "Event")],
+        ),
+        (
+            "tomb-bars",
+            effects["tomb-bars"],
+            json_cell("Damage", point="Applied"),
+            {"target_selector_id": selectors["owner"]},
+            [
+                (conditions["tomb-last"], defeat_tomb_program, "Event"),
+                (conditions["tomb-more"], decrement_tomb_program, "Event"),
+            ],
+        ),
+    ]
+    for index in range(4):
+        rule_specs.append(
+            (
+                f"tomb-release-{index}",
+                effects[f"tomb-marker-{index}"],
+                json_cell("Unit", point="Defeated"),
+                {"target_selector_id": selectors["owner"]},
+                [(conditions["always"], release_programs[index], "Event")],
+            )
+        )
+    effect_rule_sequences: dict[int, int] = {}
+    for key, source_effect, event, filter_fields, triggers in rule_specs:
+        add(
+            "RuleDefinition",
+            {
+                "id": rules[key],
+                "domain": "Battle",
+                "source_definition_identity_id": source_effect,
+                "source_class": "Effect",
+                "source_digest_sha256": sha256_text(f"goal07-s09-{key}-v1"),
+            },
+        )
+        add(
+            "EventFilter",
+            {
+                "id": filters[key],
+                "stable_key": f"goal07.enemy.s09.filter.{key}",
+                **filter_fields,
+                "cause_ancestry": "Any",
+            },
+        )
+        for sequence, (condition_id, program_id, once_scope) in enumerate(
+            triggers, start=1
+        ):
+            add(
+                "RuleTrigger",
+                {
+                    "id": next_trigger,
+                    "stable_key": (
+                        f"goal07.enemy.s09.trigger.{key}-{sequence}"
+                    ),
+                    "rule_id": rules[key],
+                    "sequence": sequence,
+                    "event": event,
+                    "phase": "AfterEvent",
+                    "filter_id": filters[key],
+                    "condition_id": condition_id,
+                    "once_scope": once_scope,
+                    "priority": 0,
+                    "program_id": program_id,
+                },
+            )
+            next_trigger += 1
+        binding_sequence = effect_rule_sequences.get(source_effect, 0) + 1
+        effect_rule_sequences[source_effect] = binding_sequence
+        add(
+            "EffectRuleBinding",
+            {
+                "effect_id": source_effect,
+                "sequence": binding_sequence,
+                "rule_id": rules[key],
+            },
+        )
+    add(
+        "RuleTrigger",
+        {
+            "id": next_trigger,
+            "stable_key": "goal07.enemy.s09.trigger.tomb-bars-weakness-last",
+            "rule_id": rules["tomb-bars"],
+            "sequence": 3,
+            "event": json_cell("WeaknessBroken"),
+            "phase": "AfterEvent",
+            "filter_id": filters["tomb-bars"],
+            "condition_id": conditions["tomb-last"],
+            "once_scope": "Event",
+            "priority": 0,
+            "program_id": defeat_tomb_program,
+        },
+    )
+    next_trigger += 1
+    add(
+        "RuleTrigger",
+        {
+            "id": next_trigger,
+            "stable_key": "goal07.enemy.s09.trigger.tomb-bars-weakness-more",
+            "rule_id": rules["tomb-bars"],
+            "sequence": 4,
+            "event": json_cell("WeaknessBroken"),
+            "phase": "AfterEvent",
+            "filter_id": filters["tomb-bars"],
+            "condition_id": conditions["tomb-more"],
+            "once_scope": "Event",
+            "priority": 0,
+            "program_id": decrement_tomb_program,
+        },
+    )
+
+    phase_sequences = [
+        [
+            abilities["funereal-kiss"],
+            abilities["fading-radiance"],
+            abilities["harrowing-obituary"],
+            abilities["sunken-rain"],
+        ],
+        [
+            abilities["funereal-kiss"],
+            abilities["go-into-that-good-night"],
+            abilities["harrowing-obituary"],
+            abilities["sunken-rain"],
+        ],
+        [
+            abilities["fading-radiance"],
+            abilities["funereal-kiss"],
+            abilities["go-into-that-good-night"],
+            abilities["harrowing-obituary"],
+            abilities["sunken-rain"],
+        ],
+    ]
+    ai_targets = {
+        abilities["funereal-kiss"]: selectors["primary"],
+        abilities["fading-radiance"]: selectors["actor"],
+        abilities["harrowing-obituary"]: selectors["actor"],
+        abilities["sunken-rain"]: selectors["all-opposing"],
+        abilities["go-into-that-good-night"]: selectors["all-opposing"],
+    }
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence_abilities in enumerate(phase_sequences):
+        state_ids = [
+            BASE + 701 + phase_index * 20 + offset
+            for offset in range(len(sequence_abilities))
+        ]
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_id) in enumerate(
+            zip(state_ids, sequence_abilities, strict=True)
+        ):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s09.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["funereal-kiss"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s09.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": ai_targets[ability_id],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["funereal-kiss"],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s09.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": conditions["always"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    for index, tomb_id in enumerate(tombs.values()):
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": tomb_id,
+                "source_definition_identity_id": tomb_id,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": str(abilities["capture-insert"]),
+                "action_ability_id": None,
+                "formation_index": 8 + index,
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": "10",
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": "1",
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": "200",
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s09-sombrous-sepulcher-{index}-v1"
+                ),
+            },
+        )
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Fire", "Wind", "Imaginary"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element in ["Physical", "Ice", "Lightning", "Quantum"]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": "0.2"},
+        )
+    for category in ["STAT_CTRL_Frozen", "STAT_Entangle"]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "0.5",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "720",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(abilities.values(), start=1):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": ability_id,
+            },
+        )
+    for sequence, graph_id in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s09.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": sequence,
+                "ai_graph_id": graph_id,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.something-unto-death-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public World 9 level values and capture mechanics are "
+                "committed as Goal 07 evidence."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s09.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S09.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s09.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s09.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -10319,6 +12134,7 @@ def main() -> None:
         "G07-P5-M15-S06": owned_rows_s06,
         "G07-P5-M15-S07": owned_rows_s07,
         "G07-P5-M15-S08": owned_rows_s08,
+        "G07-P5-M15-S09": owned_rows_s09,
     }[PARTITION]()
     golden_path = (
         ROOT

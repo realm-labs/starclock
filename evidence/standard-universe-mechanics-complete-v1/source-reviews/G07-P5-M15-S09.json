@@ -1,0 +1,168 @@
+{
+  "schema_revision": "starclock.goal07-enemy-source-review.v1",
+  "partition_id": "G07-P5-M15-S09",
+  "reviewed_on": "2026-07-29",
+  "enemy_variant_id": "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+  "source_monster_id": "3014022",
+  "mechanism_target": "ExactPublic",
+  "accuracy_disposition": "ApprovedNumericApproximation",
+  "numeric_policy_id": "goal07-exact-public-per-level-v1",
+  "numeric_status": "ApprovedPerVariantInputs",
+  "mechanic_status": "ExecutableMechanismCorrect",
+  "sources": [
+    {
+      "path": "content-reference/v4.4/enemy-abilities.json",
+      "sha256": "4bae4f668ee061a3f565a1ea6c783d169383ef64039dd89c5b367116afe3cce4",
+      "facts": [
+        "source-skill-ids:301402201-through-301402209",
+        "funereal-kiss:4.0-atk-physical-single-target",
+        "sunken-rain:2.5-atk-physical-all-targets",
+        "harrowing-obituary:0.5-one-turn-damage-increase",
+        "harrowing-obituary:0.12-permanent-damage-increase-per-use",
+        "fading-radiance:phases-1-and-3",
+        "go-into-that-good-night:phases-2-and-3",
+        "losing-eventide-light:queued-capture",
+        "watery-dissolution:dynamic-two-target-capture",
+        "sad-true-lover:linked-captivity-lifecycle"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-variants.json",
+      "sha256": "84ea0cf045bdaba3b37f2ef616292dc2769428deba5f9c272ee023beb3f181fe",
+      "facts": [
+        "source-monster-id:3014022",
+        "combat-rank:LittleBoss",
+        "weaknesses:Fire-Wind-Imaginary",
+        "resistances:Physical-Ice-Lightning-Quantum-at-0.2",
+        "frozen-resistance:0.5",
+        "entangle-resistance:0.5",
+        "summon-source-id:3012030"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/enemy-templates.json",
+      "sha256": "76f50c8402528d551248ec93fa25772653a4eeed5f3788fd507ca225a3f8b6cd",
+      "facts": [
+        "source-template-id:3014022",
+        "base-hp:1023",
+        "base-atk:18",
+        "base-def:210",
+        "base-speed:144",
+        "base-toughness:720",
+        "base-effect-resistance:0.3",
+        "ai-file:Config/ConfigAI/Monster_W3_Death_00_AI_RLBoss.json",
+        "phase-count:3",
+        "sombrous-sepulcher-source-template:3012030",
+        "sombrous-sepulcher-base-speed:200"
+      ]
+    },
+    {
+      "path": "content-reference/v4.4/sources.json",
+      "sha256": "85bd5deaf441799455cef4808ea60945899143d6437da30f1a4916e920d92948",
+      "facts": [
+        "authoritative-ai-and-ability-source-file-hashes-retained"
+      ]
+    },
+    {
+      "path": "content-reference/standard-universe-v1/world-difficulties.json",
+      "sha256": "4b4572d79b7e8686671a08d7112544499a02010f6f8610da5ae2e69a7e66d0d5",
+      "facts": [
+        "world:9",
+        "authored-levels:56-72-81-90",
+        "role:boss",
+        "difficulty-key:standard-universe-v1"
+      ]
+    },
+    {
+      "path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S09-numeric-anchors.json",
+      "sha256": "baf95718a79bf0cf1e26b72e6c8a96b3388435b5891293572c9ab7688610c37b",
+      "facts": [
+        "exact-public-levels:56-72-81-90",
+        "fields:hp-atk-def-spd-effect-hit-rate-effect-resistance",
+        "game-version:4.4",
+        "access-date:2026-07-29"
+      ]
+    }
+  ],
+  "numeric_evidence": [
+    {
+      "source_monster_id": "3014022",
+      "authored_level": 56,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "41422",
+        "atk": "297",
+        "def": "760",
+        "spd": "144",
+        "effect_hit_rate": "0.048",
+        "effect_resistance": "0.324"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S09-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "baf95718a79bf0cf1e26b72e6c8a96b3388435b5891293572c9ab7688610c37b"
+    },
+    {
+      "source_monster_id": "3014022",
+      "authored_level": 72,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "108021",
+        "atk": "459",
+        "def": "920",
+        "spd": "158.4",
+        "effect_hit_rate": "0.176",
+        "effect_resistance": "0.388"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S09-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "baf95718a79bf0cf1e26b72e6c8a96b3388435b5891293572c9ab7688610c37b"
+    },
+    {
+      "source_monster_id": "3014022",
+      "authored_level": 81,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "159064",
+        "atk": "563",
+        "def": "1010",
+        "spd": "172.8",
+        "effect_hit_rate": "0.248",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S09-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "baf95718a79bf0cf1e26b72e6c8a96b3388435b5891293572c9ab7688610c37b"
+    },
+    {
+      "source_monster_id": "3014022",
+      "authored_level": 90,
+      "combat_rank": "Boss",
+      "fields": {
+        "hp": "241975",
+        "atk": "663",
+        "def": "1100",
+        "spd": "190.08",
+        "effect_hit_rate": "0.32",
+        "effect_resistance": "0.4"
+      },
+      "level_curve_revision": "exact-public-per-level-v1",
+      "source_url_or_committed_evidence_path": "evidence/standard-universe-mechanics-complete-v1/sources/G07-P5-M15-S09-numeric-anchors.json",
+      "confidence": "ExactPublicPerLevel",
+      "evidence_hash": "baf95718a79bf0cf1e26b72e6c8a96b3388435b5891293572c9ab7688610c37b"
+    }
+  ],
+  "reviewed_runtime_boundaries": [
+    "World 9 difficulties use direct public level 56, 72, 81 and 90 values; no interpolation is used.",
+    "Funereal Kiss deals 400% ATK Physical damage to one target and Sunken Rain deals 250% ATK Physical damage to all opponents.",
+    "Harrowing Obituary grants a one-turn 50% damage increase, adds a permanent 12% damage increase per use, and adds one initial hit bar to subsequently summoned Sombrous Sepulchers.",
+    "Fading Radiance counts opposing resolved actions and queues Losing Eventide Light against the third actor; Weakness Break clears Sunset and the temporary Obituary increase.",
+    "Go Into That Good Night fills allied Energy, applies Weakness Protection, captures the next two acting characters, and queues Watery Dissolution; Weakness Break clears Nightfall and the temporary Obituary increase.",
+    "Morbid Dream makes the exact captured formation untargetable and summons a formation-linked Sombrous Sepulcher owned by the boss.",
+    "Each Sombrous Sepulcher starts with five hit bars plus permanent Obituary uses; Damage Applied, DoT damage and Weakness Break consume bars through shared events.",
+    "Defeating a formation-linked Sombrous Sepulcher restores the corresponding character to Present, removes Morbid Dream, heals 50% maximum HP, and sets Energy to the runtime cap.",
+    "The complete capture, linked-unit, fixed-bar, release, queue and Weakness-Break paths use shared Rule IR and enemy lifecycle operations without a native handler."
+  ]
+}

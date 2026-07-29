@@ -118,6 +118,21 @@ const partitionConfig = {
     ],
     numericPolicyId: "goal07-exact-public-per-level-v1",
   },
+  "G07-P5-M15-S09": {
+    completedOn: "2026-07-29",
+    definitionKeys: [
+      "enemy.memory-zone-meme-something-unto-death-complete.littleboss.variant.01",
+      "enemy.memory-zone-meme-something-unto-death-complete.littleboss",
+      "ai.goal07.memory-zone-meme-something-unto-death.phase-1",
+      "ai.goal07.memory-zone-meme-something-unto-death.phase-2",
+      "ai.goal07.memory-zone-meme-something-unto-death.phase-3",
+      "unit.goal07.something-unto-death.sombrous-sepulcher-1",
+      "unit.goal07.something-unto-death.sombrous-sepulcher-2",
+      "unit.goal07.something-unto-death.sombrous-sepulcher-3",
+      "unit.goal07.something-unto-death.sombrous-sepulcher-4",
+    ],
+    numericPolicyId: "goal07-exact-public-per-level-v1",
+  },
 }[partitionId];
 assert(partitionConfig, `${partitionId}: enemy receipt authoring is not implemented`);
 
@@ -224,6 +239,17 @@ if (partitionId === "G07-P5-M15-S08") {
     { path: "crates/starclock-combat/src/resolver/turn.rs" },
     { path: "crates/starclock-combat/src/resolver/toughness.rs" },
     { path: "crates/starclock-mode-universe/tests/battle_materialization/ice_out_of_space_s08.rs" },
+  );
+}
+if (partitionId === "G07-P5-M15-S09") {
+  executionEvidence.push(
+    { path: "crates/starclock-data/src/operation_lower.rs" },
+    { path: "crates/starclock-data/src/catalog/effect_bindings.rs" },
+    { path: "crates/starclock-combat/src/resolver/lifecycle.rs" },
+    { path: "crates/starclock-combat/src/resolver/program.rs" },
+    { path: "crates/starclock-combat/src/resolver/turn.rs" },
+    { path: "crates/starclock-combat/src/resolver/toughness.rs" },
+    { path: "crates/starclock-mode-universe/tests/battle_materialization/something_unto_death_s09.rs" },
   );
 }
 const provenanceEvidence = [
