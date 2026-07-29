@@ -5,14 +5,14 @@
 | Field | Value |
 |---|---|
 | Goal ID | `divergent-universe-reference-v1` |
-| State | `Ready` |
+| State | `InProgress` |
 | Active phase | Phase 0 — Scope, sources and contracts |
 | Active batch | None |
-| Next unblocked batch | `G11-P0-B1` |
+| Next unblocked batch | `G11-P0-B2` after `G11-P0-B1` is pushed and remotely verified |
 | Snapshot | Version 4.4 / inherited structured-source access 2026-07-22 |
 | Structured source | `turnbasedgamedata@fd978d6ef09f941fba644c731ab54abd6f7c3568` |
 | Identity cross-check | `StarRailRes@7b349e39ee0f6f3bf814567995829b99c95e7a93` |
-| Planning cache audit | 2026-07-29: both caches clean at pinned commits; origins, commit readability and connectivity verified; execution must reproduce in `G11-P0-B1` |
+| Source-cache reproduction | `G11-P0-B1`: both fixed caches materialized twice in an isolated target from the clean connected object cache; exact detached HEAD, origin, worktree cleanliness, connectivity and the 64-table/direct-entry seed verified |
 | Starting source oracle | 64 `RogueTourn*` tables, 3 direct ability programs plus layout companions, CHS/EN TextMaps, StageConfig and transitive config/shared-source closure |
 | Focused inventory | Pending `G11-P0-B2` |
 | Content manifest | Denominators pending `G11-P0-B3` |
@@ -29,7 +29,7 @@
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0 — Scope, sources and contracts | `Pending` | Planning audit verified Goal 11 availability, isolated paths, the two pinned caches and starting source families; batch-owned reproduction, inventory, manifest and authoring contracts remain. |
+| Phase 0 — Scope, sources and contracts | `InProgress` | Goal 03, both pinned caches, the 64-row `RogueTourn` seed, Goal 08/09/10 checkpoints, Candidate-only scope, Sora authority and isolated paths are frozen; focused inventory generation remains. |
 | Phase 1 — Unique mode systems | `Pending` | Awaiting stage flow, Arithmetic Mapping, Equations, Divergent Blessings, Curios/Grand Miracles/Hex, Golden Blood/Titan, protocols, services and progression data. |
 | Phase 2 — Content and encounters | `Pending` | Awaiting pool ownership, Blessings, Curios, Occurrences, services, Adventure outcomes and encounters. |
 | Phase 3 — Sora and Excel | `Pending` | Awaiting isolated schemas/readers, complete workbooks, deterministic exports and visual QA. |
@@ -39,7 +39,7 @@
 
 | Batch | State | Commit | Result/evidence |
 |---|---|---|---|
-| `G11-P0-B1` | `Pending` | — | Reproduce caches, verify Goal 03 and concurrent Goal boundaries, freeze scope and prove branch/worktree/path isolation. |
+| `G11-P0-B1` | `Complete` | This row's containing commit | Froze foundation `9f8a3e33…144b7`, Goal 03 commit/tree and preserved bundle digests, the two Version 4.4 source revisions, 64 inherited `RogueTourn` seed rows, 29 batches, Candidate-only scope, Excel/openpyxl/pinned Sora 0.3.0 authority and six isolated roots. Ownership checkpoints: Goal 08 local committed `c283c7f1…55a` (7,913 rows: 7,199 mode-owned/714 shared), Goal 09 remote-backed `d5d261a3…c46` (6,963: 6,305/658), Goal 10 remote-backed `a2e64e1d…94d` (5,377: 5,243/134). Fresh GitLab reproduction failed once with HTTP/2 `PROTOCOL_ERROR`; a bounded HTTP/1.1 attempt resolved the commit but stalled during promisor checkout. The accepted isolated object-cache materialization ran twice; the focused verifier, `git diff --check`, batch-set check and quick repository gate pass; no fresh-network success is claimed. Publication contract: `remote=origin`; `branch=codex/goal11-divergent-universe-reference`; push command `git push origin HEAD:refs/heads/codex/goal11-divergent-universe-reference`; verify with `git rev-parse HEAD` and `git ls-remote --exit-code origin refs/heads/codex/goal11-divergent-universe-reference`, requiring identical full commit IDs before P0-B2 starts. |
 | `G11-P0-B2` | `Pending` | — | Inventory all 64 focused tables, config/ability programs, TextMaps, StageConfig, shared Rogue/enemy closure and exclusions. |
 | `G11-P0-B3` | `Pending` | — | Freeze enabled modules, exact row obligations/counts, ownership, reachability and named exclusions. |
 | `G11-P0-B4` | `Pending` | — | Freeze normalized schema, evidence, canonical encoding, workbook, reconciliation and fixture contracts. |
