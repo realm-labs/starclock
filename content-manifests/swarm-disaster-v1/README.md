@@ -43,6 +43,19 @@ follows the same rule: all 861 Swarm room bindings and two displayed boss
 identities are frozen now; `G09-P2-B5` must attach derived StageConfig waves and
 enemy slots to those parents.
 
+The Phase 0 normalized, Excel/Sora, Goal 08 reconciliation and semantic-fixture
+contracts are checked together with:
+
+```text
+node tools/swarm-disaster-reference/verify-contracts.mjs
+```
+
+They freeze 64 normalized file families across four isolated workbooks. Shared
+`RogueDLC` facts reconcile by source path, row locator and evidence digest;
+conflicts become `Blocked` receipts and never modify Goal 08 artifacts. JSON is
+staging/debug output only. Excel remains the sole authoring surface and
+Sora 0.3.0 remains the schema/export authority.
+
 The local ignored source cache may be reproduced through
 `tools/content-reference/fetch-sources.ps1`. A worktree may also point its
 ignored cache paths at an existing detached, clean checkout of the exact
