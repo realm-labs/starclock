@@ -385,6 +385,94 @@
             "String": "goal07.enemy.s05.trigger.formation-collapse"
           }
         }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1030561
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Applied"
+              },
+              "type": {
+                "String": "Effect"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1030551
+          },
+          "id": {
+            "Integer": 1030570
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1030312
+          },
+          "rule_id": {
+            "Integer": 1030541
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.trigger.freeze-applied"
+          }
+        }
+      },
+      {
+        "values": {
+          "condition_id": {
+            "Integer": 1030561
+          },
+          "event": {
+            "Object": {
+              "point": {
+                "String": "Removed"
+              },
+              "type": {
+                "String": "Effect"
+              }
+            }
+          },
+          "filter_id": {
+            "Integer": 1030552
+          },
+          "id": {
+            "Integer": 1030571
+          },
+          "once_scope": {
+            "String": "Battle"
+          },
+          "phase": {
+            "String": "AfterEvent"
+          },
+          "priority": {
+            "Integer": 0
+          },
+          "program_id": {
+            "Integer": 1030313
+          },
+          "rule_id": {
+            "Integer": 1030542
+          },
+          "sequence": {
+            "Integer": 1
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.trigger.freeze-removed"
+          }
+        }
       }
     ]
   }

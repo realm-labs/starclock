@@ -366,6 +366,52 @@
             "String": "goal07.enemy.s05.condition.no-flying-swords"
           }
         }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1030561
+          },
+          "node": {
+            "Object": {
+              "type": {
+                "String": "Constant"
+              },
+              "value": {
+                "Bool": true
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.condition.always"
+          }
+        }
+      },
+      {
+        "values": {
+          "id": {
+            "Integer": 1030562
+          },
+          "node": {
+            "Object": {
+              "maximum_count": {
+                "Integer": 2
+              },
+              "minimum_count": {
+                "Integer": 1
+              },
+              "selector_id": {
+                "Integer": 1030411
+              },
+              "type": {
+                "String": "SelectorCardinality"
+              }
+            }
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.condition.adjacent-frozen"
+          }
+        }
       }
     ]
   }

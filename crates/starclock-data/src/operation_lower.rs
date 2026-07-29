@@ -414,6 +414,14 @@ fn lower_operation(
             selector: selector()?,
             effect: effect(*effect_id)?,
         },
+        Payload::ModifyEffect {
+            effect_id,
+            stack_delta_expression_id,
+        } => RuleOperationTemplate::AdjustEffectStacks {
+            selector: selector()?,
+            effect: effect(*effect_id)?,
+            delta: expression(*stack_delta_expression_id)?,
+        },
         Payload::DetonateDot {
             fraction_expression_id,
             required_effect_tag,

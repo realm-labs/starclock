@@ -2,7 +2,8 @@
 
 S01 owns the Abundant Ebon Deer (Complete), S02 owns the Automaton Direwolf
 (Complete), S03 owns the Automaton Grizzly (Complete), S04 owns the Blaze Out
-of Space, and S05 owns Cloud Knight Lieutenant: Yanqing (Complete). Each
+of Space, S05 owns Cloud Knight Lieutenant: Yanqing (Complete), and S06 owns
+Cocolia (Complete). Each
 partition receives an isolated 10,000-ID range so authoring and verification
 never consume rows owned by another partition.
 """
@@ -58,6 +59,12 @@ PARTITION_CONFIG = {
         "variant": "enemy.cloud-knight-lieutenant-yanqing-complete.littleboss.variant.01",
         "source_record_id": 7,
         "evidence_record_id": 8,
+    },
+    "G07-P5-M15-S06": {
+        "base": 1_030_000,
+        "variant": "enemy.cocolia-complete.littleboss.variant.01",
+        "source_record_id": 8,
+        "evidence_record_id": 9,
     },
 }
 PARTITION = "G07-P5-M15-S01"
@@ -6606,6 +6613,1342 @@ def owned_rows_s05() -> dict[str, list[dict[str, Any]]]:
     return rows
 
 
+def owned_rows_s06() -> dict[str, list[dict[str, Any]]]:
+    anchor = json.loads(anchor_path(PARTITION).read_text(encoding="utf-8"))
+    manifest = json.loads(PARTITIONS.read_text(encoding="utf-8"))
+    assigned = next(item for item in manifest["partitions"] if item["id"] == PARTITION)
+    if assigned["enemy_variant_ids"] != [VARIANT_KEY]:
+        raise ValueError("S06 frozen enemy assignment changed")
+
+    variant = BASE + 1
+    template = BASE + 2
+    graphs = [BASE + 10, BASE + 11, BASE + 12]
+    abilities = {
+        "chill": BASE + 101,
+        "omen": BASE + 102,
+        "hoarfrost": BASE + 104,
+        "wrath": BASE + 105,
+        "punishment": BASE + 103,
+        "reverberating": BASE + 106,
+        "omen-bronya": BASE + 108,
+        "doomsday": BASE + 109,
+        "icy-wind": BASE + 121,
+        "bronya-cycle": BASE + 122,
+    }
+    linked = {
+        "ice-edge-left": BASE + 201,
+        "ice-edge-right": BASE + 202,
+        "bronya": BASE + 203,
+    }
+    selectors = {
+        "actor": BASE + 401,
+        "owner": BASE + 402,
+        "applier": BASE + 403,
+        "current-subject": BASE + 404,
+        "primary-target": BASE + 405,
+        "opposing-random": BASE + 406,
+        "opposing-all": BASE + 407,
+        "adjacent": BASE + 408,
+        "frozen-primary": BASE + 409,
+        "frozen-all": BASE + 410,
+        "adjacent-frozen": BASE + 411,
+        "nonfrozen-random": BASE + 412,
+        "actor-summons": BASE + 413,
+        "event-target": BASE + 414,
+    }
+    effects = {
+        "freeze": BASE + 501,
+        "charging": BASE + 502,
+        "intensifying-cold": BASE + 503,
+        "redeployment": BASE + 504,
+    }
+    modifiers = {
+        "charging": BASE + 521,
+        "intensifying-cold": BASE + 522,
+        "redeployment": BASE + 523,
+    }
+    modifier_groups = {
+        "charging": BASE + 531,
+        "intensifying-cold": BASE + 532,
+        "redeployment": BASE + 533,
+    }
+    rules = {"freeze-applied": BASE + 541, "freeze-removed": BASE + 542}
+    filters = {"freeze-applied": BASE + 551, "freeze-removed": BASE + 552}
+    conditions = {"always": BASE + 561, "adjacent-frozen": BASE + 562}
+    rows: dict[str, list[dict[str, Any]]] = {}
+    identities: list[dict[str, Any]] = []
+    next_program = BASE + 301
+    next_operation = BASE + 1_001
+    next_expression = BASE + 1_101
+
+    def add(table: str, row: dict[str, Any]) -> None:
+        rows.setdefault(table, []).append(row)
+
+    def identity_s06(
+        id_: int,
+        stable_key: str,
+        kind: str,
+        name_en: str,
+        name_zh_cn: str,
+        summary: str,
+        sources: str = "1",
+    ) -> dict[str, Any]:
+        row = identity(id_, stable_key, kind, name_en, name_zh_cn, summary, sources)
+        row["summary_zh_cn"] = "Goal 07 S06 来源绑定的可可利亚（完整）可执行定义。"
+        row["game_version_introduced"] = "1.0"
+        return row
+
+    identities.extend(
+        [
+            identity_s06(
+                variant,
+                VARIANT_KEY,
+                "EnemyVariant",
+                "Cocolia (Complete)",
+                "可可利亚（完整）",
+                "Exact materialization variant used by frozen World 6 bindings.",
+                "1|8",
+            ),
+            identity_s06(
+                template,
+                "enemy.cocolia-complete.littleboss",
+                "Enemy",
+                "Cocolia (Complete) Template",
+                "可可利亚（完整）模板",
+                "Version 4.4 boss template retained from source monster 1004011.",
+            ),
+        ]
+    )
+    for phase, graph in enumerate(graphs, start=1):
+        identities.append(
+            identity_s06(
+                graph,
+                f"ai.goal07.cocolia-complete.phase-{phase}",
+                "AiGraph",
+                f"Cocolia Complete Phase {phase} AI",
+                f"可可利亚完整形态{phase}阶段AI",
+                "Finite source-ordered boss action graph.",
+            )
+        )
+    ability_metadata = {
+        "chill": ("Chill of Bone-Piercing Coagulation", "刺骨凝血的寒芒", "225% Ice single-target strike."),
+        "omen": ("Omen of Everlasting Freeze", "漫长冰期的预兆", "Summons two Ice Edges."),
+        "hoarfrost": ("Hoarfrost of Eternal Isolation", "永囚于此的白霜", "150% Ice strike with Freeze."),
+        "wrath": ("Wrath of Winterland Saints", "雪国圣徒的烈怒", "Charges the next Punishment with 30% damage."),
+        "punishment": ("Punishment of Endless Winter", "无尽长冬的绝罚", "375% Ice damage to all opponents."),
+        "reverberating": ("Reverberating Ice", "碎冰震荡", "Shatters a Frozen target and adjacent units."),
+        "omen-bronya": ("Omen of Everlasting Freeze — Reinforced", "漫长冰期的预兆·增援", "Summons Ice Edges and Bronya."),
+        "doomsday": ("Doomsday Ice Cascade", "末日冰瀑", "Phase-three immediate Ice cascade and Freeze."),
+        "icy-wind": ("Icy Wind", "冰风", "Ice Edge 150% Ice damage to all opponents."),
+        "bronya-cycle": ("Bronya Complete Combat Cycle", "布洛妮娅完整作战循环", "Suppressive Fire followed by Combat Redeployment."),
+    }
+    for key, ability_id in abilities.items():
+        name_en, name_zh_cn, summary = ability_metadata[key]
+        identities.append(
+            identity_s06(
+                ability_id,
+                f"enemy.cocolia-complete.ability.{key}",
+                "Ability",
+                name_en,
+                name_zh_cn,
+                summary,
+            )
+        )
+    for key, linked_id in linked.items():
+        name = "Bronya (Complete)" if key == "bronya" else "Ice Edge"
+        identities.append(
+            identity_s06(
+                linked_id,
+                f"unit.goal07.cocolia-complete.{key}",
+                "CharacterForm",
+                name,
+                "布洛妮娅（完整）" if key == "bronya" else "冰锋",
+                "Owner-scaled targetable Cocolia summon.",
+            )
+        )
+    for key, selector_id_ in selectors.items():
+        identities.append(
+            identity_s06(
+                selector_id_,
+                f"selector.goal07.cocolia-complete.{key}",
+                "Selector",
+                f"Cocolia {key} Selector",
+                f"可可利亚{key}选择器",
+                "S06 battle selector.",
+            )
+        )
+    for key, effect_id in effects.items():
+        identities.append(
+            identity_s06(
+                effect_id,
+                f"effect.goal07.cocolia-complete.{key}",
+                "Effect",
+                f"Cocolia {key}",
+                f"可可利亚{key}",
+                "Executable Cocolia battle effect.",
+            )
+        )
+    for key, modifier_id in modifiers.items():
+        identities.append(
+            identity_s06(
+                modifier_id,
+                f"modifier.goal07.cocolia-complete.{key}",
+                "Modifier",
+                f"Cocolia {key} Modifier",
+                f"可可利亚{key}调整器",
+                "Effect-owned S06 stat modifier.",
+            )
+        )
+    for key, rule_id in rules.items():
+        identities.append(
+            identity_s06(
+                rule_id,
+                f"rule.goal07.cocolia-complete.{key}",
+                "Rule",
+                f"Cocolia {key} Rule",
+                f"可可利亚{key}规则",
+                "Freeze lifecycle rule for Intensifying Cold.",
+            )
+        )
+
+    add("Selector", selector(selectors["actor"], "Actor", "SameSide"))
+    add("Selector", selector(selectors["owner"], "Owner", "SameSide"))
+    add("Selector", selector(selectors["applier"], "Applier", "SameSide"))
+    add("Selector", selector(selectors["current-subject"], "CurrentSubject", "AnySide"))
+    add("Selector", selector(selectors["primary-target"], "PrimaryTarget", "OpposingSide"))
+    opposing_random = selector(
+        selectors["opposing-random"], "Actor", "OpposingSide", choice="RngUniform"
+    )
+    opposing_random["rng_purpose_key"] = "damage-target"
+    add("Selector", opposing_random)
+    add(
+        "Selector",
+        selector(
+            selectors["opposing-all"],
+            "Actor",
+            "OpposingSide",
+            minimum=1,
+            maximum=8,
+            choice="All",
+        ),
+    )
+    for name, frozen, excludes_primary in [
+        ("adjacent", False, True),
+        ("adjacent-frozen", True, True),
+    ]:
+        add(
+            "Selector",
+            selector(
+                selectors[name],
+                "Actor",
+                "OpposingSide",
+                minimum=0,
+                maximum=2,
+                empty="NoOp",
+                choice="PrimaryPlusAdjacent",
+            ),
+        )
+        sequence = 1
+        if excludes_primary:
+            add(
+                "SelectorPredicate",
+                {
+                    "selector_id": selectors[name],
+                    "sequence": sequence,
+                    "predicate": json_cell(
+                        "Excludes", excluded_selector_id=selectors["primary-target"]
+                    ),
+                },
+            )
+            sequence += 1
+        if frozen:
+            add(
+                "SelectorPredicate",
+                {
+                    "selector_id": selectors[name],
+                    "sequence": sequence,
+                    "predicate": json_cell("HasEffect", effect_id=effects["freeze"]),
+                },
+            )
+    add("Selector", selector(selectors["frozen-primary"], "Actor", "OpposingSide"))
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["frozen-primary"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["freeze"]),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["frozen-all"],
+            "Actor",
+            "OpposingSide",
+            minimum=0,
+            maximum=8,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["frozen-all"],
+            "sequence": 1,
+            "predicate": json_cell("HasEffect", effect_id=effects["freeze"]),
+        },
+    )
+    nonfrozen_random = selector(
+        selectors["nonfrozen-random"],
+        "Actor",
+        "OpposingSide",
+        minimum=0,
+        maximum=1,
+        empty="NoOp",
+        choice="RngUniform",
+    )
+    nonfrozen_random["rng_purpose_key"] = "damage-target"
+    add("Selector", nonfrozen_random)
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["nonfrozen-random"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "Excludes", excluded_selector_id=selectors["frozen-all"]
+            ),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["actor-summons"],
+            "Actor",
+            "SameSide",
+            minimum=0,
+            maximum=3,
+            empty="NoOp",
+            choice="All",
+        ),
+    )
+    add(
+        "SelectorPredicate",
+        {
+            "selector_id": selectors["actor-summons"],
+            "sequence": 1,
+            "predicate": json_cell(
+                "OwnedBy", owner_selector_id=selectors["actor"]
+            ),
+        },
+    )
+    add(
+        "Selector",
+        selector(
+            selectors["event-target"],
+            "CurrentSubject",
+            "AnySide",
+            life="Any",
+            presence="Any",
+        ),
+    )
+
+    def expr(name: str, kind: str, node: str) -> int:
+        nonlocal next_expression
+        id_ = next_expression
+        next_expression += 1
+        add(
+            "ValueExpression",
+            {
+                "id": id_,
+                "stable_key": f"goal07.enemy.s06.expression.{name}",
+                "result_kind": kind,
+                "node": node,
+            },
+        )
+        return id_
+
+    def multiply(name: str, left: int, right: int) -> int:
+        return expr(
+            name,
+            "Scalar",
+            json_cell(
+                "CheckedBinary",
+                operator="CheckedMultiply",
+                left_expression_id=left,
+                right_expression_id=right,
+                rounding="NearestTiesAway",
+            ),
+        )
+
+    actor_atk = expr(
+        "actor-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["actor"],
+            stat="Atk",
+            formula_purpose="OrdinaryDamage",
+        ),
+    )
+    applier_atk = expr(
+        "applier-atk",
+        "Scalar",
+        json_cell(
+            "QueryStat",
+            subject_selector_id=selectors["applier"],
+            stat="Atk",
+            formula_purpose="Dot",
+        ),
+    )
+    ratios: dict[str, int] = {}
+    for name, value in [
+        ("negative-one", "-1"),
+        ("one-tenth", "0.1"),
+        ("one-fifth", "0.2"),
+        ("three-tenths", "0.3"),
+        ("one-half", "0.5"),
+        ("one", "1"),
+        ("one-point-one-two-five", "1.125"),
+        ("one-point-five", "1.5"),
+        ("two-point-two-five", "2.25"),
+        ("three-point-seven-five", "3.75"),
+    ]:
+        ratios[name] = expr(
+            f"scalar-{name}",
+            "Scalar",
+            json_cell("ScalarLiteral", value_decimal=value),
+        )
+    integer_one = expr("integer-one", "Integer", json_cell("IntegerLiteral", value=1))
+    integer_negative_one = expr(
+        "integer-negative-one", "Integer", json_cell("IntegerLiteral", value=-1)
+    )
+    intensifying_stacks = expr(
+        "intensifying-cold-stacks",
+        "Integer",
+        json_cell(
+            "QueryEffectStacks",
+            subject_selector_id=selectors["owner"],
+            effect_id=effects["intensifying-cold"],
+        ),
+    )
+    intensifying_scalar = expr(
+        "intensifying-cold-stacks-scalar",
+        "Scalar",
+        json_cell(
+            "Convert",
+            operand_expression_id=intensifying_stacks,
+            target_kind="Scalar",
+            rounding="NearestTiesAway",
+        ),
+    )
+    intensifying_value = multiply(
+        "intensifying-cold-damage-boost",
+        intensifying_scalar,
+        ratios["one-tenth"],
+    )
+    damage = {
+        "chill": multiply("chill-damage", actor_atk, ratios["two-point-two-five"]),
+        "hoarfrost": multiply(
+            "hoarfrost-damage", actor_atk, ratios["one-point-five"]
+        ),
+        "freeze": multiply(
+            "freeze-delayed-damage", applier_atk, ratios["one-point-one-two-five"]
+        ),
+        "punishment": multiply(
+            "punishment-damage", actor_atk, ratios["three-point-seven-five"]
+        ),
+        "reverberating-primary": multiply(
+            "reverberating-primary-damage",
+            actor_atk,
+            ratios["three-point-seven-five"],
+        ),
+        "reverberating-adjacent": multiply(
+            "reverberating-adjacent-damage",
+            actor_atk,
+            ratios["one-point-five"],
+        ),
+        "icy-wind": multiply("icy-wind-damage", actor_atk, ratios["one-point-five"]),
+        "bronya": multiply(
+            "bronya-suppressive-fire-damage",
+            actor_atk,
+            ratios["three-point-seven-five"],
+        ),
+        "doomsday": multiply(
+            "doomsday-ice-cascade-damage", actor_atk, ratios["one-point-five"]
+        ),
+    }
+
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["always"],
+            "stable_key": "goal07.enemy.s06.condition.always",
+            "node": json_cell("Constant", value=True),
+        },
+    )
+    add(
+        "ConditionExpression",
+        {
+            "id": conditions["adjacent-frozen"],
+            "stable_key": "goal07.enemy.s06.condition.adjacent-frozen",
+            "node": json_cell(
+                "SelectorCardinality",
+                selector_id=selectors["adjacent-frozen"],
+                minimum_count=1,
+                maximum_count=2,
+            ),
+        },
+    )
+
+    def new_operation(
+        name: str,
+        payload: str,
+        target: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        nonlocal next_operation
+        id_ = next_operation
+        next_operation += 1
+        row = operation(id_, name, payload, target, empty)
+        row["stable_key"] = f"goal07.enemy.s06.operation.{name}"
+        add("Operation", row)
+        return id_
+
+    def operation_step(operation_id: int) -> str:
+        return json_cell("Operation", operation_id=operation_id)
+
+    def make_program(name: str, steps: list[str]) -> int:
+        nonlocal next_program
+        id_ = next_program
+        next_program += 1
+        identities.append(
+            identity_s06(
+                id_,
+                f"program.goal07.cocolia-complete.{name}",
+                "Program",
+                f"Cocolia {name} Program",
+                f"可可利亚{name}程序",
+                "Ordered Rule IR program for the S06 enemy.",
+            )
+        )
+        add("Program", {"id": id_, "domain": "Battle"})
+        for sequence, step in enumerate(steps, start=1):
+            add("ProgramStep", {"program_id": id_, "sequence": sequence, "step": step})
+        return id_
+
+    def damage_op(
+        name: str, amount: int, target: int, element: str = "Ice", empty: str = "Fault"
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "Damage",
+                amount_expression_id=amount,
+                damage_class="Ordinary",
+                element=element,
+                can_crit=True,
+            ),
+            target,
+            empty,
+        )
+
+    def apply_effect_op(
+        name: str,
+        effect_id: int,
+        target: int,
+        *,
+        chance: int | None = None,
+        stacks: int | None = None,
+        empty: str = "Fault",
+    ) -> int:
+        return new_operation(
+            name,
+            json_cell(
+                "ApplyEffect",
+                effect_id=effect_id,
+                stacks_expression_id=stacks,
+                chance_policy="Resistible" if chance is not None else "Guaranteed",
+                base_chance_expression_id=chance,
+                rng_purpose_key="effect-application" if chance is not None else None,
+            ),
+            target,
+            empty,
+        )
+
+    def remove_effect_op(name: str, effect_id: int, target: int) -> int:
+        return new_operation(
+            name, json_cell("RemoveEffect", effect_id=effect_id), target, "NoOp"
+        )
+
+    def summon_steps(include_bronya: bool) -> list[str]:
+        keys = ["ice-edge-left", "ice-edge-right"]
+        if include_bronya:
+            keys.append("bronya")
+        return [
+            operation_step(
+                new_operation(
+                    f"summon-{key}{'-reinforced' if include_bronya else ''}",
+                    json_cell(
+                        "Summon",
+                        unit_definition_identity_id=linked[key],
+                        owner_selector_id=selectors["actor"],
+                    ),
+                )
+            )
+            for key in keys
+        ]
+
+    repeat_primary = make_program(
+        "reverberating-repeat-primary",
+        [
+            operation_step(
+                damage_op(
+                    "reverberating-repeat-primary-damage",
+                    damage["reverberating-primary"],
+                    selectors["primary-target"],
+                )
+            )
+        ],
+    )
+    ability_programs = {
+        abilities["chill"]: make_program(
+            "chill",
+            [
+                operation_step(
+                    damage_op("chill-damage", damage["chill"], selectors["primary-target"])
+                )
+            ],
+        ),
+        abilities["omen"]: make_program("omen", summon_steps(False)),
+        abilities["omen-bronya"]: make_program(
+            "omen-reinforced", summon_steps(True)
+        ),
+        abilities["hoarfrost"]: make_program(
+            "hoarfrost",
+            [
+                operation_step(
+                    damage_op(
+                        "hoarfrost-damage",
+                        damage["hoarfrost"],
+                        selectors["primary-target"],
+                    )
+                ),
+                operation_step(
+                    apply_effect_op(
+                        "hoarfrost-freeze",
+                        effects["freeze"],
+                        selectors["primary-target"],
+                        chance=ratios["one"],
+                    )
+                ),
+            ],
+        ),
+        abilities["wrath"]: make_program(
+            "wrath",
+            [
+                operation_step(
+                    apply_effect_op(
+                        "wrath-charging", effects["charging"], selectors["actor"]
+                    )
+                )
+            ],
+        ),
+        abilities["punishment"]: make_program(
+            "punishment",
+            [
+                operation_step(
+                    damage_op(
+                        "punishment-damage",
+                        damage["punishment"],
+                        selectors["opposing-all"],
+                    )
+                ),
+                operation_step(
+                    remove_effect_op(
+                        "punishment-clear-charging",
+                        effects["charging"],
+                        selectors["actor"],
+                    )
+                ),
+            ],
+        ),
+        abilities["reverberating"]: make_program(
+            "reverberating",
+            [
+                operation_step(
+                    damage_op(
+                        "reverberating-primary-damage",
+                        damage["reverberating-primary"],
+                        selectors["primary-target"],
+                    )
+                ),
+                operation_step(
+                    damage_op(
+                        "reverberating-adjacent-damage",
+                        damage["reverberating-adjacent"],
+                        selectors["adjacent"],
+                        empty="NoOp",
+                    )
+                ),
+                json_cell(
+                    "If",
+                    condition_id=conditions["adjacent-frozen"],
+                    then_program_id=repeat_primary,
+                    else_program_id=None,
+                ),
+                operation_step(
+                    remove_effect_op(
+                        "reverberating-remove-primary-freeze",
+                        effects["freeze"],
+                        selectors["primary-target"],
+                    )
+                ),
+            ],
+        ),
+        abilities["doomsday"]: make_program(
+            "doomsday",
+            [
+                operation_step(
+                    damage_op(
+                        "doomsday-damage",
+                        damage["doomsday"],
+                        selectors["opposing-all"],
+                    )
+                ),
+                operation_step(
+                    apply_effect_op(
+                        "doomsday-freeze",
+                        effects["freeze"],
+                        selectors["nonfrozen-random"],
+                        chance=ratios["one"],
+                        empty="NoOp",
+                    )
+                ),
+            ],
+        ),
+        abilities["icy-wind"]: make_program(
+            "icy-wind",
+            [
+                operation_step(
+                    damage_op(
+                        "icy-wind-damage",
+                        damage["icy-wind"],
+                        selectors["opposing-all"],
+                    )
+                )
+            ],
+        ),
+        abilities["bronya-cycle"]: make_program(
+            "bronya-cycle",
+            [
+                operation_step(
+                    damage_op(
+                        "bronya-suppressive-fire",
+                        damage["bronya"],
+                        selectors["primary-target"],
+                        element="Wind",
+                    )
+                ),
+                operation_step(
+                    new_operation(
+                        "bronya-delay-target",
+                        json_cell(
+                            "DelayAction", amount_expression_id=ratios["one-half"]
+                        ),
+                        selectors["primary-target"],
+                    )
+                ),
+                operation_step(
+                    new_operation(
+                        "bronya-redeploy-owner",
+                        json_cell("AdvanceAction", amount_expression_id=ratios["one"]),
+                        selectors["owner"],
+                    )
+                ),
+                operation_step(
+                    apply_effect_op(
+                        "bronya-redeployment-damage-boost",
+                        effects["redeployment"],
+                        selectors["owner"],
+                    )
+                ),
+            ],
+        ),
+    }
+
+    target_patterns = {
+        "chill": "SingleTarget",
+        "omen": "None",
+        "hoarfrost": "SingleTarget",
+        "wrath": "None",
+        "punishment": "Aoe",
+        "reverberating": "Blast",
+        "omen-bronya": "None",
+        "doomsday": "Aoe",
+        "icy-wind": "Aoe",
+        "bronya-cycle": "SingleTarget",
+    }
+    for key, ability_id in abilities.items():
+        linked_ability = key in {"icy-wind", "bronya-cycle"}
+        add(
+            "Ability",
+            {
+                "id": ability_id,
+                "kind": "Summon" if linked_ability else "Skill",
+                "target_pattern": target_patterns[key],
+                "retarget_policy": "CancelRemaining",
+                "level_cap": 1,
+                "cooldown_actions": 1,
+                "semantic_tags_mask": 5 if target_patterns[key] != "None" else 4,
+            },
+        )
+        add(
+            "AbilityPhase",
+            {
+                "ability_id": ability_id,
+                "sequence": 1,
+                "kind": "Resolved",
+                "program_identity_id": ability_programs[ability_id],
+            },
+        )
+        if not linked_ability:
+            add(
+                "EnemyAbility",
+                {
+                    "id": ability_id,
+                    "telegraph": "Charge" if key == "wrath" else "None",
+                    "cooldown_actions": 1,
+                    "initial_cooldown_actions": 0,
+                    "charge_actions": 1 if key == "wrath" else 0,
+                    "ai_tag": key,
+                },
+            )
+
+    effect_definitions = {
+        "freeze": (
+            "Control",
+            "CleanseableControl",
+            1,
+            integer_one,
+            "TargetTurnStart",
+            "TurnStart",
+            "Refresh",
+            damage["freeze"],
+            "Ice",
+        ),
+        "charging": (
+            "Buff",
+            "NonDispellable",
+            1,
+            integer_one,
+            "OwnerTurnEnd",
+            "None",
+            "Refresh",
+            None,
+            None,
+        ),
+        "intensifying-cold": (
+            "Buff",
+            "NonDispellable",
+            8,
+            None,
+            "Permanent",
+            "None",
+            "RefreshAndAddStacks",
+            intensifying_value,
+            None,
+        ),
+        "redeployment": (
+            "Buff",
+            "DispellableBuff",
+            1,
+            integer_one,
+            "OwnerTurnEnd",
+            "None",
+            "Refresh",
+            None,
+            None,
+        ),
+    }
+    for key, effect_id in effects.items():
+        category, dispel, limit, duration, clock, tick, policy, magnitude, dot = (
+            effect_definitions[key]
+        )
+        add(
+            "Effect",
+            {
+                "id": effect_id,
+                "category": category,
+                "dispel_category": dispel,
+                "stack_limit": limit,
+                "duration_expression_id": duration,
+                "duration_clock": clock,
+                "tick_phase": tick,
+                "stack_policy": policy,
+                "magnitude_comparator_expression_id": magnitude,
+                "dot_element": dot,
+                "snapshot_policy": "OnApplication",
+                "teardown_policy": "RemoveWithOwner",
+                "application_priority": 0,
+            },
+        )
+    for key, tags in {
+        "freeze": ["freeze", "blocks-normal-action"],
+        "charging": ["charging", "punishment-damage-boost"],
+        "intensifying-cold": ["intensifying-cold"],
+        "redeployment": ["combat-redeployment"],
+    }.items():
+        for sequence, tag in enumerate(tags, start=1):
+            add("EffectTag", {"effect_id": effects[key], "sequence": sequence, "tag": tag})
+    for key, group_id in modifier_groups.items():
+        add(
+            "ModifierStackingGroup",
+            {
+                "id": group_id,
+                "stable_key": f"goal07.enemy.s06.{key}",
+                "aggregation": "Sum",
+            },
+        )
+    for key, value in [
+        ("charging", ratios["three-tenths"]),
+        ("intensifying-cold", intensifying_value),
+        ("redeployment", ratios["one-fifth"]),
+    ]:
+        add(
+            "ModifierDefinition",
+            {
+                "id": modifiers[key],
+                "source_effect_id": effects[key],
+                "owner_selector_id": selectors["owner"],
+                "subject_selector_id": selectors["owner"],
+                "stat": "Atk",
+                "formula_stage": "DamageBoost",
+                "formula_purpose": "OrdinaryDamage",
+                "value_expression_id": value,
+                "value_domain": "Ratio",
+                "stacking_group_id": modifier_groups[key],
+                "priority": 0,
+                "cap_formula_stage": "DamageBoost",
+                "snapshot_policy": "Dynamic",
+                "duration_scope": "Turn",
+            },
+        )
+        add(
+            "EffectModifierBinding",
+            {"effect_id": effects[key], "sequence": 1, "modifier_id": modifiers[key]},
+        )
+
+    intensify_program = make_program(
+        "freeze-applied-intensify",
+        [
+            operation_step(
+                apply_effect_op(
+                    "freeze-applied-intensify-owner",
+                    effects["intensifying-cold"],
+                    selectors["owner"],
+                    stacks=integer_one,
+                )
+            ),
+            operation_step(
+                apply_effect_op(
+                    "freeze-applied-intensify-summons",
+                    effects["intensifying-cold"],
+                    selectors["actor-summons"],
+                    stacks=integer_one,
+                    empty="NoOp",
+                )
+            ),
+        ],
+    )
+    weaken_program = make_program(
+        "freeze-removed-weaken",
+        [
+            operation_step(
+                new_operation(
+                    "freeze-removed-weaken-owner",
+                    json_cell(
+                        "ModifyEffect",
+                        effect_id=effects["intensifying-cold"],
+                        stack_delta_expression_id=integer_negative_one,
+                    ),
+                    selectors["owner"],
+                    "NoOp",
+                )
+            ),
+            operation_step(
+                new_operation(
+                    "freeze-removed-weaken-summons",
+                    json_cell(
+                        "ModifyEffect",
+                        effect_id=effects["intensifying-cold"],
+                        stack_delta_expression_id=integer_negative_one,
+                    ),
+                    selectors["actor-summons"],
+                    "NoOp",
+                )
+            ),
+        ],
+    )
+    for key, point, program_id in [
+        ("freeze-applied", "Applied", intensify_program),
+        ("freeze-removed", "Removed", weaken_program),
+    ]:
+        add(
+            "RuleDefinition",
+            {
+                "id": rules[key],
+                "domain": "Battle",
+                "source_definition_identity_id": effects["freeze"],
+                "source_class": "Effect",
+                "source_digest_sha256": sha256_text(f"goal07-s06-{key}-v1"),
+            },
+        )
+        add(
+            "EventFilter",
+            {
+                "id": filters[key],
+                "stable_key": f"goal07.enemy.s06.filter.{key}",
+                "source_definition_identity_id": effects["freeze"],
+                "source_class": "Effect",
+                "owner_selector_id": selectors["owner"],
+                "target_selector_id": selectors["event-target"],
+                "cause_ancestry": "Any",
+            },
+        )
+        add(
+            "RuleTrigger",
+            {
+                "id": BASE + 570 + len(rows.get("RuleTrigger", [])),
+                "stable_key": f"goal07.enemy.s06.trigger.{key}",
+                "rule_id": rules[key],
+                "sequence": 1,
+                "event": json_cell("Effect", point=point),
+                "phase": "AfterEvent",
+                "filter_id": filters[key],
+                "condition_id": conditions["always"],
+                "once_scope": "Battle",
+                "priority": 0,
+                "program_id": program_id,
+            },
+        )
+        add(
+            "EffectRuleBinding",
+            {
+                "effect_id": effects["freeze"],
+                "sequence": 1 if key == "freeze-applied" else 2,
+                "rule_id": rules[key],
+            },
+        )
+
+    phase_sequences = [
+        [abilities["chill"], abilities["omen"], abilities["hoarfrost"]],
+        [
+            abilities["omen-bronya"],
+            abilities["chill"],
+            abilities["hoarfrost"],
+            abilities["reverberating"],
+            abilities["wrath"],
+            abilities["punishment"],
+        ],
+        [
+            abilities["doomsday"],
+            abilities["omen"],
+            abilities["hoarfrost"],
+            abilities["reverberating"],
+            abilities["wrath"],
+            abilities["punishment"],
+        ],
+    ]
+    target_selectors = {
+        abilities["chill"]: selectors["opposing-random"],
+        abilities["omen"]: selectors["actor"],
+        abilities["omen-bronya"]: selectors["actor"],
+        abilities["hoarfrost"]: selectors["opposing-random"],
+        abilities["reverberating"]: selectors["frozen-primary"],
+        abilities["wrath"]: selectors["actor"],
+        abilities["punishment"]: selectors["opposing-all"],
+        abilities["doomsday"]: selectors["opposing-all"],
+    }
+    next_state = BASE + 701
+    next_candidate = BASE + 801
+    next_transition = BASE + 901
+    for phase_index, sequence in enumerate(phase_sequences):
+        state_ids = list(range(next_state, next_state + len(sequence)))
+        next_state += len(sequence)
+        add(
+            "AiGraph",
+            {
+                "id": graphs[phase_index],
+                "initial_state_id": state_ids[0],
+                "automatic_transition_budget": 8,
+            },
+        )
+        for offset, (state_id, ability_id) in enumerate(zip(state_ids, sequence)):
+            add(
+                "AiState",
+                {
+                    "id": state_id,
+                    "stable_key": (
+                        f"goal07.enemy.s06.ai.phase-{phase_index + 1}."
+                        f"state-{offset + 1}"
+                    ),
+                    "graph_id": graphs[phase_index],
+                    "mandatory_fallback_ability_id": abilities["chill"],
+                    "turn_counter_reset": offset == 0,
+                },
+            )
+            add(
+                "AiCandidate",
+                {
+                    "id": next_candidate,
+                    "stable_key": (
+                        f"goal07.enemy.s06.ai.phase-{phase_index + 1}."
+                        f"candidate-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "ability_id": ability_id,
+                    "condition_id": conditions["always"],
+                    "target_selector_id": target_selectors[ability_id],
+                    "priority": 0,
+                    "selection": "FirstLegal",
+                    "no_target_fallback": "UseFallbackAbility",
+                    "fallback_ability_id": abilities["chill"],
+                },
+            )
+            next_candidate += 1
+            add(
+                "AiTransition",
+                {
+                    "id": next_transition,
+                    "stable_key": (
+                        f"goal07.enemy.s06.ai.phase-{phase_index + 1}."
+                        f"transition-{offset + 1}"
+                    ),
+                    "state_id": state_id,
+                    "sequence": 1,
+                    "target_state_id": state_ids[(offset + 1) % len(state_ids)],
+                    "condition_id": conditions["always"],
+                    "priority": 0,
+                    "timing": "AfterAction",
+                },
+            )
+            next_transition += 1
+
+    linked_specs = {
+        "ice-edge-left": (1, "0.09375", "144", abilities["icy-wind"]),
+        "ice-edge-right": (5, "0.09375", "144", abilities["icy-wind"]),
+        "bronya": (4, "0.75", "143", abilities["bronya-cycle"]),
+    }
+    for key, linked_id in linked.items():
+        formation, hp_ratio, spd, action_ability = linked_specs[key]
+        add(
+            "LinkedUnitDefinition",
+            {
+                "id": linked_id,
+                "source_definition_identity_id": linked_id,
+                "kind": "Summon",
+                "presence": "Present",
+                "ability_ids": str(action_ability),
+                "action_ability_id": action_ability,
+                "formation_index": formation,
+                "initial_gauge_decimal": "10000",
+                "hp_owner_ratio_decimal": hp_ratio,
+                "hp_flat_decimal": "0",
+                "atk_owner_ratio_decimal": "1",
+                "atk_flat_decimal": "0",
+                "def_owner_ratio_decimal": "1",
+                "def_flat_decimal": "0",
+                "spd_owner_ratio_decimal": "0",
+                "spd_flat_decimal": spd,
+                "owner_defeat_policy": "Depart",
+                "owner_departure_policy": "Depart",
+                "wave_policy": "Depart",
+                "combatant_digest_sha256": sha256_text(
+                    f"goal07-s06-linked-{key}-v1"
+                ),
+            },
+        )
+
+    add(
+        "EnemyTemplate",
+        {
+            "id": template,
+            "rank": "Boss",
+            "base_aggro_decimal": "100",
+            "default_ai_graph_id": graphs[0],
+        },
+    )
+    add(
+        "EnemyVariant",
+        {
+            "id": variant,
+            "template_id": template,
+            "ai_graph_id": graphs[0],
+            "mechanically_distinct_key": VARIANT_KEY,
+        },
+    )
+    for level in anchor["levels"]:
+        add(
+            "EnemyStat",
+            {
+                "variant_id": variant,
+                "level": level["authored_level"],
+                "difficulty_key": "standard-universe-v1",
+                "hp_decimal": level["base_hp"],
+                "atk_decimal": level["base_atk"],
+                "def_decimal": level["base_def"],
+                "spd_decimal": level["base_spd"],
+                "effect_hit_rate_decimal": level["effect_hit_rate"],
+                "effect_resistance_decimal": level["effect_resistance"],
+                "crit_damage_decimal": "0.2",
+            },
+        )
+    for sequence, weakness in enumerate(["Fire", "Lightning", "Quantum"], start=1):
+        add(
+            "EnemyWeakness",
+            {"variant_id": variant, "sequence": sequence, "element": weakness},
+        )
+    for element, value in [
+        ("Ice", "0.6"),
+        ("Imaginary", "0.2"),
+        ("Physical", "0.4"),
+        ("Wind", "0.4"),
+    ]:
+        add(
+            "EnemyResistance",
+            {"variant_id": variant, "element": element, "value_decimal": value},
+        )
+    for category in ["STAT_CTRL_Confine", "STAT_CTRL_Frozen"]:
+        add(
+            "EnemyDebuffResistance",
+            {
+                "variant_id": variant,
+                "category_key": category,
+                "value_decimal": "1",
+            },
+        )
+    add(
+        "EnemyToughnessLayer",
+        {
+            "variant_id": variant,
+            "sequence": 1,
+            "layer_key": "ordinary",
+            "kind": "Ordinary",
+            "maximum_decimal": "120",
+            "recovery_ratio_decimal": "1",
+            "active_at_start": True,
+        },
+    )
+    for sequence, ability_id in enumerate(
+        [
+            abilities["chill"],
+            abilities["omen"],
+            abilities["punishment"],
+            abilities["hoarfrost"],
+            abilities["wrath"],
+            abilities["reverberating"],
+            abilities["omen-bronya"],
+            abilities["doomsday"],
+        ],
+        start=1,
+    ):
+        add(
+            "EnemyVariantAbility",
+            {
+                "variant_id": variant,
+                "sequence": sequence,
+                "ability_id": ability_id,
+            },
+        )
+    for sequence, graph in enumerate(graphs, start=1):
+        add(
+            "EnemyPhase",
+            {
+                "id": BASE + 600 + sequence,
+                "stable_key": f"goal07.enemy.s06.phase-{sequence}",
+                "variant_id": variant,
+                "sequence": sequence,
+                "entry_condition_id": conditions["always"],
+                "exit_condition_id": conditions["always"],
+                "replacement_priority": sequence,
+                "ai_graph_id": graph,
+                "targetable": True,
+                "transition_model": "TransformSameUnit",
+                "hp_carry": "Reset",
+                "action_gauge_carry": "Reset",
+                "effect_carry": "Clear",
+                "toughness_carry": "Reset",
+                "summon_carry": "Clear",
+            },
+        )
+
+    anchor_digest = sha256_bytes(anchor_path(PARTITION).read_bytes())
+    add(
+        "SourceRecord",
+        {
+            "id": SOURCE_RECORD_ID,
+            "stable_key": "source.hsr-wiki.cocolia-complete.2026-07-29",
+            "category": "CommunityMaintained",
+            "publisher": anchor["source"]["publisher"],
+            "url": anchor["source"]["url"],
+            "accessed_on": anchor["source"]["accessed_on"],
+            "applicable_game_version": anchor["source"]["game_version"],
+            "confidence": "SecondaryVersionSensitiveCrossCheck",
+            "evidence_sha256": anchor_digest,
+            "usage_note": (
+                "Exact public per-level values are committed with retained "
+                "structured AI and ability source hashes."
+            ),
+        },
+    )
+    add(
+        "EvidenceRecord",
+        {
+            "id": EVIDENCE_RECORD_ID,
+            "stable_key": "evidence.goal07.enemy.s06.numeric-anchors",
+            "kind": "SourcePayload",
+            "source_record_id": SOURCE_RECORD_ID,
+            "sha256": anchor_digest,
+            "note": "Committed exact public per-level numeric anchors for Goal 07 S06.",
+        },
+    )
+    for item in identities:
+        add("ContentIdentity", item)
+        add(
+            "ContentEvidenceBinding",
+            {
+                "content_id": item["id"],
+                "sequence": 1,
+                "fact_key": f"goal07.s06.executable:{item['stable_key']}",
+                "source_record_id": 1,
+                "evidence_record_id": 3,
+                "quality": "ExactStructured",
+                "mechanism_quality": "ExactStructured",
+            },
+        )
+    add(
+        "ContentEvidenceBinding",
+        {
+            "content_id": variant,
+            "sequence": 2,
+            "fact_key": "goal07.s06.public-level-stats",
+            "source_record_id": SOURCE_RECORD_ID,
+            "evidence_record_id": EVIDENCE_RECORD_ID,
+            "quality": "ExactStructured",
+            "mechanism_quality": "ExactStructured",
+        },
+    )
+    for table_rows in rows.values():
+        table_rows.sort(
+            key=lambda row: json.dumps(
+                row, ensure_ascii=False, sort_keys=True, default=str
+            )
+        )
+    return rows
+
+
 OWNERSHIP: dict[str, Callable[[dict[str, Any]], bool]] = {
     "Ability": lambda row: BASE <= int(row["id"]) < BASE + 10_000,
     "AbilityPhase": lambda row: BASE <= int(row["ability_id"]) < BASE + 10_000,
@@ -6703,6 +8046,7 @@ def main() -> None:
         "G07-P5-M15-S03": owned_rows_s03,
         "G07-P5-M15-S04": owned_rows_s04,
         "G07-P5-M15-S05": owned_rows_s05,
+        "G07-P5-M15-S06": owned_rows_s06,
     }[PARTITION]()
     golden_path = (
         ROOT

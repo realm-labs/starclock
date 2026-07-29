@@ -164,7 +164,7 @@ fn pending_encounter_is_assembled_and_sealed_from_one_current_snapshot() {
 
 #[test]
 fn stale_invalid_and_budget_failures_preserve_state_and_retry_cleanly() {
-    let (mut activity, assembler) = activity_and_assembler(0x6024);
+    let (mut activity, assembler) = activity_and_assembler(0x6023);
     let initial = activity.view();
     activity
         .choose_option(

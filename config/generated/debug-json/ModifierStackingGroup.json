@@ -479,6 +479,48 @@
             "String": "goal07.enemy.s05.sword-formation"
           }
         }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1030531
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.charging"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1030532
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.intensifying-cold"
+          }
+        }
+      },
+      {
+        "values": {
+          "aggregation": {
+            "String": "Sum"
+          },
+          "comparator_expression_id": "Null",
+          "id": {
+            "Integer": 1030533
+          },
+          "stable_key": {
+            "String": "goal07.enemy.s06.redeployment"
+          }
+        }
       }
     ]
   }
