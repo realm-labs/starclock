@@ -1,0 +1,1875 @@
+{
+  "schema_revision": "starclock.currency-wars-normalized-schema.v1",
+  "goal_id": "currency-wars-reference-v1",
+  "bound_content_manifest_sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+  "common_envelope": {
+    "required_fields": [
+      "id",
+      "schema_revision",
+      "kind",
+      "name_en",
+      "name_zh_cn",
+      "summary_en",
+      "summary_zh_cn",
+      "ownership",
+      "coverage_state",
+      "evidence_quality",
+      "source_refs",
+      "tags"
+    ],
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$",
+      "global_uniqueness": true
+    },
+    "schema_revision": {
+      "type": "string",
+      "value": "starclock.currency-wars-row.v1"
+    },
+    "kind": {
+      "type": "string",
+      "closed_by_file_contract": true
+    },
+    "name_en": {
+      "type": "string",
+      "nonempty": true
+    },
+    "name_zh_cn": {
+      "type": "string",
+      "nonempty": true
+    },
+    "summary_en": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "summary_zh_cn": {
+      "type": "string",
+      "nonempty": true,
+      "mechanical_only": true
+    },
+    "ownership": {
+      "enum": [
+        "CurrencyWars",
+        "Shared"
+      ],
+      "candidate_rule": "EvidenceOnly manifest obligations cannot become normalized rows until promoted by an exact reconciliation receipt"
+    },
+    "coverage_state": {
+      "enum": [
+        "Cataloged",
+        "Researched",
+        "DataReady",
+        "Blocked"
+      ]
+    },
+    "evidence_quality": {
+      "enum": [
+        "ExactStructured",
+        "ExactPublicText",
+        "Observed",
+        "ApproximateFromReleasedText",
+        "ProjectPolicy"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "minimum": 1,
+      "ordered": true,
+      "item_type": "source_ref"
+    },
+    "tags": {
+      "type": "array",
+      "unique": true,
+      "ordering": "lexicographic"
+    }
+  },
+  "types": {
+    "canonical_decimal": {
+      "storage": "string",
+      "pattern": "^(0|-?(?:[1-9][0-9]*(?:\\.[0-9]*[1-9])?|0\\.[0-9]*[1-9]))$",
+      "forbid": [
+        "binary floating point",
+        "exponent notation",
+        "leading plus",
+        "negative zero",
+        "trailing fractional zero"
+      ]
+    },
+    "source_hash": {
+      "storage": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_numeric_id": {
+      "storage": "string",
+      "reason": "preserve identifiers and TextMap hashes beyond JavaScript safe integer range"
+    },
+    "source_ref": {
+      "required_fields": [
+        "source_id",
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "access_date",
+        "game_version",
+        "evidence_quality",
+        "mechanism_quality"
+      ],
+      "optional_fields": [
+        "note",
+        "replacement_condition"
+      ],
+      "approximation_rule": "ApproximateFromReleasedText and ProjectPolicy require note and replacement_condition"
+    },
+    "stable_ref": {
+      "storage": "string",
+      "resolution": "closed pack index or explicit inherited stable-ID set",
+      "unknown_behavior": "reject"
+    },
+    "ordered_child": {
+      "required_fields": [
+        "parent_id",
+        "ordinal"
+      ],
+      "ordinal_type": "unsigned fixed-width integer",
+      "duplicate_behavior": "reject"
+    }
+  },
+  "canonical_encoding": {
+    "encoding": "UTF-8",
+    "line_endings": "LF",
+    "indent_spaces": 2,
+    "terminal_newline": true,
+    "object_key_order": "schema declaration order, then lexicographic extension fields",
+    "array_order": "explicit file ordering_keys; never filesystem or object iteration order",
+    "unicode_normalization": "NFC",
+    "null_policy": "omit optional absent values; never use null",
+    "boolean_policy": "JSON true/false only",
+    "integer_policy": "JSON integer only inside signed 53-bit range; otherwise source_numeric_id string",
+    "decimal_policy": "canonical_decimal strings only",
+    "digest_policy": "SHA-256 over encoded bytes; pack digest excludes pack-index.json itself"
+  },
+  "manifest_mapping": {
+    "source_obligations": "every manifest category maps to one or more normalized files and closes exactly once in coverage.json",
+    "candidate_obligations": "EvidenceOnly rows remain Cataloged or Blocked until an exact selector/reference/stable-ID receipt promotes or excludes them",
+    "derived_files": "derived rows reuse a parent category and cannot create or remove a source obligation",
+    "child_rows": "typed child rows carry parent stable ID and deterministic ordinal",
+    "unknown_reference": "reject"
+  },
+  "reconciliation_policy": {
+    "checkpoints": [
+      {
+        "goal": "gold-and-gears-reference-v1",
+        "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+        "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+        "records": 7913,
+        "required_now": true,
+        "remote_witness": {
+          "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference",
+          "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+          "path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+          "locator": "exclusions.gold_checkpoint",
+          "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+        }
+      },
+      {
+        "goal": "swarm-disaster-reference-v1",
+        "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+        "records": 6963,
+        "required_now": true,
+        "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference"
+      },
+      {
+        "goal": "unknowable-domain-reference-v1",
+        "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+        "records": 5377,
+        "required_now": true,
+        "remote_ancestor": "origin/codex/goal10-unknowable-domain-reference"
+      },
+      {
+        "goal": "divergent-universe-reference-v1",
+        "commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+        "manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+        "records": 6215,
+        "required_now": true,
+        "remote_ancestor": "origin/codex/goal11-divergent-universe-reference",
+        "state": "ResolvedDistinctSelector",
+        "replacement_condition": "Reopen only if a GridFight-originating typed reference reaches a row claimed exclusively by Goal 11."
+      }
+    ],
+    "join_key": [
+      "source_path",
+      "row_locator",
+      "evidence_sha256"
+    ],
+    "outcomes": [
+      "MatchedShared",
+      "CurrencyWarsOnly",
+      "OtherGoalOnly",
+      "DivergentRepresentation",
+      "Conflict"
+    ],
+    "conflict_behavior": "Blocked; record the conflict and wait for merge coordination without mutating another Goal",
+    "required_receipt_fields": [
+      "id",
+      "source_path",
+      "row_locator",
+      "evidence_sha256",
+      "checkpoint_goal",
+      "checkpoint_commit",
+      "checkpoint_ownership",
+      "currency_wars_ownership",
+      "outcome",
+      "note"
+    ]
+  },
+  "files": [
+    {
+      "file": "profiles.json",
+      "record_kind": "CurrencyWarsProfiles",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles_gambit_entries_finish"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_refs",
+        "module_id",
+        "gambit_mode_ids",
+        "initial_resources",
+        "finish_condition_ids"
+      ]
+    },
+    {
+      "file": "gambit-modes.json",
+      "record_kind": "CurrencyWarsGambitModes",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles_gambit_entries_finish"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "mode_kind",
+        "unlock_ids",
+        "entry_rules",
+        "initial_resources"
+      ]
+    },
+    {
+      "file": "modules.json",
+      "record_kind": "CurrencyWarsModules",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles_gambit_entries_finish"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "sub_mode",
+        "tourn_mode",
+        "main_tourn_id",
+        "sub_tourn_id"
+      ]
+    },
+    {
+      "file": "entries.json",
+      "record_kind": "CurrencyWarsEntries",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles_gambit_entries_finish"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_kind",
+        "module_id",
+        "unlock_ids",
+        "gambit_mode_ids"
+      ]
+    },
+    {
+      "file": "finish-conditions.json",
+      "record_kind": "CurrencyWarsFinishConditions",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "profiles_gambit_entries_finish"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "condition_kind",
+        "parameters",
+        "terminal_disposition"
+      ]
+    },
+    {
+      "file": "area-groups.json",
+      "record_kind": "CurrencyWarsAreaGroups",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "area_ids",
+        "selection_policy",
+        "transition_rules"
+      ]
+    },
+    {
+      "file": "areas.json",
+      "record_kind": "CurrencyWarsAreas",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "plane_number",
+        "difficulty_ids",
+        "layer_ids",
+        "map_entry_id"
+      ]
+    },
+    {
+      "file": "difficulties.json",
+      "record_kind": "CurrencyWarsDifficulties",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "rank_bounds",
+        "enemy_scaling_refs",
+        "gambit_rules"
+      ]
+    },
+    {
+      "file": "layers.json",
+      "record_kind": "CurrencyWarsLayers",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "plane_id",
+        "layer_number",
+        "ordered_node_ids"
+      ]
+    },
+    {
+      "file": "rooms.json",
+      "record_kind": "CurrencyWarsRooms",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "room_type",
+        "reachability_disposition",
+        "stage_refs"
+      ]
+    },
+    {
+      "file": "nodes.json",
+      "record_kind": "CurrencyWarsNodes",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "plane_id",
+        "layer_id",
+        "ordinal",
+        "domain_composition_id",
+        "room_pool_id"
+      ]
+    },
+    {
+      "file": "domain-compositions.json",
+      "record_kind": "CurrencyWarsDomainCompositions",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "domain_type",
+        "room_candidate_ids",
+        "selection_policy",
+        "fallback"
+      ]
+    },
+    {
+      "file": "stage-flow.json",
+      "record_kind": "CurrencyWarsStageFlow",
+      "phase": "P1-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "entry_id",
+        "ordered_node_refs",
+        "carry_rules",
+        "reset_rules"
+      ]
+    },
+    {
+      "file": "squad-hp-rules.json",
+      "record_kind": "CurrencyWarsSquadHpRules",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [
+        "squad_hp_action_value_projections"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "initial_hp",
+        "minimum_hp",
+        "maximum_hp",
+        "loss_rules",
+        "recovery_rules"
+      ]
+    },
+    {
+      "file": "action-value-limits.json",
+      "record_kind": "CurrencyWarsActionValueLimits",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "limit_kind",
+        "initial_value",
+        "decrement_rules",
+        "timeout_boundary"
+      ]
+    },
+    {
+      "file": "battle-result-projections.json",
+      "record_kind": "CurrencyWarsBattleResultProjections",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "battle_outcome",
+        "squad_hp_projection",
+        "action_value_projection",
+        "run_disposition"
+      ]
+    },
+    {
+      "file": "run-failure-rules.json",
+      "record_kind": "CurrencyWarsRunFailureRules",
+      "phase": "P1-B2",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "failure_condition",
+        "same_boundary_order",
+        "terminal_disposition"
+      ]
+    },
+    {
+      "file": "roster-avatars.json",
+      "record_kind": "CurrencyWarsRosterAvatars",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "roster_cost_shop_team_size_economy"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "cost",
+        "role_id",
+        "build_mapping_id"
+      ]
+    },
+    {
+      "file": "economy-rules.json",
+      "record_kind": "CurrencyWarsEconomyRules",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [
+        "roster_cost_shop_team_size_economy"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "currency_ids",
+        "experience_rules",
+        "refresh_rules",
+        "team_size_rules"
+      ]
+    },
+    {
+      "file": "roster-offers.json",
+      "record_kind": "CurrencyWarsRosterOffers",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_avatar_ids",
+        "weights",
+        "cost_rule",
+        "fallback"
+      ]
+    },
+    {
+      "file": "roster-transactions.json",
+      "record_kind": "CurrencyWarsRosterTransactions",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "operation",
+        "price_rule",
+        "eligibility",
+        "ordered_state_changes"
+      ]
+    },
+    {
+      "file": "team-size-states.json",
+      "record_kind": "CurrencyWarsTeamSizeStates",
+      "phase": "P1-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "level",
+        "field_cap",
+        "bench_cap",
+        "transition_rules"
+      ]
+    },
+    {
+      "file": "role-mappings.json",
+      "record_kind": "CurrencyWarsRoleMappings",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "positions_character_empowerments"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "position_ids",
+        "empowerment_ids"
+      ]
+    },
+    {
+      "file": "positions.json",
+      "record_kind": "CurrencyWarsPositions",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [
+        "positions_character_empowerments"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "position_kind",
+        "field_index",
+        "validation_rules",
+        "battle_contributions"
+      ]
+    },
+    {
+      "file": "character-empowerments.json",
+      "record_kind": "CurrencyWarsCharacterEmpowerments",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "position_id",
+        "activation",
+        "effect_ids",
+        "teardown"
+      ]
+    },
+    {
+      "file": "battle-overrides.json",
+      "record_kind": "CurrencyWarsBattleOverrides",
+      "phase": "P1-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "rule_kind",
+        "trigger",
+        "parameters",
+        "ordered_operations",
+        "teardown"
+      ]
+    },
+    {
+      "file": "bonds.json",
+      "record_kind": "CurrencyWarsBonds",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [
+        "bonds_members_levels"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "member_ids",
+        "level_ids",
+        "recompute_timing",
+        "contribution_ids"
+      ]
+    },
+    {
+      "file": "bond-levels.json",
+      "record_kind": "CurrencyWarsBondLevels",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "bond_id",
+        "level",
+        "threshold",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "bond-contributions.json",
+      "record_kind": "CurrencyWarsBondContributions",
+      "phase": "P1-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "bond_id",
+        "level",
+        "scope",
+        "activation",
+        "ordered_effects"
+      ]
+    },
+    {
+      "file": "star-states.json",
+      "record_kind": "CurrencyWarsStarStates",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [
+        "star_states_copy_combinations"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "star_level",
+        "copy_count",
+        "scaling_refs"
+      ]
+    },
+    {
+      "file": "star-combination-rules.json",
+      "record_kind": "CurrencyWarsStarCombinationRules",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "input_state",
+        "required_copies",
+        "output_state",
+        "overflow_rule"
+      ]
+    },
+    {
+      "file": "star-lifecycle-rules.json",
+      "record_kind": "CurrencyWarsStarLifecycleRules",
+      "phase": "P1-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "operation",
+        "replacement_rule",
+        "sale_rule",
+        "teardown"
+      ]
+    },
+    {
+      "file": "build-reference-avatars.json",
+      "record_kind": "CurrencyWarsBuildReferenceAvatars",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "build_mappings_equipment_conversions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "owned_build_id",
+        "trial_build_id",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "build-source-files.json",
+      "record_kind": "CurrencyWarsBuildSourceFiles",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [
+        "build_mappings_equipment_conversions"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "source_sha256",
+        "mapping_role",
+        "disposition"
+      ]
+    },
+    {
+      "file": "build-mappings.json",
+      "record_kind": "CurrencyWarsBuildMappings",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "avatar_id",
+        "level",
+        "trace_state",
+        "light_cone",
+        "relics"
+      ]
+    },
+    {
+      "file": "build-substitution-rules.json",
+      "record_kind": "CurrencyWarsBuildSubstitutionRules",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "selection_timing",
+        "owned_trial_policy",
+        "refresh_timing",
+        "teardown"
+      ]
+    },
+    {
+      "file": "off-field-conversions.json",
+      "record_kind": "CurrencyWarsOffFieldConversions",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_kind",
+        "eligibility",
+        "conversion",
+        "destination_state"
+      ]
+    },
+    {
+      "file": "equipment.json",
+      "record_kind": "CurrencyWarsEquipment",
+      "phase": "P1-B7",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "slot",
+        "eligibility",
+        "effect_ids",
+        "replacement_rule"
+      ]
+    },
+    {
+      "file": "augment-definitions.json",
+      "record_kind": "CurrencyWarsAugmentDefinitions",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category_id",
+        "quality",
+        "chapter_limits",
+        "effect_ids",
+        "config_path",
+        "lifecycle"
+      ]
+    },
+    {
+      "file": "augment-maze-buffs.json",
+      "record_kind": "CurrencyWarsAugmentMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "augment-monster-rules.json",
+      "record_kind": "CurrencyWarsAugmentMonsterRules",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "quality",
+        "parameters",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "augment-remarks.json",
+      "record_kind": "CurrencyWarsAugmentRemarks",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "augment_id",
+        "remark"
+      ]
+    },
+    {
+      "file": "enhancements.json",
+      "record_kind": "CurrencyWarsEnhancements",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "group_id",
+        "cost",
+        "parameters",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "module-ban-rules.json",
+      "record_kind": "CurrencyWarsModuleBanRules",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "module_id",
+        "subject_kind",
+        "subject_id"
+      ]
+    },
+    {
+      "file": "orbs.json",
+      "record_kind": "CurrencyWarsOrbs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "bonus_id",
+        "orb_type",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "orb-displays.json",
+      "record_kind": "CurrencyWarsOrbDisplays",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "orb_type",
+        "display_locator"
+      ]
+    },
+    {
+      "file": "portal-buffs.json",
+      "record_kind": "CurrencyWarsPortalBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "config_path",
+        "effect_ids",
+        "bonus_ids",
+        "lifecycle"
+      ]
+    },
+    {
+      "file": "portal-maze-buffs.json",
+      "record_kind": "CurrencyWarsPortalMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "portal-remarks.json",
+      "record_kind": "CurrencyWarsPortalRemarks",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "portal_id",
+        "remark"
+      ]
+    },
+    {
+      "file": "projection-maze-buffs.json",
+      "record_kind": "CurrencyWarsProjectionMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "projections.json",
+      "record_kind": "CurrencyWarsProjections",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "role_id",
+        "unlock_type",
+        "trait_ids",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "season-augment-memberships.json",
+      "record_kind": "CurrencyWarsSeasonAugmentMemberships",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
+        "augment_id"
+      ]
+    },
+    {
+      "file": "season-portal-memberships.json",
+      "record_kind": "CurrencyWarsSeasonPortalMemberships",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
+        "portal_id"
+      ]
+    },
+    {
+      "file": "season-talents.json",
+      "record_kind": "CurrencyWarsSeasonTalents",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "season_id",
+        "cost",
+        "prerequisite_ids",
+        "successor_ids",
+        "effect_ids",
+        "config_path"
+      ]
+    },
+    {
+      "file": "selected-enhancements.json",
+      "record_kind": "CurrencyWarsSelectedEnhancements",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "trait_effect_id",
+        "cost",
+        "parameters",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "talents.json",
+      "record_kind": "CurrencyWarsTalents",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "cost",
+        "prerequisite_ids",
+        "successor_ids",
+        "effect_ids",
+        "config_path"
+      ]
+    },
+    {
+      "file": "talent-maze-buffs.json",
+      "record_kind": "CurrencyWarsTalentMazeBuffs",
+      "phase": "P1-B8",
+      "manifest_category_inputs": [
+        "investment_environment_strategy_persona"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "buff_series",
+        "level",
+        "binding",
+        "parameters",
+        "modifier"
+      ]
+    },
+    {
+      "file": "rank-gambit-progression.json",
+      "record_kind": "CurrencyWarsRankGambitProgression",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [
+        "planes_difficulties_ranks_nodes_rooms"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "rank",
+        "gambit_mode",
+        "entry_boundary",
+        "enemy_affix_ids"
+      ]
+    },
+    {
+      "file": "enemy-affixes.json",
+      "record_kind": "CurrencyWarsEnemyAffixes",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "rank_bounds",
+        "difficulty_ids",
+        "battle_contributions"
+      ]
+    },
+    {
+      "file": "permanent-progression.json",
+      "record_kind": "CurrencyWarsPermanentProgression",
+      "phase": "P1-B9",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_id",
+        "scope",
+        "entry_changes",
+        "available_choice_changes"
+      ]
+    },
+    {
+      "file": "blessing-paths.json",
+      "record_kind": "CurrencyWarsBlessingPaths",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "path_id",
+        "offer_roles",
+        "formula_roles"
+      ]
+    },
+    {
+      "file": "blessings.json",
+      "record_kind": "CurrencyWarsBlessings",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "path_id",
+        "category",
+        "level_ids",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "blessing-levels.json",
+      "record_kind": "CurrencyWarsBlessingLevels",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "blessing_id",
+        "level",
+        "parameters",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "blessing-groups.json",
+      "record_kind": "CurrencyWarsBlessingGroups",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_ids",
+        "selection_policy",
+        "weight_program"
+      ]
+    },
+    {
+      "file": "formulas.json",
+      "record_kind": "CurrencyWarsFormulas",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "formula_kind",
+        "recipe_id",
+        "progress_states",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "formula-displays.json",
+      "record_kind": "CurrencyWarsFormulaDisplays",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "formula_id",
+        "display_state",
+        "mechanical_summary_ids"
+      ]
+    },
+    {
+      "file": "formula-randomizers.json",
+      "record_kind": "CurrencyWarsFormulaRandomizers",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [
+        "blessings_levels_formulas"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_ids",
+        "weight_program",
+        "reroll_rule",
+        "fallback"
+      ]
+    },
+    {
+      "file": "formula-recipes.json",
+      "record_kind": "CurrencyWarsFormulaRecipes",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "required_path_counts",
+        "required_blessing_states",
+        "completion_rule"
+      ]
+    },
+    {
+      "file": "formula-contributions.json",
+      "record_kind": "CurrencyWarsFormulaContributions",
+      "phase": "P2-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "formula_id",
+        "source_state",
+        "scope",
+        "ordered_effects"
+      ]
+    },
+    {
+      "file": "curios.json",
+      "record_kind": "CurrencyWarsCurios",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios_miracles_hex_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "category",
+        "state_ids",
+        "eligibility_rule_ids"
+      ]
+    },
+    {
+      "file": "curio-states.json",
+      "record_kind": "CurrencyWarsCurioStates",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios_miracles_hex_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "state",
+        "charges",
+        "effect_ids"
+      ]
+    },
+    {
+      "file": "curio-groups.json",
+      "record_kind": "CurrencyWarsCurioGroups",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios_miracles_hex_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "candidate_state_ids",
+        "weights",
+        "eligibility"
+      ]
+    },
+    {
+      "file": "curio-lifecycle-rules.json",
+      "record_kind": "CurrencyWarsCurioLifecycleRules",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "curio_id",
+        "activation",
+        "destruction",
+        "repair",
+        "replacement",
+        "fallback"
+      ]
+    },
+    {
+      "file": "hex-states.json",
+      "record_kind": "CurrencyWarsHexStates",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios_miracles_hex_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "hex_id",
+        "state",
+        "activation",
+        "effect_ids",
+        "teardown"
+      ]
+    },
+    {
+      "file": "hex-eligibility.json",
+      "record_kind": "CurrencyWarsHexEligibility",
+      "phase": "P2-B2",
+      "manifest_category_inputs": [
+        "curios_miracles_hex_states"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "hex_id",
+        "subject_id",
+        "eligibility",
+        "replacement"
+      ]
+    },
+    {
+      "file": "occurrences.json",
+      "record_kind": "CurrencyWarsOccurrences",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "events_variants_choices"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "variant_ids",
+        "unlock_rules",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "occurrence-variants.json",
+      "record_kind": "CurrencyWarsOccurrenceVariants",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [
+        "events_variants_choices"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "occurrence_id",
+        "graph_path",
+        "entry_conditions",
+        "choice_ids"
+      ]
+    },
+    {
+      "file": "occurrence-choices.json",
+      "record_kind": "CurrencyWarsOccurrenceChoices",
+      "phase": "P2-B3",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "variant_id",
+        "ordinal",
+        "conditions",
+        "costs",
+        "ordered_outcomes"
+      ]
+    },
+    {
+      "file": "workbenches.json",
+      "record_kind": "CurrencyWarsWorkbenches",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_ids",
+        "currency_ids",
+        "availability"
+      ]
+    },
+    {
+      "file": "workbench-functions.json",
+      "record_kind": "CurrencyWarsWorkbenchFunctions",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "function_type",
+        "input_policy",
+        "output_policy",
+        "price_rule"
+      ]
+    },
+    {
+      "file": "gamble-groups.json",
+      "record_kind": "CurrencyWarsGambleGroups",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "group_type",
+        "unit_ids",
+        "offer_policy"
+      ]
+    },
+    {
+      "file": "gamble-units.json",
+      "record_kind": "CurrencyWarsGambleUnits",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "unit_type",
+        "parameters",
+        "outcome_program"
+      ]
+    },
+    {
+      "file": "curse-chests.json",
+      "record_kind": "CurrencyWarsCurseChests",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "chest_type",
+        "parameters",
+        "choice_program"
+      ]
+    },
+    {
+      "file": "adventure-outcomes.json",
+      "record_kind": "CurrencyWarsAdventureOutcomes",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [
+        "currencies_shops_services"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "adventure_type",
+        "parameter_group_id",
+        "abstract_outcome"
+      ]
+    },
+    {
+      "file": "currencies.json",
+      "record_kind": "CurrencyWarsCurrencies",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scope",
+        "gain_rules",
+        "spend_rules",
+        "reset_rule"
+      ]
+    },
+    {
+      "file": "shop-services.json",
+      "record_kind": "CurrencyWarsShopServices",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_kind",
+        "price_rule",
+        "inventory_rule",
+        "refresh_rule"
+      ]
+    },
+    {
+      "file": "service-offer-rules.json",
+      "record_kind": "CurrencyWarsServiceOfferRules",
+      "phase": "P2-B4",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "service_id",
+        "candidate_ids",
+        "weights",
+        "fallback"
+      ]
+    },
+    {
+      "file": "encounter-source-obligations.json",
+      "record_kind": "CurrencyWarsEncounterSourceObligations",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [
+        "encounter_groups_waves_enemy_slots"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "parent_kind",
+        "parent_id",
+        "resolution_state"
+      ]
+    },
+    {
+      "file": "encounter-groups.json",
+      "record_kind": "CurrencyWarsEncounterGroups",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "plane_id",
+        "difficulty_id",
+        "rank",
+        "candidate_stage_ids"
+      ]
+    },
+    {
+      "file": "encounter-waves.json",
+      "record_kind": "CurrencyWarsEncounterWaves",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "stage_id",
+        "wave_index",
+        "enemy_slot_ids",
+        "trigger"
+      ]
+    },
+    {
+      "file": "enemy-slots.json",
+      "record_kind": "CurrencyWarsEnemySlots",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "wave_id",
+        "slot_index",
+        "monster_id",
+        "level",
+        "ability_refs"
+      ]
+    },
+    {
+      "file": "boss-pools.json",
+      "record_kind": "CurrencyWarsBossPools",
+      "phase": "P2-B5",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "plane_id",
+        "difficulty_id",
+        "candidate_monster_ids",
+        "selection_policy"
+      ]
+    },
+    {
+      "file": "mechanic-source-files.json",
+      "record_kind": "CurrencyWarsMechanicSourceFiles",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "mechanic_rules"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "source_sha256",
+        "mechanic_family",
+        "disposition"
+      ]
+    },
+    {
+      "file": "mechanic-rules.json",
+      "record_kind": "CurrencyWarsMechanicRules",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "scope",
+        "trigger",
+        "ordered_operations",
+        "state_lifecycle",
+        "runtime_lowered"
+      ]
+    },
+    {
+      "file": "sources.json",
+      "record_kind": "CurrencyWarsSources",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "repository",
+        "revision",
+        "path",
+        "locator",
+        "sha256",
+        "mechanism_quality"
+      ]
+    },
+    {
+      "file": "coverage.json",
+      "record_kind": "CurrencyWarsCoverage",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "manifest_category",
+        "manifest_record_id",
+        "normalized_record_ids",
+        "state"
+      ]
+    },
+    {
+      "file": "research-gaps.json",
+      "record_kind": "CurrencyWarsResearchGaps",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "field",
+        "known_facts",
+        "selected_policy",
+        "alternatives",
+        "replacement_condition"
+      ]
+    },
+    {
+      "file": "semantic-fixture-families.json",
+      "record_kind": "CurrencyWarsSemanticFixtureFamilies",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [
+        "semantic_fixtures"
+      ],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "minimum_cases",
+        "must_cover"
+      ]
+    },
+    {
+      "file": "review-fixtures.json",
+      "record_kind": "CurrencyWarsReviewFixtures",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "family_id",
+        "preconditions",
+        "input",
+        "ordered_operations",
+        "expected_facts"
+      ]
+    },
+    {
+      "file": "reconciliation-receipts.json",
+      "record_kind": "CurrencyWarsReconciliationReceipts",
+      "phase": "P4-B1",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "source_path",
+        "row_locator",
+        "evidence_sha256",
+        "checkpoint",
+        "outcome"
+      ]
+    },
+    {
+      "file": "manifest.json",
+      "record_kind": "CurrencyWarsManifest",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "content_manifest_sha256",
+        "normalized_files",
+        "record_counts"
+      ]
+    },
+    {
+      "file": "pack-index.json",
+      "record_kind": "CurrencyWarsPackIndex",
+      "phase": "P2-B6",
+      "manifest_category_inputs": [],
+      "ordering_keys": [
+        "id"
+      ],
+      "required_domain_fields": [
+        "pack_digest",
+        "file_digests",
+        "stable_id_index"
+      ]
+    }
+  ]
+}

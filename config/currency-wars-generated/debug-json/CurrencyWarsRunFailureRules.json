@@ -1,0 +1,59 @@
+{
+  "table": {
+    "name": "CurrencyWarsRunFailureRules",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "failure_condition": {
+            "String": "ProjectedSquadHpEqualsZero"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsRunFailureRules"
+          },
+          "name_en": {
+            "String": "Zero Squad HP Run Failure"
+          },
+          "name_zh_cn": {
+            "String": "小队生命值归零对局失败"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "same_boundary_order": {
+            "String": "[\"DetermineVictoryBeforeTimeoutLoss\",\"ProjectVictoryOrConfiguredNonVictoryLoss\",\"ClampSquadHpToZero\",\"FailRunAtZeroOtherwiseContinue\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.5510b4b1857465a30c83318f2a9f3a25\",\"currency-wars.source.ebfce81810b13da6c4198db18e5f066c\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.b82727cce7fc354d7897876a1ca1fbe4\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.run-failure.squad-hp-zero"
+          },
+          "summary_en": {
+            "String": "After battle projection, zero Squad HP ends the match; same-boundary victory precedence is an explicit replaceable policy."
+          },
+          "summary_zh_cn": {
+            "String": "战斗投影后，小队生命值归零会结束对局；同边界胜利优先级是明确且可替换的项目策略。"
+          },
+          "tags_json": {
+            "String": "[\"project-policy\",\"run-failure\",\"same-boundary\"]"
+          },
+          "terminal_disposition": {
+            "String": "FailedRun"
+          }
+        }
+      }
+    ]
+  }
+}

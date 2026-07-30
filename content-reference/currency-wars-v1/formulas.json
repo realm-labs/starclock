@@ -1,0 +1,38 @@
+[
+  {
+    "id": "currency-wars.formula-closure.no-reachable-formula",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsFormulaClosure",
+    "name_en": "No reachable Blessing formula",
+    "name_zh_cn": "无可达祝福公式",
+    "summary_en": "The frozen GridFight closure contains no formula, Equation-like recipe, completion state or formula randomizer.",
+    "summary_zh_cn": "冻结的 GridFight 闭包不含公式、方程式类配方、完成状态或公式随机器。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.blessing-formula-closure",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-content-manifest.v2",
+        "path": "content-manifests/currency-wars-v1/content-manifest.json",
+        "locator": "categories.blessings_levels_formulas",
+        "sha256": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "GeneratedClosedManifest",
+        "note": "The complete direct GridFight closure contains Affix rows and seven MazeBuff enhancements, but no Blessing, Blessing path, formula, recipe, group or randomizer identity."
+      }
+    ],
+    "tags": [
+      "formula",
+      "generated-closure",
+      "proven-empty"
+    ],
+    "formula_kind": "ProvenEmptyDirectAndSharedClosure",
+    "recipe_id": "none",
+    "progress_states": [],
+    "effect_ids": []
+  }
+]

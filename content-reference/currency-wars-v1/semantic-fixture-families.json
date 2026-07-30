@@ -1,0 +1,1066 @@
+[
+  {
+    "id": "currency-wars.fixture-family.approximation-replacement-trigger",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: approximation-replacement-trigger",
+    "name_zh_cn": "语义夹具族：approximation-replacement-trigger",
+    "summary_en": "Reference fixture family covering reviewed approximation, released replacement evidence, deterministic reclassification.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：reviewed approximation、released replacement evidence、deterministic reclassification。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.approximation-replacement-trigger",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "approximation-replacement-trigger",
+        "sha256": "58d8a928bdcd77ef7c92e3bfa92ecf5bd259df05a3f27a3c45b6901098c30214",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "reviewed approximation",
+      "released replacement evidence",
+      "deterministic reclassification"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.automatic-technique-energy-and-lethal-rescue",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: automatic-technique-energy-and-lethal-rescue",
+    "name_zh_cn": "语义夹具族：automatic-technique-energy-and-lethal-rescue",
+    "summary_en": "Reference fixture family covering automatic Technique, defeat-energy rule, lethal rescue and countdown.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：automatic Technique、defeat-energy rule、lethal rescue and countdown。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.automatic-technique-energy-and-lethal-rescue",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "automatic-technique-energy-and-lethal-rescue",
+        "sha256": "9183e10c45e331271a9e8623d439fd471b0fcddba1a6191808389d650d38e734",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "automatic Technique",
+      "defeat-energy rule",
+      "lethal rescue and countdown"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.battle-visible-rule-contribution",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: battle-visible-rule-contribution",
+    "name_zh_cn": "语义夹具族：battle-visible-rule-contribution",
+    "summary_en": "Reference fixture family covering BattleSpec contribution, battle observation, teardown.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：BattleSpec contribution、battle observation、teardown。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.battle-visible-rule-contribution",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "battle-visible-rule-contribution",
+        "sha256": "bc5c53ff386e9195808f0c2a8b19bb14d3886ca1faf29e77aa44281aca4a668c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "BattleSpec contribution",
+      "battle observation",
+      "teardown"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.blessing-level-offer-and-enhancement",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: blessing-level-offer-and-enhancement",
+    "name_zh_cn": "语义夹具族：blessing-level-offer-and-enhancement",
+    "summary_en": "Reference fixture family covering offer candidates, level transition, enhanced contribution.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：offer candidates、level transition、enhanced contribution。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.blessing-level-offer-and-enhancement",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "blessing-level-offer-and-enhancement",
+        "sha256": "276774437e11078ef22de2123c7961be46b69abdb861c4e44075f68b561a019a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "offer candidates",
+      "level transition",
+      "enhanced contribution"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.bond-membership-threshold-and-recompute",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: bond-membership-threshold-and-recompute",
+    "name_zh_cn": "语义夹具族：bond-membership-threshold-and-recompute",
+    "summary_en": "Reference fixture family covering membership change, threshold boundary, simultaneous recompute.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：membership change、threshold boundary、simultaneous recompute。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.bond-membership-threshold-and-recompute",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "bond-membership-threshold-and-recompute",
+        "sha256": "285bbce521551d7b22782f4210f6ac483df408fa22eb96d48593954d4b19c014",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "membership change",
+      "threshold boundary",
+      "simultaneous recompute"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.candidate-order-and-no-legal-result",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: candidate-order-and-no-legal-result",
+    "name_zh_cn": "语义夹具族：candidate-order-and-no-legal-result",
+    "summary_en": "Reference fixture family covering ordered candidates, eligibility rejection, explicit fallback.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：ordered candidates、eligibility rejection、explicit fallback。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.candidate-order-and-no-legal-result",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "candidate-order-and-no-legal-result",
+        "sha256": "06a4bc04643e863fdc5748ff350cb06e8672e8b9867b181cc8723586b58d1fa9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "ordered candidates",
+      "eligibility rejection",
+      "explicit fallback"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.cross-battle-state-and-reset",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: cross-battle-state-and-reset",
+    "name_zh_cn": "语义夹具族：cross-battle-state-and-reset",
+    "summary_en": "Reference fixture family covering state creation, battle boundary carry, terminal reset.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：state creation、battle boundary carry、terminal reset。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.cross-battle-state-and-reset",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "cross-battle-state-and-reset",
+        "sha256": "e873eb8840cbf5abc98ebf4b466e8fc510ad82aa481323c6e07050074cbd645f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "state creation",
+      "battle boundary carry",
+      "terminal reset"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.curio-state-charge-destruction-and-repair",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: curio-state-charge-destruction-and-repair",
+    "name_zh_cn": "语义夹具族：curio-state-charge-destruction-and-repair",
+    "summary_en": "Reference fixture family covering charge change, destroyed state, repair and replacement.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：charge change、destroyed state、repair and replacement。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.curio-state-charge-destruction-and-repair",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "curio-state-charge-destruction-and-repair",
+        "sha256": "7f3bce5602b3794f61d62ea5a8b379a62131f54cc7e62825bee8d6cae5953254",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "charge change",
+      "destroyed state",
+      "repair and replacement"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.encounter-wave-elite-and-boss-binding",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: encounter-wave-elite-and-boss-binding",
+    "name_zh_cn": "语义夹具族：encounter-wave-elite-and-boss-binding",
+    "summary_en": "Reference fixture family covering group selection, ordered waves, elite or boss alternative.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：group selection、ordered waves、elite or boss alternative。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.encounter-wave-elite-and-boss-binding",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "encounter-wave-elite-and-boss-binding",
+        "sha256": "5199c8d81c5231929e6ac9d011652be8db0da1e0f7b55c6aec30b79e14746066",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "group selection",
+      "ordered waves",
+      "elite or boss alternative"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.field-bench-position-and-empowerment",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: field-bench-position-and-empowerment",
+    "name_zh_cn": "语义夹具族：field-bench-position-and-empowerment",
+    "summary_en": "Reference fixture family covering deployment validation, position contribution, Empowerment teardown.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：deployment validation、position contribution、Empowerment teardown。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.field-bench-position-and-empowerment",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "field-bench-position-and-empowerment",
+        "sha256": "617f6a6f6ce20fc0be159c2dc3c6d1c04ed2636f06002cb5bb3cc22dc3230f68",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "deployment validation",
+      "position contribution",
+      "Empowerment teardown"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.formula-recipe-progress-and-contribution",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: formula-recipe-progress-and-contribution",
+    "name_zh_cn": "语义夹具族：formula-recipe-progress-and-contribution",
+    "summary_en": "Reference fixture family covering recipe requirements, progress transition, battle contribution.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：recipe requirements、progress transition、battle contribution。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.formula-recipe-progress-and-contribution",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "formula-recipe-progress-and-contribution",
+        "sha256": "6ce518dc5d55cff512f5c562ec418bdad88c0b751e64a9064bdeac96dcf1505a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "recipe requirements",
+      "progress transition",
+      "battle contribution"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.gambit-rank-and-enemy-affix",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: gambit-rank-and-enemy-affix",
+    "name_zh_cn": "语义夹具族：gambit-rank-and-enemy-affix",
+    "summary_en": "Reference fixture family covering Gambit selection, rank boundary, enemy affix contribution.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：Gambit selection、rank boundary、enemy affix contribution。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.gambit-rank-and-enemy-affix",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "gambit-rank-and-enemy-affix",
+        "sha256": "1166a983cce71c0ed98d52f0a9bf7bd0cca6e421acdd48e5086bfff1ade68516",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "Gambit selection",
+      "rank boundary",
+      "enemy affix contribution"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.goal11-selector-separation-reconciliation",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: goal11-selector-separation-reconciliation",
+    "name_zh_cn": "语义夹具族：goal11-selector-separation-reconciliation",
+    "summary_en": "Reference fixture family covering exact GridFight source locator, distinct Tourn3 selector, reopen condition.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：exact GridFight source locator、distinct Tourn3 selector、reopen condition。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.goal11-selector-separation-reconciliation",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "goal11-selector-separation-reconciliation",
+        "sha256": "9df3ed94997faeda0d5d795bdd9611468d1a80dc9ead0f1bff8403355d540136",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "exact GridFight source locator",
+      "distinct Tourn3 selector",
+      "reopen condition"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.gold-coin-refresh-experience-and-team-size",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: gold-coin-refresh-experience-and-team-size",
+    "name_zh_cn": "语义夹具族：gold-coin-refresh-experience-and-team-size",
+    "summary_en": "Reference fixture family covering currency mutation, refresh cost, Experience and team-size transition.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：currency mutation、refresh cost、Experience and team-size transition。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.gold-coin-refresh-experience-and-team-size",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "gold-coin-refresh-experience-and-team-size",
+        "sha256": "67de54225088414bd20275f9bd7cf99c0ed338b81f6240813b6578130602f050",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "currency mutation",
+      "refresh cost",
+      "Experience and team-size transition"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.hex-eligibility-activation-and-teardown",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: hex-eligibility-activation-and-teardown",
+    "name_zh_cn": "语义夹具族：hex-eligibility-activation-and-teardown",
+    "summary_en": "Reference fixture family covering eligibility, activation, replacement or teardown.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：eligibility、activation、replacement or teardown。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.hex-eligibility-activation-and-teardown",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "hex-eligibility-activation-and-teardown",
+        "sha256": "cb97ef4a93b5c4534f04e094e64f705e4fec3ddc95c882c8b2461cc01f807e73",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "eligibility",
+      "activation",
+      "replacement or teardown"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.investment-environment-strategy-and-augment",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: investment-environment-strategy-and-augment",
+    "name_zh_cn": "语义夹具族：investment-environment-strategy-and-augment",
+    "summary_en": "Reference fixture family covering Augment entry, Projection or Portal offer, activation lifecycle.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：Augment entry、Projection or Portal offer、activation lifecycle。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.investment-environment-strategy-and-augment",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "investment-environment-strategy-and-augment",
+        "sha256": "5991996ea6b271cbf142fcd729ab9aadccb81ada8a85540c87c6f899d5c299ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "Augment entry",
+      "Projection or Portal offer",
+      "activation lifecycle"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.occurrence-choice-cost-and-outcome",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: occurrence-choice-cost-and-outcome",
+    "name_zh_cn": "语义夹具族：occurrence-choice-cost-and-outcome",
+    "summary_en": "Reference fixture family covering choice condition, cost, ordered mechanical outcome.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：choice condition、cost、ordered mechanical outcome。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.occurrence-choice-cost-and-outcome",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "occurrence-choice-cost-and-outcome",
+        "sha256": "d6b007c757b3b239d525e626cfc76fe2d51e9925c5621016b3c68e8d49812e72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "choice condition",
+      "cost",
+      "ordered mechanical outcome"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.off-field-conversion-and-equipment-slots",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: off-field-conversion-and-equipment-slots",
+    "name_zh_cn": "语义夹具族：off-field-conversion-and-equipment-slots",
+    "summary_en": "Reference fixture family covering conversion eligibility, three-slot cap, replacement.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：conversion eligibility、three-slot cap、replacement。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.off-field-conversion-and-equipment-slots",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "off-field-conversion-and-equipment-slots",
+        "sha256": "f0c0889f1275ce8beefaf13106f6e09af0a39007d65ce7a57ebc2257786dcc4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "conversion eligibility",
+      "three-slot cap",
+      "replacement"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.other-mode-ownership-rejection",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: other-mode-ownership-rejection",
+    "name_zh_cn": "语义夹具族：other-mode-ownership-rejection",
+    "summary_en": "Reference fixture family covering named other-mode row, failed selector, no normalized promotion.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：named other-mode row、failed selector、no normalized promotion。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.other-mode-ownership-rejection",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "other-mode-ownership-rejection",
+        "sha256": "a9278f6e7efd7ce65218b1c50cc8d722842d73d53567e86dd137dee82c46eed9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "named other-mode row",
+      "failed selector",
+      "no normalized promotion"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.owned-trial-build-substitution-and-removal",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: owned-trial-build-substitution-and-removal",
+    "name_zh_cn": "语义夹具族：owned-trial-build-substitution-and-removal",
+    "summary_en": "Reference fixture family covering owned build boundary, trial fallback, account state unchanged.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：owned build boundary、trial fallback、account state unchanged。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.owned-trial-build-substitution-and-removal",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "owned-trial-build-substitution-and-removal",
+        "sha256": "67e7c39b910cc7147ce1c770c1eff6116fc90d7fbd015a64793504ffb7a87efa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "owned build boundary",
+      "trial fallback",
+      "account state unchanged"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.profile-gambit-entry-and-terminal",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: profile-gambit-entry-and-terminal",
+    "name_zh_cn": "语义夹具族：profile-gambit-entry-and-terminal",
+    "summary_en": "Reference fixture family covering Standard or Overclock entry, initial state, terminal disposition.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：Standard or Overclock entry、initial state、terminal disposition。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.profile-gambit-entry-and-terminal",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "profile-gambit-entry-and-terminal",
+        "sha256": "40c31ca1c0801932419829eab248eecb21ec99587a26ae61c86acd3bded63f9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "Standard or Overclock entry",
+      "initial state",
+      "terminal disposition"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.roster-offer-cost-purchase-sale-and-cap",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: roster-offer-cost-purchase-sale-and-cap",
+    "name_zh_cn": "语义夹具族：roster-offer-cost-purchase-sale-and-cap",
+    "summary_en": "Reference fixture family covering offer candidates, purchase or sale, field and bench cap.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：offer candidates、purchase or sale、field and bench cap。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.roster-offer-cost-purchase-sale-and-cap",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "roster-offer-cost-purchase-sale-and-cap",
+        "sha256": "72db01ada452b0556f2117a714ccf8fa031082eaa4a2283e1a207eeae9d99f6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "offer candidates",
+      "purchase or sale",
+      "field and bench cap"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.shop-service-price-inventory-and-fallback",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: shop-service-price-inventory-and-fallback",
+    "name_zh_cn": "语义夹具族：shop-service-price-inventory-and-fallback",
+    "summary_en": "Reference fixture family covering service eligibility, price and inventory, no legal offer fallback.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：service eligibility、price and inventory、no legal offer fallback。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.shop-service-price-inventory-and-fallback",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "shop-service-price-inventory-and-fallback",
+        "sha256": "2f229f1fd4d0a40ee7a26f82af2097eb8f18d1a0c131636de127fbd089330807",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "service eligibility",
+      "price and inventory",
+      "no legal offer fallback"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.simultaneous-bond-star-and-roster-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: simultaneous-bond-star-and-roster-order",
+    "name_zh_cn": "语义夹具族：simultaneous-bond-star-and-roster-order",
+    "summary_en": "Reference fixture family covering same-boundary changes, stable operation order, final recomputation.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：same-boundary changes、stable operation order、final recomputation。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.simultaneous-bond-star-and-roster-order",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "simultaneous-bond-star-and-roster-order",
+        "sha256": "49c480fbb56f703afaed083b575f8f7d2be4051d60c3d127e414ce8977024411",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "same-boundary changes",
+      "stable operation order",
+      "final recomputation"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.squad-hp-action-value-same-boundary-order",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: squad-hp-action-value-same-boundary-order",
+    "name_zh_cn": "语义夹具族：squad-hp-action-value-same-boundary-order",
+    "summary_en": "Reference fixture family covering battle result, Squad HP projection, action-value projection order.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：battle result、Squad HP projection、action-value projection order。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.squad-hp-action-value-same-boundary-order",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "squad-hp-action-value-same-boundary-order",
+        "sha256": "aabab1dcab28b89217976a379a65d445ddeb21328fe897bcda61d3d502d30dc0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "battle result",
+      "Squad HP projection",
+      "action-value projection order"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.squad-hp-victory-timeout-and-run-failure",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: squad-hp-victory-timeout-and-run-failure",
+    "name_zh_cn": "语义夹具族：squad-hp-victory-timeout-and-run-failure",
+    "summary_en": "Reference fixture family covering victory, timeout, zero-HP run failure.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：victory、timeout、zero-HP run failure。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.squad-hp-victory-timeout-and-run-failure",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "squad-hp-victory-timeout-and-run-failure",
+        "sha256": "6ab24dcbadc35db3ec96c43504c60b3c58b92fdbf704b37715057dca01b839c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "victory",
+      "timeout",
+      "zero-HP run failure"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.star-copy-combine-overflow-and-teardown",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: star-copy-combine-overflow-and-teardown",
+    "name_zh_cn": "语义夹具族：star-copy-combine-overflow-and-teardown",
+    "summary_en": "Reference fixture family covering copy acquisition, three-copy combination, overflow and teardown.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：copy acquisition、three-copy combination、overflow and teardown。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.star-copy-combine-overflow-and-teardown",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "star-copy-combine-overflow-and-teardown",
+        "sha256": "6a9ee89345c8da9885bc41cea42a55eae8688961ed115c444bf9fc86f57f0c94",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "copy acquisition",
+      "three-copy combination",
+      "overflow and teardown"
+    ]
+  },
+  {
+    "id": "currency-wars.fixture-family.three-plane-node-room-flow",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsSemanticFixtureFamily",
+    "name_en": "Fixture family: three-plane-node-room-flow",
+    "name_zh_cn": "语义夹具族：three-plane-node-room-flow",
+    "summary_en": "Reference fixture family covering Plane transition, Node choice, room and Stage binding.",
+    "summary_zh_cn": "参考语义夹具族，覆盖：Plane transition、Node choice、room and Stage binding。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.manifest.semantic-fixtures.three-plane-node-room-flow",
+        "repository": "starclock",
+        "revision": "6bfe1c885fa22bb2c1df399a0e59f56cb7419f77e09c45e235c2dcb2036c10ef",
+        "path": "content-manifests/currency-wars-v1/source-correction.json",
+        "locator": "three-plane-node-room-flow",
+        "sha256": "ccf3e431da8800f90b56fd4da6665af31b73484a9efd646ba0ea937213926c97",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "This row records an explicit reference-pack policy, not an observed runtime fact.",
+        "replacement_condition": "Replace only when released structured data or a reproducible observation supplies the missing join or ordering."
+      }
+    ],
+    "tags": [
+      "fixture",
+      "semantic-review"
+    ],
+    "minimum_cases": "1",
+    "must_cover": [
+      "Plane transition",
+      "Node choice",
+      "room and Stage binding"
+    ]
+  }
+]

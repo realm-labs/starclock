@@ -1,0 +1,117 @@
+{
+  "table": {
+    "name": "CurrencyWarsBattleResultProjections",
+    "rows": [
+      {
+        "values": {
+          "action_value_projection": {
+            "String": "CaptureForFinalizationThenDiscard"
+          },
+          "battle_outcome": {
+            "String": "Victory"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsBattleResultProjections"
+          },
+          "name_en": {
+            "String": "Node Victory Projection"
+          },
+          "name_zh_cn": {
+            "String": "节点胜利投影"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "run_disposition": {
+            "String": "ContinueUnlessFinalBossCompletesRun"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.5510b4b1857465a30c83318f2a9f3a25\",\"currency-wars.source.ebfce81810b13da6c4198db18e5f066c\",\"currency-wars.source.e89ea754adcec4620aa322c907db0b96\"]"
+          },
+          "squad_hp_projection": {
+            "String": "PreserveBeforeContentContributions"
+          },
+          "stable_key": {
+            "String": "currency-wars.battle-result.victory"
+          },
+          "summary_en": {
+            "String": "Victory at a Battle, Encounter or Boss Node preserves Squad HP and continues or completes the run."
+          },
+          "summary_zh_cn": {
+            "String": "战斗、遭遇或首领节点胜利时保持小队生命值，并继续或完成对局。"
+          },
+          "tags_json": {
+            "String": "[\"battle-result\",\"project-policy\",\"victory\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "action_value_projection": {
+            "String": "CaptureExhaustedLimitThenDiscard"
+          },
+          "battle_outcome": {
+            "String": "NonVictory"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsBattleResultProjections"
+          },
+          "name_en": {
+            "String": "Node Non-Victory Projection"
+          },
+          "name_zh_cn": {
+            "String": "节点未胜利投影"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "run_disposition": {
+            "String": "FailAtZeroOtherwiseContinue"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.5510b4b1857465a30c83318f2a9f3a25\",\"currency-wars.source.ebfce81810b13da6c4198db18e5f066c\",\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.e047769583eeaeb064796575033ddcd7\",\"currency-wars.source.e89ea754adcec4620aa322c907db0b96\"]"
+          },
+          "squad_hp_projection": {
+            "String": "SubtractConfiguredLossClampToZeroThenEvaluateRun"
+          },
+          "stable_key": {
+            "String": "currency-wars.battle-result.non-victory"
+          },
+          "summary_en": {
+            "String": "A finite Node timeout is non-victory: apply its configured Squad HP loss, then continue only if HP remains above zero."
+          },
+          "summary_zh_cn": {
+            "String": "有限节点超时属于未胜利：先扣除配置的小队生命值，仅在生命值仍高于零时继续。"
+          },
+          "tags_json": {
+            "String": "[\"battle-result\",\"non-victory\",\"project-policy\"]"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "currency-wars.projection-maze-buff.35610001.lv.1.0",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsProjectionMazeBuff",
+    "name_en": "projection-maze-buff 35610001",
+    "name_zh_cn": "projection-maze-buff 35610001",
+    "summary_en": "projection-maze-buff 35610001 binds ADV_StageAbility_35610001 through StageAbilityBeforeCharacterBorn at level 1/1.",
+    "summary_zh_cn": "projection-maze-buff 35610001 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35610001，等级为 1/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightprojmazebuff-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightProjMazebuff.json",
+        "locator": "0",
+        "sha256": "7cb5ca70633d147ff48e40ce6ffa2bb458191011f112d17e69fed266f53dce24",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "maze-buff",
+      "projection-maze-buff"
+    ],
+    "source_id": "35610001",
+    "buff_series": "1",
+    "level": {
+      "current": "1",
+      "maximum": "1"
+    },
+    "binding": {
+      "type": "StageAbilityBeforeCharacterBorn",
+      "key": "StageAbility_GridFight_Projection_Gilgamesh",
+      "maze_buff_type": "Level"
+    },
+    "parameters": [
+      "0.02",
+      "6",
+      "0.25"
+    ],
+    "modifier": "ADV_StageAbility_35610001"
+  },
+  {
+    "id": "currency-wars.projection-maze-buff.35610002.lv.1.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsProjectionMazeBuff",
+    "name_en": "projection-maze-buff 35610002",
+    "name_zh_cn": "projection-maze-buff 35610002",
+    "summary_en": "projection-maze-buff 35610002 binds ADV_StageAbility_35610002 through StageAbilityBeforeCharacterBorn at level 1/1.",
+    "summary_zh_cn": "projection-maze-buff 35610002 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35610002，等级为 1/1。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightprojmazebuff-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightProjMazebuff.json",
+        "locator": "1",
+        "sha256": "861147cdc67f8391a2817c99307cf5d4b3c6f7a24fdf06fe89e2139c880f58d7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "maze-buff",
+      "projection-maze-buff"
+    ],
+    "source_id": "35610002",
+    "buff_series": "1",
+    "level": {
+      "current": "1",
+      "maximum": "1"
+    },
+    "binding": {
+      "type": "StageAbilityBeforeCharacterBorn",
+      "key": "StageAbility_GridFight_Projection_TohsakaRin",
+      "maze_buff_type": "Level"
+    },
+    "parameters": [
+      "1",
+      "0.2",
+      "2",
+      "0.2"
+    ],
+    "modifier": "ADV_StageAbility_35610002"
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "table": {
+    "name": "CurrencyWarsActionValueLimits",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "decrement_rules": {
+            "String": "[{\"amount\":\"ElapsedAuthoritativeActionValue\",\"resolution\":\"ProjectPolicy\",\"trigger\":\"CombatTimelineProgress\"},{\"amount\":\"ConfiguredByBattleContribution\",\"resolution\":\"DeferredToP1B4\",\"trigger\":\"CharacterLethalRescue\"}]"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "initial_value": {
+            "String": "ConfiguredByNodeOrDifficulty"
+          },
+          "kind": {
+            "String": "CurrencyWarsActionValueLimits"
+          },
+          "limit_kind": {
+            "String": "FiniteNodeConfigured"
+          },
+          "name_en": {
+            "String": "Finite Node Action Value"
+          },
+          "name_zh_cn": {
+            "String": "有限节点行动值"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.71fe114a1b240ea15c2b1c43f516a9bd\",\"currency-wars.source.e3dc634ed62e41ca30b92b78db73987f\",\"currency-wars.source.e047769583eeaeb064796575033ddcd7\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.action-value.finite-node"
+          },
+          "summary_en": {
+            "String": "A finite combat Node must defeat all enemies before its configured action-value limit expires."
+          },
+          "summary_zh_cn": {
+            "String": "有限战斗节点必须在配置的行动值耗尽前消灭全部敌人。"
+          },
+          "tags_json": {
+            "String": "[\"action-value\",\"finite\",\"project-policy\"]"
+          },
+          "timeout_boundary": {
+            "String": "{\"battle_outcome\":\"NonVictory\",\"condition\":\"LimitExhaustedBeforeAllEnemiesDefeated\",\"squad_hp_projection\":\"ApplyConfiguredNodeOrDifficultyLoss\"}"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "decrement_rules": {
+            "String": "[]"
+          },
+          "evidence_quality": {
+            "String": "ExactPublicText"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "initial_value": {
+            "String": "Infinite"
+          },
+          "kind": {
+            "String": "CurrencyWarsActionValueLimits"
+          },
+          "limit_kind": {
+            "String": "Unlimited"
+          },
+          "name_en": {
+            "String": "Unlimited Low-Difficulty Node"
+          },
+          "name_zh_cn": {
+            "String": "无限行动值低难节点"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.c31b8fa5b63dc8a2ef158bf791c422ba\",\"currency-wars.source.88122e17c8bb2be81fd8cc455645ee9e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.action-value.unlimited-low-difficulty"
+          },
+          "summary_en": {
+            "String": "The released low-difficulty reward Node has unlimited action value and cannot time out through this limit."
+          },
+          "summary_zh_cn": {
+            "String": "已发布的低难奖励节点拥有无限行动值，不会因该限制而超时。"
+          },
+          "tags_json": {
+            "String": "[\"action-value\",\"low-difficulty\",\"unlimited\"]"
+          },
+          "timeout_boundary": {
+            "String": "{\"battle_outcome\":\"NotApplicable\",\"condition\":\"UnreachableForActionValueLimit\",\"squad_hp_projection\":\"None\"}"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "currency-wars.orb-display.blue",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsOrbDisplay",
+    "name_en": "Blue orb display",
+    "name_zh_cn": "Blue 光球显示",
+    "summary_en": "Blue orbs use one authored display locator.",
+    "summary_zh_cn": "Blue 光球使用一个已编写的显示定位。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightorbdisplay-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightOrbDisplay.json",
+        "locator": "1",
+        "sha256": "c9e5b8239922ef6c2c22ce56d81c221487c5f600dd9b1cdc74b8ccab37d4fabc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "display-locator",
+      "gridfight",
+      "investment-system",
+      "orb"
+    ],
+    "source_id": "Blue",
+    "orb_type": "Blue",
+    "display_locator": {
+      "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_Orb2.png",
+      "prefab_path": ""
+    }
+  },
+  {
+    "id": "currency-wars.orb-display.colorful",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsOrbDisplay",
+    "name_en": "Colorful orb display",
+    "name_zh_cn": "Colorful 光球显示",
+    "summary_en": "Colorful orbs use one authored display locator.",
+    "summary_zh_cn": "Colorful 光球使用一个已编写的显示定位。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightorbdisplay-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightOrbDisplay.json",
+        "locator": "3",
+        "sha256": "965e229780ed996f7c2f647fad5b38f458103a7dafdc3176eca86501c15f88e5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "display-locator",
+      "gridfight",
+      "investment-system",
+      "orb"
+    ],
+    "source_id": "Colorful",
+    "orb_type": "Colorful",
+    "display_locator": {
+      "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_Orb4.png",
+      "prefab_path": ""
+    }
+  },
+  {
+    "id": "currency-wars.orb-display.glod",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsOrbDisplay",
+    "name_en": "Glod orb display",
+    "name_zh_cn": "Glod 光球显示",
+    "summary_en": "Glod orbs use one authored display locator.",
+    "summary_zh_cn": "Glod 光球使用一个已编写的显示定位。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightorbdisplay-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightOrbDisplay.json",
+        "locator": "2",
+        "sha256": "63135155c12d3700f028106e5c1d30cdb706a970cda76ee99070f2e128f8c67e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "display-locator",
+      "gridfight",
+      "investment-system",
+      "orb"
+    ],
+    "source_id": "Glod",
+    "orb_type": "Glod",
+    "display_locator": {
+      "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_Orb3.png",
+      "prefab_path": ""
+    }
+  },
+  {
+    "id": "currency-wars.orb-display.white",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsOrbDisplay",
+    "name_en": "White orb display",
+    "name_zh_cn": "White 光球显示",
+    "summary_en": "White orbs use one authored display locator.",
+    "summary_zh_cn": "White 光球使用一个已编写的显示定位。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightorbdisplay-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightOrbDisplay.json",
+        "locator": "0",
+        "sha256": "36f8f9506d04efe4bcf3004d7016fb885adeb2b95808af61685d4f19a00bac4d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "display-locator",
+      "gridfight",
+      "investment-system",
+      "orb"
+    ],
+    "source_id": "White",
+    "orb_type": "White",
+    "display_locator": {
+      "icon_path": "SpriteOutput/GridFight/GridItem/GridFight_Orb1.png",
+      "prefab_path": ""
+    }
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "schema_revision": "starclock.currency-wars-release-acceptance.v1",
+  "goal_id": "currency-wars-reference-v1",
+  "checked_on": "2026-07-30",
+  "batch": "G12-P4-B3",
+  "result": "Pass",
+  "source_cache": {
+    "inventory_files": 3822,
+    "revisions": {
+      "turnbasedgamedata": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+      "starrailres": "7b349e39ee0f6f3bf814567995829b99c95e7a93"
+    },
+    "reproduced": true
+  },
+  "normalized_pack": {
+    "files": 102,
+    "pack_sha256": "6166401347306cc38f5f0e3eed1a519d25a1f015e88f7782fb0c1bdf2761c2cb",
+    "rows": 74850,
+    "coverage_rows": 19250,
+    "data_ready": 18524,
+    "explicit_exclusions": 726,
+    "mechanic_rules": 2367,
+    "source_receipts": 37342,
+    "semantic_fixture_families": 28,
+    "nonblocking_research_gaps": 12
+  },
+  "reconciliation": {
+    "audit_sha256": "3bf32053cc642d3c6b154c4c668d2ecc0573bfb4bf615c6bac8678a75402df73",
+    "checkpoints": 4,
+    "receipts": 4,
+    "exact_overlaps": 0,
+    "conflicts": 0
+  },
+  "authoring": {
+    "adapter": "openpyxl==3.1.5",
+    "schema_export_authority": "sora-cli==0.3.0",
+    "tables": 102,
+    "rows": 74850,
+    "verified_empty_tables": 16,
+    "workbook_semantic_sha256": "5d9a4be2fb9c5110209826d6ef5f9afc410ca7c869f0b1abc87c3fa24f29c1e1",
+    "workbooks": {
+      "CurrencyWars.xlsx": {
+        "bytes": 1595188,
+        "sha256": "70d104cae986096f0c2c02cd3d40325a84dec8f3717e163337377d1bf393bbc5"
+      },
+      "CurrencyWarsBindings.xlsx": {
+        "bytes": 340274,
+        "sha256": "99c18b825343381081b4032e4bc0d59bd9b5d9d8f181b315e2cd7b27212e0f3f"
+      },
+      "CurrencyWarsReview.xlsx": {
+        "bytes": 10999390,
+        "sha256": "b27f0e6e1fd153141d9babd827a987f2d21fe8fc6b351acb27071ee2b410d274"
+      }
+    },
+    "bundle": {
+      "bytes": 36964052,
+      "sha256": "a4569997990727739db74a2d942e6b13a84d2466b0fe3723acb92c7406ae8571"
+    },
+    "debug_files": 102,
+    "debug_digest": "bd08fbab86ff335f8efdc684ceb397d63cb829b0f0a6e13b75d7c429f5c8440a",
+    "visual_review": {
+      "sheets": 102,
+      "result": "Pass",
+      "defects": 0,
+      "manifest_sha256": "db7fc495a33caf5ea76adbc6b9c001f5ba0d51cbdb1ee0501d7f210c3c93f23a",
+      "contact_sha256": {
+        "CurrencyWars-contact.png": "60354e0c3fac6bfef94d7938e42235247f95b49a43ebeddb8aab43d064e37fcf",
+        "CurrencyWarsBindings-contact.png": "2da468332210b79358dc3ca73462801dd28c419552baafc2181d93bd1ef06c91",
+        "CurrencyWarsReview-contact.png": "49debd1e175243f6172fe1d601a1cb837d8c55275631294e8b92db492f242ba9"
+      }
+    }
+  },
+  "protected_boundaries": {
+    "baseline_commit": "b0cd3cb912c9f2ec887c3ae29f79353c4a861643",
+    "changed_paths": 424,
+    "foreign_goal_artifact_changes": 0,
+    "completed_mode_bundles": [
+      {
+        "goal": "Goal08",
+        "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+        "path": "config/gold-and-gears-generated/config.sora",
+        "sha256": "97eefe25954b16df3b96c713101ed28bf28806d0bdff0d8925b0734a756bfe7b"
+      },
+      {
+        "goal": "Goal09",
+        "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "path": "config/swarm-disaster-generated/config.sora",
+        "sha256": "385727a8a5875795b29c996102040f7f4419c6adac7b5e10ee6b09c084409362"
+      },
+      {
+        "goal": "Goal10",
+        "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "path": "config/unknowable-domain-generated/config.sora",
+        "sha256": "05114105b6d905c2858865df08d7ab551cb0fb056b3871b959897a4a590451ec"
+      },
+      {
+        "goal": "Goal11",
+        "commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+        "path": "config/divergent-universe-generated/config.sora",
+        "sha256": "3221d0965292de6bbbd834338c2ff088821200ea22a4b7e7c65afc996444c5cf"
+      }
+    ],
+    "standard_staging_sha256": "1c67b59aea4e80c7d77d5823ffc6f727a90e39a029b19b2777f11fa324e466bf",
+    "production_sha256": "875936da8c01593585389563fcb3d0c4334bdb14d85a3e7ffb9fb0dcc018953b"
+  },
+  "dependencies": {
+    "cargo_lock_sha256": "7d518a413c182933a0f2d75b96094f40145ae2a82f8bd9dc34032d0b583a3aac",
+    "dependency_policy_sha256": "7fcac805af11fb4ebd8a3686082fdbf4244baca4aa8377aa581d359ffff5b507",
+    "sora_toolchain_policy_sha256": "a5546e7b33efb5674aeb2cc5147498ce58edabfe70050e65b67d14657ea5fe4a"
+  },
+  "runtime_boundary": {
+    "delivery_lane": "CandidateReferenceOnly",
+    "runtime_loading": false,
+    "runtime_lowering": false,
+    "runtime_handlers": 0,
+    "playable_profile": false,
+    "shared_runtime_mutation": false
+  }
+}

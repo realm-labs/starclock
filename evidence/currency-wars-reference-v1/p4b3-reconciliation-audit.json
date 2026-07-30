@@ -1,0 +1,109 @@
+{
+  "batch": "G12-P4-B3",
+  "result": "Pass",
+  "join_key": [
+    "source_path",
+    "row_locator",
+    "evidence_sha256"
+  ],
+  "currency_wars_source_receipts": 37342,
+  "checkpoint_count": 4,
+  "receipt_count": 4,
+  "exact_overlap_count": 0,
+  "conflict_count": 0,
+  "divergent_representation_count": 0,
+  "checkpoints": [
+    {
+      "goal": "gold-and-gears-reference-v1",
+      "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+      "tree": "d5430413258a35a6a988973a9f57966f4daeee7d",
+      "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+      "manifest_records": 7913,
+      "source_receipts": 9082,
+      "exact_join_key_overlaps": 0,
+      "shared_path_names": [
+        "ExcelOutput/StageConfig.json",
+        "content-manifests/gold-and-gears-v1/content-manifest.json"
+      ],
+      "shared_path_count": 2,
+      "same_path_and_locator_count": 0,
+      "outcome": "CurrencyWarsOnly",
+      "remote_verification": {
+        "kind": "ManifestDigestWitness",
+        "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference",
+        "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+        "locator": "exclusions.gold_checkpoint",
+        "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+      }
+    },
+    {
+      "goal": "swarm-disaster-reference-v1",
+      "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "tree": "7116ca632ca03f13c8d8b0243338d88bef846093",
+      "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+      "manifest_records": 6963,
+      "source_receipts": 8139,
+      "exact_join_key_overlaps": 0,
+      "shared_path_names": [
+        "ExcelOutput/StageConfig.json",
+        "TextMap/TextMapCHS.json",
+        "TextMap/TextMapEN.json",
+        "content-manifests/gold-and-gears-v1/content-manifest.json",
+        "content-manifests/swarm-disaster-v1/content-manifest.json"
+      ],
+      "shared_path_count": 5,
+      "same_path_and_locator_count": 0,
+      "outcome": "CurrencyWarsOnly",
+      "remote_verification": {
+        "kind": "DirectAncestor",
+        "remote_ancestor": "origin/codex/goal09-swarm-disaster-reference"
+      }
+    },
+    {
+      "goal": "unknowable-domain-reference-v1",
+      "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "tree": "7ac9d6242de3b024c6b0149f3f28230edc78da56",
+      "manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+      "manifest_records": 5377,
+      "source_receipts": 4473,
+      "exact_join_key_overlaps": 0,
+      "shared_path_names": [
+        "content-manifests/gold-and-gears-v1/content-manifest.json",
+        "content-manifests/swarm-disaster-v1/content-manifest.json",
+        "content-manifests/unknowable-domain-v1/content-manifest.json"
+      ],
+      "shared_path_count": 3,
+      "same_path_and_locator_count": 0,
+      "outcome": "CurrencyWarsOnly",
+      "remote_verification": {
+        "kind": "DirectAncestor",
+        "remote_ancestor": "origin/codex/goal10-unknowable-domain-reference"
+      }
+    },
+    {
+      "goal": "divergent-universe-reference-v1",
+      "commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+      "tree": "1cb45215d06549dbc7bb4f38ab331ae4e2e872e2",
+      "manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+      "manifest_records": 6215,
+      "source_receipts": 7624,
+      "exact_join_key_overlaps": 0,
+      "shared_path_names": [
+        "ExcelOutput/StageConfig.json",
+        "TextMap/TextMapCHS.json",
+        "TextMap/TextMapEN.json",
+        "content-manifests/divergent-universe-v1/content-manifest.json"
+      ],
+      "shared_path_count": 4,
+      "same_path_and_locator_count": 0,
+      "outcome": "CurrencyWarsOnly",
+      "remote_verification": {
+        "kind": "DirectAncestor",
+        "remote_ancestor": "origin/codex/goal11-divergent-universe-reference"
+      },
+      "replacement_condition": "Reopen only if a GridFight-originating typed reference reaches a row claimed exclusively by Goal 11."
+    }
+  ],
+  "policy": "A shared path name, table prefix, ID range or matching name is not a shared-row claim; only the complete source path, row locator and evidence digest key can match."
+}

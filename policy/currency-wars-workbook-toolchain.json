@@ -1,0 +1,28 @@
+{
+  "schema_revision": "starclock.currency-wars-workbook-toolchain.v1",
+  "goal": "currency-wars-reference-v1",
+  "authoring": {
+    "runtime": "bundled Python 3",
+    "package": "openpyxl",
+    "version": "3.1.5",
+    "license": "MIT",
+    "source": "https://pypi.org/project/openpyxl/3.1.5/",
+    "role": "Create and inspect new isolated Currency Wars Excel workbooks without patching existing files."
+  },
+  "authority": {
+    "schema_validation": "sora-cli 0.3.0",
+    "production_format": ".sora",
+    "debug_format": "JSON",
+    "note": "openpyxl is the requested authoring adapter and does not replace Sora validation, code generation or export."
+  },
+  "determinism": {
+    "fixed_document_timestamp": "2000-01-01T00:00:00Z",
+    "semantic_digest": "SHA-256 over ordered workbook, sheet and cell values",
+    "overwrite_policy": "Refuse when any target Currency Wars workbook already exists.",
+    "archive_policy": "Sorted ZIP members, fixed ZIP timestamp, deflate level 9"
+  },
+  "verification": [
+    "python tools/currency-wars-reference/verify-workbooks.py --root . --directory config/currency-wars/data",
+    "sora build --project config/currency-wars/project.toml"
+  ]
+}

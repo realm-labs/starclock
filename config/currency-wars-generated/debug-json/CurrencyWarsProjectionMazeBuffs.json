@@ -1,0 +1,123 @@
+{
+  "table": {
+    "name": "CurrencyWarsProjectionMazeBuffs",
+    "rows": [
+      {
+        "values": {
+          "binding": {
+            "String": "{\"key\":\"StageAbility_GridFight_Projection_Gilgamesh\",\"maze_buff_type\":\"Level\",\"type\":\"StageAbilityBeforeCharacterBorn\"}"
+          },
+          "buff_series": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsProjectionMazeBuff"
+          },
+          "level": {
+            "String": "{\"current\":\"1\",\"maximum\":\"1\"}"
+          },
+          "modifier": {
+            "String": "ADV_StageAbility_35610001"
+          },
+          "name_en": {
+            "String": "projection-maze-buff 35610001"
+          },
+          "name_zh_cn": {
+            "String": "projection-maze-buff 35610001"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "[\"0.02\",\"6\",\"0.25\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0bacff53842e2e784c70ef663681745f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.projection-maze-buff.35610001.lv.1.0"
+          },
+          "summary_en": {
+            "String": "projection-maze-buff 35610001 binds ADV_StageAbility_35610001 through StageAbilityBeforeCharacterBorn at level 1/1."
+          },
+          "summary_zh_cn": {
+            "String": "projection-maze-buff 35610001 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35610001，等级为 1/1。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"maze-buff\",\"projection-maze-buff\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "binding": {
+            "String": "{\"key\":\"StageAbility_GridFight_Projection_TohsakaRin\",\"maze_buff_type\":\"Level\",\"type\":\"StageAbilityBeforeCharacterBorn\"}"
+          },
+          "buff_series": {
+            "String": "1"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsProjectionMazeBuff"
+          },
+          "level": {
+            "String": "{\"current\":\"1\",\"maximum\":\"1\"}"
+          },
+          "modifier": {
+            "String": "ADV_StageAbility_35610002"
+          },
+          "name_en": {
+            "String": "projection-maze-buff 35610002"
+          },
+          "name_zh_cn": {
+            "String": "projection-maze-buff 35610002"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "parameters": {
+            "String": "[\"1\",\"0.2\",\"2\",\"0.2\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.97162ad4786d1ff4bfa69f9c55a2ca77\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.projection-maze-buff.35610002.lv.1.1"
+          },
+          "summary_en": {
+            "String": "projection-maze-buff 35610002 binds ADV_StageAbility_35610002 through StageAbilityBeforeCharacterBorn at level 1/1."
+          },
+          "summary_zh_cn": {
+            "String": "projection-maze-buff 35610002 通过 StageAbilityBeforeCharacterBorn 绑定 ADV_StageAbility_35610002，等级为 1/1。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"maze-buff\",\"projection-maze-buff\"]"
+          }
+        }
+      }
+    ]
+  }
+}

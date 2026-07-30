@@ -1,0 +1,307 @@
+[
+  {
+    "id": "currency-wars.roster-transaction.rarity.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRosterTransaction",
+    "name_en": "Rarity 1 transaction prices",
+    "name_zh_cn": "1 费角色交易价格",
+    "summary_en": "Rarity 1 publishes exact buy and sell Gold prices for star levels 1 through 4.",
+    "summary_zh_cn": "1 费角色发布 1 至 4 星的精确金币买入与卖出价格。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightshopprice-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightShopPrice.json",
+        "locator": "0",
+        "sha256": "86b3333e54905d71c4d81edd34425582e1acffecb6a2da411efbddd26f6f4fd3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gold-coins",
+      "gridfight",
+      "transaction"
+    ],
+    "source_id": "1",
+    "operation": "BuyOrSellRosterRole",
+    "price_rule": {
+      "buy_by_star": [
+        "1",
+        "3",
+        "9",
+        "27"
+      ],
+      "sell_by_star": [
+        "1",
+        "3",
+        "9",
+        "27"
+      ]
+    },
+    "eligibility": {
+      "rarity": "1",
+      "star_levels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "ordered_state_changes": [
+      "Validate roster and Gold preconditions.",
+      "Apply the authored Gold price.",
+      "Apply the roster mutation."
+    ]
+  },
+  {
+    "id": "currency-wars.roster-transaction.rarity.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRosterTransaction",
+    "name_en": "Rarity 2 transaction prices",
+    "name_zh_cn": "2 费角色交易价格",
+    "summary_en": "Rarity 2 publishes exact buy and sell Gold prices for star levels 1 through 4.",
+    "summary_zh_cn": "2 费角色发布 1 至 4 星的精确金币买入与卖出价格。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightshopprice-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightShopPrice.json",
+        "locator": "1",
+        "sha256": "c2f66e6baab55a6736868ddae924131627df3e05f4ea7c662be80f96a70783a0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gold-coins",
+      "gridfight",
+      "transaction"
+    ],
+    "source_id": "2",
+    "operation": "BuyOrSellRosterRole",
+    "price_rule": {
+      "buy_by_star": [
+        "2",
+        "6",
+        "18",
+        "54"
+      ],
+      "sell_by_star": [
+        "2",
+        "5",
+        "17",
+        "51"
+      ]
+    },
+    "eligibility": {
+      "rarity": "2",
+      "star_levels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "ordered_state_changes": [
+      "Validate roster and Gold preconditions.",
+      "Apply the authored Gold price.",
+      "Apply the roster mutation."
+    ]
+  },
+  {
+    "id": "currency-wars.roster-transaction.rarity.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRosterTransaction",
+    "name_en": "Rarity 3 transaction prices",
+    "name_zh_cn": "3 费角色交易价格",
+    "summary_en": "Rarity 3 publishes exact buy and sell Gold prices for star levels 1 through 4.",
+    "summary_zh_cn": "3 费角色发布 1 至 4 星的精确金币买入与卖出价格。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightshopprice-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightShopPrice.json",
+        "locator": "2",
+        "sha256": "fd82353e945953fd1edfef5cb102cc902d04bda205783ce4a3965e987b869b31",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gold-coins",
+      "gridfight",
+      "transaction"
+    ],
+    "source_id": "3",
+    "operation": "BuyOrSellRosterRole",
+    "price_rule": {
+      "buy_by_star": [
+        "3",
+        "9",
+        "27",
+        "81"
+      ],
+      "sell_by_star": [
+        "3",
+        "8",
+        "26",
+        "78"
+      ]
+    },
+    "eligibility": {
+      "rarity": "3",
+      "star_levels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "ordered_state_changes": [
+      "Validate roster and Gold preconditions.",
+      "Apply the authored Gold price.",
+      "Apply the roster mutation."
+    ]
+  },
+  {
+    "id": "currency-wars.roster-transaction.rarity.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRosterTransaction",
+    "name_en": "Rarity 4 transaction prices",
+    "name_zh_cn": "4 费角色交易价格",
+    "summary_en": "Rarity 4 publishes exact buy and sell Gold prices for star levels 1 through 4.",
+    "summary_zh_cn": "4 费角色发布 1 至 4 星的精确金币买入与卖出价格。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightshopprice-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightShopPrice.json",
+        "locator": "3",
+        "sha256": "668a819f4e5d875b7612f104fedfea4ae94e6669abd414f11a8dbaa27bf5a444",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gold-coins",
+      "gridfight",
+      "transaction"
+    ],
+    "source_id": "4",
+    "operation": "BuyOrSellRosterRole",
+    "price_rule": {
+      "buy_by_star": [
+        "4",
+        "12",
+        "36",
+        "108"
+      ],
+      "sell_by_star": [
+        "4",
+        "11",
+        "35",
+        "105"
+      ]
+    },
+    "eligibility": {
+      "rarity": "4",
+      "star_levels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "ordered_state_changes": [
+      "Validate roster and Gold preconditions.",
+      "Apply the authored Gold price.",
+      "Apply the roster mutation."
+    ]
+  },
+  {
+    "id": "currency-wars.roster-transaction.rarity.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRosterTransaction",
+    "name_en": "Rarity 5 transaction prices",
+    "name_zh_cn": "5 费角色交易价格",
+    "summary_en": "Rarity 5 publishes exact buy and sell Gold prices for star levels 1 through 4.",
+    "summary_zh_cn": "5 费角色发布 1 至 4 星的精确金币买入与卖出价格。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightshopprice-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightShopPrice.json",
+        "locator": "4",
+        "sha256": "8024d0ce81b02042d5e9c4f081ea54dbb2484d9454e00b2609de3585704fd042",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "gold-coins",
+      "gridfight",
+      "transaction"
+    ],
+    "source_id": "5",
+    "operation": "BuyOrSellRosterRole",
+    "price_rule": {
+      "buy_by_star": [
+        "5",
+        "15",
+        "45",
+        "135"
+      ],
+      "sell_by_star": [
+        "5",
+        "14",
+        "44",
+        "132"
+      ]
+    },
+    "eligibility": {
+      "rarity": "5",
+      "star_levels": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "ordered_state_changes": [
+      "Validate roster and Gold preconditions.",
+      "Apply the authored Gold price.",
+      "Apply the roster mutation."
+    ]
+  }
+]

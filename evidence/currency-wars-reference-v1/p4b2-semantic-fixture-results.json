@@ -1,0 +1,589 @@
+{
+  "batch": "G12-P4-B2",
+  "result": "Pass",
+  "fixture_contract": {
+    "schema_revision": "starclock.currency-wars-fixture-contract.v1",
+    "required_family_count": 28,
+    "executed_case_count": 28,
+    "deterministic_seed": "0",
+    "candidate_order": "StableIdAscending",
+    "operation_order_asserted": true,
+    "runtime_execution": false
+  },
+  "exact_released_rules": {
+    "automatic_technique": "currency-wars.battle-override.automatic-technique",
+    "defeat_energy_ratio": "0.5",
+    "lethal_rescue_operation_count": 3,
+    "equipment_slots_per_character": "3"
+  },
+  "mechanic_coverage": {
+    "total": 2367,
+    "runtime_lowered": 0,
+    "scope_counts": {
+      "BattleVisibleOrBattleBoundary": 1846,
+      "CrossBattleActivity": 521
+    },
+    "fixture_assignments": {
+      "BattleVisibleOrBattleBoundary": "battle-visible-rule-contribution",
+      "CrossBattleActivity": "cross-battle-state-and-reset"
+    }
+  },
+  "approximation_coverage": {
+    "total": 12,
+    "orphan_count": 0,
+    "bounded_project_policy_count": 12,
+    "results": [
+      {
+        "id": "currency-wars.research-gap.bond-simultaneous-recompute",
+        "field": "bond.simultaneous_recompute",
+        "result": "Pass",
+        "fixture_families": [
+          "bond-membership-threshold-and-recompute",
+          "simultaneous-bond-star-and-roster-order"
+        ],
+        "selected_policy": "Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures.",
+        "replacement_condition": "A released operation program or reproducible simultaneous mutation trace is available."
+      },
+      {
+        "id": "currency-wars.research-gap.role-build-join",
+        "field": "build.role_to_shared_build",
+        "result": "Pass",
+        "fixture_families": [
+          "owned-trial-build-substitution-and-removal"
+        ],
+        "selected_policy": "Keep shared builds fail closed and preserve account state unchanged.",
+        "replacement_condition": "A released role-to-build selector or reproducible owned/trial substitution observation is available."
+      },
+      {
+        "id": "currency-wars.research-gap.gold-coin-structured-id",
+        "field": "economy.gold_coin_id",
+        "result": "Pass",
+        "fixture_families": [
+          "gold-coin-refresh-experience-and-team-size"
+        ],
+        "selected_policy": "Use the stable project ID and keep the upstream resource locator unresolved.",
+        "replacement_condition": "A released structured field explicitly binds Gold Coin to a resource record."
+      },
+      {
+        "id": "currency-wars.research-gap.offer-sampling-order",
+        "field": "economy.offer_sampling_order",
+        "result": "Pass",
+        "fixture_families": [
+          "candidate-order-and-no-legal-result",
+          "roster-offer-cost-purchase-sale-and-cap"
+        ],
+        "selected_policy": "Sort candidates by stable ID before deterministic weighted review.",
+        "replacement_condition": "A released selector program or reproducible seeded offer trace publishes the order."
+      },
+      {
+        "id": "currency-wars.research-gap.camp-boss-identity",
+        "field": "encounter.boss_identity",
+        "result": "Pass",
+        "fixture_families": [
+          "encounter-wave-elite-and-boss-binding"
+        ],
+        "selected_policy": "Retain every Camp candidate and reject inferred boss narrowing.",
+        "replacement_condition": "A released BattleArea-to-GridFightMonster join or reproducible boss observation is available."
+      },
+      {
+        "id": "currency-wars.research-gap.cross-node-carry-reset",
+        "field": "flow.carry_reset",
+        "result": "Pass",
+        "fixture_families": [
+          "cross-battle-state-and-reset"
+        ],
+        "selected_policy": "Preserve fields and require fixtures to declare carry/reset assumptions.",
+        "replacement_condition": "A released operation program or reproducible transition trace publishes the lifecycle."
+      },
+      {
+        "id": "currency-wars.research-gap.investment-operation-order",
+        "field": "investment.operation_order",
+        "result": "Pass",
+        "fixture_families": [
+          "investment-environment-strategy-and-augment"
+        ],
+        "selected_policy": "Preserve configuration programs and declare offer/activation order in fixtures only.",
+        "replacement_condition": "Released program semantics or reproducible same-boundary activation traces are available."
+      },
+      {
+        "id": "currency-wars.research-gap.configuration-program-semantics",
+        "field": "mechanic.configuration_program",
+        "result": "Pass",
+        "fixture_families": [
+          "battle-visible-rule-contribution"
+        ],
+        "selected_policy": "Preserve exact program boundaries without runtime lowering or inferred operations.",
+        "replacement_condition": "A later runtime goal supplies reviewed typed lowering with semantic fixture evidence."
+      },
+      {
+        "id": "currency-wars.research-gap.position-and-rescue-order",
+        "field": "position.automatic_technique_rescue",
+        "result": "Pass",
+        "fixture_families": [
+          "automatic-technique-energy-and-lethal-rescue",
+          "field-bench-position-and-empowerment"
+        ],
+        "selected_policy": "Keep omitted positions dual-candidate and review rescue/countdown as explicit policy.",
+        "replacement_condition": "Released enum metadata or reproducible lethal-boundary observations become available."
+      },
+      {
+        "id": "currency-wars.research-gap.gambit-route-membership",
+        "field": "route.gambit_membership",
+        "result": "Pass",
+        "fixture_families": [
+          "gambit-rank-and-enemy-affix",
+          "profile-gambit-entry-and-terminal"
+        ],
+        "selected_policy": "Keep route-to-Gambit membership policy-bound and do not infer it from order.",
+        "replacement_condition": "A released Division/route-to-Gambit selector or reproducible observation is published."
+      },
+      {
+        "id": "currency-wars.research-gap.squad-boundary-order",
+        "field": "squad_hp.same_boundary_order",
+        "result": "Pass",
+        "fixture_families": [
+          "squad-hp-action-value-same-boundary-order"
+        ],
+        "selected_policy": "Use the reviewed victory-first policy only in reference fixtures.",
+        "replacement_condition": "A reproducible last-enemy and timeout same-boundary observation is available."
+      },
+      {
+        "id": "currency-wars.research-gap.maximum-star-overflow",
+        "field": "star.maximum_overflow",
+        "result": "Pass",
+        "fixture_families": [
+          "star-copy-combine-overflow-and-teardown",
+          "simultaneous-bond-star-and-roster-order"
+        ],
+        "selected_policy": "Retain overflow as an explicit fixture policy without inventing a reward.",
+        "replacement_condition": "Released overflow data or a reproducible maximum-star purchase observation is available."
+      }
+    ]
+  },
+  "fixture_results": [
+    {
+      "family": "approximation-replacement-trigger",
+      "fixture_id": "currency-wars.review-fixture.approximation-replacement-trigger.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "reviewed approximation",
+        "released replacement evidence",
+        "deterministic reclassification"
+      ],
+      "evidence_assertions": [
+        "research-gaps.json:12 bounded replacement conditions"
+      ]
+    },
+    {
+      "family": "automatic-technique-energy-and-lethal-rescue",
+      "fixture_id": "currency-wars.review-fixture.automatic-technique-energy-and-lethal-rescue.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "automatic Technique",
+        "defeat-energy rule",
+        "lethal rescue and countdown"
+      ],
+      "evidence_assertions": [
+        "currency-wars.battle-override.automatic-technique",
+        "currency-wars.battle-override.defeat-energy-half",
+        "currency-wars.battle-override.lethal-rescue-countdown"
+      ]
+    },
+    {
+      "family": "battle-visible-rule-contribution",
+      "fixture_id": "currency-wars.review-fixture.battle-visible-rule-contribution.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "BattleSpec contribution",
+        "battle observation",
+        "teardown"
+      ],
+      "evidence_assertions": [
+        "mechanic-rules.json:2367 exact source boundaries",
+        "battle-overrides.json:341 ordered contributions with teardown"
+      ]
+    },
+    {
+      "family": "blessing-level-offer-and-enhancement",
+      "fixture_id": "currency-wars.review-fixture.blessing-level-offer-and-enhancement.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "offer candidates",
+        "level transition",
+        "enhanced contribution"
+      ],
+      "evidence_assertions": [
+        "blessings.json:0 reachable identities",
+        "blessing-levels.json:7 exact MazeBuff enhancement levels",
+        "blessing-paths.json:1 proven-empty closure"
+      ]
+    },
+    {
+      "family": "bond-membership-threshold-and-recompute",
+      "fixture_id": "currency-wars.review-fixture.bond-membership-threshold-and-recompute.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "membership change",
+        "threshold boundary",
+        "simultaneous recompute"
+      ],
+      "evidence_assertions": [
+        "bonds.json:49",
+        "bond-levels.json:152",
+        "bond-contributions.json:653",
+        "policy:bond.simultaneous_recompute"
+      ]
+    },
+    {
+      "family": "candidate-order-and-no-legal-result",
+      "fixture_id": "currency-wars.review-fixture.candidate-order-and-no-legal-result.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "ordered candidates",
+        "eligibility rejection",
+        "explicit fallback"
+      ],
+      "evidence_assertions": [
+        "service-offer-rules.json:164 explicit fallbacks",
+        "fixture candidate order:StableIdAscending"
+      ]
+    },
+    {
+      "family": "cross-battle-state-and-reset",
+      "fixture_id": "currency-wars.review-fixture.cross-battle-state-and-reset.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "state creation",
+        "battle boundary carry",
+        "terminal reset"
+      ],
+      "evidence_assertions": [
+        "stage-flow.json:493",
+        "policy:flow.carry_reset"
+      ]
+    },
+    {
+      "family": "curio-state-charge-destruction-and-repair",
+      "fixture_id": "currency-wars.review-fixture.curio-state-charge-destruction-and-repair.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "charge change",
+        "destroyed state",
+        "repair and replacement"
+      ],
+      "evidence_assertions": [
+        "curios/curio-states/curio-lifecycle-rules:proven zero reachable rows"
+      ]
+    },
+    {
+      "family": "encounter-wave-elite-and-boss-binding",
+      "fixture_id": "currency-wars.review-fixture.encounter-wave-elite-and-boss-binding.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "group selection",
+        "ordered waves",
+        "elite or boss alternative"
+      ],
+      "evidence_assertions": [
+        "encounter-groups.json:25",
+        "encounter-waves.json:5",
+        "enemy-slots.json:306",
+        "boss-pools.json:10 candidate boundaries"
+      ]
+    },
+    {
+      "family": "field-bench-position-and-empowerment",
+      "fixture_id": "currency-wars.review-fixture.field-bench-position-and-empowerment.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "deployment validation",
+        "position contribution",
+        "Empowerment teardown"
+      ],
+      "evidence_assertions": [
+        "role-mappings.json:77",
+        "positions.json:3",
+        "character-empowerments.json:4652 with teardown"
+      ]
+    },
+    {
+      "family": "formula-recipe-progress-and-contribution",
+      "fixture_id": "currency-wars.review-fixture.formula-recipe-progress-and-contribution.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "recipe requirements",
+        "progress transition",
+        "battle contribution"
+      ],
+      "evidence_assertions": [
+        "formulas.json:1 proven-empty closure",
+        "formula-recipes/formula-contributions:0 reachable rows"
+      ]
+    },
+    {
+      "family": "gambit-rank-and-enemy-affix",
+      "fixture_id": "currency-wars.review-fixture.gambit-rank-and-enemy-affix.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "Gambit selection",
+        "rank boundary",
+        "enemy affix contribution"
+      ],
+      "evidence_assertions": [
+        "gambit-modes.json:2",
+        "rank-gambit-progression.json:56",
+        "enemy-affixes.json:721"
+      ]
+    },
+    {
+      "family": "goal11-selector-separation-reconciliation",
+      "fixture_id": "currency-wars.review-fixture.goal11-selector-separation-reconciliation.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "exact GridFight source locator",
+        "distinct Tourn3 selector",
+        "reopen condition"
+      ],
+      "evidence_assertions": [
+        "GuideType GridFight / tab 1003 / data 301",
+        "TournRogue/Tourn3 retained as distinct superseded selector",
+        "Replace only if released structured data at the same fixed snapshot publishes a stronger direct Currency Wars selector than GuideType GridFight."
+      ]
+    },
+    {
+      "family": "gold-coin-refresh-experience-and-team-size",
+      "fixture_id": "currency-wars.review-fixture.gold-coin-refresh-experience-and-team-size.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "currency mutation",
+        "refresh cost",
+        "Experience and team-size transition"
+      ],
+      "evidence_assertions": [
+        "currencies.json:1",
+        "economy-rules.json:1",
+        "team-size-states.json:10"
+      ]
+    },
+    {
+      "family": "hex-eligibility-activation-and-teardown",
+      "fixture_id": "currency-wars.review-fixture.hex-eligibility-activation-and-teardown.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "eligibility",
+        "activation",
+        "replacement or teardown"
+      ],
+      "evidence_assertions": [
+        "hex-eligibility/hex-states:proven zero reachable rows"
+      ]
+    },
+    {
+      "family": "investment-environment-strategy-and-augment",
+      "fixture_id": "currency-wars.review-fixture.investment-environment-strategy-and-augment.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "Augment entry",
+        "Projection or Portal offer",
+        "activation lifecycle"
+      ],
+      "evidence_assertions": [
+        "augment-definitions.json:334",
+        "projections.json:2",
+        "portal-buffs.json:84",
+        "orbs.json:376",
+        "talents.json:13",
+        "enhancements.json:25",
+        "policy:investment.operation_order"
+      ]
+    },
+    {
+      "family": "occurrence-choice-cost-and-outcome",
+      "fixture_id": "currency-wars.review-fixture.occurrence-choice-cost-and-outcome.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "choice condition",
+        "cost",
+        "ordered mechanical outcome"
+      ],
+      "evidence_assertions": [
+        "occurrences.json:167",
+        "occurrence-variants.json:150",
+        "occurrence-choices.json:90 ordered outcomes"
+      ]
+    },
+    {
+      "family": "off-field-conversion-and-equipment-slots",
+      "fixture_id": "currency-wars.review-fixture.off-field-conversion-and-equipment-slots.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "conversion eligibility",
+        "three-slot cap",
+        "replacement"
+      ],
+      "evidence_assertions": [
+        "off-field-conversions.json:417",
+        "currency-wars.equipment.slot-cap.three-per-character",
+        "equipment.json:519 replacement rules"
+      ]
+    },
+    {
+      "family": "other-mode-ownership-rejection",
+      "fixture_id": "currency-wars.review-fixture.other-mode-ownership-rejection.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "named other-mode row",
+        "failed selector",
+        "no normalized promotion"
+      ],
+      "evidence_assertions": [
+        "Tourn3 selector fails authoritative GridFight selector",
+        "zero RoguePersona/RogueTourn normalized source promotion"
+      ]
+    },
+    {
+      "family": "owned-trial-build-substitution-and-removal",
+      "fixture_id": "currency-wars.review-fixture.owned-trial-build-substitution-and-removal.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "owned build boundary",
+        "trial fallback",
+        "account state unchanged"
+      ],
+      "evidence_assertions": [
+        "build-mappings.json:77 account_mutation=false",
+        "build-source-files.json:6 fail-closed shared sources",
+        "build-substitution-rules.json:2 teardown rules"
+      ]
+    },
+    {
+      "family": "profile-gambit-entry-and-terminal",
+      "fixture_id": "currency-wars.review-fixture.profile-gambit-entry-and-terminal.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "Standard or Overclock entry",
+        "initial state",
+        "terminal disposition"
+      ],
+      "evidence_assertions": [
+        "profiles.json:1 runtime disabled",
+        "gambit-modes.json:2",
+        "entries.json:2",
+        "finish-conditions.json:21"
+      ]
+    },
+    {
+      "family": "roster-offer-cost-purchase-sale-and-cap",
+      "fixture_id": "currency-wars.review-fixture.roster-offer-cost-purchase-sale-and-cap.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "offer candidates",
+        "purchase or sale",
+        "field and bench cap"
+      ],
+      "evidence_assertions": [
+        "roster-avatars.json:77",
+        "roster-offers.json:10",
+        "roster-transactions.json:5",
+        "team-size-states.json:10"
+      ]
+    },
+    {
+      "family": "shop-service-price-inventory-and-fallback",
+      "fixture_id": "currency-wars.review-fixture.shop-service-price-inventory-and-fallback.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "service eligibility",
+        "price and inventory",
+        "no legal offer fallback"
+      ],
+      "evidence_assertions": [
+        "shop-services.json:208",
+        "service-offer-rules.json:164 explicit fallbacks"
+      ]
+    },
+    {
+      "family": "simultaneous-bond-star-and-roster-order",
+      "fixture_id": "currency-wars.review-fixture.simultaneous-bond-star-and-roster-order.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "same-boundary changes",
+        "stable operation order",
+        "final recomputation"
+      ],
+      "evidence_assertions": [
+        "policy:bond.simultaneous_recompute",
+        "policy:star.maximum_overflow",
+        "fixture operation order asserted"
+      ]
+    },
+    {
+      "family": "squad-hp-action-value-same-boundary-order",
+      "fixture_id": "currency-wars.review-fixture.squad-hp-action-value-same-boundary-order.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "battle result",
+        "Squad HP projection",
+        "action-value projection order"
+      ],
+      "evidence_assertions": [
+        "squad-hp-rules.json:1",
+        "action-value-limits.json:2",
+        "battle-result-projections.json:2",
+        "policy:squad_hp.same_boundary_order"
+      ]
+    },
+    {
+      "family": "squad-hp-victory-timeout-and-run-failure",
+      "fixture_id": "currency-wars.review-fixture.squad-hp-victory-timeout-and-run-failure.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "victory",
+        "timeout",
+        "zero-HP run failure"
+      ],
+      "evidence_assertions": [
+        "battle-result-projections.json:2",
+        "run-failure-rules.json:1",
+        "zero Squad HP is terminal"
+      ]
+    },
+    {
+      "family": "star-copy-combine-overflow-and-teardown",
+      "fixture_id": "currency-wars.review-fixture.star-copy-combine-overflow-and-teardown.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "copy acquisition",
+        "three-copy combination",
+        "overflow and teardown"
+      ],
+      "evidence_assertions": [
+        "star-states.json:295",
+        "star-combination-rules.json:189",
+        "star-lifecycle-rules.json:3",
+        "policy:star.maximum_overflow"
+      ]
+    },
+    {
+      "family": "three-plane-node-room-flow",
+      "fixture_id": "currency-wars.review-fixture.three-plane-node-room-flow.base",
+      "result": "Pass",
+      "asserted_facts": [
+        "Plane transition",
+        "Node choice",
+        "room and Stage binding"
+      ],
+      "evidence_assertions": [
+        "layers.json:75 across three Plane positions",
+        "nodes.json:493",
+        "rooms.json:5",
+        "stage-flow.json:493"
+      ]
+    }
+  ],
+  "pack": {
+    "digest": "6166401347306cc38f5f0e3eed1a519d25a1f015e88f7782fb0c1bdf2761c2cb",
+    "indexed_stable_ids": 74618,
+    "source_receipts": 37342
+  }
+}

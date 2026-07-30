@@ -1,0 +1,282 @@
+{
+  "table": {
+    "name": "CurrencyWarsDomainCompositions",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain_type": {
+            "String": "Boss"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectUnknownNodeType"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsDomainComposition"
+          },
+          "name_en": {
+            "String": "Boss Node composition"
+          },
+          "name_zh_cn": {
+            "String": "Boss 节点组成"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "room_candidate_ids": {
+            "String": "[\"currency-wars.room-type.boss\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "ExactNodeType"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a868391e42d4b046f226696ebfcec964\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.domain-composition.boss"
+          },
+          "summary_en": {
+            "String": "This composition selects the direct Boss GridFight Node type."
+          },
+          "summary_zh_cn": {
+            "String": "此组成选择直接的 Boss GridFight 节点类型。"
+          },
+          "tags_json": {
+            "String": "[\"boss\",\"domain-composition\",\"gridfight\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain_type": {
+            "String": "CampMonster"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectUnknownNodeType"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsDomainComposition"
+          },
+          "name_en": {
+            "String": "CampMonster Node composition"
+          },
+          "name_zh_cn": {
+            "String": "CampMonster 节点组成"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "room_candidate_ids": {
+            "String": "[\"currency-wars.room-type.campmonster\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "ExactNodeType"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.daaf7f3c3234b3fec6187afce58cd74f\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.domain-composition.campmonster"
+          },
+          "summary_en": {
+            "String": "This composition selects the direct CampMonster GridFight Node type."
+          },
+          "summary_zh_cn": {
+            "String": "此组成选择直接的 CampMonster GridFight 节点类型。"
+          },
+          "tags_json": {
+            "String": "[\"campmonster\",\"domain-composition\",\"gridfight\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain_type": {
+            "String": "EliteBranch"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectUnknownNodeType"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsDomainComposition"
+          },
+          "name_en": {
+            "String": "EliteBranch Node composition"
+          },
+          "name_zh_cn": {
+            "String": "EliteBranch 节点组成"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "room_candidate_ids": {
+            "String": "[\"currency-wars.room-type.elitebranch\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "ExactNodeType"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.01ff3dae85ef27588c7c2c08870b0927\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.domain-composition.elitebranch"
+          },
+          "summary_en": {
+            "String": "This composition selects the direct EliteBranch GridFight Node type."
+          },
+          "summary_zh_cn": {
+            "String": "此组成选择直接的 EliteBranch GridFight 节点类型。"
+          },
+          "tags_json": {
+            "String": "[\"domain-composition\",\"elitebranch\",\"gridfight\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain_type": {
+            "String": "Monster"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectUnknownNodeType"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsDomainComposition"
+          },
+          "name_en": {
+            "String": "Monster Node composition"
+          },
+          "name_zh_cn": {
+            "String": "Monster 节点组成"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "room_candidate_ids": {
+            "String": "[\"currency-wars.room-type.monster\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "ExactNodeType"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.81a9572d9e35d35737bb4d54018c820b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.domain-composition.monster"
+          },
+          "summary_en": {
+            "String": "This composition selects the direct Monster GridFight Node type."
+          },
+          "summary_zh_cn": {
+            "String": "此组成选择直接的 Monster GridFight 节点类型。"
+          },
+          "tags_json": {
+            "String": "[\"domain-composition\",\"gridfight\",\"monster\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "domain_type": {
+            "String": "Supply"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "fallback": {
+            "String": "RejectUnknownNodeType"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsDomainComposition"
+          },
+          "name_en": {
+            "String": "Supply Node composition"
+          },
+          "name_zh_cn": {
+            "String": "Supply 节点组成"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "room_candidate_ids": {
+            "String": "[\"currency-wars.room-type.supply\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selection_policy": {
+            "String": "ExactNodeType"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.561c6075c818bb802167e2f3016e5aee\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.domain-composition.supply"
+          },
+          "summary_en": {
+            "String": "This composition selects the direct Supply GridFight Node type."
+          },
+          "summary_zh_cn": {
+            "String": "此组成选择直接的 Supply GridFight 节点类型。"
+          },
+          "tags_json": {
+            "String": "[\"domain-composition\",\"gridfight\",\"supply\"]"
+          }
+        }
+      }
+    ]
+  }
+}

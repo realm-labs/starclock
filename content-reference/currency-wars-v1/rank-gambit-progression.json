@@ -1,0 +1,3333 @@
+[
+  {
+    "id": "currency-wars.rank.division.1.0",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Tutorial Level",
+    "name_zh_cn": "新手关",
+    "summary_en": "Season 1 division level 0 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 0 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "0",
+        "sha256": "06e19cdd46b024071d729c5dffe15387403adebf81f512af45e4cb1349da682d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.18432933150825449103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "18432933150825449103",
+        "sha256": "0fcef50d1518832760e9c4a875c177c698609add510f2a02940e2b0b1ccc7e34",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.18432933150825449103",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "18432933150825449103",
+        "sha256": "514de38446e62189d6a01703fae27dbce0484828f73e222a3220a3c49bfcdb72",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.90175006323261507",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "90175006323261507",
+        "sha256": "3e9a4c43480f9e90338fc57144d02ae5baf4c62ee07bcca911ecf537b02706e2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.90175006323261507",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "90175006323261507",
+        "sha256": "54247301aacf51af93c4b04d94dc5dc650782b81bc4df053e452b9e61c7c7a77",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:0",
+    "rank": {
+      "season_id": "1",
+      "division_level": "0"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "0",
+      "maximum_overclock_difficulty": "0",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Black Iron",
+    "name_zh_cn": "黑铁",
+    "summary_en": "Season 1 division level 1 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 1 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "1",
+        "sha256": "3b296460ed03e90b1a3299860ef86ff0b4c0207ff24d74703cbc6ae01d4b553c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5162278525596711925",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5162278525596711925",
+        "sha256": "379ab6c004a2e849929404237ec439b3367d7fec1f4d30d2b8e024c53905028b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5162278525596711925",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5162278525596711925",
+        "sha256": "54392eb0177f5a48f8c0198bbac82cda84603361e19d7bbda24d76dc906a2d7d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9148341949944255495",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9148341949944255495",
+        "sha256": "3054076fae418a8840c63e3edb49ba61d019c551e807b05d8496f868736b382f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9148341949944255495",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9148341949944255495",
+        "sha256": "f2bf1639883a6136602d27fc4837d90624fc567124b332fda91a5fcaa65381d1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9139054309111037139",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9139054309111037139",
+        "sha256": "9141487e89a6813cb1b3f5e663e4822e0ce708a39f22179180ddc0bbd9965a99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9139054309111037139",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9139054309111037139",
+        "sha256": "9141487e89a6813cb1b3f5e663e4822e0ce708a39f22179180ddc0bbd9965a99",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:1",
+    "rank": {
+      "season_id": "1",
+      "division_level": "1"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "1",
+      "maximum_overclock_difficulty": "1",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Viridian Bronze",
+    "name_zh_cn": "青铜",
+    "summary_en": "Season 1 division level 2 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 2 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "2",
+        "sha256": "8b4205a1a762f6eeed8431c45e6375b6ff97bd6b30a9127df1ecaf10642518ba",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3737380743925484721",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3737380743925484721",
+        "sha256": "ed9f85d002a00e8bf3f4598584efa524c0cf90fcab18c11dcd674df4c7220cff",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3737380743925484721",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3737380743925484721",
+        "sha256": "1fc51388c9e785b893ebe78e7d4f14f6478d9bb9f9189db42bc2812b842aff67",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13449503954071086936",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13449503954071086936",
+        "sha256": "bf95de167ac7e4eda27b5135e0c87c19afd40fd50f4ea009ef6739c87369327f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13449503954071086936",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13449503954071086936",
+        "sha256": "b70f8c728a95e3a0593f9662755e8e5b345d866228ec02e23bee19cbbd6db0f0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13196337463994631413",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13196337463994631413",
+        "sha256": "9c3f278a34754b4625323199de71c7cefcba0e71fbb2852c22503e828fbd6ec2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13196337463994631413",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13196337463994631413",
+        "sha256": "9c3f278a34754b4625323199de71c7cefcba0e71fbb2852c22503e828fbd6ec2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:2",
+    "rank": {
+      "season_id": "1",
+      "division_level": "2"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "2",
+      "maximum_overclock_difficulty": "2",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Jade Steel",
+    "name_zh_cn": "翠钢",
+    "summary_en": "Season 1 division level 3 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 3 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "3",
+        "sha256": "dc7efc0e5477ae5703d97e20259928062ba8c14c1b20a2186233ee37a9f7156a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17758666133482877778",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17758666133482877778",
+        "sha256": "cd51ae2844083209ab748e8c5432f1a627156cd1f545cc8d5d5cabf88a9a7bc6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17758666133482877778",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17758666133482877778",
+        "sha256": "4702df390a5a82e74986e7b30c6286d22caa1ff17fad0ce957d10790aa8770a9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13998482942438241475",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13998482942438241475",
+        "sha256": "040cc60de4eedbd931f03423b44ac88eea334d32c4f440c5b42c195aebbe96aa",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13998482942438241475",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13998482942438241475",
+        "sha256": "997b1956b596fc5cf552fc10a248b10439e3d431c2d6d43c37bfa79937c83d7a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12568387297266396944",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12568387297266396944",
+        "sha256": "7850c8bd8b833f8c5bcca9dd80ab250f66daf14408a717376e1fd9594aeef566",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12568387297266396944",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12568387297266396944",
+        "sha256": "7850c8bd8b833f8c5bcca9dd80ab250f66daf14408a717376e1fd9594aeef566",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:3",
+    "rank": {
+      "season_id": "1",
+      "division_level": "3"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "3",
+      "maximum_overclock_difficulty": "3",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Cobalt Silver",
+    "name_zh_cn": "钴银",
+    "summary_en": "Season 1 division level 4 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 4 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "4",
+        "sha256": "120a07f194a11b8b79428ec3f87a96b7cab1e2a14e4a5a6eed18de22c85dcb4e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.6487855742400760553",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "6487855742400760553",
+        "sha256": "3e7b846f04ccd9d0652a4734888d92d26e9e57fc0355b09f8c0d8f015fac1890",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.6487855742400760553",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "6487855742400760553",
+        "sha256": "8553b1cbc8c3abe1115a793b0fc82ddf4eadb9b43196ab52fca4c6cfffd910a7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3849976821676981017",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3849976821676981017",
+        "sha256": "1ad3bf1a202baace9ea7b3d11887a046de16bd0419942d641230fc67820c9b90",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3849976821676981017",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3849976821676981017",
+        "sha256": "b521a28e010f7f584dd73b9f573efabaaf488c4c16f718fe3bb6d44de3333803",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7192157414004026875",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7192157414004026875",
+        "sha256": "928ea82948a9cf23471100c66c2fbd4ff0d92a3544e75dabe26a8c9d288db07d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7192157414004026875",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7192157414004026875",
+        "sha256": "928ea82948a9cf23471100c66c2fbd4ff0d92a3544e75dabe26a8c9d288db07d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:4",
+    "rank": {
+      "season_id": "1",
+      "division_level": "4"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "4",
+      "maximum_overclock_difficulty": "4",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Ice Titanium",
+    "name_zh_cn": "冰钛",
+    "summary_en": "Season 1 division level 5 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 5 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "5",
+        "sha256": "4e52a0e08379af3a78a50ca820685b728ac9272dffdbacb3f139598334339a32",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11391430453119189692",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11391430453119189692",
+        "sha256": "1f86c973d067cc9b8d8bd929a1b9a7a3afe2e2507e8f93fd34fa8315a1c9f32a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11391430453119189692",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11391430453119189692",
+        "sha256": "56946c2f9dc516e579f642bfb03a8f5bd25aa361223db367fa488c239668d936",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.726523945207776080",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "726523945207776080",
+        "sha256": "fe9477cd6ec7abd4c3b4c1485f4c4a5ff4e08f1de77fc7c87d872cfb8c1735ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.726523945207776080",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "726523945207776080",
+        "sha256": "97ce392f0b6af76a8aaa39d510e1f41eaf0b66a20c36f4aac01dba5bd75f8a69",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9778961875297137308",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9778961875297137308",
+        "sha256": "9cf6be5f05e3eef01dcc0180394c3713cfec29e5f05df87a9030821bde571df7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9778961875297137308",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9778961875297137308",
+        "sha256": "9cf6be5f05e3eef01dcc0180394c3713cfec29e5f05df87a9030821bde571df7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:5",
+    "rank": {
+      "season_id": "1",
+      "division_level": "5"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "5",
+      "maximum_overclock_difficulty": "5",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Amethyst Gold",
+    "name_zh_cn": "紫金",
+    "summary_en": "Season 1 division level 6 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 6 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "6",
+        "sha256": "7daa4f5d822c4d211b8791cb7bc38edc8fb750414feeb08f5f2f47bc429a8809",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9436292019359399867",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9436292019359399867",
+        "sha256": "4d3b6acbd866f4a081925319806678f56a0e4c18266b0d48d466a222e3d8cbeb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9436292019359399867",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9436292019359399867",
+        "sha256": "268201cba8f6aa409bfb1e1b6d5d744b28dc0da333a8063e583dd502b5f35689",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9124961350109404558",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9124961350109404558",
+        "sha256": "c76f64905b450fa1a087c63e6be6d639c79f5b4c2184199ee131a1f8c4ce50f2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9124961350109404558",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9124961350109404558",
+        "sha256": "e79ff25ca134a377f820afe3bddf75c49a12e32c0634fe832c8c04594aa423d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17767852655429745162",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17767852655429745162",
+        "sha256": "338268961e15fa2a8c7ad4d7c58638e4f69f6516ebfdf3764f564b05307f22a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17767852655429745162",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17767852655429745162",
+        "sha256": "338268961e15fa2a8c7ad4d7c58638e4f69f6516ebfdf3764f564b05307f22a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:6",
+    "rank": {
+      "season_id": "1",
+      "division_level": "6"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "6",
+      "maximum_overclock_difficulty": "6",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Investment Master",
+    "name_zh_cn": "投资大师",
+    "summary_en": "Season 1 division level 7 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 7 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "7",
+        "sha256": "3c641520690cef0e5447506046d75ca6875edaeb6d5e55f5bfc29f726f1970f9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13010481247299205116",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13010481247299205116",
+        "sha256": "6f0399c9c5e1ef222576c310105ed0bd71a9c3b7d6b9bef9c3c259fdc25f152e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13010481247299205116",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13010481247299205116",
+        "sha256": "1af067a3d7c8e2c697877d7ebfc3450f13917b4d9a0e26f7cc376545842dbc1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4469183744416833336",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4469183744416833336",
+        "sha256": "4b0dfc303b0128c6e9dbc155622f93f00f9cbed9678a37c834ca6a7ec7ea5172",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4469183744416833336",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4469183744416833336",
+        "sha256": "f68c23e529256bb7c6796cff72c7131ae026e3f535cac41db6f1b7bddaaf4991",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13662558615637176213",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13662558615637176213",
+        "sha256": "6276f972e57cfaf1c01af357c81ca1b1f29f004d4618bccd0a72cb8ae488972d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13662558615637176213",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13662558615637176213",
+        "sha256": "6276f972e57cfaf1c01af357c81ca1b1f29f004d4618bccd0a72cb8ae488972d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:7",
+    "rank": {
+      "season_id": "1",
+      "division_level": "7"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "7",
+      "maximum_overclock_difficulty": "7",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.8",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Monarch of Capital",
+    "name_zh_cn": "资本帝王",
+    "summary_en": "Season 1 division level 8 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 8 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "8",
+        "sha256": "7e0d909f763beae3356d4d7b9ea59dd2238a4d70703c6111169db871767526d5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16776576302136385546",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16776576302136385546",
+        "sha256": "e1f0e0329693fe67e51ed89ec8e934fc2485ecb96ea4372e08d56f8b9e74ef9a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16776576302136385546",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16776576302136385546",
+        "sha256": "56bf417a7f86b102c090f6dc0622fec9edbe849633fe9ab3d5adfd4771f0ebcd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.10192237790396672669",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "10192237790396672669",
+        "sha256": "09a0335cd1779a93e02eb0c12e9615ed0e3d11e49d4faba512cbc603bc42d162",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.10192237790396672669",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "10192237790396672669",
+        "sha256": "6d7196583549888eca7c19a878dfba700d3a80aa3cf6b613e90c782364d984d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9352303586361444939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9352303586361444939",
+        "sha256": "729f9c8f13db3e4d5d5fc27ba13d08dc1ec387d7d1787498b3c9d82dc08ccb5e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9352303586361444939",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9352303586361444939",
+        "sha256": "729f9c8f13db3e4d5d5fc27ba13d08dc1ec387d7d1787498b3c9d82dc08ccb5e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:8",
+    "rank": {
+      "season_id": "1",
+      "division_level": "8"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "8",
+      "maximum_overclock_difficulty": "8",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.division.1.9",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Wealth Creator",
+    "name_zh_cn": "财富造物主",
+    "summary_en": "Season 1 division level 9 is a Standard Gambit rank boundary and caps Overclock difficulty selection.",
+    "summary_zh_cn": "赛季 1 的职级 9 是标准博弈职级边界，并限制超频博弈的难度选择上限。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightdivisionlevelshow-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightDivisionLevelShow.json",
+        "locator": "9",
+        "sha256": "f9593f915d2a2b82cd82de5ebbfc51d83bc8aa6fb6fcdcbadf3f294d7c7341e3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8149533432105798096",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8149533432105798096",
+        "sha256": "1c62be7c9a82b8e24259b273c81345d2c16bca77ff68b82c68d9d6382b8743b7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8149533432105798096",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8149533432105798096",
+        "sha256": "bdc188aa4a73e3f15f80232b38274f799076d110a624b032691a7fab0f2b6e9b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.688016940803002131",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "688016940803002131",
+        "sha256": "0c1f589fb2cb74387557cd0d7d19d3090843fc7ba58587f31e9514525e6e2728",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.688016940803002131",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "688016940803002131",
+        "sha256": "33e4ba458f20016f8f6a2c41b46633765ec37ca7cfd05515b7a3f715ccc00069",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3787647825607837307",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3787647825607837307",
+        "sha256": "0262a537734614dc40e4636e1b94427f764e1151ab9ed337ad210ac8de3463cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3787647825607837307",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3787647825607837307",
+        "sha256": "0262a537734614dc40e4636e1b94427f764e1151ab9ed337ad210ac8de3463cc",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "division",
+      "gambit-boundary",
+      "gridfight",
+      "rank-progression"
+    ],
+    "source_id": "1:9",
+    "rank": {
+      "season_id": "1",
+      "division_level": "9"
+    },
+    "gambit_mode": "StandardGambitWithOverclockCap",
+    "entry_boundary": {
+      "maximum_standard_difficulty": "9",
+      "maximum_overclock_difficulty": "9",
+      "reward_quest_fields_excluded": true
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 1 base values",
+    "name_zh_cn": "章节 1 区段 1 基础值",
+    "summary_en": "Chapter 1 section 1 authors base Attack 16000 and HP 16000.",
+    "summary_zh_cn": "章节 1 区段 1 编写基础攻击 16000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "0",
+        "sha256": "d8b255a93fa5bd497457c165470d6bfe42f4a9f9112fbc899537bf986685ed12",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:1",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "1"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "16000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 2 base values",
+    "name_zh_cn": "章节 1 区段 2 基础值",
+    "summary_en": "Chapter 1 section 2 authors base Attack 16000 and HP 16000.",
+    "summary_zh_cn": "章节 1 区段 2 编写基础攻击 16000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "1",
+        "sha256": "722f012bbb1ce3b5c74109a6cf8e8a258589e70ae1448e7639ad237d15227095",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:2",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "2"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "16000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 3 base values",
+    "name_zh_cn": "章节 1 区段 3 基础值",
+    "summary_en": "Chapter 1 section 3 authors base Attack 16000 and HP 16000.",
+    "summary_zh_cn": "章节 1 区段 3 编写基础攻击 16000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "2",
+        "sha256": "992fa87d18aa048d0ea72c74688cdf772f8f9dd40606e6af7a9a9c1e72bac594",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:3",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "3"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "16000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 4 base values",
+    "name_zh_cn": "章节 1 区段 4 基础值",
+    "summary_en": "Chapter 1 section 4 authors base Attack 17600 and HP 17000.",
+    "summary_zh_cn": "章节 1 区段 4 编写基础攻击 17600 与生命 17000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "3",
+        "sha256": "2b9d8d3826ee37e62233bfe3dba48ab0c867d0786acdf20aa6705e58f8d591b9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:4",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "4"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "17600",
+      "level_base_hp": "17000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 5 base values",
+    "name_zh_cn": "章节 1 区段 5 基础值",
+    "summary_en": "Chapter 1 section 5 authors base Attack 19200 and HP 18000.",
+    "summary_zh_cn": "章节 1 区段 5 编写基础攻击 19200 与生命 18000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "4",
+        "sha256": "9f903c6979dade6ce24cc81d04e0673116a092325c2a46939cf828393c97d0c0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:5",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "5"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "19200",
+      "level_base_hp": "18000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 6 base values",
+    "name_zh_cn": "章节 1 区段 6 基础值",
+    "summary_en": "Chapter 1 section 6 authors base Attack 19200 and HP 18000.",
+    "summary_zh_cn": "章节 1 区段 6 编写基础攻击 19200 与生命 18000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "5",
+        "sha256": "20ec8767c9e690770df561d7068d81c370f457d3d8c78b138dd92872f1bcc622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:6",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "6"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "19200",
+      "level_base_hp": "18000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 7 base values",
+    "name_zh_cn": "章节 1 区段 7 基础值",
+    "summary_en": "Chapter 1 section 7 authors base Attack 20800 and HP 19000.",
+    "summary_zh_cn": "章节 1 区段 7 编写基础攻击 20800 与生命 19000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "6",
+        "sha256": "28d87543e03fa8ea00a67a2454b9d40cef68e3b1ee3ff223b1ba8caf5c142072",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:7",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "7"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "20800",
+      "level_base_hp": "19000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.8",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 8 base values",
+    "name_zh_cn": "章节 1 区段 8 基础值",
+    "summary_en": "Chapter 1 section 8 authors base Attack 20800 and HP 19000.",
+    "summary_zh_cn": "章节 1 区段 8 编写基础攻击 20800 与生命 19000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "7",
+        "sha256": "33d990e1260a769d1ff97a31264ed3daadf0b1f6d9cf9e370d6c5aad0376a94c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:8",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "8"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "20800",
+      "level_base_hp": "19000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.1.9",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 1 section 9 base values",
+    "name_zh_cn": "章节 1 区段 9 基础值",
+    "summary_en": "Chapter 1 section 9 authors base Attack 22400 and HP 20000.",
+    "summary_zh_cn": "章节 1 区段 9 编写基础攻击 22400 与生命 20000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "8",
+        "sha256": "b2b3512b10877a3bcbc36016ae46136c9cc767e213349e41548dfd8bf0643e46",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "1:9",
+    "rank": {
+      "chapter_id": "1",
+      "section_id": "9"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "22400",
+      "level_base_hp": "20000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 1 base values",
+    "name_zh_cn": "章节 2 区段 1 基础值",
+    "summary_en": "Chapter 2 section 1 authors base Attack 36000 and HP 24000.",
+    "summary_zh_cn": "章节 2 区段 1 编写基础攻击 36000 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "9",
+        "sha256": "ab32670370ddcd57349bc7767a9039ff6a253a66a26cc7d54720808c077d51bd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:1",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "1"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "36000",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 2 base values",
+    "name_zh_cn": "章节 2 区段 2 基础值",
+    "summary_en": "Chapter 2 section 2 authors base Attack 41400 and HP 25000.",
+    "summary_zh_cn": "章节 2 区段 2 编写基础攻击 41400 与生命 25000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "10",
+        "sha256": "0a29353d2f6947a253671098f16b56eb80b47fccd670f0a252a9b7ad697b4ca2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:2",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "2"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "41400",
+      "level_base_hp": "25000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 3 base values",
+    "name_zh_cn": "章节 2 区段 3 基础值",
+    "summary_en": "Chapter 2 section 3 authors base Attack 41400 and HP 25000.",
+    "summary_zh_cn": "章节 2 区段 3 编写基础攻击 41400 与生命 25000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "11",
+        "sha256": "a69cfa43b6381a988a5ac30ea2cb9353deb00e8cc2138b9db198dd5e113c4fd1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:3",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "3"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "41400",
+      "level_base_hp": "25000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 4 base values",
+    "name_zh_cn": "章节 2 区段 4 基础值",
+    "summary_en": "Chapter 2 section 4 authors base Attack 46800 and HP 26000.",
+    "summary_zh_cn": "章节 2 区段 4 编写基础攻击 46800 与生命 26000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "12",
+        "sha256": "b112838210f71a137dfa160fb034370e10e33b48c61ff503dcc22474fc3ece9f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:4",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "4"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "46800",
+      "level_base_hp": "26000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 5 base values",
+    "name_zh_cn": "章节 2 区段 5 基础值",
+    "summary_en": "Chapter 2 section 5 authors base Attack 52200 and HP 27000.",
+    "summary_zh_cn": "章节 2 区段 5 编写基础攻击 52200 与生命 27000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "13",
+        "sha256": "770ecc4f833abc030ac3e75224c0647e5819df41ca3fb070c5e68377ae4de089",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:5",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "5"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "52200",
+      "level_base_hp": "27000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 6 base values",
+    "name_zh_cn": "章节 2 区段 6 基础值",
+    "summary_en": "Chapter 2 section 6 authors base Attack 52200 and HP 27000.",
+    "summary_zh_cn": "章节 2 区段 6 编写基础攻击 52200 与生命 27000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "14",
+        "sha256": "7d6d8de456f924617a6a306e863a95fcf7667fcfa7a9eac99caa955b2c0044ce",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:6",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "6"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "52200",
+      "level_base_hp": "27000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.2.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 2 section 7 base values",
+    "name_zh_cn": "章节 2 区段 7 基础值",
+    "summary_en": "Chapter 2 section 7 authors base Attack 57600 and HP 28000.",
+    "summary_zh_cn": "章节 2 区段 7 编写基础攻击 57600 与生命 28000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "15",
+        "sha256": "9a383260e81e2f27c016ba4cd8ac643b0fa4ec53feb731b0e0a6f52745078691",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "2:7",
+    "rank": {
+      "chapter_id": "2",
+      "section_id": "7"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "57600",
+      "level_base_hp": "28000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.1",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 1 base values",
+    "name_zh_cn": "章节 3 区段 1 基础值",
+    "summary_en": "Chapter 3 section 1 authors base Attack 88000 and HP 32000.",
+    "summary_zh_cn": "章节 3 区段 1 编写基础攻击 88000 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "16",
+        "sha256": "b3d942413eb7f2ddbe17952195d3bc1187de44305cfcd3a9899b54de57af2882",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:1",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "1"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "88000",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.2",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 2 base values",
+    "name_zh_cn": "章节 3 区段 2 基础值",
+    "summary_en": "Chapter 3 section 2 authors base Attack 101200 and HP 33000.",
+    "summary_zh_cn": "章节 3 区段 2 编写基础攻击 101200 与生命 33000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "17",
+        "sha256": "ba80755b7153a442214fe3126d579d364c4cd3fa7846c4ce8c123136ba5f4519",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:2",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "2"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "101200",
+      "level_base_hp": "33000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.3",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 3 base values",
+    "name_zh_cn": "章节 3 区段 3 基础值",
+    "summary_en": "Chapter 3 section 3 authors base Attack 101200 and HP 33000.",
+    "summary_zh_cn": "章节 3 区段 3 编写基础攻击 101200 与生命 33000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "18",
+        "sha256": "cc4daf093f70583f98a359e0c344e799ad450111a70cfb206293693a051432ae",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:3",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "3"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "101200",
+      "level_base_hp": "33000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.4",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 4 base values",
+    "name_zh_cn": "章节 3 区段 4 基础值",
+    "summary_en": "Chapter 3 section 4 authors base Attack 114400 and HP 34000.",
+    "summary_zh_cn": "章节 3 区段 4 编写基础攻击 114400 与生命 34000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "19",
+        "sha256": "c508a1b273117992ee30573267a6fa07b95315ab251bbc70834ac4aafa09d598",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:4",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "4"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "114400",
+      "level_base_hp": "34000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.5",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 5 base values",
+    "name_zh_cn": "章节 3 区段 5 基础值",
+    "summary_en": "Chapter 3 section 5 authors base Attack 127600 and HP 35000.",
+    "summary_zh_cn": "章节 3 区段 5 编写基础攻击 127600 与生命 35000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "20",
+        "sha256": "6501ffb334ffe418a661abbb5439b23f29301c68938b3e5bdf83e01a1ea7dcc6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:5",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "5"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "127600",
+      "level_base_hp": "35000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.6",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 6 base values",
+    "name_zh_cn": "章节 3 区段 6 基础值",
+    "summary_en": "Chapter 3 section 6 authors base Attack 127600 and HP 35000.",
+    "summary_zh_cn": "章节 3 区段 6 编写基础攻击 127600 与生命 35000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "21",
+        "sha256": "80a6337f762b8b940b6c07ac38ac8e59badf0803799f231381b4042e370e0940",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:6",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "6"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "127600",
+      "level_base_hp": "35000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.level-base.3.7",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Chapter 3 section 7 base values",
+    "name_zh_cn": "章节 3 区段 7 基础值",
+    "summary_en": "Chapter 3 section 7 authors base Attack 140800 and HP 36000.",
+    "summary_zh_cn": "章节 3 区段 7 编写基础攻击 140800 与生命 36000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightlevelbasevalue-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightLevelBaseValue.json",
+        "locator": "22",
+        "sha256": "11bd4c2c2c72367759817e2893dc6c568f6ce365ba38472a60e2a9a87ddd0c48",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "level-base",
+      "rank-progression"
+    ],
+    "source_id": "3:7",
+    "rank": {
+      "chapter_id": "3",
+      "section_id": "7"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "140800",
+      "level_base_hp": "36000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000001",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000001 base values",
+    "name_zh_cn": "关卡 70000001 基础值",
+    "summary_en": "Stage 70000001 authors base Attack 20000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000001 编写基础攻击 20000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "0",
+        "sha256": "5b8cc3b4e9d5eea72ac4946c43123f2ef819a4c859b124bf2958e2ad0a00cd6b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000001",
+    "rank": {
+      "stage_id": "70000001"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "20000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000002",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000002 base values",
+    "name_zh_cn": "关卡 70000002 基础值",
+    "summary_en": "Stage 70000002 authors base Attack 20000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000002 编写基础攻击 20000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "1",
+        "sha256": "425075e226f358c6797b92d176cf2a313f621f78a0befdb0ba79a48d0c7e9ad8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000002",
+    "rank": {
+      "stage_id": "70000002"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "20000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000003",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000003 base values",
+    "name_zh_cn": "关卡 70000003 基础值",
+    "summary_en": "Stage 70000003 authors base Attack 20000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000003 编写基础攻击 20000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "2",
+        "sha256": "9b748699e2592d0595ea124bca1265a434f9aa0690a15bbdd5ebe658af2c5b85",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000003",
+    "rank": {
+      "stage_id": "70000003"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "20000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000004",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000004 base values",
+    "name_zh_cn": "关卡 70000004 基础值",
+    "summary_en": "Stage 70000004 authors base Attack 25000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000004 编写基础攻击 25000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "3",
+        "sha256": "2b81c0a32725368c073157747b1214fcd22319332bfb8ec7026d76e9236c472f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000004",
+    "rank": {
+      "stage_id": "70000004"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "25000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000005",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000005 base values",
+    "name_zh_cn": "关卡 70000005 基础值",
+    "summary_en": "Stage 70000005 authors base Attack 30000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000005 编写基础攻击 30000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "4",
+        "sha256": "b869a9d603e2157560cc6d54c5c9f3652114983dc513f2b763bd945126e98f48",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000005",
+    "rank": {
+      "stage_id": "70000005"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "30000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000006",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000006 base values",
+    "name_zh_cn": "关卡 70000006 基础值",
+    "summary_en": "Stage 70000006 authors base Attack 30000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000006 编写基础攻击 30000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "5",
+        "sha256": "d86b5a5e80037fe1d4a23c3d872c8ce02609482f2e08707302f2f83d81e0e068",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000006",
+    "rank": {
+      "stage_id": "70000006"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "30000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000007",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000007 base values",
+    "name_zh_cn": "关卡 70000007 基础值",
+    "summary_en": "Stage 70000007 authors base Attack 35000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000007 编写基础攻击 35000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "6",
+        "sha256": "56abf59f242bf8ade8998b0fe50174bb88da9c88b350489bc1999c6a7e866e82",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000007",
+    "rank": {
+      "stage_id": "70000007"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "35000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000008",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000008 base values",
+    "name_zh_cn": "关卡 70000008 基础值",
+    "summary_en": "Stage 70000008 authors base Attack 35000 and HP 16000.",
+    "summary_zh_cn": "关卡 70000008 编写基础攻击 35000 与生命 16000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "7",
+        "sha256": "2eb206c63031cd5b46962ba9734c8f67e3fb0df2f6b6f268d3ed8000f3653c09",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000008",
+    "rank": {
+      "stage_id": "70000008"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "35000",
+      "level_base_hp": "16000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000009",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000009 base values",
+    "name_zh_cn": "关卡 70000009 基础值",
+    "summary_en": "Stage 70000009 authors base Attack 40000 and HP 20000.",
+    "summary_zh_cn": "关卡 70000009 编写基础攻击 40000 与生命 20000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "8",
+        "sha256": "fac53c33b7f2e21e01be6c55c373cd0c071da19725384e66cb186a124a589732",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000009",
+    "rank": {
+      "stage_id": "70000009"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "40000",
+      "level_base_hp": "20000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000010",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000010 base values",
+    "name_zh_cn": "关卡 70000010 基础值",
+    "summary_en": "Stage 70000010 authors base Attack 50000 and HP 24000.",
+    "summary_zh_cn": "关卡 70000010 编写基础攻击 50000 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "9",
+        "sha256": "1350dc54ebb3e1b36e490c295381e4fecadec32e1381b05958959125742cc46d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000010",
+    "rank": {
+      "stage_id": "70000010"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "50000",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000011",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000011 base values",
+    "name_zh_cn": "关卡 70000011 基础值",
+    "summary_en": "Stage 70000011 authors base Attack 62500 and HP 24000.",
+    "summary_zh_cn": "关卡 70000011 编写基础攻击 62500 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "10",
+        "sha256": "79ef79102c5e2764f78616aa0e3fd4ad9f5863edc9797af96851542079ac2f65",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000011",
+    "rank": {
+      "stage_id": "70000011"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "62500",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000012",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000012 base values",
+    "name_zh_cn": "关卡 70000012 基础值",
+    "summary_en": "Stage 70000012 authors base Attack 62500 and HP 24000.",
+    "summary_zh_cn": "关卡 70000012 编写基础攻击 62500 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "11",
+        "sha256": "5ddf9fad7d4c218794b39487b18c0f66a4367273f1369613762b07371ca19f83",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000012",
+    "rank": {
+      "stage_id": "70000012"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "62500",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000013",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000013 base values",
+    "name_zh_cn": "关卡 70000013 基础值",
+    "summary_en": "Stage 70000013 authors base Attack 75000 and HP 24000.",
+    "summary_zh_cn": "关卡 70000013 编写基础攻击 75000 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "12",
+        "sha256": "e43a1d2e863529c8761c58b90375444c1f19d6880068380198789c7af573f12a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000013",
+    "rank": {
+      "stage_id": "70000013"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "75000",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000014",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000014 base values",
+    "name_zh_cn": "关卡 70000014 基础值",
+    "summary_en": "Stage 70000014 authors base Attack 87500 and HP 24000.",
+    "summary_zh_cn": "关卡 70000014 编写基础攻击 87500 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.13",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "13",
+        "sha256": "89df2963b0480a51e68a2c72fd1a0b9120c0e8c63a07dd51ae152116a5289914",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000014",
+    "rank": {
+      "stage_id": "70000014"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "87500",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000015",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000015 base values",
+    "name_zh_cn": "关卡 70000015 基础值",
+    "summary_en": "Stage 70000015 authors base Attack 87500 and HP 24000.",
+    "summary_zh_cn": "关卡 70000015 编写基础攻击 87500 与生命 24000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.14",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "14",
+        "sha256": "a4e5b8ffc37c4c4f939d4aed0423d6849999107efbe77de92ea97dff4acd9d87",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000015",
+    "rank": {
+      "stage_id": "70000015"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "87500",
+      "level_base_hp": "24000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000016",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000016 base values",
+    "name_zh_cn": "关卡 70000016 基础值",
+    "summary_en": "Stage 70000016 authors base Attack 100000 and HP 28000.",
+    "summary_zh_cn": "关卡 70000016 编写基础攻击 100000 与生命 28000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.15",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "15",
+        "sha256": "50dfd0b11019534347a0a2a4c2fca059f11bb78ae281206ef70035ee64cb175c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000016",
+    "rank": {
+      "stage_id": "70000016"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "100000",
+      "level_base_hp": "28000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000017",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000017 base values",
+    "name_zh_cn": "关卡 70000017 基础值",
+    "summary_en": "Stage 70000017 authors base Attack 125000 and HP 32000.",
+    "summary_zh_cn": "关卡 70000017 编写基础攻击 125000 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.16",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "16",
+        "sha256": "b2aa086fcc64291d0163934784724d282229c930446c54591c79033f1b0e3e7c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000017",
+    "rank": {
+      "stage_id": "70000017"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "125000",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000018",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000018 base values",
+    "name_zh_cn": "关卡 70000018 基础值",
+    "summary_en": "Stage 70000018 authors base Attack 156250 and HP 32000.",
+    "summary_zh_cn": "关卡 70000018 编写基础攻击 156250 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.17",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "17",
+        "sha256": "a82db0477615076790acb593917b9c5029defd754ca4ec3d2187d2ce52daec24",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000018",
+    "rank": {
+      "stage_id": "70000018"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "156250",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000019",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000019 base values",
+    "name_zh_cn": "关卡 70000019 基础值",
+    "summary_en": "Stage 70000019 authors base Attack 156250 and HP 32000.",
+    "summary_zh_cn": "关卡 70000019 编写基础攻击 156250 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.18",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "18",
+        "sha256": "c5a606f517c79a52736a77155c74402f9d15b3915d8aee2888ea7eb71b14e431",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000019",
+    "rank": {
+      "stage_id": "70000019"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "156250",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000020",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000020 base values",
+    "name_zh_cn": "关卡 70000020 基础值",
+    "summary_en": "Stage 70000020 authors base Attack 187500 and HP 32000.",
+    "summary_zh_cn": "关卡 70000020 编写基础攻击 187500 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.19",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "19",
+        "sha256": "b068a8942593b0ac719529f9486f3c91c8b459eb4b303abcb3bcf4798e85b64b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000020",
+    "rank": {
+      "stage_id": "70000020"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "187500",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000021",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000021 base values",
+    "name_zh_cn": "关卡 70000021 基础值",
+    "summary_en": "Stage 70000021 authors base Attack 218750 and HP 32000.",
+    "summary_zh_cn": "关卡 70000021 编写基础攻击 218750 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.20",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "20",
+        "sha256": "04cb3696b2d0a3b66474f2ad9f3c5bc8204ee463d08dec52b1f2279a8cb4b6d9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000021",
+    "rank": {
+      "stage_id": "70000021"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "218750",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000022",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000022 base values",
+    "name_zh_cn": "关卡 70000022 基础值",
+    "summary_en": "Stage 70000022 authors base Attack 218750 and HP 32000.",
+    "summary_zh_cn": "关卡 70000022 编写基础攻击 218750 与生命 32000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.21",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "21",
+        "sha256": "ffee401e5b46eadd40941e338b8982f17ef3321b1f849a58dc64f64dc9892c6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000022",
+    "rank": {
+      "stage_id": "70000022"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "218750",
+      "level_base_hp": "32000"
+    },
+    "enemy_affix_ids": []
+  },
+  {
+    "id": "currency-wars.rank.stage-base.70000023",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRankGambitProgression",
+    "name_en": "Stage 70000023 base values",
+    "name_zh_cn": "关卡 70000023 基础值",
+    "summary_en": "Stage 70000023 authors base Attack 250000 and HP 40000.",
+    "summary_zh_cn": "关卡 70000023 编写基础攻击 250000 与生命 40000。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightstagelevelvalue-json.22",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightStageLevelValue.json",
+        "locator": "22",
+        "sha256": "dba169d57c071b522278f0b0783aac7a0792e50ffd842b94aeaa01d70c832167",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      }
+    ],
+    "tags": [
+      "difficulty-base",
+      "gridfight",
+      "rank-progression",
+      "stage-base"
+    ],
+    "source_id": "70000023",
+    "rank": {
+      "stage_id": "70000023"
+    },
+    "gambit_mode": "SharedGridFightDifficulty",
+    "entry_boundary": {
+      "level_base_attack": "250000",
+      "level_base_hp": "40000"
+    },
+    "enemy_affix_ids": []
+  }
+]

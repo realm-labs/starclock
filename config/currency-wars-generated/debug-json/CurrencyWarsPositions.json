@@ -1,0 +1,172 @@
+{
+  "table": {
+    "name": "CurrencyWarsPositions",
+    "rows": [
+      {
+        "values": {
+          "battle_contributions": {
+            "String": "[\"Activate the role's matching Character Empowerment at battle entry.\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field_index": {
+            "String": "back"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsPosition"
+          },
+          "name_en": {
+            "String": "Back"
+          },
+          "name_zh_cn": {
+            "String": "后台"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "position_kind": {
+            "String": "Back"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.813fd5163dcfce32de2dd9e41e21b194\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.position.back"
+          },
+          "summary_en": {
+            "String": "Back is a Currency Wars deployment-position identity; placement validation remains outside runtime scope."
+          },
+          "summary_zh_cn": {
+            "String": "后台 是货币战争部署站位身份；站位校验不属于运行时范围。"
+          },
+          "tags_json": {
+            "String": "[\"back\",\"currency-wars\",\"position\"]"
+          },
+          "validation_rules": {
+            "String": "[\"RoleBasicInfo.FrontBackType is Back.\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_contributions": {
+            "String": "[\"Activate the role's matching Character Empowerment at battle entry.\"]"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field_index": {
+            "String": "front"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsPosition"
+          },
+          "name_en": {
+            "String": "Front"
+          },
+          "name_zh_cn": {
+            "String": "前台"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "position_kind": {
+            "String": "Front"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.813fd5163dcfce32de2dd9e41e21b194\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.position.front"
+          },
+          "summary_en": {
+            "String": "Front is a Currency Wars deployment-position identity; placement validation remains outside runtime scope."
+          },
+          "summary_zh_cn": {
+            "String": "前台 是货币战争部署站位身份；站位校验不属于运行时范围。"
+          },
+          "tags_json": {
+            "String": "[\"currency-wars\",\"front\",\"position\"]"
+          },
+          "validation_rules": {
+            "String": "[\"RoleBasicInfo.FrontBackType is Front.\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "battle_contributions": {
+            "String": "[\"Activate the role's matching Character Empowerment at battle entry.\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field_index": {
+            "String": "front-or-back"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsPosition"
+          },
+          "name_en": {
+            "String": "Front-Back candidate"
+          },
+          "name_zh_cn": {
+            "String": "前后台候选"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "position_kind": {
+            "String": "Front-Back candidate"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ad35391bebfe7b6ad5f7325df2a27947\",\"currency-wars.source.89490cf659cc3e58619bf9fd241a392d\",\"currency-wars.source.813fd5163dcfce32de2dd9e41e21b194\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.position.front-back-candidate"
+          },
+          "summary_en": {
+            "String": "Front-Back candidate is a Currency Wars deployment-position identity; placement validation remains outside runtime scope."
+          },
+          "summary_zh_cn": {
+            "String": "前后台候选 是货币战争部署站位身份；站位校验不属于运行时范围。"
+          },
+          "tags_json": {
+            "String": "[\"currency-wars\",\"front-back-candidate\",\"position\"]"
+          },
+          "validation_rules": {
+            "String": "[\"RoleBasicInfo omits FrontBackType and exact Front/Back display rows both exist.\"]"
+          }
+        }
+      }
+    ]
+  }
+}

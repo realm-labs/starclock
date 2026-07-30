@@ -1,0 +1,297 @@
+[
+  {
+    "id": "currency-wars.room-type.boss",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRoom",
+    "name_en": "Boss",
+    "name_zh_cn": "首领",
+    "summary_en": "Boss is one of five direct GridFight Node types.",
+    "summary_zh_cn": "Boss 是五种直接 GridFight 节点类型之一。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightnodetypeshow-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightNodeTypeShow.json",
+        "locator": "3",
+        "sha256": "78ec75b9c0af1fc034e299f6e9415f05952578863018cc6abfdaff6e9985574d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3965266258675880790",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3965266258675880790",
+        "sha256": "c358cc98b569e4b255a89bb64a88a5810b81db5dcad560a7d057da8e981a0732",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3965266258675880790",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3965266258675880790",
+        "sha256": "b81d68910266c97af40a06a193fdf4476ac905eecc83140b8e9347e2cccfcd09",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "boss",
+      "gridfight",
+      "node-type"
+    ],
+    "source_id": "Boss",
+    "room_type": "Boss",
+    "reachability_disposition": "DirectGridFightNodeType",
+    "stage_refs": []
+  },
+  {
+    "id": "currency-wars.room-type.campmonster",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRoom",
+    "name_en": "Combat",
+    "name_zh_cn": "战斗",
+    "summary_en": "CampMonster is one of five direct GridFight Node types.",
+    "summary_zh_cn": "CampMonster 是五种直接 GridFight 节点类型之一。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightnodetypeshow-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightNodeTypeShow.json",
+        "locator": "1",
+        "sha256": "0e9847e6676a02c428699e5cf8a18ba29410fed572538577c37a9ceb2ad5b5fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9316459459959362802",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9316459459959362802",
+        "sha256": "fd8da09ab6f5f51d886557d570aaffa1f3d05413fd07a63ef89b429cc272f082",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9316459459959362802",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9316459459959362802",
+        "sha256": "55346cd34df523348d66ec0ba208dfa0f5ba06555602ae1c5954ec1f50f4f85c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "campmonster",
+      "gridfight",
+      "node-type"
+    ],
+    "source_id": "CampMonster",
+    "room_type": "CampMonster",
+    "reachability_disposition": "DirectGridFightNodeType",
+    "stage_refs": []
+  },
+  {
+    "id": "currency-wars.room-type.elitebranch",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRoom",
+    "name_en": "Encounter",
+    "name_zh_cn": "遭遇",
+    "summary_en": "EliteBranch is one of five direct GridFight Node types.",
+    "summary_zh_cn": "EliteBranch 是五种直接 GridFight 节点类型之一。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightnodetypeshow-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightNodeTypeShow.json",
+        "locator": "2",
+        "sha256": "611d4bac492bb916337e561c4eb4a8a2bbfbe62a6cbedc6cb59edd7c9849549a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.570450227881777638",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "570450227881777638",
+        "sha256": "85ed1c005cbe13e71510cc1be79dce284242298eb471d530d1b0bc43039d9834",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.570450227881777638",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "570450227881777638",
+        "sha256": "024343cae56dd3f13c57a177aaeaf45730c76904a48a1e305e8deba17e163a14",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "elitebranch",
+      "gridfight",
+      "node-type"
+    ],
+    "source_id": "EliteBranch",
+    "room_type": "EliteBranch",
+    "reachability_disposition": "DirectGridFightNodeType",
+    "stage_refs": []
+  },
+  {
+    "id": "currency-wars.room-type.monster",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRoom",
+    "name_en": "Reward",
+    "name_zh_cn": "奖励",
+    "summary_en": "Monster is one of five direct GridFight Node types.",
+    "summary_zh_cn": "Monster 是五种直接 GridFight 节点类型之一。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightnodetypeshow-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightNodeTypeShow.json",
+        "locator": "0",
+        "sha256": "69e7d7375bfa7450f85c9c94be94ce66f366373a78fd6e21911a7dbdb43229fb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5371430405571759387",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5371430405571759387",
+        "sha256": "959ac9d434784c61be8614d5208446b74c6a553ea1bc408fa18aebf402bafbcd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5371430405571759387",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5371430405571759387",
+        "sha256": "00edb89184168635a09a19e51b819bb88d9327bba4dd156fd3c94e5fdcecf7b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "monster",
+      "node-type"
+    ],
+    "source_id": "Monster",
+    "room_type": "Monster",
+    "reachability_disposition": "DirectGridFightNodeType",
+    "stage_refs": []
+  },
+  {
+    "id": "currency-wars.room-type.supply",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsRoom",
+    "name_en": "Supply",
+    "name_zh_cn": "补给",
+    "summary_en": "Supply is one of five direct GridFight Node types.",
+    "summary_zh_cn": "Supply 是五种直接 GridFight 节点类型之一。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightnodetypeshow-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightNodeTypeShow.json",
+        "locator": "4",
+        "sha256": "dbbb207caacd18a07764d6f53cc5d5b6b8c81a976f39bf54ad259e7f4b5c900d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13920126251988142952",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13920126251988142952",
+        "sha256": "d2997b5488c8ec3d7afa895685dd18302aed5e11f6d0b4e388f0bd00c6b28c83",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13920126251988142952",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13920126251988142952",
+        "sha256": "9d442a73e99c85227cdffc161e03a231edea8670649d77f819fcd857f6264007",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "node-type",
+      "supply"
+    ],
+    "source_id": "Supply",
+    "room_type": "Supply",
+    "reachability_disposition": "DirectGridFightNodeType",
+    "stage_refs": []
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "table": {
+    "name": "CurrencyWarsEntries",
+    "rows": [
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "GuideData"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "gambit_mode_ids": {
+            "String": "[\"currency-wars.gambit.overclock\",\"currency-wars.gambit.standard\"]"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsEntry"
+          },
+          "module_id": {
+            "String": "currency-wars.module.7100501"
+          },
+          "name_en": {
+            "String": "Currency Wars"
+          },
+          "name_zh_cn": {
+            "String": "货币战争"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.70c70c71623e5e0716840f7461d77fd5\",\"currency-wars.source.21480a46c1d8e1cfcd8c1c048af74452\",\"currency-wars.source.a6460297efd315445f1ad78e8d025826\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.entry.guide-data.301"
+          },
+          "summary_en": {
+            "String": "Guide data 301 selects Currency Wars tab 1003."
+          },
+          "summary_zh_cn": {
+            "String": "指南数据 301 选择货币战争页签 1003。"
+          },
+          "tags_json": {
+            "String": "[\"entry\",\"gridfight\",\"guidedata\"]"
+          },
+          "unlock_ids": {
+            "String": "[{\"Param\":\"21\",\"Type\":\"PlayerLevel\"}]"
+          }
+        }
+      },
+      {
+        "values": {
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "entry_kind": {
+            "String": "GuideTab"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "gambit_mode_ids": {
+            "String": "[\"currency-wars.gambit.overclock\",\"currency-wars.gambit.standard\"]"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsEntry"
+          },
+          "module_id": {
+            "String": "currency-wars.module.7100501"
+          },
+          "name_en": {
+            "String": "Currency Wars"
+          },
+          "name_zh_cn": {
+            "String": "货币战争"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.53856aaa14cb528810a45882a83c5c31\",\"currency-wars.source.bb4f4013c3c91bbb6532587bb861a28c\",\"currency-wars.source.b0db3e5f21d9ac759214f1a54fd08871\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.entry.guide-tab.1003"
+          },
+          "summary_en": {
+            "String": "Guide tab 1003 directly selects GuideType GridFight."
+          },
+          "summary_zh_cn": {
+            "String": "指南页签 1003 直接选择 GuideType GridFight。"
+          },
+          "tags_json": {
+            "String": "[\"entry\",\"gridfight\",\"guidetab\"]"
+          },
+          "unlock_ids": {
+            "String": "[]"
+          }
+        }
+      }
+    ]
+  }
+}

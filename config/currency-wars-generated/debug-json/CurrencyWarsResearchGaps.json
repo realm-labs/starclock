@@ -1,0 +1,703 @@
+{
+  "table": {
+    "name": "CurrencyWarsResearchGaps",
+    "rows": [
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"recompute after each unordered mutation\",\"use hash iteration\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "bond.simultaneous_recompute"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Membership, thresholds and contributions are exact; simultaneous roster ordering is not.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: bond-simultaneous-recompute"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：bond-simultaneous-recompute"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released operation program or reproducible simultaneous mutation trace is available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.bond-simultaneous-recompute"
+          },
+          "summary_en": {
+            "String": "Membership, thresholds and contributions are exact; simultaneous roster ordering is not. Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Membership, thresholds and contributions are exact; simultaneous roster ordering is not. Apply ordered roster mutations, then one deterministic Bond recomputation in fixtures."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"match names\",\"match numeric ranges\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "encounter.boss_identity"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: camp-boss-identity"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：camp-boss-identity"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released BattleArea-to-GridFightMonster join or reproducible boss observation is available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Retain every Camp candidate and reject inferred boss narrowing."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.camp-boss-identity"
+          },
+          "summary_en": {
+            "String": "Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss. Retain every Camp candidate and reject inferred boss narrowing."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Ten Camps identify BossBattleArea and Camp-wide monster candidates, but not the exact boss. Retain every Camp candidate and reject inferred boss narrowing."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"execute untyped JSON\",\"translate names into handlers\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "mechanic.configuration_program"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"All direct mechanic rows and 984 GridFight configuration files are hash-frozen.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: configuration-program-semantics"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：configuration-program-semantics"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A later runtime goal supplies reviewed typed lowering with semantic fixture evidence."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Preserve exact program boundaries without runtime lowering or inferred operations."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.configuration-program-semantics"
+          },
+          "summary_en": {
+            "String": "All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：All direct mechanic rows and 984 GridFight configuration files are hash-frozen. Preserve exact program boundaries without runtime lowering or inferred operations."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"carry everything\",\"reset everything\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "flow.carry_reset"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: cross-node-carry-reset"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：cross-node-carry-reset"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released operation program or reproducible transition trace publishes the lifecycle."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Preserve fields and require fixtures to declare carry/reset assumptions."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.cross-node-carry-reset"
+          },
+          "summary_en": {
+            "String": "StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published. Preserve fields and require fixtures to declare carry/reset assumptions."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：StageRoute and NodeTemplate topology is exact; cross-Node mutation operations are not published. Preserve fields and require fixtures to declare carry/reset assumptions."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"infer from order\",\"merge both Gambits\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "route.gambit_membership"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"GridFight routes and both released Gambit names are exact, but no released field joins them.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: gambit-route-membership"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：gambit-route-membership"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released Division/route-to-Gambit selector or reproducible observation is published."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Keep route-to-Gambit membership policy-bound and do not infer it from order."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.gambit-route-membership"
+          },
+          "summary_en": {
+            "String": "GridFight routes and both released Gambit names are exact, but no released field joins them. Keep route-to-Gambit membership policy-bound and do not infer it from order."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：GridFight routes and both released Gambit names are exact, but no released field joins them. Keep route-to-Gambit membership policy-bound and do not infer it from order."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"select by numeric ID\",\"select by icon\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "economy.gold_coin_id"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: gold-coin-structured-id"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：gold-coin-structured-id"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released structured field explicitly binds Gold Coin to a resource record."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use the stable project ID and keep the upstream resource locator unresolved."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.gold-coin-structured-id"
+          },
+          "summary_en": {
+            "String": "Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it. Use the stable project ID and keep the upstream resource locator unresolved."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Released bilingual text proves Gold Coin mechanics; generic resource rows do not identify it. Use the stable project ID and keep the upstream resource locator unresolved."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"infer from file order\",\"collapse source families\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "investment.operation_order"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: investment-operation-order"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：investment-operation-order"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "Released program semantics or reproducible same-boundary activation traces are available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Preserve configuration programs and declare offer/activation order in fixtures only."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.investment-operation-order"
+          },
+          "summary_en": {
+            "String": "All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact. Preserve configuration programs and declare offer/activation order in fixtures only."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：All direct Augment, Portal, Orb, Projection, Talent and enhancement rows are exact. Preserve configuration programs and declare offer/activation order in fixtures only."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"discard silently\",\"grant inferred currency\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "star.maximum_overflow"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: maximum-star-overflow"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：maximum-star-overflow"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "Released overflow data or a reproducible maximum-star purchase observation is available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Retain overflow as an explicit fixture policy without inventing a reward."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.maximum-star-overflow"
+          },
+          "summary_en": {
+            "String": "Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not. Retain overflow as an explicit fixture policy without inventing a reward."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Authored star states and legal next-state joins are exact; maximum-star duplicate overflow is not. Retain overflow as an explicit fixture policy without inventing a reward."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"source enumeration order\",\"unordered sampling\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "economy.offer_sampling_order"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: offer-sampling-order"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：offer-sampling-order"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released selector program or reproducible seeded offer trace publishes the order."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Sort candidates by stable ID before deterministic weighted review."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.offer-sampling-order"
+          },
+          "summary_en": {
+            "String": "Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not. Sort candidates by stable ID before deterministic weighted review."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Offer pools, weights, prices and refresh cost are exact; sampling without replacement order is not. Sort candidates by stable ID before deterministic weighted review."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"decode omitted enum\",\"invent rescue HP\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "position.automatic_technique_rescue"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: position-and-rescue-order"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：position-and-rescue-order"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "Released enum metadata or reproducible lethal-boundary observations become available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Keep omitted positions dual-candidate and review rescue/countdown as explicit policy."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.position-and-rescue-order"
+          },
+          "summary_en": {
+            "String": "Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Position contributions and defeat-energy ratio are exact; omitted enums and lethal rescue order are incomplete. Keep omitted positions dual-candidate and review rescue/countdown as explicit policy."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"join by name\",\"join by numeric adjacency\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "build.role_to_shared_build"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Mode role identities and shared build sources are exact; their role-level join is absent.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: role-build-join"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：role-build-join"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A released role-to-build selector or reproducible owned/trial substitution observation is available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Keep shared builds fail closed and preserve account state unchanged."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.role-build-join"
+          },
+          "summary_en": {
+            "String": "Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Mode role identities and shared build sources are exact; their role-level join is absent. Keep shared builds fail closed and preserve account state unchanged."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "alternatives": {
+            "String": "[\"timeout first\",\"simultaneous merge\"]"
+          },
+          "coverage_state": {
+            "String": "Researched"
+          },
+          "evidence_quality": {
+            "String": "ProjectPolicy"
+          },
+          "field": {
+            "String": "squad_hp.same_boundary_order"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurrencyWarsResearchGap"
+          },
+          "known_facts": {
+            "String": "[\"Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not.\"]"
+          },
+          "name_en": {
+            "String": "Research gap: squad-boundary-order"
+          },
+          "name_zh_cn": {
+            "String": "研究缺口：squad-boundary-order"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "replacement_condition": {
+            "String": "A reproducible last-enemy and timeout same-boundary observation is available."
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "selected_policy": {
+            "String": "Use the reviewed victory-first policy only in reference fixtures."
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.fc8307cc3f4bb4f36097cc8cc5703f86\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.research-gap.squad-boundary-order"
+          },
+          "summary_en": {
+            "String": "Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures."
+          },
+          "summary_zh_cn": {
+            "String": "已知事实与选定策略：Victory preservation, non-victory loss and zero-HP failure are exact; simultaneous precedence is not. Use the reviewed victory-first policy only in reference fixtures."
+          },
+          "tags_json": {
+            "String": "[\"nonblocking\",\"research-gap\"]"
+          }
+        }
+      }
+    ]
+  }
+}

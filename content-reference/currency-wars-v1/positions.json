@@ -1,0 +1,197 @@
+[
+  {
+    "id": "currency-wars.position.back",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsPosition",
+    "name_en": "Back",
+    "name_zh_cn": "后台",
+    "summary_en": "Back is a Currency Wars deployment-position identity; placement validation remains outside runtime scope.",
+    "summary_zh_cn": "后台 是货币战争部署站位身份；站位校验不属于运行时范围。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.omitted-front-back-type",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "omitted-front-back-type",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Twenty RoleBasicInfo rows omit FrontBackType while the released rule text states that some roles are Front-Back; the normalized mapping retains both exact display positions but does not claim the omitted enum value.",
+        "replacement_condition": "Replace when the released GridFight schema or a direct row publishes the omitted FrontBackType enum value."
+      }
+    ],
+    "tags": [
+      "back",
+      "currency-wars",
+      "position"
+    ],
+    "position_kind": "Back",
+    "field_index": "back",
+    "validation_rules": [
+      "RoleBasicInfo.FrontBackType is Back."
+    ],
+    "battle_contributions": [
+      "Activate the role's matching Character Empowerment at battle entry."
+    ]
+  },
+  {
+    "id": "currency-wars.position.front",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsPosition",
+    "name_en": "Front",
+    "name_zh_cn": "前台",
+    "summary_en": "Front is a Currency Wars deployment-position identity; placement validation remains outside runtime scope.",
+    "summary_zh_cn": "前台 是货币战争部署站位身份；站位校验不属于运行时范围。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.omitted-front-back-type",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "omitted-front-back-type",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Twenty RoleBasicInfo rows omit FrontBackType while the released rule text states that some roles are Front-Back; the normalized mapping retains both exact display positions but does not claim the omitted enum value.",
+        "replacement_condition": "Replace when the released GridFight schema or a direct row publishes the omitted FrontBackType enum value."
+      }
+    ],
+    "tags": [
+      "currency-wars",
+      "front",
+      "position"
+    ],
+    "position_kind": "Front",
+    "field_index": "front",
+    "validation_rules": [
+      "RoleBasicInfo.FrontBackType is Front."
+    ],
+    "battle_contributions": [
+      "Activate the role's matching Character Empowerment at battle entry."
+    ]
+  },
+  {
+    "id": "currency-wars.position.front-back-candidate",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsPosition",
+    "name_en": "Front-Back candidate",
+    "name_zh_cn": "前后台候选",
+    "summary_en": "Front-Back candidate is a Currency Wars deployment-position identity; placement validation remains outside runtime scope.",
+    "summary_zh_cn": "前后台候选 是货币战争部署站位身份；站位校验不属于运行时范围。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.omitted-front-back-type",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "omitted-front-back-type",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Twenty RoleBasicInfo rows omit FrontBackType while the released rule text states that some roles are Front-Back; the normalized mapping retains both exact display positions but does not claim the omitted enum value.",
+        "replacement_condition": "Replace when the released GridFight schema or a direct row publishes the omitted FrontBackType enum value."
+      }
+    ],
+    "tags": [
+      "currency-wars",
+      "front-back-candidate",
+      "position"
+    ],
+    "position_kind": "Front-Back candidate",
+    "field_index": "front-or-back",
+    "validation_rules": [
+      "RoleBasicInfo omits FrontBackType and exact Front/Back display rows both exist."
+    ],
+    "battle_contributions": [
+      "Activate the role's matching Character Empowerment at battle entry."
+    ]
+  }
+]

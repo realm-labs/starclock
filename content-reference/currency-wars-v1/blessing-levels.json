@@ -1,0 +1,632 @@
+[
+  {
+    "id": "currency-wars.maze-buff-enhancement.100811",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Wolftrooper",
+    "name_zh_cn": "狼卒",
+    "summary_en": "MazeBuff enhancement 100811 binds ability StageAbility_GridFight_Origin_1008_Evo_0101 with 2 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100811 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0101 与 2 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "0",
+        "sha256": "3d3114bbab7042b4071b71ebcedd6dd526e4dff923923f54741f85f50992248f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17491749069671662204",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17491749069671662204",
+        "sha256": "bb55d40555594dbc4f3928547b1a0e0cd1a6810886dec3e6fdbeaf0fb8c50cb2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17491749069671662204",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17491749069671662204",
+        "sha256": "e8c8da7f3647515e8408d9398ec005c883974da1ad358fa6b6b04166ba351103",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8201651410598500061",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8201651410598500061",
+        "sha256": "6c76a6781198ad427e62e141f3486acdee1877c40f3e7db6b1c6c4ec4e875e8f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8201651410598500061",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8201651410598500061",
+        "sha256": "bc4df426cbac3a555bf353ccd3d79a4ae30e0cb3ae931960a9fd43be701cf154",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100811",
+    "parameters": [
+      "300",
+      "12"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0101"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100821",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Wolftrooper Captain",
+    "name_zh_cn": "狼卒长",
+    "summary_en": "MazeBuff enhancement 100821 binds ability StageAbility_GridFight_Origin_1008_Evo_0201 with 3 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100821 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0201 与 3 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "1",
+        "sha256": "c71ae6b0e76c9dc5ecebb1c2790f8c4bc9efb7e21cea79b95c3772843b3af36b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.808378346905120639",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "808378346905120639",
+        "sha256": "d9926d2bb8994cac419cd952a794510f85da50311c317d536097fcebb981dcef",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.808378346905120639",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "808378346905120639",
+        "sha256": "3ad5010b26ed1921a7bef1ded899fa20d87f363c337feb0fb98bd4f013c520dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7453850807383262555",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7453850807383262555",
+        "sha256": "d5a46e78c55448f37693ae73a586ad4b00560d8eb55dd76a5a9bc34537a0ff15",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7453850807383262555",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7453850807383262555",
+        "sha256": "6536188ebc65ee02779b4e8473ef8b0cb0cd1665df9e069f59ec852b88525593",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100821",
+    "parameters": [
+      "400",
+      "12",
+      "0.25"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0201"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100831",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Wolftrooper Commander",
+    "name_zh_cn": "狼督军",
+    "summary_en": "MazeBuff enhancement 100831 binds ability StageAbility_GridFight_Origin_1008_Evo_0301 with 4 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100831 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0301 与 4 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "2",
+        "sha256": "8392c714721f921669f7809b56be94c7d728464fb62f196ca41875909b875918",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9279485634973765475",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9279485634973765475",
+        "sha256": "a061353274026d66d6ec86f9672c0fd24b1ad70284f0ca1e25269ecbe87dc489",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9279485634973765475",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9279485634973765475",
+        "sha256": "51044a57c5d0f8b6218e2cd68402bff739aa96e152dc2fe59d6c25e974812f07",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.60531265149553369",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "60531265149553369",
+        "sha256": "25417f8b6259011c2e2793738d978fa88dc4f608b1e8bac7f791f711437bbf47",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.60531265149553369",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "60531265149553369",
+        "sha256": "d355adae0c6af7127d21d7279273d0a9610b11067cd13427e854f4dbc8200830",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100831",
+    "parameters": [
+      "500",
+      "15",
+      "10",
+      "0.3"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0301"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100841",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Wolftrooper General",
+    "name_zh_cn": "狼飞将",
+    "summary_en": "MazeBuff enhancement 100841 binds ability StageAbility_GridFight_Origin_1008_Evo_0401 with 7 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100841 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0401 与 7 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "3",
+        "sha256": "6228aa1aefa16f46dede839b704fb5076847b8ea032c3113bf374781a35a340a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12571749880627563862",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12571749880627563862",
+        "sha256": "a345d963d2e17a175a7467ed1dc311d5598c476db23c10e2e71166e550b62b1e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12571749880627563862",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12571749880627563862",
+        "sha256": "3a6113c347e6726257f6c294b7a44c55051dda97712a5307de8237067e8fd8b8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12592160949613645637",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12592160949613645637",
+        "sha256": "97dfc3a4c438305288d01d96387c401f0c8cac0de55866442c7f908c1ddf518e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12592160949613645637",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12592160949613645637",
+        "sha256": "06f7c85adb7cd77f4172c3f9ea053434fafc911382dd498dcbfb979be44a7f11",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100841",
+    "parameters": [
+      "600",
+      "20",
+      "15",
+      "0.35",
+      "1",
+      "200",
+      "12"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0401"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100851",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Wolftrooper Apex",
+    "name_zh_cn": "奔雷狼王",
+    "summary_en": "MazeBuff enhancement 100851 binds ability StageAbility_GridFight_Origin_1008_Evo_0501 with 7 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100851 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0501 与 7 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "4",
+        "sha256": "8582c012415930ddfb8c5e02cee1b676e5583efc464220e2bff6ef9ccf1ff0ad",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16683081728024729984",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16683081728024729984",
+        "sha256": "37b2cf38850533293af1e26b082c7ceed6df9e06346ffb5dbdcf4a3ef21225dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16683081728024729984",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16683081728024729984",
+        "sha256": "dfb455cbda92a31b490238c391eb608e6ba4771954106b4b7921ec6f010a4605",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11016168780103931862",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11016168780103931862",
+        "sha256": "0391911b7e8b8415c21c014589847e200a3c07376c7c4c47474c35cebdf73fbd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11016168780103931862",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11016168780103931862",
+        "sha256": "5e9129c1250c2d1df6205257881a87971b40909279732ceabcc0469efd7fb210",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100851",
+    "parameters": [
+      "800",
+      "20",
+      "15",
+      "0.4",
+      "0.2",
+      "2",
+      "25"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0501"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100861",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Crimson Moon: The First Wolf",
+    "name_zh_cn": "赤月•狼之祖",
+    "summary_en": "MazeBuff enhancement 100861 binds ability StageAbility_GridFight_Origin_1008_Evo_0601 with 6 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100861 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0601 与 6 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "5",
+        "sha256": "c628fae222bec21117ca85d257706a179e687511a8d50c71283f6d2d4561fefb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5073487255614879888",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5073487255614879888",
+        "sha256": "06cffef65c9ba31e4093f34dc653f80af22764c5ce1479c26669a3c0179eb4c9",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5073487255614879888",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5073487255614879888",
+        "sha256": "a246cd1b5775a0389307a0e8f8503ddfbc0a736c90daa709223874f26ebbf904",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15309978105524400892",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15309978105524400892",
+        "sha256": "3a99260fc829f2790f00751454a346d0d8fb9bb2a9951150e5c687cf665100da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15309978105524400892",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15309978105524400892",
+        "sha256": "455fdefeffa5ce2d49ef9a4d503c51c83780e763f264666e9c4d8765b9311c82",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100861",
+    "parameters": [
+      "1000",
+      "30",
+      "45",
+      "0.5",
+      "0.2",
+      "2"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0601"
+    ]
+  },
+  {
+    "id": "currency-wars.maze-buff-enhancement.100871",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsMazeBuffEnhancement",
+    "name_en": "Crimson Moon • Lupine Prime Divine",
+    "name_zh_cn": "赤月•狼神尊",
+    "summary_en": "MazeBuff enhancement 100871 binds ability StageAbility_GridFight_Origin_1008_Evo_0701 with 6 canonical parameter(s); it is not promoted to a Blessing identity.",
+    "summary_zh_cn": "MazeBuff 强化 100871 绑定能力 StageAbility_GridFight_Origin_1008_Evo_0701 与 6 个规范参数；它不会被提升为祝福身份。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfightmazebuffenhance-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightMazeBuffEnhance.json",
+        "locator": "6",
+        "sha256": "ac70223f15d210d330f2b7be4abf9044f1b54023720141ff3f671356b0e29458",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.12487205829312468915",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "12487205829312468915",
+        "sha256": "807b7c593619423a4172819fea5eb4ffb52a9253f2ae6f40542f92cd6000f574",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.12487205829312468915",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "12487205829312468915",
+        "sha256": "733523490d0dc3ce0f2e16ed3a7f424149ed201beb88ec77b1f9cd10f31032b1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17985114623548997453",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17985114623548997453",
+        "sha256": "617fae1639c38b590c164eb16348ec3f61ca7e8095ba3f60ba6518dccb6d4292",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17985114623548997453",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17985114623548997453",
+        "sha256": "fda88b4688f7a7a4c3c6eee80aea9375becf1cce033ea56aeda483dc5027aa3c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "maze-buff-enhancement",
+      "not-a-blessing"
+    ],
+    "blessing_id": "none:maze-buff-enhancement",
+    "level": "100871",
+    "parameters": [
+      "3000",
+      "100",
+      "150",
+      "0.6",
+      "0.5",
+      "2"
+    ],
+    "effect_ids": [
+      "ability:StageAbility_GridFight_Origin_1008_Evo_0701"
+    ]
+  }
+]

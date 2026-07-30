@@ -1,0 +1,155 @@
+[
+  {
+    "id": "currency-wars.action-value.finite-node",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsActionValueLimits",
+    "name_en": "Finite Node Action Value",
+    "name_zh_cn": "有限节点行动值",
+    "summary_en": "A finite combat Node must defeat all enemies before its configured action-value limit expires.",
+    "summary_zh_cn": "有限战斗节点必须在配置的行动值耗尽前消灭全部敌人。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7940111314490605947",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7940111314490605947",
+        "sha256": "ffe22798c7b52223e9ba998f89b03f973b4fb7b7352e7054566656180ddb5968",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7940111314490605947",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7940111314490605947",
+        "sha256": "5cc0e9759c48514f76e9372be6d4855a818a0ce86349eeaaa5819463e240a8f5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.action-value-node-configuration",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "action-value-node-configuration",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Finite initial action value and non-victory Squad HP loss are node/difficulty-authored values; no global number is invented.",
+        "replacement_condition": "Replace each placeholder with an exact reachable node, difficulty, StageConfig or ability-program field."
+      }
+    ],
+    "tags": [
+      "action-value",
+      "finite",
+      "project-policy"
+    ],
+    "limit_kind": "FiniteNodeConfigured",
+    "initial_value": "ConfiguredByNodeOrDifficulty",
+    "decrement_rules": [
+      {
+        "trigger": "CombatTimelineProgress",
+        "amount": "ElapsedAuthoritativeActionValue",
+        "resolution": "ProjectPolicy"
+      },
+      {
+        "trigger": "CharacterLethalRescue",
+        "amount": "ConfiguredByBattleContribution",
+        "resolution": "DeferredToP1B4"
+      }
+    ],
+    "timeout_boundary": {
+      "condition": "LimitExhaustedBeforeAllEnemiesDefeated",
+      "battle_outcome": "NonVictory",
+      "squad_hp_projection": "ApplyConfiguredNodeOrDifficultyLoss"
+    },
+    "runtime_lowered": false
+  },
+  {
+    "id": "currency-wars.action-value.unlimited-low-difficulty",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsActionValueLimits",
+    "name_en": "Unlimited Low-Difficulty Node",
+    "name_zh_cn": "无限行动值低难节点",
+    "summary_en": "The released low-difficulty reward Node has unlimited action value and cannot time out through this limit.",
+    "summary_zh_cn": "已发布的低难奖励节点拥有无限行动值，不会因该限制而超时。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactPublicText",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.5626677263404827289",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5626677263404827289",
+        "sha256": "ad928831adb94255105de11c197c82695655de1c6c8ca9e31073100e3158db46",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5626677263404827289",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5626677263404827289",
+        "sha256": "3c37786f690b784bd21c37c3b062019b18536815d8566b929891b34c0c7df90c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "action-value",
+      "low-difficulty",
+      "unlimited"
+    ],
+    "limit_kind": "Unlimited",
+    "initial_value": "Infinite",
+    "decrement_rules": [],
+    "timeout_boundary": {
+      "condition": "UnreachableForActionValueLimit",
+      "battle_outcome": "NotApplicable",
+      "squad_hp_projection": "None"
+    },
+    "runtime_lowered": false
+  }
+]

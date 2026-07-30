@@ -1,0 +1,64 @@
+{
+  "schema_revision": "starclock.currency-wars-source-correction.v1",
+  "goal_id": "currency-wars-reference-v1",
+  "batch": "G12-P0-B5",
+  "execution_batch_additions": [
+    "G12-P0-B5",
+    "G12-P1-B10"
+  ],
+  "snapshot": {
+    "game_version": "4.4",
+    "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+    "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+    "access_date": "2026-07-22"
+  },
+  "supersedes": {
+    "selector": {
+      "sub_mode": "TournRogue",
+      "tourn_mode": "Tourn3",
+      "activity_module_id": 6002201
+    },
+    "source_families": [
+      "RoguePersona",
+      "RogueTourn",
+      "Level_RogueBuff_Ability_*_S3"
+    ],
+    "reason": "Those rows identify the released Divergent Universe host and Persona/Tourn content, not Currency Wars."
+  },
+  "authoritative_selector": {
+    "guide_type": "GridFight",
+    "guide_tab_id": 1003,
+    "guide_data_id": 301,
+    "name_en": "Currency Wars",
+    "name_zh_cn": "货币战争",
+    "source_records": [
+      {
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+        "evidence_summary": "Guide tab 1003 explicitly sets GuideType to GridFight and names Currency Wars."
+      },
+      {
+        "path": "ExcelOutput/GuideRogueData.json",
+        "locator": "5",
+        "sha256": "3162accac44c825d114b06c9b71f08f520a78c2dfcd91a272e99bfa1c341cb5e",
+        "evidence_summary": "Guide data 301 selects tab 1003 and names Currency Wars."
+      }
+    ]
+  },
+  "gridfight_tree_closure": {
+    "path_match": "case-insensitive path contains GridFight",
+    "total_files": 1137,
+    "excel_tables": 153,
+    "config_files": 984,
+    "selection_rule": "Every matching pinned Git-tree path is retained; later row/reference closure may classify records but may not shrink this source inventory."
+  },
+  "historical_evidence": {
+    "foundation_commit": "74cb56a228d03f05ee4e27410c074aca159d5393",
+    "inventory_commit": "c194bcc774802575eb3eb8fea3afa35bb9751c5e",
+    "manifest_commit": "a4d8aa658b2c82e3caa36d12b1b82d658a264430",
+    "contract_commit": "fb6af16ff77b07183353b2174af995eb39c8efd4",
+    "preservation": "Published commits and their recorded digests remain immutable historical evidence; current generated artifacts are superseded by this correction."
+  },
+  "replacement_condition": "Replace only if released structured data at the same fixed snapshot publishes a stronger direct Currency Wars selector than GuideType GridFight."
+}

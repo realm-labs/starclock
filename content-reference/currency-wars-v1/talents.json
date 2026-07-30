@@ -1,0 +1,1568 @@
+[
+  {
+    "id": "currency-wars.talent.1011",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Battle Prep",
+    "name_zh_cn": "战前动员",
+    "summary_en": "talent 1011 costs 20, has 0 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1011 消耗 20，具有 0 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.0",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "0",
+        "sha256": "4a23f9b4d110d05ea556ad6c3d60ec0d760476d4c1f22a60e53856e7f934c156",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13879380692996673792",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13879380692996673792",
+        "sha256": "38ed3be2f48141f14978f5d3ef37564572f9451adc4811a725d6b6b65decd66b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13879380692996673792",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13879380692996673792",
+        "sha256": "5bddc6a5b6b740b22dcd665e684d8a2bc703d0cb213f16be4e5ef19210ca890a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17117565562455911775",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17117565562455911775",
+        "sha256": "0b8a27f3adb7f223824304e8c80e6e6edded77ea60d5e65d362c7150d21414e1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17117565562455911775",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17117565562455911775",
+        "sha256": "1dfdddaf22b0c08af958b7679d8637f78121f95c041b47e29720fdd2181998e7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1539424656315782912",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1539424656315782912",
+        "sha256": "5a91d1e400cbacb18d4000d5483dfc033cb1c08b20573cb52d919b44dc07fd4a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1539424656315782912",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1539424656315782912",
+        "sha256": "817c89a077c08d906beaeeef154dbe729543055b34eecfbb580ac3b0829b83d6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1011",
+    "cost": "20",
+    "prerequisite_ids": [],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1011.json"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1011.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": []
+    }
+  },
+  {
+    "id": "currency-wars.talent.1021",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "ATK Boost",
+    "name_zh_cn": "攻击强化",
+    "summary_en": "talent 1021 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1021 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.1",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "1",
+        "sha256": "ba9909c80081a4c220f90f9bd6861b210f207f30826f1cc73ba5a761a3064315",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7172677676988127323",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7172677676988127323",
+        "sha256": "56a174d337ad2699ad1cb64fdec701ca46dec0f7bec3bd949fd492679018baa2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7172677676988127323",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7172677676988127323",
+        "sha256": "ae9abee598142be261059d27f216bf95ef51aa633d6ea527b9127490bba56b53",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9247229455863475320",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9247229455863475320",
+        "sha256": "5b94c1c6e013db99511e959c55c765ee6eb3660f1bffaf36e3baba494e3f59a6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9247229455863475320",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9247229455863475320",
+        "sha256": "42d0e10717a57e54256827b382ff822bba68999e117779c23f0f94bdc220ee9b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.14764262663293004569",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "14764262663293004569",
+        "sha256": "ac0896caa2275dc7d6d740ecc3b7491c477ec47fee1781c1782bb4180d29570b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.14764262663293004569",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "14764262663293004569",
+        "sha256": "d7a79db9fd70225c43aa8eeabce055065eee9c78228392769f66103b1e7a3f9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1021",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1011"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1021.json",
+      "parameter:0:0.12"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1021.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.12"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1022",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "HP Boost",
+    "name_zh_cn": "生命强化",
+    "summary_en": "talent 1022 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1022 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "2",
+        "sha256": "6a8838fe5e6c80bd5f9d2914121e7ed4ba5ffa402ae0a5bf674c0742e10915a4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7932342659169243535",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7932342659169243535",
+        "sha256": "902d7ae96438afe972fa1acec8c5261ceef02a141ca575e6559db071d5c57659",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7932342659169243535",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7932342659169243535",
+        "sha256": "85192dbdfc0cfb3088ea828fc347e65c9477469b087081f4698f8ba51c9312a3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.6659484635797928480",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "6659484635797928480",
+        "sha256": "b8a54e92387befaadacbf16d5bae3678b15c98a163b7c8c71b31d0ac1834951e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.6659484635797928480",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "6659484635797928480",
+        "sha256": "1322eee925c36b6e8e176024a91dadf94b53ae025a3fdabb7a38ab2779eb688e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13493167173304498454",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13493167173304498454",
+        "sha256": "b613166541880a0e12fc7fd3b805761220b623fb081ef3aeff821ff4f3ce2a8f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13493167173304498454",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13493167173304498454",
+        "sha256": "55b41372b9eb85e16075d79738a3376db3689088a53c569108b6dc6221d5d060",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1022",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1011"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1022.json",
+      "parameter:0:0.06"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1022.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.06"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1031",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Gold Blessing",
+    "name_zh_cn": "金币赐福",
+    "summary_en": "talent 1031 costs 60, has 2 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1031 消耗 60，具有 2 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.3",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "3",
+        "sha256": "fde41b8af621b79f7f89b4f12aabd45cc7e88e62b7d683ed77548ec75130536d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3201184735478622777",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3201184735478622777",
+        "sha256": "9264e10343d2c43d70602beb5cefe3a64351a9dc3351361588ed93b028f18f89",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3201184735478622777",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3201184735478622777",
+        "sha256": "7c0ccb02cc29dc7306ac082d2e2591469f873705b1714d4c1a37875a8746ac5c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.2355443644492814030",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "2355443644492814030",
+        "sha256": "9f6a4b782f7dfd220d43dc70fc8d3b695c5d6a8f89021ee567dd3ecd4f828072",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.2355443644492814030",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "2355443644492814030",
+        "sha256": "8e2aa29642a24cdad75b902d8220b3ffb3b2404454887a6afe28e9b85c618375",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.598371081593461132",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "598371081593461132",
+        "sha256": "4ffb6ddf94e36eb457559d42eb7c5bc20957a491aaee48fe8f00f965d3a3f9cb",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.598371081593461132",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "598371081593461132",
+        "sha256": "5fea311cec9a34e534039fa0ddebe404c18613b291b6e11a3fd6b19dd431e9b8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1031",
+    "cost": "60",
+    "prerequisite_ids": [
+      "1021",
+      "1022"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1031.json",
+      "parameter:0:2"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1031.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "2"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1041",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "CRIT Rate Boost",
+    "name_zh_cn": "暴击率强化",
+    "summary_en": "talent 1041 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1041 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.4",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "4",
+        "sha256": "c215ebb2f2db256ff54866a3e05d66e585bbcce70310e5ef088ff1a2a1c06ec0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9972621779557982336",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9972621779557982336",
+        "sha256": "e004335ec89f081ce7ac773ced4d991878d0bf1def4e95bf8b2ed7737da69d55",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9972621779557982336",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9972621779557982336",
+        "sha256": "1768500a07fef17b81ee3a6cb8d2165c74194eaf74657ab1046e82d5976ed62d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.5384744490140066519",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "5384744490140066519",
+        "sha256": "5c4f662b84873bb2d4cfe481088c5905af5bf2c77060ffa33da711c8a061a8be",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.5384744490140066519",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "5384744490140066519",
+        "sha256": "3adfc8ee2eef051c08085235921d1bf76315bbd00b156405f241da69e28770ac",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15532337086554810241",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15532337086554810241",
+        "sha256": "c5e894cf59dee1c1537fc1b7f165a9b885eda4ca5fe3161bd5e2706b7d7491a8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15532337086554810241",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15532337086554810241",
+        "sha256": "712d2faa1913cd7619bf68eaab74394e191e205fbc54413ef7e7ad7582389bd5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1041",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1031"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1041.json",
+      "parameter:0:0.06"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1041.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.06"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1042",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "DEF Boost",
+    "name_zh_cn": "防御强化",
+    "summary_en": "talent 1042 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1042 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.5",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "5",
+        "sha256": "5ce1a4cd97acba1b12bf7178b0c22e02f4454d7e2d0bd94efba681a2bd8f4707",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11406054556084944866",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11406054556084944866",
+        "sha256": "b7fc58718a63d72aeb3a759a65f84b815fd55e636f7277b691e33e024b35a996",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11406054556084944866",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11406054556084944866",
+        "sha256": "28d4532d0e13a426cab7497c475f4bd41cd72bf106e3bb2cc982fde72dc9e6b3",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16180542319750726332",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16180542319750726332",
+        "sha256": "71724494ea3ffc5486202fd5032f9b9dd3058609424e06f3896ab6e6fb695031",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16180542319750726332",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16180542319750726332",
+        "sha256": "4b36648342829cb3f013cc62596780efa16843b768098cabb80549ae07f6d00f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8731758586040224776",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8731758586040224776",
+        "sha256": "c81715f42b06167690ff0086f5f305666a7a50c499a5bd80b9f2386709fb1f13",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8731758586040224776",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8731758586040224776",
+        "sha256": "2c849f92fa4b12bcab7a603359acdf8a6406281316c304fc638a2def089566da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1042",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1031"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1042.json",
+      "parameter:0:0.08"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1042.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.08"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1051",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "CRIT DMG Boost",
+    "name_zh_cn": "暴击伤害强化",
+    "summary_en": "talent 1051 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1051 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.6",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "6",
+        "sha256": "072c258f3d4e12df6b686034d3df8c1acd7c556ae4646911c5a38b9249e7833d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1526195488630680590",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1526195488630680590",
+        "sha256": "fcbcb2a197f998e6bcde29c0361956a53dfc8d2e63d7c11510d417013e65f84b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1526195488630680590",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1526195488630680590",
+        "sha256": "ce88be3bcffcb8e24e8841b4d85cf9bb92621a31284abee98fa6cc4689a3ece8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.4563662816380581943",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "4563662816380581943",
+        "sha256": "a20ccae0d03bbe67c85bf540811c571d4dc494dceb09afcdc6fa0d99047a20f1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.4563662816380581943",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "4563662816380581943",
+        "sha256": "9b033583ecce88ab83bb9150e95cc1838dd003521ec023c53cbde305d3efc679",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.1293688566740405765",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "1293688566740405765",
+        "sha256": "906a74e9bcf8c0629885ad2759c7561a6f148ce6821c3049e314b5d88e4d7d22",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.1293688566740405765",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "1293688566740405765",
+        "sha256": "ce4bdade8f66d3e7a0477ba6259adefd0646d28676b1754668c1f2d545ebef87",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1051",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1031"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1051.json",
+      "parameter:0:0.12"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1051.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.12"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1061",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Basic Armament",
+    "name_zh_cn": "简易武装",
+    "summary_en": "talent 1061 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1061 消耗 60，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.7",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "7",
+        "sha256": "783ad66e381f84e00647f8653999c3f70c9bfbe61bbb34374aa7f8dfc705fa30",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.13186988771968517861",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "13186988771968517861",
+        "sha256": "4f19d9affe0e195df52b2ef8e1ab620ee2ae5acebbcc0dc623714336cf069200",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.13186988771968517861",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "13186988771968517861",
+        "sha256": "14e179e4dd5fdf1f59c3219f3084e146d4a95b406425b4cb957b625a34db96e1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.6474260029853799365",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "6474260029853799365",
+        "sha256": "153613981b1df2519c669317954b96e578ceec4efd87e16ac1cb69645e124919",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.6474260029853799365",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "6474260029853799365",
+        "sha256": "10d082b846b930c44f34445eb2ca0d81bd73ce52b5b08a4b245448cf5cb410c7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9044103227280243115",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9044103227280243115",
+        "sha256": "f2c2294dca2d66a6e4f78e23158fb34b40e0b1a1b770bf6976506b7d6ad647ec",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9044103227280243115",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9044103227280243115",
+        "sha256": "004ae90bd983389ff1955419bb25dd7d73ac53e5bf89c282d5effb76a2e94603",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1061",
+    "cost": "60",
+    "prerequisite_ids": [
+      "1041"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1061.json"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1061.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": []
+    }
+  },
+  {
+    "id": "currency-wars.talent.1062",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Bonus Supply",
+    "name_zh_cn": "额外补给",
+    "summary_en": "talent 1062 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1062 消耗 60，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.8",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "8",
+        "sha256": "0dc7a37520850098f09fd9370db1ef1e6a197d90f06871e6b4f8485306789c8d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.603446115080946428",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "603446115080946428",
+        "sha256": "be7851090aefbaec2c7a9079b364f4119609e1e34aa9ede58c2a23751c677812",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.603446115080946428",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "603446115080946428",
+        "sha256": "2edbcb59c9936683ef725fa7e849774311c6bc768759fa3f30b365d6eb4a0272",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.10115911422050986458",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "10115911422050986458",
+        "sha256": "3eb801a7bca53f7366b9b089fb928e806b3acfbc946d9c0d892d0eff0f94b936",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.10115911422050986458",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "10115911422050986458",
+        "sha256": "a454cce024741aeb0a94cba5508aadd33a7c1f3ec82fcc4812e53dba1b3a1758",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.7019669524520146811",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7019669524520146811",
+        "sha256": "d85dea0b067aafe2109196f507a1e194523c5d21118b6a6b0d5a6603edc15160",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7019669524520146811",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7019669524520146811",
+        "sha256": "06e2bb4ca7de3284f51ffddda06252d706c1fdc7db062506dafee353e8098f56",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1062",
+    "cost": "60",
+    "prerequisite_ids": [
+      "1042"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1062.json"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1062.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": []
+    }
+  },
+  {
+    "id": "currency-wars.talent.1071",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Break Boost",
+    "name_zh_cn": "击破强化",
+    "summary_en": "talent 1071 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1071 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.9",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "9",
+        "sha256": "f623cea4631be7d90deac81f66044c9ed4622be976cf7f61139218cf15d4edd6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3800036217123217903",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3800036217123217903",
+        "sha256": "cc7f3858ce4a634c1919eb8e1fdd6bdcd17a6913ce10fe03c2c1c51fa1addff8",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3800036217123217903",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3800036217123217903",
+        "sha256": "62e90e209c01d66aae1be6b3baa5b7d17519220ca9d817fbb944e3a0d4a65d9e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15571688663735260875",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15571688663735260875",
+        "sha256": "1c9220b8b6722e8379cc634312e70bd919153a049768dc2b2408d0a46ed977bf",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15571688663735260875",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15571688663735260875",
+        "sha256": "4e7ade0859b243b73829a0e42810b7f118918aa2116f3e38e02e990da1238ec5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3430670592062764852",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3430670592062764852",
+        "sha256": "7b3d4583f8f5e52d36fd6e59e2d8bdb6ba008739808095991a2f0dfffb6748da",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3430670592062764852",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3430670592062764852",
+        "sha256": "9517fa0f057174493bb98602ced2488a276a136b931996a877f0229764ff5cd1",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1071",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1061"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1071.json",
+      "parameter:0:0.15"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1071.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.15"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1072",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Strategy Refresh",
+    "name_zh_cn": "策略刷新",
+    "summary_en": "talent 1072 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1072 消耗 60，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.10",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "10",
+        "sha256": "1239175df3c8836e1672f63a8e03d1c2daf63fbced2b882d08fd7517a2f4cb31",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.16718253167788378895",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "16718253167788378895",
+        "sha256": "90b95b55ce27f96c7506517e3f480ec50847c99710c0c8557fbf18e7f05aeb6e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.16718253167788378895",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "16718253167788378895",
+        "sha256": "dbeb5aa1b37df35473aac3714553ae0c6481ca45d09cff519849d4169acbbdb4",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.9132673474200039844",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "9132673474200039844",
+        "sha256": "1478e449fd87a82f2dfda8ffd122ffa8c9fa9b6562968a68c8e2c995c40b6b55",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.9132673474200039844",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "9132673474200039844",
+        "sha256": "5d6a94f14056fa02122bcbd2fabc727f7113a35aa37d1da7f1522f4bdbfd35bd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.15180782615651355335",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "15180782615651355335",
+        "sha256": "cd49806f7e3ac3698c1ae5283876170cd68c048d7df2424aeed616ffcb900e1a",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.15180782615651355335",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "15180782615651355335",
+        "sha256": "1cabd1a8d1220cbd99174eabab3f18ea7dbd57c9882b12e0e9e864e6f215d683",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1072",
+    "cost": "60",
+    "prerequisite_ids": [
+      "1051"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1072.json"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1072.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": []
+    }
+  },
+  {
+    "id": "currency-wars.talent.1073",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Effect RES Boost",
+    "name_zh_cn": "效果抵抗强化",
+    "summary_en": "talent 1073 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1073 消耗 20，具有 1 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.11",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "11",
+        "sha256": "3f306644c97480947f1fab95e33946208a906aa62c49c6fd6bc5960b28c4b5d7",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.11830196632344625110",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "11830196632344625110",
+        "sha256": "f1aa4c59734589d9e8c0514c3b8074af15e8b15b3a4b458fe763429ce254b4f6",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.11830196632344625110",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "11830196632344625110",
+        "sha256": "f3ba297b00254e0b953a19e24504665045434807a895d85cd8029904fa2c039f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.2655629479414475931",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "2655629479414475931",
+        "sha256": "982f047a2a8b68762f7892d3eda91cfa9427cb2d67bef5e6b3861ee1028d75b0",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.2655629479414475931",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "2655629479414475931",
+        "sha256": "d7542b490e39e52e9d623f939da88227d4743ad6995b3cdb85ea81db29d2d6c5",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.8321331862375017646",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "8321331862375017646",
+        "sha256": "1e51dd6e8a82cd3e1a5d523d267efa306f5d3740a72345385da4159cbe0dc14b",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.8321331862375017646",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "8321331862375017646",
+        "sha256": "85a0c603a6b5f044d1c1b28073c53277057f2933938c734e82bf4f1acc25467f",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1073",
+    "cost": "20",
+    "prerequisite_ids": [
+      "1062"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1073.json",
+      "parameter:0:0.08"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1073.json",
+    "parameters": {
+      "important": "",
+      "overclock_effective": "1",
+      "effects": [
+        "0.08"
+      ]
+    }
+  },
+  {
+    "id": "currency-wars.talent.1081",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsTalent",
+    "name_en": "Sustained Combat",
+    "name_zh_cn": "长线作战",
+    "summary_en": "talent 1081 costs 100, has 3 prerequisite(s), 0 successor(s) and one configuration path.",
+    "summary_zh_cn": "talent 1081 消耗 100，具有 3 个前置、0 个后继与一条配置路径。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-gridfighttalent-json.12",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GridFightTalent.json",
+        "locator": "12",
+        "sha256": "95b57809cd25fa719fa351cffedbf105cec55e092fdac096da85264be5857617",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.17813942254761243975",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "17813942254761243975",
+        "sha256": "8048403ba1ebc29a8cc6889d42c37a2d5b34c7077730b669f537bd59002c34dd",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.17813942254761243975",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "17813942254761243975",
+        "sha256": "524c126f1ca997a62db1f264914e97f40ed71d847552624d7ae1e0e8a29fb92c",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.3456827756606110399",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "3456827756606110399",
+        "sha256": "5c54a9a5b1a2f599edd787c578192e95ccc5423bb182ce1ccdf53f357e85ec1d",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.3456827756606110399",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "3456827756606110399",
+        "sha256": "0bb1e8a65a09cd163164bfa2a8118658613c7fe7b4c8d0ca4dad0776dbe57a7e",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.en.162552047449503043",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "162552047449503043",
+        "sha256": "50126216fc5c3fa95a1dfad65ce190e18be6339938f36deb7528537181270ced",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.162552047449503043",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "162552047449503043",
+        "sha256": "2b17abebc8006bb1c1bc91b580a522d9119323dd850c4f64295f9678005dcf51",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "investment-system",
+      "talent"
+    ],
+    "source_id": "1081",
+    "cost": "100",
+    "prerequisite_ids": [
+      "1071",
+      "1072",
+      "1073"
+    ],
+    "successor_ids": [],
+    "effect_ids": [
+      "config:Config/Level/GridFight/Talent/GridFightTalent1081.json",
+      "parameter:0:5",
+      "parameter:1:1",
+      "parameter:2:2"
+    ],
+    "config_path": "Config/Level/GridFight/Talent/GridFightTalent1081.json",
+    "parameters": {
+      "important": "1",
+      "overclock_effective": "1",
+      "effects": [
+        "5",
+        "1",
+        "2"
+      ]
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "currency-wars.currency.gold-coin",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsCurrency",
+    "name_en": "Gold Coin",
+    "name_zh_cn": "金币",
+    "summary_en": "Gold Coin is the run-local recruitment, refresh and authored service cost currency and resets with the run.",
+    "summary_zh_cn": "金币是局内招募、刷新与已编写服务消耗的货币，并随对局重置。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.gold-coin-stable-identity",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "gold-coin-stable-identity",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released Currency Wars text names Gold Coins as the run-local purchase currency, while the two generic gameplay-resource rows are presentation-only and do not expose a stable semantic ID.",
+        "replacement_condition": "Replace this policy ID only when released structured data directly binds a gameplay resource record to Gold Coin mechanics."
+      }
+    ],
+    "tags": [
+      "currency",
+      "gold-coin",
+      "run-local"
+    ],
+    "source_id": "policy:gold-coin",
+    "scope": "CurrencyWarsRun",
+    "gain_rules": [
+      "Authored battle, event, interest and service outcomes"
+    ],
+    "spend_rules": [
+      "Recruitment, Store refresh and explicitly priced service operations"
+    ],
+    "reset_rule": "Discard at run teardown"
+  }
+]

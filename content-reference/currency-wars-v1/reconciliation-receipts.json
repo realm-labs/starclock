@@ -1,0 +1,230 @@
+[
+  {
+    "id": "currency-wars.reconciliation.divergent-universe-reference-v1.currency-wars-only",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReconciliationReceipts",
+    "name_en": "Reconciliation with divergent-universe-reference-v1",
+    "name_zh_cn": "与 divergent-universe-reference-v1 的对账",
+    "summary_en": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison.",
+    "summary_zh_cn": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-guideroguetab-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.reconciliation.divergent-universe-reference-v1.manifest",
+        "repository": "starclock",
+        "revision": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+        "path": "content-manifests/divergent-universe-v1/content-manifest.json",
+        "locator": "complete-manifest",
+        "sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e",
+        "access_date": "2026-07-30",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "CommittedManifestComparison"
+      }
+    ],
+    "tags": [
+      "currencywarsonly",
+      "ownership",
+      "reconciliation"
+    ],
+    "source_path": "ExcelOutput/GuideRogueTab.json",
+    "row_locator": "2",
+    "evidence_sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+    "checkpoint": {
+      "goal": "divergent-universe-reference-v1",
+      "commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+      "manifest_sha256": "5cbfa748406204e2d7a2c10c452ac6a87b3864b76461e85bd449c0739f3fc13e"
+    },
+    "checkpoint_goal": "divergent-universe-reference-v1",
+    "checkpoint_commit": "3071d2c2fa7764c133931756769c9efe7f9dabd2",
+    "checkpoint_ownership": "NoExactJoinKey",
+    "currency_wars_ownership": "CurrencyWars",
+    "outcome": "CurrencyWarsOnly",
+    "note": "Complete comparison found zero shared source-path/locator/digest keys across 37342 Currency Wars and 7624 divergent-universe-reference-v1 receipts; 4 shared path names grant no ownership."
+  },
+  {
+    "id": "currency-wars.reconciliation.gold-and-gears-reference-v1.currency-wars-only",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReconciliationReceipts",
+    "name_en": "Reconciliation with gold-and-gears-reference-v1",
+    "name_zh_cn": "与 gold-and-gears-reference-v1 的对账",
+    "summary_en": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison.",
+    "summary_zh_cn": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-guideroguetab-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.reconciliation.gold-and-gears-reference-v1.manifest",
+        "repository": "starclock",
+        "revision": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+        "path": "content-manifests/gold-and-gears-v1/content-manifest.json",
+        "locator": "complete-manifest",
+        "sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085",
+        "access_date": "2026-07-30",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "CommittedManifestComparison"
+      }
+    ],
+    "tags": [
+      "currencywarsonly",
+      "ownership",
+      "reconciliation"
+    ],
+    "source_path": "ExcelOutput/GuideRogueTab.json",
+    "row_locator": "2",
+    "evidence_sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+    "checkpoint": {
+      "goal": "gold-and-gears-reference-v1",
+      "commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+      "manifest_sha256": "88885b409da0037b4db6a41fcfc6adbbb1bc15a681c519e192251e7fef476085"
+    },
+    "checkpoint_goal": "gold-and-gears-reference-v1",
+    "checkpoint_commit": "b7044fcca0ae20a9f51e89459ebf0b1b3b2c3a09",
+    "checkpoint_ownership": "NoExactJoinKey",
+    "currency_wars_ownership": "CurrencyWars",
+    "outcome": "CurrencyWarsOnly",
+    "note": "Complete comparison found zero shared source-path/locator/digest keys across 37342 Currency Wars and 9082 gold-and-gears-reference-v1 receipts; 2 shared path names grant no ownership."
+  },
+  {
+    "id": "currency-wars.reconciliation.swarm-disaster-reference-v1.currency-wars-only",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReconciliationReceipts",
+    "name_en": "Reconciliation with swarm-disaster-reference-v1",
+    "name_zh_cn": "与 swarm-disaster-reference-v1 的对账",
+    "summary_en": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison.",
+    "summary_zh_cn": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-guideroguetab-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.reconciliation.swarm-disaster-reference-v1.manifest",
+        "repository": "starclock",
+        "revision": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+        "path": "content-manifests/swarm-disaster-v1/content-manifest.json",
+        "locator": "complete-manifest",
+        "sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850",
+        "access_date": "2026-07-30",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "CommittedManifestComparison"
+      }
+    ],
+    "tags": [
+      "currencywarsonly",
+      "ownership",
+      "reconciliation"
+    ],
+    "source_path": "ExcelOutput/GuideRogueTab.json",
+    "row_locator": "2",
+    "evidence_sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+    "checkpoint": {
+      "goal": "swarm-disaster-reference-v1",
+      "commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+      "manifest_sha256": "e466cae0481d93241eaadf6d894b82898d47c9d4863fea262134cbbac10b8850"
+    },
+    "checkpoint_goal": "swarm-disaster-reference-v1",
+    "checkpoint_commit": "d258c94dfb6426017fee9216f6ae2bc0f6e257d0",
+    "checkpoint_ownership": "NoExactJoinKey",
+    "currency_wars_ownership": "CurrencyWars",
+    "outcome": "CurrencyWarsOnly",
+    "note": "Complete comparison found zero shared source-path/locator/digest keys across 37342 Currency Wars and 8139 swarm-disaster-reference-v1 receipts; 5 shared path names grant no ownership."
+  },
+  {
+    "id": "currency-wars.reconciliation.unknowable-domain-reference-v1.currency-wars-only",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsReconciliationReceipts",
+    "name_en": "Reconciliation with unknowable-domain-reference-v1",
+    "name_zh_cn": "与 unknowable-domain-reference-v1 的对账",
+    "summary_en": "CurrencyWarsOnly after complete source-path, row-locator and evidence-digest comparison.",
+    "summary_zh_cn": "按完整来源路径、行定位与证据摘要对账后的结果为 CurrencyWarsOnly。",
+    "ownership": "Shared",
+    "coverage_state": "DataReady",
+    "evidence_quality": "ExactStructured",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.exceloutput-guideroguetab-json.2",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "ExcelOutput/GuideRogueTab.json",
+        "locator": "2",
+        "sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "DirectStructured"
+      },
+      {
+        "source_id": "source.goal12.reconciliation.unknowable-domain-reference-v1.manifest",
+        "repository": "starclock",
+        "revision": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+        "path": "content-manifests/unknowable-domain-v1/content-manifest.json",
+        "locator": "complete-manifest",
+        "sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758",
+        "access_date": "2026-07-30",
+        "game_version": "4.4",
+        "evidence_quality": "ExactStructured",
+        "mechanism_quality": "CommittedManifestComparison"
+      }
+    ],
+    "tags": [
+      "currencywarsonly",
+      "ownership",
+      "reconciliation"
+    ],
+    "source_path": "ExcelOutput/GuideRogueTab.json",
+    "row_locator": "2",
+    "evidence_sha256": "984f6e53d53424adb2962c19dbc0a6e1cd039adad2bba3393962f4339274a976",
+    "checkpoint": {
+      "goal": "unknowable-domain-reference-v1",
+      "commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+      "manifest_sha256": "7416da5808a771a6c0bc78eb11371f51b4f7abb9cb273dd47123f4842800a758"
+    },
+    "checkpoint_goal": "unknowable-domain-reference-v1",
+    "checkpoint_commit": "6d8d3b1e834bbf29d1d5787f4fe12d9b75e66b29",
+    "checkpoint_ownership": "NoExactJoinKey",
+    "currency_wars_ownership": "CurrencyWars",
+    "outcome": "CurrencyWarsOnly",
+    "note": "Complete comparison found zero shared source-path/locator/digest keys across 37342 Currency Wars and 4473 unknowable-domain-reference-v1 receipts; 3 shared path names grant no ownership."
+  }
+]

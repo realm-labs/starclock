@@ -1,0 +1,185 @@
+[
+  {
+    "id": "currency-wars.star-lifecycle.acquire",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsStarLifecycleRule",
+    "name_en": "Acquire and combine",
+    "name_zh_cn": "获得与合成",
+    "summary_en": "Acquire and combine records the reference lifecycle boundary; same-boundary precedence remains policy-bound.",
+    "summary_zh_cn": "获得与合成 记录资料生命周期边界；同边界优先级仍为策略约束。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.star-lifecycle-order",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "star-lifecycle-order",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text proves automatic three-copy combination but does not publish simultaneous purchase/sale/replacement precedence.",
+        "replacement_condition": "Replace with a released GridFight operation program or reproducible same-boundary observations."
+      }
+    ],
+    "tags": [
+      "acquire",
+      "gridfight",
+      "star-lifecycle"
+    ],
+    "operation": "AcquireCopy",
+    "replacement_rule": "Add the copy, then repeatedly combine legal equal-star triples.",
+    "sale_rule": "No sale in this operation.",
+    "teardown": "Preserve the resulting star state in run scope."
+  },
+  {
+    "id": "currency-wars.star-lifecycle.sell",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsStarLifecycleRule",
+    "name_en": "Sell starred role",
+    "name_zh_cn": "出售升星角色",
+    "summary_en": "Sell starred role records the reference lifecycle boundary; same-boundary precedence remains policy-bound.",
+    "summary_zh_cn": "出售升星角色 记录资料生命周期边界；同边界优先级仍为策略约束。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.star-lifecycle-order",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "star-lifecycle-order",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text proves automatic three-copy combination but does not publish simultaneous purchase/sale/replacement precedence.",
+        "replacement_condition": "Replace with a released GridFight operation program or reproducible same-boundary observations."
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "sell",
+      "star-lifecycle"
+    ],
+    "operation": "SellRole",
+    "replacement_rule": "Remove the selected role state.",
+    "sale_rule": "Use the exact rarity/star sell price from roster-transactions.json.",
+    "teardown": "Remove role, star, position and contribution state together."
+  },
+  {
+    "id": "currency-wars.star-lifecycle.terminal",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsStarLifecycleRule",
+    "name_en": "Terminal star state",
+    "name_zh_cn": "终端星级状态",
+    "summary_en": "Terminal star state records the reference lifecycle boundary; same-boundary precedence remains policy-bound.",
+    "summary_zh_cn": "终端星级状态 记录资料生命周期边界；同边界优先级仍为策略约束。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.star-lifecycle-order",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "star-lifecycle-order",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text proves automatic three-copy combination but does not publish simultaneous purchase/sale/replacement precedence.",
+        "replacement_condition": "Replace with a released GridFight operation program or reproducible same-boundary observations."
+      }
+    ],
+    "tags": [
+      "gridfight",
+      "star-lifecycle",
+      "terminal"
+    ],
+    "operation": "AcquireAtMaximumStar",
+    "replacement_rule": "Do not synthesize an unauthored higher star state.",
+    "sale_rule": "Retain or sell using an explicit user decision.",
+    "teardown": "No implicit overflow conversion is claimed."
+  }
+]

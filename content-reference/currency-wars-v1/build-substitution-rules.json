@@ -1,0 +1,124 @@
+[
+  {
+    "id": "currency-wars.build-substitution.mode-local-minimum",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSubstitutionRule",
+    "name_en": "Mode-local build minimum",
+    "name_zh_cn": "玩法内配装下限",
+    "summary_en": "Mode-local build minimum is a released-text boundary with field-level shared-row joins still pending.",
+    "summary_zh_cn": "玩法内配装下限 是已发布文本边界，字段级共享行连接仍待完成。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.owned-trial-build-substitution",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "owned-trial-build-substitution",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text proves owned/trial substitution and mode-only strengthening, but exact account-level, Trace, Light Cone and relic thresholds require shared row closure.",
+        "replacement_condition": "Replace each deferred field with a direct GridFight-to-RogueUpgradeAvatar row join."
+      }
+    ],
+    "tags": [
+      "build-substitution",
+      "gridfight",
+      "mode-local-minimum"
+    ],
+    "selection_timing": "Resolve account and mapped minimum fields before battle contribution.",
+    "owned_trial_policy": "Do not persist mapped level, Trace, Light Cone, relic or Eidolon state.",
+    "refresh_timing": "Refresh only at an explicit run recruitment/replacement boundary.",
+    "teardown": "Restore no account state because authoritative account state was unchanged."
+  },
+  {
+    "id": "currency-wars.build-substitution.owned-or-trial",
+    "schema_revision": "starclock.currency-wars-row.v1",
+    "kind": "CurrencyWarsBuildSubstitutionRule",
+    "name_en": "Owned or trial selection",
+    "name_zh_cn": "已拥有或试用选择",
+    "summary_en": "Owned or trial selection is a released-text boundary with field-level shared-row joins still pending.",
+    "summary_zh_cn": "已拥有或试用选择 是已发布文本边界，字段级共享行连接仍待完成。",
+    "ownership": "CurrencyWars",
+    "coverage_state": "Researched",
+    "evidence_quality": "ProjectPolicy",
+    "source_refs": [
+      {
+        "source_id": "source.goal12.textmap.en.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapEN.json",
+        "locator": "7693488975416237801",
+        "sha256": "575271e3347028b4d2fb29f16d94ac4c10d8e6d65dd16f889a0aec95169eb622",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.textmap.zh_cn.7693488975416237801",
+        "repository": "https://gitlab.com/Dimbreath/turnbasedgamedata.git",
+        "revision": "fd978d6ef09f941fba644c731ab54abd6f7c3568",
+        "path": "TextMap/TextMapCHS.json",
+        "locator": "7693488975416237801",
+        "sha256": "d65703aeb55a345c91a4562946c72698dfff0e3913fde0c2e2e5f201d660fa95",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ExactPublicText",
+        "mechanism_quality": "DirectReleasedText"
+      },
+      {
+        "source_id": "source.goal12.project-policy.owned-trial-build-substitution",
+        "repository": "starclock",
+        "revision": "starclock.currency-wars-normalized-schema.v1",
+        "path": "content-manifests/currency-wars-v1/normalized-schema.json",
+        "locator": "owned-trial-build-substitution",
+        "sha256": "ebe0aee29b7511880d6c2983dd5b575ef311af4deb969ecdd96f332f7c32d4c2",
+        "access_date": "2026-07-22",
+        "game_version": "4.4",
+        "evidence_quality": "ProjectPolicy",
+        "mechanism_quality": "PolicyBound",
+        "note": "Released text proves owned/trial substitution and mode-only strengthening, but exact account-level, Trace, Light Cone and relic thresholds require shared row closure.",
+        "replacement_condition": "Replace each deferred field with a direct GridFight-to-RogueUpgradeAvatar row join."
+      }
+    ],
+    "tags": [
+      "build-substitution",
+      "gridfight",
+      "owned-or-trial"
+    ],
+    "selection_timing": "Use the owned avatar when present; otherwise use the mapped special/trial avatar.",
+    "owned_trial_policy": "Mode-local strengthening may raise an underbuilt owned avatar to the authored minimum.",
+    "refresh_timing": "Evaluate once when the role is recruited.",
+    "teardown": "Discard mode-local strengthening without changing account state."
+  }
+]

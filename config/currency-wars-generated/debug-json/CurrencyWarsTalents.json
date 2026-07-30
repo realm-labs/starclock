@@ -1,0 +1,761 @@
+{
+  "table": {
+    "name": "CurrencyWarsTalents",
+    "rows": [
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1011.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1011.json\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 1
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Battle Prep"
+          },
+          "name_zh_cn": {
+            "String": "战前动员"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.27a46c29b28740f918403109e1658169\",\"currency-wars.source.2b959bbb08562452a97fea217f3fedae\",\"currency-wars.source.ee3511adcbeee4a097f4a96b6d5fcbf6\",\"currency-wars.source.3c3f59ff6c26db48da07f50b380ba6f6\",\"currency-wars.source.4ccd7607926aa317a0c1d03dc1786cba\",\"currency-wars.source.f89619f54026e48a8dc5fcbf260b2957\",\"currency-wars.source.6b4f38c87687bf1cd8c67d8e5be7f64b\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1011"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1011 costs 20, has 0 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1011 消耗 20，具有 0 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1021.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1021.json\",\"parameter:0:0.12\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 2
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "ATK Boost"
+          },
+          "name_zh_cn": {
+            "String": "攻击强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1011\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.ca134b9d19efde4b372406f63b96b6ad\",\"currency-wars.source.d936386e0b3a2213777ba97fc9b2d218\",\"currency-wars.source.3ef5339a4f605a56052b5ab10773a228\",\"currency-wars.source.4151f37a753a9f5f96ab586b093a3b41\",\"currency-wars.source.0dcbdf5134048e7c37c143e02b6bc82c\",\"currency-wars.source.45a5be5cee3f2ffd3503ea7c99fad9f3\",\"currency-wars.source.c03d3374a5c13e80b124a4a62762510e\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1021"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1021 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1021 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1022.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1022.json\",\"parameter:0:0.06\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 3
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "HP Boost"
+          },
+          "name_zh_cn": {
+            "String": "生命强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1011\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.bfdf7e176b469a9330f4ecfeb4b675c6\",\"currency-wars.source.15239f8420a013a39aa620fc15394b99\",\"currency-wars.source.4ce19b04c3a5b8c84f2cb1ebf671d6cb\",\"currency-wars.source.2ecd9748c43f2ccecd8572cabcd53caf\",\"currency-wars.source.b2c90bffab46d7888a52312206f621c9\",\"currency-wars.source.5ba3a84690bf49b5ace60fe20b830cb7\",\"currency-wars.source.bc90ba586ddbe946bd57c60cef571931\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1022"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1022 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1022 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1031.json"
+          },
+          "cost": {
+            "String": "60"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1031.json\",\"parameter:0:2\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 4
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Gold Blessing"
+          },
+          "name_zh_cn": {
+            "String": "金币赐福"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1021\",\"1022\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.a5b932e7c29e89fcb11a163fa44d660e\",\"currency-wars.source.89f997fcc59daa804f6df0193ca4c3c2\",\"currency-wars.source.5a8900e20dc2816a1d68b6710ea2a837\",\"currency-wars.source.29d4dae5b8a5666db6d9a2830c141327\",\"currency-wars.source.e87dac83df180ff0035cd447bbb09eba\",\"currency-wars.source.8fe400d3ea9f4601858af04dc4202829\",\"currency-wars.source.11148fa860c08f6ec3c9069f7f6554ed\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1031"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1031 costs 60, has 2 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1031 消耗 60，具有 2 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1041.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1041.json\",\"parameter:0:0.06\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 5
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "CRIT Rate Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击率强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1031\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.2ac47d1ec67702885cd1dab3eba57c86\",\"currency-wars.source.c87a93884508db219357a85c535f51df\",\"currency-wars.source.6a80af0386c56fdb64c0493d8f85931d\",\"currency-wars.source.093faf737c6c50809956c63f8e286afd\",\"currency-wars.source.8dc008fc64506fbf02f3607d72236c1b\",\"currency-wars.source.257f42b4b06c26bbc214ff4b756dcd3a\",\"currency-wars.source.c390f299296e47d5d61fd61fad25d134\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1041"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1041 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1041 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1042.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1042.json\",\"parameter:0:0.08\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 6
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "DEF Boost"
+          },
+          "name_zh_cn": {
+            "String": "防御强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1031\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.3c9e2a7844d70d260d86ea564685e38c\",\"currency-wars.source.ee46105e0a9c80ffad03c221b8a55b6c\",\"currency-wars.source.e08ae868b55a0756be3210d6c4463a76\",\"currency-wars.source.aac5f7e0d88f25b57d57096da1bd0e1b\",\"currency-wars.source.cf2f27bc99ddff564cd4543d449b3309\",\"currency-wars.source.f6607a39f3306d5b48fe29cd4a53bff0\",\"currency-wars.source.6cfd11598da86d6ed0891be554a844fa\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1042"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1042 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1042 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1051.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1051.json\",\"parameter:0:0.12\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 7
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "CRIT DMG Boost"
+          },
+          "name_zh_cn": {
+            "String": "暴击伤害强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1031\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.c6c185148fccbd00eebccc5239d46ba4\",\"currency-wars.source.4fa09d3f1bae912e5e3f05716348fe47\",\"currency-wars.source.461142579fe70042a0a2cb29644e0f54\",\"currency-wars.source.2ec2e8a769866eddc626c987f4e3f2b1\",\"currency-wars.source.ef25122fedacd5229b0fbd6d65661604\",\"currency-wars.source.0d750335ede741f244a4b8678ea80fc7\",\"currency-wars.source.60bd4758fe4b2d443afe078cd33e54ab\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1051"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1051 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1051 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1061.json"
+          },
+          "cost": {
+            "String": "60"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1061.json\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 8
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Basic Armament"
+          },
+          "name_zh_cn": {
+            "String": "简易武装"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1041\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.f5a2ab79a9e0d9e2392d3d2b7468199a\",\"currency-wars.source.51c1ab03f722e0b758a64940eab6507b\",\"currency-wars.source.2e9df68ac3002ee8ef29302e8c15a4b6\",\"currency-wars.source.dc4b68c261509600b5880c4718e9751d\",\"currency-wars.source.505701a5bc6b1463236b8ee0eadb90ac\",\"currency-wars.source.c4516fe58d1fac0bc90fbba378b9db0d\",\"currency-wars.source.d3a9c75fa9e0e894b51245745af39fb6\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1061"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1061 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1061 消耗 60，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1062.json"
+          },
+          "cost": {
+            "String": "60"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1062.json\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 9
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Bonus Supply"
+          },
+          "name_zh_cn": {
+            "String": "额外补给"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1042\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.74934445ab1ce62d4a78104954ad6635\",\"currency-wars.source.a9a2ba0359b751b87fbbc3e13806df1c\",\"currency-wars.source.389a15e094fffb89106ee36dfc2c5466\",\"currency-wars.source.29c413d32efca443dc3c6cc175f6d3fa\",\"currency-wars.source.a640fc6e157aa6f4ed0602eb179e1901\",\"currency-wars.source.87aa96af7b7abd28a6068e53a50aba50\",\"currency-wars.source.9655a4ed64aafa5bc1e0ff83bab4fbcc\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1062"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1062 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1062 消耗 60，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1071.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1071.json\",\"parameter:0:0.15\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 10
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Break Boost"
+          },
+          "name_zh_cn": {
+            "String": "击破强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1061\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.1b725b6e6a3b3411504d07f2a14d0c75\",\"currency-wars.source.27fa44ea672da0cdb203df9f430e9566\",\"currency-wars.source.d5ad6a3bc0f636257305fd8a31ed327e\",\"currency-wars.source.8aa86711fb57bc3c19b8371dd76724ad\",\"currency-wars.source.f2c92c6622d1e5794aff1e18f0ea27de\",\"currency-wars.source.70d668008639d74249a711e7a03e38b0\",\"currency-wars.source.450e8c7bbe3d44a2d773dc7f2d7bcbac\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1071"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1071 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1071 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1072.json"
+          },
+          "cost": {
+            "String": "60"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1072.json\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 11
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Strategy Refresh"
+          },
+          "name_zh_cn": {
+            "String": "策略刷新"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1051\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.0e85741d3f7aed9df32b04ecbc2d8ffd\",\"currency-wars.source.3998d29466185119079f9cafeecfde45\",\"currency-wars.source.535d4f12fb93c868e37eea771ffc71f2\",\"currency-wars.source.6af6e21622b3cc593dcbde39b553d934\",\"currency-wars.source.5e9ac6980d3f9331937a49245f64bc94\",\"currency-wars.source.debaa708d4162a9c9b98856cfc1c58e3\",\"currency-wars.source.7c1c06552abac85db9ed8af778dfeb19\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1072"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1072 costs 60, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1072 消耗 60，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1073.json"
+          },
+          "cost": {
+            "String": "20"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1073.json\",\"parameter:0:0.08\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 12
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Effect RES Boost"
+          },
+          "name_zh_cn": {
+            "String": "效果抵抗强化"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1062\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.81f8a42b8668f8b179be9f10a2870a50\",\"currency-wars.source.04a5c3c1c8267cf3e2cd4317ab1832c8\",\"currency-wars.source.59ead0ffeb3f6cedc603e77cf865aa07\",\"currency-wars.source.5cc4910e3b10deba1cd2d6554cee6f13\",\"currency-wars.source.0f2eafa4e89ee589c0f4ce6a1bc81adb\",\"currency-wars.source.afd88f0a4c0c397eefa3aab36387257e\",\"currency-wars.source.eff3034d31457037032651a972b1a97d\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1073"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1073 costs 20, has 1 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1073 消耗 20，具有 1 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      },
+      {
+        "values": {
+          "config_path": {
+            "String": "Config/Level/GridFight/Talent/GridFightTalent1081.json"
+          },
+          "cost": {
+            "String": "100"
+          },
+          "coverage_state": {
+            "String": "DataReady"
+          },
+          "effect_ids": {
+            "String": "[\"config:Config/Level/GridFight/Talent/GridFightTalent1081.json\",\"parameter:0:5\",\"parameter:1:1\",\"parameter:2:2\"]"
+          },
+          "evidence_quality": {
+            "String": "ExactStructured"
+          },
+          "id": {
+            "Integer": 13
+          },
+          "kind": {
+            "String": "CurrencyWarsTalent"
+          },
+          "name_en": {
+            "String": "Sustained Combat"
+          },
+          "name_zh_cn": {
+            "String": "长线作战"
+          },
+          "ownership": {
+            "String": "CurrencyWars"
+          },
+          "prerequisite_ids": {
+            "String": "[\"1071\",\"1072\",\"1073\"]"
+          },
+          "schema_revision": {
+            "String": "starclock.currency-wars-row.v1"
+          },
+          "source_refs_json": {
+            "String": "[\"currency-wars.source.34200e4455397d44712b6dbe3cd8d0d1\",\"currency-wars.source.f061b0121b343416abc2884e378a44e1\",\"currency-wars.source.cb865b74dbaa973338eda345b11640be\",\"currency-wars.source.a6580a620fb14a204fffed868de1c672\",\"currency-wars.source.7c2f8afa2408780b237c10eafa069ace\",\"currency-wars.source.ccbc71ab3b05b21fdedeb86d89c0986f\",\"currency-wars.source.a36b67ec9ee5c0d68eb00beec7343a38\"]"
+          },
+          "stable_key": {
+            "String": "currency-wars.talent.1081"
+          },
+          "successor_ids": {
+            "String": "[]"
+          },
+          "summary_en": {
+            "String": "talent 1081 costs 100, has 3 prerequisite(s), 0 successor(s) and one configuration path."
+          },
+          "summary_zh_cn": {
+            "String": "talent 1081 消耗 100，具有 3 个前置、0 个后继与一条配置路径。"
+          },
+          "tags_json": {
+            "String": "[\"gridfight\",\"investment-system\",\"talent\"]"
+          }
+        }
+      }
+    ]
+  }
+}
